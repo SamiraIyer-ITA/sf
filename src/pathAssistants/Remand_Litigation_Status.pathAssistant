@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Litigation__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Remand Litigation Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <info>&lt;p&gt;All possible work has been completed on this remand and the remand has been submitted to the Court.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Final_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Final_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Final_Signature__c</fieldNames>
+        <fieldNames>Actual_Final_Signature__c</fieldNames>
+        <info>&lt;p&gt;To complete the final phase of a remand:&lt;/p&gt;&lt;p&gt;1. Input any extensions issued by the court.&lt;/p&gt;&lt;p&gt;2.  Submit the Issues and Concurrence to the DAS and submit the final remand to the court.&lt;/p&gt;</info>
+        <picklistValueName>Final</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Draft_Remand_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Draft_Remand_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Draft_Remand_release_to_party__c</fieldNames>
+        <info>&lt;p&gt;To complete the preliminary phase of a remand:&lt;/p&gt;&lt;p&gt;1. Input the date that the court issued the remand.&lt;/p&gt;&lt;p&gt;2. Input the date the remand is due to the court.&lt;/p&gt;&lt;p&gt;3. The calculated draft remand release to party is calculated to occur three weeks before the remand is due to the court.&lt;/p&gt;&lt;p&gt;4. Submit the Issues and Concurrence to the DAS and release the draft remand to parties.&lt;/p&gt;</info>
+        <picklistValueName>Preliminary</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Remand</recordTypeName>
+</PathAssistant>

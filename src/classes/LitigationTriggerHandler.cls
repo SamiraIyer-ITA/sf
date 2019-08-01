@@ -30,22 +30,18 @@
 
         if (isBefore && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
-            initialize(newList);
+            initialize(newList, newMap);
+            setCaseValues(newList);
             calculateLitigationDates(newList);
             calculateLitigationStatuses(newList);
         }
         if (isBefore && isUpdate) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
-            initialize(newList);
+            initialize(newList, newMap);
             calculateLitigationDates(newList);
             calculateLitigationStatuses(newList);
         }
-        if(isAfter && isInsert) {
-            newList = new LockedRecordHandler().removeLockedRecords(newList);
-            setCaseValuesFromParent(newList);
-        }
     }
-
 
     /****************************************
     * Class Level Variables
@@ -54,14 +50,63 @@
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
     @TestVisible private static List<Litigation__c> clonedList = new List<Litigation__c>();
 
+    //Mapper declared that will be initialized later based on the parent
+    @TestVisible private static ADCVD_IMapper adcvdMapper;
+    //Mapper declared that will be initialized after caseMapper is initialized
+    @TestVisible private static LitigationMapper litMapper;
+    //Mapper declared that will be initialized in the initialize method
+    @TestVisible private static ADCVD_CaseMapper caseMapper;
 
     /*****************************************
     * Methods called directly by mainEntry()
     *****************************************/
 
     //Setup Methods used to set class level variables
-    @TestVisible private static void initialize(List<Litigation__c> newList) {
-        recordTypeNameMap = utils.getRecordTypeDeveloperNameMap('Litigation__c');
+    @TestVisible private static void initialize(List<Litigation__c> newList, Map<Id, Litigation__c> newMap) {
+        recordTypeNameMap = Utils.getRecordTypeDeveloperNameMap('Litigation__c');
+        Set<Id> caseIdSet = getCaseIdSet(newList);
+        caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
+        caseMapper = caseMapper.getInstance(caseIdSet);
+        if (newMap != null) {
+            addNewLitsToMappers(newMap);
+        }
+    }
+
+    //method to get the case Ids from the parents.  If a list of Litigations is added that have parents from all 3 potential
+    //parents, all 3 queries will run.  This should only be called in the initialize method.
+    @TestVisible private static Set<Id> getCaseIdSet (List<Litigation__c> newList) {
+        Set<Id> caseIdSet = new Set<Id>();
+        Set<Id> petitionIdSet = new Set<Id>();
+        Set<Id> investigationIdSet = new Set<Id>();
+        Set<Id> segmentIdSet = new Set<Id>();
+
+        for (Litigation__c l : newList) {
+            if(l.Petition__c != null) {
+                setLitParent(l, 'Petition__c');
+                petitionIdSet.add(l.Petition__c);
+            } else if(l.Investigation__c != null) {
+                setLitParent(l, 'Investigation__c');
+                investigationIdSet.add(l.Investigation__c);
+            } else if(l.Segment__c != null) {
+                setLitParent(l, 'Segment__c');
+                segmentIdSet.add(l.Segment__c);
+            }
+        }
+
+        //Gets all Petitions that are linked to the Litigation and adds the associated case to the casIdSet
+        for (Petition__c p : PetitionSelector.newInstance().selectById(petitionIdSet)) {
+            caseIdSet.add(p.ADCVD_Case__c);
+        }
+
+        for (Investigation__c i : InvestigationSelector.newInstance().selectById(investigationIdSet)) {
+            caseIdSet.add(i.ADCVD_Case__c);
+        }
+
+        for (Segment__c s : SegmentSelector.newInstance().selectById(segmentIdSet)) {
+            caseIdSet.add(s.ADCVD_Case__c);
+        }
+
+        return caseIdSet;
     }
 
     @TestVisible private static void calculateLitigationDates(List<Litigation__c> newList) {
@@ -83,23 +128,44 @@
         setStatus(newList);
     }
 
-    @TestVisible private static void setCaseValuesFromParent (List<Litigation__c> newList) {
+    //used to set the ADCVD_Case__c field on the Litigations based on the value in the parents
+    @TestVisible private static void setCaseValues(List<Litigation__c> newList) {
         ParentValuesService pvs = new ParentValuesService();
-        Map<String,Map<Id,SObject>> parentTypeToChildToParentMap = getParentSObjects(newList);
         for (Litigation__c l : newList) {
-            Litigation__c newLit = l.clone(true, false,false,true);
-            for (String parentType : parentTypeToChildToParentMap.keySet()) {
-                if (newLit.get(parentType) == null) {
-                    continue;
-                } else {
-                    pvs.setCaseValuesFromParent(parentTypeToChildToParentMap.get(parentType).get(newLit.Id), newLit);
-                }
-            }
-        clonedList.add(newLit);
+            Id parentId = (Id) l.get(l.Litigation_Parent__c);
+            adcvdMapper = (ADCVD_IMapper) caseMapper.getMapper(l.Litigation_Parent__c).getInstance();
+            l = (Litigation__c) pvs.setCaseValuesFromParent(adcvdMapper.getMap(true).get(parentId), l);
         }
-        update clonedList;
     }
 
+     //Sets Litigation_Parent__c to the DeveloperName of the field of the parent (allows .get(Litigation_Parent__c) to retrieve the Id of the parent)
+    @TestVisible private static void setLitParent (Litigation__c l, String parentName) {
+        if (String.isBlank(l.Litigation_Parent__c)) {
+            l.Litigation_Parent__c = parentName;
+        }
+    }
+
+    //method to add the Litigations from the recent insert/update to the litMapper, the caseMapper,
+    //and update the LitigationMapper instance in the map of selectors with the new Litigations
+    @TestVisible private static void addNewLitsToMappers(Map<Id,Litigation__c> newMap) {
+        Map<Id,List<Litigation__c>> caseToLitsMap = new Map<Id,List<Litigation__c>>();
+        //get the LitigationMapper instance from the caseMapper
+        litMapper = (LitigationMapper) caseMapper.getMapper('Litigation__c').getInstance();
+        for (Litigation__c l : newMap.values()) {
+            //update LitigationMapper instance
+            litMapper.addLitigationToMap(l);
+            List<Litigation__c> tempList = caseToLitsMap.get(l.ADCVD_Case__c) != null ?
+            caseToLitsMap.get(l.ADCVD_Case__c) : new List<Litigation__c>();
+            tempList.add(l);
+            caseToLitsMap.put(l.ADCVD_Case__c, tempList);
+        }
+        //add the Lits to the case Maps
+        for (Id caseId : caseToLitsMap.keySet()) {
+            caseMapper.setCaseIdToLitigationMap(caseId, caseToLitsMap.get(caseId));
+        }
+        //replace the LitigationMapper in the caseMapper map with the new updated one
+        caseMapper.putMapper('Litigation__c', litMapper);
+    }
 
     /***********************************
     * Helper Methods
@@ -109,60 +175,12 @@
     //used to set Offset Variables
     @TestVisible private static Map<String,Constant__mdt> litigationCalcOffsets() {
         Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-        List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
-                                                ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
-                                        FROM Constant__mdt 
+        List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c,
+                                            ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c
+                                        FROM Constant__mdt
                                         WHERE Litigation_Calculation_Offset__c =: true];
         for(Constant__mdt lc : tempList) {
             returnMap.put(lc.QualifiedAPIName, lc);
-        }
-        return returnMap;
-    }
-
-    //TODO: Move to Selector
-    @TestVisible private static List<Litigation__c> getLitWithParentCaseValues(List<Litigation__c> newList) {
-        List<Litigation__c> returnList = new List<Litigation__c>();
-        for (Litigation__c l : [SELECT Id, Petition__c, Investigation__c, Segment__c, ADCVD_Case__c, ADCVD_Case_Number_Text__c, ADCVD_Case_Type_Text__c, Country_Text__c, Product_Text__c, Product_Short_Name_Text__c, 
-                                        Petition__r.ADCVD_Case_Number_Text__c, Petition__r.ADCVD_Case__c, Petition__r.ADCVD_Case_Type_Text__c, Petition__r.Country_Text__c, Petition__r.Product_Text__c, Petition__r.Product_Short_Name_Text__c, Petition__r.Commodity_Text__c, 
-                                        Investigation__r.ADCVD_Case_Number_Text__c, Investigation__r.ADCVD_Case__c, Investigation__r.ADCVD_Case_Type_Text__c, Investigation__r.Country_Text__c, Investigation__r.Product_Text__c, Investigation__r.Product_Short_Name_Text__c, 
-                                        Investigation__r.Period_Covered_Start_Date__c, Investigation__r.Period_Covered_End_Date__c, Investigation__r.Commodity_Text__c, 
-                                        Segment__r.ADCVD_Order__c, Segment__r.Suspension_Agreement__c, Segment__r.ADCVD_Case_Number_Text__c, Segment__r.ADCVD_Case__c, Segment__r.ADCVD_Case_Type_Text__c, Segment__r.Country_Text__c, Segment__r.Product_Short_Name_Text__c, 
-                                        Segment__r.Product_Text__c, Segment__r.Period_Covered_Start_Date__c, Segment__r.Period_Covered_End_Date__c, Segment__r.Requestor__c, Segment__r.Product_Description__c, Segment__r.Commodity_Text__c 
-                                        FROM Litigation__c WHERE Id IN: newList]) {
-            returnList.add(l);
-        }
-        return returnList;
-    }
-
-    @TestVisible private static Map<String,Map<Id,SObject>> getParentSObjects(List<Litigation__c> newList) {
-        List<Litigation__c> litWithParentCaseValues = getLitWithParentCaseValues(newList);
-        Map<String,Map<Id,SObject>> returnMap = new Map<String,Map<Id,SObject>>();
-        for (Litigation__c l : litWithParentCaseValues) {
-            Map<Id,SObject> childIdToParentMap = new Map<Id,SObject>();
-            SObject parent = null;
-            String parentType = '';
-            String parentRelationshipField = '';
-            ParentSortingService pss = new ParentSortingService();
-            parentType = pss.getParentSObjectType(l, 'Litigation__c');
-            System.debug('parentType: ' + parentType);
-            parentRelationshipField = parentType.replace('__c', '__r');
-            parent = l.getSObject(parentRelationshipField);
-            parent.put('Id', l.get(parentType));
-            if (parentRelationshipField == 'Segment__r') {
-                parent.put('ADCVD_Order__c', parent.get('ADCVD_Order__c'));
-                parent.put('Suspension_Agreement__c', parent.get('Suspension_Agreement__c'));
-            }
-            ParentValuesService pvs = new ParentValuesService();
-            pvs.setCaseValuesFromParent(parent, parent);
-            childIdToParentMap.put((Id)l.get('Id'),parent);
-            Map<Id,SObject> tempMap = new Map<Id,SObject>();
-            if (returnMap.get(parentType) != null) {
-                tempMap = returnMap.get(parentType);
-            }
-            for (Id childId : childIdToParentMap.keySet()) {
-                tempMap.put(childId, childIdToParentMap.get(childId));
-            }
-            returnMap.put(parentType,tempMap);
         }
         return returnMap;
     }
@@ -178,8 +196,8 @@
             setClosedStatus(l);
         }
     }
-    //sets Litigation Status to Preliminary if  both Actual_Preliminary_Signature__c and Actual_Final_Signature__c are null
-    @TestVisible private static void setPreliminaryStatus(Litigation__c l){
+    //sets Litigation Status to Preliminary if both Actual_Preliminary_Signature__c and Actual_Final_Signature__c are null
+    @TestVisible private static void setPreliminaryStatus(Litigation__c l) {
         if (recordTypeNameMap.get(l.RecordTypeId) == INT_LITIGATION) {
             if(l.Actual_Preliminary_Signature__c == null && l.Actual_Final_Signature__c == null ) {
                 l.Status__c = 'Preliminary';

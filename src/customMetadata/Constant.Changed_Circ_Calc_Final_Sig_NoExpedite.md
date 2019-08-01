@@ -27,6 +27,10 @@
         <value xsi:type="xsd:double">270.0</value>
     </values>
     <values>
+        <field>Parent_Value__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
         <field>Petition_Calculation_Offset__c</field>
         <value xsi:type="xsd:boolean">false</value>
     </values>

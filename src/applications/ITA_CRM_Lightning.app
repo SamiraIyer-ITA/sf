@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Asset_LPL</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Asset</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Contact_LPL</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Payment_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Payment__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Organization_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+    </actionOverrides>
     <description>Application for ITA CRM</description>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
@@ -8,945 +62,6 @@
     <navType>Standard</navType>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Specialist</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Specialist</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Specialist</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Specialist</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Help Desk Specialist</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Specialist</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Specialist</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>WIN_Open_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Export_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
         <content>WIN_Open_LPL</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>WIN__c</pageOrSobjectType>
@@ -1043,6 +158,60 @@
         <recordType>WIN__c.Export_Promotion</recordType>
         <type>Flexipage</type>
         <profile>Librarian</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Specialist</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1114,7 +283,7 @@
         <pageOrSobjectType>WIN__c</pageOrSobjectType>
         <recordType>WIN__c.Investment_Promotion</recordType>
         <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
+        <profile>GM SelectUSA</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1123,7 +292,7 @@
         <pageOrSobjectType>WIN__c</pageOrSobjectType>
         <recordType>WIN__c.Investment_Promotion</recordType>
         <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
+        <profile>GM Commercial Service</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1178,6 +347,105 @@
         <recordType>WIN__c.Investment_Promotion</recordType>
         <type>Flexipage</type>
         <profile>Librarian</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Specialist</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1343,57 +611,510 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>WIN_Locked_LPL</content>
+        <content>Case_Record_Page</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
         <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
+        <profile>Librarian</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>WIN_Locked_LPL</content>
+        <content>Case_Record_Page</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
         <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
+        <profile>ReadOnly</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>WIN_Locked_LPL</content>
+        <content>Case_Record_Page</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
         <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
+        <profile>Salesforce Developer</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>WIN_Locked_LPL</content>
+        <content>Case_Record_Page</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Investment_Promotion</recordType>
         <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
+        <profile>Admin</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>WIN_Locked_LPL</content>
+        <content>Case_Record_Page</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
         <type>Flexipage</type>
         <profile>GM SelectUSA</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>WIN_Locked_LPL</content>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Specialist</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Librarian</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>ReadOnly</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>WIN__c</pageOrSobjectType>
-        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Librarian</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>ReadOnly</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
         <type>Flexipage</type>
         <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Specialist</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Librarian</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>ReadOnly</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Help Desk Specialist</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Librarian</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>ReadOnly</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -1535,6 +1256,60 @@
         <content>WIN_Locked_LPL</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Locked_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Locked_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Locked_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Locked_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Locked_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy_Locked</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Locked_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
         <recordType>WIN__c.Commercial_Diplomacy_Locked</recordType>
         <type>Flexipage</type>
         <profile>I&amp;A</profile>
@@ -1685,6 +1460,177 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Specialist</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Librarian</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>ReadOnly</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Advocacy</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>WIN_Open_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WIN__c</pageOrSobjectType>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
         <content>WIN_Locked_LPL</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>WIN__c</pageOrSobjectType>
@@ -1842,6 +1788,114 @@
         <formFactor>Large</formFactor>
         <pageOrSobjectType>WIN__c</pageOrSobjectType>
         <recordType>WIN__c.Investment_Promotion_Locked</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Specialist</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Librarian</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>ReadOnly</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.Export_Promotion</recordType>
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
@@ -1851,9 +1905,9 @@
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>
     <tabs>WIN__c</tabs>
-    <tabs>standard-report</tabs>
     <tabs>standard-Feed</tabs>
-    <tabs>Lightning_Case</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>ITA_CRM_Lightning_UtilityBar</utilityBar>
 </CustomApplication>

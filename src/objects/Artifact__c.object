@@ -38,22 +38,28 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Artifact_LPL</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Artifact_Compact_Layout</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Artifact_Compact_Layout</fullName>
         <fields>Name</fields>
         <fields>Participation_Profile__c</fields>
         <fields>isCurrent__c</fields>
         <fields>Type__c</fields>
+        <fields>Effective_Date__c</fields>
         <label>Artifact Compact Layout</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Artifacts used to support Framework Certifications.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>

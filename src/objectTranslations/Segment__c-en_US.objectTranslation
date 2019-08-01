@@ -25,11 +25,19 @@
         <name>Review_Information</name>
     </fieldSets>
     <fields>
-        <label><!-- ADCVD Case Number Text Value --></label>
+        <label><!-- ADCVD Case Number --></label>
+        <name>ADCVD_Case_Number_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Number Text Value Deprecated --></label>
         <name>ADCVD_Case_Number__c</name>
     </fields>
     <fields>
         <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type Deprecated --></label>
         <name>ADCVD_Case_Type__c</name>
     </fields>
     <fields>
@@ -182,6 +190,10 @@
     </fields>
     <fields>
         <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- CBP Case Number Deprecated --></label>
         <name>CBP_Case_Number__c</name>
     </fields>
     <fields>
@@ -230,6 +242,10 @@
     </fields>
     <fields>
         <label><!-- Commodity --></label>
+        <name>Commodity_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity Deprecated --></label>
         <name>Commodity__c</name>
     </fields>
     <fields>
@@ -251,6 +267,10 @@
     </fields>
     <fields>
         <label><!-- Country --></label>
+        <name>Country_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country Deprecated --></label>
         <name>Country__c</name>
     </fields>
     <fields>
@@ -636,6 +656,10 @@
     </fields>
     <fields>
         <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name Deprecated --></label>
         <name>Product_Short_Name__c</name>
     </fields>
     <fields>
@@ -644,6 +668,10 @@
     </fields>
     <fields>
         <label><!-- Product --></label>
+        <name>Product_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Deprecated --></label>
         <name>Product__c</name>
     </fields>
     <fields>
@@ -1343,7 +1371,7 @@
         <name>SI_ActualDateDecisionHOP_DecisionHOP_Req</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- &quot;Actual Date of Decision&quot; date cannot be after &quot;Deadline for Decision&quot; date. --></errorMessage>
+        <errorMessage><!-- Actual Date of Decision on How to Proceed (HOP) cannot be later than Deadline for Decision on HOP --></errorMessage>
         <name>SI_Actual_Date_of_Decision_on_HOP_Bound</name>
     </validationRules>
     <validationRules>

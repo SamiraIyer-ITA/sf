@@ -16,23 +16,23 @@ public class StaffingAssignmentExtensionTest {
     * 3. Test to ensure the UI is correctly detected
     *************************************************/
     
-	static Petition__c p {
-		get {
-			if (p == null) {
-				p = [SELECT Id FROM Petition__c LIMIT 1];
-			}
-			return p;
-		} set;
-	}
-	static Investigation__c i {
-		get {
-			if (i == null) {
-				i = [SELECT Id FROM Investigation__c LIMIT 1];
-			}
-			return i;
-		} set;
-	}
-	static ADCVD_Order__c o {
+    static Petition__c p {
+        get {
+            if (p == null) {
+                p = [SELECT Id FROM Petition__c LIMIT 1];
+            }
+            return p;
+        } set;
+    }
+    static Investigation__c i {
+        get {
+            if (i == null) {
+                i = [SELECT Id FROM Investigation__c LIMIT 1];
+            }
+            return i;
+        } set;
+    }
+    static ADCVD_Order__c o {
         get {
             if (o == null) {
                 o = [SELECT Id FROM ADCVD_Order__c LIMIT 1];
@@ -49,51 +49,57 @@ public class StaffingAssignmentExtensionTest {
         } set;
     }
     static User u{
-		get{
-			if(u == null){
-				u = [SELECT Id, ProfileId, isActive, Alias, LanguageLocaleKey, LastName, FirstName, 
-								Email, EmailEncodingKey, TimeZoneSidKey, CommunityNickname, Username 
-							FROM User WHERE LastName =: 'LastName1' LIMIT 1];
-			}
-			return u;
-		} set;
-	}
-	static StaffingAssignmentExtension ext;
-  	static PageReference pageRef;
-  	static ApexPages.StandardController con;
+        get{
+            if(u == null){
+                u = [SELECT Id, ProfileId, isActive, Alias, LanguageLocaleKey, LastName, FirstName, 
+                                Email, EmailEncodingKey, TimeZoneSidKey, CommunityNickname, Username 
+                            FROM User WHERE LastName =: 'LastName1' LIMIT 1];
+            }
+            return u;
+        } set;
+    }
+    static StaffingAssignmentExtension ext;
+    static PageReference pageRef;
+    static ApexPages.StandardController con;
 
-	@isTest static void orderTest() {
+    @isTest static void orderTest() {
         Test.startTest();
-		orderSetup();
-		ext.checkParent();
-		ext.noParentError = false;
-		System.assertNotEquals(null, ext.parentFieldNames);
-		ext.overwriteSegments = true;
-		ext.addRow();
-		ext.sa.Title__c = 'DAS';
-		ext.sa.User__c = u.Id;
-		ext.save();
+        orderSetup();
+        ext.checkParent();
+        ext.noParentError = false;
+        System.assertNotEquals(null, ext.parentFieldNames);
+        ext.sa.Title__c = 'DAS';
+        ext.sa.User__c = u.Id;
+        ext.save();
 
         Test.stopTest();
-	}
+    }
     @isTest static void petitionTest() {
         Test.startTest();
         petitionSetup();
+        ext.addRow();
+        ext.cancel();
+
+        Test.stopTest();
+    }
+    @isTest static void investigationTest() {
+        Test.startTest();
+        investigationSetup();
         ext.cancel();
 
         Test.stopTest();
     }
     @isTest static void uxContext() {
-    	Test.startTest();
-    	orderSetup();
-    	
-    	Test.stopTest();
-    	System.assertNotEquals(null, ext.isSalesforce1);
-    	System.assertNotEquals(null, ext.isLightningExperience);
-    	System.assertNotEquals(null, ext.isSalesforceClassic);
+        Test.startTest();
+        orderSetup();
+        
+        Test.stopTest();
+        System.assertNotEquals(null, ext.isSalesforce1);
+        System.assertNotEquals(null, ext.isLightningExperience);
+        System.assertNotEquals(null, ext.isSalesforceClassic);
     }
-	
-	@testSetup static void dataSetup() {
+    
+    @testSetup static void dataSetup() {
         Test.startTest();
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
         Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
@@ -109,31 +115,33 @@ public class StaffingAssignmentExtensionTest {
         Segment__c testARseg = TestUtils.createSegment(testADOrder, 'Administrative_Review', true);
     } 
     private static void petitionSetup(){
-		pageRef = Page.StaffingAssignment;
+        pageRef = Page.StaffingAssignment;
         pageRef.getParameters().put('parentId', p.Id);
         pageRef.getParameters().put('addWrapper', '1');
         pageRef.getParameters().put('retURL', 'apex/'+ p.Id);
         test.setCurrentPage(pageRef);
         Staffing_Assignment__c sa = TestUtils.createStaff(p, 'Petition__c', false);
         con = new ApexPages.StandardController(sa);
-    	ext = new StaffingAssignmentExtension(con);
-	}
-	private static void investigationSetup(){
-		pageRef = Page.StaffingAssignment;
+        ext = new StaffingAssignmentExtension(con);
+    }
+    private static void investigationSetup(){
+        pageRef = Page.StaffingAssignment;
         pageRef.getParameters().put('id', i.Id);
         pageRef.getParameters().put('retURL', 'apex/'+ i.Id);
         test.setCurrentPage(pageRef);
         Staffing_Assignment__c sa = TestUtils.createStaff(i, 'Investigation__c', false);
         con = new ApexPages.StandardController(sa);
-    	ext = new StaffingAssignmentExtension(con);
-	}
+        ext = new StaffingAssignmentExtension(con);
+    }
     private static void orderSetup(){
-		pageRef = Page.StaffingAssignment;
-        pageRef.getParameters().put('id', o.Id);
+        pageRef = Page.StaffingAssignment;
+        pageRef.getParameters().put('parentId', o.Id);
+        pageRef.getParameters().put('addWrapper', '1');
         pageRef.getParameters().put('retURL', 'apex/'+ o.Id);
         test.setCurrentPage(pageRef);
-        Staffing_Assignment__c sa = TestUtils.createStaff(o, 'ADCVD_Order__c', false);
+        Staffing_Assignment__c sa = [SELECT Id, User__c, Title__c, ADCVD_Case__c, ADCVD_Order__c 
+        FROM Staffing_Assignment__c WHERE ADCVD_Order__c =: o.Id LIMIT 1];
         con = new ApexPages.StandardController(sa);
-    	ext = new StaffingAssignmentExtension(con);
-	}	
+        ext = new StaffingAssignmentExtension(con);
+    }   
 }

@@ -272,12 +272,15 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Country__c</fields>
+        <fields>Trade_Region__c</fields>
         <fields>Industry__c</fields>
         <fields>Sector__c</fields>
         <fields>Sub_Sector__c</fields>
-        <relatedList>Industry__c.Participant__c</relatedList>
-        <sortField>Industry__c</sortField>
-        <sortOrder>Asc</sortOrder>
+        <fields>Category__c</fields>
+        <fields>Trade_Issue__c</fields>
+        <relatedList>Taxonomy_Tagging__c.Related_Application__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

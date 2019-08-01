@@ -46,6 +46,7 @@
     <description>Survey Results from Qualtrics</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -125,10 +126,11 @@
         <externalId>false</externalId>
         <inlineHelpText>How likely is it that you would recommend the U.S. Department of Commerce?</inlineHelpText>
         <label>Best Working With Us</label>
-        <required>false</required>
+        <length>10000</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Better_Serve_You__c</fullName>

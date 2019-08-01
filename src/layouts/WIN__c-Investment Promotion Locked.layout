@@ -280,19 +280,14 @@
             <sortOrder>1</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>ChangeRecordType</actionName>
+            <actionName>PrintableView</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>2</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>PrintableView</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>3</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Delete</actionName>
             <actionType>StandardButton</actionType>
-            <sortOrder>4</sortOrder>
+            <sortOrder>3</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
@@ -315,17 +310,15 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
         <fields>Country__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>RelatedCountries__c.WIN__c</relatedList>
-    </relatedLists>
-    <relatedLists>
+        <fields>Trade_Region__c</fields>
         <fields>Industry__c</fields>
         <fields>Sector__c</fields>
         <fields>Sub_Sector__c</fields>
-        <relatedList>Industry__c.WIN_Industrial_Hierarchy__c</relatedList>
-        <sortField>Industry__c</sortField>
-        <sortOrder>Asc</sortOrder>
+        <fields>Category__c</fields>
+        <fields>Trade_Issue__c</fields>
+        <relatedList>Taxonomy_Tagging__c.Related_WIN__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>LogCall</excludeButtons>
@@ -359,6 +352,9 @@
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedFileList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedContentNoteList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
