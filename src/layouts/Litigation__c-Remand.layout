@@ -55,7 +55,7 @@
         <label>Final Phase</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Expected_Final_Signature_Before_Ext__c</field>
             </layoutItems>
         </layoutColumns>
