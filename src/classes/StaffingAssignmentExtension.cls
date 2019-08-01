@@ -133,16 +133,33 @@ public without sharing class StaffingAssignmentExtension {
     /******************************************
      * Variables for User Select Option Lists
      *****************************************/
+    @TestVisible private static Map<Id, User> adcvdUserMap {
+        get {
+            if (adcvdUserMap == null) {
+                adcvdUserMap = new Map<Id,User>();
+                for (User u : [SELECT Id, Name, Staffing_Role__c FROM User WHERE Staffing_Role__c != null ORDER BY Name Asc]) {
+                    adcvdUserMap.put(u.Id, u);
+                }
+            }
+            return adcvdUserMap;
+        } set;
+    }
     //SelectOption list with all users that have a staffing role
-     public List<SelectOption> allUserSelectOptions {get {
+     public List<SelectOption> allUserSelectOptions {
+         get {
         if(allUserSelectOptions == null) {
-            populateUserLists();
+                allUserSelectOptions = new List<SelectOption>();
+                for (User u : adcvdUserMap.values()) {
+                    allUserSelectOptions.add(new SelectOption(u.Id, u.Name));
+                }
+                allUserSelectOptions.add(0,new SelectOption('','--Select a User--'));//add the default the list of all users only once
         }
         return allUserSelectOptions;
         } set;
     }
     //Map of Titles to SelectOption lists of users with a matching Staffing Role
-    public Map<String, List<SelectOption>> userSelectOptions {get {
+    public Map<String, List<SelectOption>> userSelectOptions {
+        get {
         if(userSelectOptions == null) {
             populateUserLists();
         }
@@ -150,17 +167,27 @@ public without sharing class StaffingAssignmentExtension {
         } set;
     }
     //Map used to create SelectOption lists
-    public Map<String, List<User>> userRoleMap {get {
+    public Map<String, List<User>> userRoleMap {
+        get {
         if(userRoleMap == null) {
-            populateUserLists();
+                userRoleMap = new Map<String, List<User>>();
+                for(User u: adcvdUserMap.values()) {
+                    List<User> tempList = new List<User>();
+                    if(userRoleMap.get(u.Staffing_Role__c) != null) {
+                        tempList = userRoleMap.get(u.Staffing_Role__c);
+                    }
+                    tempList.add(u);
+                    userRoleMap.put(u.Staffing_Role__c, tempList);
+                }
         }
         return userRoleMap;
         } set;
     }
     //Set of all Ids from users with Staffing Roles
-    public Set<Id> userIdSet {get {
+    public Set<Id> userIdSet {
+        get {
         if(userIdSet == null) {
-            populateUserLists();
+                userIdSet = getAdcvdUserMap().keySet();
         }
         return userIdSet;
         } set;
@@ -215,20 +242,7 @@ public without sharing class StaffingAssignmentExtension {
     } 
     private static Map<Id,Related_Organization__c> relOrgMap = new Map<Id,Related_Organization__c>();
 
-    private static Set<Id> usersWithActiveRecusals {
-        get {
-            if (usersWithActiveRecusals == null) {
-                usersWithActiveRecusals = new Set<Id>();
-                Date today = System.today();
-                for (Recusal__c r : [SELECT Id, Start_Date__c, End_Date__c, User__c FROM Recusal__c
-                                    WHERE Start_Date__c <= today
-                                    AND End_Date__c >= today]) {
-                    usersWithActiveRecusals.add(r.User__c);
-                }
-            }
-            return usersWithActiveRecusals;
-        }set;
-    }
+    private static Set<Id> usersWithActiveRecusals = new Set<Id>();
 
 
     /*********************
@@ -265,12 +279,14 @@ public without sharing class StaffingAssignmentExtension {
     //Primary method to initialize data on page load
     private void init(Staffing_Assignment__c sa){
         saveError = false;
+        setUsersWithActiveRecusals(parentId);
         staffList = getstaffList(parentId, parentSObjectType);
         staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, null);
         System.debug(staffWrapperList);
     }
     private void init(Staffing_Assignment__c sa, Integer addWrapper) {
         saveError = false;
+        setUsersWithActiveRecusals(parentId);
         staffList = getstaffList(parentId, parentSObjectType);
         staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, addWrapper);
         System.debug(staffWrapperList);
@@ -334,6 +350,16 @@ public without sharing class StaffingAssignmentExtension {
     @TestVisible private String getReturnUrl() {
         return ApexPages.currentPage().getParameters().get('retURL');
     }
+    @TestVisible private Map<Id,User> getAdcvdUserMap() {
+        return adcvdUserMap;
+    }
+    @TestVisible private static void setUsersWithActiveRecusals (Id parentId) {
+        Id caseId = (Id) fflibext_Application.Selector.newInstance(parentId.getSObjectType()).selectSObjectsById(new Set<Id>{parentId})[0].get('ADCVD_Case__c');
+        ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
+        caseMapper = caseMapper.getInstance(new Set<Id>{caseId});
+        RecusalMapper recMapper = (RecusalMapper) caseMapper.getMapper('Recusal__c');
+        usersWithActiveRecusals = recMapper.getInstance(adcvdUserMap.keySet()).getMapByUserIds().keySet();
+    }
     //if existing, return matching Staffing Assignment. Else return a new one
     @TestVisible private Staffing_Assignment__c querySA(){
         if(parentId != null) {
@@ -366,7 +392,7 @@ public without sharing class StaffingAssignmentExtension {
                 }
             }
             //specify base query
-            String soqlQuery = 'SELECT Id, User__c, Title__c, User__r.Staffing_Role__c, Related_Organization__c, Related_Organization__r.Account__r.Name FROM Staffing_Assignment__c WHERE ';
+            String soqlQuery = 'SELECT Id, ADCVD_Case__c, User__c, Title__c, User__r.Staffing_Role__c, Related_Organization__c, Related_Organization__r.Account__r.Name FROM Staffing_Assignment__c WHERE ';
             //specify object specific clause and query object, add to wrapper
             if (parentSObjectType != RELATED_ORG) {
                 soqlQuery += parentSObjectType + ' IN: parentIdSet OR Related_Organization__c IN: parentIdSet ORDER BY User__c ASC NULLS LAST LIMIT 1000';
@@ -422,22 +448,8 @@ public without sharing class StaffingAssignmentExtension {
     }
     //Initializes SelectOption lists
     @TestVisible private void populateUserLists(){
-        userRoleMap = new Map<String, List<User>>();
         userSelectOptions = new Map<String, List<SelectOption>>();
-        allUserSelectOptions = new List<SelectOption>();
-        userIdSet = new Set<Id>();
         //add all users to lists that are mapped to Staffing Roles
-        for(User u: [SELECT Id, Name, Staffing_Role__c FROM User WHERE Staffing_Role__c != null ORDER BY Name Asc]) {
-            userIdSet.add(u.Id);
-            allUserSelectOptions.add(new SelectOption(u.Id, u.Name));
-            List<User> userList = new List<User>();
-            //if the map already contains a list - use the list from the map
-            if(userRoleMap.get(u.Staffing_Role__c) != null) {
-                userList = userRoleMap.get(u.Staffing_Role__c);
-            }
-            userList.add(u);
-            userRoleMap.put(u.Staffing_Role__c, userList);
-        }
         for (String s: allUserRolesSet) {//Create Staffing Assignments for defaults
             List<User> userList = userRoleMap.get(s);//for each default Staffing Role, get the matching list of users
             List<SelectOption> userSelect = new List<SelectOption>();
@@ -453,9 +465,6 @@ public without sharing class StaffingAssignmentExtension {
                 userSelect.add(new SelectOption('', '--Please update user records to have this AD CVD Title--'));//notify user if no users match this role
             }
             userSelectOptions.put(s, userSelect);//Staffing Role and list of users in map
-        }
-        if(userIdSet.size() > 0) {
-            allUserSelectOptions.add(0,new SelectOption('','--Select a User--'));//add the default the list of all users only once
         }
     }
 
@@ -496,7 +505,6 @@ public without sharing class StaffingAssignmentExtension {
         //create a map to determine if the User Title is already specified
         List<StaffingAssignmentWrapper> returnList = new List<StaffingAssignmentWrapper>();
         Map<String, Boolean> userTitleExistsMap = new Map<String, Boolean>();
-        ADCVD_RecusalUtility userInstance = new ADCVD_RecusalUtility();
         List<Related_Organization__c> relOrgList = new List<Related_Organization__c>();
         relOrgList = parentSObjectType == RELATED_ORG ? getRelOrgList(parentId) : null;
         for(String s: defaultUserRolesMap.keySet()) {//add all titles from default list to title map
@@ -586,7 +594,6 @@ public without sharing class StaffingAssignmentExtension {
         private Id parentId {get; set;}
         private String parentSObjectType {get; set;}
         private List<Staffing_Assignment__c> staffList {get; set;}
-        private Map<Id,ADCVD_RecusalUtility> recUtil {get; set;}
         private Set<Id> userIdSet {get; set;}
 
         //variables for page and outer extension class access
@@ -594,7 +601,6 @@ public without sharing class StaffingAssignmentExtension {
         public Staffing_Assignment__c sa {get; set;}
         public Boolean overrideRole {get; set;}//data does not exist on Staffing Assignment record, only used to toggle SelectOption lists
         public Map<Id,String> recusalStatusMap {get; set;}
-        public ADCVD_RecusalUtility userInstance {get; set;}
         public Map<Id,String> recusalLinkMap {get; set;}
         public Map<Id,String> recusalLinkTextMap {get; set;}
         //List of staffing assignment wrapper objects that will display in page
@@ -611,7 +617,7 @@ public without sharing class StaffingAssignmentExtension {
             this.parentSObjectType = parentSObjectType;
             this.staffList = staffList;
             this.userIdSet = userIdSet;
-            populateRecusalStatus(parentId, userIdSet);
+            populateRecusalStatus(staffList[0].ADCVD_Case__c, userIdSet);
             //for all the Staffing Assignments with and without users, create the wrappers
             for(Staffing_Assignment__c sa : staffList) {
                 StaffingAssignmentWrapper saw = new staffingAssignmentWrapper(parentId, parentSObjectType, sa, recusalStatusMap, recusalLinkMap, recusalLinkTextMap);
@@ -639,7 +645,7 @@ public without sharing class StaffingAssignmentExtension {
             return overrideRole;
         }
         //Initializes SelectOption lists
-        private void populateRecusalStatus(Id parentId, Set<Id> userIdSet){
+        private void populateRecusalStatus(Id caseId, Set<Id> userIdSet){
             recusalStatusMap = new Map<Id,String>();
             recusalLinkMap = new Map<Id,String>();
             recusalLinkTextMap = new Map<Id,String>();
@@ -651,7 +657,7 @@ public without sharing class StaffingAssignmentExtension {
             for (Id userId : usersWithActiveRecusals) {
                 recusalStatusMap.put(userId, 'This user has active recusals.' + '<br/>');
                 String recusalLinkText = recusalStatusMap.containsKey(userId) ? 'Review Recusals' : '';
-                String recusalLink = '/apex/ReviewRecusalPage?userId=' + userId + '&parentId=' + parentId;
+                String recusalLink = '/apex/ReviewRecusalPage?userId=' + userId + '&caseId=' + caseId;
                 recusalLinkMap.put(userId, recusalLink);
                 recusalLinkTextMap.put(userId, recusalLinkText);
             }

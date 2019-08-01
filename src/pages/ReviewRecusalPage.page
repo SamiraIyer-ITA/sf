@@ -1,127 +1,177 @@
-<apex:page standardController="Recusal__c" extensions="ReviewRecusalExtension" id="page" 
-    showHeader="{!isSalesforceClassic}" standardStylesheets="{!isSalesforceClassic}" 
-    applyHtmlTag="{!isSalesforceClassic}" applyBodyTag="{!isSalesforceClassic}"
-    docType="html-5.0">
-    <!--For VF pages that are shared in Lightning, conditionally set page attributes based on user experience context-->
-    <apex:includeLightning /><!--Always include lightning scripts-->
-    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
-        <head><!--when possible, use the standard page setup from slds available on their website-->
-            <meta charset="utf-8" />
-            <meta http-equiv="x-ua-compatible" content="ie=edge" />
-            <title>Recusals</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <!-- Conditionally import the Design System style sheet -->
-			<apex:variable var="uiTheme" value="lightningDesktop" rendered="true">
-                <apex:slds />
-            </apex:variable>
-        </head>
-        <body><!--conditionally display form based on user context-->
-			<apex:form id="form-ltng" rendered="true">
-            <apex:pageMessages id="pm-ltng"/>
-            <!-- REQUIRED SLDS WRAPPER -->
-            <div class="slds-scope">
+<apex:page standardController="Recusal__c" extensions="ReviewRecusalExtension" id="page"
+           showHeader="true" standardStylesheets="true"
+           applyHtmlTag="true" applyBodyTag="true"
+           docType="html-5.0">
+	<!--For VF pages that are shared in Lightning, conditionally set page attributes based on user experience context-->
+	<apex:includeLightning/><!--Always include lightning scripts-->
+	<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+	<head><!--when possible, use the standard page setup from slds available on their website-->
+		<meta charset="utf-8"/>
+		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+		<title>Recusals</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- Conditionally import the Design System style sheet -->
+		<apex:variable var="uiTheme" value="lightningDesktop" rendered="true">
+			<apex:slds/>
+		</apex:variable>
+	</head>
+	<body><!--conditionally display form based on user context-->
+	<apex:form id="form-ltng" rendered="true">
+		<apex:pageMessages id="pm-ltng"/>
+		<!-- REQUIRED SLDS WRAPPER -->
+		<div class="slds-scope">
 
-            <!-- PAGE HEADER -->
-                <div class="slds-page-header">
-                  <!-- LAYOUT GRID -->
-                  <div class="slds-grid">
+			<!-- PAGE HEADER -->
+			<div class="slds-page-header">
+				<!-- LAYOUT GRID -->
+				<div class="slds-grid">
 
-                    <!-- GRID COL -->
-                    <div class="slds-col slds-has-flexi-truncate">
-                      <!-- HEADING AREA -->
-                      <!--<p class="slds-text-title--caps slds-line-height--reset">Segment</p>-->
-                      <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="Recusals">Recusals</h1>
-                      <!-- / HEADING AREA -->
-                    </div>
+					<!-- GRID COL -->
+					<div class="slds-col slds-has-flexi-truncate">
+						<!-- HEADING AREA -->
+						<!--<p class="slds-text-title--caps slds-line-height--reset">Segment</p>-->
+						<h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate"
+						    title="Recusals">Recusals</h1>
+						<!-- / HEADING AREA -->
+					</div>
 
-                    <!-- ACTION BUTTONS -->
-                        <div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
-                          <div class="slds-button-group" role="group">
-                              <apex:outputLink value="{!recusalLink}" id="link" target="_blank">Recusal Document</apex:outputLink>
-                          </div>
-                        </div>
-                    <!-- / ACTION BUTTONS -->
+					<!-- ACTION BUTTONS -->
+					<div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
+						<div class="slds-button-group" role="group">
+							<apex:outputLink value="{!recusalLink}" id="link" target="_blank">Click Here to See All
+								Recusal Documents
+							</apex:outputLink>
+						</div>
+					</div>
+					<!-- / ACTION BUTTONS -->
 
-                  </div>
-                  <!-- / LAYOUT GRID -->
+				</div>
+				<!-- / LAYOUT GRID -->
 
-                  <!-- PAGE HEADER DETAIL ROW -->
-                  <!-- / PAGE HEADER DETAIL ROW -->
+				<!-- PAGE HEADER DETAIL ROW -->
+				<!-- / PAGE HEADER DETAIL ROW -->
 
-                </div>
-            <!-- / PAGE HEADER -->
-            <!-- PRIMARY CONTENT WRAPPER -->
-            <div class="myapp slds-p-horizontal--medium">
-            <div id="sa-ltng">
-            <ul id="staffing-assignment" class="slds-has-dividers--bottom-space"></ul>
-                <apex:outputPanel > <!--pageBlocks are not supported in LEX, use outputPanels-->
-                    <apex:outputPanel >
-                        <div class="slds-section">
-                            <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped"><!--for multi-column displays, use uiUtils methods to re-sort the fields displayed-->
-                                <thead>
-                                  <tr class="slds-text-title--caps">
-                                  <th scope="col">
-                                      <div class="slds-truncate" title="ADCVD Case">ADCVD Case</div>
-                                    </th>
-                                    <th scope="col">
-                                      <div class="slds-truncate" title="Start Date">Start Date</div>
-                                    </th>
-                                    <th scope="col">
-                                      <div class="slds-truncate" title="End Date">End Date</div>
-                                    </th>
-                                    <th scope="col">
-									  <div class="slds-truncate" title="Acting User">Acting User</div>
-                                    </th>
-                                    <th scope="col">
-									  <div class="slds-truncate" title="Acting User Start Date">Acting User Start Date</div>
-                                    </th>
-                                    <th scope="col">
-									  <div class="slds-truncate" title="Acting User End Date">Acting User End Date</div>
-                                    </th>
-                                    <th scope="col">
-                                      <div class="slds-truncate" title="Reason for Recusal">Reason for Recusal</div>
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <apex:repeat value="{!primaryRecusalList}" var="prl" >
-                                    <div class="slds-form-element__group">
-                                        <tr class="slds-form-element__row">
-                                            <td class="slds-form-element slds-size--1-of-5 slds-p-around--xx-small">
-                                                <apex:outputField label="ADCVD Case" value="{!prl.ADCVD_Case__c}" styleClass="slds-input"/> 
-                                            </td>
-                                            <td class="slds-form-element slds-size--1-of-9 slds-p-top--large">
-                                              <apex:outputField label="Start Date" value="{!prl.Start_Date__c}" styleClass="slds-output"/>
-                                            </td>
-                                            <td class="slds-form-element slds-size--1-of-5 slds-p-around--xx-small">
-                                              <apex:outputField label="End Date" value="{!prl.End_Date__c}" styleClass="slds-output"/>
-                                            </td>
-                                            <td class="slds-form-element slds-size--1-of-4 slds-p-around--xx-small">
-                                                <apex:outputField label="Acting User" value="{!prl.Actor__c}" styleClass="slds-output"/>
-                                            </td>
-                                            <td class="slds-form-element slds-size--1-of-5 slds-p-top--large slds-p-around--xx-small slds-p-right--xx-large" style="">
-                                              <apex:outputField label="Acting User Start Date" value="{!prl.Actor_Start_Date__c}" styleClass="slds-output"/>
-                                            </td>
-                                            <td class="slds-form-element slds-size--1-of-5 slds-p-top--large slds-p-around--xx-small">
-                                              <apex:outputField label="Acting User End Date" value="{!prl.Actor_End_Date__c}" styleClass="slds-output"/>
-                                            </td>
-                                            <td class="slds-form-element slds-size--1-of-5 slds-p-top--large slds-p-around--xx-small">
-                                              <apex:outputField label="Reason for Recusal" value="{!prl.Reason_for_Recusal__c}" styleClass="slds-output"/>
-                                            </td>
-                                        </tr>
-                                    </div>
-                                </apex:repeat>
-                                <br/>
-                            </table>
-                        </div>                    
-                    </apex:outputPanel>
-                </apex:outputPanel>
-            </div>
-            </div>
-            <!-- FOOTER -->
-            <!-- / FOOTER -->
-            </div>
-            <!-- / REQUIRED SLDS WRAPPER -->    
-        </apex:form>
-        </body>
-    </html>
+			</div>
+			<!-- / PAGE HEADER -->
+			<!-- PRIMARY CONTENT WRAPPER -->
+			<div class="myapp slds-p-horizontal--medium">
+				<div id="sa-ltng">
+					<ul id="staffing-assignment" class="slds-has-dividers--bottom-space"></ul>
+					<apex:outputPanel> <!--pageBlocks are not supported in LEX, use outputPanels-->
+						<apex:outputPanel>
+							<div class="slds-section">
+								<table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped">
+									<!--for multi-column displays, use uiUtils methods to re-sort the fields displayed-->
+									<thead>
+									<tr class="slds-text-title--caps">
+										<th scope="col">
+											<div class="slds-truncate" title="ADCVD Case">ADCVD Case</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="Recusal">Recusal</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="User">User</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="Product">Product</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="Country">Country</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="Start Date">Start Date</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="End Date">End Date</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="Acting User">Acting User</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="Acting User Start Date">Acting User Start
+												Date
+											</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="Acting User End Date">Acting User End
+												Date
+											</div>
+										</th>
+										<th scope="col">
+											<div class="slds-truncate" title="Reason for Recusal">Reason for Recusal
+											</div>
+										</th>
+									</tr>
+									</thead>
+									<apex:repeat value="{!recusalList}" var="rl">
+										<div class="slds-form-element__group">
+											<tr class="slds-form-element__row">
+												<td class="slds-form-element slds-size--1-of-9 slds-p-around--xx-small">
+													<apex:outputField label="ADCVD Case" value="{!rl.ADCVD_Case__c}"
+													                  styleClass="slds-input"/>
+												</td>
+												<td class="slds-form-element slds-size--1-of-9 slds-p-around--xx-small">
+													<apex:outputLink value="/{!rl.Id}" id="link2" target="_blank">{!rl.Name}
+													</apex:outputLink>
+												</td>
+												<td class="slds-form-element slds-size--1-of-9 slds-p-around--xx-small">
+													<apex:outputField label="User" value="{!rl.User__c}"
+													                  styleClass="slds-input"/>
+												</td>
+												<td class="slds-form-element slds-size--1-of-5 slds-p-around--xx-small">
+													<apex:outputField label="Product" value="{!rl.Product_Text__c}"
+													                  styleClass="slds-input"/>
+												</td>
+												<td class="slds-form-element slds-size--1-of-9 slds-p-around--xx-small">
+													<apex:outputField label="Country" value="{!rl.Country_Text__c}"
+													                  styleClass="slds-input"/>
+												</td>
+												<td class="slds-form-element slds-size--1-of-9 slds-p-top--large">
+													<apex:outputField label="Start Date" value="{!rl.Start_Date__c}"
+													                  styleClass="slds-output"/>
+												</td>
+												<td class="slds-form-element slds-size--1-of-9 slds-p-around--xx-small">
+													<apex:outputField label="End Date" value="{!rl.End_Date__c}"
+													                  styleClass="slds-output"/>
+												</td>
+												<td class="slds-form-element slds-size--1-of-8 slds-p-around--xx-small">
+													<apex:outputField label="Acting User" value="{!rl.Actor__c}"
+													                  styleClass="slds-output"/>
+												</td>
+												<td class="slds-form-element slds-size--1-of-9 slds-p-top--large slds-p-around--xx-small slds-p-right--xx-large"
+												    style="">
+													<apex:outputField label="Acting User Start Date"
+													                  value="{!rl.Actor_Start_Date__c}"
+													                  styleClass="slds-output"/>
+												</td>
+												<td class="slds-form-element slds-size--1-of-9 slds-p-top--large slds-p-around--xx-small">
+													<apex:outputField label="Acting User End Date"
+													                  value="{!rl.Actor_End_Date__c}"
+													                  styleClass="slds-output"/>
+												</td>
+												<td class="slds-form-element slds-size--1-of-2 slds-p-top--large slds-p-around--xx-small">
+													<div class="slds-cell-wrap">
+													<apex:outputField label="Reason for Recusal"
+													                  value="{!rl.Reason_for_Recusal__c}"
+													                  styleClass="slds-output"/>
+													</div>
+												</td>
+											</tr>
+										</div>
+									</apex:repeat>
+									<br/>
+								</table>
+							</div>
+						</apex:outputPanel>
+					</apex:outputPanel>
+				</div>
+			</div>
+			<!-- FOOTER -->
+			<!-- / FOOTER -->
+		</div>
+		<!-- / REQUIRED SLDS WRAPPER -->
+	</apex:form>
+	</body>
+	</html>
 </apex:page>
