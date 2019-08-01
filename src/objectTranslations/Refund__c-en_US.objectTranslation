@@ -45,6 +45,10 @@
             <masterLabel>In Process</masterLabel>
             <translation><!-- In Process --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiated</masterLabel>
+            <translation><!-- Initiated --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Transaction Amount --></label>

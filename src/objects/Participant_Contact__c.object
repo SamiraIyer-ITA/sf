@@ -42,9 +42,20 @@
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Application_Contact_Compact_Layout</fullName>
+        <fields>Role__c</fields>
+        <fields>First_Name__c</fields>
+        <fields>Last_Name__c</fields>
+        <fields>Title__c</fields>
+        <fields>Email__c</fields>
+        <fields>Name</fields>
+        <label>Application Contact Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -220,6 +231,7 @@
     <recordTypes>
         <fullName>Privacy_Shield_Application_Contact</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Application_Contact_Compact_Layout</compactLayoutAssignment>
         <description>For use with Application Contacts on the Privacy Shield Application.</description>
         <label>Privacy Shield Application Contact</label>
         <picklistValues>
@@ -245,6 +257,7 @@
     <recordTypes>
         <fullName>Regional_Toolkit_Application_Contact</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Application_Contact_Compact_Layout</compactLayoutAssignment>
         <description>For use with Application Contacts on Toolkit Applications that require Primary and Regional Roles.</description>
         <label>Regional Toolkit Application Contact</label>
         <picklistValues>
@@ -262,6 +275,7 @@
     <recordTypes>
         <fullName>Toolkit_Application_Contact</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Application_Contact_Compact_Layout</compactLayoutAssignment>
         <description>For use with Application Contacts on Toolkit Applications.</description>
         <label>Toolkit Application Contact</label>
         <picklistValues>

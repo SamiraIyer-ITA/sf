@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Accreditation</fullName>
+        <default>false</default>
+        <label>Accreditation</label>
+    </customValue>
+    <customValue>
+        <fullName>Anti-Dumping</fullName>
+        <default>false</default>
+        <label>Anti-Dumping</label>
+    </customValue>
+    <customValue>
+        <fullName>Bribery</fullName>
+        <default>false</default>
+        <label>Bribery</label>
+    </customValue>
+    <customValue>
+        <fullName>Certificate of Origin</fullName>
+        <default>false</default>
+        <label>Certificate of Origin</label>
+    </customValue>
+    <customValue>
+        <fullName>Certification</fullName>
+        <default>false</default>
+        <label>Certification</label>
+    </customValue>
+    <customValue>
+        <fullName>Competition</fullName>
+        <default>false</default>
+        <label>Competition</label>
+    </customValue>
+    <customValue>
+        <fullName>Conformity Assessment</fullName>
+        <default>false</default>
+        <label>Conformity Assessment</label>
+    </customValue>
+    <customValue>
+        <fullName>Copyright</fullName>
+        <default>false</default>
+        <label>Copyright</label>
+    </customValue>
+    <customValue>
+        <fullName>Cross-Border Data Flow Restrictions</fullName>
+        <default>false</default>
+        <label>Cross-Border Data Flow Restrictions</label>
+    </customValue>
+    <customValue>
+        <fullName>Customs Barriers</fullName>
+        <default>false</default>
+        <label>Customs Barriers</label>
+    </customValue>
+    <customValue>
+        <fullName>Customs Fees</fullName>
+        <default>false</default>
+        <label>Customs Fees</label>
+    </customValue>
+    <customValue>
+        <fullName>Customs Valuation</fullName>
+        <default>false</default>
+        <label>Customs Valuation</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Exclusivity</fullName>
+        <default>false</default>
+        <label>Data Exclusivity</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Localization Requirements</fullName>
+        <default>false</default>
+        <label>Data Localization Requirements</label>
+    </customValue>
+    <customValue>
+        <fullName>Equity Limitation</fullName>
+        <default>false</default>
+        <label>Equity Limitation</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Trade Zones</fullName>
+        <default>false</default>
+        <label>Foreign Trade Zones</label>
+    </customValue>
+    <customValue>
+        <fullName>Good Regulatory Practices</fullName>
+        <default>false</default>
+        <label>Good Regulatory Practices</label>
+    </customValue>
+    <customValue>
+        <fullName>Government Procurement</fullName>
+        <default>false</default>
+        <label>Government Procurement</label>
+    </customValue>
+    <customValue>
+        <fullName>Import Licenses</fullName>
+        <default>false</default>
+        <label>Import Licenses</label>
+    </customValue>
+    <customValue>
+        <fullName>Import Quotas and Restrictions</fullName>
+        <default>false</default>
+        <label>Import Quotas and Restrictions</label>
+    </customValue>
+    <customValue>
+        <fullName>Labeling</fullName>
+        <default>false</default>
+        <label>Labeling</label>
+    </customValue>
+    <customValue>
+        <fullName>Lack of Rule of Law</fullName>
+        <default>false</default>
+        <label>Lack of Rule of Law</label>
+    </customValue>
+    <customValue>
+        <fullName>Local Content Requirements</fullName>
+        <default>false</default>
+        <label>Local Content Requirements</label>
+    </customValue>
+    <customValue>
+        <fullName>Monopolies</fullName>
+        <default>false</default>
+        <label>Monopolies</label>
+    </customValue>
+    <customValue>
+        <fullName>Notice and Comment Rulemaking</fullName>
+        <default>false</default>
+        <label>Notice and Comment Rulemaking</label>
+    </customValue>
+    <customValue>
+        <fullName>Packaging</fullName>
+        <default>false</default>
+        <label>Packaging</label>
+    </customValue>
+    <customValue>
+        <fullName>Patents</fullName>
+        <default>false</default>
+        <label>Patents</label>
+    </customValue>
+    <customValue>
+        <fullName>Preshipment Inspection</fullName>
+        <default>false</default>
+        <label>Preshipment Inspection</label>
+    </customValue>
+    <customValue>
+        <fullName>Price Control</fullName>
+        <default>false</default>
+        <label>Price Control</label>
+    </customValue>
+    <customValue>
+        <fullName>Registration</fullName>
+        <default>false</default>
+        <label>Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>Regulatory Cooperation</fullName>
+        <default>false</default>
+        <label>Regulatory Cooperation</label>
+    </customValue>
+    <customValue>
+        <fullName>Rules of Origin</fullName>
+        <default>false</default>
+        <label>Rules of Origin</label>
+    </customValue>
+    <customValue>
+        <fullName>Safeguards</fullName>
+        <default>false</default>
+        <label>Safeguards</label>
+    </customValue>
+    <customValue>
+        <fullName>Sanitary and Phytosanitary Measures</fullName>
+        <default>false</default>
+        <label>Sanitary and Phytosanitary Measures</label>
+    </customValue>
+    <customValue>
+        <fullName>Services Barriers</fullName>
+        <default>false</default>
+        <label>Services Barriers</label>
+    </customValue>
+    <customValue>
+        <fullName>Standards Barriers</fullName>
+        <default>false</default>
+        <label>Standards Barriers</label>
+    </customValue>
+    <customValue>
+        <fullName>State Owned Enterprises</fullName>
+        <default>false</default>
+        <label>State Owned Enterprises</label>
+    </customValue>
+    <customValue>
+        <fullName>Subsidies</fullName>
+        <default>false</default>
+        <label>Subsidies</label>
+    </customValue>
+    <customValue>
+        <fullName>Tariffs</fullName>
+        <default>false</default>
+        <label>Tariffs</label>
+    </customValue>
+    <customValue>
+        <fullName>Taxes</fullName>
+        <default>false</default>
+        <label>Taxes</label>
+    </customValue>
+    <customValue>
+        <fullName>TBT</fullName>
+        <default>false</default>
+        <label>TBT</label>
+    </customValue>
+    <customValue>
+        <fullName>Testing</fullName>
+        <default>false</default>
+        <label>Testing</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Facilitation</fullName>
+        <default>false</default>
+        <label>Trade Facilitation</label>
+    </customValue>
+    <customValue>
+        <fullName>Trademarks</fullName>
+        <default>false</default>
+        <label>Trademarks</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Secrets</fullName>
+        <default>false</default>
+        <label>Trade Secrets</label>
+    </customValue>
+    <customValue>
+        <fullName>Transition Period for New Requirements</fullName>
+        <default>false</default>
+        <label>Transition Period for New Requirements</label>
+    </customValue>
+    <customValue>
+        <fullName>Transparency in Regulations</fullName>
+        <default>false</default>
+        <label>Transparency in Regulations</label>
+    </customValue>
+    <description>Specific Trade Issues for each category.  Values provided by Taxonomy Board</description>
+    <masterLabel>Trade Issue - Trade Issue</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Customs and Border Measures</fullName>
+        <default>false</default>
+        <label>Customs and Border Measures</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Trade Remedies</fullName>
+        <default>false</default>
+        <label>Foreign Trade Remedies</label>
+    </customValue>
+    <customValue>
+        <fullName>Government Procurement</fullName>
+        <default>false</default>
+        <label>Government Procurement</label>
+    </customValue>
+    <customValue>
+        <fullName>Intellectual Property Rights</fullName>
+        <default>false</default>
+        <label>Intellectual Property Rights</label>
+    </customValue>
+    <customValue>
+        <fullName>Investment and Services</fullName>
+        <default>false</default>
+        <label>Investment and Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Law and Corruption</fullName>
+        <default>false</default>
+        <label>Law and Corruption</label>
+    </customValue>
+    <customValue>
+        <fullName>Location Measures</fullName>
+        <default>false</default>
+        <label>Location Measures</label>
+    </customValue>
+    <customValue>
+        <fullName>Standards, Regulatory and Technical Requirements</fullName>
+        <default>false</default>
+        <label>Standards, Regulatory and Technical Requirements</label>
+    </customValue>
+    <customValue>
+        <fullName>State Owned Enterprises</fullName>
+        <default>false</default>
+        <label>State Owned Enterprises</label>
+    </customValue>
+    <description>Trade Issue field values provided by Taxonomy Board</description>
+    <masterLabel>Trade Issue - Category</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

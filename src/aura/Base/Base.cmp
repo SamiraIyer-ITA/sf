@@ -1,0 +1,12 @@
+<aura:component abstract="true" description="The component from which others extend.">
+
+    <!--Spinner-->
+    <aura:registerEvent name="showSpinner"
+                        type="c:ShowSpinner"/>
+
+    <aura:registerEvent name="hideSpinner"
+                        type="c:HideSpinner"/>
+    <!--End Spinner-->
+
+    {!v.body}
+</aura:component>

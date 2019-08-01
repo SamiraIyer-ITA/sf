@@ -3591,6 +3591,15 @@
         <columns>Order_of_Execution__c</columns>
         <columns>Tolling_Service__c</columns>
         <columns>Base_Date_Field_1_Name__c</columns>
+        <columns>Number_of_Conditionals__c</columns>
+        <columns>Conditional_Field_1_Name__c</columns>
+        <columns>Conditional_Field_1_Object__c</columns>
+        <columns>Conditional_Field_2_Name__c</columns>
+        <columns>Conditional_Field_2_Object__c</columns>
+        <columns>Conditional_Field_3_Name__c</columns>
+        <columns>Conditional_Field_3_Object__c</columns>
+        <columns>Conditional_Field_4_Name__c</columns>
+        <columns>Conditional_Field_4_Object__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>ADCVD_Objects__c</field>
@@ -3720,6 +3729,22 @@
             <value>Next</value>
         </filters>
         <label>CVD Investigation Base Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>International_Lit_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Tolling_Service__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Lit_Int</value>
+        </filters>
+        <label>International Lit All Calculations</label>
     </listViews>
     <listViews>
         <fullName>Remand_All_Calculations</fullName>

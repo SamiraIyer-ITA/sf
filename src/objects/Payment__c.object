@@ -38,7 +38,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Payment_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -46,6 +50,7 @@
     <description>Details of payments made through pay.gov</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -266,6 +271,11 @@
                     <fullName>Success</fullName>
                     <default>false</default>
                     <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Initiated</fullName>
+                    <default>true</default>
+                    <label>Initiated</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

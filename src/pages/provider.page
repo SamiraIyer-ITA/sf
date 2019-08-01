@@ -2,6 +2,7 @@
  <apex:composition template="Site_Template">
      <apex:define name="page">
      <link href="{!URLFor($Resource.ps, 'ps/provider.css')}" rel="stylesheet" />
+     
      <style>
      blockquote {
      margin: 0;
@@ -9,6 +10,12 @@
      }
      
      </style>
+
+<script type="text/javascript" src="{!URLFor($Resource.phone_validation, 'phone_validation/prism.js')}"></script>
+<script type="text/javascript" src="{!URLFor($Resource.phone_validation, 'phone_validation/jquery.min.js')}"></script>
+<script type="text/javascript" src="{!URLFor($Resource.phone_validation, 'phone_validation/intlTelInput.js')}"></script>
+
+
      <script>
 jQuery(document).ready(function($) {  
 $(window).load(function(){
@@ -29,6 +36,9 @@ function jump(){
     window.scrollTo(0,0);
 }
 </script>
+
+
+
 
 
 <apex:actionStatus id="busyOverlay" onStart="spinLoad(this)" onStop="remove()"/>
@@ -235,15 +245,21 @@ $("#breadcrumbs2 a:contains('Civil Nuclear Toolkit Search')").attr('href', 'http
     </div>
     </div>
     
-    
+ 
     <div class="col-md-12 pad-right-zero pad-left-zero">
     <div class="row pad-none">
-        <label for="phonenumber" class="{!IF(Translation.Direction == 'rtl', 'pull-right', 'pull-left')}">*Phone Number</label><br />
-        <apex:inputText styleClass="itaFormField required phone"  id="phonenumber" onchange="form_validated = formValidate($(this));" value="{!c.SuppliedPhone}" dir="{!Translation.Direction}"/> 
-        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+          <label for="phone">*Phone <span style="font-size:8.5px;">(select a country)</span></label><br />
+          <div id="result"> 
+          <apex:inputfield id="phone" onkeypress="/*onlyNumbers(event);*/" value="{!c.SuppliedPhone}" styleClass="required_20 phone3 itaFormField required" onchange="form_validated = formValidate($(this));" />
+                                  
+          <span  style="font-size:10px;" id="valid-msg" class="hide">✓ Valid</span>
+          <span style="font-size:10px;" id="error-msg" class="hide">Invalid number</span>
+       </div>
+       <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+       <br/>
     </div>
-    </div>
-     
+   </div>
+    
     
     <div class="col-md-12 pad-right-zero pad-left-zero">
     <div class="row pad-none">
@@ -307,7 +323,43 @@ function calculateRemaining(text, limit, targetText){
     <apex:commandButton onclick="console.log('1:' + !form_validated ); console.log('2: '+!validateAllRequiredFields()); if(!form_validated || !validateAllRequiredFields()){ return false;}" value="{!FieldTranslations['Send']}" action="{!submitCase}" styleClass="itaLoginBtn  pull-left" style="width:100px;margin:0;" rerender="CasePanel, messageWrapper" oncomplete="jump(); onloadCallback();" status="busyOverlay" />    
     </apex:outputpanel>
     
+<script type="text/javascript" src="{!URLFor($Resource.phone_validation, 'phone_validation/prism.js')}"></script>
+<script type="text/javascript" src="{!URLFor($Resource.phone_validation, 'phone_validation/jquery.min.js')}"></script>
+<script type="text/javascript" src="{!URLFor($Resource.phone_validation, 'phone_validation/intlTelInput.js')}"></script>
+<script>
+  var telInput = $(".phone3");
+  var errorMsg = $("#error-msg");
+  var validMsg = $("#valid-msg");
 
+
+// initialise plugin
+telInput.intlTelInput({
+  utilsScript: "https://ajsingh273.github.io/phone-validation/utils.js"
+});
+
+var reset = function() {
+  telInput.removeClass("error");
+  errorMsg.addClass("hide");
+  validMsg.addClass("hide");
+};
+
+// on blur: validate
+telInput.blur(function() {
+  reset();
+  if ($.trim(telInput.val())) {
+    if (telInput.intlTelInput("isValidNumber")) {
+      validMsg.removeClass("hide");
+    } else {
+      telInput.addClass("error");
+      errorMsg.removeClass("hide");
+    }
+  }
+});
+
+// on keyup / change flag: reset
+telInput.on("keyup change", reset);
+
+</script>
 
        
        
@@ -334,6 +386,9 @@ function calculateRemaining(text, limit, targetText){
     </div><!-- /.container -->   
     
             <br/><br/>
+            
+            
+            
          </apex:define>
  </apex:composition>
  

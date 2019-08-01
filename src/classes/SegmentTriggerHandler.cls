@@ -58,14 +58,15 @@ public without sharing class SegmentTriggerHandler {
 			recalculateOrdersOnSegmentDelete(oldMap);
 		}
 		if(isAfter && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
+            initialize(newList, newMap);
+            createStaffing(newList);
 			recalculateOrders(newMap, oldMap);
-			newList = new LockedRecordHandler().removeLockedRecords(newList);
-			StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
 		}
 		if (isAfter && isUpdate) {
 			recalculateNewShipperReviews(newMap);
 			recalculateOrders(newMap, oldMap);
-			new ChatterPostService().getChatterPosts(oldMap, newMap, 'Segment__c');
+			new ChatterPostWriter('Segment__c', newMap, oldMap);
 		}
 	}
 
@@ -606,4 +607,34 @@ public without sharing class SegmentTriggerHandler {
                 s.Status__c = 'Closed';
         }
 	}
+
+
+    /*********************************************
+    * Staffing Creation
+    *********************************************/
+
+    @TestVisible private static void createStaffing(List<Segment__c> newList) {
+        List<Segment__c> segmentsFromOrders = new List<Segment__c>();
+        List<Segment__c> segmentsFromSuspAgrmts = new List<Segment__c>();
+        List<Staffing_Assignment__c> staffToInsert = new List<Staffing_Assignment__c>();
+        for (Segment__c s : newList) {
+            if (s.ADCVD_Order__c != null) {
+                segmentsFromOrders.add(s);
+            } else if (s.Suspension_Agreement__c != null) {
+                segmentsFromSuspAgrmts.add(s);
+            }
+        }
+        if (!segmentsFromOrders.isEmpty()) {
+            staffToInsert.addAll(
+                new StaffingAssignmentService().createStaffFromSObjectParent(segmentsFromOrders, 'Segment__c', false)
+            );
+        }
+        if (!segmentsFromSuspAgrmts.isEmpty()) {
+            staffToInsert.addAll(
+                new StaffingAssignmentService().createStaffFromDefaults(segmentsFromSuspAgrmts, 'Segment__c', false)
+            );
+        }
+        if (!staffToInsert.isEmpty()) {insert staffToInsert;}
+    }
+
 }

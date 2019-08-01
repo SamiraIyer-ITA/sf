@@ -46,21 +46,21 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 global class ConnectApiHelper {
 
     public class InvalidParameterException extends Exception {}
-    
+
     private static final Map<String, ConnectApi.MarkupType> supportedMarkup = new Map<String, ConnectApi.MarkupType> {
-        'b' => ConnectApi.MarkupType.Bold, 
-        'i' => ConnectApi.MarkupType.Italic, 
-        'li' => ConnectApi.MarkupType.ListItem, 
-        'ol' => ConnectApi.MarkupType.OrderedList, 
-        'p' => ConnectApi.MarkupType.Paragraph, 
-        's' => ConnectApi.MarkupType.Strikethrough, 
-        'u' => ConnectApi.MarkupType.Underline, 
+        'b' => ConnectApi.MarkupType.Bold,
+        'i' => ConnectApi.MarkupType.Italic,
+        'li' => ConnectApi.MarkupType.ListItem,
+        'ol' => ConnectApi.MarkupType.OrderedList,
+        'p' => ConnectApi.MarkupType.Paragraph,
+        's' => ConnectApi.MarkupType.Strikethrough,
+        'u' => ConnectApi.MarkupType.Underline,
         'ul' => ConnectApi.MarkupType.UnorderedList
     };
-    
+
     /**
      * Posts a feed item with @-mentions using an @-mention formatting syntax.
-     * 
+     *
      * @param communityId Use either the ID of a community, 'internal', or null.
      * @param subjectId The parent of the post. Can be a user ID, a group ID, or a record ID.
      * @param textWithMentions The text of the post. You can @-mention a user or group by using
@@ -71,47 +71,54 @@ global class ConnectApiHelper {
      */
     public static ConnectApi.FeedElement postFeedItemWithMentions(String communityId, String subjectId, String textWithMentions) {
 
-        return postFeedItemWithSpecialFormatting(communityId, subjectId, textWithMentions, 'textWithMentions');
+        return postFeedItemWithSpecialFormatting(communityId, subjectId, textWithMentions, 'textWithMentions', '');
     }
 
     /**
      * Posts a feed item with rich text using HTML tags and inline image formatting syntax.
-     * 
+     *
      * @param communityId Use either the ID of a community, 'internal', or null.
      * @param subjectId The parent of the post. Can be a user ID, a group ID, or a record ID.
      * @param textWithMentionsAndRichText The text of the post. You can @-mention a
-     *                         user or group by using the syntax {ID}, for example: 
-     *                         'Hello {005x0000000URNP}, have you seen the group {0F9x00000000D7m}?' 
-     *                         You can include rich text by using supported HTML tags: 
+     *                         user or group by using the syntax {ID}, for example:
+     *                         'Hello {005x0000000URNP}, have you seen the group {0F9x00000000D7m}?'
+     *                         You can include rich text by using supported HTML tags:
      *                         <b>, <i>, <u>, <s>, <ul>, <ol>, <li>, <p>.
      *                         You can include an inline image by using the syntax {img:ID} or
      *                         {img:ID:alt text}, for example: 'Have you seen this gorgeous view?
-     *                         {img:069x00000000D7m:View of the Space Needle from our office.}?' 
+     *                         {img:069x00000000D7m:View of the Space Needle from our office.}?'
      *                         Links and hashtags will be automatically parsed if provided.
      * @return The posted feed item.
      */
     public static ConnectApi.FeedElement postFeedItemWithRichText(String communityId, String subjectId, String textWithMentionsAndRichText) {
-        return postFeedItemWithSpecialFormatting(communityId, subjectId, textWithMentionsAndRichText, 'textWithMentionsAndRichText');
+        return postFeedItemWithSpecialFormatting(communityId, subjectId, textWithMentionsAndRichText, 'textWithMentionsAndRichText', '');
     }
-    
-    private static ConnectApi.FeedElement postFeedItemWithSpecialFormatting(String communityId, String subjectId, String formattedText, String textParameterName) {
+    public static ConnectApi.FeedElement postFeedItemWithRichText(String communityId, String subjectId, String textWithMentionsAndRichText, String feedItemId) {
+        return postFeedItemWithSpecialFormatting(communityId, subjectId, textWithMentionsAndRichText, 'textWithMentionsAndRichText', feedItemId);
+    }
+
+    private static ConnectApi.FeedElement postFeedItemWithSpecialFormatting(String communityId, String subjectId, String formattedText, String textParameterName, String feedItemId) {
         if (formattedText == null || formattedText.trim().length() == 0) {
             throw new InvalidParameterException('The ' + textParameterName + ' parameter must be non-empty.');
         }
-        
+
         ConnectApi.MessageBodyInput messageInput = new ConnectApi.MessageBodyInput();
         messageInput.messageSegments = getMessageSegmentInputs(formattedText);
 
         ConnectApi.FeedItemInput input = new ConnectApi.FeedItemInput();
         input.body = messageInput;
-        input.subjectId = subjectId;
-        
-        return ConnectApi.ChatterFeeds.postFeedElement(communityId, input);
+        if (String.isNotBlank(feedItemId)) {//Update
+            return ConnectApi.ChatterFeeds.updateFeedElement(communityId, feedItemId, input);
+        }else {//Insert
+            input.subjectId = subjectId;
+            return ConnectApi.ChatterFeeds.postFeedElement(communityId, input);
+        }
+        return null;
     }
 
     /**
      * Posts a comment with @-mentions using an @-mention formatting syntax.
-     * 
+     *
      * @param communityId Use either the ID of a community, 'internal', or null.
      * @param feedItemId The ID of the feed item being commented on.
      * @param textWithMentions The text of the comment. You can @-mention a user or group by using
@@ -125,13 +132,13 @@ global class ConnectApiHelper {
         if (textWithMentions == null || textWithMentions.trim().length() == 0) {
             throw new InvalidParameterException('The textWithMentions parameter must be non-empty.');
         }
-        
+
         ConnectApi.MessageBodyInput messageInput = new ConnectApi.MessageBodyInput();
         messageInput.messageSegments = getMessageSegmentInputs(textWithMentions);
 
         ConnectApi.CommentInput input = new ConnectApi.CommentInput();
         input.body = messageInput;
-        
+
         return ConnectApi.ChatterFeeds.postCommentToFeedElement(communityId, feedItemId, input, null);
     }
 
@@ -143,21 +150,21 @@ global class ConnectApiHelper {
         List<ConnectApi.MessageSegmentInput> messageSegmentInputs = new List<ConnectApi.MessageSegmentInput>();
         Integer strPos = 0;
         // The pattern for matching mentions, markup begin/end tags, and inline images.
-        // The first group matches a 15 or 18 character ID surrounded by {}: 
+        // The first group matches a 15 or 18 character ID surrounded by {}:
         //   (\\{[a-zA-Z0-9]{15}\\}|\\{[a-zA-Z0-9]{18}\\})
         // The second/third groups match beginning/ending HTML tags: (<[a-zA-Z]*>)|(</[a-zA-Z]*>)
-        // The fourth group matches a 15 or 18 character content document ID preceded by "img:", 
-        //    optionally followed by a string (not containing '}'), and surrounded by {}: 
+        // The fourth group matches a 15 or 18 character content document ID preceded by "img:",
+        //    optionally followed by a string (not containing '}'), and surrounded by {}:
         //    (\\{img:(069[a-zA-Z0-9]{12,15})(:[\\s\\S]*?)?\\})
         Pattern globalPattern = Pattern.compile('(\\{[a-zA-Z0-9]{15}\\}|\\{[a-zA-Z0-9]{18}\\})|(<[a-zA-Z]*>)|(</[a-zA-Z]*>)|(\\{img:(069[a-zA-Z0-9]{12,15})(:[\\s\\S]*?)?\\})');
         Matcher globalMatcher = globalPattern.matcher(inputText);
-        
+
         while (globalMatcher.find()) {
             String textSegment = inputText.substring(strPos, globalMatcher.start());
             String matchingText = globalMatcher.group();
             if (matchingText.startsWith('{')) {
                 // Add a segment for any accumulated text (which includes unsupported HTML tags).
-                addTextSegment(messageSegmentInputs, textSegment); 
+                addTextSegment(messageSegmentInputs, textSegment);
 
                 // Strip off the { and }.
                 String innerMatchedText = matchingText.substring(1, matchingText.length() - 1);
@@ -185,8 +192,8 @@ global class ConnectApiHelper {
                     String tag = matchingText.substring(1, matchingText.indexOf('>'));
                     if (supportedMarkup.containsKey(tag.toLowerCase())) {
                         // Add a segment for any accumulated text (which includes unsupported HTML tags).
-                        addTextSegment(messageSegmentInputs, textSegment); 
-                        
+                        addTextSegment(messageSegmentInputs, textSegment);
+
                         ConnectApi.MarkupBeginSegmentInput markupBeginSegmentInput = makeMarkupBeginSegmentInput(tag);
                         messageSegmentInputs.add(markupBeginSegmentInput);
                         strPos = globalMatcher.end();
@@ -197,7 +204,7 @@ global class ConnectApiHelper {
                     String tag = matchingText.substring(2, matchingText.indexOf('>'));
                     if (supportedMarkup.containsKey(tag.toLowerCase())) {
                         // Add a segment for any accumulated text (which includes unsupported HTML tags).
-                        addTextSegment(messageSegmentInputs, textSegment); 
+                        addTextSegment(messageSegmentInputs, textSegment);
 
                         ConnectApi.MarkupEndSegmentInput markupEndSegmentInput = makeMarkupEndSegmentInput(tag);
                         messageSegmentInputs.add(markupEndSegmentInput);
@@ -228,15 +235,15 @@ global class ConnectApiHelper {
         textSegment.text = text;
         return textSegment;
     }
-    
+
     private static ConnectApi.MentionSegmentInput makeMentionSegmentInput(String mentionId) {
         ConnectApi.MentionSegmentInput mentionSegment = new ConnectApi.MentionSegmentInput();
         mentionSegment.id = mentionId;
         return mentionSegment;
     }
-    
+
     /**
-     * Create a MarkupBeginSegmentInput corresponding to the tag.  Checking whether the tag is 
+     * Create a MarkupBeginSegmentInput corresponding to the tag.  Checking whether the tag is
      * supported markup should happen before calling this method.
      */
     private static ConnectApi.MarkupBeginSegmentInput makeMarkupBeginSegmentInput(String tag) {
@@ -244,9 +251,9 @@ global class ConnectApiHelper {
         markupBeginSegment.markupType = supportedMarkup.get(tag.toLowerCase());
         return markupBeginSegment;
     }
-    
+
     /**
-     * Create a MarkupEndSegmentInput corresponding to the tag.  Checking whether the tag is 
+     * Create a MarkupEndSegmentInput corresponding to the tag.  Checking whether the tag is
      * supported markup should happen before calling this method.
      */
     private static ConnectApi.MarkupEndSegmentInput makeMarkupEndSegmentInput(String tag) {
@@ -254,7 +261,7 @@ global class ConnectApiHelper {
         markupEndSegment.markupType = supportedMarkup.get(tag.toLowerCase());
         return markupEndSegment;
     }
-    
+
     private static ConnectApi.InlineImageSegmentInput makeInlineImageSegmentInput(String fileId, String altText) {
         ConnectApi.InlineImageSegmentInput inlineImageSegment = new ConnectApi.InlineImageSegmentInput();
         inlineImageSegment.fileId = fileId;
@@ -263,7 +270,7 @@ global class ConnectApiHelper {
         }
         return inlineImageSegment;
     }
-    
+
     /**
      * Takes an output feed body and returns a message body input that matches it.
      * This is useful for when you retrieve a feed item or comment and want to either re-post or edit it.
@@ -271,7 +278,7 @@ global class ConnectApiHelper {
     public static ConnectApi.MessageBodyInput createInputFromBody(ConnectApi.FeedBody body) {
         ConnectApi.MessageBodyInput input = new ConnectApi.MessageBodyInput();
         input.messageSegments = new List<ConnectApi.MessageSegmentInput>();
-        
+
         for (ConnectApi.MessageSegment segment : body.messageSegments) {
             if (segment instanceof ConnectApi.TextSegment) {
                 ConnectApi.TextSegment textOutput = (ConnectApi.TextSegment) segment;
@@ -319,30 +326,30 @@ global class ConnectApiHelper {
             else {
                 // The other segment types are system-generated and have no corresponding input types.
             }
-            
+
         }
         return input;
     }
-    
+
     /**
      * Takes an output body and returns a feed item input body that matches it.
      * This is useful for when you retrieve a feed item and want to either re-post or edit it.
      */
     public static ConnectApi.FeedItemInput createFeedItemInputFromBody(ConnectApi.FeedBody body) {
         ConnectApi.MessageBodyInput bodyInput = createInputFromBody(body);
-        
+
         ConnectApi.FeedItemInput input = new ConnectApi.FeedItemInput();
         input.body = bodyInput;
         return input;
     }
-    
+
     /**
      * Takes an output body and returns a comment input body that matches it.
      * This is useful for when you retrieve a comment and want to either re-post or edit it.
      */
     public static ConnectApi.CommentInput createCommentInputFromBody(ConnectApi.FeedBody body) {
         ConnectApi.MessageBodyInput bodyInput = createInputFromBody(body);
-        
+
         ConnectApi.CommentInput input = new ConnectApi.CommentInput();
         input.body = bodyInput;
         return input;

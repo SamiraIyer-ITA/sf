@@ -1,0 +1,42 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [],
+  "layouts": [],
+  "steps": {
+    "grain": {
+      "datasets": [
+        {
+          "name": "Augmented_Appended_Petition_Investigation_Segment"
+        }
+      ],
+      "isFacet": true,
+      "isGlobal": false,
+      "query": {
+        "query": "{\"values\":[\"Object_Name\",\"Status__c\",\"Office__c\",\"Office_Director\",\"Program_Manager\",\"Segments.Segment_Name__c\",\"Investigation.Investigation_Name__c\",\"Petition_Fields.Petition_Name__c\"],\"filters\":[[\"Status__c\",[\"Active\",\"Amend Prelim\",\"Closed\",\"Completed\",\"Final\",\"Hold\",\"How To Proceed\",\"In Progress\",\"Initiation\",\"Litigation\",\"Pending Order\",\"Prelim\",\"Rejected/Deficient/Negative Finding\",\"Remand/International Litigation\",\"Self Initiating\",\"Suspended\",\"With the Court\",\"Withdrawn/Rescinded\"],\"in\"]],\"order\":[[\"Office__c\",{\"ascending\":true}]]}",
+        "version": -1.0
+      },
+      "type": "grain",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "valuestable"
+      }
+    }
+  },
+  "widgets": {
+    "grain_table": {
+      "parameters": {
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "showActionMenu": true,
+        "step": "grain"
+      },
+      "type": "table"
+    }
+  }
+}
