@@ -31,7 +31,7 @@
               "row": 3,
               "rowspan": 5,
               "widgetStyle": {
-                "backgroundColor": "#FFFFFF",
+                "backgroundColor": "rgb(24, 42, 82)",
                 "borderColor": "#091A3E",
                 "borderEdges": [
                   "bottom"
@@ -55,14 +55,14 @@
               }
             },
             {
-              "colspan": 12,
-              "column": 3,
+              "colspan": 15,
+              "column": 0,
               "name": "text_1",
-              "row": 4,
-              "rowspan": 4,
+              "row": 3,
+              "rowspan": 5,
               "widgetStyle": {
-                "backgroundColor": "#FFFFFF",
-                "borderColor": "#FFFFFF",
+                "backgroundColor": "rgb(24, 42, 82)",
+                "borderColor": "rgb(24, 42, 82)",
                 "borderEdges": [
                   "left"
                 ],
@@ -71,11 +71,11 @@
               }
             },
             {
-              "colspan": 15,
+              "colspan": 14,
               "column": 0,
               "name": "container_3",
               "row": 8,
-              "rowspan": 53,
+              "rowspan": 46,
               "widgetStyle": {
                 "backgroundColor": "rgb(24, 42, 82)",
                 "borderColor": "#E6ECF2",
@@ -85,11 +85,11 @@
               }
             },
             {
-              "colspan": 34,
-              "column": 15,
+              "colspan": 35,
+              "column": 14,
               "name": "container_4",
               "row": 8,
-              "rowspan": 53,
+              "rowspan": 46,
               "widgetStyle": {
                 "backgroundColor": "rgb(9, 26, 62)",
                 "borderColor": "#E6ECF2",
@@ -99,18 +99,18 @@
               }
             },
             {
-              "colspan": 32,
-              "column": 16,
+              "colspan": 33,
+              "column": 15,
               "name": "chart_1",
               "row": 12,
-              "rowspan": 47,
+              "rowspan": 40,
               "widgetStyle": {
                 "borderEdges": []
               }
             },
             {
               "colspan": 9,
-              "column": 16,
+              "column": 15,
               "name": "text_2",
               "row": 8,
               "rowspan": 4,
@@ -123,11 +123,11 @@
               }
             },
             {
-              "colspan": 10,
-              "column": 1,
+              "colspan": 9,
+              "column": 30,
               "name": "text_3",
-              "row": 17,
-              "rowspan": 4,
+              "row": 3,
+              "rowspan": 5,
               "widgetStyle": {
                 "backgroundColor": "rgba(255, 255, 255, 0)",
                 "borderColor": "#E6ECF2",
@@ -151,10 +151,10 @@
               }
             },
             {
-              "colspan": 13,
+              "colspan": 12,
               "column": 1,
               "name": "number_7",
-              "row": 43,
+              "row": 36,
               "rowspan": 18,
               "widgetStyle": {
                 "backgroundColor": "rgba(255, 255, 255, 0)",
@@ -168,7 +168,7 @@
               "colspan": 12,
               "column": 0,
               "name": "number_2",
-              "row": 61,
+              "row": 54,
               "rowspan": 22,
               "widgetStyle": {
                 "borderEdges": []
@@ -178,7 +178,7 @@
               "colspan": 12,
               "column": 25,
               "name": "number_6",
-              "row": 61,
+              "row": 54,
               "rowspan": 22,
               "widgetStyle": {
                 "borderEdges": []
@@ -188,7 +188,7 @@
               "colspan": 12,
               "column": 12,
               "name": "number_8",
-              "row": 61,
+              "row": 54,
               "rowspan": 22,
               "widgetStyle": {
                 "borderEdges": []
@@ -198,7 +198,7 @@
               "colspan": 12,
               "column": 37,
               "name": "number_9",
-              "row": 61,
+              "row": 54,
               "rowspan": 22,
               "widgetStyle": {
                 "borderEdges": []
@@ -208,7 +208,7 @@
               "colspan": 49,
               "column": 0,
               "name": "container_8",
-              "row": 61,
+              "row": 54,
               "rowspan": 22,
               "widgetStyle": {
                 "backgroundColor": "rgb(24, 42, 82)",
@@ -220,9 +220,9 @@
             },
             {
               "colspan": 9,
-              "column": 2,
+              "column": 39,
               "name": "listselector_8",
-              "row": 21,
+              "row": 4,
               "rowspan": 4,
               "widgetStyle": {
                 "backgroundColor": "#FFFFFF",
@@ -238,7 +238,7 @@
               "colspan": 10,
               "column": 1,
               "name": "text_10",
-              "row": 35,
+              "row": 18,
               "rowspan": 4,
               "widgetStyle": {
                 "backgroundColor": "rgba(255, 255, 255, 0)",
@@ -252,7 +252,7 @@
               "colspan": 9,
               "column": 2,
               "name": "listselector_1",
-              "row": 39,
+              "row": 22,
               "rowspan": 4,
               "widgetStyle": {
                 "backgroundColor": "#FFFFFF",
@@ -268,7 +268,7 @@
               "colspan": 10,
               "column": 1,
               "name": "text_11",
-              "row": 26,
+              "row": 9,
               "rowspan": 4,
               "widgetStyle": {
                 "borderEdges": []
@@ -278,7 +278,7 @@
               "colspan": 9,
               "column": 2,
               "name": "listselector_2",
-              "row": 30,
+              "row": 13,
               "rowspan": 4,
               "widgetStyle": {
                 "backgroundColor": "#FFFFFF",
@@ -291,10 +291,36 @@
               }
             },
             {
-              "colspan": 9,
-              "column": 1,
+              "colspan": 6,
+              "column": 15,
               "name": "text_14",
-              "row": 8,
+              "row": 3,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 21,
+              "name": "dateselector_1",
+              "row": 4,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "all"
+                ],
+                "borderRadius": 4,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 1,
+              "name": "text_15",
+              "row": 27,
               "rowspan": 4,
               "widgetStyle": {
                 "borderEdges": []
@@ -303,8 +329,8 @@
             {
               "colspan": 9,
               "column": 2,
-              "name": "dateselector_1",
-              "row": 12,
+              "name": "listselector_3",
+              "row": 31,
               "rowspan": 4,
               "widgetStyle": {
                 "backgroundColor": "#FFFFFF",
@@ -1232,7 +1258,7 @@
       "isGlobal": false,
       "label": "ParentOrganization_N_1",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"limit\":10000,\"groups\":[\"{{coalesce(cell(Agency_1.selection, 0, \\\"FieldName\\\"), \\\"Assisting_User\\\").asString()}}\"],\"order\":[[\"unique_ParentOrganization.Id\",{\"ascending\":false}]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"limit\":10000,\"groups\":[\"{{coalesce(cell(Agency_1.selection, 0, \\\"FieldName\\\"), \\\"Assisting_User\\\").asString()}}\",\"{{cell(Segments_1.selection, 0, \\\"value\\\").asString()}}\"],\"order\":[[\"unique_ParentOrganization.Id\",{\"ascending\":false}]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -2415,6 +2441,7 @@
       },
       "receiveFacet": true,
       "selectMode": "single",
+      "start": "[]",
       "type": "aggregateflex",
       "useGlobal": true,
       "visualizationParameters": {}
@@ -2690,6 +2717,21 @@
         "{\"display\":\"Office\",\"value\":\"office\"}",
         "{\"display\":\"User\",\"value\":\"user\"}"
       ]
+    },
+    "Segments_1": {
+      "broadcastFacet": true,
+      "label": "Segments",
+      "selectMode": "single",
+      "start": "{\"display\":[\"All\"]}",
+      "type": "staticflex",
+      "values": [
+        "{\"display\":\"All\",\"value\":\"RH_Lev_7_Individual__c\"}",
+        "{\"display\":\"Industry\",\"value\":\"ParentOrganization.Industry\"}",
+        "{\"display\":\"Country\",\"value\":\"ParentOrganization.BillingCountry\"}",
+        "{\"display\":\"State/Province\",\"value\":\"ParentOrganization.BillingState\"}",
+        "{\"display\":\"Zip/Postal Code\",\"value\":\"ParentOrganization.BillingPostalCode\"}",
+        "{\"display\":\"Congressional District\",\"value\":\"ParentOrganization.Congressional_District_formula__c\"}"
+      ]
     }
   },
   "widgetStyle": {
@@ -2702,8 +2744,8 @@
   "widgets": {
     "text_14": {
       "parameters": {
-        "fontSize": 24,
-        "showActionMenu": true,
+        "fontSize": 20,
+        "showActionMenu": false,
         "text": "Date Range",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -2717,6 +2759,16 @@
         "text": "Details 2\n",
         "textAlignment": "left",
         "textColor": "rgb(9, 26, 62)"
+      },
+      "type": "text"
+    },
+    "text_15": {
+      "parameters": {
+        "fontSize": 24,
+        "showActionMenu": false,
+        "text": "Segment By",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
       },
       "type": "text"
     },
@@ -2740,8 +2792,8 @@
     "text_10": {
       "parameters": {
         "fontSize": 24,
-        "showActionMenu": true,
-        "text": "Grouped By",
+        "showActionMenu": false,
+        "text": "Group By",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
       },
@@ -2811,7 +2863,7 @@
     "text_11": {
       "parameters": {
         "fontSize": 24,
-        "showActionMenu": true,
+        "showActionMenu": false,
         "text": "Filter By",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -2860,8 +2912,8 @@
     },
     "text_3": {
       "parameters": {
-        "fontSize": 24,
-        "showActionMenu": true,
+        "fontSize": 20,
+        "showActionMenu": false,
         "text": "Organization Level",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -2954,35 +3006,16 @@
       "parameters": {
         "autoFitMode": "keepLabels",
         "showValues": true,
-        "bins": {
-          "breakpoints": {
-            "high": 100,
-            "low": 0
-          },
-          "bands": {
-            "high": {
-              "color": "#008000",
-              "label": ""
-            },
-            "low": {
-              "color": "#B22222",
-              "label": ""
-            },
-            "medium": {
-              "color": "#ffa500",
-              "label": ""
-            }
-          }
-        },
         "legend": {
           "descOrder": false,
           "showHeader": true,
-          "show": false,
+          "show": true,
           "customSize": "auto",
           "position": "right-top",
           "inside": false
         },
         "axisMode": "multi",
+        "totalSumMode": "net",
         "tooltip": {
           "showBinLabel": true,
           "measures": "",
@@ -2993,7 +3026,7 @@
           "customizeTooltip": false,
           "dimensions": ""
         },
-        "visualizationType": "hbar",
+        "visualizationType": "stackhbar",
         "exploreLink": true,
         "title": {
           "fontSize": 11,
@@ -3013,7 +3046,6 @@
           "type": "x",
           "chartsPerLine": 4
         },
-        "binValues": false,
         "plots": [
           {
             "column": [
@@ -3040,6 +3072,7 @@
             "showDomain": false
           }
         },
+        "normalize": false,
         "step": "ParentOrganization_N_1",
         "theme": "dark",
         "applyConditionalFormatting": true,
@@ -3101,13 +3134,24 @@
       },
       "type": "listselector"
     },
+    "listselector_3": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "showActionMenu": false,
+        "step": "Segments_1",
+        "title": ""
+      },
+      "type": "listselector"
+    },
     "listselector_2": {
       "parameters": {
         "compact": false,
         "exploreLink": false,
         "instant": true,
         "measureField": "unique_ParentOrganization.Id",
-        "showActionMenu": true,
+        "showActionMenu": false,
         "step": "ParentOrganization_N_10",
         "title": ""
       },
@@ -3121,7 +3165,7 @@
         "instant": false,
         "presetsEnabled": true,
         "relativeModeEnabled": true,
-        "showActionMenu": true,
+        "showActionMenu": false,
         "step": "Date_of_Assist_1",
         "title": "Date of Assist"
       },
@@ -3130,10 +3174,10 @@
     "text_1": {
       "parameters": {
         "fontSize": 24,
-        "showActionMenu": true,
+        "showActionMenu": false,
         "text": "Clients Assisted",
-        "textAlignment": "left",
-        "textColor": "rgb(23, 50, 77)",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF",
         "tooltip": "Unique Clients Assisted from Light and In Depth Assists"
       },
       "type": "text"
@@ -3276,6 +3320,7 @@
     "listselector_1": {
       "parameters": {
         "compact": false,
+        "displayTemplate": "[]",
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
