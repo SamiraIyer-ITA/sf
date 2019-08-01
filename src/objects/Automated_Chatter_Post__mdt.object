@@ -58,6 +58,11 @@ Use &lt;/p&gt; from line breaks</inlineHelpText>
                     <default>false</default>
                     <label>Litigation Change</label>
                 </value>
+                <value>
+                    <fullName>Order FR</fullName>
+                    <default>false</default>
+                    <label>Order FR</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>

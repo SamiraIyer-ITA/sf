@@ -9,7 +9,15 @@
         <value>Federal Registers</value>
     </caseValues>
     <fields>
+        <label><!-- ADCVD Case Number --></label>
+        <name>ADCVD_Case_Number_Text__c</name>
+    </fields>
+    <fields>
         <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type Deprecated --></label>
         <name>ADCVD_Case_Type__c</name>
     </fields>
     <fields>
@@ -23,6 +31,10 @@
         <relationshipLabel><!-- Federal Registers --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number_Text__c</name>
+    </fields>
+    <fields>
         <label><!-- Case Concat Text Values --></label>
         <name>Case_Concat_Text_Values__c</name>
     </fields>
@@ -32,10 +44,18 @@
     </fields>
     <fields>
         <label><!-- Commodity --></label>
+        <name>Commodity_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity Deprecated --></label>
         <name>Commodity__c</name>
     </fields>
     <fields>
         <label><!-- Country --></label>
+        <name>Country_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country Deprecated --></label>
         <name>Country__c</name>
     </fields>
     <fields>
@@ -84,6 +104,10 @@
     </fields>
     <fields>
         <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name Deprecated --></label>
         <name>Product_Short_Name__c</name>
     </fields>
     <fields>
@@ -92,6 +116,10 @@
     </fields>
     <fields>
         <label><!-- Product --></label>
+        <name>Product_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Deprecated --></label>
         <name>Product__c</name>
     </fields>
     <fields>
@@ -130,6 +158,10 @@
         <picklistValues>
             <masterLabel>Correction</masterLabel>
             <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Critical Circumstances</masterLabel>
+            <translation><!-- Critical Circumstances --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Final</masterLabel>
@@ -205,7 +237,19 @@
         <name>Ensure_there_is_a_parent</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You must have either a Petition, Investigation,  ADCVD Order, Suspension Agreement or Segment associated to this Federal Register. --></errorMessage>
+        <errorMessage><!-- You must have only one of the following: Petition, Investigation,  ADCVD Order, Suspension Agreement or Segment associated to this Federal Register. --></errorMessage>
         <name>Ensure_there_is_only_one_parent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- That Type is not allowed for a Federal Register of an ADCVD Order.  Please update your Federal Register Type. --></errorMessage>
+        <name>Limit_FR_Type_for_ADCVD_Order</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- That Type is not allowed for a Federal Register of a Sunset Review.  Please update your Federal Register Type. --></errorMessage>
+        <name>Limit_FR_Type_for_SSR</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Federal Register records can only be reparented by a System Administrator. --></errorMessage>
+        <name>Only_Admin_reparents_Federal_Register</name>
     </validationRules>
 </CustomObjectTranslation>

@@ -19,14 +19,6 @@
         <pageOrSobjectType>Asset</pageOrSobjectType>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Tab</actionName>
-        <content>CRM_Home_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>standard-home</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>Case_Participation_LPL</content>
@@ -74,6 +66,14 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Participation Lightning App</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Payment__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Admin_Payment_Record_Page</content>

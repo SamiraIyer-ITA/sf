@@ -62,6 +62,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -419,6 +420,23 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Status__c</fullName>
+        <description>The Status field on Staffing is derived from the parent record.</description>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(Petition__c)), TEXT(Petition__r.Status__c), 
+IF(NOT(ISBLANK(Investigation__c)), TEXT(Investigation__r.Status__c), 
+IF(NOT(ISBLANK(ADCVD_Order__c)), TEXT(ADCVD_Order__r.Status__c), 
+IF(NOT(ISBLANK(Segment__c)), TEXT(Segment__r.Status__c), 
+IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;, 
+&quot;No Parent&quot;)))))</formula>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Title__c</fullName>
         <externalId>false</externalId>
         <label>Title</label>
@@ -695,6 +713,19 @@ IF( Segment__c != null, Segment__r.Link__c ,
             <value>--AO-</value>
         </filters>
         <label>Policy and Legal Staffing Combined</label>
+    </listViews>
+    <listViews>
+        <fullName>Restaffing_Office_Director</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Parent__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Restaffing Office Director</label>
     </listViews>
     <listViews>
         <fullName>Staffing_Assignments_ClosedLocked_Queue_Staffing_Assignment</fullName>

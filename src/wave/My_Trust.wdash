@@ -1,0 +1,948 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 18,
+      "pages": [
+        {
+          "name": "4c7fdfe9-0e56-45cb-8674-7f1d876e98e5",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "number_6",
+              "row": 4,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "number_1",
+              "row": 4,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "number_2",
+              "row": 4,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "number_3",
+              "row": 4,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "number_4",
+              "row": 4,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "number_5",
+              "row": 4,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_3",
+              "row": 4,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_3",
+              "row": 17,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_1",
+              "row": 21,
+              "rowspan": 27,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_4",
+              "row": 16,
+              "rowspan": 33,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#2EC2BA",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_6",
+              "row": 52,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_2",
+              "row": 56,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_7",
+              "row": 51,
+              "rowspan": 26,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "rgb(234, 238, 244)",
+        "cellSpacingX": 16,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    },
+    {
+      "name": "Mobile",
+      "numColumns": 4,
+      "pages": [
+        {
+          "name": "4c7fdfe9-0e56-45cb-8674-7f1d876e98e5",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_2",
+              "row": 15,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_6",
+              "row": 18,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_1",
+              "row": 18,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 2,
+              "name": "number_2",
+              "row": 18,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 3,
+              "name": "number_3",
+              "row": 18,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_4",
+              "row": 28,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_5",
+              "row": 28,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_3",
+              "row": 18,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_3",
+              "row": 40,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_1",
+              "row": 45,
+              "rowspan": 17,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_4",
+              "row": 40,
+              "rowspan": 23,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#2EC2BA",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_6",
+              "row": 65,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_2",
+              "row": 70,
+              "rowspan": 17,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_7",
+              "row": 65,
+              "rowspan": 23,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_1",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_1",
+              "row": 8,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "listselector_1",
+              "row": 9,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [
+        "maxWidth(599)"
+      ],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "MaxAPT": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "MaxAPT",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"RUN_TIME\"]],\"pigql\":\"a = load \\\"ApexExecutionWithUsers\\\"; a = group a by all; a = foreach a generate (max('RUN_TIME')*0.001) as 'max';b = load \\\"APIWithUsers\\\"; b = group b by all; b = foreach b generate (max('RUN_TIME')*0.001) as 'max';d = load \\\"DashboardWithUsers\\\"; d = group d by all; d = foreach d generate (max('RUN_TIME')*0.001) as 'max';e = load \\\"LoginWithUsers\\\";e = group e by all; e = foreach e generate (max('RUN_TIME')*0.001) as 'max';g = load \\\"ReportWithUsers\\\"; g = group g by all; g = foreach g generate (max('RUN_TIME')*0.001) as 'max';i = load \\\"RestApiWithUsers\\\"; i = group i by all; i = foreach i generate (max('RUN_TIME')*0.001) as 'max';k = load \\\"URIWithUsers\\\"; k = group k by all; k = foreach k generate (max('RUN_TIME')*0.001) as 'max';l = load \\\"VisualforceRequestWithUsers\\\"; l = group l by all; l = foreach l generate (max('RUN_TIME')*0.001) as 'max';m = union a,b,d,e,g,i,k,l;m = group m by all;m = foreach m generate max('max') as 'max_RUN_TIME';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "DailySpeed": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DailySpeed",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"pigql\":\"a = load \\\"ApexExecutionWithUsers\\\";a = group a by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');a = foreach a generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', avg('RUN_TIME') as 'avg_RUN_TIME',  'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';b = load \\\"APIWithUsers\\\";b = group b by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');b = foreach b generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', avg('RUN_TIME') as 'avg_RUN_TIME', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';d = load \\\"DashboardWithUsers\\\";d = group d by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');d = foreach d generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', avg('RUN_TIME') as 'avg_RUN_TIME', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';e = load \\\"LoginWithUsers\\\";e = group e by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');e = foreach e generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', avg('RUN_TIME') as 'avg_RUN_TIME', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';g= load \\\"ReportWithUsers\\\";g = group g by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');g= foreach g generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', avg('RUN_TIME') as 'avg_RUN_TIME', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';i = load \\\"RestApiWithUsers\\\";i = group i by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');i = foreach i generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', avg('RUN_TIME') as 'avg_RUN_TIME', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';k = load \\\"URIWithUsers\\\";k = group k by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');k = foreach k generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', avg('RUN_TIME') as 'avg_RUN_TIME', 'EVENT_TYPE' as 'EVENT_TYPE',count() as 'count';l = load \\\"VisualforceRequestWithUsers\\\";l = group l by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');l = foreach l generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', avg('RUN_TIME') as 'avg_RUN_TIME', 'EVENT_TYPE' as 'EVENT_TYPE',count() as 'count';m = union a,b,d,e,g,i,k,l;\",\"values\":[],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"EVENT_TYPE\"],\"dimensions\":[\"TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day\"],\"order\":[]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "time"
+      }
+    },
+    "TotalCount": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Users"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TotalCount",
+      "query": {
+        "query": "{\"measures\":[[\"sum\",\"Total\"]],\"pigql\":\"a = load \\\"ApexExecutionWithUsers\\\"; a = group a by all; a = foreach a generate count() as 'count';b = load \\\"APIWithUsers\\\"; b = group b by all; b = foreach b generate count() as 'count';c = load \\\"ContentTransferWithUsers\\\"; c = group c by all; c = foreach c generate count() as 'count';d = load \\\"DashboardWithUsers\\\"; d = group d by all; d = foreach d generate count() as 'count';e = load \\\"LoginWithUsers\\\";e = group e by all; e = foreach e generate count() as 'count';f = load \\\"LoginAsWithUsers\\\"; f = group f by all; f = foreach f generate count() as 'count';g = load \\\"ReportWithUsers\\\"; g = group g by all; g = foreach g generate count() as 'count';h = load \\\"ReportExportWithUsers\\\"; h = group h by all; h = foreach h generate count() as 'count';i = load \\\"RestApiWithUsers\\\"; i = group i by all; i = foreach i generate count() as 'count';j = load \\\"LightningPageViewWithUsers\\\"; j = group j by all; j = foreach j generate count() as 'count';k = load \\\"URIWithUsers\\\"; k = group k by all; k = foreach k generate count() as 'count';l = load \\\"VisualforceRequestWithUsers\\\"; l = group l by all; l = foreach l generate count() as 'count';m = union a,b,c,d,e,f,g,h,i,j,k,l;m = group m by all;m = foreach m generate sum('count') as 'sum_Total';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "EventTypeSelector": {
+      "broadcastFacet": false,
+      "isGlobal": false,
+      "label": "EventTypeSelector",
+      "selectMode": "single",
+      "type": "staticflex",
+      "useGlobal": false,
+      "values": []
+    },
+    "MaxEPT": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "MaxEPT",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"EFFECTIVE_PAGE_TIME\"]],\"pigql\":\"a = load \\\"LightningPageViewWithUsers\\\"; a = group a by all; a = foreach a generate (max('EFFECTIVE_PAGE_TIME')*0.001) as 'max';b = group a by all;b = foreach b generate max('max') as 'max_EFFECTIVE_PAGE_TIME';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "CountUsers": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "CountUsers",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"USER_ID\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "AvgAPT": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "AvgAPT",
+      "query": {
+        "query": "{\"measures\":[[\"avg\",\"RUN_TIME\"]],\"pigql\":\"a = load \\\"ApexExecutionWithUsers\\\"; a = group a by all; a = foreach a generate (avg('RUN_TIME')*0.001) as 'avg';b = load \\\"APIWithUsers\\\"; b = group b by all; b = foreach b generate (avg('RUN_TIME')*0.001) as 'avg';d = load \\\"DashboardWithUsers\\\"; d = group d by all; d = foreach d generate (avg('RUN_TIME')*0.001) as 'avg';e = load \\\"LoginWithUsers\\\";e = group e by all; e = foreach e generate (avg('RUN_TIME')*0.001) as 'avg';g = load \\\"ReportWithUsers\\\"; g = group g by all; g = foreach g generate (avg('RUN_TIME')*0.001) as 'avg';i = load \\\"RestApiWithUsers\\\"; i = group i by all; i = foreach i generate (avg('RUN_TIME')*0.001) as 'avg';k = load \\\"URIWithUsers\\\"; k = group k by all; k = foreach k generate (avg('RUN_TIME')*0.001) as 'avg';l = load \\\"VisualforceRequestWithUsers\\\"; l = group l by all; l = foreach l generate (avg('RUN_TIME')*0.001) as 'avg';m = union a,b,d,e,g,i,k,l;m = group m by all;m = foreach m generate avg('avg') as 'avg_RUN_TIME';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "DailyCount": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DailyCount",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"pigql\":\"a = load \\\"ApexExecutionWithUsers\\\";a = group a by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');a = foreach a generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';b = load \\\"APIWithUsers\\\";b = group b by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');b = foreach b generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';c = load \\\"ContentTransferWithUsers\\\";c = group c by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');c = foreach c generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';d = load \\\"DashboardWithUsers\\\";d = group d by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');d = foreach d generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';e = load \\\"LoginWithUsers\\\";e = group e by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');e = foreach e generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';f = load \\\"LoginAsWithUsers\\\";f = group f by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');f = foreach f generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';g= load \\\"ReportWithUsers\\\";g = group g by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');g= foreach g generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';h = load \\\"ReportExportWithUsers\\\";h = group h by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');h = foreach h generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';i = load \\\"RestApiWithUsers\\\";i = group i by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');i = foreach i generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';j = load \\\"LightningPageViewWithUsers\\\";j = group j by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');j = foreach j generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';k = load \\\"URIWithUsers\\\";k = group k by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');k = foreach k generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';l = load \\\"VisualforceRequestWithUsers\\\";l = group l by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'EVENT_TYPE');l = foreach l generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'EVENT_TYPE' as 'EVENT_TYPE', count() as 'count';m = union a,b,c,d,e,f,g,h,i,j,k,l;\",\"values\":[],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"EVENT_TYPE\"],\"dimensions\":[\"TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day\"],\"order\":[]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "time"
+      }
+    },
+    "AvgEPT": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "AvgEPT",
+      "query": {
+        "query": "{\"measures\":[[\"avg\",\"EFFECTIVE_PAGE_TIME\"]],\"pigql\":\"a = load \\\"LightningPageViewWithUsers\\\"; a = group a by all; a = foreach a generate (avg('EFFECTIVE_PAGE_TIME')*0.001) as 'avg';b = group a by all;b = foreach b generate avg('avg') as 'avg_EFFECTIVE_PAGE_TIME';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "text_1": {
+      "parameters": {
+        "fontSize": 48,
+        "showActionMenu": true,
+        "text": "My Trust",
+        "textAlignment": "center",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "number_6": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_USER_ID",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "CountUsers",
+        "textAlignment": "left",
+        "title": "Active Users",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_5": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_DELTA",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "MaxEPT",
+        "textAlignment": "left",
+        "title": "Max EPT",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "avg_DELTA",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "AvgEPT",
+        "textAlignment": "left",
+        "title": "Avg EPT",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_RUN_TIME",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "MaxAPT",
+        "textAlignment": "left",
+        "title": "Max APT",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "avg_RUN_TIME",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "AvgAPT",
+        "textAlignment": "left",
+        "title": "Avg APT",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "container_1": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "number_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "sum_Total",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "TotalCount",
+        "textAlignment": "left",
+        "title": "Total Transactions",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "container_3": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_4": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_3": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Daily Transaction Count",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "text_2": {
+      "parameters": {
+        "fontSize": 16,
+        "showActionMenu": true,
+        "text": "A single place to quickly view the health of your org.",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "container_7": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "listselector_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "showActionMenu": false,
+        "step": "EventTypeSelector",
+        "title": "Type"
+      },
+      "type": "listselector"
+    },
+    "chart_2": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "exploreLink": false,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showActionMenu": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "DailySpeed"
+      },
+      "type": "chart"
+    },
+    "text_6": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Daily Transaction Speed (APT)",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_1": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showActionMenu": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "DailyCount"
+      },
+      "type": "chart"
+    }
+  }
+}

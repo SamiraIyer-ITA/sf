@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Petition__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Self-Initiated Petition Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Petition_Outcome__c</fieldNames>
+        <fieldNames>Name</fieldNames>
+        <info>&lt;p&gt;When Petition Outcome is completed, the Petition will update to the Closed status.&lt;/p&gt;&lt;p&gt;If sued on the outcome, the status will change to Litigation until the Litigation is resolved.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Petition_Filed__c</fieldNames>
+        <fieldNames>Initiation_Extension_of_days__c</fieldNames>
+        <fieldNames>Initiation_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Initiation_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Initiation_Signature__c</fieldNames>
+        <info>&lt;p&gt;In order to progress through a petition:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Add petition information including: case number, country, product name, short product name, case type, commodity and petition filed date.&lt;/li&gt;&lt;li&gt;Add petitioner information in the related organizations list.&lt;/li&gt;&lt;li&gt;Add staffing information in the staffing related list.&lt;/li&gt;&lt;li&gt;Add extensions to adjust the Calculated Initiation Signature Date.&lt;/li&gt;&lt;li&gt;Submit Issues and Concurrence package to the DAS office.  Input the dates that these actions were completed.  &lt;/li&gt;&lt;li&gt;If initiating an investigation, 1) input the Actual Initiation Signature Date, 2) select the appropriate Petition Outcome, and 3) go to the related list for investigations and create a new Investigation. When the initiation FR publishes and 4) input the publication information in the Federal Register related list.&lt;/li&gt;&lt;li&gt;If not initiating an investigation, select the appropriate Petition Outcome.&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>In Progress</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lotus_Notes_Litigation_ID__c</fieldNames>
+        <fieldNames>Litigation_YesNo__c</fieldNames>
+        <fieldNames>Litigation_Resolved__c</fieldNames>
+        <info>&lt;p&gt;If sued on the outcome of a petition, please complete the following:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Select Yes for Litigation.&lt;/li&gt;&lt;li&gt;Select No for Litigation Resolved until all Litigation activities are complete.&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Litigation</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Self_Initiated</recordTypeName>
+</PathAssistant>
