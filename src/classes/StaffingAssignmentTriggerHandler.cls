@@ -143,7 +143,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
         //add existing Staff to Map if not already in map (keep the newest version)
         //separate iteration over newlist needed to confirm newest version is kept
         for (Id parentId : returnMap.keySet()) {
-            if (staffMapper.getParentIdToStaffMap().get(parentId).isEmpty()) {continue;}
+            if (!staffMapper.getParentIdToStaffMap().containsKey(parentId) || staffMapper.getParentIdToStaffMap().get(parentId).isEmpty()) {continue;}
             for (Staffing_Assignment__c sa : staffMapper.getParentIdToStaffMap().get(parentId).values()) {
                 if (existingStaffRecords.contains(sa.Id)) {continue;}//skip if already in the returnMap
                 List<Staffing_Assignment__c> tempList = new List<Staffing_Assignment__c>();
