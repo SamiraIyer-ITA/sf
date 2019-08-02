@@ -35,7 +35,7 @@
                                             <!-- / HEADING AREA -->
                                         </div>
 
-                                        <!-- ACTION BUTTONS -->
+                                        <!-- ACTION BUTTONS  -->
                                                 <div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
                                                     <div class="slds-button-group" role="group">
                                                         <apex:commandButton alt="Due to an error, you must go back to the staffing assignment page" styleClass="slds-button slds-button--neutral" status="status" value="Back to Staffing Assignments" id="Back-ltng" reRender="form-ltng, pm-ltng" oncomplete="refreshAfterQuickSave();" rendered="{!!noParentError && saveError}"/>
