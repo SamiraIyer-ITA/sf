@@ -15,7 +15,7 @@ public class StaffingAssignmentExtensionTest {
     * are updated correctly
     * 2. Test to ensure that staffing assignments are created on insert
     * 3. Test to ensure the UI is correctly detected
-    *************************************************/
+    **************************************************/
 
     static Petition__c p {
         get {
