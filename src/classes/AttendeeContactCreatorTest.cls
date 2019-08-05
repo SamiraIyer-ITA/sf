@@ -96,21 +96,11 @@
         System.assertEquals(alpha.Id, contacts[0].AccountId);
 
         // existing company, new contact
-        System.assertEquals('Sarah', contacts[2].FirstName);
-        System.assertEquals('Sword', contacts[2].LastName);
-        System.assertEquals('sarahsword@beta.gov', contacts[2].Email);
-        System.assertEquals('555-3333', contacts[2].Phone);
-        System.assertEquals(contacts[2].Id, records[1].getProperties().get('Contact__c'));
-        System.assertEquals(beta.Id, contacts[2].AccountId);
-
-        // new company, new contact
-        System.assertEquals('Jim', contacts[3].FirstName);
-        System.assertEquals('Thomas', contacts[3].LastName);
-        System.assertEquals('jim.thomas@charlie.gov', contacts[3].Email);
-        System.assertEquals('555-2222', contacts[3].Phone);
-        System.assertEquals(contacts[3].Id, records[2].getProperties().get('Contact__c'));
-        System.assertEquals('Charlie Group', contacts[3].Account.Name);
-        System.assertNotEquals(alpha.Id, contacts[3].AccountId);
-        System.assertNotEquals(beta.Id, contacts[3].AccountId);
+        System.assertEquals('Tom', contacts[1].FirstName);
+        System.assertEquals('Fiddle', contacts[1].LastName);
+        System.assertEquals('sarahsword@beta.gov', contacts[1].Email);
+        System.assertEquals('555-3333', contacts[1].Phone);
+        System.assertEquals(contacts[1].Id, records[1].getProperties().get('Contact__c'));
+        System.assertEquals(beta.Id, contacts[1].AccountId);
     }
 }

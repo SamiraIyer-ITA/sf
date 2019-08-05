@@ -30,8 +30,9 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         Set<String> acceptedMeetingEmails = new Set<String>();
 
         for(valence.RecordInFlight record : records) {
-            Map<String, Object> props = record.getProperties();
+            Map<String, Object> props = record.getOriginalProperties();
             String meetingType = 'B2B';
+            String meetingStatus = String.valueOf(props.get('status'));
 
             if(props.get('Attendee__c') != null) {
                 String attendeeId = String.valueOf(props.get('Attendee__c'));
@@ -40,7 +41,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                     meetingType = 'G2B';
                     emailsG2B.add(attendeeEmail);
                 }
-                String meetingStatus = String.valueOf(props.get('Status__c'));
+
                 if(meetingStatus != null) {
                     if(meetingStatus == '2') {
                         acceptedMeetingAttendeeIds.add(attendeeId);
@@ -56,7 +57,6 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                     meetingType = 'G2B';
                     emailsG2B.add(hostEmail);
                 }
-                String meetingStatus = String.valueOf(props.get('Status__c'));
                 if(meetingStatus != null) {
                     if(meetingStatus == '2') {
                         acceptedMeetingAttendeeIds.add(hostId);
@@ -176,7 +176,9 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                                         WhatId = myCase.Id,
                                         Type = 'G2B',
                                         Status = 'Completed');
+                tasksToInsert.add(thisTask);
             }
         }
+        Database.insert(tasksToInsert,false);
     }
 }
