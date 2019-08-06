@@ -51,11 +51,11 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
          * Eventtia doesn't have any sort of discovery endpoint for tables, so we've hardcoded them here.
          */
         return new List<valence.Table>{
-            valence.Table.create('events').withLabel('Event').build(),
-            valence.Table.create('business_conferences').withLabel('Business Conference').build(),
-            valence.Table.create('business_conference_participants').withLabel('Participant').build(),
-            valence.Table.create('business_conference_meetings').withLabel('Meeting').build(),
-            valence.Table.create('attendee_types').withLabel('Attendee Type').build()
+                valence.Table.create('events').withLabel('Event').build(),
+                valence.Table.create('business_conferences').withLabel('Business Conference').build(),
+                valence.Table.create('business_conference_participants').withLabel('Participant').build(),
+                valence.Table.create('business_conference_meetings').withLabel('Meeting').build(),
+                valence.Table.create('attendee_types').withLabel('Attendee Type').build()
         };
     }
 
@@ -157,7 +157,7 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
             if(apiContext.urlFragments.isEmpty())
                 apiContext.urlFragments.add(nextPage.substringAfter('/v3/'));
             else
-                apiContext.urlFragments.add(0, nextPage.substringAfter('/v3/'));
+                    apiContext.urlFragments.add(0, nextPage.substringAfter('/v3/'));
         }
 
         /*
@@ -168,8 +168,11 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
         // for the participants endpoint we extra included items into a keyed map by type and id
         Map<String, valence.JSONParse> includedItems = new Map<String, valence.JSONParse>();
         if('business_conference_participants'.equalsIgnoreCase(tableName)) {
-            for(valence.JSONParse includedItemNode : result.get('included').asList()) {
-                includedItems.put(includedItemNode.get('type').getStringValue() + '_' + includedItemNode.get('id').getStringValue(), includedItemNode);
+            Object includedNodeList = ((Map<String,Object>)result.getValue()).get('included');
+            if(includedNodeList != null) {
+                for(valence.JSONParse includedItemNode : result.get('included').asList()) {
+                    includedItems.put(includedItemNode.get('type').getStringValue() + '_' + includedItemNode.get('id').getStringValue(), includedItemNode);
+                }
             }
         }
 
@@ -202,7 +205,7 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
         // 1) no filter
         if('events'.equalsIgnoreCase(context.linkSourceName)) {
             return new List<String>{
-                'events'
+                    'events'
             };
         }
 
