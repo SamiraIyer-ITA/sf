@@ -44,7 +44,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
 
                 if(meetingStatus != null) {
                     if(meetingStatus == '2') {
-                        acceptedMeetingAttendeeIds.add(attendeeId);
+                        acceptedMeetingAttendeeIds.add((Id)attendeeId);
                         acceptedMeetingEmails.add(attendeeEmail);
                     }
                 }
@@ -59,7 +59,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 }
                 if(meetingStatus != null) {
                     if(meetingStatus == '2') {
-                        acceptedMeetingAttendeeIds.add(hostId);
+                        acceptedMeetingAttendeeIds.add((Id)hostId);
                         acceptedMeetingEmails.add(hostEmail);
                     }
                 }
@@ -139,15 +139,17 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 if(orgOwnerId != null) {
                     newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
                             Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
-                            OwnerId = orgOwnerId
+                            OwnerId = orgOwnerId,
+                            ContactId = thisContact.Id
                     );
+                    emailToCase.put(thisContact.Email,newCase);
                 } else {
                     newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
-                            Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.'
+                            Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
+                            ContactId = thisContact.Id
                     );
+                    emailToCase.put(thisContact.Email,newCase);
                 }
-
-                emailToCase.put(thisContact.Email,newCase);
             }
         }
         Database.insert(emailToCase.values(),false);
