@@ -10,12 +10,6 @@
         <field>FK_$WIN__c.Organization__c</field>
     </columns>
     <columns>
-        <field>FK_$WIN__c.First_Line_Approval__c</field>
-    </columns>
-    <columns>
-        <field>FK_$WIN__c.Final_Line_Approval__c</field>
-    </columns>
-    <columns>
         <field>FK_CUST_RECORDTYPE</field>
     </columns>
     <columns>
@@ -23,16 +17,10 @@
     </columns>
     <filter>
         <criteriaItems>
-            <column>WIN_Contributor__c.WIN_Contributor_ID__c</column>
-            <isUnlocked>false</isUnlocked>
-            <operator>equals</operator>
-            <value>005t0000000Xgbs</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>FK_$WIN__c.Request_WIN_Removal__c</column>
+            <column>WIN_Contributor__c.Run_As_User__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>0</value>
+            <value>1</value>
         </criteriaItems>
     </filter>
     <format>Tabular</format>
@@ -44,8 +32,6 @@
     <reportType>CustomEntity$WIN_Contributor__c@WIN_Contributor__c.WIN__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
     <sortColumn>FK_$WIN__c.Actual_Create_Date__c</sortColumn>
     <sortOrder>Desc</sortOrder>
     <timeFrameFilter>
