@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "027f272c-e8b2-490e-a644-e82a4060f7be",
+          "name": "92ae76ef-41d0-48d5-a4f4-b6fb8ceae793",
           "navigationHidden": false,
           "widgets": [
             {
@@ -371,7 +371,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "027f272c-e8b2-490e-a644-e82a4060f7be",
+          "name": "92ae76ef-41d0-48d5-a4f4-b6fb8ceae793",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1126,6 +1126,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which IP Addresses Are Admins Using to Login As Another User?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1135,6 +1136,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Often Are Admins Logging In As Other Users?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1152,6 +1154,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1161,6 +1164,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 48,
+        "showActionMenu": true,
         "text": "Login-As",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1199,6 +1203,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1220,6 +1225,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows admins logging in as other users from Login As event data. Use this dashboard to see how admins are using the Login As feature in your org.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1273,6 +1279,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1322,6 +1329,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1352,6 +1360,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "AdminUsers",
         "title": "Admins"
       },
@@ -1363,6 +1372,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "URIs",
         "title": "Pages"
       },
@@ -1374,6 +1384,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles",
         "title": "Profiles"
       },
@@ -1385,6 +1396,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "UserNames",
         "title": "Users"
       },
@@ -1396,6 +1408,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IPs",
         "title": "IPs"
       },
@@ -1404,6 +1417,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Users Are Admins Logging In As?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1416,6 +1430,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles",
         "title": "Roles"
       },
@@ -1427,6 +1442,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData"
       },
       "type": "table"
@@ -1438,6 +1454,7 @@
         "measureField": "unique_CLIENT_IP",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "Client_IP",
         "textAlignment": "left",
         "title": "Unique IPs",
@@ -1453,6 +1470,7 @@
         "measureField": "unique_DELEGATED_USER_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "KPIAdminUsers",
         "textAlignment": "left",
         "title": "Admin Users",
@@ -1468,6 +1486,7 @@
         "measureField": "unique_USER_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "EndUsers",
         "textAlignment": "left",
         "title": "End Users",
@@ -1483,6 +1502,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalTransactions",
         "textAlignment": "left",
         "title": "Total Logins",
@@ -1497,6 +1517,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates",
         "title": "Dates"
       },

@@ -33,6 +33,7 @@
         "maxColumnWidth": 300,
         "minColumnWidth": 40,
         "mode": "variable",
+        "showActionMenu": true,
         "step": "grain"
       },
       "type": "table"

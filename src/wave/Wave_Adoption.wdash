@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "16c10518-3463-4642-ac39-db866d07e296",
+          "name": "7bf31700-00b3-46ff-b125-b7fa6af00094",
           "navigationHidden": false,
           "widgets": [
             {
@@ -413,7 +413,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "16c10518-3463-4642-ac39-db866d07e296",
+          "name": "7bf31700-00b3-46ff-b125-b7fa6af00094",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1110,6 +1110,7 @@
     "text_10": {
       "parameters": {
         "fontSize": 64,
+        "showActionMenu": true,
         "text": "Analytics Adoption",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1159,6 +1160,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Who Is Using Analytics?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1205,6 +1207,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1249,6 +1252,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1284,6 +1288,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Dashboard Interactions by Type",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1293,6 +1298,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Is Analytics Performing for Users?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1310,6 +1316,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Long Are Users Spending in Analytics Assets?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1348,6 +1355,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1377,6 +1385,7 @@
     "text_7": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Analytics Assets Are Most Popular?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1409,6 +1418,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1465,6 +1475,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1486,6 +1497,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Analytics Assets Change the Most?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1495,6 +1507,7 @@
     "text_9": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows Analytics usage and performance information from Wave Change, Wave Interaction, and Wave Performance event data. In this dashboard, EPT is Experienced Page Time.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1527,6 +1540,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1577,6 +1591,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1607,6 +1622,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Type",
         "title": "Type"
       },
@@ -1615,6 +1631,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Dashboard Changes by Type",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1628,6 +1645,7 @@
         "measureField": "max_EPT",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxEPT",
         "textAlignment": "left",
         "title": "Max EPT (ms)",
@@ -1643,6 +1661,7 @@
         "measureField": "avg_EPT",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgEPT",
         "textAlignment": "left",
         "title": "Avg EPT (ms)",
@@ -1658,6 +1677,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "NumberWaveInteractions",
         "textAlignment": "left",
         "title": "Total Interactions",
@@ -1673,6 +1693,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "NumberWaveChanges",
         "textAlignment": "left",
         "title": "Total Changes",
@@ -1687,6 +1708,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users",
         "title": "Users"
       },

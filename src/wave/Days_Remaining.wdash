@@ -194,6 +194,7 @@
         },
         "inner": 60,
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,

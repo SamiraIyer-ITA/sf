@@ -638,7 +638,8 @@
         "compact": false,
         "expanded": true,
         "exploreLink": false,
-        "instant": true
+        "instant": true,
+        "showActionMenu": false
       },
       "type": "listselector"
     },
@@ -647,13 +648,15 @@
         "compact": false,
         "expanded": true,
         "exploreLink": false,
-        "instant": true
+        "instant": true,
+        "showActionMenu": false
       },
       "type": "listselector"
     },
     "text_1": {
       "parameters": {
         "fontSize": 24,
+        "showActionMenu": true,
         "text": "ITA Wide Chatter Engagement\n",
         "textAlignment": "center",
         "textColor": "#2EC2BA"
@@ -666,6 +669,7 @@
         "exploreLink": true,
         "numberColor": "#335779",
         "numberSize": 32,
+        "showActionMenu": true,
         "textAlignment": "right",
         "titleColor": "#335779",
         "titleSize": 16
@@ -678,6 +682,7 @@
         "exploreLink": true,
         "numberColor": "#335779",
         "numberSize": 32,
+        "showActionMenu": true,
         "textAlignment": "right",
         "titleColor": "#335779",
         "titleSize": 16
@@ -699,6 +704,7 @@
         "exploreLink": true,
         "numberColor": "#335779",
         "numberSize": 32,
+        "showActionMenu": true,
         "textAlignment": "right",
         "titleColor": "#335779",
         "titleSize": 16
@@ -711,6 +717,7 @@
         "exploreLink": true,
         "numberColor": "#335779",
         "numberSize": 32,
+        "showActionMenu": true,
         "textAlignment": "right",
         "titleColor": "#335779",
         "titleSize": 16
@@ -720,7 +727,15 @@
     "pillbox_2": {
       "parameters": {
         "compact": false,
-        "exploreLink": false
+        "exploreLink": false,
+        "fontSize": 16,
+        "selectedTab": {
+          "backgroundColor": "#677A97",
+          "borderEdges": [],
+          "textColor": "#FFFFFF"
+        },
+        "showActionMenu": true,
+        "textColor": "#5C7A99"
       },
       "type": "pillbox"
     },
@@ -736,7 +751,15 @@
     "pillbox_1": {
       "parameters": {
         "compact": false,
-        "exploreLink": false
+        "exploreLink": false,
+        "fontSize": 16,
+        "selectedTab": {
+          "backgroundColor": "#677A97",
+          "borderEdges": [],
+          "textColor": "#FFFFFF"
+        },
+        "showActionMenu": true,
+        "textColor": "#5C7A99"
       },
       "type": "pillbox"
     },
@@ -746,6 +769,7 @@
         "totalValue": "computeTotal",
         "totalLabel": "",
         "showValues": true,
+        "showActionMenu": true,
         "measureAxis2": {
           "showTitle": true,
           "showAxis": true,
@@ -780,6 +804,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 18,
+        "showActionMenu": true,
         "text": "Local Chatter Groups\n",
         "textAlignment": "center",
         "textColor": "#000000"
@@ -792,6 +817,7 @@
         "totalValue": "computeTotal",
         "totalLabel": "",
         "showValues": true,
+        "showActionMenu": true,
         "measureAxis2": {
           "showTitle": true,
           "showAxis": true,
@@ -830,6 +856,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "CollaborationGroup_N_1"
       },
       "type": "listselector"
@@ -837,6 +864,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Top Chatter Groups",
         "textAlignment": "center",
         "textColor": "#F2F6FA"
@@ -846,6 +874,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 18,
+        "showActionMenu": true,
         "text": "Industry Related Chatter Groups\n",
         "textAlignment": "center",
         "textColor": "#000000"
@@ -858,6 +887,7 @@
         "totalValue": "computeTotal",
         "totalLabel": "",
         "showValues": true,
+        "showActionMenu": true,
         "measureAxis2": {
           "showTitle": true,
           "showAxis": true,
@@ -923,6 +953,7 @@
           "align": "center"
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "showTitle": true,
           "showAxis": true,
@@ -953,6 +984,7 @@
         "totalValue": "computeTotal",
         "totalLabel": "",
         "showValues": true,
+        "showActionMenu": true,
         "measureAxis2": {
           "showTitle": true,
           "showAxis": true,
@@ -1018,6 +1050,7 @@
           "align": "center"
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "showTitle": true,
           "showAxis": true,

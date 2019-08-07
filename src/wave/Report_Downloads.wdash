@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "469d7024-12a1-4767-b3e7-1a28901ba1b7",
+          "name": "26a34929-5fac-4cf8-9d5d-398dca020719",
           "navigationHidden": false,
           "widgets": [
             {
@@ -376,7 +376,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "469d7024-12a1-4767-b3e7-1a28901ba1b7",
+          "name": "26a34929-5fac-4cf8-9d5d-398dca020719",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1121,6 +1121,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 48,
+        "showActionMenu": true,
         "text": "Report Downloads",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1138,6 +1139,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "From Which User Agents Are Reports Downloaded?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1193,6 +1195,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1233,6 +1236,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Many Reports Are Downloaded?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1242,6 +1246,7 @@
     "text_7": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1251,7 +1256,6 @@
     "chart_2": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": "",
         "showMeasureTitle": false,
         "legend": {
           "showHeader": true,
@@ -1260,10 +1264,7 @@
           "position": "right-top",
           "inside": true
         },
-        "showTotal": true,
         "visualizationType": "pie",
-        "theme": "wave",
-        "step": "DownloadsByUserAgent",
         "exploreLink": true,
         "title": {
           "label": "Reports",
@@ -1275,7 +1276,12 @@
           "type": "x",
           "chartsPerLine": 4
         },
-        "inner": 70
+        "inner": 70,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "showTotal": true,
+        "theme": "wave",
+        "step": "DownloadsByUserAgent"
       },
       "type": "chart"
     },
@@ -1311,6 +1317,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1332,6 +1339,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "From Which IP Addresses Are Reports Downloaded?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1364,6 +1372,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1391,6 +1400,7 @@
     "text_9": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows report download trends by user agent and IP from Report and Report Export event data. Use this dashboard to focus on a specific user segment by profile, role, or even drill down to a specific user. Inact",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1403,6 +1413,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IsActive",
         "title": "Is Active"
       },
@@ -1414,6 +1425,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles",
         "title": "Profiles"
       },
@@ -1425,6 +1437,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "UserNames",
         "title": "Users"
       },
@@ -1436,6 +1449,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IPs",
         "title": "IPs"
       },
@@ -1444,6 +1458,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Reports Are Downloaded Most?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1456,6 +1471,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles",
         "title": "Roles"
       },
@@ -1467,6 +1483,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData"
       },
       "type": "table"
@@ -1478,6 +1495,7 @@
         "measureField": "sum_download_rate",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "ReportExportsPercent",
         "textAlignment": "left",
         "title": "Export % of Views",
@@ -1493,6 +1511,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "ReportExportsCount",
         "textAlignment": "left",
         "title": "Report Exports",
@@ -1508,6 +1527,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "ReportViews",
         "textAlignment": "left",
         "title": "Report Views",
@@ -1522,6 +1542,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates",
         "title": "Dates"
       },
