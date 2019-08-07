@@ -60,7 +60,7 @@
                         'company' => 'Beta'
                 }),
                 new valence.RecordInFlight(new Map<String, Object>{ // new company, new contact
-                        'email' => 'jim.thomas@charlie.gov',
+                        'email' => 'jim.thomas@charlie.org',
                         'FirstName__c' => 'Jim',
                         'LastName__c' => 'Thomas',
                         'company' => 'Charlie Group',
@@ -83,8 +83,8 @@
         List<Contact> contacts = [SELECT Id, AccountId, Account.Name, FirstName, LastName, Email, Phone FROM Contact ORDER BY LastName];
         // Bean, Fiddle, Sword, Thomas
 
-        //2 unique, non-gov contacts should be created: Susie and Tom
-        System.assertEquals(2, contacts.size());
+        //3 unique, non-gov contacts should be created: Susie, Tom, Jim
+        System.assertEquals(3, contacts.size());
 
         // existing contact
         System.assertEquals('Susan', contacts[0].FirstName); // make sure we didn't change Susan to Susie
@@ -98,9 +98,14 @@
         // existing company, new contact
         System.assertEquals('Tom', contacts[1].FirstName);
         System.assertEquals('Fiddle', contacts[1].LastName);
-        System.assertEquals('sarahsword@beta.gov', contacts[1].Email);
-        System.assertEquals('555-3333', contacts[1].Phone);
-        System.assertEquals(contacts[1].Id, records[1].getProperties().get('Contact__c'));
+        System.assertEquals(null, contacts[1].Email);
         System.assertEquals(beta.Id, contacts[1].AccountId);
+
+        // existing company, new contact
+        System.assertEquals('Jim', contacts[2].FirstName);
+        System.assertEquals('Thomas', contacts[2].LastName);
+        System.assertEquals('jim.thomas@charlie.org', contacts[2].Email);
+        System.assertEquals('555-2222', contacts[2].Phone);
+        System.assertEquals(contacts[2].Id, records[2].getProperties().get('Contact__c'));
     }
 }
