@@ -41,6 +41,12 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
             //Do not create Organization or Contact if Attendee has a .gov email
             String company = String.valueOf(record.getProperties().get('Company__c'));
             String email = String.valueOf(record.getProperties().get('Email__c'));
+            String oldtitle = String.valueOf(record.getProperties().get('Title__c'));
+            String oldtelephone = String.valueOf(record.getProperties().get('Telephone__c'));
+            String newtelephone = (oldtelephone != null && oldtelephone.length() > 39 ? oldtelephone.subString(0, 39) : oldtelephone);
+            record.getProperties().put('Telephone__c',newtelephone);
+            String newtitle = (oldtitle != null && oldtitle.length() > 100? oldtitle.abbreviate(100) : oldtitle);
+            record.getProperties().put('Title__c',newtitle);
             if(email == null) {
                 email = String.valueOf(record.getOriginalProperties().get('email'));
             }
@@ -97,14 +103,12 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
                 //Contact doesn't already exist, create it and map it
                 valence.RecordInFlight record = emailToAttendee.get(contactEmail);
                 Map<String, Object> props = record.getProperties();
-                String title = String.valueOf(props.get('Title__c'));
-                String telephone = String.valueOf(props.get('Telephone__c'));
                 Contact newContact = new Contact(
                         FirstName = String.valueOf(props.get('FirstName__c')),
                         LastName = String.valueOf(props.get('LastName__c')),
                         Email = contactEmail,
-                        Phone = (telephone != null && telephone.length() > 39 ? telephone.subString(0, 39) : telephone),
-                        Title = (title != null && title.length() > 100? title.abbreviate(100) : title),
+                        Phone = String.valueOf(props.get('Telephone__c')),
+                        Title = String.valueOf(props.get('Title__c')),
                         MailingStreet = String.valueOf(props.get('MailingStreet__c')),
                         MailingCity = String.valueOf(props.get('MailingCity__c')),
                         MailingState = String.valueOf(props.get('MailingState__c')),
@@ -112,8 +116,6 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
                         MailingCountry = String.valueOf(props.get('MailingCountry__c')),
                         RecordTypeId = contactRecordTypeId
                 );
-                props.put('Telephone__c',telephone);
-                props.put('Title__c',title);
                 if(organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)) != null) {
                     //this conditional is to prevent a very rare edge case with a null pointer exception
                     newContact.AccountId = organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)).Id;
@@ -131,7 +133,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         //Update Attendee record with newly created or existing Contact Id (as long as they are not .gov)
         for(valence.RecordInFlight record : records) {
             String email = String.valueOf(record.getOriginalProperties().get('email'));
-            if(email != null && email.toLowerCase().endsWith('.gov') == false) {
+            if(email != null && email.toLowerCase().endsWith('trade.gov') == false) {
                 record.getProperties().put('Contact__c', contactEmailToExistingContact.get(email).Id);
             }
         }
