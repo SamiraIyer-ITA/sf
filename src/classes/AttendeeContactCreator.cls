@@ -133,7 +133,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         //Update Attendee record with newly created or existing Contact Id (as long as they are not .gov)
         for(valence.RecordInFlight record : records) {
             String email = String.valueOf(record.getOriginalProperties().get('email'));
-            if(email != null && email.toLowerCase().endsWith('.gov') == false) {
+            if(email != null && email.toLowerCase().endsWith('trade.gov') == false) {
                 record.getProperties().put('Contact__c', contactEmailToExistingContact.get(email).Id);
             }
         }
