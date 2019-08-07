@@ -37,7 +37,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             String meetingStatus = String.valueOf(props.get('Status__c'));
             DateTime currentDateTime = null;
             try {
-                currentDateTime = JSON.deserialize('\"'+String.valueOf(record.getProperties().get('StartDateTime__c'))+'\"', DateTime.class);
+                currentDateTime = (DateTime)JSON.deserialize('\"'+String.valueOf(record.getProperties().get('StartDateTime__c'))+'\"', DateTime.class);
             } catch(Exception e) {
                 currentDateTime = null;
             }
