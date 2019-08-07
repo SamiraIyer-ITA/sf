@@ -628,6 +628,28 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A0401PermSetReparentsFR</fullName>
+        <active>true</active>
+        <description>FR records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
+        <errorConditionFormula>AND(
+			$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+			Locked__c == false,
+			NOT( ISNEW() ),
+			OR(
+			ISCHANGED(ADCVD_Case__c),
+			ISCHANGED(ADCVD_Order__c),
+			ISCHANGED(Suspension_Agreement__c),
+			ISCHANGED(Investigation__c),
+			ISCHANGED(Petition__c),
+			ISCHANGED(Segment__c)
+			),
+			NOT(
+			$Permission.ADCVD_App_Modify_Parents
+			)
+			)</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case, ADCVD Order, Petition, Investigation, Suspension Agreement, or Segment.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
@@ -638,7 +660,7 @@ PRIORVALUE(Locked__c) == true
     </validationRules>
     <validationRules>
         <fullName>Cannot_reparent_a_federal_register</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( $Profile.Name != &apos;System Administrator&apos;,
 OR( ISCHANGED( Investigation__c ),
 ISCHANGED( Petition__c ),
@@ -724,7 +746,7 @@ CASE(Type__c,
     </validationRules>
     <validationRules>
         <fullName>Only_Admin_reparents_Federal_Register</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Federal Register records can only be reparented by a System Administrator.</description>
         <errorConditionFormula>AND(
     $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,

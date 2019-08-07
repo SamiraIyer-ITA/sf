@@ -413,6 +413,24 @@
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A0901PermSetReparentsRecusal</fullName>
+        <active>true</active>
+        <description>Recusal records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
+        <errorConditionFormula>AND(
+			$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+			Locked__c == false,
+			NOT( ISNEW() ),
+			OR(
+			ISCHANGED(ADCVD_Case__c),
+			ISCHANGED(Related_Organization__c)
+			),
+			NOT(
+			$Permission.ADCVD_App_Modify_Parents
+			)
+			)</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case or Interested Organization.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
@@ -431,7 +449,7 @@ PRIORVALUE(Locked__c) == true
     </validationRules>
     <validationRules>
         <fullName>Only_Admin_can_reparent_Recusal</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Only a System Administrator can reparent a Recusal record.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
 Locked__c == false, 

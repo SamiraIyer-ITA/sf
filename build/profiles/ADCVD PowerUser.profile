@@ -4,10 +4,5 @@
         <editable>false</editable>
         <field>Staffing_Assignment__c.Office__c</field>
         <readable>true</readable>
-      </fieldPermissions>
-      <fieldPermissions>
-        <editable>true</editable>
-        <field>Recusal__c.Recusal_Parent__c</field>
-        <readable>true</readable>
     </fieldPermissions>
 </Profile>
