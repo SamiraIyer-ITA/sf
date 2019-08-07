@@ -9,7 +9,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
 
     public void process(valence.LinkContext context, List<valence.RecordInFlight> records) {
         Set<Id> attendeeIds = new Set<Id>();
-        Map<String,String> attendeesToEmails = new Map<String,String>();
+        Map<Id,String> attendeesToEmails = new Map<Id,String>();
 
         for(valence.RecordInFlight record : records) {
             Map<String, Object> props = record.getProperties();
@@ -30,16 +30,21 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         Set<String> acceptedMeetingEmails = new Set<String>();
 
         for(valence.RecordInFlight record : records) {
-            Map<String, Object> props = record.getOriginalProperties();
+            Map<String, Object> orgprops = record.getOriginalProperties();
+            Map<String, Object> props = record.getProperties();
             String meetingType = 'B2B';
-            String meetingStatus = String.valueOf(props.get('status'));
-
+            String meetingStatus = String.valueOf(props.get('Status__c'));
             if(props.get('Attendee__c') != null) {
                 String attendeeId = String.valueOf(props.get('Attendee__c'));
-                String attendeeEmail = attendeesToEmails.get(attendeeId);
+                String attendeeEmail = attendeesToEmails.get((Id)attendeeId);
                 if(attendeeEmail != null && attendeeEmail.toLowerCase().endsWith('.gov') == true) {
                     meetingType = 'G2B';
                     emailsG2B.add(attendeeEmail);
+                    if(props.get('Host__c') != null) {
+                        String hostId = String.valueOf(props.get('Host__c'));
+                        String hostEmail = attendeesToEmails.get((Id) hostId);
+                        emailsG2B.add(hostEmail);
+                    }
                 }
 
                 if(meetingStatus != null) {
@@ -52,10 +57,15 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             }
             if(props.get('Host__c') != null) {
                 String hostId = String.valueOf(props.get('Host__c'));
-                String hostEmail = attendeesToEmails.get(hostId);
+                String hostEmail = attendeesToEmails.get((Id)hostId);
                 if(hostEmail != null && hostEmail.toLowerCase().endsWith('.gov') == true) {
                     meetingType = 'G2B';
                     emailsG2B.add(hostEmail);
+                    if(props.get('Attendee__c') != null) {
+                        String attendeeId = String.valueOf(props.get('Attendee__c'));
+                        String attendeeEmail = attendeesToEmails.get((Id) attendeeId);
+                        emailsG2B.add(attendeeEmail);
+                    }
                 }
                 if(meetingStatus != null) {
                     if(meetingStatus == '2') {
@@ -90,8 +100,9 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             campaignIdToCampaignName.put(myCampaign.Id,myCampaign.Name);
         }
 
-        for(Contact myContact : [SELECT Id FROM Contact WHERE Email IN: acceptedMeetingEmails]) {
-                acceptedMeetingContactIds.add(myContact.Id);
+        //not all attendees have emails
+        for(Contact myContact : [SELECT Id,Email FROM Contact WHERE Email IN: acceptedMeetingEmails]) {
+            acceptedMeetingContactIds.add(myContact.Id);
         }
 
         //make a list of contacts that already have existing cases
@@ -173,11 +184,11 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 String campaignName = (campaignId != null ? ' '+campaignIdToCampaignName.get(campaignId) : ' Campaign');
                 String contactCountry = (myCase.ContactId != null ? ' - '+myCase.Contact.MailingCountry : '');
                 Task thisTask = new Task(Subject='G2B'+campaignName+contactCountry,
-                                        OwnerId = myCase.OwnerId,
-                                        WhoId = myCase.ContactId,
-                                        WhatId = myCase.Id,
-                                        Type = 'G2B',
-                                        Status = 'Completed');
+                        OwnerId = myCase.OwnerId,
+                        WhoId = myCase.ContactId,
+                        WhatId = myCase.Id,
+                        Type = 'G2B',
+                        Status = 'Completed');
                 tasksToInsert.add(thisTask);
             }
         }
