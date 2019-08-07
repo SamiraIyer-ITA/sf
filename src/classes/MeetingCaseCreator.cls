@@ -28,18 +28,22 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         Set<Id> acceptedMeetingAttendeeIds = new Set<Id>();
         Set<String> emailsG2B = new Set<String>();
         Set<String> acceptedMeetingEmails = new Set<String>();
+        Map<String,Set<Date>> emailToStartDate = new Map<String,Set<Date>>();
 
         for(valence.RecordInFlight record : records) {
             Map<String, Object> orgprops = record.getOriginalProperties();
             Map<String, Object> props = record.getProperties();
             String meetingType = 'B2B';
             String meetingStatus = String.valueOf(props.get('Status__c'));
+            DateTime currentDateTime = (DateTime) record.getProperties().get('StartDateTime__c');
             if(props.get('Attendee__c') != null) {
                 String attendeeId = String.valueOf(props.get('Attendee__c'));
                 String attendeeEmail = attendeesToEmails.get((Id)attendeeId);
+
                 if(attendeeEmail != null && attendeeEmail.toLowerCase().endsWith('.gov') == true) {
                     meetingType = 'G2B';
                     emailsG2B.add(attendeeEmail);
+
                     if(props.get('Host__c') != null) {
                         String hostId = String.valueOf(props.get('Host__c'));
                         String hostEmail = attendeesToEmails.get((Id) hostId);
@@ -50,7 +54,33 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 if(meetingStatus != null) {
                     if(meetingStatus == '2') {
                         acceptedMeetingAttendeeIds.add((Id)attendeeId);
-                        acceptedMeetingEmails.add(attendeeEmail);
+                        if(attendeeEmail != null) {
+                            acceptedMeetingEmails.add(attendeeEmail);
+
+                            Set<Date> attendeeDateSet = emailToStartDate.get(attendeeEmail);
+                            if (attendeeDateSet == null) {
+                                attendeeDateSet = new Set<Date>();
+                            }
+                            if (currentDateTime != null) {
+                                attendeeDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
+                            }
+                            emailToStartDate.put(attendeeEmail, attendeeDateSet);
+
+                            if (props.get('Host__c') != null) {
+                                String hostId = String.valueOf(props.get('Host__c'));
+                                String hostEmail = attendeesToEmails.get((Id) hostId);
+
+                                Set<Date> hostDateSet = emailToStartDate.get(hostEmail);
+                                if (hostDateSet == null) {
+                                    hostDateSet = new Set<Date>();
+                                }
+                                if (currentDateTime != null) {
+                                    hostDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
+                                }
+                                emailToStartDate.put(hostEmail, hostDateSet);
+
+                            }
+                        }
                     }
                 }
 
@@ -70,7 +100,32 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 if(meetingStatus != null) {
                     if(meetingStatus == '2') {
                         acceptedMeetingAttendeeIds.add((Id)hostId);
-                        acceptedMeetingEmails.add(hostEmail);
+                        if(hostEmail != null) {
+                            acceptedMeetingEmails.add(hostEmail);
+
+                            Set<Date> hostDateSet = emailToStartDate.get(hostEmail);
+                            if (hostDateSet == null) {
+                                hostDateSet = new Set<Date>();
+                            }
+                            if (currentDateTime != null) {
+                                hostDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
+                            }
+                            emailToStartDate.put(hostEmail, hostDateSet);
+
+                            if(props.get('Attendee__c') != null) {
+                                String attendeeId = String.valueOf(props.get('Attendee__c'));
+                                String attendeeEmail = attendeesToEmails.get((Id) attendeeId);
+
+                                Set<Date> attendeeDateSet = emailToStartDate.get(attendeeEmail);
+                                if (attendeeDateSet == null) {
+                                    attendeeDateSet = new Set<Date>();
+                                }
+                                if (currentDateTime != null) {
+                                    attendeeDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
+                                }
+                                emailToStartDate.put(attendeeEmail, attendeeDateSet);
+                            }
+                        }
                     }
                 }
             }
@@ -83,6 +138,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         Set<Id> acceptedMeetingContactIds = new Set<Id>();
         Set<Id> contactsWithCases = new Set<Id>();
         Map<Id,String> businessConferenceIdToCampaignName = new Map<Id,String>();
+        Map<Id,Id> businessConferenceIdToCampaignId = new Map<Id,Id>();
         Map<Id,String> businessConferenceIdToOutgoingCommunicationEmail = new Map<Id,String>();
         Map<String,Id> communicationEmailToUserId = new Map<String,Id>();
         Map<String,Case> emailToCase = new Map<String,Case>();
@@ -113,6 +169,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         //gather information about campaigns and business conferences for later use
         for(Business_Conference__c networkingTrack : [SELECT Id,Campaign__r.Name,Campaign__c,Campaign__r.Outgoing_Communication_Email__c FROM Business_Conference__c WHERE Id IN: emailToBusinessConferenceId.values()]) {
             if(networkingTrack.Campaign__c != null) {
+                businessConferenceIdToCampaignId.put(networkingTrack.Id,networkingTrack.Campaign__c);
                 businessConferenceIdToCampaignName.put(networkingTrack.Id,networkingTrack.Campaign__r.Name);
                 businessConferenceIdToOutgoingCommunicationEmail.put(networkingTrack.Id,networkingTrack.Campaign__r.Outgoing_Communication_Email__c);
             }
@@ -129,6 +186,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 Id businessConferenceId = emailToBusinessConferenceId.get(thisContact.Email);
                 String campaignName = businessConferenceIdToCampaignName.get(businessConferenceId);
                 String orgName = '';
+                Id campaignId = businessConferenceIdToCampaignId.get(businessConferenceId);
 
                 Id orgOwnerId = null;
                 //Case owner is associated org owner
@@ -149,15 +207,17 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 Case newCase = null;
                 if(orgOwnerId != null) {
                     newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
-                            Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
+                            Description = 'U.S. Exhibitor/Client registered for value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
                             OwnerId = orgOwnerId,
-                            ContactId = thisContact.Id
+                            ContactId = thisContact.Id,
+                            Campaign_Name__c = campaignId
                     );
                     emailToCase.put(thisContact.Email,newCase);
                 } else {
                     newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
-                            Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
-                            ContactId = thisContact.Id
+                            Description = 'U.S. Exhibitor/Client registered for value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
+                            ContactId = thisContact.Id,
+                            Campaign_Name__c = campaignId
                     );
                     emailToCase.put(thisContact.Email,newCase);
                 }
@@ -172,24 +232,23 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             acceptedMeetingCases.add(thisCase);
         }
 
-        Set<Id> casesWithExistingTasks = new Set<Id>();
-        for(Task thisTask : [SELECT Id,WhatId FROM Task WHERE WhatId IN: existingCaseIds]) {
-            casesWithExistingTasks.add(thisTask.WhatId);
-        }
-
         List<Task> tasksToInsert = new List<Task>();
         for(Case myCase : acceptedMeetingCases) {
-            if(!casesWithExistingTasks.contains(myCase.Id) && myCase.ContactId != null && myCase.Contact.Email != null && emailsG2B.contains(myCase.Contact.Email)) {
-                Id campaignId = emailToCampaignId.get(myCase.Contact.Email);
-                String campaignName = (campaignId != null ? ' '+campaignIdToCampaignName.get(campaignId) : ' Campaign');
-                String contactCountry = (myCase.ContactId != null ? ' - '+myCase.Contact.MailingCountry : '');
-                Task thisTask = new Task(Subject='G2B'+campaignName+contactCountry,
-                        OwnerId = myCase.OwnerId,
-                        WhoId = myCase.ContactId,
-                        WhatId = myCase.Id,
-                        Type = 'G2B',
-                        Status = 'Completed');
-                tasksToInsert.add(thisTask);
+            if(myCase.ContactId != null && myCase.Contact.Email != null && emailsG2B.contains(myCase.Contact.Email)) {
+                for(Date myDate : emailToStartDate.get(myCase.Contact.Email)) {
+                    Id campaignId = emailToCampaignId.get(myCase.Contact.Email);
+                    String campaignName = (campaignId != null ? ' '+campaignIdToCampaignName.get(campaignId) : ' Campaign');
+                    String contactCountry = (myCase.ContactId != null ? ' - '+myCase.Contact.MailingCountry : '');
+                    Task thisTask = new Task(Subject='G2B Meeting at'+campaignName+contactCountry,
+                            OwnerId = myCase.OwnerId,
+                            WhoId = myCase.ContactId,
+                            WhatId = myCase.Id,
+                            Type = 'G2B',
+                            Status = 'Completed',
+                            ActivityDate = myDate
+                    );
+                    tasksToInsert.add(thisTask);
+                }
             }
         }
         Database.insert(tasksToInsert,false);

@@ -44,7 +44,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
             if(email == null) {
                 email = String.valueOf(record.getOriginalProperties().get('email'));
             }
-            if(email != null && !email.toLowerCase().endsWith('.gov')) {
+            if(email != null && !email.toLowerCase().endsWith('trade.gov')) {
                 if(!String.isBlank(company)) {
                     organizationNames.add(company);
                 }
@@ -112,6 +112,8 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
                         MailingCountry = String.valueOf(props.get('MailingCountry__c')),
                         RecordTypeId = contactRecordTypeId
                 );
+                props.put('Telephone__c',telephone);
+                props.put('Title__c',title);
                 if(organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)) != null) {
                     //this conditional is to prevent a very rare edge case with a null pointer exception
                     newContact.AccountId = organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)).Id;
