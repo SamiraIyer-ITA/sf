@@ -35,107 +35,60 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             Map<String, Object> props = record.getProperties();
             String meetingType = 'B2B';
             String meetingStatus = String.valueOf(props.get('Status__c'));
+
             DateTime currentDateTime = null;
             try {
-                currentDateTime = (DateTime)JSON.deserialize('\"'+String.valueOf(record.getProperties().get('StartDateTime__c'))+'\"', DateTime.class);
-            } catch(Exception e) {
+                currentDateTime = (DateTime) JSON.deserialize('\"' + String.valueOf(record.getProperties().get('StartDateTime__c')) + '\"', DateTime.class);
+            } catch (Exception e) {
                 currentDateTime = null;
             }
 
-            if(props.get('Attendee__c') != null) {
-                String attendeeId = String.valueOf(props.get('Attendee__c'));
-                String attendeeEmail = attendeesToEmails.get((Id)attendeeId);
+            String attendeeId = (props.get('Attendee__c') == null ? null : String.valueOf(props.get('Attendee__c')));
+            String hostId = (props.get('Host__c') == null ? null : String.valueOf(props.get('Host__c')));
+            String attendeeEmail = attendeesToEmails.get((Id) attendeeId);
+            String hostEmail = attendeesToEmails.get((Id) hostId);
 
-                if(attendeeEmail != null && attendeeEmail.toLowerCase().endsWith('.gov') == true) {
-                    meetingType = 'G2B';
+            if ((attendeeEmail != null && attendeeEmail.toLowerCase().endsWith('.gov')) || (hostEmail != null && hostEmail.toLowerCase().endsWith('.gov'))) {
+                record.getProperties().put('Type__c', 'G2B');
+                if (attendeeEmail != null) {
                     emailsG2B.add(attendeeEmail);
-
-                    if(props.get('Host__c') != null) {
-                        String hostId = String.valueOf(props.get('Host__c'));
-                        String hostEmail = attendeesToEmails.get((Id) hostId);
-                        emailsG2B.add(hostEmail);
-                    }
                 }
-
-                if(meetingStatus != null) {
-                    if(meetingStatus == '2') {
-                        acceptedMeetingAttendeeIds.add((Id)attendeeId);
-                        if(attendeeEmail != null) {
-                            acceptedMeetingEmails.add(attendeeEmail);
-
-                            Set<Date> attendeeDateSet = emailToStartDate.get(attendeeEmail);
-                            if (attendeeDateSet == null) {
-                                attendeeDateSet = new Set<Date>();
-                            }
-                            if (currentDateTime != null) {
-                                attendeeDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
-                            }
-                            emailToStartDate.put(attendeeEmail, attendeeDateSet);
-
-                            if (props.get('Host__c') != null) {
-                                String hostId = String.valueOf(props.get('Host__c'));
-                                String hostEmail = attendeesToEmails.get((Id) hostId);
-
-                                Set<Date> hostDateSet = emailToStartDate.get(hostEmail);
-                                if (hostDateSet == null) {
-                                    hostDateSet = new Set<Date>();
-                                }
-                                if (currentDateTime != null) {
-                                    hostDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
-                                }
-                                emailToStartDate.put(hostEmail, hostDateSet);
-
-                            }
-                        }
-                    }
-                }
-
-            }
-            if(props.get('Host__c') != null) {
-                String hostId = String.valueOf(props.get('Host__c'));
-                String hostEmail = attendeesToEmails.get((Id)hostId);
-                if(hostEmail != null && hostEmail.toLowerCase().endsWith('.gov') == true) {
-                    meetingType = 'G2B';
+                if (hostEmail != null) {
                     emailsG2B.add(hostEmail);
-                    if(props.get('Attendee__c') != null) {
-                        String attendeeId = String.valueOf(props.get('Attendee__c'));
-                        String attendeeEmail = attendeesToEmails.get((Id) attendeeId);
-                        emailsG2B.add(attendeeEmail);
-                    }
                 }
-                if(meetingStatus != null) {
-                    if(meetingStatus == '2') {
-                        acceptedMeetingAttendeeIds.add((Id)hostId);
-                        if(hostEmail != null) {
-                            acceptedMeetingEmails.add(hostEmail);
-
-                            Set<Date> hostDateSet = emailToStartDate.get(hostEmail);
-                            if (hostDateSet == null) {
-                                hostDateSet = new Set<Date>();
-                            }
-                            if (currentDateTime != null) {
-                                hostDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
-                            }
-                            emailToStartDate.put(hostEmail, hostDateSet);
-
-                            if(props.get('Attendee__c') != null) {
-                                String attendeeId = String.valueOf(props.get('Attendee__c'));
-                                String attendeeEmail = attendeesToEmails.get((Id) attendeeId);
-
-                                Set<Date> attendeeDateSet = emailToStartDate.get(attendeeEmail);
-                                if (attendeeDateSet == null) {
-                                    attendeeDateSet = new Set<Date>();
-                                }
-                                if (currentDateTime != null) {
-                                    attendeeDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
-                                }
-                                emailToStartDate.put(attendeeEmail, attendeeDateSet);
-                            }
-                        }
-                    }
-                }
+            } else {
+                record.getProperties().put('Type__c', 'B2B');
             }
-            record.getProperties().put('Type__c',meetingType);
+
+            if (meetingStatus == '1') {
+                record.getProperties().put('Status__c', 'Requested');
+            } else if (meetingStatus == '2') {
+                if (attendeeEmail != null) {
+                    acceptedMeetingEmails.add(attendeeEmail);
+                    Set<Date> attendeeDateSet = emailToStartDate.get(attendeeEmail);
+                    if (attendeeDateSet == null) {
+                        attendeeDateSet = new Set<Date>();
+                    }
+                    if (currentDateTime != null) {
+                        attendeeDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
+                    }
+                    emailToStartDate.put(attendeeEmail, attendeeDateSet);
+                }
+                if (hostEmail != null) {
+                    acceptedMeetingEmails.add(hostEmail);
+                    Set<Date> hostDateSet = emailToStartDate.get(hostEmail);
+                    if (hostDateSet == null) {
+                        hostDateSet = new Set<Date>();
+                    }
+                    if (currentDateTime != null) {
+                        hostDateSet.add(date.newinstance(currentDateTime.year(), currentDateTime.month(), currentDateTime.day()));
+                    }
+                    emailToStartDate.put(hostEmail, hostDateSet);
+                }
+                record.getProperties().put('Status__c', 'Accepted');
+            } else if (meetingStatus == '3') {
+                record.getProperties().put('Status__c', 'Rejected');
+            }
         }
 
         Map<String,Id> emailToBusinessConferenceId = new Map<String,Id>();
@@ -245,7 +198,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                     Id campaignId = emailToCampaignId.get(myCase.Contact.Email);
                     String campaignName = (campaignId != null ? ' '+campaignIdToCampaignName.get(campaignId) : ' Campaign');
                     String contactCountry = (myCase.ContactId != null ? ' - '+myCase.Contact.MailingCountry : '');
-                    Task thisTask = new Task(Subject='G2B Meeting at'+campaignName+contactCountry,
+                    Task thisTask = new Task(Subject='G2B Meeting at'+campaignName+' '+myDate.year()+contactCountry,
                             OwnerId = myCase.OwnerId,
                             WhoId = myCase.ContactId,
                             WhatId = myCase.Id,
