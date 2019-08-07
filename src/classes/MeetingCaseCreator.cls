@@ -35,7 +35,13 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             Map<String, Object> props = record.getProperties();
             String meetingType = 'B2B';
             String meetingStatus = String.valueOf(props.get('Status__c'));
-            DateTime currentDateTime = (DateTime) record.getProperties().get('StartDateTime__c');
+            DateTime currentDateTime = null;
+            try {
+                currentDateTime = JSON.deserialize('\"'+String.valueOf(record.getProperties().get('StartDateTime__c'))+'\"', DateTime.class);
+            } catch(Exception e) {
+                currentDateTime = null;
+            }
+
             if(props.get('Attendee__c') != null) {
                 String attendeeId = String.valueOf(props.get('Attendee__c'));
                 String attendeeEmail = attendeesToEmails.get((Id)attendeeId);
