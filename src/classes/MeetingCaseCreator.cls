@@ -66,6 +66,9 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 if (attendeeEmail != null) {
                     acceptedMeetingEmails.add(attendeeEmail);
                     Set<Date> attendeeDateSet = emailToStartDate.get(attendeeEmail);
+                    if(attendeeId != null) {
+                        acceptedMeetingAttendeeIds.add(attendeeId);
+                    }
                     if (attendeeDateSet == null) {
                         attendeeDateSet = new Set<Date>();
                     }
@@ -77,6 +80,9 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 if (hostEmail != null) {
                     acceptedMeetingEmails.add(hostEmail);
                     Set<Date> hostDateSet = emailToStartDate.get(hostEmail);
+                    if(hostId != null) {
+                        acceptedMeetingAttendeeIds.add(hostId);
+                    }
                     if (hostDateSet == null) {
                         hostDateSet = new Set<Date>();
                     }
