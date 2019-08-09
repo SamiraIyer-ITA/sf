@@ -1811,6 +1811,66 @@ public class TEST_PrivacyShield{
 		}
 	}
 
+	static testMethod void TEST_MustCheckBeforeProceedingTrue(){
+		//IMPORTANT:  This test is run as a Community User
+		/*
+			TEST STORY: TRAC-33
+			10-18-18: This test case has been implemented to increase code coverage for a quick deployment.
+					  This test class does not cover any particular scenario.
+		*/
+
+		//SETUP DATA
+		Account account = TestUtils.createAccount(true);
+		Contact contact = TestUtils.createContact('Smith', account.id , true);
+		User u = TestUtils.createCommunityUser('smith@sm.ith', contact.id);
+
+		List<PaymentSettings__c> PaymentSettings = TestUtils.createPaymentSettings();
+
+		Program__c program = TestUtils.createProgram('Privacy Shield', true);
+
+		Product2 productEU = TestUtils.createProduct('EU-US', true);
+		Product2 productSW = TestUtils.createProduct('SW-US', true);
+
+		Framework__c frameworkEU = new Framework__c(name = 'EU-US', product__c = productEU.id, program__c = program.id, isActive__c = true);
+		Framework__c frameworkSW = new Framework__c(name = 'SW-US', product__c = productSW.id, program__c = program.id, isActive__c = true);
+		insert(new Framework__c[]{frameworkEU, frameworkSW});
+
+		TestUtils.createTPMLs(new List<id>{frameworkEU.id, frameworkSW.id});
+		Pricebook2 pricebook = TestUtils.createPricebook(program.id);
+		List<Product2> products = new Product2[]{productEU, productSW};
+		List<PricebookEntry> PBEs = TestUtils.createPricebookEntries(products, new Id[]{Test.getStandardPricebookId(), pricebook.id});
+
+		OrderItem myCurrentItem = new OrderItem(Product2Id = productEU.Id);
+
+		//Contact does not have an existing Participant__c record
+		System.runAs(u){
+			ApexPages.currentPage().getParameters().put('program', program.id);
+			ps_enhanced_controller controller = new ps_enhanced_controller();
+
+			//select all products
+			for(SelectOption so : controller.getAvailableFrameworks()){
+				controller.selectedFrameworks.add(so.getValue());
+			}
+            
+            Participation__c participation = new Participation__c(Postal_Code__c = '55555',Organization__c = account.Id);
+            insert participation;
+            Asset myAsset = new Asset(Name='EU-US', Participant__c = participation.Id, AccountId= account.Id, contactId=contact.Id,Product2Id=productEU.Id,Status='Active',Framework__c=frameworkEU.Id);
+            insert myAsset;
+            Asset myAsset2 = new Asset(Name='SW-US', Participant__c = participation.Id, AccountId= account.Id, contactId=contact.Id,Product2Id=productSW.Id,Status='Active',Framework__c=frameworkSW.Id);
+            insert myAsset2;
+            participation = [SELECT Name,Postal_Code__c,Organization__c,Level_of_Sales__c,(select Name,Participant__c,AccountId,ContactId,Product2Id,Product2.Name,Status,Affirmation__c from Assets__r) from Participation__c];
+            //test
+            participation.Assets__r[0].Framework__r = frameworkEU;
+            participation.Assets__r[1].Framework__r = frameworkSW;
+            controller.participation = participation;
+            controller.mustCheckBeforeProceeding = true;
+			//start the application
+			test.startTest();
+			controller.start();
+			test.stopTest();
+		}
+	}
+
 	static testMethod void TEST_BATTERY(){
 		//IMPORTANT:  This test is run as a Community User
 		/*
@@ -1854,12 +1914,16 @@ public class TEST_PrivacyShield{
             
             Participation__c participation = new Participation__c(Postal_Code__c = '55555',Organization__c = account.Id);
             insert participation;
-            Asset myAsset = new Asset(Name='Asset', Participant__c = participation.Id, AccountId= account.Id, contactId=contact.Id,Product2Id=productEU.Id,Status='Active',Framework__c=frameworkEU.Id);
+            Asset myAsset = new Asset(Name='EU-US', Participant__c = participation.Id, AccountId= account.Id, contactId=contact.Id,Product2Id=productEU.Id,Status='Active',Framework__c=frameworkEU.Id);
             insert myAsset;
-            participation = [SELECT Name,Postal_Code__c,Organization__c,(select Name,Participant__c,AccountId,ContactId,Product2Id,Status,Affirmation__c from Assets__r) from Participation__c];
-            participation.Assets__r[0].Product2 = productEU;
+            Asset myAsset2 = new Asset(Name='SW-US', Participant__c = participation.Id, AccountId= account.Id, contactId=contact.Id,Product2Id=productSW.Id,Status='Active',Framework__c=frameworkSW.Id);
+            insert myAsset2;
+            participation = [SELECT Name,Postal_Code__c,Organization__c,Level_of_Sales__c,(select Name,Participant__c,AccountId,ContactId,Product2Id,Product2.Name,Status,Affirmation__c from Assets__r) from Participation__c];
+            //test
+            participation.Assets__r[0].Framework__r = frameworkEU;
+            participation.Assets__r[1].Framework__r = frameworkSW;
             controller.participation = participation;
-            
+            controller.mustCheckBeforeProceeding = false;
 			//start the application
 			controller.start();
 			//User attempts to complete Step_1 for the Application.
