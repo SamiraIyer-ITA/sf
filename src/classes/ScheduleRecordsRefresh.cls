@@ -3,20 +3,20 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 
 // This class runs a scheduled job at 1AM every morning
 
-	public Integer emailAllowed = 0;
-	public String successText = '';
-	public String failureText = '';
-	public AppConfig__c AC = AppConfig__c.getValues('default');
+	public static Integer emailAllowed = 0;
+	public static String successText = '';
+	public static String failureText = '';
+	public static AppConfig__c AC = AppConfig__c.getValues('default');
 	public static String wc = '(Next_Announcement_Date__c IN :dateSet7Days OR Next_Due_to_DAS_Deadline__c IN :dateSet7Days OR Next_Office_Deadline__c IN :dateSet7Days)';
 
 	//object lists for update
-	@TestVisible private List<Petition__c> petitionsToRefresh = new List<Petition__c> ();
-	@TestVisible private List<Investigation__c> investigationsToRefresh = new List<Investigation__c> ();
-	@TestVisible private List<Segment__c> segmentsToRefresh = new List<Segment__c> ();
-	@TestVisible private List<Litigation__c> litigationsToRefresh = new List<Litigation__c> ();
+	@TestVisible private static List<Petition__c> petitionsToRefresh = new List<Petition__c> ();
+	@TestVisible private static List<Investigation__c> investigationsToRefresh = new List<Investigation__c> ();
+	@TestVisible private static List<Segment__c> segmentsToRefresh = new List<Segment__c> ();
+	@TestVisible private static List<Litigation__c> litigationsToRefresh = new List<Litigation__c> ();
 
 	//set for cases associated with each object
-	@TestVisible private Set<Id> caseIdSet = new Set<Id>();
+	@TestVisible private static Set<Id> caseIdSet = new Set<Id>();
 
 	public void execute(SchedulableContext sc) {
 		checkLimits();
@@ -32,7 +32,8 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		return returnSet;
 	}
 
-	@TestVisible public void refreshDueDates() {
+		@future
+	@TestVisible public static void refreshDueDates() {
 
 		//1 - Loop through all objects to get lists to update later
 
@@ -99,7 +100,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		finish();
 	}
 
-	private void updateSObjectLists(String sObjectName, List<SObject> l) {
+	private static void updateSObjectLists(String sObjectName, List<SObject> l) {
 		List<Database.SaveResult> srList = Database.update(l, false);
 		for (Integer k = 0; k < l.size(); k++) {
 			Database.SaveResult sr = srList[k];
@@ -109,7 +110,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		}
 
 	}
-	public void finish() {
+	public static void finish() {
 		String emailtext = '';
 		if (String.isEmpty(successText) && String.isEmpty(failureText)) emailtext = 'No records were processed for update during this execution.';
 		if (String.isNotEmpty(successText) && String.isEmpty(failureText)) emailtext = 'Operation completely successful. No errors reported.';
@@ -142,7 +143,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		if (emailAllowed > 2) Messaging.reserveSingleEmailCapacity(2);
 	}
 
-	public void writeMessages(Database.SaveResult sr, Id objectId, String objectLabel) {
+	public static void writeMessages(Database.SaveResult sr, Id objectId, String objectLabel) {
 		if (sr.isSuccess()) {
 			// Operation was successful, so get the ID of the record that was processed
 			successText = successText + 'Successfully updated ' + objectLabel + ': ' + URL.getSalesforceBaseUrl().toExternalForm() + '/' + sr.getId() + '\n';
@@ -156,7 +157,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		}
 	}
 
-	private Boolean toggleScheduleRefresh(Boolean b) {
+	private static Boolean toggleScheduleRefresh(Boolean b) {
 		if (b) {
 			return false;
 		} else {

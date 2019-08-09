@@ -32,6 +32,7 @@ public class ScheduleRecordRefreshTest {
 		ScheduleRecordsRefresh srr = new ScheduleRecordsRefresh();
 		srr.refreshDueDates();
 
+		Test.stopTest();
 		System.assertEquals(1, srr.petitionsToRefresh.size());
 		System.assertEquals(1, srr.segmentsToRefresh.size());
 		System.assertEquals(1, srr.investigationsToRefresh.size());
@@ -42,8 +43,7 @@ public class ScheduleRecordRefreshTest {
 		System.assertEquals(false, srr.segmentsToRefresh.get(0).Schedule_Refresh__c);
 		System.assertEquals(true, srr.investigationsToRefresh.get(0).Schedule_Refresh__c);
 		System.assertEquals(true, srr.litigationsToRefresh.get(0).Schedule_Refresh__c);
-
-		Test.stopTest();
+		
 	}
 
 	@testSetup static void dataSetup() {
