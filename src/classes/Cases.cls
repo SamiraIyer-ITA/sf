@@ -10,10 +10,6 @@ public class Cases extends fflib_SObjectDomain implements ICases {
 		return (ICases) fflibext_Application.Domain.newInstance(records);
 	}
 
-	public static ICases newInstance(Set<Id> recordIds){
-		return (ICases) fflibext_Application.Domain.newInstance(recordIds);
-	}
-
 	public Cases(List<Case> sObjectList) {
 		super(sObjectList);
 	}

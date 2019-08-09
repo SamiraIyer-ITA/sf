@@ -12,13 +12,7 @@ private class CasesTest {
 		List<Case> caseList  = new List<Case>();
 		caseList.add(new Case());
 		ICases iCase = (ICases) Cases.newInstance(caseList);
-        Set<Id> caseSet = new Set<Id>();
-        Case caseTemp = new Case();
-        insert caseTemp;
-        caseSet.add(caseTemp.Id);
-        ICases iCaseSet = (ICases) Cases.newInstance(caseSet);
 		System.assertNotEquals(iCase, null, 'Interface returned as null and should not have');
-        System.assertNotEquals(caseSet, null, 'Interface returned as null and should not have');
 	}
 
 	@isTest
