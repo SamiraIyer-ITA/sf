@@ -342,11 +342,12 @@
     <listViews>
         <fullName>Active_Recusals</fullName>
         <columns>NAME</columns>
+        <columns>ADCVD_Case__c</columns>
         <columns>User__c</columns>
-        <columns>End_Date__c</columns>
-        <columns>ADCVD_Order__c</columns>
-        <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
         <columns>Reason_for_Recusal__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -359,14 +360,33 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>ADCVD_Case__c</columns>
         <columns>User__c</columns>
-        <columns>End_Date__c</columns>
-        <columns>ADCVD_Order__c</columns>
-        <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
         <columns>Reason_for_Recusal__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Inactive_Recusals</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>User__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Reason_for_Recusal__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>End_Date__c</field>
+            <operation>lessThan</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Inactive Recusals</label>
     </listViews>
     <nameField>
         <displayFormat>R-{000000}</displayFormat>
