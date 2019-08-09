@@ -12,7 +12,13 @@ private class CasesTest {
 		List<Case> caseList  = new List<Case>();
 		caseList.add(new Case());
 		ICases iCase = (ICases) Cases.newInstance(caseList);
+        Set<Id> caseSet = new Set<Id>();
+        Case caseTemp = new Case();
+        insert caseTemp;
+        caseSet.add(caseTemp.Id);
+        ICases iCaseSet = (ICases) Cases.newInstance(caseSet);
 		System.assertNotEquals(iCase, null, 'Interface returned as null and should not have');
+        System.assertNotEquals(caseSet, null, 'Interface returned as null and should not have');
 	}
 
 	@isTest
@@ -82,6 +88,151 @@ private class CasesTest {
 		System.assertEquals('contact@success.com',myCase2.Organization_Contact__c);
 		Test.stopTest();
 	}
+    
+    @IsTest
+    static void testUpdateAssests_Update_SuccessfullyClosed() {
+        Test.startTest();
+        updateAssetCasesByStatus('Successfully Closed');
+        Test.stopTest();
+    }
+    
+    @IsTest
+    static void testUpdateAssests_Update_AdministrativelyClosed() {
+        Test.startTest();
+        updateAssetCasesByStatus('Administratively Closed');
+        Test.stopTest();
+    }
+    
+    @IsTest
+    static void testUpdateAssests_Update_Denied() {
+        Test.startTest();
+        updateAssetCasesByStatus('Denied');
+        Test.stopTest();
+    }
+    
+    static void updateAssetCasesByStatus(String status) {
+        List<Case> cases = getUpdateAssetCases(10);
+        for (Case c: cases) {
+            c.Status = status;
+        }
+		update cases;     
+    }
+    
+    static List<Case> getUpdateAssetCases(Integer casesToAdd) {
+        List<Account> accounts = new List<Account>();
+		for (Integer i = 0; i < casesToAdd; i++) {
+			Account acct = new Account(Name = 'TestAccount' + i, Website = 'www.test' + i + '.com');
+			accounts.add(acct);
+		}
+		insert accounts;
+		// Create related contacts
+		List<Contact> contacts = new List<Contact>();
+		for (Integer j = 0; j < accounts.size(); j++) {
+			Contact con = new Contact(
+				FirstName = 'Test ' + j,
+				LastName = 'Test ' + j,
+				AccountId = accounts[j].Id,
+				Email = 'test' + j + '@test.org.com'
+			);
+			contacts.add(con);
+		}
+		insert contacts;
+		// Create applications
+		List<Participation__c> applications = new List<Participation__c>();
+		for (Account account: accounts) {
+			applications.add(
+				new Participation__c(
+					Organization__c = account.Id,
+					Postal_Code__c = '55555'
+				)
+			);
+		}
+		insert applications;
+		List<Participant_Contact__c> applicationContacts = new List<Participant_Contact__c>();
+		for (Integer k = 0; k < applications.size(); k++) {
+			applicationContacts.add(
+				new Participant_Contact__c(
+					Participant__c = applications[k].Id,
+					Role__c = 'Primary Contact',
+					Contact__c = contacts[k].Id
+				)
+			);
+		}
+		insert applicationContacts;
+		// Create product, framework, and pricebook
+		Product2 product = new Product2(Name = 'Privacy Shield Product', IsActive = true);
+		insert product;
+		Program__c program = new Program__c(isActive__c = true);
+		insert program;
+		Framework__c framework = new Framework__c(Product__c = product.Id, Program__c = program.Id, isActive__c = true);
+		insert framework;
+		Id pricebookId = Test.getStandardPricebookId();
+		PricebookEntry standardPricebookEntry = new PricebookEntry(
+			Pricebook2Id = pricebookId,
+			Product2Id = product.Id,
+			UnitPrice = 1000,
+			IsActive = true
+		);
+		insert standardPricebookEntry;
+		Pricebook2 pricebook = TestUtils.createPricebook('Privacy Shield', true, true);
+		PricebookEntry pricebookEntry = new PricebookEntry(
+			IsActive = true,
+			UnitPrice = 1000,
+			Pricebook2Id = pricebook.Id,
+			Product2Id = product.Id
+		);
+		insert pricebookEntry;
+		// Create orders
+		List<Order> orders = new List<Order>();
+		for (Participation__c application: applications) {
+			orders.add(
+				new Order(
+					Participant__c = application.Id,
+					AccountId = application.Organization__c,
+					Status = 'In Progress',
+					Description = 'Privacy Shield',
+					EffectiveDate = Date.today(),
+					Pricebook2Id = pricebook.Id
+				)
+			);
+		}
+		insert orders;
+		// Create order items
+		List<OrderItem> orderItems = new List<OrderItem>();
+		for (Order order: orders) {
+			orderItems.add(
+				new OrderItem(
+					OrderId = order.Id,
+					Quantity = 1,
+					PricebookEntryId = pricebookEntry.Id,
+					UnitPrice = pricebookEntry.UnitPrice
+				)
+			);
+		}
+		insert orderItems;
+        List<Asset> assets = new List<Asset>();
+        List<Case> cases = new List<Case>();
+		for (Integer l = 0; l < orders.size(); l++) {
+			assets.add(
+				new Asset(
+					Name = 'Test Asset ' + l,
+					AccountId = orders[l].AccountId,
+					Product2Id = product.Id,
+					ContactId = contacts[l].Id
+				)
+			);
+            cases.add(
+                new Case(
+                    AccountId = orders[l].AccountId,
+                    ContactId = contacts[l].Id,
+                    Order__c = orders[l].Id
+                )
+            );
+		}
+		insert assets;
+        insert cases;
+        return cases;
+    }
 
 	@IsTest
 	static void testCasesTrigger_InsertCaseRecord_TriggerIsCovered() {

@@ -1828,8 +1828,6 @@ public class TEST_PrivacyShield{
 
 		Program__c program = TestUtils.createProgram('Privacy Shield', true);
 
-		Pricebook2 pricebook = TestUtils.createPricebook(program.id);
-
 		Product2 productEU = TestUtils.createProduct('EU-US', true);
 		Product2 productSW = TestUtils.createProduct('SW-US', true);
 
@@ -1838,7 +1836,7 @@ public class TEST_PrivacyShield{
 		insert(new Framework__c[]{frameworkEU, frameworkSW});
 
 		TestUtils.createTPMLs(new List<id>{frameworkEU.id, frameworkSW.id});
-
+		Pricebook2 pricebook = TestUtils.createPricebook(program.id);
 		List<Product2> products = new Product2[]{productEU, productSW};
 		List<PricebookEntry> PBEs = TestUtils.createPricebookEntries(products, new Id[]{Test.getStandardPricebookId(), pricebook.id});
 
@@ -1853,6 +1851,15 @@ public class TEST_PrivacyShield{
 			for(SelectOption so : controller.getAvailableFrameworks()){
 				controller.selectedFrameworks.add(so.getValue());
 			}
+            
+            Participation__c participation = new Participation__c(Postal_Code__c = '55555',Organization__c = account.Id);
+            insert participation;
+            Asset myAsset = new Asset(Name='Asset', Participant__c = participation.Id, AccountId= account.Id, contactId=contact.Id,Product2Id=productEU.Id,Status='Active',Framework__c=frameworkEU.Id);
+            insert myAsset;
+            participation = [SELECT Name,Postal_Code__c,Organization__c,(select Name,Participant__c,AccountId,ContactId,Product2Id,Status,Affirmation__c from Assets__r) from Participation__c];
+            participation.Assets__r[0].Product2 = productEU;
+            controller.participation = participation;
+            
 			//start the application
 			controller.start();
 			//User attempts to complete Step_1 for the Application.
@@ -1972,9 +1979,26 @@ public class TEST_PrivacyShield{
 			controller.setSelectedFrameWorks(new List<String>{'Addition','Recertify'});
 			controller.getSelectedFrameWorks();
 			controller.paymentCancelled = false;
-			//controller.getAsset();
+
+			controller.deleteContact();
+			controller.hideContactEdit();
+			controller.getIndustries();
+			controller.getIndustry();
+			controller.saveIndustry();
+			controller.deleteIndustry();
+			controller.showIndustryEdit();
+			controller.hideIndustryEdit();
+			controller.addEntity();
+			controller.saveEntity();
+			controller.cancelEntity();
+			controller.deleteEntity();
+			controller.setStatutoryBody();
+			controller.getStatutoryBodyId();
+			controller.createDRP();
+			controller.saveDRP();
+			controller.cancelDRP();
+			controller.getAsset();
 			Test.stopTest();
 		}
 	}
-
 }

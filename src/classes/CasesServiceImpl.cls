@@ -76,7 +76,13 @@ public class CasesServiceImpl implements ICasesService{
 		}
 
 		//Get List of Re-Certified Asset Ids
-		list<Asset> assets = [select id, status, product2id, accountid, installdate, usageenddate, price, (select id, name, Third_Party_Master_List__c from third_parties__r),(SELECT Id,Inactive_Status_Reason__c FROM Inactive_Periods__r),Participant__c,Participant__r.Able_To_Recertify__c from Asset where AccountId = :AccountIds ];
+		list<Asset> assets = [
+            select 	id, status, product2id, accountid, installdate, usageenddate, price,
+            		(select id, name, Third_Party_Master_List__c from third_parties__r),
+            		(SELECT Id,Inactive_Status_Reason__c FROM Inactive_Periods__r),
+           			 Participant__c,Participant__r.Able_To_Recertify__c 
+            from 	Asset where AccountId = :AccountIds
+        ];
 		for(Asset asset : assets) {
 			Boolean hasInactivePeriodWithPersistentFailureToComply = false;
 			for(Inactive_Period__c inactivePeriod : asset.Inactive_Periods__r) {
@@ -93,7 +99,11 @@ public class CasesServiceImpl implements ICasesService{
 		list<third_party__c> ThirdParties = new list<third_party__c>();
 		set<Third_Party__c> ThirdPartiesToUpdate = new set<third_party__c>();
 
-		list<OrderItem> lineItems = [select id, PricebookEntry.Product2Id, order.accountid, unitprice, (select id, name, Third_Party_Master_List__c from third_parties__r) from orderitem where orderid in :OrderIds];
+		list<OrderItem> lineItems = [
+            select 	id, PricebookEntry.Product2Id, order.accountid, unitprice,
+            		(select id, name, Third_Party_Master_List__c from third_parties__r) 
+            from 	orderitem where orderid in :OrderIds
+        ];
 		set<id> AlreadyExistsTP = new set<id>();
 		set<id> AlreadyExistsUpsert = new set<id>();
 
@@ -103,7 +113,8 @@ public class CasesServiceImpl implements ICasesService{
 				//if the asset matches the current account for the order, and the product matches
 
 				if(asset.accountId == oli.order.accountid && asset.product2id == oli.pricebookentry.product2id){
-					if(DeniedOrders.contains(oli.orderid) || adminClosedOrders.contains(oli.orderid) || ((asset.UsageEndDate == null || asset.UsageEndDate < Date.today()) && !successfulOrders.containsKey(oli.orderId)) ){
+					if(DeniedOrders.contains(oli.orderid) || adminClosedOrders.contains(oli.orderid) 
+                       		|| ((asset.UsageEndDate == null || asset.UsageEndDate < Date.today()) && !successfulOrders.containsKey(oli.orderId)) ){
 						//Conditional expression changed for TRAC-220 to fix an issue with administratively closed orders staying active. I tried to wrap the expression with parentheses to make the order of logical operations more apparent
 						//This section has been disabled for TRAC-150, previously asset.Status = 'Inactive';
 					} else {

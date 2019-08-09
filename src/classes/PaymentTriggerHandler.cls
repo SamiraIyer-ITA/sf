@@ -42,11 +42,5 @@ Public without sharing Class PaymentTriggerHandler {
 			system.debug(caseList);
 			INSERT CASELIST;
 		}
-		
-		/*Participant__c[] participations = [select id, application_stage__c from participant__c where id = :participationIds];
-		for(Participant__c participation :participations){
-			participation.application_stage__c = 'Pending Review';
-		}
-		UPDATE PARTICIPATIONS;*/
 	}
 }
