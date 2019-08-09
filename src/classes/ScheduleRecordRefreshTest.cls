@@ -29,20 +29,19 @@ public class ScheduleRecordRefreshTest {
 		Litigation__c l = litigationList.get(0);
 		Segment__c s = segmentList.get(0);
 
-		ScheduleRecordsRefresh srr = new ScheduleRecordsRefresh();
-		srr.refreshDueDates();
+		ScheduleRecordsRefresh.refreshDueDates();
 
 		Test.stopTest();
-		System.assertEquals(1, srr.petitionsToRefresh.size());
-		System.assertEquals(1, srr.segmentsToRefresh.size());
-		System.assertEquals(1, srr.investigationsToRefresh.size());
-		System.assertEquals(1, srr.litigationsToRefresh.size());
-		System.assertEquals(1, srr.caseIdSet.size());
+		System.assertEquals(1, ScheduleRecordsRefresh.petitionsToRefresh.size());
+		System.assertEquals(1, ScheduleRecordsRefresh.segmentsToRefresh.size());
+		System.assertEquals(1, ScheduleRecordsRefresh.investigationsToRefresh.size());
+		System.assertEquals(1, ScheduleRecordsRefresh.litigationsToRefresh.size());
+		System.assertEquals(1, ScheduleRecordsRefresh.caseIdSet.size());
 
-		System.assertEquals(true, srr.petitionsToRefresh.get(0).Schedule_Refresh__c);
-		System.assertEquals(false, srr.segmentsToRefresh.get(0).Schedule_Refresh__c);
-		System.assertEquals(true, srr.investigationsToRefresh.get(0).Schedule_Refresh__c);
-		System.assertEquals(true, srr.litigationsToRefresh.get(0).Schedule_Refresh__c);
+		System.assertEquals(true, ScheduleRecordsRefresh.petitionsToRefresh.get(0).Schedule_Refresh__c);
+		System.assertEquals(false, ScheduleRecordsRefresh.segmentsToRefresh.get(0).Schedule_Refresh__c);
+		System.assertEquals(true, ScheduleRecordsRefresh.investigationsToRefresh.get(0).Schedule_Refresh__c);
+		System.assertEquals(true, ScheduleRecordsRefresh.litigationsToRefresh.get(0).Schedule_Refresh__c);
 		
 	}
 
