@@ -355,7 +355,6 @@
         <columns>NAME</columns>
         <columns>ADCVD_Case__c</columns>
         <columns>User__c</columns>
-        <columns>ADCVD_Case__c</columns>
         <columns>Start_Date__c</columns>
         <columns>Product_Text__c</columns>
         <columns>Country_Text__c</columns>
