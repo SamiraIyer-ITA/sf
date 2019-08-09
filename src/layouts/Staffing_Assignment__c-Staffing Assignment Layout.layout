@@ -20,6 +20,10 @@
                 <behavior>Edit</behavior>
                 <field>ADCVD_Case_Type_Text__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Office__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

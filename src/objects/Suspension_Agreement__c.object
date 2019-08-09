@@ -529,18 +529,13 @@
         <columns>NAME</columns>
         <columns>Investigation__c</columns>
         <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
         <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
-        <columns>Commodity_Text__c</columns>
         <columns>Suspension_Date__c</columns>
         <columns>Termination_Date__c</columns>
+        <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>Status__c</field>
-            <operation>equals</operation>
-            <value>Current - Active</value>
-        </filters>
         <label>All</label>
     </listViews>
     <listViews>
@@ -551,7 +546,6 @@
         <columns>Country_Text__c</columns>
         <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>Product_Text__c</columns>
-        <columns>Commodity_Text__c</columns>
         <columns>Suspension_Date__c</columns>
         <columns>Termination_Date__c</columns>
         <filterScope>Everything</filterScope>

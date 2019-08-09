@@ -1263,12 +1263,11 @@ C-###-### for CVD</inlineHelpText>
         <fullName>All_Closed_Petitions</fullName>
         <columns>NAME</columns>
         <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
         <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
-        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
-        <columns>Status__c</columns>
+        <columns>Actual_Initiation_Signature__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -1281,12 +1280,11 @@ C-###-### for CVD</inlineHelpText>
         <fullName>All_Open_Petitions</fullName>
         <columns>NAME</columns>
         <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
         <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
-        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
-        <columns>Status__c</columns>
+        <columns>Calculated_Initiation_Signature__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>

@@ -572,7 +572,7 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
     <label>Staffing Assignment</label>
     <listViews>
         <fullName>AD_Policy_Staffing</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
         <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
@@ -594,7 +594,43 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
             <operation>startsWith</operation>
             <value>A-</value>
         </filters>
-        <label>AD Policy Staffing</label>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <label>AD Policy Order Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Accounting_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Accounting PM,Staff Accountant</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <label>Accounting Order Staffing</label>
     </listViews>
     <listViews>
         <fullName>All</fullName>
@@ -602,13 +638,12 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         <columns>Title__c</columns>
         <columns>User__c</columns>
         <columns>Parent__c</columns>
-        <columns>Related_Organization_Parent__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <listViews>
         <fullName>CVD_Policy_Staffing</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
         <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
@@ -630,11 +665,16 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
             <operation>startsWith</operation>
             <value>C-</value>
         </filters>
-        <label>CVD Policy Staffing</label>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <label>CVD Policy Order Staffing</label>
     </listViews>
     <listViews>
         <fullName>Legal_Staffing</fullName>
-        <booleanFilter>1 AND 2</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
@@ -651,11 +691,16 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
             <operation>contains</operation>
             <value>--AO-</value>
         </filters>
-        <label>Legal Staffing</label>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <label>Legal Order Staffing</label>
     </listViews>
     <listViews>
         <fullName>Legal_Staffing_Unfilled</fullName>
-        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
         <columns>Title__c</columns>
         <columns>User__c</columns>
         <columns>Parent__c</columns>
@@ -681,39 +726,16 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
             <operation>startsWith</operation>
             <value>A-</value>
         </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
         <label>Unfilled Order AD Policy Staffing</label>
     </listViews>
     <listViews>
-        <fullName>Order_Account_Staffing</fullName>
-        <booleanFilter>2 AND 4 AND  (3 OR 1)</booleanFilter>
-        <columns>NAME</columns>
-        <columns>ADCVD_Order__c</columns>
-        <columns>Related_Organization__c</columns>
-        <columns>Title__c</columns>
-        <columns>User__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ADCVD_Order__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <filters>
-            <field>Title__c</field>
-            <operation>equals</operation>
-            <value>Accounting Director,Accounting PM</value>
-        </filters>
-        <filters>
-            <field>Related_Organization__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <filters>
-            <field>User__c</field>
-            <operation>equals</operation>
-        </filters>
-        <label>Order-Account Staffing</label>
-    </listViews>
-    <listViews>
-        <fullName>Policy_and_Legal_Staffing_Combined</fullName>
-        <booleanFilter>1 AND 2</booleanFilter>
+        <fullName>Office_III_Order_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5</booleanFilter>
         <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
@@ -723,124 +745,416 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         <filters>
             <field>Title__c</field>
             <operation>equals</operation>
-            <value>Senior Legal,Senior Policy,Staff Legal,Staff Policy</value>
+            <value>Office Director,Program Manager</value>
         </filters>
         <filters>
             <field>Parent_Name__c</field>
             <operation>contains</operation>
             <value>--AO-</value>
         </filters>
-        <label>Policy and Legal Staffing Combined</label>
-    </listViews>
-    <listViews>
-        <fullName>Restaffing_Office_Director</fullName>
-        <columns>NAME</columns>
-        <columns>Title__c</columns>
-        <columns>User__c</columns>
-        <columns>Parent__c</columns>
-        <filterScope>Everything</filterScope>
         <filters>
-            <field>Parent__c</field>
-            <operation>equals</operation>
-        </filters>
-        <label>Restaffing Office Director</label>
-    </listViews>
-    <listViews>
-        <fullName>Staffing_Assignments_ClosedLocked_Queue_Staffing_Assignment</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Staffing Assignments-ClosedLocked Queue</label>
-        <queue>Staffing_Assignments_ClosedLocked_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Staffing_Assignments_MigratedLockedQueue_Staffing_Assignment</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Staffing Assignments-MigratedLockedQueue</label>
-        <queue>Staffing_Assignments_MigratedLockedQueue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Staffing_Assignments_Open_Queue_Staffing_Assignment</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Staffing Assignments-Open Queue</label>
-        <queue>Staffing_Assignments_Open_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Test_Test_Staffing_List</fullName>
-        <columns>NAME</columns>
-        <columns>Product_Text__c</columns>
-        <columns>Country_Text__c</columns>
-        <columns>Title__c</columns>
-        <columns>User__c</columns>
-        <columns>Segment__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>User__c</field>
-            <operation>equals</operation>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
         </filters>
         <filters>
-            <field>Segment__c</field>
+            <field>Status__c</field>
             <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
         </filters>
-        <label>Test - Test - Staffing List Segments</label>
-    </listViews>
-    <listViews>
-        <fullName>Test_Test_Staffing_List_Invest</fullName>
-        <columns>NAME</columns>
-        <columns>Product_Text__c</columns>
-        <columns>Country_Text__c</columns>
-        <columns>Title__c</columns>
-        <columns>User__c</columns>
-        <columns>Investigation__c</columns>
-        <filterScope>Everything</filterScope>
         <filters>
-            <field>User__c</field>
+            <field>Office__c</field>
             <operation>equals</operation>
+            <value>III</value>
         </filters>
-        <filters>
-            <field>Investigation__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <label>Test - Test - Staffing List Invest</label>
+        <label>Office III Order Staffing</label>
     </listViews>
     <listViews>
-        <fullName>Test_Test_Staffing_List_Petitions</fullName>
-        <columns>NAME</columns>
-        <columns>Product_Text__c</columns>
-        <columns>Country_Text__c</columns>
-        <columns>Title__c</columns>
-        <columns>User__c</columns>
-        <columns>Petition__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>User__c</field>
-            <operation>equals</operation>
-        </filters>
-        <filters>
-            <field>Petition__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <label>Test - Test - Staffing List Petitions</label>
-    </listViews>
-    <listViews>
-        <fullName>Unfilled_Staff</fullName>
+        <fullName>Office_II_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5</booleanFilter>
         <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
-        <columns>Related_Organization_Parent__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Office Director,Program Manager</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>II</value>
+        </filters>
+        <label>Office II Order Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Office_IV_Order_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5</booleanFilter>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Office Director,Program Manager</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>IV</value>
+        </filters>
+        <label>Office IV Order Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Office_I_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5</booleanFilter>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Office Director,Program Manager</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>I</value>
+        </filters>
+        <label>Office I Order Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Office_VIII_Order_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5</booleanFilter>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Office Director,Program Manager</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>VIII</value>
+        </filters>
+        <label>Office VIII Order Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Office_VII_Order_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5</booleanFilter>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Office Director,Program Manager</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>VII</value>
+        </filters>
+        <label>Office VII Order Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Office_VI_Order_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5</booleanFilter>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Office Director,Program Manager</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>VI</value>
+        </filters>
+        <label>Office VI Order Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Office_V_Order_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 and 5</booleanFilter>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Office Director,Program Manager</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>V</value>
+        </filters>
+        <label>Office V Order Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Unfilled_Order_Accounting_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>User__c</field>
             <operation>equals</operation>
         </filters>
-        <label>Unfilled Staff</label>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Accounting PM,Staff Accountant</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <label>Unfilled Order Accounting Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Unfilled_Order_CVD_Policy_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Senior Policy,Staff Policy</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <label>Unfilled Order CVD Policy Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Unfilled_Order_Legal_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Senior Legal,Staff Legal</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <label>Unfilled Order Legal Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Unfilled_Order_Operations_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Office Director,Program Manager</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Complete</value>
+        </filters>
+        <label>Unfilled Order Operations Staffing</label>
     </listViews>
     <nameField>
         <displayFormat>SA-{000000}</displayFormat>
