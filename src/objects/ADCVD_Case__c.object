@@ -276,25 +276,12 @@ C-###-### for CVD</inlineHelpText>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <label>ADCVD Case</label>
-    <listViews>
-        <fullName>ADCVD_Case_Open</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
-        <columns>Product_Short_Name__c</columns>
-        <columns>Country__c</columns>
-        <columns>Commodity__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>ADCVD Case Open</label>
-        <queue>ADCVD_Case_Open</queue>
-    </listViews>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
