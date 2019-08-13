@@ -272,6 +272,8 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                             }
                         }
                         for(Task existingTask : tasksToInsert) {
+                            //if a match has been found break out of loop to save time
+                            if(bFound == true) {    break;  }
                             //prevent endless hordes of tasks from being created
                             if(existingTask.Subject == thisTask.Subject &&
                                     existingTask.OwnerId == thisTask.OwnerId &&
