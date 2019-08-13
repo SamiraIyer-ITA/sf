@@ -14,7 +14,7 @@ public class PaymentsServiceImpl implements IPaymentsService{
 		}
 
 		List<Refund__c> refundsToUpdate = [select Name,Id from Refund__c where Payment__c IN: paymentIds];
-		update refundsToUpdate;
+		Database.update(refundsToUpdate,false);
 	}
 
 	public static void updatePaymentContactAndOfficer(List<Payment__c> paymentsToUpdate) {

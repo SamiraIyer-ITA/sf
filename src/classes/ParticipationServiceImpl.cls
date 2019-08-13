@@ -35,7 +35,7 @@ public class ParticipationServiceImpl implements IParticipationService{
 		}
 
 		List<Order> ordersList = [SELECT Name,Id FROM Order WHERE Participant__c IN: applicationIdList];
-		update ordersList;
+		Database.update(ordersList,false);
 	}
 
 	public static void updateCases(List<Participation__c> participationsToUpdate) {
@@ -46,7 +46,7 @@ public class ParticipationServiceImpl implements IParticipationService{
 		}
 
 		List<Case> caseList = [SELECT Id FROM Case WHERE Participation_Profile__c IN: applicationIdList];
-		update caseList;
+		Database.update(caseList,false);
 	}
 
 	public static void manageApplicationData(List<Participation__c> participationsToUpdate) {
