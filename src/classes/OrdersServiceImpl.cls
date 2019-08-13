@@ -14,7 +14,7 @@ public class OrdersServiceImpl implements IOrdersService{
 			allOrderIds.add(myOrder.Id);
 		}
 		List<Payment__c> paymentsToUpdate = [SELECT Name,Id from Payment__c where Order__c IN: allOrderIds];
-		update paymentsToUpdate;
+		Database.update(paymentsToUpdate,false);
 	}
 
 	public static void updateOrderContactAndOfficer(List<Order> ordersList) {
