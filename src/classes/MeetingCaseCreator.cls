@@ -182,8 +182,9 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
 
                 String caseSubject = (String.isBlank(campaignName) ? '' : campaignName) + (!String.isBlank(orgName) ? ' ' + orgName : '');
 
+                Set<String> newCaseCampaignNames = new Set<String>();
                 Set<String> caseCampaignNames = contactIdToCampaignName.get(thisContact.Id);
-                if (caseCampaignNames == null || !caseCampaignNames.contains(caseSubject)) {
+                if ((caseCampaignNames == null || !caseCampaignNames.contains(caseSubject)) && !newCaseCampaignNames.contains(caseSubject)) {
                     System.debug('case Name does not exist');
                     Id campaignId = businessConferenceIdToCampaignId.get(businessConferenceId);
 
@@ -207,6 +208,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                                 Campaign_Name__c = campaignId
                         );
                         emailToCase.put(thisContact.Email, newCase);
+                        newCaseCampaignNames.add(caseSubject);
                     } else {
                         newCase = new Case(Subject = (String.isBlank(caseSubject) ? 'Case' : caseSubject),
                                 Description = 'U.S. Exhibitor/Client registered for value added programming (B2G, B2B, Demos Int\'l Reception), at an event.',
@@ -214,6 +216,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                                 Campaign_Name__c = campaignId
                         );
                         emailToCase.put(thisContact.Email, newCase);
+                        newCaseCampaignNames.add(caseSubject);
                     }
                 }
             }
