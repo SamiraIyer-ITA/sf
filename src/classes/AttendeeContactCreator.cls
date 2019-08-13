@@ -52,7 +52,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
             }
             if(email != null && !email.toLowerCase().endsWith('trade.gov')) {
                 if(!String.isBlank(company)) {
-                    organizationNames.add(company);
+                    organizationNames.add(company.trim());
                 }
                 if(!String.isBlank(email)) {
                     contactEmails.add(email);
@@ -65,16 +65,14 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         }
 
         //Use Organization Names to find existing Organizations with those names, map them
-        for(Account organization : [SELECT Name FROM Account WHERE Name IN :organizationNames]) {
-            if(!organizationNameToExistingOrganization.containsKey(organization.Name)) {
-                organizationNameToExistingOrganization.put(organization.Name, organization);
-            }
+        for(Account organization : [SELECT Name,Id FROM Account WHERE Name IN :organizationNames ORDER BY CreatedDate asc]) {
+            organizationNameToExistingOrganization.put(organization.Name, organization);
         }
 
         //Iterate through Attendee company names and collect the ones that don't have any matching Organizations,
         //  then create new Organizations for those names that still don't have an Org, then map the new orgs by name
         for(String orgName : organizationNames) {
-            if((organizationNameToExistingOrganization.containsKey(orgName) || organizationNameToNewOrganization.containsKey(orgName)) == false) {
+            if((!organizationNameToExistingOrganization.containsKey(orgName) && !organizationNameToNewOrganization.containsKey(orgName))) {
                 //Organization doesn't already exist, create it and map it
                 Account newOrganization = new Account(Name = orgName, recordTypeId = orgRecordTypeId);
                 organizationNameToNewOrganization.put(orgName,newOrganization);
