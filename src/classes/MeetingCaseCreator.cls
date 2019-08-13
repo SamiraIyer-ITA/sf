@@ -172,19 +172,20 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                 Id businessConferenceId = attendeeFromEmail.BusinessConference__c;
                 String campaignName = businessConferenceIdToCampaignName.get(businessConferenceId);
                 String orgName = '';
+
+                Id orgOwnerId = null;
+                //Case owner is associated org owner
+                if (thisContact.AccountId != null) {
+                    orgOwnerId = thisContact.Account.OwnerId;
+                    orgName = thisContact.Account.Name;
+                }
+
                 String caseSubject = (String.isBlank(campaignName) ? '' : campaignName) + (!String.isBlank(orgName) ? ' ' + orgName : '');
 
                 Set<String> caseCampaignNames = contactIdToCampaignName.get(thisContact.Id);
                 if (caseCampaignNames == null || !caseCampaignNames.contains(caseSubject)) {
                     System.debug('case Name does not exist');
                     Id campaignId = businessConferenceIdToCampaignId.get(businessConferenceId);
-
-                    Id orgOwnerId = null;
-                    //Case owner is associated org owner
-                    if (thisContact.AccountId != null) {
-                        orgOwnerId = thisContact.Account.OwnerId;
-                        orgName = thisContact.Account.Name;
-                    }
 
                     //If there is no org owner then use the user associated with the campaign outgoing communication email field
                     if ((orgOwnerId == null || orgOwnerId == automatedProcessId) && businessConferenceId != null) {
@@ -200,7 +201,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                     Case newCase = null;
                     if (orgOwnerId != null) {
                         newCase = new Case(Subject = (String.isBlank(caseSubject) ? 'Case' : caseSubject),
-                                Description = 'U.S. Exhibitor/Client registered for value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
+                                Description = 'U.S. Exhibitor/Client registered for value added programming (B2G, B2B, Demos Int\'l Reception), at an event.',
                                 OwnerId = orgOwnerId,
                                 ContactId = thisContact.Id,
                                 Campaign_Name__c = campaignId
@@ -208,7 +209,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                         emailToCase.put(thisContact.Email, newCase);
                     } else {
                         newCase = new Case(Subject = (String.isBlank(caseSubject) ? 'Case' : caseSubject),
-                                Description = 'U.S. Exhibitor/Client registered for value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
+                                Description = 'U.S. Exhibitor/Client registered for value added programming (B2G, B2B, Demos Int\'l Reception), at an event.',
                                 ContactId = thisContact.Id,
                                 Campaign_Name__c = campaignId
                         );
