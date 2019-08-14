@@ -29,13 +29,13 @@ public class RecusalMapperTest {
 
         mocks.startStubbing();
         mocks.when(mockRecusalSelector.sObjectType()).thenReturn(Recusal__c.SObjectType);
-        mocks.when(mockRecusalSelector.selectById(new Set<Id> {recList.get(0).Id, recList.get(1).Id})).thenReturn(recList);
+        mocks.when(mockRecusalSelector.selectById(new Set<Id> {recList.get(0).Id, recList.get(1).Id, recList.get(2).Id})).thenReturn(recList);
         mocks.stopStubbing();
 
         fflibext_Application.Selector.setMock(mockRecusalSelector);
 
         Test.startTest();
-        RecusalMapper recMapper = new RecusalMapper(new Set<Id>{recList[0].Id, recList[1].Id});
+        RecusalMapper recMapper = new RecusalMapper(new Set<Id>{recList[0].Id, recList[1].Id, recList[2].Id});
         Map<Id, SObject> idToUnlockedRecusalMap = recMapper.getMap(false);
         Map<Id, SObject> idToAllRecusalMap = recMapper.getMap(true);
         Map<Id, List<Recusal__c>> userIdToUnlockedRecusalMap = recMapper.getMapByUserIds();
@@ -50,16 +50,17 @@ public class RecusalMapperTest {
 
     }
 
-    @IsTest static void testBehavior()
+    @IsTest void testBehavior()
     {
         RecusalMapper rm = new RecusalMapper();
-        RecusalMapper.getInstance();
+        rm.getInstance();
         rm.getInstance(new Set<Id>());
-        RecusalMapper.getNewInstance(new Set<Id>());
+        rm.getNewInstance(new Set<Id>());
     }
 
 
     private static void dataSetup(){
+        User testUser = new User (Id = fflib_IDGenerator.generate(User.SObjectType));
         // Create ADCVD_Case record
         adcvdCaseList = new List<ADCVD_Case__c>();
         adcvdCaseList.add(
@@ -68,44 +69,28 @@ public class RecusalMapperTest {
                 Locked__c = false
             )
         );
-
-        //Create Petition records
-        petitionsList = new List<Petition__c>();
-        petitionsList.add(
-            new Petition__c(
-                Id = fflib_IDGenerator.generate(Petition__c.SObjectType),
-                Locked__c = false,
-                ADCVD_Case__c = adcvdCaseList[0].Id
-            )
-        );
-        //Create relationship between ADCVD_Cases and Petitions
-        adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
-            List<ADCVD_Case__c>.class,
-            adcvdCaseList,
-            Petition__c.ADCVD_Case__c,
-            new List<List<Petition__c>>{
-                new List<Petition__c> {petitionsList.get(0)}
-            }
-        );
         //Create Recusal records, one locked and one unlocked with ADCVD Case and one unlocked without ADCVD Case
         recList = new List<Recusal__c>();
         recList.add(
             new Recusal__c(
                 Id = fflib_IDGenerator.generate(Recusal__c.SObjectType),
                 Locked__c = false,
-                ADCVD_Case__c = adcvdCaseList[0].Id
+                ADCVD_Case__c = adcvdCaseList[0].Id,
+                User__c = testUser.Id
             )
         );
         recList.add(
             new Recusal__c(
                 Id = fflib_IDGenerator.generate(Recusal__c.SObjectType),
-                Locked__c = false
+                Locked__c = false,
+                User__c = testUser.Id
             )
         );
         recList.add(
             new Recusal__c(
                 Id = fflib_IDGenerator.generate(Recusal__c.SObjectType),
-                Locked__c = true
+                Locked__c = true,
+                User__c = testUser.Id
             )
         );
         //Create relationship between ADCVD Case and Recusals
