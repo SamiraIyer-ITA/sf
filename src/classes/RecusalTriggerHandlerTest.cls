@@ -30,7 +30,7 @@ public class RecusalTriggerHandlerTest {
 		selectorSetup();
 
 		Test.startTest();
-		RecusalTriggerHandler.mainEntry(recusalList, null, true, true, false);
+		RecusalTriggerHandler.mainEntry(recusalList, null, null, null, true, false, false, false, true, false);
 		Test.stopTest();
 
 		//Assert adcvd case records
@@ -81,7 +81,7 @@ public class RecusalTriggerHandlerTest {
 				List<ADCVD_Case__c>.class,
 				adcvdCaseList,
 				Recusal__c.ADCVD_Case__c,
-				new List<List<Recusal__c>>{recusalList[0]}
+				new List<List<Recusal__c>>{new List<Recusal__c>{recusalList[0]}}
 		);
 	}
 
