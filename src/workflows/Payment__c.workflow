@@ -5,6 +5,14 @@
         <description>PS: Payment Received (Only)</description>
         <protected>false</protected>
         <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
             <type>owner</type>
         </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
@@ -16,6 +24,14 @@
         <description>PS: Application Submitted/Payment Success</description>
         <protected>false</protected>
         <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
             <type>owner</type>
         </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
@@ -26,6 +42,14 @@
         <fullName>Send_Privacy_Shield_Certification_Payment_Failure_Notification</fullName>
         <description>Send Privacy Shield Certification/Payment Failure Notification</description>
         <protected>false</protected>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
         <recipients>
             <type>owner</type>
         </recipients>
