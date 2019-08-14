@@ -158,7 +158,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         }
 
         //get users from list of users related to outgoing communications emails for later use
-        for(User thisUser : [SELECT Id,Email from User WHERE Email IN: businessConferenceIdToOutgoingCommunicationEmail.values()]) {
+        for(User thisUser : [SELECT Id,Email from User WHERE Email IN: businessConferenceIdToOutgoingCommunicationEmail.values() ORDER BY CreatedDate asc]) {
             communicationEmailToUserId.put(thisUser.Email,thisUser.Id);
         }
 
