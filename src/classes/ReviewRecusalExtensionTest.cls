@@ -25,6 +25,8 @@ private class ReviewRecusalExtensionTest {
     @isTest static void primaryRecusalTest() {
         Test.startTest();
         primaryRecusalSetup();
+        String testlink = ext.recusalLink;
+        Id testCaseId = ext.caseId;
         ext.cancel();
 
         Test.stopTest();
@@ -37,6 +39,10 @@ private class ReviewRecusalExtensionTest {
         AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
         //create test data
         User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+        User pleaseAssignUser = TestUtils.createAdminUser(false, 'myemail2@email.com.testita', 2);
+        pleaseAssignUser.LastName = 'Please Assign';
+        pleaseAssignUser.Staffing_Role__c = 'Program Manager';
+        insert pleaseAssignUser;
         ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
         Petition__c testADPetition = TestUtils.createPetition(testADCase, System.today().addDays(-280), true);
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
