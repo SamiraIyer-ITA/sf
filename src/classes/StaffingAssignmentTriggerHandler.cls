@@ -132,7 +132,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
             if(sa.Id != null) {existingStaffRecords.add(sa.Id);}
             List<Staffing_Assignment__c> tempList = new List<Staffing_Assignment__c>();
             Id parentId = (Id)sa.get(sa.Staff_Parent__c);
-            if (parentId != null && !returnMap.isEmpty() && !returnMap.get(parentId) != null && !returnMap.get(parentId).isEmpty()) {
+            if (parentId != null && !returnMap.isEmpty() && returnMap.get(parentId) != null && !returnMap.get(parentId).isEmpty()) {
                 tempList.addAll(returnMap.get(parentId));
             }
             tempList.add(sa);
