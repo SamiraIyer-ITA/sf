@@ -1,8 +1,5 @@
 trigger UpdateApplication on Asset (after insert, after update) 
 {
-	AssetTriggerHandler.mainEntry(Trigger.new, Trigger.old, Trigger.newMap, Trigger.oldMap, Trigger.isInsert,
-		Trigger.isUpdate, Trigger.isDelete, Trigger.isUndelete, Trigger.isBefore, Trigger.isAfter);
-
 	Set<Id> applicationIdsNew = new Set<Id>();
 	for(Asset a : Trigger.new){
 		applicationIdsNew.add(a.Participant__c);
