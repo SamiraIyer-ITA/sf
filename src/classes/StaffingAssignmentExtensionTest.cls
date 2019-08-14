@@ -127,6 +127,10 @@ public class StaffingAssignmentExtensionTest {
         User testUser = TestUtils.createAdminUser(false, 'myemail@email.com.testita', 1);
         testUser.Staffing_Role__c = 'DAS';
         insert testUser;
+        User pleaseAssignUser = TestUtils.createAdminUser(false, 'myemail2@email.com.testita', 2);
+        pleaseAssignUser.LastName = 'Please Assign';
+        pleaseAssignUser.Staffing_Role__c = 'Program Manager';
+        insert pleaseAssignUser;
         ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
         Petition__c testADPetition = TestUtils.createPetition(testADCase, System.today().addDays(-280), true);
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
