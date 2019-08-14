@@ -188,10 +188,10 @@ public without sharing class StaffingAssignmentTriggerHandler {
     //Iterates through staffing assignments by parent ensuring there is one and only one Program Manager per parent
     @TestVisible private static void validateOneProgramManager (Map <Id, List<Staffing_Assignment__c>> staffListByParentMap) {
         if (!Master_Automation__c.getInstance().ValidationRulesEnabled__c) {return;}//same allowance as declarative VRs
-        Staffing_Assignment__c programManager = null;
         //iterate over each staff record for each parent
         for (Id parentId : staffListByParentMap.keySet()) {
             for (Staffing_Assignment__c sa : staffListByParentMap.get(parentId)) {
+                Staffing_Assignment__c programManager = null;
                 if (sa.Title__c != 'Program Manager') {continue;}
                 //if we already have a PM and it is not an update
                 if (programManager != null && programManager.Id != sa.Id) {
