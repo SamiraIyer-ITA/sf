@@ -16,9 +16,12 @@ public without sharing class RelatedOrganizationTriggerHandler {
    ***********************************************************/
 
 	public static boolean preventRecursion = false;
-	public static void mainEntry(List<Related_Organization__c> newList, List<Related_Organization__c> oldList, Map<Id, Related_Organization__c> newMap,
-			Map<Id, Related_Organization__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete,
-			Boolean isBefore, Boolean isAfter) {
+	public static void mainEntry(
+			List<Related_Organization__c> newList,
+			Map<Id, Related_Organization__c> newMap,
+			Boolean isInsert,
+			Boolean isBefore,
+			Boolean isAfter) {
 
 		if (!AppConfigService.triggerEnabled) {
 			return;
@@ -27,6 +30,8 @@ public without sharing class RelatedOrganizationTriggerHandler {
 		if (isBefore && isInsert) {
 			newList = new LockedRecordHandler().removeLockedRecords(newList);
 			initialize(newList, null);
+			System.debug('newList----------'+newList);
+			System.debug('newListSIZE----------'+newList.size());
 			setCaseValues(newList);
 		}
 		if (isAfter && isInsert) {
@@ -46,6 +51,8 @@ public without sharing class RelatedOrganizationTriggerHandler {
 	//method to initialize the caseMapper and if newMap is passed (after insert/update) it will add the new Interested Orgs to the Mappers
 	@TestVisible private static void initialize(List<Related_Organization__c> newList, Map<Id, Related_Organization__c> newMap) {
 		Set<Id> caseIdSet = getCaseIdSet(newList);
+		System.debug('newList-------'+newList);
+		System.debug('caseIdSet-------'+caseIdSet);
 		caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
 		caseMapper = caseMapper.getInstance(caseIdSet);
 		if (newMap != null) {
@@ -61,7 +68,9 @@ public without sharing class RelatedOrganizationTriggerHandler {
 		Set<Id> orderIdSet = new Set<Id>();
 		Set<Id> litigationIdSet = new Set<Id>();
 		Set<Id> segmentIdSet = new Set<Id>();
+		System.debug('newList--------------2-------------------'+newList);
 		for (Related_Organization__c io : newList) {
+			System.debug('io---------------------------------'+io);
 			if (io.Petition__c != null) {
 				setIoParent(io, 'Petition__c');
 				petitionIdSet.add(io.Petition__c);
@@ -100,8 +109,15 @@ public without sharing class RelatedOrganizationTriggerHandler {
 	@TestVisible private static void setCaseValues(List<Related_Organization__c> newList) {
 		ParentValuesService pvs = new ParentValuesService();
 		for (Related_Organization__c io : newList) {
+			System.debug('io---------'+io);
+			System.debug('io.IO_Parent__c---------'+io.IO_Parent__c);
+			//System.debug('---------'+);
 			Id parentId = (Id) io.get(io.IO_Parent__c);
 			adcvdMapper = (ADCVD_IMapper) caseMapper.getMapper(io.IO_Parent__c).getInstance();
+			System.debug('adcvdMapper---------'+adcvdMapper);
+			System.debug('caseMapper---------'+caseMapper);
+			System.debug('caseMapper.getMap(true)---------'+caseMapper.getMap(true));
+			System.debug('adcvdMapper.getMap(true)---------'+adcvdMapper.getMap(true));
 			ADCVD_Case__c currentCase = (ADCVD_Case__c) caseMapper.getMap(true).get((Id) adcvdMapper.getMap(true).get(parentId).get('ADCVD_Case__c'));
 			io.ADCVD_Case__c = currentCase.Id;
 			io = (Related_Organization__c) pvs.setCaseValuesFromParent(currentCase, io);
@@ -113,7 +129,7 @@ public without sharing class RelatedOrganizationTriggerHandler {
 			io.IO_Parent__c = parentName;
 		}
 	}
-	//method to add the Interested Orgss from the recent insert/update to the ioMapper, the caseMapper,
+	//method to add the Interested Orgs from the recent insert/update to the ioMapper, the caseMapper,
 	//and update the FederalRegisterMapper instance in the map of selectors with the new Interested Orgss
 	@TestVisible private static void addNewIOsToMappers(Map<Id, Related_Organization__c> newMap) {
 		Map<Id, List<Related_Organization__c>> caseToIOsMap = new Map<Id, List<Related_Organization__c>>();

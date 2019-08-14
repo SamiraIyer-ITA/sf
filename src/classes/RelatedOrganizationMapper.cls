@@ -17,12 +17,10 @@ public without sharing class RelatedOrganizationMapper implements ADCVD_IMapper 
 	}
 
 	//private contructor used via the getNewInstance method
+	@TestVisible
 	private RelatedOrganizationMapper(Set<Id> relatedOrgIdSet) {
 		if (idToUnlockedRelatedOrganizationMap.isEmpty()) {
-			List<Related_Organization__c> tempList = new List<Related_Organization__c>();
-			String queryString = Utils.soqlBuilderAllFields('Related_Organization__c', false);
-			queryString += ' FROM Related_Organization__c WHERE Id IN: relatedOrgIdSet';
-			tempList = database.query(queryString);
+			List<Related_Organization__c> tempList = RelatedOrganizationSelector.newInstance().selectById(relatedOrgIdSet);
 			for (Related_Organization__c ro : tempList) {
 				addRelOrgToMap(ro);
 			}
@@ -30,6 +28,7 @@ public without sharing class RelatedOrganizationMapper implements ADCVD_IMapper 
 	}
 
 	//primary method for accessing this selector. Uses a Singleton pattern with the instance being stored on the ADCVD_CaseMapper
+	@TestVisible
 	public static RelatedOrganizationMapper getInstance() {
 		if (instance == null) {
 			return getNewInstance();

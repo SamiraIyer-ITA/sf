@@ -1,7 +1,5 @@
-/**
- * Created by Skip Kleckner on 8/13/2019.
- */
-
-public with sharing class IRelatedOrganizationSelector {
-
+public interface IRelatedOrganizationSelector
+		extends fflib_ISObjectSelector {
+	List<Related_Organization__c> selectById(Set<Id> idSet);
+	List<Related_Organization__c> selectAllToLimit();
 }
