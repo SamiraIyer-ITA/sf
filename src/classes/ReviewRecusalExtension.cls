@@ -76,7 +76,7 @@ public without sharing class ReviewRecusalExtension {
 		}
 	}
 	//Primary method to initialize data on page load
-	private void init(){
+	@TestVisible private void init(){
 		caseMapper = caseMapper.getInstance(new Set<Id> {caseId});
 		recMapper = recMapper.getInstance(new Set<Id> {userId});
 		recusalList = new List<Recusal__c>();
