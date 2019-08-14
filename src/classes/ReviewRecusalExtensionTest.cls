@@ -49,7 +49,6 @@ private class ReviewRecusalExtensionTest {
     @isTest static void primaryRecusalTest() {
         Test.startTest();
         primaryRecusalSetup();
-        System.assertNotEquals(null, ext.parentFieldNames);
         ext.cancel();
 
         Test.stopTest();
