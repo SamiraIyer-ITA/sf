@@ -190,8 +190,8 @@ public without sharing class StaffingAssignmentTriggerHandler {
         if (!Master_Automation__c.getInstance().ValidationRulesEnabled__c) {return;}//same allowance as declarative VRs
         //iterate over each staff record for each parent
         for (Id parentId : staffListByParentMap.keySet()) {
+            Staffing_Assignment__c programManager = null;
             for (Staffing_Assignment__c sa : staffListByParentMap.get(parentId)) {
-                Staffing_Assignment__c programManager = null;
                 if (sa.Title__c != 'Program Manager') {continue;}
                 //if we already have a PM and it is not an update
                 if (programManager != null && programManager.Id != sa.Id) {
