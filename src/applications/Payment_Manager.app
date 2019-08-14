@@ -18,6 +18,14 @@
         <type>Flexipage</type>
         <pageOrSobjectType>Asset</pageOrSobjectType>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>CRM_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <logo>PaymentAppLogo</logo>
@@ -30,14 +38,6 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Payment Manager</label>
     <navType>Standard</navType>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Payment__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Admin_Payment_Record_Page</content>
