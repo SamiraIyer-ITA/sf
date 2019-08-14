@@ -7,12 +7,12 @@
  **/
 @isTest
 public class RecusalMapperTest {
-/*
+
     private static List<ADCVD_Case__c> adcvdCaseList { get; set;}
     private static List<Petition__c> petitionsList {get; set;}
-    private static List<Custom_Instruction__c> cstInstList {get; set;}
+    private static List<Recusal__c> recList {get; set;}
 
-    @isTest static void testCustomInstructionMapper(){
+    @isTest static void testRecusalMapper(){
 
         dataSetup();
         fflib_ApexMocks mocks = new fflib_ApexMocks();
@@ -25,39 +25,40 @@ public class RecusalMapperTest {
 
         fflibext_Application.Selector.setMock(mockADCVD_CaseSelector);
 
-        CustomInstructionSelector mockCustomInstructionSelector = (CustomInstructionSelector) mocks.mock(CustomInstructionSelector.class);
+        RecusalSelector mockRecusalSelector = (RecusalSelector) mocks.mock(RecusalSelector.class);
 
         mocks.startStubbing();
-        mocks.when(mockCustomInstructionSelector.sObjectType()).thenReturn(Custom_Instruction__c.SObjectType);
-        mocks.when(mockCustomInstructionSelector.selectById(new Set<Id> {cstInstList.get(0).Id, cstInstList.get(1).Id})).thenReturn(cstInstList);
+        mocks.when(mockRecusalSelector.sObjectType()).thenReturn(Recusal__c.SObjectType);
+        mocks.when(mockRecusalSelector.selectById(new Set<Id> {recList.get(0).Id, recList.get(1).Id})).thenReturn(recList);
         mocks.stopStubbing();
 
-        fflibext_Application.Selector.setMock(mockCustomInstructionSelector);
+        fflibext_Application.Selector.setMock(mockRecusalSelector);
 
         Test.startTest();
-        CustomInstructionMapper cstInstMapper = new CustomInstructionMapper(new Set<Id>{cstInstList[0].Id, cstInstList[1].Id});
-        Map<Id, SObject> idToUnlockedCstInstMap = cstInstMapper.getMap(false);
-        Map<Id, SObject> idToAllCstInstMap = cstInstMapper.getMap(true);
+        RecusalMapper recMapper = new RecusalMapper(new Set<Id>{recList[0].Id, recList[1].Id});
+        Map<Id, SObject> idToUnlockedRecusalMap = recMapper.getMap(false);
+        Map<Id, SObject> idToAllRecusalMap = recMapper.getMap(true);
+        Map<Id, SObject> userIdToUnlockedRecusalMap = recMapper.getMapByUserIds();
 
         Test.stopTest();
 
         //Assert adcvd case records
-        System.assertEquals(cstInstList[0].Id, idToUnlockedCstInstMap.get(cstInstList[0].Id).Id);
-        System.assertEquals(null, idToUnlockedCstInstMap.get(cstInstList[1].Id));
-        System.assertEquals(cstInstList[0].Id, idToAllCstInstMap.get(cstInstList[0].Id).Id);
-        System.assertEquals(cstInstList[1].Id, idToAllCstInstMap.get(cstInstList[1].Id).Id);
+        System.assertEquals(recList[0].Id, idToUnlockedRecusalMap.get(recList[0].Id).Id);
+        System.assertEquals(null, idToUnlockedRecusalMap.get(recList[1].Id));
+        System.assertEquals(recList[0].Id, idToAllRecusalMap.get(recList[0].Id).Id);
+        System.assertEquals(recList[1].Id, idToAllRecusalMap.get(recList[1].Id).Id);
 
     }
 
     @IsTest static void testBehavior()
     {
-        CustomInstructionMapper.getInstance();
-        CustomInstructionMapper.getNewInstance();
+        RecusalMapper.getInstance();
+        RecusalMapper.getNewInstance();
     }
 
 
     private static void dataSetup(){
-        // Create ADCVD_Case records, one locked and one unlocked
+        // Create ADCVD_Case record
         adcvdCaseList = new List<ADCVD_Case__c>();
         adcvdCaseList.add(
             new ADCVD_Case__c(
@@ -66,12 +67,13 @@ public class RecusalMapperTest {
             )
         );
 
-        //Create Petition records, one locked and one unlocked
+        //Create Petition records
         petitionsList = new List<Petition__c>();
         petitionsList.add(
             new Petition__c(
                 Id = fflib_IDGenerator.generate(Petition__c.SObjectType),
-                Locked__c = false
+                Locked__c = false,
+                ADCVD_Case__c = adcvdCaseList[0].Id
             )
         );
         //Create relationship between ADCVD_Cases and Petitions
@@ -83,41 +85,35 @@ public class RecusalMapperTest {
                 new List<Petition__c> {petitionsList.get(0)}
             }
         );
-        //Create Custom Instruction records, one locked and one unlocked
-        cstInstList = new List<Custom_Instruction__c>();
-        cstInstList.add(
-            new Custom_Instruction__c(
-                Id = fflib_IDGenerator.generate(Custom_Instruction__c.SObjectType),
+        //Create Recusal records, one locked and one unlocked with ADCVD Case and one unlocked without ADCVD Case
+        recList = new List<Recusal__c>();
+        recList.add(
+            new Recusal__c(
+                Id = fflib_IDGenerator.generate(Recusal__c.SObjectType),
+                Locked__c = false,
+                ADCVD_Case__c = adcvdCaseList[0].Id
+            )
+        );
+        recList.add(
+            new Recusal__c(
+                Id = fflib_IDGenerator.generate(Recusal__c.SObjectType),
                 Locked__c = false
             )
         );
-        cstInstList.add(
-            new Custom_Instruction__c(
-                Id = fflib_IDGenerator.generate(Custom_Instruction__c.SObjectType),
+        recList.add(
+            new Recusal__c(
+                Id = fflib_IDGenerator.generate(Recusal__c.SObjectType),
                 Locked__c = true
             )
         );
-        //Create relationship between ADCVD Case and Custom Instructions
+        //Create relationship between ADCVD Case and Recusals
         adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
             List<ADCVD_Case__c>.class,
             adcvdCaseList,
-            Custom_Instruction__c.ADCVD_Case__c,
-            new List<List<Custom_Instruction__c>>{
-                new List<Custom_Instruction__c> {cstInstList.get(0)},
-                new List<Custom_Instruction__c> {cstInstList.get(1)}
-            }
-        );
-        //Create relationship between Petition and Custom Instructions
-        petitionsList = (List<Petition__c>)fflib_ApexMocksUtils.makeRelationship(
-            List<Petition__c>.class,
-            petitionsList,
-            Custom_Instruction__c.Petition__c,
-            new List<List<Custom_Instruction__c>>{
-                new List<Custom_Instruction__c> {cstInstList.get(0)},
-                new List<Custom_Instruction__c> {cstInstList.get(1)}
+            Recusal__c.ADCVD_Case__c,
+            new List<List<Recusal__c>>{
+                new List<Recusal__c> {recList.get(0)}
             }
         );
     }
-    
- */
 }
