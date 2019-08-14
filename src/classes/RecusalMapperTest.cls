@@ -53,9 +53,9 @@ public class RecusalMapperTest {
     @IsTest void testBehavior()
     {
         RecusalMapper rm = new RecusalMapper();
-        rm.getInstance();
+        RecusalMapper.getInstance();
         rm.getInstance(new Set<Id>());
-        rm.getNewInstance(new Set<Id>());
+        RecusalMapper.getNewInstance(new Set<Id>());
     }
 
 
