@@ -47,7 +47,7 @@ private class ReviewRecusalExtensionTest {
         pageRef = Page.ReviewRecusalPage;
         pageRef.getParameters().put('caseId', c.Id);
         pageRef.getParameters().put('userId', u.Id);
-        pageRef.getParameters().put('retURL', 'apex/'+ p.Id);
+        pageRef.getParameters().put('retURL', 'apex/'+ c.Id);
         test.setCurrentPage(pageRef);
         Recusal__c r = TestUtils.createRecusal(u.Id, System.today(), System.today().addDays(3), true);
         con = new ApexPages.StandardController(r);
