@@ -25,8 +25,8 @@ private class ReviewRecusalExtensionTest {
     @isTest static void primaryRecusalTest() {
         Test.startTest();
         primaryRecusalSetup();
-        String testlink = ext.recusalLink;
         Id testCaseId = ext.caseId;
+        ext.init();
         ext.cancel();
 
         Test.stopTest();
