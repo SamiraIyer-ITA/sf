@@ -76,21 +76,27 @@ public class RecusalMapperTest {
                 Id = fflib_IDGenerator.generate(Recusal__c.SObjectType),
                 Locked__c = false,
                 ADCVD_Case__c = adcvdCaseList[0].Id,
-                User__c = testUser.Id
+                User__c = testUser.Id,
+                Start_Date__c = System.today(),
+                End_Date__c = System.today()
             )
         );
         recList.add(
             new Recusal__c(
                 Id = fflib_IDGenerator.generate(Recusal__c.SObjectType),
                 Locked__c = false,
-                User__c = testUser.Id
+                User__c = testUser.Id,
+                Start_Date__c = System.today(),
+                End_Date__c = System.today()
             )
         );
         recList.add(
             new Recusal__c(
                 Id = fflib_IDGenerator.generate(Recusal__c.SObjectType),
                 Locked__c = true,
-                User__c = testUser.Id
+                User__c = testUser.Id,
+                Start_Date__c = System.today(),
+                End_Date__c = System.today()
             )
         );
         //Create relationship between ADCVD Case and Recusals
