@@ -11,6 +11,7 @@ public class RecusalMapperTest {
     private static List<ADCVD_Case__c> adcvdCaseList { get; set;}
     private static List<Petition__c> petitionsList {get; set;}
     private static List<Recusal__c> recList {get; set;}
+    private static User u {get; set;}
 
     @isTest static void testRecusalMapper(){
 
@@ -44,9 +45,10 @@ public class RecusalMapperTest {
 
         //Assert adcvd case records
         System.assertEquals(recList[0].Id, idToUnlockedRecusalMap.get(recList[0].Id).Id);
-        System.assertEquals(null, idToUnlockedRecusalMap.get(recList[1].Id));
+        System.assertEquals(null, idToUnlockedRecusalMap.get(recList[2].Id));
         System.assertEquals(recList[0].Id, idToAllRecusalMap.get(recList[0].Id).Id);
         System.assertEquals(recList[1].Id, idToAllRecusalMap.get(recList[1].Id).Id);
+        System.assertEquals(recList, userIdToUnlockedRecusalMap.get(u.Id));
 
     }
 
