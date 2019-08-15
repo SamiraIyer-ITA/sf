@@ -2515,6 +2515,32 @@ Select if this is a Compliance Case</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Organization_Contact__c</fullName>
+        <description>The application contact with the role of Organization Contact.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The application contact with the role of Organization Contact.</inlineHelpText>
+        <label>Organization Contact</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Corporate_Officer__c</fullName>
+        <description>The application contact with the role of Organization Corporate Officer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The application contact with the role of Organization Corporate Officer.</inlineHelpText>
+        <label>Organization Corporate Officer</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Origin</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>

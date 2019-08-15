@@ -10980,6 +10980,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>WIN_Contributor__c.Run_As_User__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>WIN_Contributor__c.WIN_Contributor_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>

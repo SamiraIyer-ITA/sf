@@ -63,6 +63,55 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>Able_To_Recertify__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Able To Recertify</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Application_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+                <value>
+                    <fullName>Certification In Progress</fullName>
+                    <default>false</default>
+                    <label>Certification In Progress</label>
+                </value>
+                <value>
+                    <fullName>Denied</fullName>
+                    <default>false</default>
+                    <label>Denied</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>City__c</fullName>
         <externalId>false</externalId>
         <label>City</label>
@@ -263,6 +312,30 @@ Program__r.New_Application_Link__c
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Organization_Contact__c</fullName>
+        <description>The application contact with the role of Organization Contact.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The application contact with the role of Organization Contact.</inlineHelpText>
+        <label>Organization Contact</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Corporate_Officer__c</fullName>
+        <description>The application contact with the role of Organization Corporate Officer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The application contact with the role of Organization Corporate Officer.</inlineHelpText>
+        <label>Organization Corporate Officer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Organization__c</fullName>
