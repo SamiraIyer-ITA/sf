@@ -37,6 +37,7 @@ public class RecusalMapperTest {
 
         Test.startTest();
         RecusalMapper recMapper = new RecusalMapper(new Set<Id>{recList[0].Id, recList[1].Id, recList[2].Id});
+        List<Recusal__c> unlockedRecusals = new List<Recusal__c> {recList[0], recList[1]};
         Map<Id, SObject> idToUnlockedRecusalMap = recMapper.getMap(false);
         Map<Id, SObject> idToAllRecusalMap = recMapper.getMap(true);
         Map<Id, List<Recusal__c>> userIdToUnlockedRecusalMap = recMapper.getMapByUserIds();
@@ -48,7 +49,7 @@ public class RecusalMapperTest {
         System.assertEquals(null, idToUnlockedRecusalMap.get(recList[2].Id));
         System.assertEquals(recList[0].Id, idToAllRecusalMap.get(recList[0].Id).Id);
         System.assertEquals(recList[1].Id, idToAllRecusalMap.get(recList[1].Id).Id);
-        System.assertEquals(recList, userIdToUnlockedRecusalMap.get(testUser.Id));
+        System.assertEquals(unlockedRecusals, userIdToUnlockedRecusalMap.get(testUser.Id));
 
     }
 
