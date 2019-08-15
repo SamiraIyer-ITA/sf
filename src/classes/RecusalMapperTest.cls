@@ -50,7 +50,7 @@ public class RecusalMapperTest {
 
     }
 
-    @IsTest void testBehavior()
+    @IsTest static void testBehavior()
     {
         RecusalMapper rm = new RecusalMapper();
         RecusalMapper.getInstance();
