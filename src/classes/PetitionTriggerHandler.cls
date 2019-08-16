@@ -63,8 +63,12 @@ public without sharing class PetitionTriggerHandler {
             
         }
         if(isAfter && isUpdate) {
-            recalculateInvestigations(newMap, oldMap);
-            new ChatterPostWriter('Petition__c', newMap, oldMap);
+            Map<Id, Petition__c> noLockedRecordsNewMap = new Map<Id, Petition__c>(newList);
+            List<Petition__c> noLockedRecordsNewList = new List<Petition__c>(newList);
+            initialize(noLockedRecordsNewList, noLockedRecordsNewMap);
+            afterActualInitiationSignatureAdded();
+            recalculateInvestigations(noLockedRecordsNewMap, oldMap);
+            new ChatterPostWriter('Petition__c', noLockedRecordsNewMap, oldMap);
         }
     }
 
@@ -79,6 +83,7 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
     @TestVisible private static PetitionMapper petMapper;
     @TestVisible private static FederalRegisterMapper frMapper;
+    @TestVisible private static Map<Id, ADCVD_Case__c> adcvdCasesToUpdateMap = new Map<Id, ADCVD_Case__c>();
 
     /*****************************************
     * Methods called directly by mainEntry()
@@ -225,21 +230,40 @@ public without sharing class PetitionTriggerHandler {
     }
 
     /*****************************
-    * Determines if the Actual_Initiation_Signature__c has been entered and if so changes the record type from Self initiated to File
+    * Determines if the Actual_Initiation_Signature__c has been entered and if so changes the record type from Private to Self-Initiated
     *****************************/
 
     @TestVisible private static void actualInitiationSignatureAdded(List<Petition__c> newList) {
         Id selfInitiateRecordTypeId = Schema.SObjectType.Petition__c.getRecordTypeInfosByName().get('Self-Initiated').getRecordTypeId();
-        Id fileRecordTypeId         = Schema.SObjectType.Petition__c.getRecordTypeInfosByName().get('Filed').getRecordTypeId();
+        Id privateRecordTypeId = Schema.SObjectType.Petition__c.getRecordTypeInfosByName().get('Private').getRecordTypeId();
+
         for(petition__c p :newList){
-            if(p.recordTypeId != selfInitiateRecordTypeId ){
+            if(p.recordTypeId != privateRecordTypeId ){
                 continue;
             }
+            system.debug('p.Actual_Initiation_Signature__c  is ==> ' + p.Actual_Initiation_Signature__c );
             if(p.Actual_Initiation_Signature__c != null) {
-                p.recordTypeId = fileRecordTypeId;
+                p.recordTypeId = selfInitiateRecordTypeId;
+                adcvdCasesToUpdateMap.put(p.ADCVD_Case__c, (ADCVD_Case__c)caseMapper.getMap(false).get(p.ADCVD_Case__c));
             }
         }
+    }
 
+    /*****************************
+    * Determines if the Petition Actual_Initiation_Signature__c has been entered and if so changes the record type or the associated Case from Private to Self Initiated
+    *****************************/
+
+    @TestVisible private static void afterActualInitiationSignatureAdded() {
+        Id selfInitiateRecordTypeId = Schema.SObjectType.ADCVD_Case__c.getRecordTypeInfosByName().get('Self-Initiated').getRecordTypeId();
+
+        if (adcvdCasesToUpdateMap.size() > 0) {
+
+            for (ADCVD_Case__c a : adcvdCasesToUpdateMap.values()) {
+                a.RecordTypeId = selfInitiateRecordTypeId;
+            }
+            update adcvdCasesToUpdateMap.values();
+
+        }
     }
     /*****************************
     * Status Calculations
