@@ -1,11 +1,12 @@
 /**
- * 
- *    Created by Joshua Moody
- *    on Oct 3 2017
- *    MIL Corporation
- * 
- **/
- @isTest
+*
+*    Created by Joshua Moody
+*    on Oct 3 2017
+*    MIL Corporation
+*
+**/
+
+@isTest
 public class StaffingAssignmentExtensionTest {
      /************************************************
     * This class performs unit tests on the StaffingAssignmentExtension
@@ -14,8 +15,8 @@ public class StaffingAssignmentExtensionTest {
     * are updated correctly
     * 2. Test to ensure that staffing assignments are created on insert
     * 3. Test to ensure the UI is correctly detected
-    *************************************************/
-    
+    **************************************************/
+
     static Petition__c p {
         get {
             if (p == null) {
@@ -51,8 +52,8 @@ public class StaffingAssignmentExtensionTest {
     static User u{
         get{
             if(u == null){
-                u = [SELECT Id, ProfileId, isActive, Alias, LanguageLocaleKey, LastName, FirstName, 
-                                Email, EmailEncodingKey, TimeZoneSidKey, CommunityNickname, Username 
+                u = [SELECT Id, ProfileId, isActive, Alias, LanguageLocaleKey, LastName, FirstName,
+                                Email, EmailEncodingKey, TimeZoneSidKey, CommunityNickname, Username
                             FROM User WHERE LastName =: 'LastName1' LIMIT 1];
             }
             return u;
@@ -61,6 +62,24 @@ public class StaffingAssignmentExtensionTest {
     static StaffingAssignmentExtension ext;
     static PageReference pageRef;
     static ApexPages.StandardController con;
+
+    @isTest static void exerciseAttributes() {
+        Test.startTest();
+        new StaffingAssignmentExtension(new ApexPages.StandardController(new Staffing_Assignment__c()));
+        orderSetup();
+        Object testSaveError = ext.saveError;
+        Object testAddWrapper = ext.addWrapper;
+        List<SelectOption> testallUserSelectOptions = ext.allUserSelectOptions;
+        Map<String,List<SelectOption>> testUserSelectOptions = ext.userSelectOptions;
+        Map<String, List<User>> testUserRoleMap = ext.userRoleMap;
+        List<Object> testStaffWrapperList = ext.staffWrapperList;
+        ext.getReturnUrl();
+        Staffing_Assignment__c testSA = ext.querySA();
+        List<SObject> testRelOrgList = ext.getRelOrgList(ext.parentId);
+        Staffing_Assignment__c testNewSA = StaffingAssignmentExtension.createNewStaffingAssignment(ext.parentId, 'Office Director');
+        Test.stopTest();
+    }
+
 
     @isTest static void orderTest() {
         Test.startTest();
@@ -92,13 +111,13 @@ public class StaffingAssignmentExtensionTest {
     @isTest static void uxContext() {
         Test.startTest();
         orderSetup();
-        
+
         Test.stopTest();
         System.assertNotEquals(null, ext.isSalesforce1);
         System.assertNotEquals(null, ext.isLightningExperience);
         System.assertNotEquals(null, ext.isSalesforceClassic);
     }
-    
+
     @testSetup static void dataSetup() {
         Test.startTest();
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
@@ -108,12 +127,16 @@ public class StaffingAssignmentExtensionTest {
         User testUser = TestUtils.createAdminUser(false, 'myemail@email.com.testita', 1);
         testUser.Staffing_Role__c = 'DAS';
         insert testUser;
+        User pleaseAssignUser = TestUtils.createAdminUser(false, 'myemail2@email.com.testita', 2);
+        pleaseAssignUser.LastName = 'Please Assign';
+        pleaseAssignUser.Staffing_Role__c = 'Program Manager';
+        insert pleaseAssignUser;
         ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
         Petition__c testADPetition = TestUtils.createPetition(testADCase, System.today().addDays(-280), true);
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
         ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
         Segment__c testARseg = TestUtils.createSegment(testADOrder, 'Administrative_Review', true);
-    } 
+    }
     private static void petitionSetup(){
         pageRef = Page.StaffingAssignment;
         pageRef.getParameters().put('parentId', p.Id);
@@ -139,9 +162,9 @@ public class StaffingAssignmentExtensionTest {
         pageRef.getParameters().put('addWrapper', '1');
         pageRef.getParameters().put('retURL', 'apex/'+ o.Id);
         test.setCurrentPage(pageRef);
-        Staffing_Assignment__c sa = [SELECT Id, User__c, Title__c, ADCVD_Case__c, ADCVD_Order__c 
+        Staffing_Assignment__c sa = [SELECT Id, User__c, Title__c, ADCVD_Case__c, ADCVD_Order__c
         FROM Staffing_Assignment__c WHERE ADCVD_Order__c =: o.Id LIMIT 1];
         con = new ApexPages.StandardController(sa);
         ext = new StaffingAssignmentExtension(con);
-    }   
+    }
 }

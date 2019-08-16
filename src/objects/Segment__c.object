@@ -2884,10 +2884,34 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
         <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Status__c</columns>
         <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
         <columns>Next_Major_Deadline__c</columns>
-        <columns>Next_Due_to_DAS_Deadline__c</columns>
-        <columns>Next_Office_Deadline__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <label>All Active Segments</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Segments_Office_I</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -2895,22 +2919,239 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
         </filters>
         <filters>
-            <field>RECORDTYPE</field>
+            <field>Office__c</field>
             <operation>equals</operation>
-            <value>Segment__c.Administrative_Review</value>
+            <value>I</value>
         </filters>
-        <label>All Active Segments</label>
+        <label>All Active Segments - Office I</label>
     </listViews>
     <listViews>
-        <fullName>All_Closed_Segments</fullName>
+        <fullName>All_Active_Segments_Office_II</fullName>
         <columns>NAME</columns>
         <columns>ADCVD_Case_Number_Text__c</columns>
         <columns>Country_Text__c</columns>
         <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
         <columns>Product_Text__c</columns>
-        <columns>Commodity_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
         <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>II</value>
+        </filters>
+        <label>All Active Segments - Office II</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Segments_Office_III</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>III</value>
+        </filters>
+        <label>All Active Segments - Office III</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Segments_Office_IV</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>IV</value>
+        </filters>
+        <label>All Active Segments - Office IV</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Segments_Office_SA</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>SA</value>
+        </filters>
+        <label>All Active Segments - Office SA</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Segments_Office_V</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>V</value>
+        </filters>
+        <label>All Active Segments - Office V</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Segments_Office_VI</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>VI</value>
+        </filters>
+        <label>All Active Segments - Office VI</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Segments_Office_VII</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>VII</value>
+        </filters>
+        <label>All Active Segments - Office VII</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Segments_Office_VIII</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>VIII</value>
+        </filters>
+        <label>All Active Segments - Office VIII</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Closed_Segments</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>Commodity_Text__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -2923,12 +3164,16 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <fullName>All_Open_Segments</fullName>
         <columns>NAME</columns>
         <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
         <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
+        <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
-        <columns>Commodity_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
         <columns>Status__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -2941,12 +3186,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <fullName>All_Segment_in_Litigation_Hold</fullName>
         <columns>NAME</columns>
         <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
         <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
+        <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
-        <columns>Commodity_Text__c</columns>
-        <columns>Status__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -2959,12 +3204,13 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <fullName>All_Segments_in_Litigation</fullName>
         <columns>NAME</columns>
         <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
         <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
+        <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
         <columns>Commodity_Text__c</columns>
-        <columns>Status__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -2972,93 +3218,6 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             <value>Litigation</value>
         </filters>
         <label>All Segments in Litigation</label>
-    </listViews>
-    <listViews>
-        <fullName>NSRs</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
-        <columns>ADCVD_Case_Type_Text__c</columns>
-        <columns>Product_Text__c</columns>
-        <columns>Status__c</columns>
-        <columns>Calculated_Final_Signature__c</columns>
-        <columns>Actual_Final_Signature__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Segment__c.New_Shipper_Review</value>
-        </filters>
-        <label>NSRs</label>
-    </listViews>
-    <listViews>
-        <fullName>Segments_without_outcomes</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>Product_Text__c</columns>
-        <columns>Period_Covered_End_Date__c</columns>
-        <columns>Segment_Outcome__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Segment_Outcome__c</field>
-            <operation>equals</operation>
-        </filters>
-        <filters>
-            <field>Status__c</field>
-            <operation>equals</operation>
-            <value>Hold,Litigation,Customs,Closed</value>
-        </filters>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Segment__c.Administrative_Review</value>
-        </filters>
-        <label>Segments without outcomes</label>
-    </listViews>
-    <listViews>
-        <fullName>Sunset_Reviews</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
-        <columns>ADCVD_Case_Type_Text__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>Product_Text__c</columns>
-        <columns>Status__c</columns>
-        <columns>Period_Covered_End_Date__c</columns>
-        <columns>Product_Description__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Segment__c.Sunset_Review</value>
-        </filters>
-        <filters>
-            <field>Status__c</field>
-            <operation>notEqual</operation>
-            <value>Closed</value>
-        </filters>
-        <label>Sunset Reviews</label>
-    </listViews>
-    <listViews>
-        <fullName>Suspension_Agreement_Segments</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
-        <columns>ADCVD_Case_Type_Text__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>Product_Text__c</columns>
-        <columns>Status__c</columns>
-        <columns>Period_Covered_End_Date__c</columns>
-        <columns>Product_Description__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Office__c</field>
-            <operation>equals</operation>
-            <value>SA</value>
-        </filters>
-        <label>Suspension Agreement Segments</label>
     </listViews>
     <nameField>
         <displayFormat>S-{0000}</displayFormat>
@@ -14610,7 +14769,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     </validationRules>
     <validationRules>
         <fullName>A1106OutcomeReqDecOnHowToProcInformal</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Segment Outcome is required when Decision on How to Proceed is &quot;Informal&quot;</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
