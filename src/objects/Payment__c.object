@@ -119,6 +119,28 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Organization_Contact__c</fullName>
+        <description>The application contact with the role of Organization Contact.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The application contact with the role of Organization Contact.</inlineHelpText>
+        <label>Organization Contact</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Corporate_Officer__c</fullName>
+        <description>The application contact with the role of Organization Corporate Officer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The application contact with the role of Organization Corporate Officer.</inlineHelpText>
+        <label>Organization Corporate Officer</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Participant__c</fullName>
         <description>Participant on the Order record.</description>
         <externalId>false</externalId>
