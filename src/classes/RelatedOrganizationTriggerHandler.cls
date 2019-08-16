@@ -30,8 +30,6 @@ public without sharing class RelatedOrganizationTriggerHandler {
 		if (isBefore && isInsert) {
 			newList = new LockedRecordHandler().removeLockedRecords(newList);
 			initialize(newList, null);
-			System.debug('newList----------'+newList);
-			System.debug('newListSIZE----------'+newList.size());
 			setCaseValues(newList);
 		}
 		if (isAfter && isInsert) {
@@ -51,8 +49,6 @@ public without sharing class RelatedOrganizationTriggerHandler {
 	//method to initialize the caseMapper and if newMap is passed (after insert/update) it will add the new Interested Orgs to the Mappers
 	@TestVisible private static void initialize(List<Related_Organization__c> newList, Map<Id, Related_Organization__c> newMap) {
 		Set<Id> caseIdSet = getCaseIdSet(newList);
-		System.debug('newList-------'+newList);
-		System.debug('caseIdSet-------'+caseIdSet);
 		caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
 		caseMapper = caseMapper.getInstance(caseIdSet);
 		if (newMap != null) {
@@ -68,9 +64,7 @@ public without sharing class RelatedOrganizationTriggerHandler {
 		Set<Id> orderIdSet = new Set<Id>();
 		Set<Id> litigationIdSet = new Set<Id>();
 		Set<Id> segmentIdSet = new Set<Id>();
-		System.debug('newList--------------2-------------------'+newList);
 		for (Related_Organization__c io : newList) {
-			System.debug('io---------------------------------'+io);
 			if (io.Petition__c != null) {
 				setIoParent(io, 'Petition__c');
 				petitionIdSet.add(io.Petition__c);
@@ -88,20 +82,20 @@ public without sharing class RelatedOrganizationTriggerHandler {
 				litigationIdSet.add(io.Litigation__c);
 			}
 		}
-		for (Petition__c p : [SELECT ADCVD_Case__c FROM Petition__c WHERE Id IN:petitionIdSet]) {
+		for (Petition__c p : PetitionSelector.newInstance().selectById(petitionIdSet)) {
 			caseIdSet.add(p.ADCVD_Case__c);
 		}
-		for (Investigation__c i : [SELECT ADCVD_Case__c FROM Investigation__c WHERE Id IN:investigationIdSet]) {
+		for (Investigation__c i : InvestigationSelector.newInstance().selectById(investigationIdSet)) {
 			caseIdSet.add(i.ADCVD_Case__c);
 		}
-		for (Segment__c s : [SELECT ADCVD_Case__c FROM Segment__c WHERE Id IN:segmentIdSet]) {
+		for (Segment__c s : SegmentSelector.newInstance().selectById(segmentIdSet)) {
 			caseIdSet.add(s.ADCVD_Case__c);
 		}
-		for (ADCVD_Order__c ao : [SELECT ADCVD_Case__c FROM ADCVD_Order__c WHERE Id IN:orderIdSet]) {
+		for (ADCVD_Order__c ao : ADCVD_OrderSelector.newInstance().selectById(orderIdSet)) {
 			caseIdSet.add(ao.ADCVD_Case__c);
 		}
-		for (Litigation__c sa : [SELECT ADCVD_Case__c FROM Litigation__c WHERE Id IN:litigationIdSet]) {
-			caseIdSet.add(sa.ADCVD_Case__c);
+		for (Litigation__c l : LitigationSelector.newInstance().selectById(LitigationIdSet)) {
+			caseIdSet.add(l.ADCVD_Case__c);
 		}
 		return caseIdSet;
 	}
@@ -109,15 +103,8 @@ public without sharing class RelatedOrganizationTriggerHandler {
 	@TestVisible private static void setCaseValues(List<Related_Organization__c> newList) {
 		ParentValuesService pvs = new ParentValuesService();
 		for (Related_Organization__c io : newList) {
-			System.debug('io---------'+io);
-			System.debug('io.IO_Parent__c---------'+io.IO_Parent__c);
-			//System.debug('---------'+);
 			Id parentId = (Id) io.get(io.IO_Parent__c);
 			adcvdMapper = (ADCVD_IMapper) caseMapper.getMapper(io.IO_Parent__c).getInstance();
-			System.debug('adcvdMapper---------'+adcvdMapper);
-			System.debug('caseMapper---------'+caseMapper);
-			System.debug('caseMapper.getMap(true)---------'+caseMapper.getMap(true));
-			System.debug('adcvdMapper.getMap(true)---------'+adcvdMapper.getMap(true));
 			ADCVD_Case__c currentCase = (ADCVD_Case__c) caseMapper.getMap(true).get((Id) adcvdMapper.getMap(true).get(parentId).get('ADCVD_Case__c'));
 			io.ADCVD_Case__c = currentCase.Id;
 			io = (Related_Organization__c) pvs.setCaseValuesFromParent(currentCase, io);
