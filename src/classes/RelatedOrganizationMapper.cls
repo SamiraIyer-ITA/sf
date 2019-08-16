@@ -22,11 +22,11 @@ public without sharing class RelatedOrganizationMapper implements ADCVD_IMapper 
 		if (idToUnlockedRelatedOrganizationMap.isEmpty()) {
 			List<Related_Organization__c> tempList = RelatedOrganizationSelector.newInstance().selectById(relatedOrgIdSet);
 			if (tempList != null) {
-			for (Related_Organization__c ro : tempList) {
-				addRelOrgToMap(ro);
+				for (Related_Organization__c ro : tempList) {
+					addRelOrgToMap(ro);
+				}
 			}
 		}
-	}
 	}
 
 	//primary method for accessing this selector. Uses a Singleton pattern with the instance being stored on the ADCVD_CaseMapper
