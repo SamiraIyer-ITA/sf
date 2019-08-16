@@ -10,6 +10,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
     public void process(valence.LinkContext context, List<valence.RecordInFlight> records) {
         Set<Id> attendeeIds = new Set<Id>();
         Map<Id,String> attendeesToEmails = new Map<Id,String>();
+        Id tasksRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByDeveloperName().get('Tasks').getRecordTypeId();
 
         List<User> automatedProcessUser = [SELECT Id FROM User WHERE Name = 'Automated Process' ORDER BY CreatedDate ASC LIMIT 1];
         Id automatedProcessId = null;
@@ -258,7 +259,8 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                                 WhatId = myCase.Id,
                                 Type = 'B2G',
                                 Status = 'Completed',
-                                ActivityDate = myDate
+                                ActivityDate = myDate,
+                                RecordTypeId = tasksRecordTypeId
                         );
                         Boolean bFound = false;
                         for(Task existingTask : existingTasks) {
@@ -268,7 +270,6 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                                     existingTask.WhoId == thisTask.WhoId &&
                                     existingTask.WhatId == thisTask.WhatId &&
                                     existingTask.Type == thisTask.Type &&
-                                    existingTask.Status == thisTask.Status &&
                                     existingTask.ActivityDate == thisTask.ActivityDate) {
                                 bFound = true;
                                 break;
@@ -283,7 +284,6 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                                     existingTask.WhoId == thisTask.WhoId &&
                                     existingTask.WhatId == thisTask.WhatId &&
                                     existingTask.Type == thisTask.Type &&
-                                    existingTask.Status == thisTask.Status &&
                                     existingTask.ActivityDate == thisTask.ActivityDate) {
                                 bFound = true;
                                 break;
