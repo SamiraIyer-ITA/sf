@@ -36,6 +36,14 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         Id contactRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('ITA_Contacts').getRecordTypeId();
         Map<String,String> emailToOrganizationName = new Map<String,String>();
 
+        List<User> automatedProcessUser = [SELECT Id FROM User WHERE Name = 'Automated Process' ORDER BY CreatedDate ASC LIMIT 1];
+        Id automatedProcessId = null;
+        if(!automatedProcessUser.isEmpty()) {
+            automatedProcessId = automatedProcessUser[0].Id;
+        }
+        Set<Id> businessConferenceIds = new Set<Id>();
+        Map<String,String> orgNameToBusinessConferenceId = new Map<String,String>();
+
         //Collect Organization Names and filter out trade.gov email
         for(valence.RecordInFlight record : records) {
             //Do not create Organization or Contact if Attendee has a .gov email
@@ -52,7 +60,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
             }
             if(email != null && !email.toLowerCase().endsWith('trade.gov')) {
                 if(!String.isBlank(company)) {
-                    organizationNames.add(company);
+                    organizationNames.add(company.trim());
                 }
                 if(!String.isBlank(email)) {
                     contactEmails.add(email);
@@ -62,21 +70,51 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
                     emailToOrganizationName.put(email,company);
                 }
             }
+            String busConfId = String.valueOf(record.getProperties().get('BusinessConference__c'));
+            if(!String.isBlank(busConfId)) {
+                businessConferenceIds.add(busConfId);
+                if(!String.isBlank(company)) {
+                    orgNameToBusinessConferenceId.put(company,busConfId);
+                }
+            }
+        }
+
+        Map<Id,String> busConfIdToCommunicationEmail = new Map<Id,String>();
+        for(Business_Conference__c busConf : [SELECT Id,Campaign__c,Campaign__r.Outgoing_Communication_Email__c FROM Business_Conference__c WHERE Id IN: orgNameToBusinessConferenceId.values()]) {
+            if(busConf.Campaign__c != null) {
+                busConfIdToCommunicationEmail.put(busConf.Id,busConf.Campaign__r.Outgoing_Communication_Email__c);
+            }
+        }
+
+        Map<String,String> communicationEmailToUserId = new Map<String,String>();
+        //get users from list of users related to outgoing communications emails for later use
+        for(User thisUser : [SELECT Id,Email from User WHERE Email IN: busConfIdToCommunicationEmail.values() ORDER BY CreatedDate asc]) {
+            communicationEmailToUserId.put(thisUser.Email,thisUser.Id);
         }
 
         //Use Organization Names to find existing Organizations with those names, map them
-        for(Account organization : [SELECT Name FROM Account WHERE Name IN :organizationNames]) {
-            if(!organizationNameToExistingOrganization.containsKey(organization.Name)) {
-                organizationNameToExistingOrganization.put(organization.Name, organization);
-            }
+        for(Account organization : [SELECT Name,Id,OwnerId FROM Account WHERE Name IN :organizationNames ORDER BY CreatedDate asc]) {
+            organizationNameToExistingOrganization.put(organization.Name, organization);
         }
 
         //Iterate through Attendee company names and collect the ones that don't have any matching Organizations,
         //  then create new Organizations for those names that still don't have an Org, then map the new orgs by name
         for(String orgName : organizationNames) {
-            if((organizationNameToExistingOrganization.containsKey(orgName) || organizationNameToNewOrganization.containsKey(orgName)) == false) {
+            if((!organizationNameToExistingOrganization.containsKey(orgName) && !organizationNameToNewOrganization.containsKey(orgName))) {
                 //Organization doesn't already exist, create it and map it
                 Account newOrganization = new Account(Name = orgName, recordTypeId = orgRecordTypeId);
+
+                String businessConferenceId = orgNameToBusinessConferenceId.get(orgName);
+                if(businessConferenceId != null) {
+                    String communicationEmail = busConfIdToCommunicationEmail.get(businessConferenceId);
+                    if(communicationEmail != null) {
+                        //newOrganization.OwnerId = communicationEmail;
+                        String userId = communicationEmailToUserId.get(communicationEmail);
+                        if(userId != null) {
+                            newOrganization.OwnerId = userId;
+                        }
+                    }
+                }
                 organizationNameToNewOrganization.put(orgName,newOrganization);
             }
         }
@@ -119,6 +157,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
                 if(organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)) != null) {
                     //this conditional is to prevent a very rare edge case with a null pointer exception
                     newContact.AccountId = organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)).Id;
+                    newContact.OwnerId = organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)).OwnerId;
                 }
                 contactEmailToNewContact.put(newContact.Email,newContact);
             }
