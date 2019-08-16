@@ -163,6 +163,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         }
 
         Set<String> newCaseCampaignNames = new Set<String>();
+        String caseRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByDeveloperName().get('Export_Promotion').getRecordTypeId();
 
         //Create Cases on Contacts associated by email with an attendee associated to an accepted meeting
         for(Contact thisContact : [SELECT Id,AccountId,Account.Name,Account.OwnerId,Email FROM Contact WHERE Id IN: acceptedMeetingContactIds]) {
@@ -205,7 +206,8 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                                 Description = 'U.S. Exhibitor/Client registered for value added programming (B2G, B2B, Demos Int\'l Reception), at an event.',
                                 OwnerId = orgOwnerId,
                                 ContactId = thisContact.Id,
-                                Campaign_Name__c = campaignId
+                                Campaign_Name__c = campaignId,
+                                RecordTypeId = caseRecordTypeId
                         );
                         emailToCase.put(thisContact.Email, newCase);
                         newCaseCampaignNames.add(caseSubject);
@@ -213,7 +215,8 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                         newCase = new Case(Subject = (String.isBlank(caseSubject) ? 'Case' : caseSubject),
                                 Description = 'U.S. Exhibitor/Client registered for value added programming (B2G, B2B, Demos Int\'l Reception), at an event.',
                                 ContactId = thisContact.Id,
-                                Campaign_Name__c = campaignId
+                                Campaign_Name__c = campaignId,
+                                RecordTypeId = caseRecordTypeId
                         );
                         emailToCase.put(thisContact.Email, newCase);
                         newCaseCampaignNames.add(caseSubject);
