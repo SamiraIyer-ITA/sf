@@ -246,7 +246,7 @@ public class TestUtils {
     public static AppConfig__c createAppConfig(String name, Boolean triggersEnabled, Boolean doInsert) {
         AppConfig__c app = new AppConfig__c();
         app.Name = name;
-        app.Primary_Admin__c = 'sandip.menon@trade.gov'; 
+        app.Primary_Admin__c = 'sandip.menon@trade.gov';
         app.ADCVD_Admin__c = 'joshua.moody@trade.gov';
         app.TriggersEnabled__c = triggersEnabled;
         app.AppEnabled__c = true;
