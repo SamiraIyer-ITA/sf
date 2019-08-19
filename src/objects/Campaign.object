@@ -707,6 +707,10 @@
                 <fullName>Telemarketing</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Trade Show</fullName>
+                <default>true</default>
+            </values>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
