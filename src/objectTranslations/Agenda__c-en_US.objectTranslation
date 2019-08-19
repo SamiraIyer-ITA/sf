@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Agenda</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Agendas</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Attendee to whom this Agenda applies. --></help>
+        <label><!-- Attendee --></label>
+        <name>Attendee__c</name>
+        <relationshipLabel><!-- Agendas --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The end date and time of this Agenda. --></help>
+        <label><!-- End Date/Time --></label>
+        <name>EndDateTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- Lookup to associated Event on Agenda. --></help>
+        <label><!-- Event --></label>
+        <name>Event__c</name>
+        <relationshipLabel><!-- Agendas --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- ID of the Eventtia Agenda. --></help>
+        <label><!-- Eventtia ID --></label>
+        <name>EventtiaID__c</name>
+    </fields>
+    <fields>
+        <help><!-- The start date and time of this Agenda. --></help>
+        <label><!-- Start Date/Time --></label>
+        <name>StartDateTime__c</name>
+    </fields>
+    <layouts>
+        <layout>Agenda Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
