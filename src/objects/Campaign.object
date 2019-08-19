@@ -604,7 +604,7 @@
             <picklist>Type</picklist>
             <values>
                 <fullName>Advertisement</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Banner Ads</fullName>
@@ -640,7 +640,7 @@
             </values>
             <values>
                 <fullName>Trade Show</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
     </recordTypes>
