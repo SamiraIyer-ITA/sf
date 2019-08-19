@@ -1,0 +1,44 @@
+src/appMenus/AppSwitcher.appMenu
+src/applications/Eventtia_App.app
+src/classes/AttendeeContactCreator.cls
+src/classes/AttendeeContactCreatorTest.cls
+src/classes/EventtiaAdapter.cls
+src/classes/MeetingCaseCreator.cls
+src/classes/MeetingCaseCreatorTest.cls
+src/customMetadata/valence__ValenceDataLink.aH2BSF.md
+src/customMetadata/valence__ValenceDataLink.aXUF0b.md
+src/customMetadata/valence__ValenceDataLink.aZwfDy.md
+src/customMetadata/valence__ValenceDataLink.arPgVY.md
+src/customMetadata/valence__ValenceDataLinkFilter.a2JcEm.md
+src/customMetadata/valence__ValenceDataLinkFilter.a2JcEn.md
+src/customMetadata/valence__ValenceDataLinkFilter.aD2HAE.md
+src/customMetadata/valence__ValenceDataLinkFilter.aMwcEI.md
+src/customMetadata/valence__ValenceFilter.Attendee_Contact_Creator.md
+src/customMetadata/valence__ValenceFilter.Meeting_Case_Creator.md
+src/customMetadata/valence__ValenceMapping.al0dKd.md
+src/flexipages/Attendee_LPL.flexipage
+src/flexipages/Attendee_Single_LPL.flexipage
+src/flexipages/Campaign_Record_Page1.flexipage
+src/flexipages/Case_Record_Page.flexipage
+src/flexipages/Contact_Record_Page.flexipage
+src/flexipages/Home.flexipage
+src/flexipages/Organization_Record_Page.flexipage
+src/layouts/Account-Account Layout.layout
+src/layouts/Business_Conference__c-Business Conference Layout.layout
+src/layouts/Campaign-Campaign Layout.layout
+src/layouts/Case-Case Layout.layout
+src/layouts/Case-Export Promotion Cases.layout
+src/layouts/Contact-ITA Contact Layout.layout
+src/layouts/Meeting__c-Meeting Layout.layout
+src/layouts/Task-Task Layout.layout
+src/objectTranslations/Agenda__c-en_US.objectTranslation
+src/objectTranslations/Business_Conference__c-en_US.objectTranslation
+src/objectTranslations/Meeting__c-en_US.objectTranslation
+src/objects/Agenda__c.object
+src/objects/Attendee__c.object
+src/objects/Business_Conference__c.object
+src/objects/Event__c.object
+src/objects/Meeting__c.object
+src/permissionsets/Events_App_Read_Only.permissionset
+src/quickActions/NewTask.quickAction
+src/reportTypes/Campaigns_And_Attendees.reportType
