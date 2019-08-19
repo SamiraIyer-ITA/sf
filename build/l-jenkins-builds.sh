@@ -24,8 +24,10 @@ buildXML="$sandbox/build.xml"
 # [ -f "../builds/build.properties" ] && rm ../builds/build.properties
 
 # Component types that we deploy
-types=" approvalProcess  \
-		asset \
+types=" app \
+	appMenu \
+	approvalProcess  \
+	asset \
         assignmentRules \
         authprovider \
         autoResponseRules \

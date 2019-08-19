@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Meeting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Meetings</value>
+    </caseValues>
+    <fields>
+        <help><!-- Agenda of the Meeting&apos;s Attendee. --></help>
+        <label><!-- Attendee Agenda --></label>
+        <name>AttendeeAgenda__c</name>
+        <relationshipLabel><!-- Meetings (Attendee Agenda) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Autopopulated from the Attendee&apos;s record, U.S. Supplier for example. --></help>
+        <label><!-- Attendee Company --></label>
+        <name>AttendeeCompany__c</name>
+    </fields>
+    <fields>
+        <help><!-- Attendee first name &amp; last name. --></help>
+        <label><!-- Attendee Name --></label>
+        <name>Attendee_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The participant of the meeting, like a foreign buyer. --></help>
+        <label><!-- Attendee --></label>
+        <name>Attendee__c</name>
+        <relationshipLabel><!-- Meetings --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Establishes master- detail relationship between attendee and business conference. --></help>
+        <label><!-- Business Conference --></label>
+        <name>BusinessConference__c</name>
+        <relationshipLabel><!-- Meetings --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The time the meeting will end. --></help>
+        <label><!-- End Date/Time --></label>
+        <name>EndDateTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- External ID for the Eventtia Meeting ID. --></help>
+        <label><!-- Eventtia ID --></label>
+        <name>EventtiaID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Agenda of the Meeting&apos;s Host Attendee. --></help>
+        <label><!-- Host Agenda --></label>
+        <name>HostAgenda__c</name>
+        <relationshipLabel><!-- Meetings --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Autopopulated from the Host&apos;s attendee record, U.S. Supplier for example. --></help>
+        <label><!-- Host Company --></label>
+        <name>HostCompany__c</name>
+    </fields>
+    <fields>
+        <help><!-- Host first name &amp; last name --></help>
+        <label><!-- Host Name --></label>
+        <name>Host_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The host of the meeting. --></help>
+        <label><!-- Host --></label>
+        <name>Host__c</name>
+        <relationshipLabel><!-- Meetings (Host) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The location of the meeting (optional). --></help>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <help><!-- Case related to this meeting. This case is created during the WEFTEC Pre-Registration process. --></help>
+        <label><!-- Related Case --></label>
+        <name>RelatedCase__c</name>
+        <relationshipLabel><!-- Meetings --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The time the meeting will begin. --></help>
+        <label><!-- Start Date/Time --></label>
+        <name>StartDateTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- The status of the meeting. Whether or not it&apos;s been requested, accepted, or rejected. --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- The type of meeting. --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>B2B</masterLabel>
+            <translation><!-- B2B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B2G</masterLabel>
+            <translation><!-- B2G --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Meeting Layout</layout>
+        <sections>
+            <label><!-- Attendees --></label>
+            <section>Attendees</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Integration Info --></label>
+            <section>Integration Info</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

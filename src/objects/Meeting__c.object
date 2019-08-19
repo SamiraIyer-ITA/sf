@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Meeting_Single_LPL</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>Meeting_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Meeting_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Host_Name__c</fields>
+        <fields>Attendee_Name__c</fields>
+        <fields>StartDateTime__c</fields>
+        <fields>EndDateTime__c</fields>
+        <fields>Status__c</fields>
+        <fields>Location__c</fields>
+        <label>Meeting Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to track U.S Suppliers and Foreign Buyers meetings at Trade Events.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AttendeeAgenda__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Agenda of the Meeting&apos;s Attendee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Agenda of the Meeting&apos;s Attendee.</inlineHelpText>
+        <label>Attendee Agenda</label>
+        <referenceTo>Agenda__c</referenceTo>
+        <relationshipLabel>Meetings (Attendee Agenda)</relationshipLabel>
+        <relationshipName>Meetings1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AttendeeCompany__c</fullName>
+        <description>Autopopulated from the Attendee&apos;s record, U.S. Supplier for example.</description>
+        <externalId>false</externalId>
+        <formula>Attendee__r.Company__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Autopopulated from the Attendee&apos;s record, U.S. Supplier for example.</inlineHelpText>
+        <label>Attendee Company</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attendee_Name__c</fullName>
+        <description>Attendee first name &amp; last name.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; &amp; Attendee__r.Id ,Attendee__r.FirstName__c &amp; &quot; &quot; &amp;  Attendee__r.LastName__c)</formula>
+        <inlineHelpText>Attendee first name &amp; last name.</inlineHelpText>
+        <label>Attendee Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attendee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The participant of the meeting, like a foreign buyer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The participant of the meeting, like a foreign buyer.</inlineHelpText>
+        <label>Attendee</label>
+        <referenceTo>Attendee__c</referenceTo>
+        <relationshipLabel>Meetings</relationshipLabel>
+        <relationshipName>Meetings</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BusinessConference__c</fullName>
+        <description>Establishes master- detail relationship between attendee and business conference.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Establishes master- detail relationship between attendee and business conference.</inlineHelpText>
+        <label>Business Conference</label>
+        <referenceTo>Business_Conference__c</referenceTo>
+        <relationshipLabel>Meetings</relationshipLabel>
+        <relationshipName>Meetings</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>EndDateTime__c</fullName>
+        <description>The time the meeting will end.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The time the meeting will end.</inlineHelpText>
+        <label>End Date/Time</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>EventtiaID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>External ID for the Eventtia Meeting ID.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>External ID for the Eventtia Meeting ID.</inlineHelpText>
+        <label>Eventtia ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>HostAgenda__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Agenda of the Meeting&apos;s Host Attendee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Agenda of the Meeting&apos;s Host Attendee.</inlineHelpText>
+        <label>Host Agenda</label>
+        <referenceTo>Agenda__c</referenceTo>
+        <relationshipLabel>Meetings</relationshipLabel>
+        <relationshipName>Meetings</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HostCompany__c</fullName>
+        <description>Autopopulated from the Host&apos;s attendee record, U.S. Supplier for example.</description>
+        <externalId>false</externalId>
+        <formula>Host__r.Company__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Autopopulated from the Host&apos;s attendee record, U.S. Supplier for example.</inlineHelpText>
+        <label>Host Company</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Host_Name__c</fullName>
+        <description>Host first name &amp; last name</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; &amp; Host__r.Id , Host__r.FirstName__c &amp; &quot; &quot; &amp; Host__r.LastName__c)</formula>
+        <inlineHelpText>Host first name &amp; last name</inlineHelpText>
+        <label>Host Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Host__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The host of the meeting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The host of the meeting.</inlineHelpText>
+        <label>Host</label>
+        <referenceTo>Attendee__c</referenceTo>
+        <relationshipLabel>Meetings (Host)</relationshipLabel>
+        <relationshipName>Meetings1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <description>The location of the meeting (optional).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location of the meeting (optional).</inlineHelpText>
+        <label>Location</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RelatedCase__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Case related to this meeting. This case is created during the WEFTEC Pre-Registration process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Case related to this meeting. This case is created during the WEFTEC Pre-Registration process.</inlineHelpText>
+        <label>Related Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Meetings</relationshipLabel>
+        <relationshipName>Meetings</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StartDateTime__c</fullName>
+        <description>The time the meeting will begin.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The time the meeting will begin.</inlineHelpText>
+        <label>Start Date/Time</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>The status of the meeting. Whether or not it&apos;s been requested, accepted, or rejected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The status of the meeting. Whether or not it&apos;s been requested, accepted, or rejected.</inlineHelpText>
+        <label>Status</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>The type of meeting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of meeting.</inlineHelpText>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>B2B</fullName>
+                    <default>false</default>
+                    <label>B2B</label>
+                </value>
+                <value>
+                    <fullName>B2G</fullName>
+                    <default>false</default>
+                    <label>B2G</label>
+                </value>
+                <value>
+                    <fullName>Demo</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Demo</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Meeting</label>
+    <listViews>
+        <fullName>Accepted_Meetings</fullName>
+        <columns>NAME</columns>
+        <columns>HostCompany__c</columns>
+        <columns>Host_Name__c</columns>
+        <columns>AttendeeCompany__c</columns>
+        <columns>Attendee_Name__c</columns>
+        <columns>StartDateTime__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>accepted</value>
+        </filters>
+        <label>Accepted Meetings</label>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>HostCompany__c</columns>
+        <columns>Host_Name__c</columns>
+        <columns>AttendeeCompany__c</columns>
+        <columns>Attendee_Name__c</columns>
+        <columns>StartDateTime__c</columns>
+        <columns>Status__c</columns>
+        <columns>BusinessConference__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>B2B_Meetings</fullName>
+        <columns>NAME</columns>
+        <columns>Attendee_Name__c</columns>
+        <columns>AttendeeCompany__c</columns>
+        <columns>Host_Name__c</columns>
+        <columns>HostCompany__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>B2B</value>
+        </filters>
+        <label>B2B Meetings</label>
+    </listViews>
+    <listViews>
+        <fullName>G2B_Meetings</fullName>
+        <columns>NAME</columns>
+        <columns>AttendeeCompany__c</columns>
+        <columns>Attendee_Name__c</columns>
+        <columns>HostCompany__c</columns>
+        <columns>Host_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>G2B Meetings</label>
+    </listViews>
+    <listViews>
+        <fullName>Rejected_Meetings</fullName>
+        <columns>NAME</columns>
+        <columns>HostCompany__c</columns>
+        <columns>Host_Name__c</columns>
+        <columns>AttendeeCompany__c</columns>
+        <columns>Attendee_Name__c</columns>
+        <columns>StartDateTime__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>rejected</value>
+        </filters>
+        <label>Rejected Meetings</label>
+    </listViews>
+    <listViews>
+        <fullName>Requested_Meetings</fullName>
+        <columns>NAME</columns>
+        <columns>HostCompany__c</columns>
+        <columns>Host_Name__c</columns>
+        <columns>AttendeeCompany__c</columns>
+        <columns>Attendee_Name__c</columns>
+        <columns>StartDateTime__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>requested</value>
+        </filters>
+        <label>Requested Meetings</label>
+    </listViews>
+    <nameField>
+        <displayFormat>M-{000}</displayFormat>
+        <label>Meeting Number</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Meetings</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>HostCompany__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Host_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Attendee_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AttendeeCompany__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StartDateTime__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>HostCompany__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Host_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AttendeeCompany__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Attendee_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StartDateTime__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>HostCompany__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Host_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AttendeeCompany__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Attendee_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>StartDateTime__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Host_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>HostCompany__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Attendee_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AttendeeCompany__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StartDateTime__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
