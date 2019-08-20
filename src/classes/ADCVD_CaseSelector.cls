@@ -102,6 +102,10 @@ public with sharing class ADCVD_CaseSelector
             .selectField(Harmonized_Tariff_Schedule__c.ADCVD_Case__c)
             .selectField(Harmonized_Tariff_Schedule__c.ADCVD_Order__c)
             .selectField(Harmonized_Tariff_Schedule__c.Suspension_Agreement__c);
+        qf.subselectQuery(Recusal__c.SObjectType, true)
+            .selectField(Recusal__c.Id)
+            .selectField(Recusal__c.ADCVD_Case__c)
+            .selectField(Recusal__c.Related_Organization__c);
         qf.setCondition(ADCVD_Case__c.Id + ' in :idSet');
         return Database.query(qf.toSOQL());
     }

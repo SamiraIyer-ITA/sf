@@ -478,6 +478,7 @@
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Title__c</fields>
         <fields>User__c</fields>
@@ -486,19 +487,23 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Account__c</fields>
         <fields>Type__c</fields>
         <relatedList>Related_Organization__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Published_Date__c</fields>
         <fields>Cite_Number__c</fields>
+        <fields>FR_URL__c</fields>
         <relatedList>Federal_Register__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>ADCVD_Case__c</fields>
         <fields>CBP_Instructions_Category__c</fields>
@@ -509,16 +514,19 @@
         <relatedList>Custom_Instruction__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Status__c</fields>
         <relatedList>ADCVD_Order__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Status__c</fields>
         <relatedList>Litigation__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <relatedList>Suspension_Agreement__c.Investigation__c</relatedList>
     </relatedLists>
