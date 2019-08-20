@@ -13,21 +13,6 @@
             </componentInstanceProperties>
             <componentName>flexipage:richText</componentName>
         </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>dashboardName</name>
-                <value>NcGXHGROuioiOgUIedhDVsBUuvXYHa</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>height</name>
-                <value>750</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>hideOnError</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentName>desktopDashboards:embeddedDashboard</componentName>
-        </componentInstances>
         <name>region1</name>
         <type>Region</type>
     </flexiPageRegions>
