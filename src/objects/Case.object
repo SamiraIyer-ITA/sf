@@ -1300,6 +1300,22 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Event__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Looks to associated Event record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Looks to associated Event record.</inlineHelpText>
+        <label>Event</label>
+        <referenceTo>Event__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Expected_Value__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Estimate potential dollar value if we successfully meet the client’s objectives. For example, ensuring a $50,000 sale goes through; signing an agreement worth $300,000, a trade lead for $3,000 worth of goods, $40,000  in tuition etc. Leave blank if unsure</inlineHelpText>
