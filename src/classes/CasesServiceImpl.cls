@@ -187,8 +187,8 @@ public class CasesServiceImpl implements ICasesService{
 			}
 		}
 
-		database.update(toUpsert,false);
-		database.update(ThirdParties,false);
+		database.update(toUpsert);
+		database.update(ThirdParties);
 
 		//gather application ids related to all cases
 		Set<Id> applicationIdsNew = New Set<Id>();
@@ -200,7 +200,7 @@ public class CasesServiceImpl implements ICasesService{
 		Map<Id, Participation__c> applicationMapNew = new Map<Id, Participation__c>([Select id, Name, Able_To_Recertify__c from Participation__c where id IN: applicationIdsNew AND ID NOT IN: setDeniedCaseApplicationId ]);
 		//combine applications and denied applications for one update
 		lstApplicationwithAssets.addAll(applicationMapNew.values());
-		Database.update(lstApplicationwithAssets,false);
+		update lstApplicationwithAssets;
 	}
 
 	public static void sendToEximBank(List<Case> caseList) {
