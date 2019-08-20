@@ -48,16 +48,7 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
-    <compactLayoutAssignment>Campaign_Compact_Layout</compactLayoutAssignment>
-    <compactLayouts>
-        <fullName>Campaign_Compact_Layout</fullName>
-        <fields>Name</fields>
-        <fields>Type</fields>
-        <fields>Status</fields>
-        <fields>IsActive</fields>
-        <fields>OwnerId</fields>
-        <label>Campaign Compact Layout</label>
-    </compactLayouts>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <fields>
@@ -554,31 +545,9 @@
         </filters>
         <label>My Active Campaigns</label>
     </listViews>
-    <listViews>
-        <fullName>Toolkit_Campaigns</fullName>
-        <columns>CAMPAIGN.NAME</columns>
-        <columns>CAMPAIGN.ID</columns>
-        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
-        <columns>CAMPAIGN.STATUS</columns>
-        <columns>CAMPAIGN.ACTIVE</columns>
-        <columns>PARENT_NAME</columns>
-        <columns>CAMPAIGN.NUM_LEADS</columns>
-        <columns>CAMPAIGN.RECORDTYPE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CAMPAIGN.NAME</field>
-            <operation>contains</operation>
-            <value>Toolkit</value>
-        </filters>
-        <label>Toolkit Campaigns</label>
-        <sharedTo>
-            <role>System_Admin</role>
-        </sharedTo>
-    </listViews>
     <recordTypes>
         <fullName>Standard_Salesforce_Campaign</fullName>
         <active>true</active>
-        <compactLayoutAssignment>Campaign_Compact_Layout</compactLayoutAssignment>
         <description>Creating Campaign standard record type to differentiate iContact campaigns</description>
         <label>Standard Salesforce Campaign</label>
         <picklistValues>
@@ -604,7 +573,7 @@
             <picklist>Type</picklist>
             <values>
                 <fullName>Advertisement</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Banner Ads</fullName>
@@ -640,14 +609,13 @@
             </values>
             <values>
                 <fullName>Trade Show</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>iContact_Email_Campaign</fullName>
         <active>true</active>
-        <compactLayoutAssignment>Campaign_Compact_Layout</compactLayoutAssignment>
         <description>Record Type for iContact specific Campaigns</description>
         <label>iContact Email Campaign</label>
         <picklistValues>
@@ -673,7 +641,7 @@
             <picklist>Type</picklist>
             <values>
                 <fullName>Advertisement</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Banner Ads</fullName>
@@ -706,10 +674,6 @@
             <values>
                 <fullName>Telemarketing</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade Show</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
     </recordTypes>
