@@ -6097,11 +6097,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Related_Organization__c.Account__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Related_Organization__c.CBP_Case_Number_Text__c</field>
         <readable>false</readable>
     </fieldPermissions>
