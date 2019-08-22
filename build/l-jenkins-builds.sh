@@ -61,6 +61,7 @@ types=" app \
 	profile \
         queue \
         quickAction \
+	report \
         reportType \
         resource \
         role \
@@ -86,6 +87,7 @@ typemeta="      asset \
                 evt \
 		geodata \
                 page \
+		report \
                 resource \
                 trigger \
 		wdash \
