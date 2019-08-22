@@ -40,6 +40,7 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 		mapperMap.put('Related_Organization__c', (ADCVD_IMapper) new RelatedOrganizationMapper());
 		mapperMap.put('Custom_Instruction__c', (ADCVD_IMapper) new CustomInstructionMapper());
         mapperMap.put('Staffing_Assignment__c', (ADCVD_IMapper) new StaffingAssignmentMapper());
+		mapperMap.put('Recusal__c', (ADCVD_IMapper) new RecusalMapper());
         mapperMap.put('ADCVD_Case__c', (ADCVD_IMapper) new ADCVD_CaseMapper());
 
 	}
@@ -59,6 +60,7 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 	public static Map<Id,Set<Id>> caseIdToStaffingIdMap = new Map<Id,Set<Id>>();
 	public static Map<Id,Set<Id>> caseIdToRelOrgIdMap = new Map<Id,Set<Id>>();
 	public static Map<Id,Set<Id>> caseIdToCstInstIdMap = new Map<Id,Set<Id>>();
+	public static Map<Id,Set<Id>> caseIdToRecusalIdMap = new Map<Id,Set<Id>>();
 
 	/*
 	Maps of parent objects to child objects.  If there is a specific use case,
@@ -94,6 +96,7 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 			setCaseIdToStaffingMap(ac.Id, ac.Staffing_Assignments__r);
 			setCaseIdToRelOrgMap(ac.Id, ac.Interested_Organizations__r);
 			setCaseIdToCstInstMap(ac.Id, ac.Custom_Instructions__r);
+			setCaseIdToRecusalMap(ac.Id, ac.Recusals__r);
 		}
 	}
 	//accepts a case Id and an object name and returns the set of Ids for that case and object
@@ -149,6 +152,9 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 	}
 	public void setCaseIdToCstInstMap(Id caseId, List<Custom_Instruction__c> cstInstList) {
 		caseIdToCstInstIdMap.put(caseId, getIdSetForMaps(caseIdToCstInstIdMap.get(caseId), cstInstList, 'Custom_Instruction__c'));
+	}
+	public void setCaseIdToRecusalMap(Id caseId, List<Recusal__c> recusalList) {
+		caseIdToRecusalIdMap.put(caseId, getIdSetForMaps(caseIdToRecusalIdMap.get(caseId), recusalList, 'Recusal__c'));
 	}
 	//This method returns the Ids from List of SObjects in a Set.  It also uses the same
 	//for loop to populate the related Id Maps.  This two functions need to happen together
