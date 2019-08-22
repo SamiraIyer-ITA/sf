@@ -38,6 +38,7 @@ types=" app \
         crt \
         css \
         customPermission \
+	dashboard \
         email \
         evt \
 	flexipage \
@@ -87,7 +88,6 @@ typemeta="      asset \
                 evt \
 		geodata \
                 page \
-		report \
                 resource \
                 trigger \
 		wdash \
