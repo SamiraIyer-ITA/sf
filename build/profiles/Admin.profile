@@ -742,7 +742,7 @@
         <editable>true</editable>
         <field>Campaign.iContactforSF__Unsubscribe_Rate_Warning_Threshold_2__c</field>
         <readable>true</readable>
-    <fieldPermissions>    
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.AccountId</field>
