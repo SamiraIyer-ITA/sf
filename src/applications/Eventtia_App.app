@@ -71,7 +71,7 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
-    <tabs>Home2</tabs>
+    <tabs>standard-home</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Case</tabs>
@@ -90,9 +90,6 @@
             <tab>Business_Conference__c</tab>
         </mappings>
         <mappings>
-            <tab>Home2</tab>
-        </mappings>
-        <mappings>
             <tab>Meeting__c</tab>
         </mappings>
         <mappings>
@@ -106,6 +103,9 @@
         </mappings>
         <mappings>
             <tab>standard-Dashboard</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-home</tab>
         </mappings>
         <mappings>
             <tab>standard-report</tab>
