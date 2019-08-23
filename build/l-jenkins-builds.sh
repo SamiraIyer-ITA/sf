@@ -93,6 +93,10 @@ typemeta="      asset \
 		wdash \
 		wlens"
 
+typesubfolders="	email \
+		dashboard \
+		report"
+
 # For creating the deployment change set
 gitfiles=$sandbox/gitchanges
 # profiles=$sandbox/profiles
@@ -121,6 +125,7 @@ function makePackage() {
         type=`echo "$srcfile" | grep -o '\.[a-zA-Z]*$' | cut -f 2 -d .`
         dofile=`echo $types | grep $type` || true
         dometa=`echo $typemeta | grep $type`|| true
+	dosubfolders=`echo $typesubfolders`
         blacklisted=`cat "$blacklist" | grep "$srcfile"` || true
         if [ ! -z "$dofile" ] && [ -z "$blacklisted" ] ; then
                 isSrc=`echo $srcfile | grep src` || true
