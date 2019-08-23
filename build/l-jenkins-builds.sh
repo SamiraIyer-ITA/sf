@@ -132,9 +132,9 @@ function makePackage() {
                 else
                         echo Copying "$srcfile"
 		        [ -f "$srcfile" ] && [ ! -z "$isSrc" ] && cp -rp --parents "$srcfile" $sandbox
-                        if [ ! -z "$dometa"  ]; then
-                                [ -f "${srcfile}-meta.xml" ] && cp -rp --parents "${srcfile}-meta.xml" $sandbox
-                        fi
+#                        if [ ! -z "$dometa"  ]; then
+                        [ -f "${srcfile}-meta.xml" ] && cp -rp --parents "${srcfile}-meta.xml" $sandbox
+#                        fi
                 fi
         fi
   done < $gitfiles
