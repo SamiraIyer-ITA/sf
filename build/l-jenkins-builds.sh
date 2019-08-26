@@ -143,6 +143,8 @@ function makePackage() {
                         [ -f "${srcfile}-meta.xml" ] && cp -rp --parents "${srcfile}-meta.xml" $sandbox
 #                        fi
 			[ -f "src/${folder}/${subfolder}-meta.xml" ] && cp -rp --parents "src/${folder}/${subfolder}-meta.xml" $sandbox
+
+			echo "TEST  src/${folder}/${subfolder}-meta.xml"
                 fi
         fi
   done < $gitfiles

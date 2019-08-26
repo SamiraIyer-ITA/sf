@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>                                                                                                                                                  <application>Eventtia_App</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>                                                                                                                                                  <application>ITA_CRM</application>                                                                                                                                     <default>true</default>                                                                                                                                                <visible>true</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>MeetingCaseCreator</apexClass>
         <enabled>true</enabled>
@@ -1591,6 +1597,13 @@
         <object>Page_Content__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Home</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+    </profileActionOverrides>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.ITA_User_Account_RT</recordType>
