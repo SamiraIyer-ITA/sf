@@ -72,12 +72,13 @@
         <profile>Admin</profile>
     </profileActionOverrides>
     <tabs>standard-home</tabs>
-    <tabs>standard-Contact</tabs>
-    <tabs>standard-Account</tabs>
-    <tabs>standard-Case</tabs>
+    <tabs>standard-Campaign</tabs>
     <tabs>Business_Conference__c</tabs>
     <tabs>Attendee__c</tabs>
     <tabs>Meeting__c</tabs>
+    <tabs>standard-Case</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>
@@ -94,6 +95,9 @@
         </mappings>
         <mappings>
             <tab>standard-Account</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Campaign</tab>
         </mappings>
         <mappings>
             <tab>standard-Case</tab>
