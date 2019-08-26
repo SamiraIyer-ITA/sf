@@ -1464,9 +1464,6 @@
         <layout>Asset-Asset Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Attendee_Field_Mapping__c-Attendee Field Mapping Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Attendee__c-Attendee Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
