@@ -1597,13 +1597,6 @@
         <object>Page_Content__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    <profileActionOverrides>
-        <actionName>Tab</actionName>
-        <content>CRM_Home_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>standard-home</pageOrSobjectType>
-        <type>Flexipage</type>
-    </profileActionOverrides>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.ITA_User_Account_RT</recordType>
