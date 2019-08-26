@@ -230,7 +230,7 @@
     </rules>
     <rules>
         <fullName>Deactivate in 12 months %2B 30</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Asset.UsageEndDate</field>
             <operation>notEqual</operation>
