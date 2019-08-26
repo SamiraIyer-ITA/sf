@@ -125,7 +125,9 @@ function makePackage() {
         type=`echo "$srcfile" | grep -o '\.[a-zA-Z]*$' | cut -f 2 -d .`
         dofile=`echo $types | grep $type` || true
         dometa=`echo $typemeta | grep $type`|| true
-	dosubfolders=`echo $typesubfolders`
+	dosubfolders=`echo $typesubfolders | grep $type` || true
+	folder=`echo "$srcfile" | cut -f 2 -d /`
+	subfolder=`echo "$srcfile" | cut -f 3 -d /`
         blacklisted=`cat "$blacklist" | grep "$srcfile"` || true
         if [ ! -z "$dofile" ] && [ -z "$blacklisted" ] ; then
                 isSrc=`echo $srcfile | grep src` || true
@@ -140,6 +142,7 @@ function makePackage() {
 #                        if [ ! -z "$dometa"  ]; then
                         [ -f "${srcfile}-meta.xml" ] && cp -rp --parents "${srcfile}-meta.xml" $sandbox
 #                        fi
+			[ -f "src/${folder}/${subfolder}-meta.xml" ] && cp -rp --parents "src/${folder}/${subfolder}-meta.xml" $sandbox
                 fi
         fi
   done < $gitfiles
