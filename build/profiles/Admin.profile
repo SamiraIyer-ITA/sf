@@ -1599,7 +1599,7 @@
     </objectPermissions>
     <profileActionOverrides>
         <actionName>Tab</actionName>
-        <content>Home</content>
+        <content>CRM_Home_Page</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>standard-home</pageOrSobjectType>
         <type>Flexipage</type>
