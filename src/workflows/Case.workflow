@@ -134,6 +134,14 @@
             <type>email</type>
         </recipients>
         <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
             <field>SuppliedEmail</field>
             <type>email</type>
         </recipients>
@@ -149,6 +157,14 @@
             <field>ContactEmail</field>
             <type>email</type>
         </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Privacy_Shield_Templates/PS_New_Case_Community_User_Notification_Email</template>
@@ -157,6 +173,14 @@
         <fullName>PS_New_Case_Non_Register_User_Notification</fullName>
         <description>PS: New Case (Non-Register) User Notification</description>
         <protected>false</protected>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
         <recipients>
             <field>SuppliedEmail</field>
             <type>email</type>
@@ -173,6 +197,14 @@
             <field>ContactEmail</field>
             <type>email</type>
         </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Privacy_Shield_Templates/PS_New_Community_User_Case_Comment_Notification_Email</template>
@@ -181,6 +213,14 @@
         <fullName>PS_New_Non_Register_User_Case_Comment_Email_Notification</fullName>
         <description>PS: New (Non-Register User) Case Comment - Email Notification</description>
         <protected>false</protected>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
         <recipients>
             <field>SuppliedEmail</field>
             <type>email</type>
@@ -195,6 +235,14 @@
         <protected>false</protected>
         <recipients>
             <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
             <type>email</type>
         </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
@@ -285,6 +333,14 @@
         <protected>false</protected>
         <recipients>
             <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
             <type>email</type>
         </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
@@ -455,6 +511,26 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Organization_Contact</fullName>
+        <description>Update the Organization Contact on the Case.</description>
+        <field>Organization_Contact__c</field>
+        <formula>Participation_Profile__r.Organization_Contact__c</formula>
+        <name>Organization Contact</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Organization_Corporate_Officer</fullName>
+        <description>Update the Organization Corporate Officer field on Case.</description>
+        <field>Organization_Corporate_Officer__c</field>
+        <formula>Participation_Profile__r.Organization_Corporate_Officer__c</formula>
+        <name>Organization Corporate Officer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>PS_DRE_Case_Owner_Assignment</fullName>

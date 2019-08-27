@@ -163,13 +163,20 @@
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
+        <fields>Status__c</fields>
+        <fields>Office__c</fields>
         <fields>Period_Covered_Start_Date__c</fields>
         <fields>Period_Covered_End_Date__c</fields>
+        <fields>Product_Description__c</fields>
+        <fields>Calculated_Preliminary_Signature__c</fields>
+        <fields>Calculated_Final_Signature__c</fields>
         <relatedList>Segment__c.ADCVD_Order__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>HTS_Number__c</fields>
         <fields>HTS_Type__c</fields>
@@ -178,12 +185,14 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Title__c</fields>
         <fields>User__c</fields>
         <relatedList>Staffing_Assignment__c.ADCVD_Order__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>ADCVD_Case__c</fields>
         <fields>CBP_Case_Number_Text__c</fields>
@@ -195,13 +204,16 @@
         <relatedList>Custom_Instruction__c.ADCVD_Order__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Published_Date__c</fields>
         <fields>Cite_Number__c</fields>
+        <fields>FR_URL__c</fields>
         <relatedList>Federal_Register__c.ADCVD_Order__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Account__c</fields>
         <fields>Type__c</fields>

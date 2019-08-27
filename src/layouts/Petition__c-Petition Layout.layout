@@ -205,6 +205,7 @@
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Title__c</fields>
         <fields>User__c</fields>
@@ -213,28 +214,35 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Published_Date__c</fields>
         <fields>Cite_Number__c</fields>
+        <fields>FR_URL__c</fields>
         <relatedList>Federal_Register__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <relatedList>Custom_Instruction__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Account__c</fields>
         <fields>Type__c</fields>
         <relatedList>Related_Organization__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>Link__c</fields>
+        <fields>Status__c</fields>
         <fields>Investigation_Outcome__c</fields>
         <relatedList>Investigation__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>RECORDTYPE</fields>
         <fields>Status__c</fields>
         <fields>NAME</fields>

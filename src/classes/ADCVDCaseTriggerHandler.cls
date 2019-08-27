@@ -5,6 +5,7 @@ public without sharing class ADCVDCaseTriggerHandler {
     and if there are changes, it schedules the ADCVDStandardCaseFieldsBatch class
     to update all related child records.
      ******************/
+    
 
     public static void mainEntry(List<ADCVD_Case__c> newList, List<ADCVD_Case__c> oldList, Map<Id, ADCVD_Case__c> newMap,
             Map<Id, ADCVD_Case__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete,
