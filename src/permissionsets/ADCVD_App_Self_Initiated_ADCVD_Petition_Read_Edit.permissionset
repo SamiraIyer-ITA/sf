@@ -8882,7 +8882,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>ADCVD App: Self-Initiated ADCVD Petition - Read / Edit</label>
+    <label>ADCVD App: Self-Initiated ADCVD Petition - Read / Edit (Deprecated)</label>
     <license>Salesforce</license>
     <objectPermissions>
         <allowCreate>false</allowCreate>
