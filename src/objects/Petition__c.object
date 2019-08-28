@@ -2856,7 +2856,7 @@ ISPICKVAL(Petition_Outcome__c, &apos;&apos;)))</errorConditionFormula>
         <errorMessage>The Petition Outcome is required to enter an Actual Initiation Signature</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Petition_Record_Type_NE_Case_Record_Type</fullName>
+        <fullName>A0803PrivateCaseRequiresPrivatePetition</fullName>
         <active>true</active>
         <errorConditionFormula>ADCVD_Case__r.RecordType.Name  &lt;&gt; RecordType.Name</errorConditionFormula>
         <errorMessage>The Record Type of the Petition must be the same as it&apos;s Case.</errorMessage>
