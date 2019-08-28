@@ -137,7 +137,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         //Find unmatched contacts and create new contacts
         for(String contactEmail : contactEmails) {
             //contact email must not already be connected to a contact, whether it existed before or was created earlier in this operation
-            if((contactEmailToExistingContact.containsKey(contactEmail) || contactEmailToNewContact.containsKey(contactEmail)) == false) {
+            if((!contactEmailToExistingContact.containsKey(contactEmail) && !contactEmailToNewContact.containsKey(contactEmail))) {
                 //Contact doesn't already exist, create it and map it
                 valence.RecordInFlight record = emailToAttendee.get(contactEmail);
                 Map<String, Object> props = record.getProperties();
