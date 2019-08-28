@@ -8882,7 +8882,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>ADCVD App: Self-Initiated ADCVD Case - Read / Edit</label>
+    <label>ADCVD App: Self-Initiated ADCVD Case - Read / Edit (Deprecated)</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
