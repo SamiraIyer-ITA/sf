@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>valence__BatchSize__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:double">350.0</value>
     </values>
     <values>
         <field>valence__ExternalTableLabel__c</field>
