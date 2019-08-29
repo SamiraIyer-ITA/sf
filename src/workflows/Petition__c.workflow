@@ -10,6 +10,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Petition_Populate_CaseId</fullName>
+        <field>This_ADCVD_Case_Has_a_Petition__c</field>
+        <formula>ADCVD_Case__r.Id</formula>
+        <name>Petition Populate CaseId</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Concatenated_Petition_Field</fullName>
         <field>Case_Concat_Text_Values__c</field>
         <formula>TEXT(Commodity__c) + &apos;; &apos;+ TEXT( Country__c)+ &apos;; &apos;+TEXT( ADCVD_Case_Type__c )</formula>
@@ -49,6 +58,17 @@
         </actions>
         <active>true</active>
         <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false,  ISPICKVAL(Status__c , &apos;Closed&apos;),  ISNULL(Next_Announcement_Date__c) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Petition Populate Case Record Id</fullName>
+        <actions>
+            <name>Petition_Populate_CaseId</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c = true, Locked__c = false, 
+OR(ISNEW(), ISCHANGED(This_ADCVD_Case_Has_a_Petition__c) ))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
