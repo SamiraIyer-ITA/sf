@@ -5169,10 +5169,16 @@ public class SegmentTriggerHandlerTest {
 
     @testSetup static void dataSetup() {
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
-        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, false);
+        ma.Scope_Inquiry_Edit_Request_Filed__c = true;
+        insert ma;
         AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
         //create test data
         User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+        User pleaseAssignUser = TestUtils.createAdminUser(false, 'myemail2@email.com.testita', 2);
+        pleaseAssignUser.LastName = 'Please Assign';
+        pleaseAssignUser.Staffing_Role__c = 'Program Manager';
+        insert pleaseAssignUser;
         ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
         Petition__c testADPetition = TestUtils.createPetition(testADCase, segmentDate.addDays(-350), true);
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
