@@ -23,4 +23,9 @@
         <recordType>ADCVD_Case__c.Self_Initiated</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Staffing_Assignment__c.Office__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 </Profile>
