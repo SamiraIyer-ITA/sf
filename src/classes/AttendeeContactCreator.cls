@@ -58,23 +58,23 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
             if(email == null) {
                 email = String.valueOf(record.getOriginalProperties().get('email'));
             }
-            if(email != null && !email.toLowerCase().endsWith('trade.gov')) {
+            if(email != null && !email.toLowerCase().trim().endsWith('trade.gov')) {
                 if(!String.isBlank(company)) {
                     organizationNames.add(company.trim());
                 }
                 if(!String.isBlank(email)) {
-                    contactEmails.add(email);
-                    emailToAttendee.put(email,record);
+                    contactEmails.add(email.toLowerCase().trim());
+                    emailToAttendee.put(email.toLowerCase().trim(),record);
                 }
                 if(!String.isBlank(company) && !String.isBlank(email)) {
-                    emailToOrganizationName.put(email,company);
+                    emailToOrganizationName.put(email.toLowerCase().trim(),company.trim());
                 }
             }
             String busConfId = String.valueOf(record.getProperties().get('BusinessConference__c'));
             if(!String.isBlank(busConfId)) {
                 businessConferenceIds.add(busConfId);
                 if(!String.isBlank(company)) {
-                    orgNameToBusinessConferenceId.put(company,busConfId);
+                    orgNameToBusinessConferenceId.put(company.trim(),busConfId);
                 }
             }
         }
@@ -137,7 +137,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         //Find unmatched contacts and create new contacts
         for(String contactEmail : contactEmails) {
             //contact email must not already be connected to a contact, whether it existed before or was created earlier in this operation
-            if((contactEmailToExistingContact.containsKey(contactEmail) || contactEmailToNewContact.containsKey(contactEmail)) == false) {
+            if((!contactEmailToExistingContact.containsKey(contactEmail) && !contactEmailToNewContact.containsKey(contactEmail))) {
                 //Contact doesn't already exist, create it and map it
                 valence.RecordInFlight record = emailToAttendee.get(contactEmail);
                 Map<String, Object> props = record.getProperties();
@@ -171,9 +171,12 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
 
         //Update Attendee record with newly created or existing Contact Id (as long as they are not .gov)
         for(valence.RecordInFlight record : records) {
-            String email = String.valueOf(record.getOriginalProperties().get('email'));
-            if(email != null && email.toLowerCase().endsWith('trade.gov') == false) {
-                record.getProperties().put('Contact__c', contactEmailToExistingContact.get(email).Id);
+            String email = String.valueOf(record.getProperties().get('Email__c'));
+            if(email == null) {
+                email = String.valueOf(record.getOriginalProperties().get('email'));
+            }
+            if(email != null && email.toLowerCase().trim().endsWith('trade.gov') == false) {
+                record.getProperties().put('Contact__c', contactEmailToExistingContact.get(email.toLowerCase().trim()).Id);
             }
         }
     }
