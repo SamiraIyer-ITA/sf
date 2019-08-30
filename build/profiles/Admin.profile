@@ -4,7 +4,7 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <applicationVisibilities>                                                                                                                                                  <application>ITA_CRM</application>                                                                                                                                     <default>true</default>                                                                                                                                                <visible>true</visible>
+    <applicationVisibilities>                                                                                                                                             <application>ITA_CRM</application>                                                                                                                                <default>true</default>                                                                                                                                           <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
         <apexClass>MeetingCaseCreator</apexClass>
@@ -1549,6 +1549,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>CampaignMember-Campaign Member Page Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Export Promotion Cases</layout>
+        <recordType>Case.Export_Promotion</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Admin Layout</layout>
