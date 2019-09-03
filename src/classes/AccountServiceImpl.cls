@@ -32,9 +32,6 @@ public class AccountServiceImpl implements IAccountService {
 			if(isAddressFieldUpdatable(participation.City__c, account.BillingCity)) {
 				account.BillingCity = participation.City__c;
 			}
-			if(isAddressFieldUpdatable(participation.State__c, account.BillingState)) {
-				account.BillingState = participation.State__c;
-			}
 			if(isAddressFieldUpdatable(participation.Postal_Code__c, account.BillingPostalCode)) {
 				account.BillingPostalCode = participation.Postal_Code__c;
 			}
@@ -49,6 +46,9 @@ public class AccountServiceImpl implements IAccountService {
 					account.BillingCountry = 'United States';
 				} else {
 					account.BillingCountry = participation.Country__c;
+				}
+				if(isAddressFieldUpdatable(participation.State__c, account.BillingState)) {
+					account.BillingState = participation.State__c;
 				}
 			}
 		}
