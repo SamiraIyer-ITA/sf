@@ -20,12 +20,6 @@
         <name>EndDateTime__c</name>
     </fields>
     <fields>
-        <help><!-- Lookup to associated Event on Agenda. --></help>
-        <label><!-- Event --></label>
-        <name>Event__c</name>
-        <relationshipLabel><!-- Agendas --></relationshipLabel>
-    </fields>
-    <fields>
         <help><!-- ID of the Eventtia Agenda. --></help>
         <label><!-- Eventtia ID --></label>
         <name>EventtiaID__c</name>

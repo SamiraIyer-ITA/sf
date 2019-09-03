@@ -42,7 +42,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Campaign_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <compactLayoutAssignment>Campaign_Compact_Layout</compactLayoutAssignment>
     <compactLayouts>
@@ -73,10 +77,72 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Campaign_End_Date__c</fullName>
+        <description>Campaign End Date</description>
+        <externalId>false</externalId>
+        <label>Campaign End Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Start_Date__c</fullName>
+        <description>Campaign start date</description>
+        <externalId>false</externalId>
+        <label>Campaign Start Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
     </fields>
     <fields>
         <fullName>EndDate</fullName>
+    </fields>
+    <fields>
+        <fullName>Event_Description__c</fullName>
+        <description>Description of event being held</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of event being held</inlineHelpText>
+        <label>Event Description</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Event_Location__c</fullName>
+        <description>Location of the event</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Location of the event</inlineHelpText>
+        <label>Event Location</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Event_Website__c</fullName>
+        <description>External event specific site</description>
+        <externalId>false</externalId>
+        <inlineHelpText>External event specific site</inlineHelpText>
+        <label>Event Website</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>EventtiaID__c</fullName>
+        <externalId>true</externalId>
+        <label>Eventtia ID</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EventtiaURI__c</fullName>
+        <externalId>true</externalId>
+        <label>Eventtia URI</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>ExpectedResponse</fullName>
@@ -146,6 +212,15 @@
     </fields>
     <fields>
         <fullName>NumberSent</fullName>
+    </fields>
+    <fields>
+        <fullName>Outgoing_Communication_Email__c</fullName>
+        <description>Email address used to contact campaign participants</description>
+        <externalId>false</externalId>
+        <label>Outgoing Communication Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
@@ -561,6 +636,10 @@
             </values>
             <values>
                 <fullName>Telemarketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
