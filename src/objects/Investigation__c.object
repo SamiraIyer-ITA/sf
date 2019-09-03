@@ -3403,6 +3403,8 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
             )
             )</errorConditionFormula>
         <errorMessage>You are not authorized to edit ADCVD Case or Petition.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A0101PetitionCannotBePrivate</fullName>
         <active>true</active>
         <description>The Petition associated with this Investigation cant be Private.</description>
