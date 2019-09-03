@@ -612,13 +612,6 @@
         <object>Meeting__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    <profileActionOverrides>
-        <actionName>Tab</actionName>
-        <content>Eventtia_Home</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>standard-home</pageOrSobjectType>
-        <type>Flexipage</type>
-    </profileActionOverrides>
     <tabVisibilities>
         <tab>Attendee__c</tab>
         <visibility>DefaultOn</visibility>
