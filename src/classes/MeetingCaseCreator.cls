@@ -181,7 +181,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                     orgName = thisContact.Account.Name;
                 }
 
-                String caseSubject = (String.isBlank(campaignName) ? '' : campaignName) + (!String.isBlank(orgName) ? ' ' + orgName : '');
+                String caseSubject = (String.isBlank(campaignName) ? '' : campaignName) + (!String.isBlank(orgName) ? ' - ' + orgName : '');
                 Set<String> caseCampaignNames = contactIdToCampaignName.get(thisContact.Id);
                 if(caseCampaignnames == null) {
                     caseCampaignNames = new Set<String>();

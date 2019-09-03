@@ -102,7 +102,8 @@
                         'status' => '2',
                         'Status__c' => '2',
                         'id' => '333333',
-                        'business_conference_id' => '6666'
+                        'business_conference_id' => '6666',
+                        'StartDateTime__c' => String.valueOf(Date.today() + 3)
                 })
 
         };
@@ -131,6 +132,6 @@
         System.assertEquals(2,cases.size());
 
         List<Task> tasks = [SELECT Id FROM Task];
-        System.assertEquals(0,tasks.size());
+        System.assertEquals(2,tasks.size());
     }
 }
