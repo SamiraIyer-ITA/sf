@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Event</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Events</value>
+    </caseValues>
+    <fields>
+        <help><!-- Looks up to the associated Campaign record. --></help>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Events --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The description of the scheduled event. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- The end date for the scheduled event. --></help>
+        <label><!-- End Date --></label>
+        <name>EndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The name of the event. --></help>
+        <label><!-- Event Name --></label>
+        <name>EventName__c</name>
+    </fields>
+    <fields>
+        <help><!-- The type of event schedule. --></help>
+        <label><!-- Event Type --></label>
+        <name>EventType__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Show</masterLabel>
+            <translation><!-- Trade Show --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The location of the event. --></help>
+        <label><!-- Event Location --></label>
+        <name>Event_Location__c</name>
+    </fields>
+    <fields>
+        <help><!-- External Id for Eventtia event record. --></help>
+        <label><!-- Eventtia Id --></label>
+        <name>Eventtia_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link to associated Eventtia page. --></help>
+        <label><!-- Eventtia Link --></label>
+        <name>Eventtia_Link__c</name>
+    </fields>
+    <fields>
+        <help><!-- The event&apos;s city. --></help>
+        <label><!-- MailingCity --></label>
+        <name>MailingCity__c</name>
+    </fields>
+    <fields>
+        <help><!-- The event&apos;s country. --></help>
+        <label><!-- MailingCountry --></label>
+        <name>MailingCountry__c</name>
+    </fields>
+    <fields>
+        <help><!-- The event&apos;s zipcode. --></help>
+        <label><!-- MailingPostalCode --></label>
+        <name>MailingPostalCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- The state where the event is taking place. --></help>
+        <label><!-- MailingState --></label>
+        <name>MailingState__c</name>
+    </fields>
+    <fields>
+        <help><!-- The event&apos;s street location. --></help>
+        <label><!-- MailingStreet --></label>
+        <name>MailingStreet__c</name>
+    </fields>
+    <fields>
+        <help><!-- The primary point of contact for Event. --></help>
+        <label><!-- Main Point of Contact --></label>
+        <name>Main_Point_of_Contact__c</name>
+        <relationshipLabel><!-- Events --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Designated ITA POC for the event. --></help>
+        <label><!-- Main Point of Contact&apos;s Company --></label>
+        <name>Main_Point_of_Contacts_Company__c</name>
+    </fields>
+    <fields>
+        <help><!-- The start date for the scheduled event. --></help>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

@@ -201,6 +201,14 @@
         <type>Network</type>
     </appMenuItems>
     <appMenuItems>
+        <name>Eventtia_App</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>valence__Valence</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>New_To_Market</name>
         <type>CustomApplication</type>
     </appMenuItems>
