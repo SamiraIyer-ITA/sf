@@ -2908,5 +2908,5 @@ ISPICKVAL(Petition_Outcome__c, &apos;&apos;)))</errorConditionFormula>
         <errorConditionFormula>ADCVD_Case__r.RecordType.Name  &lt;&gt; RecordType.Name</errorConditionFormula>
         <errorMessage>The Record Type of the Petition must be the same as it&apos;s Case.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
+    <visibility>Private</visibility>
 </CustomObject>

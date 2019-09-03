@@ -2215,5 +2215,5 @@ IF(
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>Invalid ADCVD Case Number Format. For AD cases valid Case Number format should be  A-###-###. For CVD cases valid Case Number format should be C-###-###.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
+    <visibility>Private</visibility>
 </CustomObject>
