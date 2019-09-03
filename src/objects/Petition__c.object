@@ -2726,7 +2726,7 @@ C-###-### for CVD</inlineHelpText>
         <searchResultsAdditionalFields>Commodity_Text__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>A0801PermSetReparentsPetition</fullName>
         <active>true</active>
@@ -2908,5 +2908,5 @@ ISPICKVAL(Petition_Outcome__c, &apos;&apos;)))</errorConditionFormula>
         <errorConditionFormula>ADCVD_Case__r.RecordType.Name  &lt;&gt; RecordType.Name</errorConditionFormula>
         <errorMessage>The Record Type of the Petition must be the same as it&apos;s Case.</errorMessage>
     </validationRules>
-    <visibility>Private</visibility>
+    <visibility>Public</visibility>
 </CustomObject>

@@ -2155,7 +2155,7 @@ C-###-### for CVD</inlineHelpText>
         <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <startsWith>Vowel</startsWith>
     <validationRules>
         <fullName>CBP_Case_number_for_AD_and_CVD_Format</fullName>
@@ -2215,5 +2215,5 @@ IF(
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>Invalid ADCVD Case Number Format. For AD cases valid Case Number format should be  A-###-###. For CVD cases valid Case Number format should be C-###-###.</errorMessage>
     </validationRules>
-    <visibility>Private</visibility>
+    <visibility>Public</visibility>
 </CustomObject>
