@@ -5,6 +5,14 @@
         <description>PS: Payment Refunded</description>
         <protected>false</protected>
         <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
             <type>owner</type>
         </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>

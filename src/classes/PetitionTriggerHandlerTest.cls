@@ -355,6 +355,10 @@ public class PetitionTriggerHandlerTest {
         AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
         //create test data
         User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+        User pleaseAssignUser = TestUtils.createAdminUser(false, 'myemail2@email.com.testita', 2);
+        pleaseAssignUser.LastName = 'Please Assign';
+        pleaseAssignUser.Staffing_Role__c = 'Program Manager';
+        insert pleaseAssignUser;
     }
 
     private static String attemptInsert(SObject o){

@@ -1957,13 +1957,198 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
             <operation>equals</operation>
-            <value>Prelim,Amend Prelim,Final</value>
+            <value>Prelim,Amend Prelim,Final,Pending Order</value>
         </filters>
         <label>All Active Investigations</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Investigations_Office_I</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final,Pending Order</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>I</value>
+        </filters>
+        <label>All Active Investigations - Office I</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Investigations_Office_II</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final,Pending Order</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>II</value>
+        </filters>
+        <label>All Active Investigations - Office II</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Investigations_Office_III</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final,Pending Order</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>III</value>
+        </filters>
+        <label>All Active Investigations - Office III</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Investigations_Office_IV</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final,Pending Order</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>IV</value>
+        </filters>
+        <label>All Active Investigations - Office IV</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Investigations_Office_V</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final,Pending Order</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>V</value>
+        </filters>
+        <label>All Active Investigations - Office V</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Investigations_Office_VI</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final,Pending Order</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>VI</value>
+        </filters>
+        <label>All Active Investigations - Office VI</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Investigations_Office_VII</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final,Pending Order</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>VII</value>
+        </filters>
+        <label>All Active Investigations - Office VII</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Investigations_Office_VIII</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Next_Major_Deadline__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final,Pending Order</value>
+        </filters>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>VIII</value>
+        </filters>
+        <label>All Active Investigations - Office VIII</label>
     </listViews>
     <listViews>
         <fullName>All_Closed_Investigations</fullName>
@@ -2020,30 +2205,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
             <value>Hold</value>
         </filters>
         <label>All Investigations in Litigation Hold</label>
-    </listViews>
-    <listViews>
-        <fullName>All_Open_Investigations</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case_Number_Text__c</columns>
-        <columns>Country_Text__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>ADCVD_Case_Type_Text__c</columns>
-        <columns>Product_Text__c</columns>
-        <columns>Commodity_Text__c</columns>
-        <columns>Office__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Investigation_Outcome__c</field>
-            <operation>equals</operation>
-            <value>ITC Negative Prelim</value>
-        </filters>
-        <filters>
-            <field>Petition_Initiation_Signature__c</field>
-            <operation>greaterThan</operation>
-            <value>1/21/2017</value>
-        </filters>
-        <label>All Open Investigations</label>
     </listViews>
     <nameField>
         <displayFormat>I-{00000}</displayFormat>
@@ -3206,6 +3367,44 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A0601PermSetReparentsInvestigation</fullName>
+        <active>true</active>
+        <description>Investigation records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;AD&quot;,
+            OR(
+            ISCHANGED(ADCVD_Case__c),
+            ISCHANGED(Petition__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case or Petition.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0602PermSetReparentsInvestigation</fullName>
+        <active>true</active>
+        <description>Investigation records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;CVD&quot;,
+            OR(
+            ISCHANGED(ADCVD_Case__c),
+            ISCHANGED(Petition__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case or Petition.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Actual_Amended_Final_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Amended Final Signature Date until the Calculate Amended Final Signature Date is not populated</description>
@@ -3343,7 +3542,7 @@ $RecordType.DeveloperName = &quot;CVD&quot;,
     </validationRules>
     <validationRules>
         <fullName>Only_SysAdmin_reparents_Investigations</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Cannot reparent an Investigation to another Petition or ADCVD Case unless a System Administrator.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
 Locked__c == false, 

@@ -8,6 +8,14 @@
             <field>ContactId</field>
             <type>contactLookup</type>
         </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Privacy_Shield_Templates/PS_Inactive_Status_Failure_to_Comply</template>
@@ -19,6 +27,14 @@
         <recipients>
             <field>ContactId</field>
             <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
         </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
@@ -32,6 +48,14 @@
             <field>ContactId</field>
             <type>contactLookup</type>
         </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Privacy_Shield_Templates/PS_Inactive_Status_Withdrawal</template>
@@ -43,6 +67,14 @@
         <recipients>
             <field>ContactId</field>
             <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
         </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
@@ -56,6 +88,14 @@
             <field>ContactId</field>
             <type>contactLookup</type>
         </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
+        </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>Privacy_Shield_Templates/PS_Re_Certification_Due_in_1_Month</template>
@@ -67,6 +107,14 @@
         <recipients>
             <field>ContactId</field>
             <type>contactLookup</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Contact__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Organization_Corporate_Officer__c</field>
+            <type>email</type>
         </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
@@ -182,7 +230,7 @@
     </rules>
     <rules>
         <fullName>Deactivate in 12 months %2B 30</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Asset.UsageEndDate</field>
             <operation>notEqual</operation>

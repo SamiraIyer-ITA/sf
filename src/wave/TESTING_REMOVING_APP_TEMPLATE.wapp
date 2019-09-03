@@ -3,11 +3,6 @@
     <assetIcon>/analytics/wave/web/proto/images/app/icons/11.png</assetIcon>
     <folder>TESTING_REMOVING_APP_TEMPLATE</folder>
     <masterLabel>TESTING REMOVING APP TEMPLATE</masterLabel>
-    <shares>
-        <accessLevel>Manage</accessLevel>
-        <sharedTo>ayotunde.Oyedokun@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
     <templateOrigin>wow_demo__Wow_Demo</templateOrigin>
     <templateVersion>1.0</templateVersion>
 </WaveApplication>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveDashboard xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <content xsi:nil="true"/>
+    <application>Shield</application>
+    <description>Template for other DashboardsAn overview of how your organization is doing. Based on the Salesforce Trust Performance dashboard found at https://trust.salesforce.com/trust/performance which measures transactions and performance across all customers. This dashboard measures it for your organization only.</description>
+    <masterLabel>My Trust</masterLabel>
+    <templateAssetSourceName>My_Trust</templateAssetSourceName>
+</WaveDashboard>
