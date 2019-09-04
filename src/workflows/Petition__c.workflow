@@ -46,6 +46,16 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>A0803PrivateCaseRequiresPrivatePetitionr</fullName>
+        <description>Sets the boolean to True</description>
+        <field>A0803PrivateCaseRequiresPrivatePetition__c</field>
+        <literalValue>1</literalValue>
+        <name>Set A0803 PrivateCase</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Lock Closed Petition</fullName>
         <actions>
@@ -81,5 +91,20 @@ OR(ISNEW(), ISCHANGED(This_ADCVD_Case_Has_a_Petition__c) ))</formula>
         <description>This workflow rule updates the concatenated text field on Petition with, Commodity, Country and ADCVD Case Type.</description>
         <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() ||  ( ISCHANGED(  ADCVD_Case_Type__c  )  || ISCHANGED(  Country__c  )  || ISCHANGED(  Commodity__c  ) )  , True, False)))</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Petition Run A0803PrivateCaseRequiresPrivatePetition</fullName>
+        <actions>
+            <name>A0803PrivateCaseRequiresPrivatePetitionr</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Petition__c.A0803PrivateCaseRequiresPrivatePetition__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>Determines if the workflow needs to be run</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
