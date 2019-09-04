@@ -6,6 +6,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.A0803PrivateCaseRequiresPrivatePetition__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Staffing_Assignment__c.Office__c</field>
         <readable>true</readable>
