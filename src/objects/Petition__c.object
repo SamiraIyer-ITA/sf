@@ -67,6 +67,17 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>A0803PrivateCaseRequiresPrivatePetition__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Is used to offset the validation rule set</description>
+        <externalId>false</externalId>
+        <label>A0803PrivateCaseRequiresPrivatePetition</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ADCVD_Case_Number_Text__c</fullName>
         <externalId>false</externalId>
         <label>ADCVD Case Number</label>
@@ -2764,6 +2775,15 @@ C-###-### for CVD</inlineHelpText>
         <errorMessage>You are not authorized to edit ADCVD Case.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>A0803PrivateCaseRequiresPrivatePetition</fullName>
+        <active>true</active>
+        <description>Prevents Petitions other than Private from being added to Private Cases</description>
+        <errorConditionFormula>if( 
+A0803PrivateCaseRequiresPrivatePetition__c, 
+RecordType.Name &lt;&gt;  ADCVD_Case__r.RecordType.Name,NULL)</errorConditionFormula>
+        <errorMessage>Petition Type(Filed, Self-Initiated, Private) must match the Case.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Initiation Signature Date until the Calculate Initiation Signature Date in not populated</description>
@@ -2901,12 +2921,6 @@ ISPICKVAL(Petition_Outcome__c, &apos;&apos;)))</errorConditionFormula>
 ))</errorConditionFormula>
         <errorDisplayField>Petition_Outcome__c</errorDisplayField>
         <errorMessage>The Petition Outcome is required to enter an Actual Initiation Signature</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>A0803PrivateCaseRequiresPrivatePetition</fullName>
-        <active>true</active>
-        <errorConditionFormula>ADCVD_Case__r.RecordType.Name  &lt;&gt; RecordType.Name</errorConditionFormula>
-        <errorMessage>The Record Type of the Petition must be the same as it&apos;s Case.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

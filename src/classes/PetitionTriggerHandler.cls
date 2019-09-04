@@ -244,13 +244,14 @@ public without sharing class PetitionTriggerHandler {
             system.debug('p.Actual_Initiation_Signature__c  is ==> ' + p.Actual_Initiation_Signature__c );
             if(p.Actual_Initiation_Signature__c != null) {
                 p.recordTypeId = selfInitiateRecordTypeId;
+                p.A0803PrivateCaseRequiresPrivatePetition__c =  false;
                 adcvdCasesToUpdateMap.put(p.ADCVD_Case__c, (ADCVD_Case__c)caseMapper.getMap(false).get(p.ADCVD_Case__c));
             }
         }
     }
-
+    
     /*****************************
-    * Determines if the Petition Actual_Initiation_Signature__c has been entered and if so changes the record type or the associated Case from Private to Self Initiated
+    * Changes the record type of the associated Case (in adcvdCasesToUpdateMap) from Private to Self Initiated
     *****************************/
 
     @TestVisible private static void afterActualInitiationSignatureAdded() {
