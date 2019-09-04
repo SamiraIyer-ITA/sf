@@ -253,7 +253,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                             campaignName = 'Campaign';
                         }
                         String contactCountry = (myCase.ContactId != null ? ' - ' + myCase.Contact.MailingCountry : '');
-                        Task thisTask = new Task(Subject = 'B2G Meeting at ' + campaignName + ' ' + myDate.year() + contactCountry,
+                        Task thisTask = new Task(Subject = 'B2G Meeting at ' + campaignName + contactCountry,
                                 OwnerId = myCase.OwnerId,
                                 WhoId = myCase.ContactId,
                                 WhatId = myCase.Id,
