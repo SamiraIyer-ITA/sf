@@ -1482,11 +1482,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.Case_Origin__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Case.Case_Owner_Full_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
