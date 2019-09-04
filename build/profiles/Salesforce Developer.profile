@@ -14,6 +14,11 @@
         <recordType>ADCVD_Case__c.Filed</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.A0803PrivateCaseRequiresPrivatePetition__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>ADCVD_Case__c.Private</recordType>
