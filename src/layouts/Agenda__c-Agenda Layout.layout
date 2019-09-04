@@ -19,10 +19,6 @@
                 <behavior>Edit</behavior>
                 <field>EndDateTime__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Event__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
