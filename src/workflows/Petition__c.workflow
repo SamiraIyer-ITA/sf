@@ -62,10 +62,6 @@
             <name>Lock_Closed_Record</name>
             <type>FieldUpdate</type>
         </actions>
-        <actions>
-            <name>Update_Owner_to_Closed_Petition_Queue</name>
-            <type>FieldUpdate</type>
-        </actions>
         <active>true</active>
         <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false,  ISPICKVAL(Status__c , &apos;Closed&apos;),  ISNULL(Next_Announcement_Date__c) )</formula>
         <triggerType>onAllChanges</triggerType>
