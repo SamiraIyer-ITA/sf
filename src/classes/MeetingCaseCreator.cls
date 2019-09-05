@@ -245,8 +245,6 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             String myCaseCampaignName = (String.isBlank(myCase.Campaign_Name__r.Name) ? '' : myCase.Campaign_Name__r.Name);
             String myCaseOrgName = (myCase.AccountId == null ? '' : ' - '+myCase.Account.Name);
             String myCaseSubject = myCaseCampaignName + myCaseOrgName;
-            System.debug('MyCaseSubject: '+myCaseSubject);
-            System.debug('myCase Subject: '+myCase.Subject);
             if(myCase.ContactId != null && myCase.Contact.Email != null && emailsG2B.contains(myCase.Contact.Email) &&
                     myCase.Subject == myCaseSubject) {
                 for(Attendee__c relatedAttendee : emailToAttendees.get(myCase.Contact.Email)) {
