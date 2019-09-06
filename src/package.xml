@@ -185,6 +185,7 @@
     </types>
     <types>
         <members>*</members>
+        <members>TaskType</members>
         <name>StandardValueSet</name>
     </types>
     <types>

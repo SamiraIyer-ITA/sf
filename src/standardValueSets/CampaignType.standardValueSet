@@ -3,7 +3,7 @@
     <sorted>false</sorted>
     <standardValue>
         <fullName>Advertisement</fullName>
-        <default>false</default>
+        <default>true</default>
         <label>Advertisement</label>
     </standardValue>
     <standardValue>
