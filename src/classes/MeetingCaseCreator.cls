@@ -41,7 +41,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         for(valence.RecordInFlight record : records) {
             Map<String, Object> orgprops = record.getOriginalProperties();
             Map<String, Object> props = record.getProperties();
-            String meetingType = 'B2B';
+            String meetingType = 'Meeting - B2B';
             String meetingStatus = String.valueOf(props.get('Status__c'));
 
             DateTime currentDateTime = null;
@@ -57,7 +57,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             String hostEmail = attendeesToEmails.get((Id) hostId);
 
             if ((attendeeEmail != null && attendeeEmail.toLowerCase().endsWith('.gov')) || (hostEmail != null && hostEmail.toLowerCase().endsWith('.gov'))) {
-                record.getProperties().put('Type__c', 'B2G');
+                record.getProperties().put('Type__c', 'Meeting - B2G');
                 if (attendeeEmail != null) {
                     emailsG2B.add(attendeeEmail);
                 }
@@ -65,7 +65,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                     emailsG2B.add(hostEmail);
                 }
             } else {
-                record.getProperties().put('Type__c', 'B2B');
+                record.getProperties().put('Type__c', 'Meeting - B2B');
             }
 
             if (meetingStatus == '1') {
@@ -261,7 +261,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                                 OwnerId = myCase.OwnerId,
                                 WhoId = myCase.ContactId,
                                 WhatId = myCase.Id,
-                                Type = 'B2G',
+                                Type = 'Meeting - B2G',
                                 Status = 'Completed',
                                 ActivityDate = myDate,
                                 RecordTypeId = tasksRecordTypeId

@@ -148,6 +148,9 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
          * Call the Eventtia API
          */
         valence.JSONParse result = callEndpoint(currentUrlFragment);
+        if(result == null) {
+            return provideWarningForDeletedBusinessConference(currentUrlFragment);
+        }
 
         /*
          * Check for another page of records; if found, stick it at the front of our queue.
@@ -182,6 +185,49 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
 
         return records;
 
+    }
+
+    /**
+     * Provides a warning if a Business Conference appears to have been deleted in Eventtia
+     *
+     * @return
+     */
+    private List<valence.RecordInFlight> provideWarningForDeletedBusinessConference(String urlFrag) {
+        String warningText = 'An business conference may have been deleted in Eventtia.';
+        List<valence.RecordInFlight> warningList = new List<valence.RecordInFlight>();
+        if(urlFrag != null && urlFrag.split('/').size() > 3) {
+            String deletedId = urlFrag.split('/')[3];
+            warningText = 'An business conference with Eventtia Id ' + deletedId + 'may have been deleted in Eventtia.';
+        }
+
+        AppConfig__c appConfigObj = AppConfig__c.getValues('default');
+        String adcvdAdminEmail = ((String) appConfigObj.get('ADCVD_Admin__c') != null ? (String) appConfigObj.get('ADCVD_Admin__c') : '');
+        String adcvdDeveloperEmail = ((String) appConfigObj.get('ADCVD_Developer__c') != null ? (String) appConfigObj.get('ADCVD_Developer__c') : '');
+        // Send an email to the Apex job's submitter notifying of job completion.
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        String[] toAddresses = new String[]{};
+        if (String.isNotBlank(adcvdAdminEmail)) toAddresses.add(adcvdAdminEmail);
+        if (String.isNotBlank(adcvdDeveloperEmail)) toAddresses.add(adcvdDeveloperEmail);
+        mail.setToAddresses(toAddresses);
+        mail.setSubject(warningText);
+        String emailBodyString = warningText;
+        Boolean emailsTurnedOn = false;
+
+        try {
+            Messaging.reserveSingleEmailCapacity(0);
+            emailsTurnedOn = true;
+        } catch (System.NoAccessException e) {
+            System.debug(e.getMessage());
+        }
+
+        if (emailsTurnedOn) {
+            // safe to send an email provided you check for limits
+            Messaging.sendEmail(new Messaging.SingleEmailMessage[]{
+                    mail
+            });
+        }
+
+        return warningList;
     }
 
     /**
@@ -409,7 +455,11 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
 
         // check for an error response
         if(200 != res.getStatusCode()) {
-            throw new valence.AdapterException(res.getStatusCode() + ': ' + res.getStatus() + '[' + urlFragment + ']');
+            try {
+                throw new valence.AdapterException(res.getStatusCode() + ': ' + res.getStatus() + '[' + urlFragment + ']');
+            } catch(valence.AdapterException e) {
+                return null;
+            }
         }
 
         return new valence.JSONParse(res.getBody());
