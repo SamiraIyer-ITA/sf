@@ -231,7 +231,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         List<Case> acceptedMeetingCases = new List<Case>();
         Set<Id> existingContactIds = new Set<Id>();
 
-        for(Case thisCase : [SELECT Id,ContactId,Contact.Email,OwnerId,Contact.MailingCountry,Campaign_Name__c,Campaign_Name__r.Name FROM Case WHERE ContactId IN: acceptedMeetingContactIds]) {
+        for(Case thisCase : [SELECT Id,ContactId,Contact.Email,OwnerId,Contact.MailingCountry,Subject,AccountId,Account.Name,Campaign_Name__c,Campaign_Name__r.Name FROM Case WHERE ContactId IN: acceptedMeetingContactIds]) {
             existingCaseIds.add(thisCase.Id);
             acceptedMeetingCases.add(thisCase);
             existingContactIds.add(thisCase.ContactId);
@@ -242,7 +242,11 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
 
         List<Task> tasksToInsert = new List<Task>();
         for(Case myCase : acceptedMeetingCases) {
-            if(myCase.ContactId != null && myCase.Contact.Email != null && emailsG2B.contains(myCase.Contact.Email)) {
+            String myCaseCampaignName = (String.isBlank(myCase.Campaign_Name__r.Name) ? '' : myCase.Campaign_Name__r.Name);
+            String myCaseOrgName = (myCase.AccountId == null ? '' : ' - '+myCase.Account.Name);
+            String myCaseSubject = myCaseCampaignName + myCaseOrgName;
+            if(myCase.ContactId != null && myCase.Contact.Email != null && emailsG2B.contains(myCase.Contact.Email) &&
+                    myCase.Subject == myCaseSubject) {
                 for(Attendee__c relatedAttendee : emailToAttendees.get(myCase.Contact.Email)) {
                     //case id to start date?
                     for (Date myDate : attendeeIdToStartDate.get(relatedAttendee.Id)) {
