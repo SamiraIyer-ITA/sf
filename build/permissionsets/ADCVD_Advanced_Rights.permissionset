@@ -9736,7 +9736,7 @@
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
-        <modifyAllRecords>true</modifyAllRecords>
+        <allowRead>true</allowRead>
         <object>Petition__c</object>
     </objectPermissions>
     <objectPermissions>
