@@ -20,6 +20,8 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
 
     private Integer calloutsMade = 0;
 
+    private Set<String> businessConferenceErrorIds = new Set<String>();
+
     // --------------------------------------------
     // ---- NamedCredentialAdapter methods --------
     // --------------------------------------------
@@ -112,6 +114,7 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
 
         // if null, this is our first fetch and we need to set up our queue of remaining fetches
         if(apiContext == null) {
+            businessConferenceErrorIds = new Set<String>();
             apiContext = new APIContext(buildUrlFragments(context));
         }
 
@@ -127,6 +130,10 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
         while(calloutsMade < MAX_CALLOUTS_PER_BATCH && !apiContext.urlFragments.isEmpty()) {
             records.addAll(fetchNextRecordSet(context.linkSourceName));
             calloutsMade++;
+        }
+
+        if(!businessConferenceErrorIds.isEmpty()) {
+            dispatchWarningForDeletedBusinessConference(context.linkSourceName);
         }
 
         return records;
@@ -148,6 +155,10 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
          * Call the Eventtia API
          */
         valence.JSONParse result = callEndpoint(currentUrlFragment);
+        if(result == null) {
+            provideWarningForDeletedBusinessConference(currentUrlFragment);
+            return new List<valence.RecordInFlight>();
+        }
 
         /*
          * Check for another page of records; if found, stick it at the front of our queue.
@@ -182,6 +193,64 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
 
         return records;
 
+    }
+
+    /**
+     * Provides a warning if a Business Conference appears to have been deleted in Eventtia
+     *
+     * @return
+     */
+    private void provideWarningForDeletedBusinessConference(String urlFrag) {
+        String warningText = 'An business conference may have been deleted in Eventtia.';
+        if(urlFrag != null && urlFrag.split('/').size() > 3) {
+            String deletedId = urlFrag.split('/')[3];
+            businessConferenceErrorIds.add(deletedId);
+        }
+    }
+
+    private void dispatchWarningForDeletedBusinessConference(String linkSourceName) {
+        if(linkSourceName == 'business_conference_meetings') {
+            //the same errors that fire for attendees fire for meetings, so prevent email dupes by not firing for meetings
+            return;
+        }
+
+        String warningTextIds = '';
+
+        for(String s : businessConferenceErrorIds) {
+            if(!String.isBlank(warningTextIds)) {
+                warningTextIds += ', ';
+            }
+            warningTextIds += s;
+        }
+
+        String warningText = 'Eventtia Sync Warning: Networking Tracks with the following Eventtia Ids may have been deleted in Eventtia but still remain in Salesforce: '+warningTextIds;
+
+        AppConfig__c appConfigObj = AppConfig__c.getValues('default');
+        String adcvdAdminEmail = ((String) appConfigObj.get('ADCVD_Admin__c') != null ? (String) appConfigObj.get('ADCVD_Admin__c') : '');
+        String adcvdDeveloperEmail = ((String) appConfigObj.get('ADCVD_Developer__c') != null ? (String) appConfigObj.get('ADCVD_Developer__c') : '');
+        // Send an email to the Apex job's submitter notifying of job completion.
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        String[] toAddresses = new String[]{};
+        if (String.isNotBlank(adcvdAdminEmail)) toAddresses.add(adcvdAdminEmail);
+        if (String.isNotBlank(adcvdDeveloperEmail)) toAddresses.add(adcvdDeveloperEmail);
+        mail.setToAddresses(toAddresses);
+        mail.setSubject(warningText);
+        mail.setPlainTextBody(warningText);
+        Boolean emailsTurnedOn = false;
+
+        try {
+            Messaging.reserveSingleEmailCapacity(0);
+            emailsTurnedOn = true;
+        } catch (System.NoAccessException e) {
+            System.debug(e.getMessage());
+        }
+
+        if (emailsTurnedOn) {
+            // safe to send an email provided you check for limits
+            Messaging.sendEmail(new Messaging.SingleEmailMessage[]{
+                    mail
+            });
+        }
     }
 
     /**
@@ -409,7 +478,11 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
 
         // check for an error response
         if(200 != res.getStatusCode()) {
-            throw new valence.AdapterException(res.getStatusCode() + ': ' + res.getStatus() + '[' + urlFragment + ']');
+            try {
+                throw new valence.AdapterException(res.getStatusCode() + ': ' + res.getStatus() + '[' + urlFragment + ']');
+            } catch(valence.AdapterException e) {
+                return null;
+            }
         }
 
         return new valence.JSONParse(res.getBody());
