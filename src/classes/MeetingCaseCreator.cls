@@ -204,7 +204,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                     Case newCase = null;
                     if (orgOwnerId != null) {
                         newCase = new Case(Subject = (String.isBlank(caseSubject) ? 'Case' : caseSubject),
-                                Description = 'U.S. Exhibitor/Client registered for value added programming (B2G, B2B, Demos Int\'l Reception), at an event.',
+                                Description = 'U.S. Exhibitor/Client registered for value added programming (B2G, B2B, Demos or Int\'l Reception), at an event.',
                                 OwnerId = orgOwnerId,
                                 ContactId = thisContact.Id,
                                 Campaign_Name__c = campaignId,
@@ -214,7 +214,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
                         newCaseCampaignNames.add(caseSubject);
                     } else {
                         newCase = new Case(Subject = (String.isBlank(caseSubject) ? 'Case' : caseSubject),
-                                Description = 'U.S. Exhibitor/Client registered for value added programming (B2G, B2B, Demos Int\'l Reception), at an event.',
+                                Description = 'U.S. Exhibitor/Client registered for value added programming (B2G, B2B, Demos or Int\'l Reception), at an event.',
                                 ContactId = thisContact.Id,
                                 Campaign_Name__c = campaignId,
                                 RecordTypeId = caseRecordTypeId
