@@ -20,6 +20,8 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
 
     private Integer calloutsMade = 0;
 
+    private Set<String> businessConferenceErrorIds = new Set<String>();
+
     // --------------------------------------------
     // ---- NamedCredentialAdapter methods --------
     // --------------------------------------------
@@ -112,6 +114,7 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
 
         // if null, this is our first fetch and we need to set up our queue of remaining fetches
         if(apiContext == null) {
+            businessConferenceErrorIds = new Set<String>();
             apiContext = new APIContext(buildUrlFragments(context));
         }
 
@@ -127,6 +130,10 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
         while(calloutsMade < MAX_CALLOUTS_PER_BATCH && !apiContext.urlFragments.isEmpty()) {
             records.addAll(fetchNextRecordSet(context.linkSourceName));
             calloutsMade++;
+        }
+
+        if(!businessConferenceErrorIds.isEmpty()) {
+            dispatchWarningForDeletedBusinessConference();
         }
 
         return records;
@@ -149,7 +156,8 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
          */
         valence.JSONParse result = callEndpoint(currentUrlFragment);
         if(result == null) {
-            return provideWarningForDeletedBusinessConference(currentUrlFragment);
+            provideWarningForDeletedBusinessConference(currentUrlFragment);
+            return new List<valence.RecordInFlight>();
         }
 
         /*
@@ -192,13 +200,25 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
      *
      * @return
      */
-    private List<valence.RecordInFlight> provideWarningForDeletedBusinessConference(String urlFrag) {
+    private void provideWarningForDeletedBusinessConference(String urlFrag) {
         String warningText = 'An business conference may have been deleted in Eventtia.';
-        List<valence.RecordInFlight> warningList = new List<valence.RecordInFlight>();
         if(urlFrag != null && urlFrag.split('/').size() > 3) {
             String deletedId = urlFrag.split('/')[3];
-            warningText = 'An business conference with Eventtia Id ' + deletedId + 'may have been deleted in Eventtia.';
+            businessConferenceErrorIds.add(deletedId);
         }
+    }
+
+    private void dispatchWarningForDeletedBusinessConference() {
+        String warningTextIds = '';
+
+        for(String s : businessConferenceErrorIds) {
+            if(!String.isBlank(warningTextIds)) {
+                warningTextIds += ', ';
+            }
+            warningTextIds += s;
+        }
+
+        String warningText = 'Eventtia Sync Warning: Networking Tracks with the following Eventtia Ids may have been deleted in Eventtia but still remain in Salesforce: '+warningTextIds;
 
         AppConfig__c appConfigObj = AppConfig__c.getValues('default');
         String adcvdAdminEmail = ((String) appConfigObj.get('ADCVD_Admin__c') != null ? (String) appConfigObj.get('ADCVD_Admin__c') : '');
@@ -210,7 +230,7 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
         if (String.isNotBlank(adcvdDeveloperEmail)) toAddresses.add(adcvdDeveloperEmail);
         mail.setToAddresses(toAddresses);
         mail.setSubject(warningText);
-        String emailBodyString = warningText;
+        mail.setPlainTextBody(warningText);
         Boolean emailsTurnedOn = false;
 
         try {
@@ -226,8 +246,6 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
                     mail
             });
         }
-
-        return warningList;
     }
 
     /**
