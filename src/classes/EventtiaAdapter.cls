@@ -133,7 +133,7 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
         }
 
         if(!businessConferenceErrorIds.isEmpty()) {
-            dispatchWarningForDeletedBusinessConference();
+            dispatchWarningForDeletedBusinessConference(context.linkSourceName);
         }
 
         return records;
@@ -208,7 +208,12 @@ global with sharing class EventtiaAdapter implements valence.SourceAdapterForPul
         }
     }
 
-    private void dispatchWarningForDeletedBusinessConference() {
+    private void dispatchWarningForDeletedBusinessConference(String linkSourceName) {
+        if(linkSourceName == 'business_conference_meetings') {
+            //the same errors that fire for attendees fire for meetings, so prevent email dupes by not firing for meetings
+            return;
+        }
+
         String warningTextIds = '';
 
         for(String s : businessConferenceErrorIds) {
