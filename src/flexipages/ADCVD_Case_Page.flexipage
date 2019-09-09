@@ -13,6 +13,9 @@
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentName>force:detailPanel</componentName>
+        </componentInstances>
         <name>header</name>
         <type>Region</type>
     </flexiPageRegions>
@@ -20,24 +23,25 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
-                <value>NONE</value>
+                <value>ADVGRID</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>10</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>force:relatedListContainer</componentName>
         </componentInstances>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <flexiPageRegions>
-        <componentInstances>
-            <componentName>force:detailPanel</componentName>
-        </componentInstances>
-        <name>sidebar</name>
-        <type>Region</type>
-    </flexiPageRegions>
     <masterLabel>ADCVD Case Page</masterLabel>
     <sobjectType>ADCVD_Case__c</sobjectType>
     <template>
-        <name>flexipage:recordHomeLeftSidebarTemplateDesktop</name>
+        <name>flexipage:recordHomeSimpleViewTemplate</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>
