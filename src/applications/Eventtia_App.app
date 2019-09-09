@@ -56,6 +56,30 @@
     <label>Eventtia App</label>
     <navType>Console</navType>
     <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Eventtia_Home</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Eventtia_Home</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Eventtia_Home</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
         <actionName>View</actionName>
         <content>Attendee_Single_LPL</content>
         <formFactor>Large</formFactor>
