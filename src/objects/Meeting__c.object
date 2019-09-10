@@ -291,14 +291,14 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>B2B</fullName>
+                    <fullName>Meeting - B2B</fullName>
                     <default>false</default>
-                    <label>B2B</label>
+                    <label>Meeting - B2B</label>
                 </value>
                 <value>
-                    <fullName>B2G</fullName>
+                    <fullName>Meeting - B2G</fullName>
                     <default>false</default>
-                    <label>B2G</label>
+                    <label>Meeting - B2G</label>
                 </value>
                 <value>
                     <fullName>Demo</fullName>
