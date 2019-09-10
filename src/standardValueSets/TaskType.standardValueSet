@@ -22,6 +22,11 @@
         <label>Meeting - B2B</label>
     </standardValue>
     <standardValue>
+        <fullName>Meeting - B2G</fullName>
+        <default>false</default>
+        <label>Meeting - B2G</label>
+    </standardValue>
+    <standardValue>
         <fullName>Other</fullName>
         <default>false</default>
         <label>Other</label>
