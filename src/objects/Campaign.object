@@ -540,6 +540,18 @@
         <label>All Active Campaigns</label>
     </listViews>
     <listViews>
+        <fullName>Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <label>Campaigns</label>
+    </listViews>
+    <listViews>
         <fullName>MyActiveCampaigns</fullName>
         <columns>CAMPAIGN.NAME</columns>
         <columns>CAMPAIGN.START_DATE</columns>
