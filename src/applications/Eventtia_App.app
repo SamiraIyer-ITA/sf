@@ -131,7 +131,7 @@
         <profile>I&amp;A</profile>
     </profileActionOverrides>
     <profileActionOverrides>
-        <actionName>Tab</actionName>
+        <actionName>View</actionName>
         <content>Attendee_Single_LPL</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Attendee__c</pageOrSobjectType>
