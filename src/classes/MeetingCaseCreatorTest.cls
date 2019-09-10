@@ -125,7 +125,7 @@
         List<Contact> contacts = [SELECT Id, AccountId, Account.Name, FirstName, LastName, Email, Phone FROM Contact ORDER BY LastName];
         System.assertEquals(4, contacts.size());
 
-        System.assertEquals('B2G',records2[0].getProperties().get('Type__c'));
+        System.assertEquals('Meeting - B2G',records2[0].getProperties().get('Type__c'));
         System.assertEquals('Accepted',records2[0].getProperties().get('Status__c'));
 
         List<Case> cases = [SELECT Id FROM Case];
