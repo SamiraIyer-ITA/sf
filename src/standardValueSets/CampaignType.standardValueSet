@@ -48,7 +48,7 @@
     </standardValue>
     <standardValue>
         <fullName>Trade Show</fullName>
-        <default>true</default>
+        <default>false</default>
         <label>Trade Show</label>
     </standardValue>
 </StandardValueSet>
