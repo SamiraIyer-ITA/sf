@@ -363,7 +363,7 @@
         <columns>HostCompany__c</columns>
         <columns>Host_Name__c</columns>
         <filterScope>Everything</filterScope>
-        <label>G2B Meetings</label>
+        <label>B2G Meetings</label>
     </listViews>
     <listViews>
         <fullName>Rejected_Meetings</fullName>
