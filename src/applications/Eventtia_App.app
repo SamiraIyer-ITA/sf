@@ -81,6 +81,57 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
+        <content>Campaign_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Campaign</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Campaign_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Campaign</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Campaign_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Campaign</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Campaign_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Campaign</pageOrSobjectType>
+        <recordType>Campaign.Standard_Salesforce_Campaign</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Campaign_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Campaign</pageOrSobjectType>
+        <recordType>Campaign.Standard_Salesforce_Campaign</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Campaign_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Campaign</pageOrSobjectType>
+        <recordType>Campaign.Standard_Salesforce_Campaign</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
         <content>Attendee_Single_LPL</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Attendee__c</pageOrSobjectType>
