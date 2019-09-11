@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AdvancedSetup</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Campaign_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <compactLayoutAssignment>Campaign_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Campaign_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Type</fields>
+        <fields>Status</fields>
+        <fields>IsActive</fields>
+        <fields>OwnerId</fields>
+        <label>Campaign Compact Layout</label>
+    </compactLayouts>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <fields>
+        <fullName>ActualCost</fullName>
+    </fields>
+    <fields>
+        <fullName>AmountAllOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>AmountWonOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>BudgetedCost</fullName>
+    </fields>
+    <fields>
+        <fullName>CampaignMemberRecordTypeId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_End_Date__c</fullName>
+        <description>Campaign End Date</description>
+        <externalId>false</externalId>
+        <label>Campaign End Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Start_Date__c</fullName>
+        <description>Campaign start date</description>
+        <externalId>false</externalId>
+        <label>Campaign Start Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>EndDate</fullName>
+    </fields>
+    <fields>
+        <fullName>Event_Description__c</fullName>
+        <description>Description of event being held</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of event being held</inlineHelpText>
+        <label>Event Description</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Event_Location__c</fullName>
+        <description>Location of the event</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Location of the event</inlineHelpText>
+        <label>Event Location</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Event_Website__c</fullName>
+        <description>External event specific site</description>
+        <externalId>false</externalId>
+        <inlineHelpText>External event specific site</inlineHelpText>
+        <label>Event Website</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>EventtiaID__c</fullName>
+        <externalId>true</externalId>
+        <label>Eventtia ID</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EventtiaURI__c</fullName>
+        <externalId>true</externalId>
+        <label>Eventtia URI</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ExpectedResponse</fullName>
+    </fields>
+    <fields>
+        <fullName>ExpectedRevenue</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyActualCost</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyAmountAllOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyAmountWonOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyBudgetedCost</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyExpectedRevenue</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfContacts</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfConvertedLeads</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfLeads</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfResponses</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberOfWonOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>HierarchyNumberSent</fullName>
+    </fields>
+    <fields>
+        <fullName>IsActive</fullName>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfContacts</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfConvertedLeads</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfLeads</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfResponses</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberOfWonOpportunities</fullName>
+    </fields>
+    <fields>
+        <fullName>NumberSent</fullName>
+    </fields>
+    <fields>
+        <fullName>Outgoing_Communication_Email__c</fullName>
+        <description>Email address used to contact campaign participants</description>
+        <externalId>false</externalId>
+        <label>Outgoing Communication Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ParentId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StartDate</fullName>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Average_Bounce_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Average bounce rate for messages in &quot;Released&quot; status for this campaign.</description>
+        <externalId>false</externalId>
+        <formula>if (iContactforSF__Message_Statistic_Count__c  &gt; 0, iContactforSF__Total_Bounce_Rate__c / iContactforSF__Message_Statistic_Count__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Average bounce rate for messages in &quot;Released&quot; status for this campaign.</inlineHelpText>
+        <label>Average Bounce Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Average_Click_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Average click rate for messages in &quot;Released&quot; status for this campaign.</description>
+        <externalId>false</externalId>
+        <formula>if (iContactforSF__Message_Statistic_Count__c  &gt; 0, iContactforSF__Total_Click_Rate__c / iContactforSF__Message_Statistic_Count__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Average click rate for messages in &quot;Released&quot; status for this campaign.</inlineHelpText>
+        <label>Average Click Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Average_Open_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Average open rate for messages in &quot;Released&quot; status for this campaign.</description>
+        <externalId>false</externalId>
+        <formula>if (iContactforSF__Message_Statistic_Count__c  &gt; 0, iContactforSF__Total_Open_Rate__c / iContactforSF__Message_Statistic_Count__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Average open rate for messages in &quot;Released&quot; status for this campaign.</inlineHelpText>
+        <label>Average Open Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Average_Unsubscribe_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Average unsubscribe rate for messages in &quot;Released&quot; status for this campaign.</description>
+        <externalId>false</externalId>
+        <formula>if (iContactforSF__Message_Statistic_Count__c  &gt; 0, iContactforSF__Total_Unsubscribe_Rate__c / iContactforSF__Message_Statistic_Count__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Average unsubscribe rate for messages in &quot;Released&quot; status for this campaign.</inlineHelpText>
+        <label>Average Unsubscribe Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Bounce_Rate_Warning_Threshold_1__c</fullName>
+        <defaultValue>0.01</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The first warning threshold for bounce rate, where green becomes yellow on the dashboard gauge.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first warning threshold for bounce rate, where green becomes yellow on the dashboard gauge.</inlineHelpText>
+        <label>Bounce Rate Caution %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Bounce_Rate_Warning_Threshold_2__c</fullName>
+        <defaultValue>0.03</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The second warning threshold for bounce rate, where yellow becomes red on the dashboard gauge.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The second warning threshold for bounce rate, where yellow becomes red on the dashboard gauge.</inlineHelpText>
+        <label>Bounce Rate Warning %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Click_Rate_Success_Threshold_1__c</fullName>
+        <defaultValue>0.01</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The first success threshold for click rate, where red becomes yellow on the dashboard gauge.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first success threshold for click rate, where red becomes yellow on the dashboard gauge.</inlineHelpText>
+        <label>Click Rate Caution %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Click_Rate_Success_Threshold_2__c</fullName>
+        <defaultValue>0.08</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The second success threshold for click rate, where yellow becomes green on the dashboard gauge.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The second success threshold for click rate, where yellow becomes green on the dashboard gauge.</inlineHelpText>
+        <label>Click Rate Success %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Last_Update_Statistics_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date/time of the last Update on the Campaign record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date/time of the last Update on the Campaign record.</inlineHelpText>
+        <label>Last Update Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Message_Statistic_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of messages in &quot;Released&quot; status, which are used for the rate averages for the campaign.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of messages in &quot;Released&quot; status, which are used for the rate averages for the campaign.</inlineHelpText>
+        <label>Message Statistic Count</label>
+        <summaryFilterItems>
+            <field>iContactforSF__iContact_Sent_Message__c.iContactforSF__Status__c</field>
+            <operation>equals</operation>
+            <value>Released</value>
+        </summaryFilterItems>
+        <summaryForeignKey>iContactforSF__iContact_Sent_Message__c.iContactforSF__Campaign__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Open_Rate_Success_Threshold_1__c</fullName>
+        <defaultValue>0.05</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The first success threshold for open rate, where red becomes yellow on the dashboard gauge.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first success threshold for open rate, where red becomes yellow on the dashboard gauge.</inlineHelpText>
+        <label>Open Rate Caution %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Open_Rate_Success_Threshold_2__c</fullName>
+        <defaultValue>0.10</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The second success threshold for open rate, where yellow becomes green on the dashboard gauge.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The second success threshold for open rate, where yellow becomes green on the dashboard gauge.</inlineHelpText>
+        <label>Open Rate Success %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Targeted_Join_Date1__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Targeted Join Date1</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Targeted_Join_Date2__c</fullName>
+        <defaultValue>today() + 1</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Targeted Join Date2</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Total_Bounce_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total bounce rate for messages in &quot;Released&quot; status for this campaign (used to calculate average bounce rate).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total bounce rate for messages in &quot;Released&quot; status for this campaign (used to calculate average bounce rate).</inlineHelpText>
+        <label>Total Bounce Rate</label>
+        <summarizedField>iContactforSF__iContact_Sent_Message__c.iContactforSF__Bounce_Rate__c</summarizedField>
+        <summaryFilterItems>
+            <field>iContactforSF__iContact_Sent_Message__c.iContactforSF__Status__c</field>
+            <operation>equals</operation>
+            <value>Released</value>
+        </summaryFilterItems>
+        <summaryForeignKey>iContactforSF__iContact_Sent_Message__c.iContactforSF__Campaign__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Total_Click_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total click rate for messages in &quot;Released&quot; status for this campaign (used to calculate average click rate).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total click rate for messages in &quot;Released&quot; status for this campaign (used to calculate average click rate).</inlineHelpText>
+        <label>Total Click Rate</label>
+        <summarizedField>iContactforSF__iContact_Sent_Message__c.iContactforSF__Click_Rate__c</summarizedField>
+        <summaryFilterItems>
+            <field>iContactforSF__iContact_Sent_Message__c.iContactforSF__Status__c</field>
+            <operation>equals</operation>
+            <value>Released</value>
+        </summaryFilterItems>
+        <summaryForeignKey>iContactforSF__iContact_Sent_Message__c.iContactforSF__Campaign__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Total_Open_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total open rate for messages in &quot;Released&quot; status for this campaign (used to calculate average open rate).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total open rate for messages in &quot;Released&quot; status for this campaign (used to calculate average open rate).</inlineHelpText>
+        <label>Total Open Rate</label>
+        <summarizedField>iContactforSF__iContact_Sent_Message__c.iContactforSF__Open_Rate__c</summarizedField>
+        <summaryFilterItems>
+            <field>iContactforSF__iContact_Sent_Message__c.iContactforSF__Status__c</field>
+            <operation>equals</operation>
+            <value>Released</value>
+        </summaryFilterItems>
+        <summaryForeignKey>iContactforSF__iContact_Sent_Message__c.iContactforSF__Campaign__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Total_Unsubscribe_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total unsubscribe rate for messages in &quot;Released&quot; status for this campaign (used to calculate average unsubscribe rate).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total unsubscribe rate for messages in &quot;Released&quot; status for this campaign (used to calculate average unsubscribe rate).</inlineHelpText>
+        <label>Total Unsubscribe Rate</label>
+        <summarizedField>iContactforSF__iContact_Sent_Message__c.iContactforSF__Unsubscribe_Rate__c</summarizedField>
+        <summaryFilterItems>
+            <field>iContactforSF__iContact_Sent_Message__c.iContactforSF__Status__c</field>
+            <operation>equals</operation>
+            <value>Released</value>
+        </summaryFilterItems>
+        <summaryForeignKey>iContactforSF__iContact_Sent_Message__c.iContactforSF__Campaign__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Unsubscribe_Rate_Warning_Threshold_1__c</fullName>
+        <defaultValue>0.001</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The first warning threshold for unsubscribe rate, where green becomes yellow on the dashboard gauge.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first success threshold for unsubscribe rate, where green becomes yellow on the dashboard gauge.</inlineHelpText>
+        <label>Unsubscribe Rate Caution %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>iContactforSF__Unsubscribe_Rate_Warning_Threshold_2__c</fullName>
+        <defaultValue>0.01</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The second warning threshold for unsubscribe rate, where yellow becomes red on the dashboard gauge.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The second warning threshold for unsubscribe rate, where yellow becomes red on the dashboard gauge.</inlineHelpText>
+        <label>Unsubscribe Rate Warning %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <listViews>
+        <fullName>AllActiveCampaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>All Active Campaigns</label>
+    </listViews>
+    <listViews>
+        <fullName>Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <label>Campaigns</label>
+    </listViews>
+    <listViews>
+        <fullName>MyActiveCampaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CAMPAIGN.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My Active Campaigns</label>
+    </listViews>
+    <listViews>
+        <fullName>Toolkit_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.ID</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>CAMPAIGN.ACTIVE</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>CAMPAIGN.NUM_LEADS</columns>
+        <columns>CAMPAIGN.RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>contains</operation>
+            <value>Toolkit</value>
+        </filters>
+        <label>Toolkit Campaigns</label>
+        <sharedTo>
+            <role>System_Admin</role>
+        </sharedTo>
+    </listViews>
+    <recordTypes>
+        <fullName>Standard_Salesforce_Campaign</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Campaign_Compact_Layout</compactLayoutAssignment>
+        <description>Creating Campaign standard record type to differentiate iContact campaigns</description>
+        <label>Standard Salesforce Campaign</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Banner Ads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar %2F Conference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telemarketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>iContact_Email_Campaign</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Campaign_Compact_Layout</compactLayoutAssignment>
+        <description>Record Type for iContact specific Campaigns</description>
+        <label>iContact Email Campaign</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Banner Ads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar %2F Conference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telemarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CAMPAIGN.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CAMPAIGN.START_DATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>CAMPAIGN.NAME</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CAMPAIGN.NAME</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PARENT_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.CAMPAIGN_TYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.STATUS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.START_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.END_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CAMPAIGN.NUM_RESPONSES</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>FullAccess</sharingModel>
+    <webLinks>
+        <fullName>ViewAllCampaignMembers</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View All Campaign Members</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/camp/rptcmpgncalldown.jsp?scope=1&amp;scopeid={!Campaign_Name}</url>
+        <width>500</width>
+    </webLinks>
+    <webLinks>
+        <fullName>ViewCampaignInfluenceReport</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Campaign Influence Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign_Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
+        <width>500</width>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__Bounce_Rate_All_Messages</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Bounce Rate All Messages</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00OA0000001dn3Q?pv0={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__Click_Rate_for_All_Messages</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Click Rate for All Messages</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00OA0000001dn3R?pv0={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__Complaint_Rate_for_All_Messages</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Complaint Rate for All Messages</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00OA0000001dn3S?pv0={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__Open_Rate_for_All_Messages</fullName>
+        <availability>online</availability>
+        <description>Open Rate for all iContact Sent Messages in this Campaign</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Open Rate for All Messages</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00OA0000001dn3T?pv0={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__Send_iContact_Message</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>iContact Send</masterLabel>
+        <openType>sidebar</openType>
+        <page>iContactforSF__CampaignSend</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__Targeted_Send</fullName>
+        <availability>online</availability>
+        <description>Executes the &quot;Targeted Send&quot; wizard before sending the user to the SendMessage page.</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Targeted Send</masterLabel>
+        <openType>sidebar</openType>
+        <page>iContactforSF__CampaignTargetSend</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__Unsubscribe_Rate_for_All_Messages</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Unsubscribe Rate for All Messages</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00OA0000001dn3V?pv0={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__Update_Statistics</fullName>
+        <availability>online</availability>
+        <description>Updates statistics for all iContact Sent Message records.</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>false</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>300</height>
+        <isResizable>false</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Update Statistics</masterLabel>
+        <openType>newWindow</openType>
+        <page>iContactforSF__CampaignUpdate</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <width>600</width>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__ViewCampaignInfluenceReport</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Campaign Influence Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign.Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
+        <width>500</width>
+    </webLinks>
+    <webLinks>
+        <fullName>iContactforSF__iContact_Help</fullName>
+        <availability>online</availability>
+        <description>Link to context-sensitive iContact help content.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>iContact Help</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://salesforce.icontact.com/node/241</url>
+    </webLinks>
+</CustomObject>
