@@ -73,8 +73,7 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>EventtiaDashboards</members>
-        <members>EventtiaDashboards/SNZlcKTZDsFBLWSWnYVtVPjoEwLBmi</members>
+        <members>*</members>
         <name>Dashboard</name>
     </types>
     <types>
@@ -158,14 +157,8 @@
         <name>RemoteSiteSetting</name>
     </types>
     <types>
-        <members>Events_App_Reports</members>
-        <members>Events_App_Reports/Event_Attendee_Report_H0G</members>
-        <members>Events_App_Reports/Eventtia_Meetings_by_Type_AND_Status</members>
-        <members>Events_App_Reports/Number_of_accepted_meetings_by_campaign_7oT</members>
-        <members>Events_App_Reports/Number_of_rejected_meetings_by_campaign_lfg</members>
-        <members>Events_App_Reports/Number_of_requested_meetings_vkC</members>
-        <members>Events_App_Reports/Total_number_of_meetings_by_campaign</members>
-        <name>Report</name>
+        <members>*</members>
+        <nams>Report</name>
     </types>
     <types>
         <members>*</members>
@@ -185,7 +178,6 @@
     </types>
     <types>
         <members>*</members>
-        <members>TaskType</members>
         <name>StandardValueSet</name>
     </types>
     <types>
