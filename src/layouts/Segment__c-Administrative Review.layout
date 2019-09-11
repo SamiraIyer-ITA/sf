@@ -80,6 +80,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Actual_Prelim_Issues_to_DAS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Prelim_Concurrence_to_DAS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Actual_Preliminary_Signature__c</field>
             </layoutItems>
         </layoutColumns>
@@ -87,6 +95,14 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Final_Date_of_Anniversary_Month__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Final_Issues_to_DAS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Final_Concurrence_to_DAS__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -130,6 +146,14 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Amend_Final_Issues_to_DAS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Amend_Final_Concurrence_to_DAS__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Amended_Final_Signature__c</field>
