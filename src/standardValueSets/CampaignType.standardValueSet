@@ -46,4 +46,9 @@
         <default>false</default>
         <label>Other</label>
     </standardValue>
+    <standardValue>
+        <fullName>Trade Show</fullName>
+        <default>false</default>
+        <label>Trade Show</label>
+    </standardValue>
 </StandardValueSet>

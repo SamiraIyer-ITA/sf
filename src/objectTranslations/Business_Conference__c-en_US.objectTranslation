@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Networking Track</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Networking Tracks</value>
+    </caseValues>
+    <fields>
+        <help><!-- Total number of accepted meetings --></help>
+        <label><!-- Accepted Meetings --></label>
+        <name>Accepted_Meetings__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Networking Tracks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Eventtia meeting ID number. --></help>
+        <label><!-- Eventtia ID --></label>
+        <name>EventtiaID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Duration --></label>
+        <name>Meeting_Duration__c</name>
+    </fields>
+    <fields>
+        <help><!-- Location of networking track --></help>
+        <label><!-- Networking Track Location --></label>
+        <name>Networking_Track_Location__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number of rejected meetings --></help>
+        <label><!-- Rejected Meetings --></label>
+        <name>Rejected_Meetings__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number of requested meetings --></help>
+        <label><!-- Requested Meetings --></label>
+        <name>Requested_Meetings__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <layouts>
+        <layout>Business Conference Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
