@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Attendee_LPL</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Attendee_Compact_Layout</fullName>
+        <fields>FirstName__c</fields>
+        <fields>LastName__c</fields>
+        <fields>Company__c</fields>
+        <fields>AttendeeType__c</fields>
+        <fields>Email__c</fields>
+        <label>Attendee Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Child records of Contacts to match attendance of events.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AttendeeID__c</fullName>
+        <description>The Evemttia ID of the attendee.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Evemttia ID of the attendee.</inlineHelpText>
+        <label>Attendee ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AttendeeType__c</fullName>
+        <description>The attendee type as registered in Eventtia.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The attendee type as registered in Eventtia.</inlineHelpText>
+        <label>Attendee Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>U.S. Supplier</fullName>
+                    <default>false</default>
+                    <label>U.S. Supplier</label>
+                </value>
+                <value>
+                    <fullName>Foreign Buyer</fullName>
+                    <default>false</default>
+                    <label>Foreign Buyer</label>
+                </value>
+                <value>
+                    <fullName>Trade Specialist</fullName>
+                    <default>false</default>
+                    <label>Trade Specialist</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Attendee_Affiliation__c</fullName>
+        <description>Attendee type based on the email entered in Eventtia</description>
+        <externalId>false</externalId>
+        <formula>IF(CONTAINS( Email__c , &quot;.gov&quot;), &quot;Government&quot;, &quot;Non - Government&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Attendee type based on the email entered in Eventtia</inlineHelpText>
+        <label>Attendee Affiliation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BusinessConference__c</fullName>
+        <description>Establishes master- detail relationship between attendee and business conference.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Establishes master- detail relationship between attendee and business conference.</inlineHelpText>
+        <label>Business Conference</label>
+        <referenceTo>Business_Conference__c</referenceTo>
+        <relationshipLabel>Attendees</relationshipLabel>
+        <relationshipName>Attendees</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Company__c</fullName>
+        <description>The Company of the attendee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Company of the attendee.</inlineHelpText>
+        <label>Company</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Contact record of this Attendee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Contact record of this Attendee.</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Attendees</relationshipLabel>
+        <relationshipName>Attendees</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <description>The email address of the attendee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The email address of the attendee.</inlineHelpText>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FirstName__c</fullName>
+        <description>The first name of the attendee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first name of the attendee.</inlineHelpText>
+        <label>First Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LastName__c</fullName>
+        <description>The last name of the attendee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The last name of the attendee.</inlineHelpText>
+        <label>Last Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MailingCity__c</fullName>
+        <description>Attendee&apos;s city.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Attendee&apos;s city.</inlineHelpText>
+        <label>MailingCity</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MailingCountry__c</fullName>
+        <description>Attendee&apos;s country.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Attendee&apos;s country.</inlineHelpText>
+        <label>MailingCountry</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Countries</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MailingPostalCode__c</fullName>
+        <description>Attendee&apos;s postal code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Attendee&apos;s postal code.</inlineHelpText>
+        <label>MailingPostalCode</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MailingState__c</fullName>
+        <description>Attendee&apos;s resident state.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Attendee&apos;s resident state.</inlineHelpText>
+        <label>MailingState</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MailingStreet__c</fullName>
+        <description>Attendee&apos;s street.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Attendee&apos;s street.</inlineHelpText>
+        <label>MailingStreet</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ParticipantID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>The Eventtia ID of the participant.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Eventtia ID of the participant.</inlineHelpText>
+        <label>Participant ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Telephone__c</fullName>
+        <description>The telephone number of the attendee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The telephone number of the attendee.</inlineHelpText>
+        <label>Telephone</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <description>Job title of the Attendee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Job title of the Attendee.</inlineHelpText>
+        <label>Title</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Website__c</fullName>
+        <description>Link to Attendee&apos;s website.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to Attendee&apos;s website.</inlineHelpText>
+        <label>Website</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <label>Attendee</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>FirstName__c</columns>
+        <columns>LastName__c</columns>
+        <columns>Company__c</columns>
+        <columns>Email__c</columns>
+        <columns>Attendee_Affiliation__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Attendees</fullName>
+        <columns>NAME</columns>
+        <columns>FirstName__c</columns>
+        <columns>LastName__c</columns>
+        <columns>Email__c</columns>
+        <columns>BusinessConference__c</columns>
+        <columns>Company__c</columns>
+        <columns>Attendee_Affiliation__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Attendees</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Att-{0000}</displayFormat>
+        <label>Attendee Number</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Attendees</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+</CustomObject>

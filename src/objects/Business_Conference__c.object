@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Accepted_Meetings__c</fullName>
+        <description>Total number of accepted meetings</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of accepted meetings</inlineHelpText>
+        <label>Accepted Meetings</label>
+        <summaryFilterItems>
+            <field>Meeting__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Accepted</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting__c.BusinessConference__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Record that shows campaign</description>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Networking Tracks</relationshipLabel>
+        <relationshipName>Networking_Tracks</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <description>Networking track end date &amp; time</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>EventtiaID__c</fullName>
+        <description>The Eventtia meeting ID number.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Eventtia meeting ID number.</inlineHelpText>
+        <label>Eventtia ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Duration__c</fullName>
+        <description>Duration of meetings</description>
+        <externalId>false</externalId>
+        <label>Meeting Duration</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Networking_Track_Location__c</fullName>
+        <description>Location of networking track</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Location of networking track</inlineHelpText>
+        <label>Networking Track Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rejected_Meetings__c</fullName>
+        <description>Total number of rejected meetings</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of rejected meetings</inlineHelpText>
+        <label>Rejected Meetings</label>
+        <summaryFilterItems>
+            <field>Meeting__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Rejected</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting__c.BusinessConference__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Requested_Meetings__c</fullName>
+        <description>Total number of requested meetings</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of requested meetings</inlineHelpText>
+        <label>Requested Meetings</label>
+        <summaryFilterItems>
+            <field>Meeting__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Requested</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting__c.BusinessConference__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <description>Networking Track start date &amp; time</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <label>Networking Track</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign__c</columns>
+        <columns>Networking_Track_Location__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Networking Track Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Networking Tracks</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
