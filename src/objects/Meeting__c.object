@@ -339,31 +339,13 @@
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
-    <listViews>
-        <fullName>B2B_Meetings</fullName>
-        <columns>NAME</columns>
-        <columns>Attendee_Name__c</columns>
-        <columns>AttendeeCompany__c</columns>
-        <columns>Host_Name__c</columns>
-        <columns>HostCompany__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Type__c</field>
-            <operation>equals</operation>
-            <value>B2B</value>
-        </filters>
-        <label>B2B Meetings</label>
+    <listViews>                                                                                                                                                 <fullName>B2B_Meetings</fullName>                                                                                                                       <columns>NAME</columns>                                                                                                                                 <columns>Attendee_Name__c</columns>                                                                                                                     <columns>AttendeeCompany__c</columns>                                                                                                                   <columns>Host_Name__c</columns>                                                                                                                         <columns>HostCompany__c</columns>                                                                                                                       <columns>Status__c</columns>                                                                                                                            <filterScope>Everything</filterScope>                                                                                                                   <filters>                                                                                                                                                   <field>Type__c</field>                                                                                                                                  <operation>equals</operation>                                                                                                                           <value>Meeting - B2B</value>                                                                                                                        </filters>                                                                                                                                              <label>B2B Meetings</label>
     </listViews>
-    <listViews>
-        <fullName>G2B_Meetings</fullName>
-        <columns>NAME</columns>
-        <columns>AttendeeCompany__c</columns>
+    <listViews>                                                                                                                                                 <fullName>B2G_Meetings</fullName>                                                                                                                       <columns>NAME</columns>                                                                                                                                 <columns>AttendeeCompany__c</columns>
         <columns>Attendee_Name__c</columns>
-        <columns>HostCompany__c</columns>
-        <columns>Host_Name__c</columns>
+        <columns>HostCompany__c</columns>                                                                                                                       <columns>Host_Name__c</columns>
         <filterScope>Everything</filterScope>
-        <label>B2G Meetings</label>
+        <filters>                                                                                                                                                   <field>Type__c</field>                                                                                                                                  <operation>equals</operation>                                                                                                                           <value>Meeting - B2G</value>                                                                                                                        </filters>                                                                                                                                              <label>B2G Meetings</label>
     </listViews>
     <listViews>
         <fullName>Rejected_Meetings</fullName>
