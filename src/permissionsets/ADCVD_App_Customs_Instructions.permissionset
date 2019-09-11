@@ -2172,7 +2172,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Custom_Instruction__c.ADCVD_Case_Type_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2202,7 +2202,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Custom_Instruction__c.CBP_Case_Number_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2227,7 +2227,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Commodity_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2317,12 +2317,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Product_Short_Name_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Product_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
