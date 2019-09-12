@@ -24,8 +24,10 @@ buildXML="$sandbox/build.xml"
 # [ -f "../builds/build.properties" ] && rm ../builds/build.properties
 
 # Component types that we deploy
-types=" approvalProcess  \
-		asset \
+types=" app \
+	appMenu \
+	approvalProcess  \
+	asset \
         assignmentRules \
         authprovider \
         autoResponseRules \
@@ -36,6 +38,7 @@ types=" approvalProcess  \
         crt \
         css \
         customPermission \
+	dashboard \
         email \
         evt \
 	flexipage \
@@ -59,6 +62,7 @@ types=" approvalProcess  \
 	profile \
         queue \
         quickAction \
+	report \
         reportType \
         resource \
         role \
@@ -91,6 +95,10 @@ typemeta="      asset \
 		wdf \
 		wlens"
 
+typesubfolders="	email \
+		dashboard \
+		report"
+
 # For creating the deployment change set
 gitfiles=$sandbox/gitchanges
 # profiles=$sandbox/profiles
@@ -119,6 +127,9 @@ function makePackage() {
         type=`echo "$srcfile" | grep -o '\.[a-zA-Z]*$' | cut -f 2 -d .`
         dofile=`echo $types | grep $type` || true
         dometa=`echo $typemeta | grep $type`|| true
+	dosubfolders=`echo $typesubfolders | grep $type` || true
+	folder=`echo "$srcfile" | cut -f 2 -d /`
+	subfolder=`echo "$srcfile" | cut -f 3 -d /`
         blacklisted=`cat "$blacklist" | grep "$srcfile"` || true
         if [ ! -z "$dofile" ] && [ -z "$blacklisted" ] ; then
                 isSrc=`echo $srcfile | grep src` || true
@@ -130,9 +141,12 @@ function makePackage() {
                 else
                         echo Copying "$srcfile"
 		        [ -f "$srcfile" ] && [ ! -z "$isSrc" ] && cp -rp --parents "$srcfile" $sandbox
-                        if [ ! -z "$dometa"  ]; then
-                                [ -f "${srcfile}-meta.xml" ] && cp -rp --parents "${srcfile}-meta.xml" $sandbox
-                        fi
+#                        if [ ! -z "$dometa"  ]; then
+                        [ -f "${srcfile}-meta.xml" ] && cp -rp --parents "${srcfile}-meta.xml" $sandbox
+#                        fi
+			[ -f "src/${folder}/${subfolder}-meta.xml" ] && cp -rp --parents "src/${folder}/${subfolder}-meta.xml" $sandbox
+
+#			echo "TEST  src/${folder}/${subfolder}-meta.xml"
                 fi
         fi
   done < $gitfiles

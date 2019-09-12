@@ -112,7 +112,7 @@
           },
           {
             "fiscalMonthOffset": 9,
-            "name": "Actual_Case_Closed_Date__c"
+            "name": "ClosedDate"
           },
           {
             "name": "Id"
@@ -253,7 +253,7 @@
         ],
         "rightSelect": [
           "AccountId",
-          "Actual_Case_Closed_Date__c",
+          "ClosedDate",
           "Actual_Create_Date__c",
           "RecordType.DeveloperName",
           "RecordType.Name",
@@ -386,7 +386,7 @@
           "Id"
         ],
         "rightSelect": [
-          "Actual_Case_Closed_Date__c",
+          "ClosedDate",
           "Actual_Create_Date__c"
         ]
       },
@@ -468,7 +468,7 @@
     "filter Case Contributors Close Date": {
       "action": "filter",
       "parameters": {
-        "saqlFilter": "'CaseForDates.Actual_Case_Closed_Date__c' != null"
+        "saqlFilter": "'CaseForDates.ClosedDate' != null"
       },
       "sources": [
         "augment Case Dates"
@@ -716,7 +716,7 @@
             "format": "MM/dd/yyyy hh:mm:ss a",
             "label": "Date of Assist",
             "name": "Date_of_Assist",
-            "saqlExpression": "toDate('CaseForDates.Actual_Case_Closed_Date__c_sec_epoch')",
+            "saqlExpression": "toDate('CaseForDates.ClosedDate_sec_epoch')",
             "type": "Date"
           }
         ],
