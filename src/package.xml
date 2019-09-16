@@ -74,6 +74,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>Dashboard</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>DataCategoryGroup</name>
     </types>
     <types>
