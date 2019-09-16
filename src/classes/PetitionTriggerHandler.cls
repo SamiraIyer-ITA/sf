@@ -5,7 +5,6 @@
  *    MIL Corporation
  *
  *    Updated by Joshua Moody
- *    updated by Mark Keckeis on July 31, 2019
  *    
  **/
 
@@ -46,7 +45,6 @@ public without sharing class PetitionTriggerHandler {
             setCaseValues(newList);
             calculatePetitionDates(newList);
             calculatePetitionStatuses(newList);
-            actualInitiationSignatureAdded(newList);
         }
         if(isBefore && isUpdate) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
@@ -54,7 +52,6 @@ public without sharing class PetitionTriggerHandler {
             alertsOnDates(newList);
             calculatePetitionDates(newList);
             calculatePetitionStatuses(newList);
-            actualInitiationSignatureAdded(newList);
         }
         if(isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
@@ -224,23 +221,7 @@ public without sharing class PetitionTriggerHandler {
         }
     }
 
-    /*****************************
-    * Determines if the Actual_Initiation_Signature__c has been entered and if so changes the record type from Self initiated to File
-    *****************************/
 
-    @TestVisible private static void actualInitiationSignatureAdded(List<Petition__c> newList) {
-        Id selfInitiateRecordTypeId = Schema.SObjectType.Petition__c.getRecordTypeInfosByName().get('Self-Initiated').getRecordTypeId();
-        Id fileRecordTypeId         = Schema.SObjectType.Petition__c.getRecordTypeInfosByName().get('Filed').getRecordTypeId();
-        for(petition__c p :newList){
-            if(p.recordTypeId != selfInitiateRecordTypeId ){
-                continue;
-            }
-            if(p.Actual_Initiation_Signature__c != null) {
-                p.recordTypeId = fileRecordTypeId;
-            }
-        }
-
-    }
     /*****************************
     * Status Calculations
     *****************************/
