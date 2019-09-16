@@ -58,14 +58,25 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>A0803PrivateCaseRequiresPrivatePetition__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Is used to offset the validation rule set</description>
+        <externalId>false</externalId>
+        <label>A0803PrivateCaseRequiresPrivatePetition</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>ADCVD_Case_Number_Text__c</fullName>
         <externalId>false</externalId>
@@ -1220,6 +1231,19 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>This_ADCVD_Case_Has_a_Petition__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>This ADCVD Case has a Petition</label>
+        <length>18</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>Tolling_Update__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Used by a batch class when the Tolling Date Trigger executes to add new tolling date records. This causes dates to recalculate whenever the new tolling dates are added without updating related Investigation records.</description>
@@ -2253,7 +2277,7 @@ C-###-### for CVD</inlineHelpText>
         <searchResultsAdditionalFields>Commodity_Text__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>A0801PermSetReparentsPetition</fullName>
         <active>true</active>
@@ -2289,6 +2313,15 @@ C-###-### for CVD</inlineHelpText>
 			)
 			)</errorConditionFormula>
         <errorMessage>You are not authorized to edit ADCVD Case.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0803PrivateCaseRequiresPrivatePetition</fullName>
+        <active>true</active>
+        <description>Prevents Petitions other than Private from being added to Private Cases</description>
+        <errorConditionFormula>if( 
+A0803PrivateCaseRequiresPrivatePetition__c, 
+RecordType.Name &lt;&gt;  ADCVD_Case__r.RecordType.Name,NULL)</errorConditionFormula>
+        <errorMessage>Petition Type(Filed, Self-Initiated, Private) must match the Case.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
