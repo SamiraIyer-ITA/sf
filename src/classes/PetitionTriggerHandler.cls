@@ -27,7 +27,7 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static Set<String> outcomesThatStartCalculations = new Set<String>();
     @TestVisible private static Set<String> activeLitigationStatuses = new Set<String>();
     @TestVisible private static Map<String,Constant__mdt> petitionConstants = setPetitionConstants();
-
+    @TestVisible private static Set<Id> adcvdCasesToUpdate = new Set<Id>();
     //FINAL AD Record Type Offsets
     private static FINAL Integer CALC_INIT_SIG = ((Integer)petitionConstants.get('Petition_Calc_Initiation_Sig').Number_Value__c);//Calculated_Initiation_Signature__c
 
@@ -63,12 +63,9 @@ public without sharing class PetitionTriggerHandler {
             
         }
         if(isAfter && isUpdate) {
-            Map<Id, Petition__c> noLockedRecordsNewMap = new Map<Id, Petition__c>(newList);
-            List<Petition__c> noLockedRecordsNewList = new List<Petition__c>(newList);
-            initialize(noLockedRecordsNewList, noLockedRecordsNewMap);
             afterActualInitiationSignatureAdded();
-            recalculateInvestigations(noLockedRecordsNewMap, oldMap);
-            new ChatterPostWriter('Petition__c', noLockedRecordsNewMap, oldMap);
+            recalculateInvestigations(newMap, oldMap);
+            new ChatterPostWriter('Petition__c', newMap, oldMap);
         }
     }
 
@@ -83,7 +80,6 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
     @TestVisible private static PetitionMapper petMapper;
     @TestVisible private static FederalRegisterMapper frMapper;
-    @TestVisible private static Map<Id, ADCVD_Case__c> adcvdCasesToUpdateMap = new Map<Id, ADCVD_Case__c>();
 
     /*****************************************
     * Methods called directly by mainEntry()
@@ -244,9 +240,10 @@ public without sharing class PetitionTriggerHandler {
             system.debug('p.Actual_Initiation_Signature__c  is ==> ' + p.Actual_Initiation_Signature__c );
             if(p.Actual_Initiation_Signature__c != null) {
                 p.recordTypeId = selfInitiateRecordTypeId;
-                adcvdCasesToUpdateMap.put(p.ADCVD_Case__c, (ADCVD_Case__c)caseMapper.getMap(false).get(p.ADCVD_Case__c));
+                adcvdCasesToUpdate.add(p.ADCVD_Case__c);
             }
         }
+
     }
 
     /*****************************
@@ -256,14 +253,18 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static void afterActualInitiationSignatureAdded() {
         Id selfInitiateRecordTypeId = Schema.SObjectType.ADCVD_Case__c.getRecordTypeInfosByName().get('Self-Initiated').getRecordTypeId();
 
-        if (adcvdCasesToUpdateMap.size() > 0) {
-
-            for (ADCVD_Case__c a : adcvdCasesToUpdateMap.values()) {
-                a.RecordTypeId = selfInitiateRecordTypeId;
+        if(adcvdCasesToUpdate.size() > 0) {
+            List<ADCVD_Case__c> updateADCVDCases = new List<ADCVD_Case__c>();
+            updateADCVDCases = [SELECT Id, RecordTypeId FROM ADCVD_Case__c WHERE Id IN :adcvdCasesToUpdate];
+            if(updateADCVDCases.size() > 0){
+                for(ADCVD_Case__c a :updateADCVDCases){
+                    a.RecordTypeId = selfInitiateRecordTypeId;
+                }
+                update updateADCVDCases;
             }
-            update adcvdCasesToUpdateMap.values();
 
         }
+
     }
     /*****************************
     * Status Calculations
