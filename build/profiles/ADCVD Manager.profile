@@ -4,7 +4,7 @@
         <editable>true</editable>
         <field>Petition__c.This_ADCVD_Case_Has_a_Petition__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <layoutAssignments>
         <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
         <recordType>ADCVD_Case__c.Private</recordType>
