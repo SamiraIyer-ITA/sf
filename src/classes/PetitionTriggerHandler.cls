@@ -46,7 +46,7 @@ public without sharing class PetitionTriggerHandler {
             setCaseValues(newList);
             calculatePetitionDates(newList);
             calculatePetitionStatuses(newList);
-            actualInitiationSignatureAdded(newList);
+            actualInitiationSignatureAdded(newList, oldMap, isInsert, isUpdate);
         }
         if(isBefore && isUpdate) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
@@ -54,7 +54,7 @@ public without sharing class PetitionTriggerHandler {
             alertsOnDates(newList);
             calculatePetitionDates(newList);
             calculatePetitionStatuses(newList);
-            actualInitiationSignatureAdded(newList);
+            actualInitiationSignatureAdded(newList, oldMap, isInsert, isUpdate);
         }
         if(isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
@@ -228,18 +228,25 @@ public without sharing class PetitionTriggerHandler {
     * Determines if the Actual_Initiation_Signature__c has been entered and if so changes the record type from Self initiated to File
     *****************************/
 
-    @TestVisible private static void actualInitiationSignatureAdded(List<Petition__c> newList) {
+    @TestVisible private static void actualInitiationSignatureAdded(List<Petition__c> newList, Map<id, Petition__c> oldMap, Boolean isInsert, Boolean isUpdate) {
         Id selfInitiateRecordTypeId = Schema.SObjectType.Petition__c.getRecordTypeInfosByName().get('Self-Initiated').getRecordTypeId();
-        Id fileRecordTypeId         = Schema.SObjectType.Petition__c.getRecordTypeInfosByName().get('Filed').getRecordTypeId();
-        for(petition__c p :newList){
-            if(p.recordTypeId != selfInitiateRecordTypeId ){
-                continue;
-            }
-            if(p.Actual_Initiation_Signature__c != null) {
-                p.recordTypeId = fileRecordTypeId;
+        Id fileRecordTypeId = Schema.SObjectType.Petition__c.getRecordTypeInfosByName().get('File').getRecordTypeId();
+        if(isUpdate){
+            for(petition__c p :newList){
+                Petition__c oldRecord  = new Petition__c();
+                oldRecord = oldMap.get(p.id);
+                if(p.recordTypeId == selfInitiateRecordTypeId && p.Actual_Initiation_Signature__c != null && oldRecord.Actual_Initiation_Signature__c == null){
+                        p.recordTypeId  = fileRecordTypeId;
+                }
             }
         }
-
+        if(isInsert){
+            for(petition__c p :newList){
+                if(p.recordTypeId == selfInitiateRecordTypeId && p.Actual_Initiation_Signature__c != null){
+                        p.recordTypeId  = fileRecordTypeId;
+                }
+            }
+        }
     }
     /*****************************
     * Status Calculations
