@@ -61,14 +61,14 @@
     <description>The ADCVD Case object is the shell or &quot;manilla folder&quot; to tie all ADCVD Case activities together.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <caseSensitive>false</caseSensitive>
@@ -1101,7 +1101,7 @@ C-###-### for CVD</inlineHelpText>
         <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <startsWith>Vowel</startsWith>
     <validationRules>
         <fullName>CBP_Case_number_for_AD_and_CVD_Format</fullName>

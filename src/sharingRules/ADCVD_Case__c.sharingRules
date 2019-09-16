@@ -1,3 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Private_ADCVD_Case</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>SharesPrivate ADCVD Cases with others in the group.</description>
+        <label>Private ADCVD Case</label>
+        <sharedTo>
+            <group>ADCVD_Private_Case_and_Petition</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Private</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Self_Initiated_Filed_ADCVD_Case</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares Self Initiated and Filed Cases with others in a group.</description>
+        <label>Self-Initiated Filed ADCVD Case</label>
+        <sharedTo>
+            <group>ADCVD_Filed_SelfInitiated_Case_Petition</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Self-Initiated,Filed</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>
