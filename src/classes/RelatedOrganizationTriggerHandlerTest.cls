@@ -1,10 +1,11 @@
+
 @isTest
 public class RelatedOrganizationTriggerHandlerTest {
 	private static List<ADCVD_Case__c> adcvdCaseList { get; set;}
 	private static List<Petition__c> petitionList {get; set;}
 	private static List<Investigation__c> investigationList {get; set;}
 	private static List<ADCVD_Order__c> orderList {get; set;}
-	private static List<Litigation__c> litigationList {get; set;}
+//	private static List<Suspension_Agreement__c> suspAgrmtList {get; set;}
 	private static List<Segment__c> segmentList {get; set;}
 	private static List<Related_Organization__c> relOrgList {get; set;}
 	private static Map<Id,Related_Organization__c> relOrgMap {get; set;}
@@ -16,16 +17,18 @@ public class RelatedOrganizationTriggerHandlerTest {
 				relOrgList[0].Id,
 				relOrgList[1].Id,
 				relOrgList[2].Id,
-				relOrgList[3].Id,
-				relOrgList[4].Id
+				relOrgList[3].Id
 		}
 		);
+
 		Test.startTest();
 		RelatedOrganizationTriggerHandler.initialize(relOrgList, null);
 		Test.stopTest();
+
 		//Assert adcvd case records
 		System.assertNotEquals(RelatedOrganizationTriggerHandler.caseMapper, null);
 		System.assertEquals(relOrgList[0].IO_Parent__c, 'Petition__c');
+
 	}
 
 	@isTest static void testSetCaseValues(){
@@ -35,13 +38,14 @@ public class RelatedOrganizationTriggerHandlerTest {
 				relOrgList[0].Id,
 				relOrgList[1].Id,
 				relOrgList[2].Id,
-				relOrgList[3].Id,
-				relOrgList[4].Id
+				relOrgList[3].Id
 		}
 		);
+
 		Test.startTest();
 		RelatedOrganizationTriggerHandler.mainEntry(relOrgList, null, true, true, false);
 		Test.stopTest();
+
 		//Assert adcvd case records
 		System.assertEquals(adcvdCaseList[0].Country__c, relOrgList[0].Country_Text__c);
 	}
@@ -53,10 +57,11 @@ public class RelatedOrganizationTriggerHandlerTest {
 		for (Related_Organization__c ro : relOrgList) {
 			relOrgMap.put(ro.Id, ro);
 		}
+
 		Test.startTest();
-		//RelatedOrganizationMapper rom2 = new RelatedOrganizationMapper(new Set<Id>{relOrgList[0].Id});
-		RelatedOrganizationTriggerHandler.initialize(relOrgList, relOrgMap);
+		RelatedOrganizationTriggerHandler.mainEntry(relOrgList, relOrgMap, true, false, true);
 		Test.stopTest();
+
 		//Assert adcvd case records
 		for (Related_Organization__c ro : relOrgList) {
 			RelatedOrganizationMapper rom = (RelatedOrganizationMapper) ADCVD_CaseMapper.mapperMap.get('Related_Organization__c');
@@ -67,6 +72,7 @@ public class RelatedOrganizationTriggerHandlerTest {
 
 	@IsTest
 	static void exerciseTrigger() {
+
 		ADCVD_Case__c c = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
 		Petition__c p = TestUtils.createPetition(c, System.today(), true);
 		Account a = new Account(name = 'Test Co');
@@ -113,17 +119,18 @@ public class RelatedOrganizationTriggerHandlerTest {
 						Investigation__c = investigationList[0].Id
 				)
 		);
-		//Create Litigation record
-		litigationList = new List<Litigation__c>();
-		litigationList.add(
-				new Litigation__c(
-						Id = fflib_IDGenerator.generate(Litigation__c.SObjectType),
+/*
+		//Create Suspension Agreement record
+		suspAgrmtList = new List<Suspension_Agreement__c>();
+		suspAgrmtList.add(
+				new Suspension_Agreement__c(
+						Id = fflib_IDGenerator.generate(Suspension_Agreement__c.SObjectType),
 						Locked__c = false,
 						ADCVD_Case__c = adcvdCaseList[0].Id,
-						Investigation__c = investigationList[0].Id,
-						Litigation_Parent__c = 'Investigation__c'
+						Investigation__c = investigationList[0].Id
 				)
 		);
+*/
 		//Create Segment record
 		segmentList = new List<Segment__c>();
 		segmentList.add(
@@ -157,6 +164,13 @@ public class RelatedOrganizationTriggerHandlerTest {
 						ADCVD_Order__c = orderList[0].Id
 				)
 		);
+//		relOrgList.add(
+//				new Related_Organization__c(
+//						Id = fflib_IDGenerator.generate(Related_Organization__c.SObjectType),
+//						Locked__c = false,
+//						Suspension_Agreement__c = suspAgrmtList[0].Id
+//				)
+//		);
 		relOrgList.add(
 				new Related_Organization__c(
 						Id = fflib_IDGenerator.generate(Related_Organization__c.SObjectType),
@@ -164,13 +178,7 @@ public class RelatedOrganizationTriggerHandlerTest {
 						Segment__c = segmentList[0].Id
 				)
 		);
-		relOrgList.add(
-				new Related_Organization__c(
-						Id = fflib_IDGenerator.generate(Related_Organization__c.SObjectType),
-						Locked__c = false,
-						Litigation__c = litigationList[0].Id
-				)
-		);
+
 		//Create relationship between ADCVD_Case and Petition
 		adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
 				List<ADCVD_Case__c>.class,
@@ -192,13 +200,15 @@ public class RelatedOrganizationTriggerHandlerTest {
 				ADCVD_Order__c.ADCVD_Case__c,
 				new List<List<ADCVD_Order__c>>{orderList}
 		);
-		//Create relationship between ADCVD_Case and Litigation
+/*
+		//Create relationship between ADCVD_Case and Suspension Agreement
 		adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
 				List<ADCVD_Case__c>.class,
 				adcvdCaseList,
-				Litigation__c.ADCVD_Case__c,
-				new List<List<Litigation__c>>{litigationList}
+				Suspension_Agreement__c.ADCVD_Case__c,
+				new List<List<Suspension_Agreement__c>>{suspAgrmtList}
 		);
+*/
 		//Create relationship between ADCVD_Case and Segment
 		adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
 				List<ADCVD_Case__c>.class,
@@ -206,6 +216,7 @@ public class RelatedOrganizationTriggerHandlerTest {
 				Segment__c.ADCVD_Case__c,
 				new List<List<Segment__c>>{segmentList}
 		);
+/*
 		//Create relationship between ADCVD Case and Interested Organization
 		adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
 				List<ADCVD_Case__c>.class,
@@ -213,6 +224,7 @@ public class RelatedOrganizationTriggerHandlerTest {
 				Related_Organization__c.ADCVD_Case__c,
 				new List<List<Related_Organization__c>>{relOrgList}
 		);
+*/
 		//Create relationship between Petition and Investigation
 		petitionList = (List<Petition__c>)fflib_ApexMocksUtils.makeRelationship(
 				List<Petition__c>.class,
@@ -227,13 +239,15 @@ public class RelatedOrganizationTriggerHandlerTest {
 				ADCVD_Order__c.Investigation__c,
 				new List<List<ADCVD_Order__c>>{orderList}
 		);
-		//Create relationship between Investigation and Litigation
+/*
+		//Create relationship between Investigation and Suspension Agreement
 		investigationList = (List<Investigation__c>)fflib_ApexMocksUtils.makeRelationship(
 				List<Investigation__c>.class,
 				investigationList,
-				Litigation__c.Investigation__c,
-				new List<List<Litigation__c>>{litigationList}
+				Suspension_Agreement__c.Investigation__c,
+				new List<List<Suspension_Agreement__c>>{suspAgrmtList}
 		);
+*/
 		//Create relationship between ADCVD Order and Segment
 		orderList = (List<ADCVD_Order__c>)fflib_ApexMocksUtils.makeRelationship(
 				List<ADCVD_Order__c>.class,
@@ -268,6 +282,15 @@ public class RelatedOrganizationTriggerHandlerTest {
 						new List<Related_Organization__c> {relOrgList[2]}
 				}
 		);
+//		//Create relationship between Suspension Agreement and Custom Instructions
+//		suspAgrmtList = (List<Suspension_Agreement__c>)fflib_ApexMocksUtils.makeRelationship(
+//				List<Suspension_Agreement__c>.class,
+//				suspAgrmtList,
+//				Related_Organization__c.Suspension_Agreement__c,
+//				new List<List<Related_Organization__c>>{
+//						new List<Related_Organization__c> {relOrgList[3]}
+//				}
+//		);
 		//Create relationship between Segment and Interested Organization
 		segmentList = (List<Segment__c>)fflib_ApexMocksUtils.makeRelationship(
 				List<Segment__c>.class,
@@ -275,15 +298,6 @@ public class RelatedOrganizationTriggerHandlerTest {
 				Related_Organization__c.Segment__c,
 				new List<List<Related_Organization__c>>{
 						new List<Related_Organization__c> {relOrgList[3]}
-				}
-		);
-		//Create relationship between Litigation and Custom Instructions
-		litigationList = (List<Litigation__c>)fflib_ApexMocksUtils.makeRelationship(
-				List<Litigation__c>.class,
-				litigationList,
-				Related_Organization__c.Litigation__c,
-				new List<List<Related_Organization__c>>{
-						new List<Related_Organization__c> {relOrgList[4]}
 				}
 		);
 	}
@@ -318,13 +332,15 @@ public class RelatedOrganizationTriggerHandlerTest {
 		mocks.when(mockADCVD_OrderSelector.selectById(new Set<Id> {orderList[0].Id})).thenReturn(orderList);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mockADCVD_OrderSelector);
-		//Mock Litigation
-		ILitigationSelector mockLitigationSelector = (ILitigationSelector) mocks.mock(ILitigationSelector.class);
+/*
+		//Mock Suspension Agreement
+		ISuspensionAgreementSelector mockSuspensionAgreementSelector = (ISuspensionAgreementSelector) mocks.mock(ISuspensionAgreementSelector.class);
 		mocks.startStubbing();
-		mocks.when(mockLitigationSelector.sObjectType()).thenReturn(Litigation__c.SObjectType);
-		mocks.when(mockLitigationSelector.selectById(new Set<Id> {litigationList[0].Id})).thenReturn(litigationList);
+		mocks.when(mockSuspensionAgreementSelector.sObjectType()).thenReturn(Suspension_Agreement__c.SObjectType);
+		mocks.when(mockSuspensionAgreementSelector.selectById(new Set<Id> {suspAgrmtList[0].Id})).thenReturn(suspAgrmtList);
 		mocks.stopStubbing();
-		fflibext_Application.Selector.setMock(mockLitigationSelector);
+		fflibext_Application.Selector.setMock(mockSuspensionAgreementSelector);
+*/
 		//Mock Segment Selector
 		ISegmentSelector mockSegmentSelector = (ISegmentSelector) mocks.mock(ISegmentSelector.class);
 		mocks.startStubbing();
@@ -332,7 +348,7 @@ public class RelatedOrganizationTriggerHandlerTest {
 		mocks.when(mockSegmentSelector.selectById(new Set<Id> {segmentList[0].Id})).thenReturn(segmentList);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mockSegmentSelector);
-		//Mock Interested Organization Selector
+		//Mock Interested Organizationanization Selector
 		IRelatedOrganizationSelector mockRelatedOrganizationSelector = (IRelatedOrganizationSelector) mocks.mock(IRelatedOrganizationSelector.class);
 		mocks.startStubbing();
 		mocks.when(mockRelatedOrganizationSelector.sObjectType()).thenReturn(Related_Organization__c.SObjectType);
@@ -340,8 +356,7 @@ public class RelatedOrganizationTriggerHandlerTest {
 				relOrgList[0].Id,
 				relOrgList[1].Id,
 				relOrgList[2].Id,
-				relOrgList[3].Id,
-				relOrgList[4].Id
+				relOrgList[3].Id
 		})).thenReturn(relOrgList);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mockRelatedOrganizationSelector);
