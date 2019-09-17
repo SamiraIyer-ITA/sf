@@ -49,6 +49,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Actual_Prelim_Issues_to_DAS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Prelim_Concurrence_to_DAS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Actual_Preliminary_Signature__c</field>
             </layoutItems>
         </layoutColumns>
@@ -56,6 +64,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Final_Extension_of_days__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Final_Issues_to_DAS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Final_Concurrence_to_DAS__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
