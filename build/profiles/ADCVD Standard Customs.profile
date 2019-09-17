@@ -18,6 +18,14 @@
         <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
         <recordType>ADCVD_Case__c.Self_Initiated</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
+        <recordType>ADCVD_Case__c.Private</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
+        <recordType>ADCVD_Case__c.Self_Initiated</recordType>
+    </layoutAssignments>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>ADCVD_Case__c.Private</recordType>
@@ -28,14 +36,6 @@
         <recordType>ADCVD_Case__c.Self_Initiated</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <layoutAssignments> 
-        <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
-        <recordType>ADCVD_Case__c.Private</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
-        <recordType>ADCVD_Case__c.Self_Initiated</recordType>
-    </layoutAssignments>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>ADCVD_Case__c.Private</recordType>
