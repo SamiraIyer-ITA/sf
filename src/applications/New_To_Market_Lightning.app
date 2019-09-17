@@ -26,7 +26,10 @@
     <tabs>NTM_Country_Import__c</tabs>
     <tabs>NTM_Search_Region__c</tabs>
     <tabs>NTM_Search_Log__c</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-CollaborationGroup</tabs>
     <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>New_To_Market_App_UtilityBar</utilityBar>
 </CustomApplication>

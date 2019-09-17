@@ -20,7 +20,6 @@
     </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
-        <logo>PaymentAppLogo</logo>
         <logoVersion>1</logoVersion>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
@@ -49,6 +48,10 @@
     <tabs>Participation__c</tabs>
     <tabs>standard-Order</tabs>
     <tabs>Payment__c</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-CollaborationGroup</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Payment_Manager_UtilityBar</utilityBar>
 </CustomApplication>
