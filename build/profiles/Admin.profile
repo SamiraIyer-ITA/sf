@@ -22,6 +22,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>ADCVD_Case__c.Private</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>ADCVD_Case__c.Self_Initiated</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
 </Profile>
