@@ -293,6 +293,30 @@ C-###-### for CVD</inlineHelpText>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
+    <listViews>
+        <fullName>Private</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>ADCVD_Case__c.Private</value>
+        </filters>
+        <label>Private</label>
+    </listViews>
+    <listViews>
+        <fullName>PrivateADCVDCases</fullName>
+        <columns>NAME</columns>
+        <columns>Product__c</columns>
+        <columns>Country__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Mine</filterScope>
+        <label>Private</label>
+        <sharedTo>
+            <group>ADCVD_Private_Case_and_Petition</group>
+        </sharedTo>
+    </listViews>
     <nameField>
         <label>ADCVD Case</label>
         <trackFeedHistory>false</trackFeedHistory>
