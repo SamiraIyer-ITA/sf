@@ -192,6 +192,13 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>ContactName</fields>
+        <fields>Role</fields>
+        <fields>ContactTitle</fields>
+        <fields>IsPrimary</fields>
+        <fields>ContactPhone</fields>
+        <fields>ContactEmail</fields>
+        <fields>ContactAccountName</fields>
         <relatedList>RelatedContactRoleList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -211,9 +218,6 @@
         <fields>Description</fields>
         <fields>ListPrice</fields>
         <relatedList>RelatedLineItemList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedOpportunityHistoryList</relatedList>

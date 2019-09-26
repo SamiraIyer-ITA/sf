@@ -312,8 +312,8 @@
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
-        <fields>NAME</fields>
         <fields>CASES.SUBJECT</fields>
+        <fields>NAME</fields>
         <fields>CASES.PRIORITY</fields>
         <fields>Actual_Create_Date__c</fields>
         <fields>CASES.STATUS</fields>

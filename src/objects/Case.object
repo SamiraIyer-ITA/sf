@@ -193,15 +193,11 @@
         </values>
     </businessProcesses>
     <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-    <compactLayouts>
-        <fullName>CRM_Case_Compact_Layout</fullName>
-        <fields>CaseNumber</fields>
+    <compactLayouts>                                                                                                                  <fullName>CRM_Case_Compact_Layout</fullName>
         <fields>Subject</fields>
-        <fields>AccountId</fields>
-        <fields>Contact_Full_Name__c</fields>
-        <fields>OwnerId</fields>
-        <fields>RecordTypeId</fields>
-        <label>CRM Case Compact Layout</label>
+        <fields>CaseNumber</fields>
+        <fields>AccountId</fields>                                                                                                    <fields>Contact_Full_Name__c</fields>
+        <fields>OwnerId</fields>                                                                                                      <fields>RecordTypeId</fields>                                                                                                 <label>CRM Case Compact Layout</label>
     </compactLayouts>
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
