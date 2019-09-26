@@ -1292,6 +1292,7 @@ C-###-### for CVD</inlineHelpText>
         <columns>Product_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Actual_Initiation_Signature__c</columns>
+        <columns>RECORDTYPE</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -1309,6 +1310,7 @@ C-###-### for CVD</inlineHelpText>
         <columns>Product_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Calculated_Initiation_Signature__c</columns>
+        <columns>RECORDTYPE</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
