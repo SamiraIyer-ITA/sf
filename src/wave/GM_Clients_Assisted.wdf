@@ -1,861 +1,2023 @@
 {
-  "sfdcDigest Case Contributor For Augment": {
-    "action": "sfdcDigest",
-    "parameters": {
-      "fields": [
-        {
-          "name": "Case_ID__c"
-        },
-        {
-          "name": "Contributor_Name__c"
-        },
-        {
-          "name": "Id"
-        },
-        {
-          "name": "Contributor__c"
-        }
-      ],
-      "object": "Case_Contributor__c"
-    }
-  },
-  "filter Case Contributors Create Date": {
-    "action": "filter",
-    "parameters": {
-      "source": "augment Case Dates",
-      "saqlFilter": "'CaseForDates.Actual_Create_Date__c' != null"
-    }
-  },
-  "slice Case Contributor on Case Create": {
-    "action": "sliceDataset",
-    "parameters": {
-      "mode": "select",
-      "source": "computeExpression Normalize CC Create Date",
-      "fields": [
-        {
-          "name": "CreatedById"
-        },
-        {
-          "name": "CreatedDate"
-        },
-        {
-          "name": "Date_of_Assist"
-        },
-        {
-          "name": "Id"
-        },
-        {
-          "name": "LastModifiedById"
-        },
-        {
-          "name": "LastModifiedDate"
-        },
-        {
-          "name": "RH_Lev_1_GM_All__c"
-        },
-        {
-          "name": "RH_Lev_2_DAS__c"
-        },
-        {
-          "name": "RH_Lev_3_Region_2__c"
-        },
-        {
-          "name": "RH_Lev_4_Region_1__c"
-        },
-        {
-          "name": "RH_Lev_5_Country__c"
-        },
-        {
-          "name": "RH_Lev_6_Office__c"
-        },
-        {
-          "name": "RH_Lev_7_Individual__c"
-        },
-        {
-          "name": "SystemModstamp"
-        }
-      ]
-    }
-  },
-  "computeExpression isTask Using Prefix": {
-    "action": "computeExpression",
-    "parameters": {
-      "source": "append Case Contributor and Task",
-      "mergeWithSource": true,
-      "computedFields": [
-        {
-          "name": "isTask",
-          "saqlExpression": "case\nwhen starts_with('Id',\"00T\") then\n\"true\"\nelse \"false\"\nend",
-          "label": "isTask",
-          "type": "Text"
-        }
-      ]
-    }
-  },
-  "sfdcDigest Case For Augment": {
-    "action": "sfdcDigest",
-    "parameters": {
-      "fields": [
-        {
-          "name": "AccountId"
-        },
-        {
-          "fiscalMonthOffset": 9,
-          "name": "Actual_Create_Date__c"
-        },
-        {
-          "fiscalMonthOffset": 9,
-          "name": "ClosedDate"
-        },
-        {
-          "name": "Id"
-        },
-        {
-          "name": "RecordTypeId"
-        },
-        {
-          "name": "Request_Case_Removal__c"
-        }
-      ],
-      "object": "Case"
-    }
-  },
-  "filter User Unit": {
-    "action": "filter",
-    "parameters": {
-      "source": "filter Org Record Type",
-      "saqlFilter": " 'RH_Lev_1_GM_All__c' == \"GM All\""
-    }
-  },
-  "computeExpression All": {
-    "action": "computeExpression",
-    "parameters": {
-      "source": "filter US_Org",
-      "mergeWithSource": true,
-      "computedFields": [
-        {
-          "defaultValue": "All",
-          "name": "All",
-          "saqlExpression": "\"All\"",
-          "label": "All",
-          "type": "Text"
-        }
-      ]
-    }
-  },
-  "augment Case Contributor Fields": {
-    "action": "augment",
-    "parameters": {
-      "right_key": [
-        "Id"
-      ],
-      "left": "computeExpression isTask Using Prefix",
-      "left_key": [
-        "Id"
-      ],
-      "right_select": [
-        "Case_ID__c",
-        "Contributor_Name__c",
-        "Contributor__c"
-      ],
-      "right": "sfdcDigest Case Contributor For Augment",
-      "relationship": "CaseContributor",
-      "operation": "LookupSingleValue"
-    }
-  },
-  "slice Case Contributor on Case Closed": {
-    "action": "sliceDataset",
-    "parameters": {
-      "mode": "select",
-      "source": "computeExpression Normalize CC Close Date",
-      "fields": [
-        {
-          "name": "CreatedById"
-        },
-        {
-          "name": "CreatedDate"
-        },
-        {
-          "name": "Date_of_Assist"
-        },
-        {
-          "name": "Id"
-        },
-        {
-          "name": "LastModifiedById"
-        },
-        {
-          "name": "LastModifiedDate"
-        },
-        {
-          "name": "RH_Lev_1_GM_All__c"
-        },
-        {
-          "name": "RH_Lev_2_DAS__c"
-        },
-        {
-          "name": "RH_Lev_3_Region_2__c"
-        },
-        {
-          "name": "RH_Lev_4_Region_1__c"
-        },
-        {
-          "name": "RH_Lev_5_Country__c"
-        },
-        {
-          "name": "RH_Lev_6_Office__c"
-        },
-        {
-          "name": "RH_Lev_7_Individual__c"
-        },
-        {
-          "name": "SystemModstamp"
-        }
-      ]
-    }
-  },
-  "append Case Contributor and Task": {
-    "action": "append",
-    "parameters": {
-      "enableDisjointedSchemaMerge": false,
+  "nodes": {
+    "Task: Filter Relative Fiscal Year": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Relative_Fiscal_Year:EQ:Current Fiscal Year|Previous Fiscal Year|2 Fiscal Years Ago"
+      },
       "sources": [
-        "slice Case Contributor on Case Closed",
-        "slice Case Contributor on Case Create",
-        "slice Task on Create Date"
+        "Task: Add formulas"
       ]
-    }
-  },
-  "augment Case Fields": {
-    "action": "augment",
-    "parameters": {
-      "right_key": [
-        "Id"
-      ],
-      "left": "augment Case Contributor Fields",
-      "left_key": [
-        "CaseContributor.Case_ID__c"
-      ],
-      "right_select": [
-        "AccountId",
-        "ClosedDate",
-        "Actual_Create_Date__c",
-        "RecordType.DeveloperName",
-        "RecordType.Name",
-        "RecordType.SobjectType",
-        "RecordTypeId",
-        "Request_Case_Removal__c"
-      ],
-      "right": "augment Case Fields with Record Type",
-      "relationship": "ParentCase",
-      "operation": "LookupSingleValue"
-    }
-  },
-  "computeExpression US Export": {
-    "action": "computeExpression",
-    "parameters": {
-      "source": "computeExpression Normalize Filterable Columns",
-      "mergeWithSource": true,
-      "computedFields": [
-        {
-          "defaultValue": "true",
-          "name": "US_Org",
-          "saqlExpression": "case\nwhen 'Client_Type' == \"Export Client\" && 'ParentOrganization.BillingCountry' != \"United States\" then\n\"false\"\nend",
-          "label": "US Export or Investment",
-          "type": "Text"
-        }
-      ]
-    }
-  },
-  "sfdcDigest Task For Append": {
-    "action": "sfdcDigest",
-    "parameters": {
-      "fields": [
-        {
-          "name": "CreatedById"
-        },
-        {
-          "fiscalMonthOffset": 9,
-          "name": "CreatedDate"
-        },
-        {
-          "name": "Id"
-        },
-        {
-          "name": "LastModifiedById"
-        },
-        {
-          "name": "LastModifiedDate"
-        },
-        {
-          "name": "RH_Lev_1_GM_All__c"
-        },
-        {
-          "name": "RH_Lev_2_DAS__c"
-        },
-        {
-          "name": "RH_Lev_3_Region_2__c"
-        },
-        {
-          "name": "RH_Lev_4_Region_1__c"
-        },
-        {
-          "name": "RH_Lev_5_Country__c"
-        },
-        {
-          "name": "RH_Lev_6_Office__c"
-        },
-        {
-          "name": "RH_Lev_7_Individual__c"
-        },
-        {
-          "name": "SystemModstamp"
-        },
-        {
-          "name": "Actual_Create_Date__c"
-        }
-      ],
-      "object": "Task"
-    }
-  },
-  "sfdcDigest Record Type": {
-    "action": "sfdcDigest",
-    "parameters": {
-      "fields": [
-        {
-          "name": "DeveloperName"
-        },
-        {
-          "name": "Id"
-        },
-        {
-          "name": "Name"
-        },
-        {
-          "name": "SobjectType"
-        }
-      ],
-      "object": "RecordType"
-    }
-  },
-  "computeExpression Normalize CC Create Date": {
-    "action": "computeExpression",
-    "parameters": {
-      "source": "filter Case Contributors Create Date",
-      "mergeWithSource": true,
-      "computedFields": [
-        {
-          "name": "Date_of_Assist",
-          "format": "MM/dd/yyyy hh:mm:ss a",
-          "saqlExpression": "toDate('CaseForDates.Actual_Create_Date__c_sec_epoch')",
-          "label": "Date of Assist",
-          "type": "Date"
-        }
-      ]
-    }
-  },
-  "augment Case Dates": {
-    "action": "augment",
-    "parameters": {
-      "right_key": [
-        "Id"
-      ],
-      "left": "sfdcDigest Case Contributor For Append",
-      "left_key": [
-        "Case_ID__c"
-      ],
-      "right_select": [
-        "ClosedDate",
-        "Actual_Create_Date__c"
-      ],
-      "right": "sfdcDigest Case For Augment",
-      "relationship": "CaseForDates",
-      "operation": "LookupSingleValue"
-    }
-  },
-  "filter Client_Type": {
-    "action": "filter",
-    "parameters": {
-      "source": "filter User Unit",
-      "saqlFilter": "'Client_Type'!=\"Non-Client\""
-    }
-  },
-  "augment Organization Fields with Record Type": {
-    "action": "augment",
-    "parameters": {
-      "right_key": [
-        "Id"
-      ],
-      "left": "sfdcDigest Organization for Augment",
-      "left_key": [
-        "RecordTypeId"
-      ],
-      "right_select": [
-        "DeveloperName",
-        "Name",
-        "SobjectType"
-      ],
-      "right": "sfdcDigest Record Type",
-      "relationship": "RecordType",
-      "operation": "LookupSingleValue"
-    }
-  },
-  "sfdcRegister Unfiltered Data": {
-    "action": "sfdcRegister",
-    "parameters": {
-      "name": "All Clients Unfiltered",
-      "alias": "All_Clients_Unfiltered",
-      "source": "computeExpression US Export"
-    }
-  },
-  "augment User Fields": {
-    "action": "augment",
-    "parameters": {
-      "right_key": [
-        "Id"
-      ],
-      "left": "augment Task Fields",
-      "left_key": [
-        "Task.OwnerId"
-      ],
-      "right_select": [
-        "Name"
-      ],
-      "right": "sfdcDigest User for Augment",
-      "relationship": "TaskOwner",
-      "operation": "LookupSingleValue"
-    }
-  },
-  "filter Org Record Type": {
-    "action": "filter",
-    "parameters": {
-      "source": "computeExpression US Export",
-      "saqlFilter": "'ParentOrganization.RecordType.DeveloperName' == \"ITA_User_Account_RT\""
-    }
-  },
-  "filter Case Contributors Close Date": {
-    "action": "filter",
-    "parameters": {
-      "source": "augment Case Dates",
-      "saqlFilter": "'CaseForDates.ClosedDate' != null"
-    }
-  },
-  "filter US_Org": {
-    "action": "filter",
-    "parameters": {
-      "source": "filter Client_Type",
-      "saqlFilter": "'US_Org' == \"true\""
-    }
-  },
-  "augment Organization Fields for Tasks": {
-    "action": "augment",
-    "parameters": {
-      "left": "augment User Fields",
-      "right": "update All Organizations with Corrected Country",
-      "relationship": "ParentOrganization",
-      "operation": "LookupSingleValue",
-      "left_key": [
-        "Task.AccountId"
-      ],
-      "right_key": [
-        "Id"
-      ],
-      "right_select": [
-        "AnnualRevenue",
-        "BillingCountry",
-        "BillingPostalCode",
-        "BillingState",
-        "BillingStateCode",
-        "Congressional_District_formula__c",
-        "Id",
-        "Industry",
-        "NAICS__c",
-        "Name",
-        "RecordType.DeveloperName",
-        "RecordType.Name",
-        "RecordType.SobjectType",
-        "RecordTypeId",
-        "TracHier__DUNS_Global_Ultimate_Parent__c"
-      ]
-    }
-  },
-  "sfdcRegister All Tasks and Case Contributors": {
-    "action": "sfdcRegister",
-    "parameters": {
-      "name": "All Touches With Global Filters",
-      "alias": "All_Touches_With_Global_Filters",
-      "source": "computeExpression All"
-    }
-  },
-  "slice Task on Create Date": {
-    "action": "sliceDataset",
-    "parameters": {
-      "mode": "select",
-      "source": "computeExpression Normalize Task Create Date",
-      "fields": [
-        {
-          "name": "CreatedById"
-        },
-        {
-          "name": "CreatedDate"
-        },
-        {
-          "name": "Date_of_Assist"
-        },
-        {
-          "name": "Id"
-        },
-        {
-          "name": "LastModifiedById"
-        },
-        {
-          "name": "LastModifiedDate"
-        },
-        {
-          "name": "RH_Lev_1_GM_All__c"
-        },
-        {
-          "name": "RH_Lev_2_DAS__c"
-        },
-        {
-          "name": "RH_Lev_3_Region_2__c"
-        },
-        {
-          "name": "RH_Lev_4_Region_1__c"
-        },
-        {
-          "name": "RH_Lev_5_Country__c"
-        },
-        {
-          "name": "RH_Lev_6_Office__c"
-        },
-        {
-          "name": "RH_Lev_7_Individual__c"
-        },
-        {
-          "name": "SystemModstamp"
-        }
-      ]
-    }
-  },
-  "computeExpression Normalize Task Create Date": {
-    "action": "computeExpression",
-    "parameters": {
-      "source": "sfdcDigest Task For Append",
-      "mergeWithSource": true,
-      "computedFields": [
-        {
-          "name": "Date_of_Assist",
-          "format": "MM/dd/yyyy hh:mm:ss a",
-          "saqlExpression": "toDate('Actual_Create_Date__c_sec_epoch')",
-          "label": "Date of Assist",
-          "type": "Date"
-        }
-      ]
-    }
-  },
-  "sfdcDigest Task for Augment": {
-    "action": "sfdcDigest",
-    "parameters": {
-      "fields": [
-        {
-          "name": "AccountId"
-        },
-        {
-          "name": "Actual_Create_Date__c"
-        },
-        {
-          "name": "Investment_Promotion__c"
-        },
-        {
-          "name": "IsClosed"
-        },
-        {
-          "name": "RecordTypeId"
-        },
-        {
-          "name": "Status"
-        },
-        {
-          "name": "Type"
-        },
-        {
-          "name": "Related_to_Case__c"
-        },
-        {
-          "name": "OwnerId"
-        },
-        {
-          "name": "Id"
-        }
-      ],
-      "object": "Task"
-    }
-  },
-  "sfdcDigest Organization for Augment": {
-    "action": "sfdcDigest",
-    "parameters": {
-      "fields": [
-        {
-          "name": "BillingCountry"
-        },
-        {
-          "name": "BillingState"
-        },
-        {
-          "name": "BillingStateCode"
-        },
-        {
-          "name": "Id"
-        },
-        {
-          "name": "Name"
-        },
-        {
-          "name": "TracHier__DUNS_Global_Ultimate_Parent__c"
-        },
-        {
-          "name": "RecordTypeId"
-        },
-        {
-          "name": "BillingPostalCode"
-        },
-        {
-          "name": "AnnualRevenue"
-        },
-        {
-          "name": "Congressional_District_formula__c"
-        },
-        {
-          "name": "Industry"
-        },
-        {
-          "name": "NAICS__c"
-        }
-      ],
-      "object": "Account"
-    }
-  },
-  "augment Task Fields": {
-    "action": "augment",
-    "parameters": {
-      "right_key": [
-        "Id"
-      ],
-      "left": "augment Case Fields",
-      "left_key": [
-        "Id"
-      ],
-      "right_select": [
-        "AccountId",
-        "Actual_Create_Date__c",
-        "Investment_Promotion__c",
-        "IsClosed",
-        "OwnerId",
-        "RecordTypeId",
-        "Related_to_Case__c",
-        "Status",
-        "Type"
-      ],
-      "right": "sfdcDigest Task for Augment",
-      "relationship": "Task",
-      "operation": "LookupSingleValue"
-    }
-  },
-  "computeExpression Normalize CC Close Date": {
-    "action": "computeExpression",
-    "parameters": {
-      "source": "filter Case Contributors Close Date",
-      "mergeWithSource": true,
-      "computedFields": [
-        {
-          "name": "Date_of_Assist",
-          "format": "MM/dd/yyyy hh:mm:ss a",
-          "saqlExpression": "toDate('CaseForDates.ClosedDate_sec_epoch')",
-          "label": "Date of Assist",
-          "type": "Date"
-        }
-      ]
-    }
-  },
-  "augment Case Fields with Record Type": {
-    "action": "augment",
-    "parameters": {
-      "right_key": [
-        "Id"
-      ],
-      "left": "sfdcDigest Case For Augment",
-      "left_key": [
-        "RecordTypeId"
-      ],
-      "right_select": [
-        "DeveloperName",
-        "Name",
-        "SobjectType"
-      ],
-      "right": "sfdcDigest Record Type",
-      "relationship": "RecordType",
-      "operation": "LookupSingleValue"
-    }
-  },
-  "sfdcDigest User for Augment": {
-    "action": "sfdcDigest",
-    "parameters": {
-      "fields": [
-        {
-          "name": "Name"
-        },
-        {
-          "name": "Id"
-        }
-      ],
-      "object": "User"
-    }
-  },
-  "sfdcDigest Case Contributor For Append": {
-    "action": "sfdcDigest",
-    "parameters": {
-      "fields": [
-        {
-          "name": "CreatedById"
-        },
-        {
-          "fiscalMonthOffset": 9,
-          "name": "CreatedDate"
-        },
-        {
-          "name": "Id"
-        },
-        {
-          "name": "LastModifiedById"
-        },
-        {
-          "name": "LastModifiedDate"
-        },
-        {
-          "name": "SystemModstamp"
-        },
-        {
-          "name": "RH_Lev_1_GM_All__c"
-        },
-        {
-          "name": "RH_Lev_2_DAS__c"
-        },
-        {
-          "name": "RH_Lev_3_Region_2__c"
-        },
-        {
-          "name": "RH_Lev_4_Region_1__c"
-        },
-        {
-          "name": "RH_Lev_5_Country__c"
-        },
-        {
-          "name": "RH_Lev_6_Office__c"
-        },
-        {
-          "name": "RH_Lev_7_Individual__c"
-        },
-        {
-          "name": "Case_ID__c"
-        }
-      ],
-      "object": "Case_Contributor__c"
-    }
-  },
-  "Update Organization Fields for Case Contributor": {
-    "action": "update",
-    "parameters": {
-      "left": "augment Organization Fields for Tasks",
-      "update_columns": {
-        "ParentOrganization.RecordType.SobjectType": "RecordType.SobjectType",
-        "ParentOrganization.BillingCountry": "BillingCountry",
-        "ParentOrganization.BillingState": "BillingState",
-        "ParentOrganization.AnnualRevenue": "AnnualRevenue",
-        "ParentOrganization.Congressional_District_formula__c": "Congressional_District_formula__c",
-        "ParentOrganization.Industry": "Industry",
-        "ParentOrganization.Id": "Id",
-        "ParentOrganization.TracHier__DUNS_Global_Ultimate_Parent__c": "TracHier__DUNS_Global_Ultimate_Parent__c",
-        "ParentOrganization.Name": "Name",
-        "ParentOrganization.RecordTypeId": "RecordTypeId",
-        "ParentOrganization.BillingStateCode": "BillingStateCode",
-        "ParentOrganization.BillingPostalCode": "BillingPostalCode",
-        "ParentOrganization.NAICS__c": "NAICS__c",
-        "ParentOrganization.RecordType.Name": "RecordType.Name",
-        "ParentOrganization.RecordType.DeveloperName": "RecordType.DeveloperName"
+    },
+    "Task: 2 FY Ago: Filter IsLastOrder": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsLastOrder:EQ:true"
       },
-      "right": "update All Organizations with Corrected Country",
-      "left_key": [
-        "ParentCase.AccountId"
-      ],
-      "right_key": [
-        "Id"
+      "sources": [
+        "Task: 2 FY Ago: Add IsLastOrder"
       ]
-    }
-  },
-  "computeExpression Normalize Filterable Columns": {
-    "action": "computeExpression",
-    "parameters": {
-      "source": "Update Organization Fields for Case Contributor",
-      "mergeWithSource": true,
-      "computedFields": [
-        {
-          "defaultValue": "Non-Client",
-          "name": "Client_Type",
-          "saqlExpression": "case\nwhen 'ParentCase.RecordType.DeveloperName' == \"Investment_Promotion\" then\n\"Investment Client\"\nwhen 'Task.Investment_Promotion__c' == \"true\" then \"Investment Client\"\nwhen 'Task.Investment_Promotion__c' == \"false\" then \"Export Client\"\nwhen 'ParentCase.RecordType.DeveloperName' == \"Advocacy\" then \"Export Client\"\nwhen 'ParentCase.RecordType.DeveloperName' == \"Commercial_Diplomacy\" then \"Export Client\"\nwhen 'ParentCase.RecordType.DeveloperName' == \"Export_Promotion\" then \"Export Client\"\nelse \"Non-Client\"\nend",
-          "label": "Client Type",
-          "type": "Text"
-        },
-        {
-          "name": "Light_InDepth",
-          "saqlExpression": "case\nwhen starts_with('Id',\"00T\") then\n\"Light Touch\"\nelse \"In Depth\"\nend",
-          "label": "Light or InDepth",
-          "type": "Text"
-        },
-        {
-          "name": "Assisting_User",
-          "saqlExpression": "case\nwhen 'TaskOwner.Name' is not null then\n'TaskOwner.Name'\nwhen 'CaseContributor.Contributor__c' is not null then\n'CaseContributor.Contributor__c'\nend",
-          "label": "Assisting User",
-          "type": "Text"
-        }
+    },
+    "Task: Add formulas": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Promotion",
+            "name": "Promotion",
+            "saqlExpression": "case\n    when 'Investment_Promotion__c' == \"true\" then \"Investment Promotion\"\n    else \"Export Promotion\"\nend",
+            "type": "Text"
+          },
+          {
+            "label": "Fiscal Year",
+            "name": "Fiscal_Year",
+            "saqlExpression": "'Actual_Create_Date__c_Year_Fiscal'",
+            "type": "Text"
+          },
+          {
+            "label": "Contributor ID",
+            "name": "Contributor_ID",
+            "saqlExpression": "'OwnerId'",
+            "type": "Text"
+          },
+          {
+            "label": "Contributor",
+            "name": "Contributor",
+            "saqlExpression": "'Contributor.Name'",
+            "type": "Text"
+          },
+          {
+            "label": "Relative Fiscal Year",
+            "name": "Relative_Fiscal_Year",
+            "saqlExpression": "case\n    when toDate('Actual_Create_Date__c_sec_epoch') in [\"current fiscal_year\", \"current fiscal_year\"] then \"Current Fiscal Year\"\n    when toDate('Actual_Create_Date__c_sec_epoch') in [\"1 fiscal_year ago\", \"1 fiscal_year ago\"] then \"Previous Fiscal Year\"\n    when toDate('Actual_Create_Date__c_sec_epoch') in [\"2 fiscal_years ago\", \"2 fiscal_years ago\"] then \"2 Fiscal Years Ago\"\nend ",
+            "type": "Text"
+          },
+          {
+            "label": "DAS",
+            "name": "DAS",
+            "saqlExpression": "case\n\twhen 'RH_Lev_2_DAS__c' == \"GM Advocacy Everywhere\" then \"Advocacy\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-Asia-HQ DAS Office\" then \"Asia\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-China-HQ DAS Office\" then \"China\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-EUR-HQ DAS Office\" then \"Europe\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-MEA-HQ DAS Office\" then \"MEA\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-USA-HQ DAS Office\" then \"U.S.\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-WH-HQ DAS Office\" then \"WH\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM SelectUSA Everywhere\" then \"SUSA\"\n\telse 'RH_Lev_2_DAS__c'\nend",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: Join Contributor"
       ]
-    }
-  },
-  "filter Organizations with Global Parent": {
-    "action": "filter",
-    "parameters": {
-      "source": "augment Organization Fields with Record Type",
-      "saqlFilter": "TracHier__DUNS_Global_Ultimate_Parent__c != null"
-    }
-  },
-  "update Country with Global Parent Country": {
-    "action": "update",
-    "parameters": {
-      "left": "filter Organizations with Global Parent",
-      "right": "augment Organization Fields with Record Type",
-      "left_key": [
-        "TracHier__DUNS_Global_Ultimate_Parent__c"
-      ],
-      "right_key": [
-        "Id"
-      ],
-      "update_columns": {
-        "BillingCountry": "BillingCountry"
+    },
+    "Task: Current FY: Filter Investment Promotion": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Promotion:EQ:Investment Promotion"
+      },
+      "sources": [
+        "Task: Filter Current Fiscal Year"
+      ]
+    },
+    "Task: Current FY: Export Promotion: Keep Fields": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Tasks.Actual_Create_Date__c"
+          },
+          {
+            "name": "Tasks.Contributor"
+          },
+          {
+            "name": "Tasks.Contributor_ID"
+          },
+          {
+            "name": "Tasks.DAS"
+          },
+          {
+            "name": "Tasks.Fiscal_Year"
+          },
+          {
+            "name": "Tasks.Promotion"
+          },
+          {
+            "name": "Tasks.Relative_Fiscal_Year"
+          },
+          {
+            "name": "Tasks.RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_6_Office__c"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "Task: Current FY: Export Promotion: Filter IsLastOrder"
+      ]
+    },
+    "Task: Previous FY: Export Promotion: Keep Fields": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Tasks.Actual_Create_Date__c"
+          },
+          {
+            "name": "Tasks.Contributor"
+          },
+          {
+            "name": "Tasks.Contributor_ID"
+          },
+          {
+            "name": "Tasks.DAS"
+          },
+          {
+            "name": "Tasks.Fiscal_Year"
+          },
+          {
+            "name": "Tasks.Promotion"
+          },
+          {
+            "name": "Tasks.Relative_Fiscal_Year"
+          },
+          {
+            "name": "Tasks.RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_6_Office__c"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "Task: Previous FY: Export Promotion: Filter IsLastOrder"
+      ]
+    },
+    "Task: Current FY: Filter Export Promotion": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Promotion:EQ:Export Promotion"
+      },
+      "sources": [
+        "Task: Filter Current Fiscal Year"
+      ]
+    },
+    "User: Load": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "Id"
+          },
+          {
+            "name": "FirstName"
+          },
+          {
+            "name": "LastName"
+          }
+        ],
+        "incremental": true,
+        "object": "User"
       }
-    }
-  },
-  "update All Organizations with Corrected Country": {
-    "action": "update",
-    "parameters": {
-      "left": "augment Organization Fields with Record Type",
-      "right": "update Country with Global Parent Country",
-      "update_columns": {
-        "BillingCountry": "BillingCountry"
+    },
+    "Task: Current FY: Flatten": {
+      "action": "flatten",
+      "parameters": {
+        "includeSelfId": true,
+        "multiField": {
+          "name": "Tasks"
+        },
+        "parentField": "Flatten_Parent_ID",
+        "pathField": {
+          "name": "Tasks_Path"
+        },
+        "selfField": "Flatten_Self_ID"
       },
-      "left_key": [
-        "Id"
-      ],
-      "right_key": [
-        "Id"
+      "sources": [
+        "Task: Current FY: Add Flatten IDs"
+      ]
+    },
+    "Task: Current FY: Investment Promotion: Add Flatten IDs": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Flatten: Self ID",
+            "name": "Flatten_Self_ID",
+            "saqlExpression": "'AccountId' + \":\" + number_to_string('Order', \"0\")",
+            "type": "Text"
+          },
+          {
+            "label": "Flatten: Parent ID",
+            "name": "Flatten_Parent_ID",
+            "saqlExpression": "case\n    when 'Order' > 1 then 'AccountId' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: Current FY: Investment Promotion: Add Order"
+      ]
+    },
+    "Task: Current FY: Export Promotion: Join flattened Task": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Tasks"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "Tasks",
+        "rightKey": [
+          "Flatten_Self_ID"
+        ],
+        "rightSelect": [
+          "Actual_Create_Date__c",
+          "Contributor",
+          "Contributor_ID",
+          "DAS",
+          "Fiscal_Year",
+          "Relative_Fiscal_Year",
+          "RH_Lev_1_GM_All__c",
+          "RH_Lev_2_DAS__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_5_Country__c",
+          "RH_Lev_6_Office__c",
+          "Investment_Promotion__c",
+          "Promotion"
+        ]
+      },
+      "sources": [
+        "Task: Current FY: Export Promotion: Flatten",
+        "Task: Current FY: Export Promotion: Flatten"
+      ]
+    },
+    "Task: 2 FY Ago: Export Promotion: Flatten": {
+      "action": "flatten",
+      "parameters": {
+        "includeSelfId": true,
+        "multiField": {
+          "name": "Tasks"
+        },
+        "parentField": "Flatten_Parent_ID",
+        "pathField": {
+          "name": "Tasks_Path"
+        },
+        "selfField": "Flatten_Self_ID"
+      },
+      "sources": [
+        "Task: 2 FY Ago: Export Promotion: Add Flatten IDs"
+      ]
+    },
+    "Task: Current FY: Investment Promotion: Add Order": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
+              "type": "Numeric",
+              "scale": 10
+            },
+            "label": "Order",
+            "name": "Order"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "asc",
+            "name": "Id"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Current FY: Filter Investment Promotion"
+      ]
+    },
+    "Task: 2 FY Ago: Investment Promotion: Filter IsLastOrder": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsLastOrder:EQ:true"
+      },
+      "sources": [
+        "Task: 2 FY Ago: Investment Promotion: Add IsLastOrder"
+      ]
+    },
+    "Task: Filter 2 Fiscal Years Ago": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Relative_Fiscal_Year:EQ:2 Fiscal Years Ago"
+      },
+      "sources": [
+        "Task: Filter Relative Fiscal Year"
+      ]
+    },
+    "Task: Previous FY: Export Promotion: Join flattened Task": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Tasks"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "Tasks",
+        "rightKey": [
+          "Flatten_Self_ID"
+        ],
+        "rightSelect": [
+          "Actual_Create_Date__c",
+          "Contributor",
+          "Contributor_ID",
+          "DAS",
+          "Fiscal_Year",
+          "Relative_Fiscal_Year",
+          "RH_Lev_1_GM_All__c",
+          "RH_Lev_2_DAS__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_5_Country__c",
+          "RH_Lev_6_Office__c",
+          "Investment_Promotion__c",
+          "Promotion"
+        ]
+      },
+      "sources": [
+        "Task: Previous FY: Export Promotion: Flatten",
+        "Task: Previous FY: Export Promotion: Flatten"
+      ]
+    },
+    "Task: 2 FY Ago: Filter Investment Promotion": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Promotion:EQ:Investment Promotion"
+      },
+      "sources": [
+        "Task: Filter 2 Fiscal Years Ago"
+      ]
+    },
+    "Task: Previous FY: Investment Promotion: Add Flatten IDs": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Flatten: Self ID",
+            "name": "Flatten_Self_ID",
+            "saqlExpression": "'AccountId' + \":\" + number_to_string('Order', \"0\")",
+            "type": "Text"
+          },
+          {
+            "label": "Flatten: Parent ID",
+            "name": "Flatten_Parent_ID",
+            "saqlExpression": "case\n    when 'Order' > 1 then 'AccountId' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: Previous FY: Investment Promotion: Add Order"
+      ]
+    },
+    "Task: Current FY: Investment Promotion: Join flattened Task": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Tasks"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "Tasks",
+        "rightKey": [
+          "Flatten_Self_ID"
+        ],
+        "rightSelect": [
+          "Actual_Create_Date__c",
+          "Contributor",
+          "Contributor_ID",
+          "DAS",
+          "Fiscal_Year",
+          "Relative_Fiscal_Year",
+          "RH_Lev_1_GM_All__c",
+          "RH_Lev_2_DAS__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_5_Country__c",
+          "RH_Lev_6_Office__c",
+          "Investment_Promotion__c",
+          "Promotion"
+        ]
+      },
+      "sources": [
+        "Task: Current FY: Investment Promotion: Flatten",
+        "Task: Current FY: Investment Promotion: Flatten"
+      ]
+    },
+    "Task: Previous FY: Export Promotion: Flatten": {
+      "action": "flatten",
+      "parameters": {
+        "includeSelfId": true,
+        "multiField": {
+          "name": "Tasks"
+        },
+        "parentField": "Flatten_Parent_ID",
+        "pathField": {
+          "name": "Tasks_Path"
+        },
+        "selfField": "Flatten_Self_ID"
+      },
+      "sources": [
+        "Task: Previous FY: Export Promotion: Add Flatten IDs"
+      ]
+    },
+    "Task: 2 FY Ago: Investment Promotion: Add Flatten IDs": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Flatten: Self ID",
+            "name": "Flatten_Self_ID",
+            "saqlExpression": "'AccountId' + \":\" + number_to_string('Order', \"0\")",
+            "type": "Text"
+          },
+          {
+            "label": "Flatten: Parent ID",
+            "name": "Flatten_Parent_ID",
+            "saqlExpression": "case\n    when 'Order' > 1 then 'AccountId' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: 2 FY Ago: Investment Promotion: Add Order"
+      ]
+    },
+    "Task: 2 FY Ago: Export Promotion: Join flattened Task": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Tasks"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "Tasks",
+        "rightKey": [
+          "Flatten_Self_ID"
+        ],
+        "rightSelect": [
+          "Actual_Create_Date__c",
+          "Contributor",
+          "Contributor_ID",
+          "DAS",
+          "Fiscal_Year",
+          "Relative_Fiscal_Year",
+          "RH_Lev_1_GM_All__c",
+          "RH_Lev_2_DAS__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_5_Country__c",
+          "RH_Lev_6_Office__c",
+          "Investment_Promotion__c",
+          "Promotion"
+        ]
+      },
+      "sources": [
+        "Task: 2 FY Ago: Export Promotion: Flatten",
+        "Task: 2 FY Ago: Export Promotion: Flatten"
+      ]
+    },
+    "Task: Previous FY: Join flattened Task": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Tasks"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "Related",
+        "rightKey": [
+          "Flatten_Self_ID"
+        ],
+        "rightSelect": [
+          "AccountId",
+          "Tasks.Actual_Create_Date__c",
+          "Tasks.Contributor",
+          "Tasks.Contributor_ID",
+          "Tasks.DAS",
+          "Tasks.Fiscal_Year",
+          "Tasks.Promotion",
+          "Tasks.Relative_Fiscal_Year",
+          "Tasks.RH_Lev_1_GM_All__c",
+          "Tasks.RH_Lev_2_DAS__c",
+          "Tasks.RH_Lev_3_Region_2__c",
+          "Tasks.RH_Lev_4_Region_1__c",
+          "Tasks.RH_Lev_5_Country__c",
+          "Tasks.RH_Lev_6_Office__c"
+        ]
+      },
+      "sources": [
+        "Task: Previous FY: Flatten",
+        "Task: Previous FY: Flatten"
+      ]
+    },
+    "Task: Previous FY: Flatten": {
+      "action": "flatten",
+      "parameters": {
+        "includeSelfId": true,
+        "multiField": {
+          "name": "Tasks"
+        },
+        "parentField": "Flatten_Parent_ID",
+        "pathField": {
+          "name": "Tasks_Path"
+        },
+        "selfField": "Flatten_Self_ID"
+      },
+      "sources": [
+        "Task: Previous FY: Add Flatten IDs"
+      ]
+    },
+    "Task: 2 FY Ago: Investment Promotion: Add IsLastOrder": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
+              "type": "Text"
+            },
+            "label": "Is Last Order",
+            "name": "IsLastOrder"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "desc",
+            "name": "Order"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: 2 FY Ago: Investment Promotion: Join flattened Task"
+      ]
+    },
+    "Task: Previous FY: Keep Fields": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Related.Tasks.Actual_Create_Date__c"
+          },
+          {
+            "name": "Related.Tasks.Contributor"
+          },
+          {
+            "name": "Related.Tasks.Contributor_ID"
+          },
+          {
+            "name": "Related.Tasks.DAS"
+          },
+          {
+            "name": "Related.Tasks.Fiscal_Year"
+          },
+          {
+            "name": "Related.Tasks.Promotion"
+          },
+          {
+            "name": "Related.Tasks.Relative_Fiscal_Year"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_6_Office__c"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "Task: Previous FY: Filter IsLastOrder"
+      ]
+    },
+    "Task: Current FY: Investment Promotion: Keep Fields": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Tasks.Actual_Create_Date__c"
+          },
+          {
+            "name": "Tasks.Contributor"
+          },
+          {
+            "name": "Tasks.Contributor_ID"
+          },
+          {
+            "name": "Tasks.DAS"
+          },
+          {
+            "name": "Tasks.Fiscal_Year"
+          },
+          {
+            "name": "Tasks.Promotion"
+          },
+          {
+            "name": "Tasks.Relative_Fiscal_Year"
+          },
+          {
+            "name": "Tasks.RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_6_Office__c"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "Task: Current FY: Investment Promotion: Filter IsLastOrder"
+      ]
+    },
+    "Task: Current FY: Export Promotion: Add Order": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
+              "type": "Numeric",
+              "scale": 10
+            },
+            "label": "Order",
+            "name": "Order"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "asc",
+            "name": "Id"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Current FY: Filter Export Promotion"
+      ]
+    },
+    "Task: Previous FY: Filter Investment Promotion": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Promotion:EQ:Investment Promotion"
+      },
+      "sources": [
+        "Task: Filter Previous Fiscal Year"
+      ]
+    },
+    "Task: Previous FY: Investment Promotion: Keep Fields": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Tasks.Actual_Create_Date__c"
+          },
+          {
+            "name": "Tasks.Contributor"
+          },
+          {
+            "name": "Tasks.Contributor_ID"
+          },
+          {
+            "name": "Tasks.DAS"
+          },
+          {
+            "name": "Tasks.Fiscal_Year"
+          },
+          {
+            "name": "Tasks.Promotion"
+          },
+          {
+            "name": "Tasks.Relative_Fiscal_Year"
+          },
+          {
+            "name": "Tasks.RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_6_Office__c"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "Task: Previous FY: Investment Promotion: Filter IsLastOrder"
+      ]
+    },
+    "Task: Previous FY: Investment Promotion: Add IsLastOrder": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
+              "type": "Text"
+            },
+            "label": "Is Last Order",
+            "name": "IsLastOrder"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "desc",
+            "name": "Order"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Previous FY: Investment Promotion: Join flattened Task"
+      ]
+    },
+    "Task: Join Contributor": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "OwnerId"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "Contributor",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "Name"
+        ]
+      },
+      "sources": [
+        "Task: Filter IsDeleted, GM All, Related to Case",
+        "User: Add formulas"
+      ]
+    },
+    "Task: Current FY: Add Flatten IDs": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Flatten: Self ID",
+            "name": "Flatten_Self_ID",
+            "saqlExpression": "'AccountId' + \":\" + number_to_string('Order', \"0\")",
+            "type": "Text"
+          },
+          {
+            "label": "Flatten: Parent ID",
+            "name": "Flatten_Parent_ID",
+            "saqlExpression": "case\n    when 'Order' > 1 then 'AccountId' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: Current FY: Add Order"
+      ]
+    },
+    "Task: Previous FY: Investment Promotion: Filter IsLastOrder": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsLastOrder:EQ:true"
+      },
+      "sources": [
+        "Task: Previous FY: Investment Promotion: Add IsLastOrder"
+      ]
+    },
+    "Task: Current FY: Export Promotion: Flatten": {
+      "action": "flatten",
+      "parameters": {
+        "includeSelfId": true,
+        "multiField": {
+          "name": "Tasks"
+        },
+        "parentField": "Flatten_Parent_ID",
+        "pathField": {
+          "name": "Tasks_Path"
+        },
+        "selfField": "Flatten_Self_ID"
+      },
+      "sources": [
+        "Task: Current FY: Export Promotion: Add Flatten IDs"
+      ]
+    },
+    "Task: Previous FY: Save Tasks": {
+      "action": "register",
+      "parameters": {
+        "label": "TEST: Tasks: Previous Fiscal Year",
+        "name": "TEST_Tasks_Previuos_Fiscal_Year"
+      },
+      "sources": [
+        "Task: Previous FY: Keep Fields"
+      ]
+    },
+    "Task: Filter Previous Fiscal Year": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Relative_Fiscal_Year:EQ:Previous Fiscal Year"
+      },
+      "sources": [
+        "Task: Filter Relative Fiscal Year"
+      ]
+    },
+    "Task: Previous FY: Union Promotions": {
+      "action": "append",
+      "parameters": {
+        "enableDisjointedSchemaMerge": false
+      },
+      "sources": [
+        "Task: Previous FY: Export Promotion: Keep Fields",
+        "Task: Previous FY: Investment Promotion: Keep Fields"
+      ]
+    },
+    "Task: 2 FY Ago: Investment Promotion: Flatten": {
+      "action": "flatten",
+      "parameters": {
+        "includeSelfId": true,
+        "multiField": {
+          "name": "Tasks"
+        },
+        "parentField": "Flatten_Parent_ID",
+        "pathField": {
+          "name": "Tasks_Path"
+        },
+        "selfField": "Flatten_Self_ID"
+      },
+      "sources": [
+        "Task: 2 FY Ago: Investment Promotion: Add Flatten IDs"
+      ]
+    },
+    "Task: 2 FY Ago: Flatten": {
+      "action": "flatten",
+      "parameters": {
+        "includeSelfId": true,
+        "multiField": {
+          "name": "Tasks"
+        },
+        "parentField": "Flatten_Parent_ID",
+        "pathField": {
+          "name": "Tasks_Path"
+        },
+        "selfField": "Flatten_Self_ID"
+      },
+      "sources": [
+        "Task: 2 FY Ago: Add Flatten IDs"
+      ]
+    },
+    "Task: Current FY: Union Promotions": {
+      "action": "append",
+      "parameters": {
+        "enableDisjointedSchemaMerge": false
+      },
+      "sources": [
+        "Task: Current FY: Export Promotion: Keep Fields",
+        "Task: Current FY: Investment Promotion: Keep Fields"
+      ]
+    },
+    "Task: Current FY: Export Promotion: Add IsLastOrder": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
+              "type": "Text"
+            },
+            "label": "Is Last Order",
+            "name": "IsLastOrder"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "desc",
+            "name": "Order"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Current FY: Export Promotion: Join flattened Task"
+      ]
+    },
+    "Task: Previous FY: Investment Promotion: Add Order": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
+              "type": "Numeric",
+              "scale": 10
+            },
+            "label": "Order",
+            "name": "Order"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "asc",
+            "name": "Id"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Previous FY: Filter Investment Promotion"
+      ]
+    },
+    "Task: Current FY: Filter IsLastOrder": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsLastOrder:EQ:true"
+      },
+      "sources": [
+        "Task: Current FY: Add IsLastOrder"
+      ]
+    },
+    "Task: Previous FY: Export Promotion: Add Order": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
+              "type": "Numeric",
+              "scale": 10
+            },
+            "label": "Order",
+            "name": "Order"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "asc",
+            "name": "Id"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Previous FY: Filter Export Promotion"
+      ]
+    },
+    "Task: 2 FY Ago: Investment Promotion: Keep Fields": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Tasks.Actual_Create_Date__c"
+          },
+          {
+            "name": "Tasks.Contributor"
+          },
+          {
+            "name": "Tasks.Contributor_ID"
+          },
+          {
+            "name": "Tasks.DAS"
+          },
+          {
+            "name": "Tasks.Fiscal_Year"
+          },
+          {
+            "name": "Tasks.Promotion"
+          },
+          {
+            "name": "Tasks.Relative_Fiscal_Year"
+          },
+          {
+            "name": "Tasks.RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_6_Office__c"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "Task: 2 FY Ago: Investment Promotion: Filter IsLastOrder"
+      ]
+    },
+    "Task: Previous FY: Export Promotion: Add IsLastOrder": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
+              "type": "Text"
+            },
+            "label": "Is Last Order",
+            "name": "IsLastOrder"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "desc",
+            "name": "Order"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Previous FY: Export Promotion: Join flattened Task"
+      ]
+    },
+    "Task: 2 FY Ago: Add Flatten IDs": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Flatten: Self ID",
+            "name": "Flatten_Self_ID",
+            "saqlExpression": "'AccountId' + \":\" + number_to_string('Order', \"0\")",
+            "type": "Text"
+          },
+          {
+            "label": "Flatten: Parent ID",
+            "name": "Flatten_Parent_ID",
+            "saqlExpression": "case\n    when 'Order' > 1 then 'AccountId' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: 2 FY Ago: Add Order"
+      ]
+    },
+    "User: Add formulas": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Name",
+            "name": "Name",
+            "saqlExpression": "'LastName' + \", \" + 'FirstName'",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "User: Load"
+      ]
+    },
+    "Task: Current FY: Keep Fields": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Related.Tasks.Actual_Create_Date__c"
+          },
+          {
+            "name": "Related.Tasks.Contributor"
+          },
+          {
+            "name": "Related.Tasks.Contributor_ID"
+          },
+          {
+            "name": "Related.Tasks.DAS"
+          },
+          {
+            "name": "Related.Tasks.Fiscal_Year"
+          },
+          {
+            "name": "Related.Tasks.Promotion"
+          },
+          {
+            "name": "Related.Tasks.Relative_Fiscal_Year"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_6_Office__c"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "Task: Current FY: Filter IsLastOrder"
+      ]
+    },
+    "Task: Previous FY: Filter IsLastOrder": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsLastOrder:EQ:true"
+      },
+      "sources": [
+        "Task: Previous FY: Add IsLastOrder"
+      ]
+    },
+    "Task: Previous FY: Filter Export Promotion": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Promotion:EQ:Export Promotion"
+      },
+      "sources": [
+        "Task: Filter Previous Fiscal Year"
+      ]
+    },
+    "Task: Current FY: Investment Promotion: Filter IsLastOrder": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsLastOrder:EQ:true"
+      },
+      "sources": [
+        "Task: Current FY: Investment Promotion: Add IsLastOrder"
+      ]
+    },
+    "Task: Current FY: Export Promotion: Filter IsLastOrder": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsLastOrder:EQ:true"
+      },
+      "sources": [
+        "Task: Current FY: Export Promotion: Add IsLastOrder"
+      ]
+    },
+    "Task: Current FY: Join flattened Task": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Tasks"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "Related",
+        "rightKey": [
+          "Flatten_Self_ID"
+        ],
+        "rightSelect": [
+          "AccountId",
+          "Tasks.Actual_Create_Date__c",
+          "Tasks.Contributor",
+          "Tasks.Contributor_ID",
+          "Tasks.DAS",
+          "Tasks.Fiscal_Year",
+          "Tasks.Promotion",
+          "Tasks.Relative_Fiscal_Year",
+          "Tasks.RH_Lev_1_GM_All__c",
+          "Tasks.RH_Lev_2_DAS__c",
+          "Tasks.RH_Lev_3_Region_2__c",
+          "Tasks.RH_Lev_4_Region_1__c",
+          "Tasks.RH_Lev_5_Country__c",
+          "Tasks.RH_Lev_6_Office__c"
+        ]
+      },
+      "sources": [
+        "Task: Current FY: Flatten",
+        "Task: Current FY: Flatten"
+      ]
+    },
+    "Task: 2 FY Ago: Save Tasks": {
+      "action": "register",
+      "parameters": {
+        "label": "TEST: Tasks: 2 Fiscal Years Ago",
+        "name": "TEST_Tasks_2_Fiscal_Years_Ago"
+      },
+      "sources": [
+        "Task: 2 FY Ago: Keep Fields"
+      ]
+    },
+    "Task: Previous FY: Export Promotion: Filter IsLastOrder": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsLastOrder:EQ:true"
+      },
+      "sources": [
+        "Task: Previous FY: Export Promotion: Add IsLastOrder"
+      ]
+    },
+    "Task: Current FY: Investment Promotion: Add IsLastOrder": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
+              "type": "Text"
+            },
+            "label": "Is Last Order",
+            "name": "IsLastOrder"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "desc",
+            "name": "Order"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Current FY: Investment Promotion: Join flattened Task"
+      ]
+    },
+    "Task: Previous FY: Add Order": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
+              "type": "Numeric",
+              "scale": 10
+            },
+            "label": "Order",
+            "name": "Order"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "asc",
+            "name": "AccountId"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Previous FY: Union Promotions"
+      ]
+    },
+    "Task: 2 FY Ago: Investment Promotion: Join flattened Task": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Tasks"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "Tasks",
+        "rightKey": [
+          "Flatten_Self_ID"
+        ],
+        "rightSelect": [
+          "Actual_Create_Date__c",
+          "Contributor",
+          "Contributor_ID",
+          "DAS",
+          "Fiscal_Year",
+          "Relative_Fiscal_Year",
+          "RH_Lev_1_GM_All__c",
+          "RH_Lev_2_DAS__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_5_Country__c",
+          "RH_Lev_6_Office__c",
+          "Investment_Promotion__c",
+          "Promotion"
+        ]
+      },
+      "sources": [
+        "Task: 2 FY Ago: Investment Promotion: Flatten",
+        "Task: 2 FY Ago: Investment Promotion: Flatten"
+      ]
+    },
+    "Task: 2 FY Ago: Export Promotion: Add Flatten IDs": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Flatten: Self ID",
+            "name": "Flatten_Self_ID",
+            "saqlExpression": "'AccountId' + \":\" + number_to_string('Order', \"0\")",
+            "type": "Text"
+          },
+          {
+            "label": "Flatten: Parent ID",
+            "name": "Flatten_Parent_ID",
+            "saqlExpression": "case\n    when 'Order' > 1 then 'AccountId' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: 2 FY Ago: Export Promotion: Add Order"
+      ]
+    },
+    "Task: Load": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "fiscalMonthOffset": 9,
+            "name": "Actual_Create_Date__c"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "Investment_Promotion__c"
+          },
+          {
+            "name": "OwnerId"
+          },
+          {
+            "name": "Related_to_Case__c"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "IsDeleted"
+          }
+        ],
+        "incremental": true,
+        "object": "Task"
+      }
+    },
+    "Task: Previous FY: Add IsLastOrder": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
+              "type": "Text"
+            },
+            "label": "Is Last Order",
+            "name": "IsLastOrder"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "desc",
+            "name": "Order"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Previous FY: Join flattened Task"
+      ]
+    },
+    "Task: 2 FY Ago: Add Order": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
+              "type": "Numeric",
+              "scale": 10
+            },
+            "label": "Order",
+            "name": "Order"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "asc",
+            "name": "AccountId"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: 2 FY Ago: Union Promotions"
+      ]
+    },
+    "Task: Previous FY: Investment Promotion: Join flattened Task": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Tasks"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "Tasks",
+        "rightKey": [
+          "Flatten_Self_ID"
+        ],
+        "rightSelect": [
+          "Actual_Create_Date__c",
+          "Contributor",
+          "Contributor_ID",
+          "DAS",
+          "Fiscal_Year",
+          "Relative_Fiscal_Year",
+          "RH_Lev_1_GM_All__c",
+          "RH_Lev_2_DAS__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_5_Country__c",
+          "RH_Lev_6_Office__c",
+          "Investment_Promotion__c",
+          "Promotion"
+        ]
+      },
+      "sources": [
+        "Task: Previous FY: Investment Promotion: Flatten",
+        "Task: Previous FY: Investment Promotion: Flatten"
+      ]
+    },
+    "Task: 2 FY Ago: Export Promotion: Filter IsLastOrder": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsLastOrder:EQ:true"
+      },
+      "sources": [
+        "Task: 2 FY Ago: Export Promotion: Add IsLastOrder"
+      ]
+    },
+    "Task: Previous FY: Add Flatten IDs": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Flatten: Self ID",
+            "name": "Flatten_Self_ID",
+            "saqlExpression": "'AccountId' + \":\" + number_to_string('Order', \"0\")",
+            "type": "Text"
+          },
+          {
+            "label": "Flatten: Parent ID",
+            "name": "Flatten_Parent_ID",
+            "saqlExpression": "case\n    when 'Order' > 1 then 'AccountId' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: Previous FY: Add Order"
+      ]
+    },
+    "Task: Filter IsDeleted, GM All, Related to Case": {
+      "action": "filter",
+      "parameters": {
+        "filter": "IsDeleted:EQ:false,RH_Lev_1_GM_All__c:EQ:GM All,Related_to_Case__c:EQ:false"
+      },
+      "sources": [
+        "Task: Load"
+      ]
+    },
+    "Task: Current FY: Add IsLastOrder": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
+              "type": "Text"
+            },
+            "label": "Is Last Order",
+            "name": "IsLastOrder"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "desc",
+            "name": "Order"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Current FY: Join flattened Task"
+      ]
+    },
+    "Task: 2 FY Ago: Export Promotion: Add IsLastOrder": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
+              "type": "Text"
+            },
+            "label": "Is Last Order",
+            "name": "IsLastOrder"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "desc",
+            "name": "Order"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: 2 FY Ago: Export Promotion: Join flattened Task"
+      ]
+    },
+    "Task: Filter Current Fiscal Year": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Relative_Fiscal_Year:EQ:Current Fiscal Year"
+      },
+      "sources": [
+        "Task: Filter Relative Fiscal Year"
+      ]
+    },
+    "Task: 2 FY Ago: Export Promotion: Keep Fields": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Tasks.Actual_Create_Date__c"
+          },
+          {
+            "name": "Tasks.Contributor"
+          },
+          {
+            "name": "Tasks.Contributor_ID"
+          },
+          {
+            "name": "Tasks.DAS"
+          },
+          {
+            "name": "Tasks.Fiscal_Year"
+          },
+          {
+            "name": "Tasks.Promotion"
+          },
+          {
+            "name": "Tasks.Relative_Fiscal_Year"
+          },
+          {
+            "name": "Tasks.RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Tasks.RH_Lev_6_Office__c"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "Task: 2 FY Ago: Export Promotion: Filter IsLastOrder"
+      ]
+    },
+    "Task: 2 FY Ago: Union Promotions": {
+      "action": "append",
+      "parameters": {
+        "enableDisjointedSchemaMerge": false
+      },
+      "sources": [
+        "Task: 2 FY Ago: Export Promotion: Keep Fields",
+        "Task: 2 FY Ago: Investment Promotion: Keep Fields"
+      ]
+    },
+    "Task: 2 FY Ago: Keep Fields": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Related.Tasks.Actual_Create_Date__c"
+          },
+          {
+            "name": "Related.Tasks.Contributor"
+          },
+          {
+            "name": "Related.Tasks.Contributor_ID"
+          },
+          {
+            "name": "Related.Tasks.DAS"
+          },
+          {
+            "name": "Related.Tasks.Fiscal_Year"
+          },
+          {
+            "name": "Related.Tasks.Promotion"
+          },
+          {
+            "name": "Related.Tasks.Relative_Fiscal_Year"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Related.Tasks.RH_Lev_6_Office__c"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "Task: 2 FY Ago: Filter IsLastOrder"
+      ]
+    },
+    "Task: 2 FY Ago: Export Promotion: Add Order": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
+              "type": "Numeric",
+              "scale": 10
+            },
+            "label": "Order",
+            "name": "Order"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "asc",
+            "name": "Id"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: 2 FY Ago: Filter Export Promotion"
+      ]
+    },
+    "Task: Current FY: Add Order": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
+              "type": "Numeric",
+              "scale": 10
+            },
+            "label": "Order",
+            "name": "Order"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "asc",
+            "name": "AccountId"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: Current FY: Union Promotions"
+      ]
+    },
+    "Task: Current FY: Export Promotion: Add Flatten IDs": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Flatten: Self ID",
+            "name": "Flatten_Self_ID",
+            "saqlExpression": "'AccountId' + \":\" + number_to_string('Order', \"0\")",
+            "type": "Text"
+          },
+          {
+            "label": "Flatten: Parent ID",
+            "name": "Flatten_Parent_ID",
+            "saqlExpression": "case\n    when 'Order' > 1 then 'AccountId' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: Current FY: Export Promotion: Add Order"
+      ]
+    },
+    "Task: 2 FY Ago: Add IsLastOrder": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
+              "type": "Text"
+            },
+            "label": "Is Last Order",
+            "name": "IsLastOrder"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "desc",
+            "name": "Order"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: 2 FY Ago: Join flattened Task"
+      ]
+    },
+    "Task: 2 FY Ago: Filter Export Promotion": {
+      "action": "filter",
+      "parameters": {
+        "filter": "Promotion:EQ:Export Promotion"
+      },
+      "sources": [
+        "Task: Filter 2 Fiscal Years Ago"
+      ]
+    },
+    "Task: Current FY: Save Tasks": {
+      "action": "register",
+      "parameters": {
+        "label": "TEST: Tasks: Current Fiscal Year",
+        "name": "TEST_Tasks_Current_Fiscal_Year"
+      },
+      "sources": [
+        "Task: Current FY: Keep Fields"
+      ]
+    },
+    "Task: 2 FY Ago: Join flattened Task": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Tasks"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "Related",
+        "rightKey": [
+          "Flatten_Self_ID"
+        ],
+        "rightSelect": [
+          "AccountId",
+          "Tasks.Actual_Create_Date__c",
+          "Tasks.Contributor",
+          "Tasks.Contributor_ID",
+          "Tasks.DAS",
+          "Tasks.Fiscal_Year",
+          "Tasks.Promotion",
+          "Tasks.Relative_Fiscal_Year",
+          "Tasks.RH_Lev_1_GM_All__c",
+          "Tasks.RH_Lev_2_DAS__c",
+          "Tasks.RH_Lev_3_Region_2__c",
+          "Tasks.RH_Lev_4_Region_1__c",
+          "Tasks.RH_Lev_5_Country__c",
+          "Tasks.RH_Lev_6_Office__c"
+        ]
+      },
+      "sources": [
+        "Task: 2 FY Ago: Flatten",
+        "Task: 2 FY Ago: Flatten"
+      ]
+    },
+    "Task: Previous FY: Export Promotion: Add Flatten IDs": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "Flatten: Self ID",
+            "name": "Flatten_Self_ID",
+            "saqlExpression": "'AccountId' + \":\" + number_to_string('Order', \"0\")",
+            "type": "Text"
+          },
+          {
+            "label": "Flatten: Parent ID",
+            "name": "Flatten_Parent_ID",
+            "saqlExpression": "case\n    when 'Order' > 1 then 'AccountId' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Task: Previous FY: Export Promotion: Add Order"
+      ]
+    },
+    "Task: Current FY: Investment Promotion: Flatten": {
+      "action": "flatten",
+      "parameters": {
+        "includeSelfId": true,
+        "multiField": {
+          "name": "Tasks"
+        },
+        "parentField": "Flatten_Parent_ID",
+        "pathField": {
+          "name": "Tasks_Path"
+        },
+        "selfField": "Flatten_Self_ID"
+      },
+      "sources": [
+        "Task: Current FY: Investment Promotion: Add Flatten IDs"
+      ]
+    },
+    "Task: Previous FY: Investment Promotion: Flatten": {
+      "action": "flatten",
+      "parameters": {
+        "includeSelfId": true,
+        "multiField": {
+          "name": "Tasks"
+        },
+        "parentField": "Flatten_Parent_ID",
+        "pathField": {
+          "name": "Tasks_Path"
+        },
+        "selfField": "Flatten_Self_ID"
+      },
+      "sources": [
+        "Task: Previous FY: Investment Promotion: Add Flatten IDs"
+      ]
+    },
+    "Task: 2 FY Ago: Investment Promotion: Add Order": {
+      "action": "computeRelative",
+      "parameters": {
+        "computedFields": [
+          {
+            "expression": {
+              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
+              "type": "Numeric",
+              "scale": 10
+            },
+            "label": "Order",
+            "name": "Order"
+          }
+        ],
+        "orderBy": [
+          {
+            "direction": "asc",
+            "name": "Id"
+          }
+        ],
+        "partitionBy": [
+          "AccountId"
+        ]
+      },
+      "sources": [
+        "Task: 2 FY Ago: Filter Investment Promotion"
       ]
     }
   }
