@@ -74,6 +74,7 @@ types=" app \
         trigger \
 	wapp \
 	wdash \
+	wdf \
 	wds \
 	wlens \
         workflow \
@@ -91,6 +92,7 @@ typemeta="      asset \
                 resource \
                 trigger \
 		wdash \
+		wdf \
 		wlens"
 
 typesubfolders="	email \

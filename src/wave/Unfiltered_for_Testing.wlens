@@ -1,0 +1,62 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [],
+  "layouts": [],
+  "steps": {
+    "aggregateflex": {
+      "broadcastFacet": false,
+      "datasets": [
+        {
+          "name": "All_Clients_Unfiltered"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"values\":[\"ParentOrganization.RecordType.SobjectType\",\"ParentOrganization.Name\",\"ParentOrganization.RecordType.DeveloperName\",\"Task.RecordTypeId\",\"CaseContributor.Contributor_Name__c\",\"Light_InDepth\",\"ParentCase.RecordType.Name\",\"Task.Investment_Promotion__c\",\"Client_Type\",\"ParentOrganization.BillingCountry\",\"US_Org\",\"RH_Lev_7_Individual__c\",\"RH_Lev_5_Country__c\",\"RH_Lev_2_DAS__c\",\"RH_Lev_6_Office__c\",\"RH_Lev_3_Region_2__c\",\"RH_Lev_4_Region_1__c\",\"RH_Lev_1_GM_All__c\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "multi",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "valuestable"
+      }
+    }
+  },
+  "widgets": {
+    "aggregateflex_table": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "showActionMenu": true,
+        "showRowIndexColumn": true,
+        "step": "aggregateflex",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    }
+  }
+}

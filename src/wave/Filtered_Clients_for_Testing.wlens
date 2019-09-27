@@ -1,0 +1,62 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [],
+  "layouts": [],
+  "steps": {
+    "aggregateflex": {
+      "broadcastFacet": false,
+      "datasets": [
+        {
+          "name": "All_Touches_With_Global_Filters"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"values\":[\"ParentOrganization.Name\",\"Client_Type\",\"Light_InDepth\",\"ParentCase.RecordType.Name\",\"ParentOrganization.BillingCountry\",\"US_Org\",\"ParentCase.Actual_Create_Date__c\",\"ParentCase.Actual_Case_Closed_Date__c\",\"ParentCase.Request_Case_Removal__c\",\"ParentOrganization.RecordType.Name\",\"ParentOrganization.TracHier__DUNS_Global_Ultimate_Parent__c\",\"Task.Actual_Create_Date__c\",\"Task.Investment_Promotion__c\",\"Task.Related_to_Case__c\",\"RH_Lev_7_Individual__c\",\"RH_Lev_5_Country__c\",\"RH_Lev_2_DAS__c\",\"RH_Lev_6_Office__c\",\"RH_Lev_3_Region_2__c\",\"RH_Lev_4_Region_1__c\",\"RH_Lev_1_GM_All__c\",\"Current_FY\",\"Previous_FY\",\"FY_2_Years_Ago\"],\"order\":[[\"ParentOrganization.Name\",{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "multi",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "valuestable"
+      }
+    }
+  },
+  "widgets": {
+    "aggregateflex_table": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "showActionMenu": true,
+        "showRowIndexColumn": true,
+        "step": "aggregateflex",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    }
+  }
+}
