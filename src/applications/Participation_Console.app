@@ -75,6 +75,85 @@
     <navType>Console</navType>
     <profileActionOverrides>
         <actionName>View</actionName>
+        <content>Admin_Payment_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Payment__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Payment__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application_LPL_PS</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Participation__c</pageOrSobjectType>
+        <recordType>Participation__c.Privacy_Shield</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application_LPL_PS</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Participation__c</pageOrSobjectType>
+        <recordType>Participation__c.Privacy_Shield</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application_LPL_PS</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Participation__c</pageOrSobjectType>
+        <recordType>Participation__c.Privacy_Shield</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application_LPL_PS</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Participation__c</pageOrSobjectType>
+        <recordType>Participation__c.Privacy_Shield</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application_LPL_PS</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Participation__c</pageOrSobjectType>
+        <recordType>Participation__c.Privacy_Shield</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application_LPL_PS</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Participation__c</pageOrSobjectType>
+        <recordType>Participation__c.Privacy_Shield</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application_LPL_PS</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Participation__c</pageOrSobjectType>
+        <recordType>Participation__c.Privacy_Shield</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Specialist</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
         <content>Application_LPL_PS</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Participation__c</pageOrSobjectType>
@@ -145,94 +224,17 @@
         <type>Flexipage</type>
         <profile>Core Team</profile>
     </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Application_LPL_PS</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Participation__c</pageOrSobjectType>
-        <recordType>Participation__c.Privacy_Shield</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Application_LPL_PS</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Participation__c</pageOrSobjectType>
-        <recordType>Participation__c.Privacy_Shield</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Application_LPL_PS</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Participation__c</pageOrSobjectType>
-        <recordType>Participation__c.Privacy_Shield</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Application_LPL_PS</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Participation__c</pageOrSobjectType>
-        <recordType>Participation__c.Privacy_Shield</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Application_LPL_PS</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Participation__c</pageOrSobjectType>
-        <recordType>Participation__c.Privacy_Shield</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Application_LPL_PS</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Participation__c</pageOrSobjectType>
-        <recordType>Participation__c.Privacy_Shield</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Application_LPL_PS</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Participation__c</pageOrSobjectType>
-        <recordType>Participation__c.Privacy_Shield</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Specialist</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Payment__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Payment__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
     <tabs>standard-home</tabs>
-    <tabs>standard-Feed</tabs>
     <tabs>Program__c</tabs>
     <tabs>standard-Account</tabs>
     <tabs>Participation__c</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-Order</tabs>
     <tabs>Third_Party_Master_List__c</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-CollaborationGroup</tabs>
     <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Participation_Console_UtilityBar</utilityBar>
     <workspaceConfig>
@@ -250,6 +252,12 @@
         </mappings>
         <mappings>
             <tab>standard-Case</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-CollaborationGroup</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Dashboard</tab>
         </mappings>
         <mappings>
             <tab>standard-Feed</tab>

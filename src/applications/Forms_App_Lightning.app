@@ -55,9 +55,12 @@
     <tabs>Content__c</tabs>
     <tabs>Translation__c</tabs>
     <tabs>standard-Case</tabs>
-    <tabs>standard-report</tabs>
     <tabs>Toolkit_Support</tabs>
     <tabs>Lightning_Case</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-CollaborationGroup</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Forms_Lightning_App_UtilityBar</utilityBar>
 </CustomApplication>
