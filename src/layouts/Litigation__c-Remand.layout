@@ -288,6 +288,8 @@
         <fields>NAME</fields>
         <fields>Account__c</fields>
         <fields>Type__c</fields>
+        <fields>Lead_Attorney__c</fields>
+        <fields>Legal_Representation__c</fields>
         <relatedList>Related_Organization__c.Litigation__c</relatedList>
     </relatedLists>
     <relatedLists>

@@ -563,7 +563,14 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Suspension Agreements</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>ADCVD_Case_Number_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Anniversary_Month__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Effective_Date_of_Termination__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>A1301PermSetReparentsSuspAgreement</fullName>

@@ -488,17 +488,25 @@
         <fields>NAME</fields>
         <fields>Account__c</fields>
         <fields>Type__c</fields>
+        <fields>Lead_Attorney__c</fields>
+        <fields>Legal_Representation__c</fields>
         <relatedList>Related_Organization__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>MassChangeOwner</excludeButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Product_Text__c</fields>
+        <fields>Country_Text__c</fields>
         <relatedList>Investigation__c.AD_Investigation_Aligned_To__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Anniversary_Month__c</fields>
+        <fields>Effective_Date_of_Termination__c</fields>
         <relatedList>Suspension_Agreement__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
