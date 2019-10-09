@@ -18,14 +18,6 @@
         <type>Flexipage</type>
         <pageOrSobjectType>Asset</pageOrSobjectType>
     </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <content>CRM_Home_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>standard-home</pageOrSobjectType>
-    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <logo>PaymentAppLogo</logo>
@@ -46,9 +38,21 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Payment__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
     <tabs>Participation__c</tabs>
     <tabs>standard-Order</tabs>
     <tabs>Payment__c</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-CollaborationGroup</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Payment_Manager_UtilityBar</utilityBar>
 </CustomApplication>
