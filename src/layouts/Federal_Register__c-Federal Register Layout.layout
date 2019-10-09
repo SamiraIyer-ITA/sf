@@ -23,7 +23,7 @@
                 <field>Cite_Number__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>FR_URL__c</field>
             </layoutItems>
             <layoutItems>
