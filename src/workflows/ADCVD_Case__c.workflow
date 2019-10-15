@@ -54,7 +54,7 @@
             <name>Update_Owner_to_Open_ADCVD_Case_Queue</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>

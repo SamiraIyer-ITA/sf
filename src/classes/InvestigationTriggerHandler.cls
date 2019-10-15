@@ -186,7 +186,8 @@
         List<Investigation__c> cvdInvestigations = new List<Investigation__c>();
         Set<Id> querySet = new Set<Id>();
         for (Id i : newMap.keySet()) {
-            if (newMap.get(i).Tolling_Update__c == oldMap.get(i).Tolling_Update__c) {
+            if (newMap.get(i).Tolling_Update__c == oldMap.get(i).Tolling_Update__c &&
+                    newMap.get(i).Schedule_Refresh__c == oldMap.get(i).Schedule_Refresh__c) {
                 querySet.add(i);
             }
         }
