@@ -39,14 +39,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Actual_Draft_Remand_Issues_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Draft_Remand_Concurrence_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Actual_Draft_Remand_released_to_party__c</field>
             </layoutItems>
         </layoutColumns>
@@ -64,14 +56,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Final_Issues_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Final_Concurrence_to_DAS__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Final_Signature__c</field>
