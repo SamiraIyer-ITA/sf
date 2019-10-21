@@ -24,18 +24,15 @@
                 for (var pickKey in pickListResponse.pickListMap) {
                     parentkeys.push(pickKey);
                 }
-                
                 //set the parent field value for lightning:select
                 if (parentkeys != undefined && parentkeys.length > 0) {
                     parentField.push('--- None ---');
                 } 
-                
                 for (var i = 0; i < parentkeys.length; i++) {
                     parentField.push(parentkeys[i]);
                 }  
                 // set the parent picklist
                 component.set("v.parentList", parentField);
-                
             }
         });
         
@@ -43,8 +40,6 @@
 	},
  
     parentFieldChange : function(component, event, helper) {
-                console.log('fire parent update');
-
     	var controllerValue = component.find("parentField").get("v.value");// We can also use event.getSource().get("v.value")
         var pickListMap = component.get("v.pickListMap");
      
