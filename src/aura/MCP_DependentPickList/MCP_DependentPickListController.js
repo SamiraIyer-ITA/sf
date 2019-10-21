@@ -37,58 +37,38 @@
                 }  
                 // set the parent picklist
                 component.set("v.parentList", parentField);
-                
             }
         });
         
         $A.enqueueAction(action);
 	},
     
-    
     updateChildfield : function(component, event, helper) {
-        console.log('fire update child');
          helper.picklistUpdates(component, event);        
     },
 
-    
-    
     parentFieldChange : function(component, event, helper) {
-                console.log('fire parent update');
-
     	var controllerValue = component.find("parentField").get("v.value");// We can also use event.getSource().get("v.value")
-        var controllerValue2 = component.find("childField").get("v.value");// We can also use event.getSource().get("v.value")
         var pickListMap = component.get("v.pickListMap");
-       // component.set("currentParentValue" ,controllerValue);
-       // component.set("currentChildValue" ,controllerValue);
-
-    console.log('Fire off parent change!');
-        if (controllerValue != '--- None ---') {
+          if (controllerValue != '--- None ---') {
              //get child picklist value
             var childValues = pickListMap[controllerValue];
             var childValueList = [];
             childValueList.push('--- None ---');
-                console.log('l1!');
-
             for (var i = 0; i < childValues.length; i++) {
                 childValueList.push(childValues[i]);
             }
             // set the child list
             component.set("v.childList", childValueList);
-                            console.log('l2!');
-
             if(childValues.length > 0){
                 component.set("v.disabledChildField" , false);  
             }else{
                 component.set("v.disabledChildField" , true); 
             }
-            
         } else {
             component.set("v.childList", ['--- None ---']);
             component.set("v.disabledChildField" , true);
         }
       		helper.picklistUpdates(component, event);
-         /// helper.UpdateFieldValues(component, event, helper);
-        
 	}
-    
 })
