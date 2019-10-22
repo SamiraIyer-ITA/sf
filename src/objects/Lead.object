@@ -5,27 +5,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Accept</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Accept</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>AddToCampaign</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>AddToCampaign</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>AddToCampaign</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -33,27 +13,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CallHighlightAction</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CallHighlightAction</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -61,27 +21,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>ChangeStatus</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>ChangeStatus</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -89,27 +29,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Convert</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Convert</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Delete</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -117,27 +37,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Edit</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>EmailHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>EmailHighlightAction</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>EmailHighlightAction</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -145,27 +45,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>FindDup</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>FindDup</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -173,27 +53,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>ListClean</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>ListClean</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -201,41 +61,11 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>SmsHighlightAction</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>SmsHighlightAction</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SmsHighlightAction</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Tab</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -245,15 +75,6 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
     </actionOverrides>
     <businessProcesses>
         <fullName>Partner Lead Process</fullName>
@@ -328,36 +149,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>MCP_REGFIELDS</label>
-    </fieldSets>
-    <fieldSets>
-        <fullName>MPCRegFields</fullName>
-        <description>Used to add extra fields to the MPC Registration community form</description>
-        <displayedFields>
-            <field>Confirm_Email__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Organization_Type__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Organization_Name__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Country_1__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>PostalCode</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>MPCRegFields</label>
     </fieldSets>
     <fields>
         <fullName>APIEndpoint__c</fullName>
@@ -735,203 +526,6 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Industry__c</fullName>
-        <externalId>false</externalId>
-        <label>Industry</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <controllingField>Organization_Type__c</controllingField>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Aerospace and Defense</fullName>
-                    <default>false</default>
-                    <label>Aerospace and Defense</label>
-                </value>
-                <value>
-                    <fullName>Agribusiness</fullName>
-                    <default>false</default>
-                    <label>Agribusiness</label>
-                </value>
-                <value>
-                    <fullName>Automotive</fullName>
-                    <default>false</default>
-                    <label>Automotive</label>
-                </value>
-                <value>
-                    <fullName>Design and Construction</fullName>
-                    <default>false</default>
-                    <label>Design and Construction</label>
-                </value>
-                <value>
-                    <fullName>Distribution and Logistics</fullName>
-                    <default>false</default>
-                    <label>Distribution and Logistics</label>
-                </value>
-                <value>
-                    <fullName>Education</fullName>
-                    <default>false</default>
-                    <label>Education</label>
-                </value>
-                <value>
-                    <fullName>Energy</fullName>
-                    <default>false</default>
-                    <label>Energy</label>
-                </value>
-                <value>
-                    <fullName>Environmental Technology</fullName>
-                    <default>false</default>
-                    <label>Environmental Technology</label>
-                </value>
-                <value>
-                    <fullName>Equipment and Machinery</fullName>
-                    <default>false</default>
-                    <label>Equipment and Machinery</label>
-                </value>
-                <value>
-                    <fullName>Financial Services</fullName>
-                    <default>false</default>
-                    <label>Financial Services</label>
-                </value>
-                <value>
-                    <fullName>Franchising</fullName>
-                    <default>false</default>
-                    <label>Franchising</label>
-                </value>
-                <value>
-                    <fullName>Healthcare</fullName>
-                    <default>false</default>
-                    <label>Healthcare</label>
-                </value>
-                <value>
-                    <fullName>Information Communication Technology</fullName>
-                    <default>false</default>
-                    <label>Information Communication Technology</label>
-                </value>
-                <value>
-                    <fullName>Marine Technology</fullName>
-                    <default>false</default>
-                    <label>Marine Technology</label>
-                </value>
-                <value>
-                    <fullName>Media and Entertainment</fullName>
-                    <default>false</default>
-                    <label>Media and Entertainment</label>
-                </value>
-                <value>
-                    <fullName>Safety and Security</fullName>
-                    <default>false</default>
-                    <label>Safety and Security</label>
-                </value>
-                <value>
-                    <fullName>Textile and Apparel</fullName>
-                    <default>false</default>
-                    <label>Textile and Apparel</label>
-                </value>
-                <value>
-                    <fullName>Travel and Tourism</fullName>
-                    <default>false</default>
-                    <label>Travel and Tourism</label>
-                </value>
-                <value>
-                    <fullName>Recreational Vehicles</fullName>
-                    <default>false</default>
-                    <label>Recreational Vehicles</label>
-                </value>
-                <value>
-                    <fullName>Transport and Logistics and Logistics</fullName>
-                    <default>false</default>
-                    <label>Transport and Logistics and Logistics</label>
-                </value>
-            </valueSetDefinition>
-            <valueSettings>
-                <controllingFieldValue>Travel and Tourism</controllingFieldValue>
-                <valueName>Travel and Tourism</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Marine Technology</controllingFieldValue>
-                <valueName>Marine Technology</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Public Safety and Security</controllingFieldValue>
-                <valueName>Safety and Security</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Financial Services</controllingFieldValue>
-                <valueName>Financial Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Supply Chain &amp; Logistics and Distribution Services</controllingFieldValue>
-                <valueName>Distribution and Logistics</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Supply Chain &amp; Logistics and Distribution Services</controllingFieldValue>
-                <valueName>Transport and Logistics and Logistics</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Textile, Apparel, Footwear and Travel Goods</controllingFieldValue>
-                <controllingFieldValue>Office of Textiles and Apparel</controllingFieldValue>
-                <valueName>Textile and Apparel</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Design &amp; Construction, Building &amp; Heavy Equipment</controllingFieldValue>
-                <valueName>Design and Construction</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Franchising</controllingFieldValue>
-                <valueName>Franchising</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Recreational Transportation</controllingFieldValue>
-                <controllingFieldValue>Automotive &amp; Smart Mobility</controllingFieldValue>
-                <valueName>Automotive</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Recreational Transportation</controllingFieldValue>
-                <valueName>Recreational Vehicles</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Aerospace &amp; Defense</controllingFieldValue>
-                <valueName>Aerospace and Defense</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Advanced Manufacturing</controllingFieldValue>
-                <valueName>Equipment and Machinery</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Food and Agriculture Value Chain</controllingFieldValue>
-                <valueName>Agribusiness</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Healthcare and Health Technologies</controllingFieldValue>
-                <valueName>Healthcare</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Education and Training Services</controllingFieldValue>
-                <valueName>Education</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Energy</controllingFieldValue>
-                <valueName>Energy</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Environment Technologies</controllingFieldValue>
-                <valueName>Environmental Technology</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Information and Communication Technologies</controllingFieldValue>
-                <valueName>Information Communication Technology</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Media and Entertainment</controllingFieldValue>
-                <valueName>Media and Entertainment</valueName>
-            </valueSettings>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Investment_Promotion__c</fullName>
@@ -4489,89 +4083,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Industry__c</picklist>
-            <values>
-                <fullName>Aerospace and Defense</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agribusiness</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Automotive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design and Construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution and Logistics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Energy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental Technology</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equipment and Machinery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Healthcare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Information Communication Technology</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marine Technology</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media and Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recreational Vehicles</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Safety and Security</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile and Apparel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transport and Logistics and Logistics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel and Tourism</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>LeadSource</picklist>
             <values>
                 <fullName>Government Agency</fullName>
@@ -5951,89 +5462,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Industry__c</picklist>
-            <values>
-                <fullName>Aerospace and Defense</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agribusiness</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Automotive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design and Construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution and Logistics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Energy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental Technology</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equipment and Machinery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Healthcare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Information Communication Technology</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marine Technology</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media and Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recreational Vehicles</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Safety and Security</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile and Apparel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transport and Logistics and Logistics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel and Tourism</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>LeadSource</picklist>
             <values>
                 <fullName>Government Agency</fullName>
@@ -6277,7 +5705,7 @@
         <searchResultsAdditionalFields>LEAD.STATUS</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>If_Country_is_US_need_state_at_convert</fullName>
         <active>true</active>
