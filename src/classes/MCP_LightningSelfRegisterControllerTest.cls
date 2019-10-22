@@ -4,15 +4,15 @@ public with sharing class MCP_LightningSelfRegisterControllerTest {
  /* Verifies that IsValidPassword method with various password combinations. */
  @IsTest
  static void testIsValidPassword() {
-  System.assert(MPC_LightningSelfRegisterController.isValidPassword('password?@12334', 'password?@12334') == true);
-  System.assert(MPC_LightningSelfRegisterController.isValidPassword('password?@12334', 'dummyPassword') == false);
-  System.assert(MPC_LightningSelfRegisterController.isValidPassword('password?@12334', null) == false);
-  System.assert(MPC_LightningSelfRegisterController.isValidPassword(null, 'fakePwd') == false);
+  System.assert(MCP_LightningSelfRegisterController.isValidPassword('password?@12334', 'password?@12334') == true);
+  System.assert(MCP_LightningSelfRegisterController.isValidPassword('password?@12334', 'dummyPassword') == false);
+  System.assert(MCP_LightningSelfRegisterController.isValidPassword('password?@12334', null) == false);
+  System.assert(MCP_LightningSelfRegisterController.isValidPassword(null, 'fakePwd') == false);
  }
 
  @IsTest
  static void testSiteAsContainerEnabled() {
-  System.assertNotEquals(null, MPC_LightningSelfRegisterController.siteAsContainerEnabled('https://portaleu1-developer-edition.eu11.force.com'));
+  System.assertNotEquals(null, MCP_LightningSelfRegisterController.siteAsContainerEnabled('https://portaleu1-developer-edition.eu11.force.com'));
  }
 
  /* Verifies the selfRegistration method flow with various invalid inputs */
@@ -20,11 +20,11 @@ public with sharing class MCP_LightningSelfRegisterControllerTest {
  static void testSelfRegistration() {
   Map < String, String > paramsMap = initializeParams();
   System.assertNotEquals(null, paramsMap);
-  System.assertEquals(Label.Site.lastname_is_required, MPC_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), '', paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
-  System.assertEquals(Label.Site.email_is_required, MPC_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), '', paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
-  System.assertEquals(Label.Site.email_is_required, MPC_LightningSelfRegisterController.selfRegister(null, paramsMap.get('lastName'), '', null, paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
-  System.assertEquals(Label.site.passwords_dont_match, MPC_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordWrong'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
-  System.assertNotEquals(null, MPC_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), '', paramsMap.get('password'), paramsMap.get('confirmPasswordWrong'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), false));
+  System.assertEquals(Label.Site.lastname_is_required, MCP_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), '', paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
+  System.assertEquals(Label.Site.email_is_required, MCP_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), '', paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
+  System.assertEquals(Label.Site.email_is_required, MCP_LightningSelfRegisterController.selfRegister(null, paramsMap.get('lastName'), '', null, paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
+  System.assertEquals(Label.site.passwords_dont_match, MCP_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordWrong'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
+  System.assertNotEquals(null, MCP_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), '', paramsMap.get('password'), paramsMap.get('confirmPasswordWrong'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), false));
  }
 
 
@@ -32,7 +32,7 @@ public with sharing class MCP_LightningSelfRegisterControllerTest {
  @IsTest
  static void testSelfRegisterWithProperCredentials() {
   Map < String, String > paramsMap = initializeParams();
-  System.assertEquals(null, MPC_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
+  System.assertEquals(null, MCP_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), true));
  }
 
  /* Verifies SelfRegistration flow with an accounId that is created within the test */
@@ -44,32 +44,32 @@ public with sharing class MCP_LightningSelfRegisterControllerTest {
   System.assert(!accounts.isEmpty(), 'There must be at least one account in this environment!');
   String accountId = accounts[0].Id;
   Map < String, String > paramsMap = initializeParams();
-  System.assertEquals(null, MPC_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), accountId, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), false));
+  System.assertEquals(null, MCP_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), accountId, paramsMap.get('regConfirmUrl'), null, paramsMap.get('startUrl'), false));
  }
     
 @isTest
     static void testsetExperienceId(){
-       System.assert( MPC_LightningSelfRegisterController.setExperienceId('000000001') != null , 'Failed to set ExpericenceId');
+       System.assert( MCP_LightningSelfRegisterController.setExperienceId('000000001') != null , 'Failed to set ExpericenceId');
     }
     
     @isTest
     static void testNullsetExperienceId(){
-       System.assertEquals( null, MPC_LightningSelfRegisterController.setExperienceId(null) , 'failed to handle null exception for ExpericenceId');
+       System.assertEquals( null, MCP_LightningSelfRegisterController.setExperienceId(null) , 'failed to handle null exception for ExpericenceId');
     }
 @IsTest
  static void testGetExtraFields() {
-  System.assert(MPC_LightningSelfRegisterController.getExtraFields(label.MPCFieldSet).size() >= 4 ,'Failed to properly reterive field set' );
+  System.assert(MCP_LightningSelfRegisterController.getExtraFields(label.MCP_FieldSet).size() >= 4 ,'Failed to properly reterive field set' );
  }
 
 
  @IsTest
  static void testGetNullExtraFields() {
-  System.assertEquals(new List < Map < String, Object >> (), MPC_LightningSelfRegisterController.getExtraFields(null));
+  System.assertEquals(new List < Map < String, Object >> (), MCP_LightningSelfRegisterController.getExtraFields(null));
  }
 
  @IsTest
  static void testGetNonEmptyExtraFields() {
-  System.assertEquals(new List < Map < String, Object >> (), MPC_LightningSelfRegisterController.getExtraFields('field1'));
+  System.assertEquals(new List < Map < String, Object >> (), MCP_LightningSelfRegisterController.getExtraFields('field1'));
  }
 
  /* Verifies validation of extraFields within the Self Registration flow */
@@ -82,12 +82,12 @@ public with sharing class MCP_LightningSelfRegisterControllerTest {
   fieldMap.put('fieldPath', 'dummyPath');
   fieldlist.add(fieldMap);
   String extraFields = JSON.serialize(fieldlist);
-  System.assertNotEquals(null, MPC_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), extraFields, paramsMap.get('startUrl'), true));
+  System.assertNotEquals(null, MCP_LightningSelfRegisterController.selfRegister(paramsMap.get('firstName'), paramsMap.get('lastName'), paramsMap.get('email'), paramsMap.get('password'), paramsMap.get('confirmPasswordCorrect'), null, paramsMap.get('regConfirmUrl'), extraFields, paramsMap.get('startUrl'), true));
  }
 
  @IsTest
- static void MPC_LightningSelfRegisterController() {
-  MPC_LightningSelfRegisterController controller = new MPC_LightningSelfRegisterController();
+ static void MCP_LightningSelfRegisterController() {
+  MCP_LightningSelfRegisterController controller = new MCP_LightningSelfRegisterController();
   System.assertNotEquals(controller, null);
  }
 
