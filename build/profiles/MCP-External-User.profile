@@ -1364,20 +1364,6 @@
     <layoutAssignments>
         <layout>core_EventConsumerSubscription__mdt-Platform Event Consumer Layout</layout>
     </layoutAssignments>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>CommunityGuest__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Lead.Standard_Lead</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
     <userLicense>External Identity</userLicense>
     <userPermissions>
         <enabled>true</enabled>
