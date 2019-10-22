@@ -35,23 +35,23 @@
         </aura:renderIf>
         <div id="sfdc_username_container" class="sfdc">
             <span id="sfdc_user" class="login-icon" data-icon="a"></span>
-            <ui:inputText value="" aura:id="firstname" placeholder="{!v.firstnameLabel}" keyup="{!c.onKeyUp}" class="input sfdc_usernameinput sfdc"/>
+            <lightning:input  value="" aura:id="firstname" placeholder="{!v.firstnameLabel}" class="input sfdc_usernameinput sfdc"/>
         </div>
         <div id="sfdc_nickname_container" class="sfdc">
             <span id="sfdc_user" class="login-icon" data-icon="a"></span>
-            <ui:inputText value="" aura:id="lastname" placeholder="{!v.lastnameLabel}" keyup="{!c.onKeyUp}" class="input sfdc_usernameinput sfdc"/>
+            <lightning:input  value="" aura:id="lastname" placeholder="{!v.lastnameLabel}"  class="input sfdc_usernameinput sfdc"/>
         </div>
         
         <div id="sfdc_email_container" class="sfdc">
             <span id="sfdc_user" class="login-icon" data-icon="k"></span>
-            <ui:inputText value="" aura:id="email" placeholder="{!v.emailLabel}" keyup="{!c.onKeyUp}" class="input sfdc_usernameinput sfdc"/>
+            <lightning:input  value="" aura:id="email" placeholder="{!v.emailLabel}"  class="input sfdc_usernameinput sfdc"/>
         </div>
         <aura:iteration aura:id="extraFields" items="{!v.extraFields}" var="curField" indexVar="index">
             <aura:if isTrue =  "{!(curField.isControllingPickList != 'TRUE')}">
                 <div id="sfdc_extrafield_container" class="sfdc">
                     <span id="sfdc_user" class="login-icon" data-icon="a"></span>
                     <aura:if isTrue = "{!(curField.isPickList == 'FALSE')}">
-                        <ui:inputText value="{!curField.value}" aura:id="{!curField.fieldPath}" placeholder="{!curField.label}" keyup="{!c.onKeyUp}" class="input sfdc_extrafieldinput sfdc"/>
+                        <lightning:input  value="{!curField.value}" aura:id="{!curField.fieldPath}" placeholder="{!curField.label}"  class="input sfdc_extrafieldinput sfdc"/>
                     </aura:if>
                     <aura:if isTrue = "{!and (curField.pickListData.isPickList == true, curField.pickListData.isDependantPickList != true)}">
                             <c:MCP_IndependentPicklist objectName="{!v.fieldSetObjectAPI}" parentFieldAPI="{!curField.fieldPath}"
@@ -69,11 +69,11 @@
         <aura:renderIf isTrue="{!v.includePasswordField}">
             <div id="sfdc_password_container" class="sfdc">
                 <span id="sfdc_lock" class="login-icon sfdc" data-icon="c"></span>
-                <ui:inputSecret value="" aura:id="password" placeholder="{!v.passwordLabel}" keyup="{!c.onKeyUp}" class="input sfdc_passwordinput sfdc"/>
+                <lightning:input type="password" value="" aura:id="password" placeholder="{!v.passwordLabel}"  class="input sfdc_passwordinput sfdc"/>
             </div>
             <div id="sfdc_confirm_password_container" class="sfdc">
                 <span id="sfdc_lock" class="login-icon sfdc" data-icon="c"></span>
-                <ui:inputSecret value="" aura:id="confirmPassword" placeholder="{!v.confirmPasswordLabel}" keyup="{!c.onKeyUp}" class="input sfdc_passwordinput sfdc"/>
+                <lightning:input type="password" value="" aura:id="confirmPassword" placeholder="{!v.confirmPasswordLabel}"  class="input sfdc_passwordinput sfdc"/>
             </div>
         </aura:renderIf>
         <div class="row pad-none" >
