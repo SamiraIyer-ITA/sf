@@ -54,6 +54,7 @@ types=" app \
         md \
         mdt \
         namedCredential \
+	network \
         object \
 	objectTranslation \
         page \
