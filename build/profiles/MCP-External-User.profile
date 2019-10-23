@@ -735,9 +735,6 @@
         <layout>Idea-Idea Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>IframeWhiteListUrl-Whitelisted Domain for Visualforce Inline Frames Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Image__c-Image Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
