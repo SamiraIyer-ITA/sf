@@ -2790,6 +2790,14 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <labels>
+        <fullName>MCP_FieldSet</fullName>
+        <categories>MCP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MCP_FieldSet</shortDescription>
+        <value>MCP_REGFIELDS</value>
+    </labels>
     <listViews>
         <fullName>AllOpenLeads</fullName>
         <columns>FULL_NAME</columns>
