@@ -68,6 +68,7 @@ types=" app \
         role \
         settings \
         sharingRules \
+	site \
         standardValueSets \
         synonymDictionary \
         tab \
