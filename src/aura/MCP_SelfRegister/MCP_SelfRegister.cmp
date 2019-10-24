@@ -83,7 +83,7 @@
             </div>  
         </div>
         <div class="sfdc">
-            <lightning:button aura:id="submitButton"  label="{!v.submitButtonLabel}" onClick="{!c.handleSelfRegister}" class="sfdc_button"/>
+            <lightning:button aura:id="submitButton"  label="{!v.submitButtonLabel}" onclick="{!c.handleSelfRegister}" class="sfdc_button"/>
         </div>
     </div>
 </aura:component>
