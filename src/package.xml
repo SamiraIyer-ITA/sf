@@ -134,6 +134,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>Network</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>PathAssistant</name>
     </types>
     <types>
@@ -175,6 +179,10 @@
     <types>
         <members>*</members>
         <name>SharingSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Site</name>
     </types>
     <types>
         <members>*</members>
