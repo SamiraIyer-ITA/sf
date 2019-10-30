@@ -1978,6 +1978,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <custom>false</custom>
+    <description>Standard Salesforce Profile - Do not assign to users</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>ADCVD_Case__c.ADCVD_Case_Number__c</field>
