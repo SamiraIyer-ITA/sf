@@ -9,32 +9,25 @@
         <detailHeading>false</detailHeading>
         <editHeading>true</editHeading>
         <label>Information</label>
-        <layoutColumns>
-            <layoutItems>
+        <layoutColumns>                                                                                                                                                                                                                       <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>ParticipantNumber__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Name</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Required</behavior>
+                <field>Name</field>                                                                                                                                                                                                           </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Required</behavior>
                 <field>Organization__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Edit</behavior>
                 <field>Public_Display_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Edit</behavior>
                 <field>Program__c</field>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Edit</behavior>
+                <field>Company_Description__c</field>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Edit</behavior>
+                <field>Able_To_Recertify__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Company_Description__c</field>
-            </layoutItems>
-        </layoutColumns>
+                <field>Application_Status__c</field>
+            </layoutItems>                                                                                                                                                                                                                </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
