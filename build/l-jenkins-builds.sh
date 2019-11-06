@@ -59,7 +59,6 @@ types=" app \
         page \
 	pathAssistant \
 	permissionset \
-	profile \
         queue \
         quickAction \
 	report \
