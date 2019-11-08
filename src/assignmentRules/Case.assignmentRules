@@ -4,21 +4,6 @@
         <fullName>Active Case Assignments</fullName>
         <active>true</active>
         <ruleEntry>
-            <assignedTo>Salesforce_Support</assignedTo>
-            <assignedToType>Queue</assignedToType>
-            <criteriaItems>
-                <field>Case.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Salesforce Support</value>
-            </criteriaItems>
-            <criteriaItems>
-                <field>Case.Origin</field>
-                <operation>equals</operation>
-                <value>Email</value>
-            </criteriaItems>
-            <template>Tier_3_Salesforce_Support/Salesforce_Support_Request_Alert</template>
-        </ruleEntry>
-        <ruleEntry>
             <assignedTo>PS_Participation</assignedTo>
             <assignedToType>Queue</assignedToType>
             <criteriaItems>
@@ -196,21 +181,6 @@
     <assignmentRule>
         <fullName>Salesforce Support Case Assignment</fullName>
         <active>false</active>
-        <ruleEntry>
-            <assignedTo>Salesforce_Support</assignedTo>
-            <assignedToType>Queue</assignedToType>
-            <criteriaItems>
-                <field>Case.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Salesforce Support</value>
-            </criteriaItems>
-            <criteriaItems>
-                <field>Case.Origin</field>
-                <operation>equals</operation>
-                <value>Email</value>
-            </criteriaItems>
-            <template>Tier_3_Salesforce_Support/Salesforce_Support_Request_Alert</template>
-        </ruleEntry>
         <ruleEntry>
             <assignedTo>PS_Participation</assignedTo>
             <assignedToType>Queue</assignedToType>
