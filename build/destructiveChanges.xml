@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+       <members>Case.Salesforce_Support_Case</members>
+       <members>Case.Salesforce_Support_Cases</members>
+       <name>ListView</name>
+    </types>
+    <types>
        <members>CaseClose-Close Salesforce Support Case Layout</members>
        <members>Case-Salesforce Support Case Layout</members>
        <name>Layout</name>

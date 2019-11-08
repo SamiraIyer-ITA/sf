@@ -3852,40 +3852,6 @@ Select if this is a Compliance Case</description>
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>Salesforce_Support_Case</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CASES.LAST_UPDATE</columns>
-        <columns>OWNER_NAME</columns>
-        <filterScope>Queue</filterScope>
-        <label>Salesforce Support</label>
-        <queue>Salesforce_Support</queue>
-        <sharedTo>
-            <role>System_Admin</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Salesforce_Support_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.EMAIL</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>OWNER_NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.Salesforce_Support</value>
-        </filters>
-        <label>Salesforce Support (Record Types) Cases</label>
-        <sharedTo>
-            <role>System_Admin</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>SmartGrid_Toolkit_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>SmartGrid Toolkit</label>
