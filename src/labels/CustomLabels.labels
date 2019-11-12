@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>MCP_FieldSet</fullName>
+        <categories>MCP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MCP_FieldSet</shortDescription>
+        <value>MCP_REGFIELDS</value>
+    </labels>
+    <labels>
         <fullName>export_gov</fullName>
         <language>en_US</language>
         <protected>false</protected>

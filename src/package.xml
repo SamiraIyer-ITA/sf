@@ -134,6 +134,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>Network</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>PathAssistant</name>
     </types>
     <types>
@@ -178,6 +182,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>SiteDotCom</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>StandardValueSet</name>
     </types>
     <types>
@@ -216,5 +224,5 @@
         <members>*</members>
         <name>Workflow</name>
     </types>
-    <version>45.0</version>
+    <version>46.0</version>
 </Package>

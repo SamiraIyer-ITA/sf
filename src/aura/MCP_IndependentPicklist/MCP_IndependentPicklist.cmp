@@ -1,0 +1,34 @@
+<aura:component controller="LightningIndependentPicklistController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   
+    <!-- aura attributes--> 
+    <aura:attribute name="parentList" type="list" default="[]" description=""/>
+    <aura:attribute name="childList" type="list" default="[]"/>
+    <aura:attribute name="pickListMap" type="map"/>
+    <aura:attribute name="disabledChildField" type="boolean" default="true"/>
+    
+    <aura:attribute name="objectName" type="string" default="Lead"/>
+    <aura:attribute name="parentFieldAPI" type="string" default="Active__c"/>
+    <aura:attribute name="parentFieldLabel" type="string" />
+    <aura:attribute name="parentValue" type="string" default=""/>
+    <aura:attribute name="currentParentValue" type="string" default=""/>
+    <aura:attribute name="parentFieldPAth" type="string" default=""/>
+    <aura:attribute name="updateValues" type="Aura.action"/>
+    
+   <lightning:card title="">
+        <!-- Controller Field -->
+        <lightning:layoutItem size="12" padding="around-small">    
+            <lightning:select name="parentField" aura:id="parentField"
+                              value="{!v.parentValue}"
+                              label="{!v.parentFieldLabel}"
+                              onchange="{!c.parentFieldChange}">
+                <aura:iteration items="{!v.parentList}" var="value">
+                    <option value="{!value}">{!value}</option>
+                </aura:iteration>
+            </lightning:select>
+        </lightning:layoutItem>
+              
+    </lightning:card>
+	
+</aura:component>
