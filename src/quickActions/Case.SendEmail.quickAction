@@ -41,6 +41,9 @@
         </quickActionLayoutColumns>
         <quickActionLayoutColumns/>
     </quickActionLayout>
+    <quickActionSendEmailOptions>
+        <ignoreDefaultEmailTemplateSubject>false</ignoreDefaultEmailTemplateSubject>
+    </quickActionSendEmailOptions>
     <standardLabel>SendEmail</standardLabel>
     <targetObject>EmailMessage</targetObject>
     <targetParentField>Parent</targetParentField>

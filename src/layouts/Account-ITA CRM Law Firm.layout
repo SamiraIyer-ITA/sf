@@ -287,6 +287,15 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Product_Text__c</fields>
+        <fields>Account__c</fields>
+        <relatedList>Related_Organization__c.Legal_Representation__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <excludeButtons>MailMerge</excludeButtons>
         <excludeButtons>RequestUpdate</excludeButtons>
         <excludeButtons>SendEmail</excludeButtons>
@@ -303,8 +312,8 @@
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
-        <fields>NAME</fields>
         <fields>CASES.SUBJECT</fields>
+        <fields>NAME</fields>
         <fields>CASES.PRIORITY</fields>
         <fields>Actual_Create_Date__c</fields>
         <fields>CASES.STATUS</fields>
@@ -322,14 +331,6 @@
         <relatedList>WIN__c.Organization__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Asc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>ADCVD_Case__c</fields>
-        <fields>Commodity_Text__c</fields>
-        <fields>Account__c</fields>
-        <relatedList>Related_Organization__c.Legal_Representation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

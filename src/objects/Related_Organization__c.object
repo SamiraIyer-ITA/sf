@@ -189,7 +189,7 @@
         <lookupFilter>
             <active>true</active>
             <filterItems>
-                <field>Account.RecordTypeId</field>
+                <field>Account.RecordType.Name</field>
                 <operation>notEqual</operation>
                 <value>ITA CRM Law Firm</value>
             </filterItems>
@@ -340,6 +340,15 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Lead Attorney</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>ITA CRM Law Firm</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Contact</referenceTo>
         <relationshipLabel>ADCVD Cases</relationshipLabel>
         <relationshipName>Interested_Organizations</relationshipName>
@@ -358,7 +367,7 @@
             <active>true</active>
             <errorMessage>There are no law firms that match this search.</errorMessage>
             <filterItems>
-                <field>Account.RecordTypeId</field>
+                <field>Account.RecordType.Name</field>
                 <operation>equals</operation>
                 <value>ITA CRM Law Firm</value>
             </filterItems>
@@ -604,6 +613,39 @@
         </valueSet>
     </fields>
     <label>Interested Organization</label>
+    <listViews>
+        <fullName>All_Interested_Organizations</fullName>
+        <columns>ADCVD_Case__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Legal_Representation__c</columns>
+        <columns>Petition__c</columns>
+        <columns>Investigation__c</columns>
+        <columns>ADCVD_Order__c</columns>
+        <columns>Segment__c</columns>
+        <columns>Litigation__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Interested Orgs By Case</label>
+    </listViews>
+    <listViews>
+        <fullName>Interested_Orgs_by_Law_Firm</fullName>
+        <columns>Legal_Representation__c</columns>
+        <columns>Lead_Attorney__c</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Petition__c</columns>
+        <columns>Investigation__c</columns>
+        <columns>ADCVD_Order__c</columns>
+        <columns>Segment__c</columns>
+        <columns>Litigation__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Interested Orgs by Law Firm</label>
+    </listViews>
     <nameField>
         <displayFormat>IO-{000000}</displayFormat>
         <label>Interested Organization</label>
@@ -2641,12 +2683,15 @@
         <searchFilterFields>ADCVD_Case_Type_Text__c</searchFilterFields>
         <searchFilterFields>ADCVD_Order__c</searchFilterFields>
         <searchFilterFields>Case_Concat_Text__c</searchFilterFields>
-        <searchResultsAdditionalFields>OBJECT_ID</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ADCVD_Case__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Number_Text__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Type_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Legal_Representation__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Petition__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Investigation__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ADCVD_Order__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Case_Concat_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Segment__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Litigation__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>

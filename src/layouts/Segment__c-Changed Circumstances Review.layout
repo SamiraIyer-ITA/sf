@@ -43,10 +43,6 @@
                 <behavior>Edit</behavior>
                 <field>Prelim_Extension__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Final_Extension_of_days__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -54,12 +50,8 @@
                 <field>Initiation_Extension_Remaining__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Preliminary_Extension_Remaining__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Final_Extension_Remaining__c</field>
+                <behavior>Edit</behavior>
+                <field>Final_Extension_of_days__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -72,23 +64,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Actual_Initiation_Issues_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Initiation_Concurrence_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Actual_Initiation_Signature__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Prelim_Issues_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Prelim_Concurrence_to_DAS__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -99,14 +75,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Segment_Outcome__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Final_Issues_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Final_Concurrence_to_DAS__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -351,14 +319,14 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>Edit</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>0</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Share</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>1</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Edit</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>0</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
@@ -390,14 +358,16 @@
         <fields>NAME</fields>
         <fields>Account__c</fields>
         <fields>Type__c</fields>
+        <fields>Lead_Attorney__c</fields>
+        <fields>Legal_Representation__c</fields>
         <relatedList>Related_Organization__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
-        <fields>ADCVD_Case__c</fields>
         <fields>CBP_Case_Number_Text__c</fields>
         <fields>CBP_Instructions_Category__c</fields>
+        <fields>CBP_Instructions_Sub_Category__c</fields>
         <fields>Message_Date__c</fields>
         <fields>Message_No__c</fields>
         <fields>Message_Status__c</fields>

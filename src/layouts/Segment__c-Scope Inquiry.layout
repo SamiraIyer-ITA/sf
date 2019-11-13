@@ -41,14 +41,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Actual_Decision_on_HOP_Issues_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Decision_on_HOP_Concurrence_toDAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Actual_Date_of_Decision_on_HoP__c</field>
             </layoutItems>
         </layoutColumns>
@@ -63,18 +55,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Actual_Prelim_Issues_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Prelim_Concurrence_to_DAS__c</field>
+                <field>Actual_Preliminary_Signature__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Preliminary_Signature__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Was_Product_Prelim_Determine_in_Scope__c</field>
@@ -90,19 +74,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Actual_Final_Issues_to_DAS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Final_Concurrence_to_DAS__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Actual_Final_Signature__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -364,14 +339,16 @@
         <fields>NAME</fields>
         <fields>Account__c</fields>
         <fields>Type__c</fields>
+        <fields>Lead_Attorney__c</fields>
+        <fields>Legal_Representation__c</fields>
         <relatedList>Related_Organization__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
-        <fields>ADCVD_Case__c</fields>
         <fields>CBP_Case_Number_Text__c</fields>
         <fields>CBP_Instructions_Category__c</fields>
+        <fields>CBP_Instructions_Sub_Category__c</fields>
         <fields>Message_Date__c</fields>
         <fields>Message_No__c</fields>
         <fields>Message_Status__c</fields>

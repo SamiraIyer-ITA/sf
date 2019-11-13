@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <excludeButtons>ChangeOwnerOne</excludeButtons>
+    <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -8,32 +9,25 @@
         <detailHeading>false</detailHeading>
         <editHeading>true</editHeading>
         <label>Information</label>
-        <layoutColumns>
-            <layoutItems>
+        <layoutColumns>                                                                                                                                                                                                                       <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>ParticipantNumber__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Name</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Required</behavior>
+                <field>Name</field>                                                                                                                                                                                                           </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Required</behavior>
                 <field>Organization__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Edit</behavior>
                 <field>Public_Display_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Edit</behavior>
                 <field>Program__c</field>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Edit</behavior>
+                <field>Company_Description__c</field>
+            </layoutItems>                                                                                                                                                                                                                    <layoutItems>                                                                                                                                                                                                                         <behavior>Edit</behavior>
+                <field>Able_To_Recertify__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Company_Description__c</field>
-            </layoutItems>
-        </layoutColumns>
+                <field>Application_Status__c</field>
+            </layoutItems>                                                                                                                                                                                                                </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
@@ -192,14 +186,9 @@
             <sortOrder>3</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>ChangeRecordType</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>4</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>PrintableView</actionName>
             <actionType>StandardButton</actionType>
-            <sortOrder>5</sortOrder>
+            <sortOrder>4</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
@@ -226,8 +215,8 @@
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.STATUS</fields>
-        <fields>Case_Owner_Full_Name__c</fields>
         <fields>CASES.CREATED_DATE</fields>
+        <fields>Case_Owner_Full_Name__c</fields>
         <fields>CASES.CLOSED_DATE</fields>
         <relatedList>Case.Participation_Profile__c</relatedList>
         <sortField>CASES.CASE_NUMBER</sortField>

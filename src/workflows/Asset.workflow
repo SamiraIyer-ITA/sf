@@ -230,10 +230,15 @@
     </rules>
     <rules>
         <fullName>Deactivate in 12 months %2B 30</fullName>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Asset.UsageEndDate</field>
             <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Asset.Status</field>
+            <operation>equals</operation>
+            <value>Active</value>
         </criteriaItems>
         <description>Sets the Asset Status to Expired after 1 year and 31 days, and notifies related Contact.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>

@@ -55,7 +55,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>ITA_CRM_Lightning_Page</content>
+        <content>Organization_Record_Page</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -2680,7 +2680,7 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         <fullName>ITA_User_Account_RT</fullName>
         <active>true</active>
         <compactLayoutAssignment>CRM_Organization_Compact_Layout</compactLayoutAssignment>
-        <label>ITA User Account RT</label>
+        <label>ITA CRM Organization</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>

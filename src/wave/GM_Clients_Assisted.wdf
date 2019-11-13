@@ -1,0 +1,924 @@
+{
+  "nodes": {
+    "sfdcDigest Case Contributor For Augment": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "Case_ID__c"
+          },
+          {
+            "name": "Contributor_Name__c"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "Contributor__c"
+          }
+        ],
+        "object": "Case_Contributor__c"
+      }
+    },
+    "filter Case Contributors Create Date": {
+      "action": "filter",
+      "parameters": {
+        "saqlFilter": "'CaseForDates.Actual_Create_Date__c' != null"
+      },
+      "sources": [
+        "augment Case Dates"
+      ]
+    },
+    "slice Case Contributor on Case Create": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "CreatedById"
+          },
+          {
+            "name": "CreatedDate"
+          },
+          {
+            "name": "Date_of_Assist"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "LastModifiedById"
+          },
+          {
+            "name": "LastModifiedDate"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_7_Individual__c"
+          },
+          {
+            "name": "SystemModstamp"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "computeExpression Normalize CC Create Date"
+      ]
+    },
+    "computeExpression isTask Using Prefix": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "label": "isTask",
+            "name": "isTask",
+            "saqlExpression": "case\nwhen starts_with('Id',\"00T\") then\n\"true\"\nelse \"false\"\nend",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "append Case Contributor and Task"
+      ]
+    },
+    "sfdcDigest Case For Augment": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "fiscalMonthOffset": 9,
+            "name": "Actual_Create_Date__c"
+          },
+          {
+            "fiscalMonthOffset": 9,
+            "name": "ClosedDate"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "RecordTypeId"
+          },
+          {
+            "name": "Request_Case_Removal__c"
+          }
+        ],
+        "object": "Case"
+      }
+    },
+    "filter User Unit": {
+      "action": "filter",
+      "parameters": {
+        "saqlFilter": " 'RH_Lev_1_GM_All__c' == \"GM All\""
+      },
+      "sources": [
+        "filter Org Record Type"
+      ]
+    },
+    "computeExpression All": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "defaultValue": "All",
+            "label": "All",
+            "name": "All",
+            "saqlExpression": "\"All\"",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "filter US_Org"
+      ]
+    },
+    "augment Case Contributor Fields": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Id"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "CaseContributor",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "Case_ID__c",
+          "Contributor_Name__c",
+          "Contributor__c"
+        ]
+      },
+      "sources": [
+        "computeExpression isTask Using Prefix",
+        "sfdcDigest Case Contributor For Augment"
+      ]
+    },
+    "slice Case Contributor on Case Closed": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "CreatedById"
+          },
+          {
+            "name": "CreatedDate"
+          },
+          {
+            "name": "Date_of_Assist"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "LastModifiedById"
+          },
+          {
+            "name": "LastModifiedDate"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_7_Individual__c"
+          },
+          {
+            "name": "SystemModstamp"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "computeExpression Normalize CC Close Date"
+      ]
+    },
+    "append Case Contributor and Task": {
+      "action": "append",
+      "parameters": {
+        "enableDisjointedSchemaMerge": false
+      },
+      "sources": [
+        "slice Case Contributor on Case Closed",
+        "slice Case Contributor on Case Create",
+        "slice Task on Create Date"
+      ]
+    },
+    "augment Case Fields": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "CaseContributor.Case_ID__c"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "ParentCase",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "AccountId",
+          "ClosedDate",
+          "Actual_Create_Date__c",
+          "RecordType.DeveloperName",
+          "RecordType.Name",
+          "RecordType.SobjectType",
+          "RecordTypeId",
+          "Request_Case_Removal__c"
+        ]
+      },
+      "sources": [
+        "augment Case Contributor Fields",
+        "augment Case Fields with Record Type"
+      ]
+    },
+    "computeExpression US Export": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "defaultValue": "true",
+            "label": "US Export or Investment",
+            "name": "US_Org",
+            "saqlExpression": "case\nwhen 'Client_Type' == \"Export Client\" && 'ParentOrganization.BillingCountry' != \"United States\" then\n\"false\"\nend",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "computeExpression Normalize Filterable Columns"
+      ]
+    },
+    "update All Organizations with Corrected Country": {
+      "action": "update",
+      "parameters": {
+        "leftKey": [
+          "Id"
+        ],
+        "rightKey": [
+          "Id"
+        ],
+        "updateColumns": {
+          "BillingCountry": "BillingCountry"
+        }
+      },
+      "sources": [
+        "augment Organization Fields with Record Type",
+        "update Country with Global Parent Country"
+      ]
+    },
+    "sfdcDigest Task For Append": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "CreatedById"
+          },
+          {
+            "fiscalMonthOffset": 9,
+            "name": "CreatedDate"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "LastModifiedById"
+          },
+          {
+            "name": "LastModifiedDate"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_7_Individual__c"
+          },
+          {
+            "name": "SystemModstamp"
+          },
+          {
+            "name": "Actual_Create_Date__c"
+          }
+        ],
+        "object": "Task"
+      }
+    },
+    "update Country with Global Parent Country": {
+      "action": "update",
+      "parameters": {
+        "leftKey": [
+          "TracHier__DUNS_Global_Ultimate_Parent__c"
+        ],
+        "rightKey": [
+          "Id"
+        ],
+        "updateColumns": {
+          "BillingCountry": "BillingCountry"
+        }
+      },
+      "sources": [
+        "filter Organizations with Global Parent",
+        "augment Organization Fields with Record Type"
+      ]
+    },
+    "sfdcDigest Record Type": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "DeveloperName"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "Name"
+          },
+          {
+            "name": "SobjectType"
+          }
+        ],
+        "object": "RecordType"
+      }
+    },
+    "computeExpression Normalize CC Create Date": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "format": "MM/dd/yyyy hh:mm:ss a",
+            "label": "Date of Assist",
+            "name": "Date_of_Assist",
+            "saqlExpression": "toDate('CaseForDates.Actual_Create_Date__c_sec_epoch')",
+            "type": "Date"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "filter Case Contributors Create Date"
+      ]
+    },
+    "augment Case Dates": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Case_ID__c"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "CaseForDates",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "ClosedDate",
+          "Actual_Create_Date__c"
+        ]
+      },
+      "sources": [
+        "sfdcDigest Case Contributor For Append",
+        "sfdcDigest Case For Augment"
+      ]
+    },
+    "filter Client_Type": {
+      "action": "filter",
+      "parameters": {
+        "saqlFilter": "'Client_Type'!=\"Non-Client\""
+      },
+      "sources": [
+        "filter User Unit"
+      ]
+    },
+    "augment Organization Fields with Record Type": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "RecordTypeId"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "RecordType",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "DeveloperName",
+          "Name",
+          "SobjectType"
+        ]
+      },
+      "sources": [
+        "sfdcDigest Organization for Augment",
+        "sfdcDigest Record Type"
+      ]
+    },
+    "sfdcRegister Unfiltered Data": {
+      "action": "register",
+      "parameters": {
+        "label": "All Clients Unfiltered",
+        "name": "All_Clients_Unfiltered"
+      },
+      "sources": [
+        "computeExpression US Export"
+      ]
+    },
+    "augment User Fields": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Task.OwnerId"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "TaskOwner",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "Name"
+        ]
+      },
+      "sources": [
+        "augment Task Fields",
+        "sfdcDigest User for Augment"
+      ]
+    },
+    "filter Org Record Type": {
+      "action": "filter",
+      "parameters": {
+        "saqlFilter": "'ParentOrganization.RecordType.DeveloperName' == \"ITA_User_Account_RT\""
+      },
+      "sources": [
+        "computeExpression US Export"
+      ]
+    },
+    "filter Case Contributors Close Date": {
+      "action": "filter",
+      "parameters": {
+        "saqlFilter": "'CaseForDates.ClosedDate' != null"
+      },
+      "sources": [
+        "augment Case Dates"
+      ]
+    },
+    "filter US_Org": {
+      "action": "filter",
+      "parameters": {
+        "saqlFilter": "'US_Org' == \"true\""
+      },
+      "sources": [
+        "filter Client_Type"
+      ]
+    },
+    "augment Organization Fields for Tasks": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Task.AccountId"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "ParentOrganization",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "AnnualRevenue",
+          "BillingCountry",
+          "BillingPostalCode",
+          "BillingState",
+          "BillingStateCode",
+          "Congressional_District_formula__c",
+          "Id",
+          "Industry",
+          "NAICS__c",
+          "Name",
+          "RecordType.DeveloperName",
+          "RecordType.Name",
+          "RecordType.SobjectType",
+          "RecordTypeId",
+          "TracHier__DUNS_Global_Ultimate_Parent__c"
+        ]
+      },
+      "sources": [
+        "augment User Fields",
+        "update All Organizations with Corrected Country"
+      ]
+    },
+    "sfdcRegister All Tasks and Case Contributors": {
+      "action": "register",
+      "parameters": {
+        "label": "All Touches With Global Filters",
+        "name": "All_Touches_With_Global_Filters"
+      },
+      "sources": [
+        "computeExpression All"
+      ]
+    },
+    "slice Task on Create Date": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "CreatedById"
+          },
+          {
+            "name": "CreatedDate"
+          },
+          {
+            "name": "Date_of_Assist"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "LastModifiedById"
+          },
+          {
+            "name": "LastModifiedDate"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_7_Individual__c"
+          },
+          {
+            "name": "SystemModstamp"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "computeExpression Normalize Task Create Date"
+      ]
+    },
+    "computeExpression Normalize Task Create Date": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "format": "MM/dd/yyyy hh:mm:ss a",
+            "label": "Date of Assist",
+            "name": "Date_of_Assist",
+            "saqlExpression": "toDate('Actual_Create_Date__c_sec_epoch')",
+            "type": "Date"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "sfdcDigest Task For Append"
+      ]
+    },
+    "sfdcDigest Task for Augment": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Actual_Create_Date__c"
+          },
+          {
+            "name": "Investment_Promotion__c"
+          },
+          {
+            "name": "IsClosed"
+          },
+          {
+            "name": "RecordTypeId"
+          },
+          {
+            "name": "Status"
+          },
+          {
+            "name": "Type"
+          },
+          {
+            "name": "Related_to_Case__c"
+          },
+          {
+            "name": "OwnerId"
+          },
+          {
+            "name": "Id"
+          }
+        ],
+        "object": "Task"
+      }
+    },
+    "sfdcDigest Organization for Augment": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "BillingCountry"
+          },
+          {
+            "name": "BillingState"
+          },
+          {
+            "name": "BillingStateCode"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "Name"
+          },
+          {
+            "name": "TracHier__DUNS_Global_Ultimate_Parent__c"
+          },
+          {
+            "name": "RecordTypeId"
+          },
+          {
+            "name": "BillingPostalCode"
+          },
+          {
+            "name": "AnnualRevenue"
+          },
+          {
+            "name": "Congressional_District_formula__c"
+          },
+          {
+            "name": "Industry"
+          },
+          {
+            "name": "NAICS__c"
+          }
+        ],
+        "object": "Account"
+      }
+    },
+    "augment Task Fields": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Id"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "Task",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "AccountId",
+          "Actual_Create_Date__c",
+          "Investment_Promotion__c",
+          "IsClosed",
+          "OwnerId",
+          "RecordTypeId",
+          "Related_to_Case__c",
+          "Status",
+          "Type"
+        ]
+      },
+      "sources": [
+        "augment Case Fields",
+        "sfdcDigest Task for Augment"
+      ]
+    },
+    "computeExpression Normalize CC Close Date": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "format": "MM/dd/yyyy hh:mm:ss a",
+            "label": "Date of Assist",
+            "name": "Date_of_Assist",
+            "saqlExpression": "toDate('CaseForDates.ClosedDate_sec_epoch')",
+            "type": "Date"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "filter Case Contributors Close Date"
+      ]
+    },
+    "augment Case Fields with Record Type": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "RecordTypeId"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "RecordType",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "DeveloperName",
+          "Name",
+          "SobjectType"
+        ]
+      },
+      "sources": [
+        "sfdcDigest Case For Augment",
+        "sfdcDigest Record Type"
+      ]
+    },
+    "sfdcDigest User for Augment": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "Name"
+          },
+          {
+            "name": "Id"
+          }
+        ],
+        "object": "User"
+      }
+    },
+    "filter Organizations with Global Parent": {
+      "action": "filter",
+      "parameters": {
+        "saqlFilter": "TracHier__DUNS_Global_Ultimate_Parent__c != null"
+      },
+      "sources": [
+        "augment Organization Fields with Record Type"
+      ]
+    },
+    "sfdcDigest Case Contributor For Append": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "CreatedById"
+          },
+          {
+            "fiscalMonthOffset": 9,
+            "name": "CreatedDate"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "LastModifiedById"
+          },
+          {
+            "name": "LastModifiedDate"
+          },
+          {
+            "name": "SystemModstamp"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_7_Individual__c"
+          },
+          {
+            "name": "Case_ID__c"
+          }
+        ],
+        "object": "Case_Contributor__c"
+      }
+    },
+    "Update Organization Fields for Case Contributor": {
+      "action": "update",
+      "parameters": {
+        "leftKey": [
+          "ParentCase.AccountId"
+        ],
+        "rightKey": [
+          "Id"
+        ],
+        "updateColumns": {
+          "ParentOrganization.RecordType.SobjectType": "RecordType.SobjectType",
+          "ParentOrganization.BillingCountry": "BillingCountry",
+          "ParentOrganization.BillingState": "BillingState",
+          "ParentOrganization.AnnualRevenue": "AnnualRevenue",
+          "ParentOrganization.Congressional_District_formula__c": "Congressional_District_formula__c",
+          "ParentOrganization.Industry": "Industry",
+          "ParentOrganization.Id": "Id",
+          "ParentOrganization.TracHier__DUNS_Global_Ultimate_Parent__c": "TracHier__DUNS_Global_Ultimate_Parent__c",
+          "ParentOrganization.Name": "Name",
+          "ParentOrganization.RecordTypeId": "RecordTypeId",
+          "ParentOrganization.BillingStateCode": "BillingStateCode",
+          "ParentOrganization.BillingPostalCode": "BillingPostalCode",
+          "ParentOrganization.NAICS__c": "NAICS__c",
+          "ParentOrganization.RecordType.Name": "RecordType.Name",
+          "ParentOrganization.RecordType.DeveloperName": "RecordType.DeveloperName"
+        }
+      },
+      "sources": [
+        "augment Organization Fields for Tasks",
+        "update All Organizations with Corrected Country"
+      ]
+    },
+    "computeExpression Normalize Filterable Columns": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "defaultValue": "Non-Client",
+            "label": "Client Type",
+            "name": "Client_Type",
+            "saqlExpression": "case\nwhen 'ParentCase.RecordType.DeveloperName' == \"Investment_Promotion\" then\n\"Investment Client\"\nwhen 'Task.Investment_Promotion__c' == \"true\" then \"Investment Client\"\nwhen 'Task.Investment_Promotion__c' == \"false\" then \"Export Client\"\nwhen 'ParentCase.RecordType.DeveloperName' == \"Advocacy\" then \"Export Client\"\nwhen 'ParentCase.RecordType.DeveloperName' == \"Commercial_Diplomacy\" then \"Export Client\"\nwhen 'ParentCase.RecordType.DeveloperName' == \"Export_Promotion\" then \"Export Client\"\nelse \"Non-Client\"\nend",
+            "type": "Text"
+          },
+          {
+            "label": "Light or InDepth",
+            "name": "Light_InDepth",
+            "saqlExpression": "case\nwhen starts_with('Id',\"00T\") then\n\"Light Touch\"\nelse \"In Depth\"\nend",
+            "type": "Text"
+          },
+          {
+            "label": "Assisting User",
+            "name": "Assisting_User",
+            "saqlExpression": "case\nwhen 'TaskOwner.Name' is not null then\n'TaskOwner.Name'\nwhen 'CaseContributor.Contributor__c' is not null then\n'CaseContributor.Contributor__c'\nend",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "Update Organization Fields for Case Contributor"
+      ]
+    }
+  }
+}

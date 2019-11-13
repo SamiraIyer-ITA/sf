@@ -211,9 +211,6 @@
         <relatedList>Content_Override__c.Site__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <relatedList>Clean_URL__c.Site__c</relatedList>
     </relatedLists>
