@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
+        <fullName>CP_Contact_SHARE</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>CP Contact SHARE</label>
+        <sharedTo>
+            <group>CP_Incoming_Registrations_group</group>
+        </sharedTo>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>LeadSource</field>
+            <operation>equals</operation>
+            <value>Sourced from CP communities</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead_Source_Detail__c</field>
+            <operation>equals</operation>
+            <value>Sourced from CP communities</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>DSP_Contact_Access</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Grants R/W access to the DSP Scrum Team Public Group for Contact records with the Partner Contact Record Type.</description>
