@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>CP_Lead_Assignment</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_Lead_Assignment</shortDescription>
+        <value>CP_US_Exporter</value>
+    </labels>
+    <labels>
         <fullName>CP_temp_password_sent</fullName>
         <categories>CP</categories>
         <language>en_US</language>
