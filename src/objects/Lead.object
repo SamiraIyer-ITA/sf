@@ -1452,7 +1452,7 @@
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>If_Country_is_US_need_state_at_convert</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>If country is US, must indicate a state before you can convert lead to Qualified</description>
         <errorConditionFormula>(Country = &quot;United States&quot;) &amp;&amp; (ISBLANK(State)) &amp;&amp; IsConverted=TRUE</errorConditionFormula>
         <errorDisplayField>State</errorDisplayField>
@@ -1460,7 +1460,7 @@
     </validationRules>
     <validationRules>
         <fullName>Lead_Create_Country_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Must have country to create lead</description>
         <errorConditionFormula>ISBLANK(Country)</errorConditionFormula>
         <errorDisplayField>Country</errorDisplayField>
@@ -1468,14 +1468,14 @@
     </validationRules>
     <validationRules>
         <fullName>Lead_Create_Phone_or_Email</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Must have at least phone or email to create lead</description>
         <errorConditionFormula>ISBLANK(Phone) &amp;&amp; ISBLANK(Email)</errorConditionFormula>
         <errorMessage>You must have either an email address or phone number indicated to save a lead.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lead_Source_Other_must_update_Sor_Detai</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>If Other is selected for lead source, user must enter something in the source detail field.</description>
         <errorConditionFormula>ISPICKVAL( LeadSource , &quot;Other&quot;) &amp;&amp; ISBLANK( Source_Detail__c )</errorConditionFormula>
         <errorDisplayField>Source_Detail__c</errorDisplayField>
