@@ -1481,6 +1481,68 @@
         <errorDisplayField>Source_Detail__c</errorDisplayField>
         <errorMessage>When selecting &quot;Other&quot; for lead source, you must enter an alternative lead source in the Source Detail field.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>V01Explanation_Required_if_Source_Other</fullName>
+        <active>true</active>
+        <description>If Other is selected for lead source, user must enter something in the source detail field.</description>
+        <errorConditionFormula>ISPICKVAL( LeadSource , &quot;Other&quot;) &amp;&amp; ISBLANK( Source_Detail__c ) &amp;&amp; (RecordType.DeveloperName = &quot;Partner_Lead&quot;)</errorConditionFormula>
+        <errorDisplayField>Source_Detail__c</errorDisplayField>
+        <errorMessage>When selecting &quot;Other&quot; for lead source, you must enter an alternative lead source in the Source Detail field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V01Phone_or_Email_Required</fullName>
+        <active>true</active>
+        <description>Must have phone or email to create lead</description>
+        <errorConditionFormula>ISBLANK(Phone) &amp;&amp; ISBLANK(Email)&amp;&amp; (RecordType.DeveloperName = &quot;Partner_Lead&quot;)</errorConditionFormula>
+        <errorMessage>You must have either an email address or phone number indicated to save a lead.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V01Require_Country</fullName>
+        <active>true</active>
+        <description>Must have country to create lead</description>
+        <errorConditionFormula>AND(ISBLANK(Country),(RecordType.DeveloperName = &quot;Partner_Lead&quot;))</errorConditionFormula>
+        <errorDisplayField>Country</errorDisplayField>
+        <errorMessage>To create a lead, you must indicate a Country.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V01Require_State_If_Country_is_USA</fullName>
+        <active>true</active>
+        <description>If country is US, must indicate a state before you can convert lead to Qualified</description>
+        <errorConditionFormula>(Country = &quot;United States&quot;) &amp;&amp; (ISBLANK(State)) &amp;&amp; IsConverted=TRUE &amp;&amp; (RecordType.DeveloperName = &quot;Partner_Lead&quot;)</errorConditionFormula>
+        <errorDisplayField>State</errorDisplayField>
+        <errorMessage>When converting a lead, if Country = US (United States) a State must be indicated.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V02Explanation_Required_if_Source_Other</fullName>
+        <active>true</active>
+        <description>If Other is selected for lead source, user must enter something in the source detail field.</description>
+        <errorConditionFormula>ISPICKVAL( LeadSource , &quot;Other&quot;) &amp;&amp; ISBLANK( Source_Detail__c ) &amp;&amp; (RecordType.DeveloperName = &quot;Standard_Lead&quot;)</errorConditionFormula>
+        <errorDisplayField>Source_Detail__c</errorDisplayField>
+        <errorMessage>When selecting &quot;Other&quot; for lead source, you must enter an alternative lead source in the Source Detail field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V02Phone_or_Email_Required</fullName>
+        <active>true</active>
+        <description>Must have phone or email to create lead</description>
+        <errorConditionFormula>ISBLANK(Phone) &amp;&amp; ISBLANK(Email)&amp;&amp; (RecordType.DeveloperName = &quot;Standard_Lead&quot;)</errorConditionFormula>
+        <errorMessage>You must have either an email address or phone number indicated to save a lead.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V02Require_Country</fullName>
+        <active>true</active>
+        <description>Must have country to create lead</description>
+        <errorConditionFormula>ISBLANK(Country) &amp;&amp; (RecordType.DeveloperName = &quot;Standard_Lead&quot;)</errorConditionFormula>
+        <errorDisplayField>Country</errorDisplayField>
+        <errorMessage>To create a lead, you must indicate a Country.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V02Require_State_If_Country_is_USA</fullName>
+        <active>true</active>
+        <description>If country is US, must indicate a state before you can convert lead to Qualified</description>
+        <errorConditionFormula>(Country = &quot;United States&quot;) &amp;&amp; (ISBLANK(State)) &amp;&amp; IsConverted=TRUE &amp;&amp; (RecordType.DeveloperName = &quot;Standard_Lead&quot;)</errorConditionFormula>
+        <errorDisplayField>State</errorDisplayField>
+        <errorMessage>When converting a lead, if Country = US (United States) a State must be indicated.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>
         <availability>online</availability>
