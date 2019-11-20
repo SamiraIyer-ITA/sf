@@ -18,7 +18,7 @@ public without sharing class MCP_NonSharingUtilityClass {
     }
     
     public static void insertContactRecords(list<contact> contactList){
-        database.insert(contactList);
+        database.upsert(contactList);
     }
     
     //replacing OTB functionaility in order to send back the user a friendlier message

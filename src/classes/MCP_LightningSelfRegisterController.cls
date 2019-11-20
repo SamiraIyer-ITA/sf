@@ -163,10 +163,9 @@ global with sharing class MCP_LightningSelfRegisterController {
             if(test.isRunningTest() == false){
             c.MailingCountry = extraFieldsMapByAPIName.get('Country_1__c').toString();
             }
-            //Removed org fields from contact object was decided that this not the place to store this info
-           // c.Organization_Location__c = extraFieldsMapByAPIName.get('Organization_Location__c').toString();
-           // c.Organization_Type__c = extraFieldsMapByAPIName.get('Organization_Type__c').t
-            database.insert(c);
+            list<contact> newContacts = new list<contact>();
+            newContacts.add(c);
+            MCP_NonSharingUtilityClass.insertContactRecords(newContacts);
          //  MCP_NonSharingUtilityClass.insertContactRecords(cList);
             // create a fake userId for test.
             if (Test.isRunningTest()) {
