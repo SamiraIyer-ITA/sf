@@ -32,7 +32,7 @@ folder. If you don’t receive an email in any of your folders, please alert us 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CPCommunityreCaptchaKey</shortDescription>
-        <value>6LeiwL0UAAAAAGCMnlx9DrcajowCfVF0wjiHlQtC</value>
+        <value>6LfqAcEUAAAAAB_3BjGPNGMvVCVHQBdiIhLdphri</value>
     </labels>
     <labels>
         <fullName>MCP_DuplicateUserName</fullName>
@@ -56,7 +56,7 @@ folder. If you don’t receive an email in any of your folders, please alert us 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CP_ExternalUserAccount</shortDescription>
-        <value>MCP Account</value>
+        <value>CP Account</value>
     </labels>
     <labels>
         <fullName>MCP_FailedToCreateUSer</fullName>
