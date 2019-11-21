@@ -160,7 +160,8 @@ global with sharing class MCP_LightningSelfRegisterController {
             c.Email = email;
             c.Community_User__c = userId;
             c.AccountId = externalUserAccounts[0].id;
-            c.Lead_Source_Detail__c = 'Sourced from CP communities';
+            c.LeadSource = 'Sourced from CP communities';
+            c.RecordTypeId = MCP_NonSharingUtilityClass.getContactRecordType();
             if(test.isRunningTest() == false){
             c.MailingCountry = extraFieldsMapByAPIName.get('Country_1__c').toString();
             } 

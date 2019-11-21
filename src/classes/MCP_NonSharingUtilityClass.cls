@@ -1,5 +1,14 @@
 public without sharing class MCP_NonSharingUtilityClass {
     
+    public static list<Recordtype> contactRecordTypes = new list<Recordtype>();
+
+    
+    public static id getContactRecordType(){
+       
+        return (Schema.SObjectType.Contact.getRecordTypeInfosByName().get('ITA Contacts').getRecordTypeId()); 
+
+    }
+    
     Public static Contact getNewContact(String email, ID accountId){
         list<Contact> ContactList = new list<Contact>();
         ContactList = [select id,AccountId from Contact where email =: email and AccountId =: accountId];
