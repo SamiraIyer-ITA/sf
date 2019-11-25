@@ -9001,14 +9001,6 @@
         <object>Refund__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    <recordTypeVisibilities>
-        <recordType>Order.Service</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <recordType>Order.Standard</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
     <pageAccesses>
         <apexPage>PaymentDetails</apexPage>
         <enabled>true</enabled>
