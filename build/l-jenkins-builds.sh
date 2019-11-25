@@ -110,7 +110,7 @@ classfiles=$sandbox/classfiles
 
 blacklist=build/blacklist
 whitelist=build/whitelist
-# destructiveChanges=./build/`ls build | grep destructiveChanges`
+destructiveChanges=./build/`ls build | grep destructiveChanges`
 # skipUnitTests=build/skipUnitTests
 runUnitTests=build/runUnitTests
 
@@ -121,7 +121,7 @@ function makePackage() {
            [ -f "$antfile" ] && cp "$antfile" $sandbox/src
    done
 
-#   [ -f "$destructiveChanges" ] && echo "Copying $destructiveChanges" && cp $destructiveChanges $sandbox/src
+   [ -f "$destructiveChanges" ] && echo "Copying $destructiveChanges" && cp $destructiveChanges $sandbox/src
 
    while read srcfile; do
         type=`echo "$srcfile" | grep -o '\.[a-zA-Z]*$' | cut -f 2 -d .`
