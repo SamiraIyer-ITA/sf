@@ -9327,6 +9327,10 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <recordType>Order.Standard</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <recordType>Third_Party_Master_List__c.Default</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

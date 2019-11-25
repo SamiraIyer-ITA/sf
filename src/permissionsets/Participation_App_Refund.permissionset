@@ -9220,6 +9220,10 @@ Permission Set created for Technical Team (for Cary Freeman).</description>
         <apexPage>PaymentRefund</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+    <recordTypeVisibilities>
+        <recordType>Order.Standard</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <tabSettings>
         <tab>Payment__c</tab>
         <visibility>Visible</visibility>
