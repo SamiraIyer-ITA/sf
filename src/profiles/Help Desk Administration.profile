@@ -15390,14 +15390,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>PublishArticles</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
-        <name>PublishTranslation</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>QueryAllFiles</name>
     </userPermissions>
     <userPermissions>
