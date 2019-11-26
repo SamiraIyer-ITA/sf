@@ -15538,10 +15538,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>UseAssistantDialog</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>UseMySearch</name>
     </userPermissions>
     <userPermissions>
