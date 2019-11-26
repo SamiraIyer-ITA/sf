@@ -14977,10 +14977,6 @@
         <name>EditTopics</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>EditTranslation</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>EmailAdministration</name>
     </userPermissions>
