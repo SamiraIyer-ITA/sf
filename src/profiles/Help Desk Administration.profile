@@ -15537,10 +15537,6 @@
         <name>UpdateWithInactiveOwner</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>UseQuerySuggestions</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>UseTeamReassignWizards</name>
     </userPermissions>
