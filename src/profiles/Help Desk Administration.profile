@@ -15461,10 +15461,6 @@
         <name>StdAutomaticActivityCapture</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
-        <name>SubmitForTranslation</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
     </userPermissions>
