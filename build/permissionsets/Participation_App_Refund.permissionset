@@ -462,4 +462,8 @@
         <apexPage>PaymentRefund</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+    <recordTypeVisibilities>
+        <recordType>Order.Standard</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
 </PermissionSet>

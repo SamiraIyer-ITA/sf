@@ -1328,6 +1328,10 @@
         <object>iContactforSF__iContact_Temp_Recipient__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <recordTypeVisibilities>
+        <recordType>Order.Standard</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <userPermissions>
         <enabled>true</enabled>
         <name>ApexRestServices</name>

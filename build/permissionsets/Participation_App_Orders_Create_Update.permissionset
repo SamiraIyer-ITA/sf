@@ -345,4 +345,8 @@
         <recordType>Case.U_S_Business</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Order.Standard</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
 </PermissionSet>
