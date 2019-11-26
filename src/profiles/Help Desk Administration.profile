@@ -15538,10 +15538,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>UseMySearch</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>UseQuerySuggestions</name>
     </userPermissions>
     <userPermissions>
