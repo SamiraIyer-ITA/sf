@@ -49,7 +49,7 @@
         <field>ADCVD_Case__c.Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <license>Salesforce</license>
+    <label>ADCVD App: Advanced Rights</label>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
