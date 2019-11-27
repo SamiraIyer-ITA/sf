@@ -74,6 +74,8 @@ global with sharing class MCP_LightningSelfRegisterController {
             l.Email = email;
             l.Company = 'PLEASE UPDATE INFORMATION';
             l.Source_Detail__c = 'Sourced from CP communities';
+            l.LeadSource = 'Sourced from CP communities';
+
             
             // create contact record 
             // find generic account for new External accounts
