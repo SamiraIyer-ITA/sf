@@ -9,7 +9,7 @@ public without sharing class MCP_NonSharingUtilityClass {
 
     }
     
-    public static void updateLeadRecord(Lead newUserLead){
+    public static void upsertLeadRecord(Lead newUserLead){
         if(newUserLead != null){
         database.upsert(newUserLead);
         }

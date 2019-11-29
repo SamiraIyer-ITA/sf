@@ -153,7 +153,7 @@ global with sharing class MCP_LightningSelfRegisterController {
             database.DMLOptions dml = new  database.DMLOptions();
             dml.AssignmentRuleHeader.assignmentRuleId = rules[0].id;
             l.setOptions(dml);
-            MCP_NonSharingUtilityClass.updateLeadRecord(l);
+            MCP_NonSharingUtilityClass.upsertLeadRecord(l);
            // database.insert(l);//  create the lead here
             //if User is created successfully than create a related contact
             if(userId == null){
