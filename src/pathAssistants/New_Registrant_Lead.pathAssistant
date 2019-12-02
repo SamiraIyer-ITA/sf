@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Lead</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>New Registrant Lead</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Organization_Name__c</fieldNames>
+        <fieldNames>Organization_Location__c</fieldNames>
+        <fieldNames>Organization_Type__c</fieldNames>
+        <info>&lt;p&gt;This is a new Registrant from trade.gov that is currently unverified.  Please confirm if the new Registrant belongs to an existing organization in Salesforce or needs a new organization created.  &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Use the New Registrant Contact box on the right to either update to the correct organization or create a new organization.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Account Verified</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Organization_Name__c</fieldNames>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>Phone</fieldNames>
+        <fieldNames>Email</fieldNames>
+        <info>&lt;p&gt;This is a new Registrant from trade.gov that is currently unverified.  Please confirm if the new Registrant belongs to an existing organization in Salesforce or needs a new organization created.  &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Use the New Registrant Contact box on the right to either update to the correct organization or create a new organization.&lt;/p&gt;</info>
+        <picklistValueName>Unverified</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>New_Registrant</recordTypeName>
+</PathAssistant>
