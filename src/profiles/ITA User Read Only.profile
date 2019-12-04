@@ -1978,7 +1978,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
-    <description>For users who need to be active for contributor and approval processes lookups by current users.  Gives minimal access if user logs into the system. User must attend training to get appropriate profile.</description>
+    <description>Default profile automatically assigned to individuals who have taken the Salesforce CBT. Once the training is completed, individuals are instructed to submit a form to the CSC. Salesforce users are created through the Azure AD integration.</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>ADCVD_Case__c.ADCVD_Case_Number__c</field>
