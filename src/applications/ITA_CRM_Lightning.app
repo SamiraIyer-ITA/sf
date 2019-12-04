@@ -1856,48 +1856,39 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>Case_Record_Page</content>
+        <content>New_Registrant_LPL</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Investment_Promotion</recordType>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+        <recordType>Lead.New_Registrant</recordType>
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>Case_Record_Page</content>
+        <content>New_Registrant_LPL</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+        <recordType>Lead.New_Registrant</recordType>
         <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
+        <profile>Core Team</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>Case_Record_Page</content>
+        <content>New_Registrant_LPL</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+        <recordType>Lead.New_Registrant</recordType>
         <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
+        <profile>GM Advocacy</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>Case_Record_Page</content>
+        <content>New_Registrant_LPL</content>
         <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Advocacy</recordType>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+        <recordType>Lead.New_Registrant</recordType>
         <type>Flexipage</type>
-        <profile>Help Desk Specialist</profile>
+        <profile>GM Commercial Service</profile>
     </profileActionOverrides>
     <tabs>standard-home</tabs>
     <tabs>standard-Lead</tabs>
