@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>TANC_Triage_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>TANC_Triage_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Company__c</fields>
+        <fields>Foreign_Countries_Involved__c</fields>
+        <fields>Status__c</fields>
+        <fields>OwnerId</fields>
+        <label>TANC Triage Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object for triage of Commercial Diplomacy before a case is created.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Activities__c</fullName>
+        <description>Action</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the final action on the triage record.</inlineHelpText>
+        <label>Action Taken</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sent to E&amp;C TANC for Action</fullName>
+                    <default>false</default>
+                    <label>Sent to E&amp;C TANC for Action</label>
+                </value>
+                <value>
+                    <fullName>Sent to Other ITA for Action</fullName>
+                    <default>false</default>
+                    <label>Sent to Other ITA for Action</label>
+                </value>
+                <value>
+                    <fullName>Sent to Other USG for Action</fullName>
+                    <default>false</default>
+                    <label>Sent to Other USG for Action</label>
+                </value>
+                <value>
+                    <fullName>Sent to Foreign Government </fullName>
+                    <default>false</default>
+                    <label>Sent to Foreign Government </label>
+                </value>
+                <value>
+                    <fullName>Requested More Information</fullName>
+                    <default>false</default>
+                    <label>Requested More Information</label>
+                </value>
+                <value>
+                    <fullName>Polite response</fullName>
+                    <default>false</default>
+                    <label>Polite response</label>
+                </value>
+                <value>
+                    <fullName>Convert to Case</fullName>
+                    <default>false</default>
+                    <label>Convert to Case</label>
+                </value>
+                <value>
+                    <fullName>Ignore</fullName>
+                    <default>false</default>
+                    <label>Ignore</label>
+                </value>
+                <value>
+                    <fullName>Case Opened by GM/I&amp;A</fullName>
+                    <default>false</default>
+                    <label>Case Opened by GM/I&amp;A</label>
+                </value>
+                <value>
+                    <fullName>--Select--</fullName>
+                    <default>true</default>
+                    <label>--Select--</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Adverse_Impact_on_Exports__c</fullName>
+        <externalId>false</externalId>
+        <label>Adverse Impact on Exports</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Case_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Case Created</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Commercial Diplomacy Triage</relationshipLabel>
+        <relationshipName>Commercial_Diplomacy_Triage</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <description>City of the company&apos;s address</description>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>The action taken by the person reviewing the triage record.</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company__c</fullName>
+        <description>Name of the requester&apos;s company</description>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Convert_to_a_Case__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Convert to a Case</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Country1__c</fullName>
+        <description>Company Address: country</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Country_1</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <description>Company Address: country</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Countries</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Date_Recieved__c</fullName>
+        <description>Date trade barrier information was submitted</description>
+        <externalId>false</externalId>
+        <label>Date Recieved</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Replied__c</fullName>
+        <description>Date replied to the trade barrier inquiry</description>
+        <externalId>false</externalId>
+        <label>Date Replied</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Description_of_Trade_Barrier__c</fullName>
+        <description>description of the trade barrier</description>
+        <externalId>false</externalId>
+        <label>Description of Trade Barrier</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <description>Email provided by the Requester</description>
+        <externalId>false</externalId>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Name__c</fullName>
+        <description>Requester&apos;s first name.</description>
+        <externalId>false</externalId>
+        <label>First Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Foreign_Countries_Involved1__c</fullName>
+        <externalId>false</externalId>
+        <label>Foreign Countries Involved</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Country_1</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Foreign_Countries_Involved__c</fullName>
+        <externalId>false</externalId>
+        <label>Foreign Countries Involved</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Countries</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Foreign_Governments_Involved__c</fullName>
+        <description>The list of foreign governments involved in this trade barrier.</description>
+        <externalId>false</externalId>
+        <label>Foreign Governments Involved</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>HTS_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>HTS Comments</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>How_Referred__c</fullName>
+        <description>To answer the question of how ITA was informed of this trade barrier.</description>
+        <externalId>false</externalId>
+        <label>How Referred</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>--Select--</fullName>
+                    <default>true</default>
+                    <label>--Select--</label>
+                </value>
+                <value>
+                    <fullName>Internet</fullName>
+                    <default>false</default>
+                    <label>Internet (identify site and search terms, if applicable)</label>
+                </value>
+                <value>
+                    <fullName>In-person events (seminar, etc. identify event)</fullName>
+                    <default>false</default>
+                    <label>In-person events (seminar, etc. identify event)</label>
+                </value>
+                <value>
+                    <fullName>Referral/government contact (identify agency)</fullName>
+                    <default>false</default>
+                    <label>Referral/government contact (identify agency)</label>
+                </value>
+                <value>
+                    <fullName>Referral private industry contact (identify company)</fullName>
+                    <default>false</default>
+                    <label>Referral private industry contact (identify company)</label>
+                </value>
+                <value>
+                    <fullName>Referral/trade association (identify association) </fullName>
+                    <default>false</default>
+                    <label>Referral/trade association (identify association) </label>
+                </value>
+                <value>
+                    <fullName>Print (identify publication)</fullName>
+                    <default>false</default>
+                    <label>Print (identify publication)</label>
+                </value>
+                <value>
+                    <fullName>Other media</fullName>
+                    <default>false</default>
+                    <label>Other media</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Phone</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Phone</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Last_Name__c</fullName>
+        <description>The last name of the requester.</description>
+        <externalId>false</externalId>
+        <label>Last Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phone__c</fullName>
+        <description>Requester contact info: phone number</description>
+        <externalId>false</externalId>
+        <label>Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Product_or_Service_Impacted__c</fullName>
+        <description>The product or service being impacted by the trade barrier.</description>
+        <externalId>false</externalId>
+        <label>Product or Service Impacted</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Referral_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Referral Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Request_Summary__c</fullName>
+        <description>The summary based upon the original request</description>
+        <externalId>false</externalId>
+        <label>Request Summary</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Requester_Organization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Requester Organization</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Commercial Diplomacy Triage</relationshipLabel>
+        <relationshipName>Commercial_Diplomacy_Triage</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Requester__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The person who submitted the inquiry.  On creation, manual entry based on other record data; maybe automate based on email?</description>
+        <externalId>false</externalId>
+        <label>Requester</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Commercial Diplomacy Triage</relationshipLabel>
+        <relationshipName>Commercial_Diplomacy_Triage</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Requires_Action_By_Foreign_Government__c</fullName>
+        <externalId>false</externalId>
+        <label>Requires Action By Foreign Government</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Response_Reviewed__c</fullName>
+        <externalId>false</externalId>
+        <label>Response Reviewed</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <description>Company address: the state</description>
+        <externalId>false</externalId>
+        <label>State</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>--Select--</fullName>
+                    <default>true</default>
+                    <label>--Select--</label>
+                </value>
+                <value>
+                    <fullName>Alabama</fullName>
+                    <default>false</default>
+                    <label>Alabama</label>
+                </value>
+                <value>
+                    <fullName>Alaska</fullName>
+                    <default>false</default>
+                    <label>Alaska</label>
+                </value>
+                <value>
+                    <fullName>Arizona</fullName>
+                    <default>false</default>
+                    <label>Arizona</label>
+                </value>
+                <value>
+                    <fullName>Arkansas</fullName>
+                    <default>false</default>
+                    <label>Arkansas</label>
+                </value>
+                <value>
+                    <fullName>California</fullName>
+                    <default>false</default>
+                    <label>California</label>
+                </value>
+                <value>
+                    <fullName>Colorado</fullName>
+                    <default>false</default>
+                    <label>Colorado</label>
+                </value>
+                <value>
+                    <fullName>Connecticut</fullName>
+                    <default>false</default>
+                    <label>Connecticut</label>
+                </value>
+                <value>
+                    <fullName>Delaware</fullName>
+                    <default>false</default>
+                    <label>Delaware</label>
+                </value>
+                <value>
+                    <fullName>Florida</fullName>
+                    <default>false</default>
+                    <label>Florida</label>
+                </value>
+                <value>
+                    <fullName>Georgia</fullName>
+                    <default>false</default>
+                    <label>Georgia</label>
+                </value>
+                <value>
+                    <fullName>Hawaii</fullName>
+                    <default>false</default>
+                    <label>Hawaii</label>
+                </value>
+                <value>
+                    <fullName>Idaho</fullName>
+                    <default>false</default>
+                    <label>Idaho</label>
+                </value>
+                <value>
+                    <fullName>Illinois</fullName>
+                    <default>false</default>
+                    <label>Illinois</label>
+                </value>
+                <value>
+                    <fullName>Indiana</fullName>
+                    <default>false</default>
+                    <label>Indiana</label>
+                </value>
+                <value>
+                    <fullName>Iowa</fullName>
+                    <default>false</default>
+                    <label>Iowa</label>
+                </value>
+                <value>
+                    <fullName>Kansas</fullName>
+                    <default>false</default>
+                    <label>Kansas</label>
+                </value>
+                <value>
+                    <fullName>Kentucky</fullName>
+                    <default>false</default>
+                    <label>Kentucky</label>
+                </value>
+                <value>
+                    <fullName>Louisiana</fullName>
+                    <default>false</default>
+                    <label>Louisiana</label>
+                </value>
+                <value>
+                    <fullName>Maine</fullName>
+                    <default>false</default>
+                    <label>Maine</label>
+                </value>
+                <value>
+                    <fullName>Maryland</fullName>
+                    <default>false</default>
+                    <label>Maryland</label>
+                </value>
+                <value>
+                    <fullName>Massachusetts</fullName>
+                    <default>false</default>
+                    <label>Massachusetts</label>
+                </value>
+                <value>
+                    <fullName>Michigan</fullName>
+                    <default>false</default>
+                    <label>Michigan</label>
+                </value>
+                <value>
+                    <fullName>Minnesota</fullName>
+                    <default>false</default>
+                    <label>Minnesota</label>
+                </value>
+                <value>
+                    <fullName>Mississippi</fullName>
+                    <default>false</default>
+                    <label>Mississippi</label>
+                </value>
+                <value>
+                    <fullName>Missouri</fullName>
+                    <default>false</default>
+                    <label>Missouri</label>
+                </value>
+                <value>
+                    <fullName>Montana</fullName>
+                    <default>false</default>
+                    <label>Montana</label>
+                </value>
+                <value>
+                    <fullName>Nebraska</fullName>
+                    <default>false</default>
+                    <label>Nebraska</label>
+                </value>
+                <value>
+                    <fullName>Nevada</fullName>
+                    <default>false</default>
+                    <label>Nevada</label>
+                </value>
+                <value>
+                    <fullName>New Hampshire</fullName>
+                    <default>false</default>
+                    <label>New Hampshire</label>
+                </value>
+                <value>
+                    <fullName>New Jersey</fullName>
+                    <default>false</default>
+                    <label>New Jersey</label>
+                </value>
+                <value>
+                    <fullName>New Mexico</fullName>
+                    <default>false</default>
+                    <label>New Mexico</label>
+                </value>
+                <value>
+                    <fullName>New York</fullName>
+                    <default>false</default>
+                    <label>New York</label>
+                </value>
+                <value>
+                    <fullName>North Carolina</fullName>
+                    <default>false</default>
+                    <label>North Carolina</label>
+                </value>
+                <value>
+                    <fullName>North Dakota</fullName>
+                    <default>false</default>
+                    <label>North Dakota</label>
+                </value>
+                <value>
+                    <fullName>Ohio</fullName>
+                    <default>false</default>
+                    <label>Ohio</label>
+                </value>
+                <value>
+                    <fullName>Oklahoma</fullName>
+                    <default>false</default>
+                    <label>Oklahoma</label>
+                </value>
+                <value>
+                    <fullName>Oregon</fullName>
+                    <default>false</default>
+                    <label>Oregon</label>
+                </value>
+                <value>
+                    <fullName>Pennsylvania</fullName>
+                    <default>false</default>
+                    <label>Pennsylvania</label>
+                </value>
+                <value>
+                    <fullName>Rhode Island</fullName>
+                    <default>false</default>
+                    <label>Rhode Island</label>
+                </value>
+                <value>
+                    <fullName>South Carolina</fullName>
+                    <default>false</default>
+                    <label>South Carolina</label>
+                </value>
+                <value>
+                    <fullName>South Dakota</fullName>
+                    <default>false</default>
+                    <label>South Dakota</label>
+                </value>
+                <value>
+                    <fullName>Tennessee</fullName>
+                    <default>false</default>
+                    <label>Tennessee</label>
+                </value>
+                <value>
+                    <fullName>Texas</fullName>
+                    <default>false</default>
+                    <label>Texas</label>
+                </value>
+                <value>
+                    <fullName>Utah</fullName>
+                    <default>false</default>
+                    <label>Utah</label>
+                </value>
+                <value>
+                    <fullName>Vermont</fullName>
+                    <default>false</default>
+                    <label>Vermont</label>
+                </value>
+                <value>
+                    <fullName>Virginia</fullName>
+                    <default>false</default>
+                    <label>Virginia</label>
+                </value>
+                <value>
+                    <fullName>Washington</fullName>
+                    <default>false</default>
+                    <label>Washington</label>
+                </value>
+                <value>
+                    <fullName>West Virginia</fullName>
+                    <default>false</default>
+                    <label>West Virginia</label>
+                </value>
+                <value>
+                    <fullName>Wisconsin</fullName>
+                    <default>false</default>
+                    <label>Wisconsin</label>
+                </value>
+                <value>
+                    <fullName>Wyoming</fullName>
+                    <default>false</default>
+                    <label>Wyoming</label>
+                </value>
+                <value>
+                    <fullName>District of Columbia</fullName>
+                    <default>false</default>
+                    <label>District of Columbia</label>
+                </value>
+                <value>
+                    <fullName>Kabul</fullName>
+                    <default>false</default>
+                    <label>Kabul</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Status</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Street_Address__c</fullName>
+        <description>Street address of the company</description>
+        <externalId>false</externalId>
+        <label>Street Address</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>What_does_this_problem_involve__c</fullName>
+        <description>Problem faced by the submitter.</description>
+        <externalId>false</externalId>
+        <label>What does this problem involve?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Foreign government actions affecting Exports FROM the U.S.</fullName>
+                    <default>false</default>
+                    <label>Foreign government actions affecting Exports FROM the U.S.</label>
+                </value>
+                <value>
+                    <fullName>Foreign government actions affecting Exports INTO the U.S.</fullName>
+                    <default>false</default>
+                    <label>Foreign government actions affecting Exports INTO the U.S.</label>
+                </value>
+                <value>
+                    <fullName>--Select--</fullName>
+                    <default>true</default>
+                    <label>--Select--</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Zip_Postal_Code__c</fullName>
+        <description>Company Address: zip code</description>
+        <externalId>false</externalId>
+        <label>Zip/Postal Code</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zPostal_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>ZIP Postal Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Commercial Diplomacy Triage</label>
+    <listViews>
+        <fullName>All1</fullName>
+        <columns>NAME</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>A-{0000}</displayFormat>
+        <label>Commercial Diplomacy Triage Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Commercial Diplomacy Triage</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Character_Limit_for_Referral_Details</fullName>
+        <active>false</active>
+        <description>The Referral Details should not allow more than a 255 character and a notification should alert the user</description>
+        <errorConditionFormula>LEN( Referral_Details__c ) &gt;= 7</errorConditionFormula>
+        <errorDisplayField>Referral_Details__c</errorDisplayField>
+        <errorMessage>You cannot enter characters over 255.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
