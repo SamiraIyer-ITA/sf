@@ -7,7 +7,7 @@
   </fieldPermissions>
   <fieldPermissions>
       <editable>false</editable>
-      <field>Contact.Prior_Account_Name__c</field>
+      <field>Contact.Sys_Prior_Account_Name__c</field>
       <readable>true</readable>
   </fieldPermissions>
   <layoutAssignments>
