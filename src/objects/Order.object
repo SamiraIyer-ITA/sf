@@ -280,6 +280,41 @@
         <filterScope>Everything</filterScope>
         <label>All Orders</label>
     </listViews>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Legacy</fullName>
+        <active>true</active>
+        <description>Legacy order record type</description>
+        <label>Legacy</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Service</fullName>
+        <active>true</active>
+        <description>Service order record type</description>
+        <label>Service</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ORDERS.ORDER_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>SALES.ACCOUNT.NAME</customTabListAdditionalFields>
