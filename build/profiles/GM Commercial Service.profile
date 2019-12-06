@@ -5,6 +5,11 @@
       <field>Lead.Registrant__c</field>
       <readable>true</readable>
   </fieldPermissions>
+  <fieldPermissions>
+      <editable>false</editable>
+      <field>Contact.Prior_Account_Name__c</field>
+      <readable>true</readable>
+  </fieldPermissions>
   <layoutAssignments>
       <layout>Lead-New Registrant</layout>
       <recordType>Lead.New_Registrant</recordType>
