@@ -282,10 +282,10 @@
     </listViews>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
-        <fullName>Standard</fullName>
+        <fullName>Legacy</fullName>
         <active>true</active>
-        <description>Standard order record type</description>
-        <label>Standard</label>
+        <description>Legacy order record type</description>
+        <label>Legacy</label>
         <picklistValues>
             <picklist>Status</picklist>
             <values>
@@ -301,8 +301,8 @@
     <recordTypes>
         <fullName>Service</fullName>
         <active>true</active>
-        <description>Services order record type</description>
-        <label>Services</label>
+        <description>Service order record type</description>
+        <label>Service</label>
         <picklistValues>
             <picklist>Status</picklist>
             <values>
