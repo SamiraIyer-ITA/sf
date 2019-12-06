@@ -432,18 +432,6 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
-        <fullName>Prior_Account_Name__c</fullName>
-        <description>Used in a validation rule - not displayed.</description>
-        <externalId>false</externalId>
-        <formula>Account.Name</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Prior Account Name</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Registered_Community_Member__c</fullName>
         <description>Field is checked if this Contact is a Community User</description>
         <externalId>false</externalId>
@@ -510,6 +498,18 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sys_Prior_Account_Name__c</fullName>
+        <description>Used in a validation rule - not displayed.</description>
+        <externalId>false</externalId>
+        <formula>Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sys Prior Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Test__c</fullName>
@@ -790,7 +790,7 @@
 Add System admin condition eventually.
 $Profile.Name &lt;&gt; &quot;System Administrator&quot;,</description>
         <errorConditionFormula>AND(
-PRIORVALUE( Prior_Account_Name__c) &lt;&gt; $Label.MCP_ExternalUserAccount,
+PRIORVALUE( Sys_Prior_Account_Name__c) &lt;&gt; $Label.MCP_ExternalUserAccount,
 $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
 $Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;,
 $Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
