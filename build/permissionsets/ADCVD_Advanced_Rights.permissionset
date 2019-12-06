@@ -1329,6 +1329,10 @@
         <object>iContactforSF__iContact_Temp_Recipient__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <recordTypeVisibilities>
+        <recordType>Order.Legacy</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <tabSettings>
         <tab>Custom_Instruction__c</tab>
         <visibility>Visible</visibility>

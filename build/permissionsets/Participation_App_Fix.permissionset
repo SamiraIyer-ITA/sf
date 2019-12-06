@@ -332,6 +332,10 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <recordTypeVisibilities>
+        <recordType>Order.Legacy</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <recordType>Participation__c.Privacy_Shield</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
