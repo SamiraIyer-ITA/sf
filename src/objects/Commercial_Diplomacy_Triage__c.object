@@ -46,7 +46,6 @@
         <fullName>TANC_Triage_Layout</fullName>
         <fields>Name</fields>
         <fields>Company__c</fields>
-        <fields>Foreign_Countries_Involved__c</fields>
         <fields>Status__c</fields>
         <fields>OwnerId</fields>
         <label>TANC Triage Layout</label>
@@ -237,20 +236,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Country__c</fullName>
-        <description>Company Address: country</description>
-        <externalId>false</externalId>
-        <label>Country</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>Countries</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Date_Recieved__c</fullName>
         <description>Date trade barrier information was submitted</description>
         <externalId>false</externalId>
@@ -316,29 +301,6 @@
             <restricted>true</restricted>
             <valueSetName>Country_1</valueSetName>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>Foreign_Countries_Involved__c</fullName>
-        <externalId>false</externalId>
-        <label>Foreign Countries Involved</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>Countries</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Foreign_Governments_Involved__c</fullName>
-        <description>The list of foreign governments involved in this trade barrier.</description>
-        <externalId>false</externalId>
-        <label>Foreign Governments Involved</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>HTS_Comments__c</fullName>
@@ -459,44 +421,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Request_Summary__c</fullName>
-        <description>The summary based upon the original request</description>
-        <externalId>false</externalId>
-        <label>Request Summary</label>
-        <length>1000</length>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Requester_Organization__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Requester Organization</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Commercial Diplomacy Triage</relationshipLabel>
-        <relationshipName>Commercial_Diplomacy_Triage</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Requester__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>The person who submitted the inquiry.  On creation, manual entry based on other record data; maybe automate based on email?</description>
-        <externalId>false</externalId>
-        <label>Requester</label>
-        <referenceTo>Contact</referenceTo>
-        <relationshipLabel>Commercial Diplomacy Triage</relationshipLabel>
-        <relationshipName>Commercial_Diplomacy_Triage</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Requires_Action_By_Foreign_Government__c</fullName>
