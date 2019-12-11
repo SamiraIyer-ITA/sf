@@ -50,16 +50,6 @@
     </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Organization_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.Organization_Location__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead.Confirm_Email__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -69,6 +59,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Organization_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Organization_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+</Profile>
         <editable>true</editable>
         <field>Lead.Organization_Name__c</field>
         <readable>true</readable>
