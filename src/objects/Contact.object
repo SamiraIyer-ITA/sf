@@ -161,6 +161,15 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>CP_Conversion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Conversion Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>CTS_Contact_ID__c</fullName>
         <description>Legacy Contact ID for easy data loading and validation.</description>
         <externalId>true</externalId>
@@ -645,6 +654,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Sourced_from_CP_communities</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Strategic Partner</fullName>
                 <default>false</default>
             </values>
@@ -703,6 +716,10 @@
             </values>
             <values>
                 <fullName>Referral %2F Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sourced_from_CP_communities</fullName>
                 <default>false</default>
             </values>
             <values>
