@@ -37,17 +37,24 @@
                 }  
                 // set the parent picklist
                 component.set("v.parentList", parentField);
+                
             }
         });
         
         $A.enqueueAction(action);
 	},
     
+    
     updateChildfield : function(component, event, helper) {
+        console.log('fire update child');
          helper.picklistUpdates(component, event);        
     },
 
+    
+    
     parentFieldChange : function(component, event, helper) {
+                console.log('fire parent update');
+
     	var controllerValue = component.find("parentField").get("v.value");// We can also use event.getSource().get("v.value")
         var pickListMap = component.get("v.pickListMap");
           if (controllerValue != '--- None ---') {
@@ -65,10 +72,13 @@
             }else{
                 component.set("v.disabledChildField" , true); 
             }
+            
         } else {
             component.set("v.childList", ['--- None ---']);
             component.set("v.disabledChildField" , true);
         }
       		helper.picklistUpdates(component, event);
+        
 	}
+    
 })

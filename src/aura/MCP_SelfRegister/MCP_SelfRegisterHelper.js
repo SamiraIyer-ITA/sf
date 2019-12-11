@@ -9,10 +9,12 @@
     
     UpdateFieldValuesDependant: function (component, event, helpler) {
         var mylist = component.get("v.extraFields");
-        var ParentSet = objChild.get('v.currentParentValue'); //component.find("Parent");
-        var childSet =  objChild.get('v.currentChildValue'); //component.find("Child");
-        var parentFieldPath = objChild.get('v.parentFieldAPI');
-        var childFieldPath =  objChild.get('v.childFieldAPI');
+        var ParentSet = event.getParam("parentValue"); //objChild.get('v.currentParentValue'); //component.find("Parent");
+        var childSet = 	 event.getParam("childValue");			// objChild.get('v.currentChildValue'); //component.find("Child");
+        var parentFieldPath = event.getParam("parentPath");	 ; //''objChild.get('v.parentFieldAPI');
+        var childFieldPath  = event.getParam("childPath");	; // objChild.get('v.childFieldAPI');
+                console.log('show captured values in parent ' + ParentSet + '  :' +  childSet + parentFieldPath + childFieldPath);
+
         var baseFeldPath;
         var index;
         
@@ -32,18 +34,28 @@
     },
     
     UpdateFieldValuesIndependant: function (component, event, helpler) {
+        console.log('indi helper reached');
         var mylist = component.get("v.extraFields");
-        var ParentSet = objChild.get('v.currentParentValue'); //component.find("Parent");
-        var parentFieldPath = objChild.get('v.parentFieldAPI');
-        var baseFeldPath;
-        var index;
+        var ParentSet = event.getParam("parentValue"); //objChild.get('v.currentParentValue'); //component.find("Parent");
+        var parentFieldPath = event.getParam("parentPath");	  //''objChild.get('v.parentFieldAPI');        
+                console.log('show captured values in parent ' + ParentSet + '  :' + parentFieldPath );
+        console.log('the list ' + mylist);
+        
+       var index;
+
         
         if(mylist != null)
         {
+            console.log('list found!');
             for (index in mylist) { 
+                console.log(mylist[index].pickListData.isPickList);
                 if(mylist[index].pickListData.isPickList){
                     if(mylist[index].name == parentFieldPath){
                         mylist[index].value = ParentSet; //component.find('Parent').get("v.value");
+                        if(mylist[index].name == 'Country_1__c'){
+                           component.set("v.country", ParentSet);
+                        }
+                        console.log('updating indi field');
                     }
                 }
             }

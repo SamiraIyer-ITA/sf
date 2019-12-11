@@ -1,14 +1,5 @@
 public without sharing class MCP_NonSharingUtilityClass {
     
-    public static list<Recordtype> contactRecordTypes = new list<Recordtype>();
-
-    
-    public static id getContactRecordType(){
-       
-        return (Schema.SObjectType.Contact.getRecordTypeInfosByName().get('ITA Contacts').getRecordTypeId()); 
-
-    }
-    
     Public static Contact getNewContact(String email, ID accountId){
         list<Contact> ContactList = new list<Contact>();
         ContactList = [select id,AccountId from Contact where email =: email and AccountId =: accountId];
@@ -27,7 +18,7 @@ public without sharing class MCP_NonSharingUtilityClass {
     }
     
     public static void insertContactRecords(list<contact> contactList){
-        database.upsert(contactList);
+        database.insert(contactList);
     }
     
     //replacing OTB functionaility in order to send back the user a friendlier message
@@ -36,6 +27,15 @@ public without sharing class MCP_NonSharingUtilityClass {
         if(vaildateList.isempty()){
             system.debug('run querry !! on '  + userName );
             vaildateList = [select id from user where email =: userName];
+                        system.debug('run querry !!' + vaildateList);
+
+            if(vaildateList.isEmpty()){
+                return true;
+            }
+        }
+        return false; 
+    }
+}
                         system.debug('run querry !!' + vaildateList);
 
             if(vaildateList.isEmpty()){

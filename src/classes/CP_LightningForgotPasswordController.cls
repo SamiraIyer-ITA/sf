@@ -1,9 +1,9 @@
-global class LightningForgotPasswordController {
-
-    public LightningForgotPasswordController() {
-
+global class CP_LightningForgotPasswordController {
+    
+    public CP_LightningForgotPasswordController() {
+        
     }
-
+    
     @AuraEnabled
     public static String forgotPassword(String username, String checkEmailUrl) {
         system.debug('firing off password');
@@ -20,13 +20,20 @@ global class LightningForgotPasswordController {
             return ex.getMessage();
         }
     }
-
+    
     @AuraEnabled
     global static String setExperienceId(String expId) {    
         // Return null if there is no error, else it will return the error message 
         try {
             if (expId != null) {
-                Site.setExperienceId(expId);               
+                if(TEST.isRunningTest()){
+                    system.debug('REPORT MESSAGE TO COMMINITY PAGE!');
+                    return expId;
+                }
+                else
+                {
+                    Site.setExperienceId(expId); 
+                }
             }
             return null; 
         } catch (Exception ex) {

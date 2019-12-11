@@ -15,20 +15,25 @@
     <aura:attribute name="currentParentValue" type="string" default=""/>
     <aura:attribute name="parentFieldPAth" type="string" default=""/>
     <aura:attribute name="updateValues" type="Aura.action"/>
-    
-   <lightning:card title="">
+       <aura:registerEvent name="MCP_IndependentPickListUpdate" type="c:MCP_IndependentPickListUpdate"/>
         <!-- Controller Field -->
-        <lightning:layoutItem size="12" padding="around-small">    
+       <!-- <lightning:layoutItem size="12" padding="around-small">    -->
+
+    	<div class="slds-form slds-grid slds-wrap" >
+    		<div class="slds-size_2-of-8 slds-text-align_center"><br></br>{!v.parentFieldLabel}</div>
+            <div class="slds-size_1-of-8"> <span></span></div>
             <lightning:select name="parentField" aura:id="parentField"
                               value="{!v.parentValue}"
-                              label="{!v.parentFieldLabel}"
-                              onchange="{!c.parentFieldChange}">
+                              label=""
+                              onchange="{!c.parentFieldChange}"
+                              class="slds-size_3-of-8 slds-text-align_left .slds-col_bump-left
+">
                 <aura:iteration items="{!v.parentList}" var="value">
                     <option value="{!value}">{!value}</option>
                 </aura:iteration>
             </lightning:select>
-        </lightning:layoutItem>
-              
-    </lightning:card>
-	
+    	</div>
+       <!-- </lightning:layoutItem> -->
+    <!-- {!v.parentFieldLabel} -->
+             
 </aura:component>

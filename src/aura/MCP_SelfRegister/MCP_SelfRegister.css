@@ -1,18 +1,31 @@
-.THIS #sfdc_username_container{
+.THIS .cp_container{
     margin-bottom:10px;
-    padding: 12px;
+    padding: 2px;
     background-color:white;
-    border: 1px solid #CCC;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    border: 1px solid #cccccc;
+    border-color: rgb(216, 221, 230);
+    box-shadow: none;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
+
+.THIS .RoundedBox {
+    border-radius: 25px;
+    background: #abfeae;
+    border-color : #cedfea;
+    border: 21px solid #609;
+    padding: 0px;
+    width: 325px;
+    height: 150px;  
+}
+
 
 .THIS #sfdc_nickname_container{
     margin-bottom:10px;
     padding: 12px;
     background-color:white;
-    border: 1px solid #CCC;
+    border: 1px solid #cccccc;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -22,7 +35,7 @@
     margin-bottom:10px;
     padding: 12px;
     background-color:white;
-    border: 1px solid #CCC;
+    border: 1px solid #cccccc;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -32,7 +45,7 @@
     margin-bottom:10px;
     padding: 12px;
     background-color:white;
-    border: 1px solid #CCC;
+    border: 1px solid #cccccc;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -40,8 +53,8 @@
 
 .THIS #sfdc_user{
     float:left;
-    width:23px;
-    height:25px;
+    width:10px;
+    height:10px;
     padding-top:1px;
     padding-left:2px;
     margin:0px;
@@ -65,7 +78,7 @@
     margin-bottom:10px;
     padding: 12px;
     background-color:white;
-    border: 1px solid #CCC;
+    border: 1px solid #cccccc;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -74,18 +87,42 @@
 .THIS #sfdc_confirm_password_container{
     padding: 12px;
     background-color:white;
-    border: 1px solid #CCC;
+    border: 1px solid #cccccc;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
 }
 
-.THIS  button.sfdc_button {
+.THIS #recaptcha_container{
+    margin-bottom:10px;
+    padding: 12px;
+    background-color:white;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+
+
+.THIS .myBtn  {
+    width: 350px;
+    background-color: #004173;  
+    color: #ffffff
+   
+}
+.THIS .myBtnDisabled  {
+    width: 350px;
+      
+   
+}
+
+
+.THIS button.sfdc_button {
     width: 100%;
     margin-top: 15px;
     margin-bottom: 5px;
     color: #fff;
-    background-color: #0070d2;
     border-color: #357ebd;
     display: inline-block;
     text-align: center;
@@ -113,8 +150,9 @@
 .THIS  input {
     margin-left:10px;
     margin-top: 3px;
-    border: 0px solid transparent;
-    width: 70%;
+    border: 1px solid ;
+    border-color : #000000;
+    width: 100%;
     -webkit-appearance: none;
     font-size: 14px;
 }

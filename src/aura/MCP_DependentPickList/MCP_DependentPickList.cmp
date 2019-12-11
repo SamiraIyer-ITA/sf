@@ -7,7 +7,6 @@
     <aura:attribute name="childList" type="list" default="[]"/>
     <aura:attribute name="pickListMap" type="map"/>
     <aura:attribute name="disabledChildField" type="boolean" default="true"/>
-    
     <aura:attribute name="objectName" type="string" default="Lead"/>
     <aura:attribute name="parentFieldAPI" type="string" default="Active__c"/>
     <aura:attribute name="childFieldAPI" type="string" default="CustomerPriority__c"/>
@@ -21,33 +20,44 @@
     <aura:attribute name="childFieldPAth" type="string" default=""/>
     <aura:attribute name="independantFieldPath" type="string" default=""/>
     <aura:attribute name="updateValues" type="Aura.action"/>
-    
-   <lightning:card title="">
+    <aura:registerEvent name="MCP_DependentPickListUpdate" type="c:MCP_DependentPickListUpdate"/>
         <!-- Controller Field -->
-        <lightning:layoutItem size="12" padding="around-small">    
+        <!-- <lightning:layoutItem size="12" padding="around-small">    -->
+    	<div class="slds-form slds-grid slds-wrap" >
+            <div class="slds-size_3-of-12 "><br></br>{!v.parentFieldLabel}</div>
+            <div class="slds-size_1-of-12 "> <span></span> </div>
             <lightning:select name="parentField" aura:id="parentField"
                               value="{!v.parentValue}"
-                              label="{!v.parentFieldLabel}"
-                              onchange="{!c.parentFieldChange}">
+                              label=""
+                              onchange="{!c.parentFieldChange}"
+                              class="slds-size_5-of-12">
+                            <div class="slds-size_3-of-12 "> <span></span> </div>
+
                 <aura:iteration items="{!v.parentList}" var="value">
                     <option value="{!value}">{!value}</option>
                 </aura:iteration>
             </lightning:select>
-        </lightning:layoutItem>
+    </div>
+        	<div class="slds-form slds-grid slds-wrap" >
+
+        <!--</lightning:layoutItem> -->
         
         <!--Dependent Field-->
-        <lightning:layoutItem size="12" padding="around-small">
+        <!--<lightning:layoutItem size="12" padding="around-small">-->
+            <div class="slds-size_3-of-12 "><br></br> {!v.childFieldLabel}</div>
+                            <div class="slds-size_1-of-12 "> <span>   </span> </div>
+
             <lightning:select name="childField"
                                aura:id="childField"
                               value="{!v.childValue}"
-                              label="{!v.childFieldLabel}"
+                              label=""
                               onchange="{!c.updateChildfield}"
-                              disabled="{!v.disabledChildField}">
+                              disabled="{!v.disabledChildField}"
+                              class="slds-size_5-of-12 slds-col_bump-right">
                 <aura:iteration items="{!v.childList}" var="value">
                     <option value="{!value}">{!value}</option>
                 </aura:iteration>
             </lightning:select>
-        </lightning:layoutItem>
-    </lightning:card>
-	
+        <!--</lightning:layoutItem> {!v.childFieldLabel}-->
+    	</div>
 </aura:component>
