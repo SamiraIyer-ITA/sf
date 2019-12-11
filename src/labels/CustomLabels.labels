@@ -32,7 +32,7 @@ folder. If you don’t receive an email in any of your folders, please alert us 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CPCommunityreCaptchaKey</shortDescription>
-        <value>6LfqAcEUAAAAAB_3BjGPNGMvVCVHQBdiIhLdphri</value>
+        <value>6LeiwL0UAAAAAGCMnlx9DrcajowCfVF0wjiHlQtC</value>
     </labels>
     <labels>
         <fullName>MCP_DuplicateUserName</fullName>
@@ -81,6 +81,14 @@ folder. If you don’t receive an email in any of your folders, please alert us 
         <protected>false</protected>
         <shortDescription>CP_GenricAccountNotFound</shortDescription>
         <value>Generic account for external user not found please contact your administrator</value>
+    </labels>
+    <labels>
+        <fullName>MPCFieldSet</fullName>
+        <categories>MCP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MCPFieldSet</shortDescription>
+        <value>MPCRegFields</value>
     </labels>
     <labels>
         <fullName>cp_community_address</fullName>
