@@ -509,6 +509,18 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Sys_Prior_Account_Name__c</fullName>
+        <description>Used in a validation rule - not displayed.</description>
+        <externalId>false</externalId>
+        <formula>Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sys Prior Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Test__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Field used for data migration purposes.</description>
@@ -795,7 +807,8 @@
 Add System admin condition eventually.
 $Profile.Name &lt;&gt; &quot;System Administrator&quot;,</description>
         <errorConditionFormula>AND(
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+PRIORVALUE( Sys_Prior_Account_Name__c) &lt;&gt; $Label.MCP_ExternalUserAccount,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
 $Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;,
 $Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
 ISCHANGED(AccountId)

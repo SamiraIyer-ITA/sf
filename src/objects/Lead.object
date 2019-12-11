@@ -77,6 +77,23 @@
         <type>Flexipage</type>
     </actionOverrides>
     <businessProcesses>
+        <fullName>New Registrant</fullName>
+        <description>The process for converting a lead created from a newly registered website user</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Account Verified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unverified</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>Partner Lead Process</fullName>
         <description>Process for Leads of Partner Contacts and Accounts.</description>
         <isActive>true</isActive>
@@ -118,30 +135,45 @@
         </values>
     </businessProcesses>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>New_Registrant</fullName>
+        <fields>Name</fields>
+        <fields>Organization_Location__c</fields>
+        <fields>Organization_Type__c</fields>
+        <fields>Organization_Name__c</fields>
+        <fields>Phone</fields>
+        <fields>Email</fields>
+        <label>New Registrant</label>
+    </compactLayouts>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <fieldSets>
         <fullName>MCP_REGFIELDS</fullName>
         <description>Field set to add extra fields to the MCP Registration community form</description>
         <displayedFields>
-            <field>Email</field>
+            <field>Confirm_Email__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Organization_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Country_1__c</field>
+            <field>Organization_Location__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Organization_Name__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Country_1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>PostalCode</field>
@@ -149,6 +181,41 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>MCP_REGFIELDS</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>MPCRegFields</fullName>
+        <description>Used to add extra fields to the MPC Registration community form</description>
+        <displayedFields>
+            <field>Confirm_Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Organization_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Organization_Location__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Organization_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Country_1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PostalCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>MPCRegFields</label>
     </fieldSets>
     <fields>
         <fullName>APIEndpoint__c</fullName>
@@ -527,7 +594,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+       <fields>
         <fullName>Investment_Promotion__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -634,6 +701,30 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Organization_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Organization Location</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Located in US</fullName>
+                    <default>false</default>
+                    <label>Located in US</label>
+                </value>
+                <value>
+                    <fullName>Located outside US</fullName>
+                    <default>false</default>
+                    <label>Located outside US</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Organization_Name__c</fullName>
         <externalId>false</externalId>
         <label>Organization Name</label>
@@ -651,7 +742,7 @@
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
-            <controllingField>Country_1__c</controllingField>
+            <controllingField>Organization_Location__c</controllingField>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -847,1753 +938,80 @@
                 </value>
             </valueSetDefinition>
             <valueSettings>
-                <controllingFieldValue>Uzbekistan</controllingFieldValue>
-                <controllingFieldValue>Japan</controllingFieldValue>
-                <controllingFieldValue>Vanuatu</controllingFieldValue>
-                <controllingFieldValue>Jersey</controllingFieldValue>
-                <controllingFieldValue>Venezuela, Bolivarian Republic of</controllingFieldValue>
-                <controllingFieldValue>Jordan</controllingFieldValue>
-                <controllingFieldValue>Kazakhstan</controllingFieldValue>
-                <controllingFieldValue>Virgin Islands, British</controllingFieldValue>
-                <controllingFieldValue>Kenya</controllingFieldValue>
-                <controllingFieldValue>Wallis and Futuna</controllingFieldValue>
-                <controllingFieldValue>Kiribati</controllingFieldValue>
-                <controllingFieldValue>Western Sahara</controllingFieldValue>
-                <controllingFieldValue>Korea, Democratic People’s Republic of</controllingFieldValue>
-                <controllingFieldValue>Yemen</controllingFieldValue>
-                <controllingFieldValue>Korea, Republic of</controllingFieldValue>
-                <controllingFieldValue>Zambia</controllingFieldValue>
-                <controllingFieldValue>Kuwait</controllingFieldValue>
-                <controllingFieldValue>Zimbabwe</controllingFieldValue>
-                <controllingFieldValue>Kyrgyzstan</controllingFieldValue>
-                <controllingFieldValue>Argentina</controllingFieldValue>
-                <controllingFieldValue>Armenia</controllingFieldValue>
-                <controllingFieldValue>Aruba</controllingFieldValue>
-                <controllingFieldValue>Australia</controllingFieldValue>
-                <controllingFieldValue>Austria</controllingFieldValue>
-                <controllingFieldValue>Azerbaijan</controllingFieldValue>
-                <controllingFieldValue>Bahamas</controllingFieldValue>
-                <controllingFieldValue>Bahrain</controllingFieldValue>
-                <controllingFieldValue>Bangladesh</controllingFieldValue>
-                <controllingFieldValue>Barbados</controllingFieldValue>
-                <controllingFieldValue>Lao People’s Democratic Republic</controllingFieldValue>
-                <controllingFieldValue>Latvia</controllingFieldValue>
-                <controllingFieldValue>Afghanistan</controllingFieldValue>
-                <controllingFieldValue>Lebanon</controllingFieldValue>
-                <controllingFieldValue>Aland Islands</controllingFieldValue>
-                <controllingFieldValue>Lesotho</controllingFieldValue>
-                <controllingFieldValue>Albania</controllingFieldValue>
-                <controllingFieldValue>Liberia</controllingFieldValue>
-                <controllingFieldValue>Algeria</controllingFieldValue>
-                <controllingFieldValue>Libyan Arab Jamahiriya</controllingFieldValue>
-                <controllingFieldValue>Andorra</controllingFieldValue>
-                <controllingFieldValue>Liechtenstein</controllingFieldValue>
-                <controllingFieldValue>Angola</controllingFieldValue>
-                <controllingFieldValue>Lithuania</controllingFieldValue>
-                <controllingFieldValue>Anguilla</controllingFieldValue>
-                <controllingFieldValue>Luxembourg</controllingFieldValue>
-                <controllingFieldValue>Antarctica</controllingFieldValue>
-                <controllingFieldValue>Macao</controllingFieldValue>
-                <controllingFieldValue>Antigua and Barbuda</controllingFieldValue>
-                <controllingFieldValue>Belarus</controllingFieldValue>
-                <controllingFieldValue>Belgium</controllingFieldValue>
-                <controllingFieldValue>Belize</controllingFieldValue>
-                <controllingFieldValue>Benin</controllingFieldValue>
-                <controllingFieldValue>Bermuda</controllingFieldValue>
-                <controllingFieldValue>Bhutan</controllingFieldValue>
-                <controllingFieldValue>Bolivia, Plurinational State of</controllingFieldValue>
-                <controllingFieldValue>Bonaire, Sint Eustatius and Saba</controllingFieldValue>
-                <controllingFieldValue>Bosnia and Herzegovina</controllingFieldValue>
-                <controllingFieldValue>Botswana</controllingFieldValue>
-                <controllingFieldValue>Macedonia, the former Yugoslav Republic of</controllingFieldValue>
-                <controllingFieldValue>Madagascar</controllingFieldValue>
-                <controllingFieldValue>Malawi</controllingFieldValue>
-                <controllingFieldValue>Malaysia</controllingFieldValue>
-                <controllingFieldValue>Taiwan</controllingFieldValue>
-                <controllingFieldValue>Maldives</controllingFieldValue>
-                <controllingFieldValue>Mali</controllingFieldValue>
-                <controllingFieldValue>Malta</controllingFieldValue>
-                <controllingFieldValue>Martinique</controllingFieldValue>
-                <controllingFieldValue>Mauritania</controllingFieldValue>
-                <controllingFieldValue>Vietnam</controllingFieldValue>
-                <controllingFieldValue>Mauritius</controllingFieldValue>
-                <controllingFieldValue>Bouvet Island</controllingFieldValue>
-                <controllingFieldValue>Brazil</controllingFieldValue>
-                <controllingFieldValue>British Indian Ocean Territory</controllingFieldValue>
-                <controllingFieldValue>Brunei Darussalam</controllingFieldValue>
-                <controllingFieldValue>Bulgaria</controllingFieldValue>
-                <controllingFieldValue>Burkina Faso</controllingFieldValue>
-                <controllingFieldValue>Burundi</controllingFieldValue>
-                <controllingFieldValue>Cambodia</controllingFieldValue>
-                <controllingFieldValue>Cameroon</controllingFieldValue>
-                <controllingFieldValue>Canada</controllingFieldValue>
-                <controllingFieldValue>Mayotte</controllingFieldValue>
-                <controllingFieldValue>Mexico</controllingFieldValue>
-                <controllingFieldValue>Moldova, Republic of</controllingFieldValue>
-                <controllingFieldValue>Monaco</controllingFieldValue>
-                <controllingFieldValue>Mongolia</controllingFieldValue>
-                <controllingFieldValue>Montenegro</controllingFieldValue>
-                <controllingFieldValue>Montserrat</controllingFieldValue>
-                <controllingFieldValue>Morocco</controllingFieldValue>
-                <controllingFieldValue>Mozambique</controllingFieldValue>
-                <controllingFieldValue>Myanmar</controllingFieldValue>
-                <controllingFieldValue>Cape Verde</controllingFieldValue>
-                <controllingFieldValue>Cayman Islands</controllingFieldValue>
-                <controllingFieldValue>Central African Republic</controllingFieldValue>
-                <controllingFieldValue>Chad</controllingFieldValue>
-                <controllingFieldValue>Chile</controllingFieldValue>
-                <controllingFieldValue>China</controllingFieldValue>
-                <controllingFieldValue>Christmas Island</controllingFieldValue>
-                <controllingFieldValue>Cocos (Keeling) Islands</controllingFieldValue>
-                <controllingFieldValue>Colombia</controllingFieldValue>
-                <controllingFieldValue>Namibia</controllingFieldValue>
-                <controllingFieldValue>Nauru</controllingFieldValue>
-                <controllingFieldValue>Nepal</controllingFieldValue>
-                <controllingFieldValue>Netherlands</controllingFieldValue>
-                <controllingFieldValue>New Caledonia</controllingFieldValue>
-                <controllingFieldValue>New Zealand</controllingFieldValue>
-                <controllingFieldValue>Nicaragua</controllingFieldValue>
-                <controllingFieldValue>Niger</controllingFieldValue>
-                <controllingFieldValue>Nigeria</controllingFieldValue>
-                <controllingFieldValue>Niue</controllingFieldValue>
-                <controllingFieldValue>Comoros</controllingFieldValue>
-                <controllingFieldValue>Congo</controllingFieldValue>
-                <controllingFieldValue>Congo, the Democratic Republic of the</controllingFieldValue>
-                <controllingFieldValue>Cook Islands</controllingFieldValue>
-                <controllingFieldValue>Costa Rica</controllingFieldValue>
-                <controllingFieldValue>Cote d’Ivoire</controllingFieldValue>
-                <controllingFieldValue>Croatia</controllingFieldValue>
-                <controllingFieldValue>Cuba</controllingFieldValue>
-                <controllingFieldValue>Curaçao</controllingFieldValue>
-                <controllingFieldValue>Cyprus</controllingFieldValue>
-                <controllingFieldValue>Tunisia</controllingFieldValue>
-                <controllingFieldValue>Norfolk Island</controllingFieldValue>
-                <controllingFieldValue>Norway</controllingFieldValue>
-                <controllingFieldValue>Oman</controllingFieldValue>
-                <controllingFieldValue>Pakistan</controllingFieldValue>
-                <controllingFieldValue>Palestinian Territory, Occupied</controllingFieldValue>
-                <controllingFieldValue>Panama</controllingFieldValue>
-                <controllingFieldValue>Papua New Guinea</controllingFieldValue>
-                <controllingFieldValue>Paraguay</controllingFieldValue>
-                <controllingFieldValue>Peru</controllingFieldValue>
-                <controllingFieldValue>Philippines</controllingFieldValue>
-                <controllingFieldValue>Czech Republic</controllingFieldValue>
-                <controllingFieldValue>Denmark</controllingFieldValue>
-                <controllingFieldValue>Djibouti</controllingFieldValue>
-                <controllingFieldValue>Dominica</controllingFieldValue>
-                <controllingFieldValue>Dominican Republic</controllingFieldValue>
-                <controllingFieldValue>Ecuador</controllingFieldValue>
-                <controllingFieldValue>Egypt</controllingFieldValue>
-                <controllingFieldValue>El Salvador</controllingFieldValue>
-                <controllingFieldValue>Equatorial Guinea</controllingFieldValue>
-                <controllingFieldValue>Eritrea</controllingFieldValue>
-                <controllingFieldValue>Pitcairn</controllingFieldValue>
-                <controllingFieldValue>Poland</controllingFieldValue>
-                <controllingFieldValue>Portugal</controllingFieldValue>
-                <controllingFieldValue>Qatar</controllingFieldValue>
-                <controllingFieldValue>Reunion</controllingFieldValue>
-                <controllingFieldValue>Romania</controllingFieldValue>
-                <controllingFieldValue>Russian Federation</controllingFieldValue>
-                <controllingFieldValue>Rwanda</controllingFieldValue>
-                <controllingFieldValue>Saint Barthélemy</controllingFieldValue>
-                <controllingFieldValue>Saint Helena, Ascension and Tristan da Cunha</controllingFieldValue>
-                <controllingFieldValue>Estonia</controllingFieldValue>
-                <controllingFieldValue>Ethiopia</controllingFieldValue>
-                <controllingFieldValue>Falkland Islands (Malvinas)</controllingFieldValue>
-                <controllingFieldValue>Faroe Islands</controllingFieldValue>
-                <controllingFieldValue>Fiji</controllingFieldValue>
-                <controllingFieldValue>Finland</controllingFieldValue>
-                <controllingFieldValue>France</controllingFieldValue>
-                <controllingFieldValue>French Guiana</controllingFieldValue>
-                <controllingFieldValue>French Polynesia</controllingFieldValue>
-                <controllingFieldValue>French Southern Territories</controllingFieldValue>
-                <controllingFieldValue>Saint Kitts and Nevis</controllingFieldValue>
-                <controllingFieldValue>Saint Lucia</controllingFieldValue>
-                <controllingFieldValue>Saint Martin (French part)</controllingFieldValue>
-                <controllingFieldValue>Saint Pierre and Miquelon</controllingFieldValue>
-                <controllingFieldValue>Saint Vincent and the Grenadines</controllingFieldValue>
-                <controllingFieldValue>Samoa</controllingFieldValue>
-                <controllingFieldValue>San Marino</controllingFieldValue>
-                <controllingFieldValue>Sao Tome and Principe</controllingFieldValue>
-                <controllingFieldValue>Saudi Arabia</controllingFieldValue>
-                <controllingFieldValue>Senegal</controllingFieldValue>
-                <controllingFieldValue>Gabon</controllingFieldValue>
-                <controllingFieldValue>Gambia</controllingFieldValue>
-                <controllingFieldValue>Georgia</controllingFieldValue>
-                <controllingFieldValue>Germany</controllingFieldValue>
-                <controllingFieldValue>Ghana</controllingFieldValue>
-                <controllingFieldValue>Gibraltar</controllingFieldValue>
-                <controllingFieldValue>Greece</controllingFieldValue>
-                <controllingFieldValue>Greenland</controllingFieldValue>
-                <controllingFieldValue>Grenada</controllingFieldValue>
-                <controllingFieldValue>Guadeloupe</controllingFieldValue>
-                <controllingFieldValue>Serbia</controllingFieldValue>
-                <controllingFieldValue>Seychelles</controllingFieldValue>
-                <controllingFieldValue>Sierra Leone</controllingFieldValue>
-                <controllingFieldValue>Singapore</controllingFieldValue>
-                <controllingFieldValue>Sint Maarten (Dutch part)</controllingFieldValue>
-                <controllingFieldValue>Slovakia</controllingFieldValue>
-                <controllingFieldValue>Slovenia</controllingFieldValue>
-                <controllingFieldValue>Solomon Islands</controllingFieldValue>
-                <controllingFieldValue>Somalia</controllingFieldValue>
-                <controllingFieldValue>South Africa</controllingFieldValue>
-                <controllingFieldValue>Guatemala</controllingFieldValue>
-                <controllingFieldValue>Guernsey</controllingFieldValue>
-                <controllingFieldValue>Guinea</controllingFieldValue>
-                <controllingFieldValue>Guinea-Bissau</controllingFieldValue>
-                <controllingFieldValue>Guyana</controllingFieldValue>
-                <controllingFieldValue>Haiti</controllingFieldValue>
-                <controllingFieldValue>Heard Island and McDonald Islands</controllingFieldValue>
-                <controllingFieldValue>Holy See (Vatican City State)</controllingFieldValue>
-                <controllingFieldValue>Honduras</controllingFieldValue>
-                <controllingFieldValue>Hungary</controllingFieldValue>
-                <controllingFieldValue>Hong Kong</controllingFieldValue>
-                <controllingFieldValue>Kosovo</controllingFieldValue>
-                <controllingFieldValue>South Georgia and the South Sandwich Islands</controllingFieldValue>
-                <controllingFieldValue>South Sudan</controllingFieldValue>
-                <controllingFieldValue>Spain</controllingFieldValue>
-                <controllingFieldValue>Sri Lanka</controllingFieldValue>
-                <controllingFieldValue>Sudan</controllingFieldValue>
-                <controllingFieldValue>Suriname</controllingFieldValue>
-                <controllingFieldValue>Svalbard and Jan Mayen</controllingFieldValue>
-                <controllingFieldValue>Swaziland</controllingFieldValue>
-                <controllingFieldValue>Sweden</controllingFieldValue>
-                <controllingFieldValue>Switzerland</controllingFieldValue>
-                <controllingFieldValue>Syrian Arab Republic</controllingFieldValue>
-                <controllingFieldValue>Tajikistan</controllingFieldValue>
-                <controllingFieldValue>Tanzania, United Republic of</controllingFieldValue>
-                <controllingFieldValue>Thailand</controllingFieldValue>
-                <controllingFieldValue>Timor-Leste</controllingFieldValue>
-                <controllingFieldValue>Togo</controllingFieldValue>
-                <controllingFieldValue>Tokelau</controllingFieldValue>
-                <controllingFieldValue>Tonga</controllingFieldValue>
-                <controllingFieldValue>Trinidad and Tobago</controllingFieldValue>
-                <controllingFieldValue>Turkey</controllingFieldValue>
-                <controllingFieldValue>Iceland</controllingFieldValue>
-                <controllingFieldValue>Turkmenistan</controllingFieldValue>
-                <controllingFieldValue>India</controllingFieldValue>
-                <controllingFieldValue>Turks and Caicos Islands</controllingFieldValue>
-                <controllingFieldValue>Indonesia</controllingFieldValue>
-                <controllingFieldValue>Tuvalu</controllingFieldValue>
-                <controllingFieldValue>Iran, Islamic Republic of</controllingFieldValue>
-                <controllingFieldValue>Uganda</controllingFieldValue>
-                <controllingFieldValue>Iraq</controllingFieldValue>
-                <controllingFieldValue>Ukraine</controllingFieldValue>
-                <controllingFieldValue>Ireland</controllingFieldValue>
-                <controllingFieldValue>United Arab Emirates</controllingFieldValue>
-                <controllingFieldValue>Isle of Man</controllingFieldValue>
-                <controllingFieldValue>United Kingdom</controllingFieldValue>
-                <controllingFieldValue>Israel</controllingFieldValue>
-                <controllingFieldValue>Italy</controllingFieldValue>
-                <controllingFieldValue>Uruguay</controllingFieldValue>
-                <controllingFieldValue>Jamaica</controllingFieldValue>
-                <valueName>Foreign Subsidiary of U.S. Company (95% U.S. owned)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Uzbekistan</controllingFieldValue>
-                <controllingFieldValue>Japan</controllingFieldValue>
-                <controllingFieldValue>Vanuatu</controllingFieldValue>
-                <controllingFieldValue>Jersey</controllingFieldValue>
-                <controllingFieldValue>Venezuela, Bolivarian Republic of</controllingFieldValue>
-                <controllingFieldValue>Jordan</controllingFieldValue>
-                <controllingFieldValue>Kazakhstan</controllingFieldValue>
-                <controllingFieldValue>Virgin Islands, British</controllingFieldValue>
-                <controllingFieldValue>Kenya</controllingFieldValue>
-                <controllingFieldValue>Wallis and Futuna</controllingFieldValue>
-                <controllingFieldValue>Kiribati</controllingFieldValue>
-                <controllingFieldValue>Western Sahara</controllingFieldValue>
-                <controllingFieldValue>Korea, Democratic People’s Republic of</controllingFieldValue>
-                <controllingFieldValue>Yemen</controllingFieldValue>
-                <controllingFieldValue>Korea, Republic of</controllingFieldValue>
-                <controllingFieldValue>Zambia</controllingFieldValue>
-                <controllingFieldValue>Kuwait</controllingFieldValue>
-                <controllingFieldValue>Zimbabwe</controllingFieldValue>
-                <controllingFieldValue>Kyrgyzstan</controllingFieldValue>
-                <controllingFieldValue>Argentina</controllingFieldValue>
-                <controllingFieldValue>Armenia</controllingFieldValue>
-                <controllingFieldValue>Aruba</controllingFieldValue>
-                <controllingFieldValue>Australia</controllingFieldValue>
-                <controllingFieldValue>Austria</controllingFieldValue>
-                <controllingFieldValue>Azerbaijan</controllingFieldValue>
-                <controllingFieldValue>Bahamas</controllingFieldValue>
-                <controllingFieldValue>Bahrain</controllingFieldValue>
-                <controllingFieldValue>Bangladesh</controllingFieldValue>
-                <controllingFieldValue>Barbados</controllingFieldValue>
-                <controllingFieldValue>Lao People’s Democratic Republic</controllingFieldValue>
-                <controllingFieldValue>Latvia</controllingFieldValue>
-                <controllingFieldValue>Afghanistan</controllingFieldValue>
-                <controllingFieldValue>Lebanon</controllingFieldValue>
-                <controllingFieldValue>Aland Islands</controllingFieldValue>
-                <controllingFieldValue>Lesotho</controllingFieldValue>
-                <controllingFieldValue>Albania</controllingFieldValue>
-                <controllingFieldValue>Liberia</controllingFieldValue>
-                <controllingFieldValue>Algeria</controllingFieldValue>
-                <controllingFieldValue>Libyan Arab Jamahiriya</controllingFieldValue>
-                <controllingFieldValue>Andorra</controllingFieldValue>
-                <controllingFieldValue>Liechtenstein</controllingFieldValue>
-                <controllingFieldValue>Angola</controllingFieldValue>
-                <controllingFieldValue>Lithuania</controllingFieldValue>
-                <controllingFieldValue>Anguilla</controllingFieldValue>
-                <controllingFieldValue>Luxembourg</controllingFieldValue>
-                <controllingFieldValue>Antarctica</controllingFieldValue>
-                <controllingFieldValue>Macao</controllingFieldValue>
-                <controllingFieldValue>Antigua and Barbuda</controllingFieldValue>
-                <controllingFieldValue>Belarus</controllingFieldValue>
-                <controllingFieldValue>Belgium</controllingFieldValue>
-                <controllingFieldValue>Belize</controllingFieldValue>
-                <controllingFieldValue>Benin</controllingFieldValue>
-                <controllingFieldValue>Bermuda</controllingFieldValue>
-                <controllingFieldValue>Bhutan</controllingFieldValue>
-                <controllingFieldValue>Bolivia, Plurinational State of</controllingFieldValue>
-                <controllingFieldValue>Bonaire, Sint Eustatius and Saba</controllingFieldValue>
-                <controllingFieldValue>Bosnia and Herzegovina</controllingFieldValue>
-                <controllingFieldValue>Botswana</controllingFieldValue>
-                <controllingFieldValue>Macedonia, the former Yugoslav Republic of</controllingFieldValue>
-                <controllingFieldValue>Madagascar</controllingFieldValue>
-                <controllingFieldValue>Malawi</controllingFieldValue>
-                <controllingFieldValue>Malaysia</controllingFieldValue>
-                <controllingFieldValue>Taiwan</controllingFieldValue>
-                <controllingFieldValue>Maldives</controllingFieldValue>
-                <controllingFieldValue>Mali</controllingFieldValue>
-                <controllingFieldValue>Malta</controllingFieldValue>
-                <controllingFieldValue>Martinique</controllingFieldValue>
-                <controllingFieldValue>Mauritania</controllingFieldValue>
-                <controllingFieldValue>Vietnam</controllingFieldValue>
-                <controllingFieldValue>Mauritius</controllingFieldValue>
-                <controllingFieldValue>Bouvet Island</controllingFieldValue>
-                <controllingFieldValue>Brazil</controllingFieldValue>
-                <controllingFieldValue>British Indian Ocean Territory</controllingFieldValue>
-                <controllingFieldValue>Brunei Darussalam</controllingFieldValue>
-                <controllingFieldValue>Bulgaria</controllingFieldValue>
-                <controllingFieldValue>Burkina Faso</controllingFieldValue>
-                <controllingFieldValue>Burundi</controllingFieldValue>
-                <controllingFieldValue>Cambodia</controllingFieldValue>
-                <controllingFieldValue>Cameroon</controllingFieldValue>
-                <controllingFieldValue>Canada</controllingFieldValue>
-                <controllingFieldValue>Mayotte</controllingFieldValue>
-                <controllingFieldValue>Mexico</controllingFieldValue>
-                <controllingFieldValue>Moldova, Republic of</controllingFieldValue>
-                <controllingFieldValue>Monaco</controllingFieldValue>
-                <controllingFieldValue>Mongolia</controllingFieldValue>
-                <controllingFieldValue>Montenegro</controllingFieldValue>
-                <controllingFieldValue>Montserrat</controllingFieldValue>
-                <controllingFieldValue>Morocco</controllingFieldValue>
-                <controllingFieldValue>Mozambique</controllingFieldValue>
-                <controllingFieldValue>Myanmar</controllingFieldValue>
-                <controllingFieldValue>Cape Verde</controllingFieldValue>
-                <controllingFieldValue>Cayman Islands</controllingFieldValue>
-                <controllingFieldValue>Central African Republic</controllingFieldValue>
-                <controllingFieldValue>Chad</controllingFieldValue>
-                <controllingFieldValue>Chile</controllingFieldValue>
-                <controllingFieldValue>China</controllingFieldValue>
-                <controllingFieldValue>Christmas Island</controllingFieldValue>
-                <controllingFieldValue>Cocos (Keeling) Islands</controllingFieldValue>
-                <controllingFieldValue>Colombia</controllingFieldValue>
-                <controllingFieldValue>Namibia</controllingFieldValue>
-                <controllingFieldValue>Nauru</controllingFieldValue>
-                <controllingFieldValue>Nepal</controllingFieldValue>
-                <controllingFieldValue>Netherlands</controllingFieldValue>
-                <controllingFieldValue>New Caledonia</controllingFieldValue>
-                <controllingFieldValue>New Zealand</controllingFieldValue>
-                <controllingFieldValue>Nicaragua</controllingFieldValue>
-                <controllingFieldValue>Niger</controllingFieldValue>
-                <controllingFieldValue>Nigeria</controllingFieldValue>
-                <controllingFieldValue>Niue</controllingFieldValue>
-                <controllingFieldValue>Comoros</controllingFieldValue>
-                <controllingFieldValue>Congo</controllingFieldValue>
-                <controllingFieldValue>Congo, the Democratic Republic of the</controllingFieldValue>
-                <controllingFieldValue>Cook Islands</controllingFieldValue>
-                <controllingFieldValue>Costa Rica</controllingFieldValue>
-                <controllingFieldValue>Cote d’Ivoire</controllingFieldValue>
-                <controllingFieldValue>Croatia</controllingFieldValue>
-                <controllingFieldValue>Cuba</controllingFieldValue>
-                <controllingFieldValue>Curaçao</controllingFieldValue>
-                <controllingFieldValue>Cyprus</controllingFieldValue>
-                <controllingFieldValue>Tunisia</controllingFieldValue>
-                <controllingFieldValue>Norfolk Island</controllingFieldValue>
-                <controllingFieldValue>Norway</controllingFieldValue>
-                <controllingFieldValue>Oman</controllingFieldValue>
-                <controllingFieldValue>Pakistan</controllingFieldValue>
-                <controllingFieldValue>Palestinian Territory, Occupied</controllingFieldValue>
-                <controllingFieldValue>Panama</controllingFieldValue>
-                <controllingFieldValue>Papua New Guinea</controllingFieldValue>
-                <controllingFieldValue>Paraguay</controllingFieldValue>
-                <controllingFieldValue>Peru</controllingFieldValue>
-                <controllingFieldValue>Philippines</controllingFieldValue>
-                <controllingFieldValue>Czech Republic</controllingFieldValue>
-                <controllingFieldValue>Denmark</controllingFieldValue>
-                <controllingFieldValue>Djibouti</controllingFieldValue>
-                <controllingFieldValue>Dominica</controllingFieldValue>
-                <controllingFieldValue>Dominican Republic</controllingFieldValue>
-                <controllingFieldValue>Ecuador</controllingFieldValue>
-                <controllingFieldValue>Egypt</controllingFieldValue>
-                <controllingFieldValue>El Salvador</controllingFieldValue>
-                <controllingFieldValue>Equatorial Guinea</controllingFieldValue>
-                <controllingFieldValue>Eritrea</controllingFieldValue>
-                <controllingFieldValue>Pitcairn</controllingFieldValue>
-                <controllingFieldValue>Poland</controllingFieldValue>
-                <controllingFieldValue>Portugal</controllingFieldValue>
-                <controllingFieldValue>Qatar</controllingFieldValue>
-                <controllingFieldValue>Reunion</controllingFieldValue>
-                <controllingFieldValue>Romania</controllingFieldValue>
-                <controllingFieldValue>Russian Federation</controllingFieldValue>
-                <controllingFieldValue>Rwanda</controllingFieldValue>
-                <controllingFieldValue>Saint Barthélemy</controllingFieldValue>
-                <controllingFieldValue>Saint Helena, Ascension and Tristan da Cunha</controllingFieldValue>
-                <controllingFieldValue>Estonia</controllingFieldValue>
-                <controllingFieldValue>Ethiopia</controllingFieldValue>
-                <controllingFieldValue>Falkland Islands (Malvinas)</controllingFieldValue>
-                <controllingFieldValue>Faroe Islands</controllingFieldValue>
-                <controllingFieldValue>Fiji</controllingFieldValue>
-                <controllingFieldValue>Finland</controllingFieldValue>
-                <controllingFieldValue>France</controllingFieldValue>
-                <controllingFieldValue>French Guiana</controllingFieldValue>
-                <controllingFieldValue>French Polynesia</controllingFieldValue>
-                <controllingFieldValue>French Southern Territories</controllingFieldValue>
-                <controllingFieldValue>Saint Kitts and Nevis</controllingFieldValue>
-                <controllingFieldValue>Saint Lucia</controllingFieldValue>
-                <controllingFieldValue>Saint Martin (French part)</controllingFieldValue>
-                <controllingFieldValue>Saint Pierre and Miquelon</controllingFieldValue>
-                <controllingFieldValue>Saint Vincent and the Grenadines</controllingFieldValue>
-                <controllingFieldValue>Samoa</controllingFieldValue>
-                <controllingFieldValue>San Marino</controllingFieldValue>
-                <controllingFieldValue>Sao Tome and Principe</controllingFieldValue>
-                <controllingFieldValue>Saudi Arabia</controllingFieldValue>
-                <controllingFieldValue>Senegal</controllingFieldValue>
-                <controllingFieldValue>Gabon</controllingFieldValue>
-                <controllingFieldValue>Gambia</controllingFieldValue>
-                <controllingFieldValue>Georgia</controllingFieldValue>
-                <controllingFieldValue>Germany</controllingFieldValue>
-                <controllingFieldValue>Ghana</controllingFieldValue>
-                <controllingFieldValue>Gibraltar</controllingFieldValue>
-                <controllingFieldValue>Greece</controllingFieldValue>
-                <controllingFieldValue>Greenland</controllingFieldValue>
-                <controllingFieldValue>Grenada</controllingFieldValue>
-                <controllingFieldValue>Guadeloupe</controllingFieldValue>
-                <controllingFieldValue>Serbia</controllingFieldValue>
-                <controllingFieldValue>Seychelles</controllingFieldValue>
-                <controllingFieldValue>Sierra Leone</controllingFieldValue>
-                <controllingFieldValue>Singapore</controllingFieldValue>
-                <controllingFieldValue>Sint Maarten (Dutch part)</controllingFieldValue>
-                <controllingFieldValue>Slovakia</controllingFieldValue>
-                <controllingFieldValue>Slovenia</controllingFieldValue>
-                <controllingFieldValue>Solomon Islands</controllingFieldValue>
-                <controllingFieldValue>Somalia</controllingFieldValue>
-                <controllingFieldValue>South Africa</controllingFieldValue>
-                <controllingFieldValue>Guatemala</controllingFieldValue>
-                <controllingFieldValue>Guernsey</controllingFieldValue>
-                <controllingFieldValue>Guinea</controllingFieldValue>
-                <controllingFieldValue>Guinea-Bissau</controllingFieldValue>
-                <controllingFieldValue>Guyana</controllingFieldValue>
-                <controllingFieldValue>Haiti</controllingFieldValue>
-                <controllingFieldValue>Heard Island and McDonald Islands</controllingFieldValue>
-                <controllingFieldValue>Holy See (Vatican City State)</controllingFieldValue>
-                <controllingFieldValue>Honduras</controllingFieldValue>
-                <controllingFieldValue>Hungary</controllingFieldValue>
-                <controllingFieldValue>Hong Kong</controllingFieldValue>
-                <controllingFieldValue>Kosovo</controllingFieldValue>
-                <controllingFieldValue>South Georgia and the South Sandwich Islands</controllingFieldValue>
-                <controllingFieldValue>South Sudan</controllingFieldValue>
-                <controllingFieldValue>Spain</controllingFieldValue>
-                <controllingFieldValue>Sri Lanka</controllingFieldValue>
-                <controllingFieldValue>Sudan</controllingFieldValue>
-                <controllingFieldValue>Suriname</controllingFieldValue>
-                <controllingFieldValue>Svalbard and Jan Mayen</controllingFieldValue>
-                <controllingFieldValue>Swaziland</controllingFieldValue>
-                <controllingFieldValue>Sweden</controllingFieldValue>
-                <controllingFieldValue>Switzerland</controllingFieldValue>
-                <controllingFieldValue>Syrian Arab Republic</controllingFieldValue>
-                <controllingFieldValue>Tajikistan</controllingFieldValue>
-                <controllingFieldValue>Tanzania, United Republic of</controllingFieldValue>
-                <controllingFieldValue>Thailand</controllingFieldValue>
-                <controllingFieldValue>Timor-Leste</controllingFieldValue>
-                <controllingFieldValue>Togo</controllingFieldValue>
-                <controllingFieldValue>Tokelau</controllingFieldValue>
-                <controllingFieldValue>Tonga</controllingFieldValue>
-                <controllingFieldValue>Trinidad and Tobago</controllingFieldValue>
-                <controllingFieldValue>Turkey</controllingFieldValue>
-                <controllingFieldValue>Iceland</controllingFieldValue>
-                <controllingFieldValue>Turkmenistan</controllingFieldValue>
-                <controllingFieldValue>India</controllingFieldValue>
-                <controllingFieldValue>Turks and Caicos Islands</controllingFieldValue>
-                <controllingFieldValue>Indonesia</controllingFieldValue>
-                <controllingFieldValue>Tuvalu</controllingFieldValue>
-                <controllingFieldValue>Iran, Islamic Republic of</controllingFieldValue>
-                <controllingFieldValue>Uganda</controllingFieldValue>
-                <controllingFieldValue>Iraq</controllingFieldValue>
-                <controllingFieldValue>Ukraine</controllingFieldValue>
-                <controllingFieldValue>Ireland</controllingFieldValue>
-                <controllingFieldValue>United Arab Emirates</controllingFieldValue>
-                <controllingFieldValue>Isle of Man</controllingFieldValue>
-                <controllingFieldValue>United Kingdom</controllingFieldValue>
-                <controllingFieldValue>Israel</controllingFieldValue>
-                <controllingFieldValue>Italy</controllingFieldValue>
-                <controllingFieldValue>Uruguay</controllingFieldValue>
-                <controllingFieldValue>Jamaica</controllingFieldValue>
-                <valueName>Foreign Subsidiary of U.S. Company (less than 95% U.S. owned)</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Uzbekistan</controllingFieldValue>
-                <controllingFieldValue>Japan</controllingFieldValue>
-                <controllingFieldValue>Vanuatu</controllingFieldValue>
-                <controllingFieldValue>Jersey</controllingFieldValue>
-                <controllingFieldValue>Venezuela, Bolivarian Republic of</controllingFieldValue>
-                <controllingFieldValue>Jordan</controllingFieldValue>
-                <controllingFieldValue>Kazakhstan</controllingFieldValue>
-                <controllingFieldValue>Virgin Islands, British</controllingFieldValue>
-                <controllingFieldValue>Kenya</controllingFieldValue>
-                <controllingFieldValue>Wallis and Futuna</controllingFieldValue>
-                <controllingFieldValue>Kiribati</controllingFieldValue>
-                <controllingFieldValue>Western Sahara</controllingFieldValue>
-                <controllingFieldValue>Korea, Democratic People’s Republic of</controllingFieldValue>
-                <controllingFieldValue>Yemen</controllingFieldValue>
-                <controllingFieldValue>Korea, Republic of</controllingFieldValue>
-                <controllingFieldValue>Zambia</controllingFieldValue>
-                <controllingFieldValue>Kuwait</controllingFieldValue>
-                <controllingFieldValue>Zimbabwe</controllingFieldValue>
-                <controllingFieldValue>Kyrgyzstan</controllingFieldValue>
-                <controllingFieldValue>Argentina</controllingFieldValue>
-                <controllingFieldValue>Armenia</controllingFieldValue>
-                <controllingFieldValue>Aruba</controllingFieldValue>
-                <controllingFieldValue>Australia</controllingFieldValue>
-                <controllingFieldValue>Austria</controllingFieldValue>
-                <controllingFieldValue>Azerbaijan</controllingFieldValue>
-                <controllingFieldValue>Bahamas</controllingFieldValue>
-                <controllingFieldValue>Bahrain</controllingFieldValue>
-                <controllingFieldValue>Bangladesh</controllingFieldValue>
-                <controllingFieldValue>Barbados</controllingFieldValue>
-                <controllingFieldValue>Lao People’s Democratic Republic</controllingFieldValue>
-                <controllingFieldValue>Latvia</controllingFieldValue>
-                <controllingFieldValue>Afghanistan</controllingFieldValue>
-                <controllingFieldValue>Lebanon</controllingFieldValue>
-                <controllingFieldValue>Aland Islands</controllingFieldValue>
-                <controllingFieldValue>Lesotho</controllingFieldValue>
-                <controllingFieldValue>Albania</controllingFieldValue>
-                <controllingFieldValue>Liberia</controllingFieldValue>
-                <controllingFieldValue>Algeria</controllingFieldValue>
-                <controllingFieldValue>Libyan Arab Jamahiriya</controllingFieldValue>
-                <controllingFieldValue>Andorra</controllingFieldValue>
-                <controllingFieldValue>Liechtenstein</controllingFieldValue>
-                <controllingFieldValue>Angola</controllingFieldValue>
-                <controllingFieldValue>Lithuania</controllingFieldValue>
-                <controllingFieldValue>Anguilla</controllingFieldValue>
-                <controllingFieldValue>Luxembourg</controllingFieldValue>
-                <controllingFieldValue>Antarctica</controllingFieldValue>
-                <controllingFieldValue>Macao</controllingFieldValue>
-                <controllingFieldValue>Antigua and Barbuda</controllingFieldValue>
-                <controllingFieldValue>Belarus</controllingFieldValue>
-                <controllingFieldValue>Belgium</controllingFieldValue>
-                <controllingFieldValue>Belize</controllingFieldValue>
-                <controllingFieldValue>Benin</controllingFieldValue>
-                <controllingFieldValue>Bermuda</controllingFieldValue>
-                <controllingFieldValue>Bhutan</controllingFieldValue>
-                <controllingFieldValue>Bolivia, Plurinational State of</controllingFieldValue>
-                <controllingFieldValue>Bonaire, Sint Eustatius and Saba</controllingFieldValue>
-                <controllingFieldValue>Bosnia and Herzegovina</controllingFieldValue>
-                <controllingFieldValue>Botswana</controllingFieldValue>
-                <controllingFieldValue>Macedonia, the former Yugoslav Republic of</controllingFieldValue>
-                <controllingFieldValue>Madagascar</controllingFieldValue>
-                <controllingFieldValue>Malawi</controllingFieldValue>
-                <controllingFieldValue>Malaysia</controllingFieldValue>
-                <controllingFieldValue>Taiwan</controllingFieldValue>
-                <controllingFieldValue>Maldives</controllingFieldValue>
-                <controllingFieldValue>Mali</controllingFieldValue>
-                <controllingFieldValue>Malta</controllingFieldValue>
-                <controllingFieldValue>Martinique</controllingFieldValue>
-                <controllingFieldValue>Mauritania</controllingFieldValue>
-                <controllingFieldValue>Vietnam</controllingFieldValue>
-                <controllingFieldValue>Mauritius</controllingFieldValue>
-                <controllingFieldValue>Bouvet Island</controllingFieldValue>
-                <controllingFieldValue>Brazil</controllingFieldValue>
-                <controllingFieldValue>British Indian Ocean Territory</controllingFieldValue>
-                <controllingFieldValue>Brunei Darussalam</controllingFieldValue>
-                <controllingFieldValue>Bulgaria</controllingFieldValue>
-                <controllingFieldValue>Burkina Faso</controllingFieldValue>
-                <controllingFieldValue>Burundi</controllingFieldValue>
-                <controllingFieldValue>Cambodia</controllingFieldValue>
-                <controllingFieldValue>Cameroon</controllingFieldValue>
-                <controllingFieldValue>Canada</controllingFieldValue>
-                <controllingFieldValue>Mayotte</controllingFieldValue>
-                <controllingFieldValue>Mexico</controllingFieldValue>
-                <controllingFieldValue>Moldova, Republic of</controllingFieldValue>
-                <controllingFieldValue>Monaco</controllingFieldValue>
-                <controllingFieldValue>Mongolia</controllingFieldValue>
-                <controllingFieldValue>Montenegro</controllingFieldValue>
-                <controllingFieldValue>Montserrat</controllingFieldValue>
-                <controllingFieldValue>Morocco</controllingFieldValue>
-                <controllingFieldValue>Mozambique</controllingFieldValue>
-                <controllingFieldValue>Myanmar</controllingFieldValue>
-                <controllingFieldValue>Cape Verde</controllingFieldValue>
-                <controllingFieldValue>Cayman Islands</controllingFieldValue>
-                <controllingFieldValue>Central African Republic</controllingFieldValue>
-                <controllingFieldValue>Chad</controllingFieldValue>
-                <controllingFieldValue>Chile</controllingFieldValue>
-                <controllingFieldValue>China</controllingFieldValue>
-                <controllingFieldValue>Christmas Island</controllingFieldValue>
-                <controllingFieldValue>Cocos (Keeling) Islands</controllingFieldValue>
-                <controllingFieldValue>Colombia</controllingFieldValue>
-                <controllingFieldValue>Namibia</controllingFieldValue>
-                <controllingFieldValue>Nauru</controllingFieldValue>
-                <controllingFieldValue>Nepal</controllingFieldValue>
-                <controllingFieldValue>Netherlands</controllingFieldValue>
-                <controllingFieldValue>New Caledonia</controllingFieldValue>
-                <controllingFieldValue>New Zealand</controllingFieldValue>
-                <controllingFieldValue>Nicaragua</controllingFieldValue>
-                <controllingFieldValue>Niger</controllingFieldValue>
-                <controllingFieldValue>Nigeria</controllingFieldValue>
-                <controllingFieldValue>Niue</controllingFieldValue>
-                <controllingFieldValue>Comoros</controllingFieldValue>
-                <controllingFieldValue>Congo</controllingFieldValue>
-                <controllingFieldValue>Congo, the Democratic Republic of the</controllingFieldValue>
-                <controllingFieldValue>Cook Islands</controllingFieldValue>
-                <controllingFieldValue>Costa Rica</controllingFieldValue>
-                <controllingFieldValue>Cote d’Ivoire</controllingFieldValue>
-                <controllingFieldValue>Croatia</controllingFieldValue>
-                <controllingFieldValue>Cuba</controllingFieldValue>
-                <controllingFieldValue>Curaçao</controllingFieldValue>
-                <controllingFieldValue>Cyprus</controllingFieldValue>
-                <controllingFieldValue>Tunisia</controllingFieldValue>
-                <controllingFieldValue>Norfolk Island</controllingFieldValue>
-                <controllingFieldValue>Norway</controllingFieldValue>
-                <controllingFieldValue>Oman</controllingFieldValue>
-                <controllingFieldValue>Pakistan</controllingFieldValue>
-                <controllingFieldValue>Palestinian Territory, Occupied</controllingFieldValue>
-                <controllingFieldValue>Panama</controllingFieldValue>
-                <controllingFieldValue>Papua New Guinea</controllingFieldValue>
-                <controllingFieldValue>Paraguay</controllingFieldValue>
-                <controllingFieldValue>Peru</controllingFieldValue>
-                <controllingFieldValue>Philippines</controllingFieldValue>
-                <controllingFieldValue>Czech Republic</controllingFieldValue>
-                <controllingFieldValue>Denmark</controllingFieldValue>
-                <controllingFieldValue>Djibouti</controllingFieldValue>
-                <controllingFieldValue>Dominica</controllingFieldValue>
-                <controllingFieldValue>Dominican Republic</controllingFieldValue>
-                <controllingFieldValue>Ecuador</controllingFieldValue>
-                <controllingFieldValue>Egypt</controllingFieldValue>
-                <controllingFieldValue>El Salvador</controllingFieldValue>
-                <controllingFieldValue>Equatorial Guinea</controllingFieldValue>
-                <controllingFieldValue>Eritrea</controllingFieldValue>
-                <controllingFieldValue>Pitcairn</controllingFieldValue>
-                <controllingFieldValue>Poland</controllingFieldValue>
-                <controllingFieldValue>Portugal</controllingFieldValue>
-                <controllingFieldValue>Qatar</controllingFieldValue>
-                <controllingFieldValue>Reunion</controllingFieldValue>
-                <controllingFieldValue>Romania</controllingFieldValue>
-                <controllingFieldValue>Russian Federation</controllingFieldValue>
-                <controllingFieldValue>Rwanda</controllingFieldValue>
-                <controllingFieldValue>Saint Barthélemy</controllingFieldValue>
-                <controllingFieldValue>Saint Helena, Ascension and Tristan da Cunha</controllingFieldValue>
-                <controllingFieldValue>Estonia</controllingFieldValue>
-                <controllingFieldValue>Ethiopia</controllingFieldValue>
-                <controllingFieldValue>Falkland Islands (Malvinas)</controllingFieldValue>
-                <controllingFieldValue>Faroe Islands</controllingFieldValue>
-                <controllingFieldValue>Fiji</controllingFieldValue>
-                <controllingFieldValue>Finland</controllingFieldValue>
-                <controllingFieldValue>France</controllingFieldValue>
-                <controllingFieldValue>French Guiana</controllingFieldValue>
-                <controllingFieldValue>French Polynesia</controllingFieldValue>
-                <controllingFieldValue>French Southern Territories</controllingFieldValue>
-                <controllingFieldValue>Saint Kitts and Nevis</controllingFieldValue>
-                <controllingFieldValue>Saint Lucia</controllingFieldValue>
-                <controllingFieldValue>Saint Martin (French part)</controllingFieldValue>
-                <controllingFieldValue>Saint Pierre and Miquelon</controllingFieldValue>
-                <controllingFieldValue>Saint Vincent and the Grenadines</controllingFieldValue>
-                <controllingFieldValue>Samoa</controllingFieldValue>
-                <controllingFieldValue>San Marino</controllingFieldValue>
-                <controllingFieldValue>Sao Tome and Principe</controllingFieldValue>
-                <controllingFieldValue>Saudi Arabia</controllingFieldValue>
-                <controllingFieldValue>Senegal</controllingFieldValue>
-                <controllingFieldValue>Gabon</controllingFieldValue>
-                <controllingFieldValue>Gambia</controllingFieldValue>
-                <controllingFieldValue>Georgia</controllingFieldValue>
-                <controllingFieldValue>Germany</controllingFieldValue>
-                <controllingFieldValue>Ghana</controllingFieldValue>
-                <controllingFieldValue>Gibraltar</controllingFieldValue>
-                <controllingFieldValue>Greece</controllingFieldValue>
-                <controllingFieldValue>Greenland</controllingFieldValue>
-                <controllingFieldValue>Grenada</controllingFieldValue>
-                <controllingFieldValue>Guadeloupe</controllingFieldValue>
-                <controllingFieldValue>Serbia</controllingFieldValue>
-                <controllingFieldValue>Seychelles</controllingFieldValue>
-                <controllingFieldValue>Sierra Leone</controllingFieldValue>
-                <controllingFieldValue>Singapore</controllingFieldValue>
-                <controllingFieldValue>Sint Maarten (Dutch part)</controllingFieldValue>
-                <controllingFieldValue>Slovakia</controllingFieldValue>
-                <controllingFieldValue>Slovenia</controllingFieldValue>
-                <controllingFieldValue>Solomon Islands</controllingFieldValue>
-                <controllingFieldValue>Somalia</controllingFieldValue>
-                <controllingFieldValue>South Africa</controllingFieldValue>
-                <controllingFieldValue>Guatemala</controllingFieldValue>
-                <controllingFieldValue>Guernsey</controllingFieldValue>
-                <controllingFieldValue>Guinea</controllingFieldValue>
-                <controllingFieldValue>Guinea-Bissau</controllingFieldValue>
-                <controllingFieldValue>Guyana</controllingFieldValue>
-                <controllingFieldValue>Haiti</controllingFieldValue>
-                <controllingFieldValue>Heard Island and McDonald Islands</controllingFieldValue>
-                <controllingFieldValue>Holy See (Vatican City State)</controllingFieldValue>
-                <controllingFieldValue>Honduras</controllingFieldValue>
-                <controllingFieldValue>Hungary</controllingFieldValue>
-                <controllingFieldValue>Hong Kong</controllingFieldValue>
-                <controllingFieldValue>Kosovo</controllingFieldValue>
-                <controllingFieldValue>South Georgia and the South Sandwich Islands</controllingFieldValue>
-                <controllingFieldValue>South Sudan</controllingFieldValue>
-                <controllingFieldValue>Spain</controllingFieldValue>
-                <controllingFieldValue>Sri Lanka</controllingFieldValue>
-                <controllingFieldValue>Sudan</controllingFieldValue>
-                <controllingFieldValue>Suriname</controllingFieldValue>
-                <controllingFieldValue>Svalbard and Jan Mayen</controllingFieldValue>
-                <controllingFieldValue>Swaziland</controllingFieldValue>
-                <controllingFieldValue>Sweden</controllingFieldValue>
-                <controllingFieldValue>Switzerland</controllingFieldValue>
-                <controllingFieldValue>Syrian Arab Republic</controllingFieldValue>
-                <controllingFieldValue>Tajikistan</controllingFieldValue>
-                <controllingFieldValue>Tanzania, United Republic of</controllingFieldValue>
-                <controllingFieldValue>Thailand</controllingFieldValue>
-                <controllingFieldValue>Timor-Leste</controllingFieldValue>
-                <controllingFieldValue>Togo</controllingFieldValue>
-                <controllingFieldValue>Tokelau</controllingFieldValue>
-                <controllingFieldValue>Tonga</controllingFieldValue>
-                <controllingFieldValue>Trinidad and Tobago</controllingFieldValue>
-                <controllingFieldValue>Turkey</controllingFieldValue>
-                <controllingFieldValue>Iceland</controllingFieldValue>
-                <controllingFieldValue>Turkmenistan</controllingFieldValue>
-                <controllingFieldValue>India</controllingFieldValue>
-                <controllingFieldValue>Turks and Caicos Islands</controllingFieldValue>
-                <controllingFieldValue>Indonesia</controllingFieldValue>
-                <controllingFieldValue>Tuvalu</controllingFieldValue>
-                <controllingFieldValue>Iran, Islamic Republic of</controllingFieldValue>
-                <controllingFieldValue>Uganda</controllingFieldValue>
-                <controllingFieldValue>Iraq</controllingFieldValue>
-                <controllingFieldValue>Ukraine</controllingFieldValue>
-                <controllingFieldValue>Ireland</controllingFieldValue>
-                <controllingFieldValue>United Arab Emirates</controllingFieldValue>
-                <controllingFieldValue>Isle of Man</controllingFieldValue>
-                <controllingFieldValue>United Kingdom</controllingFieldValue>
-                <controllingFieldValue>Israel</controllingFieldValue>
-                <controllingFieldValue>Italy</controllingFieldValue>
-                <controllingFieldValue>Uruguay</controllingFieldValue>
-                <controllingFieldValue>Jamaica</controllingFieldValue>
-                <valueName>Current or Prospective Buyer of U.S. Goods/Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Uzbekistan</controllingFieldValue>
-                <controllingFieldValue>Japan</controllingFieldValue>
-                <controllingFieldValue>Vanuatu</controllingFieldValue>
-                <controllingFieldValue>Jersey</controllingFieldValue>
-                <controllingFieldValue>Venezuela, Bolivarian Republic of</controllingFieldValue>
-                <controllingFieldValue>Jordan</controllingFieldValue>
-                <controllingFieldValue>Kazakhstan</controllingFieldValue>
-                <controllingFieldValue>Virgin Islands, British</controllingFieldValue>
-                <controllingFieldValue>Kenya</controllingFieldValue>
-                <controllingFieldValue>Wallis and Futuna</controllingFieldValue>
-                <controllingFieldValue>Kiribati</controllingFieldValue>
-                <controllingFieldValue>Western Sahara</controllingFieldValue>
-                <controllingFieldValue>Korea, Democratic People’s Republic of</controllingFieldValue>
-                <controllingFieldValue>Yemen</controllingFieldValue>
-                <controllingFieldValue>Korea, Republic of</controllingFieldValue>
-                <controllingFieldValue>Zambia</controllingFieldValue>
-                <controllingFieldValue>Kuwait</controllingFieldValue>
-                <controllingFieldValue>Zimbabwe</controllingFieldValue>
-                <controllingFieldValue>Kyrgyzstan</controllingFieldValue>
-                <controllingFieldValue>Argentina</controllingFieldValue>
-                <controllingFieldValue>Armenia</controllingFieldValue>
-                <controllingFieldValue>Aruba</controllingFieldValue>
-                <controllingFieldValue>Australia</controllingFieldValue>
-                <controllingFieldValue>Austria</controllingFieldValue>
-                <controllingFieldValue>Azerbaijan</controllingFieldValue>
-                <controllingFieldValue>Bahamas</controllingFieldValue>
-                <controllingFieldValue>Bahrain</controllingFieldValue>
-                <controllingFieldValue>Bangladesh</controllingFieldValue>
-                <controllingFieldValue>Barbados</controllingFieldValue>
-                <controllingFieldValue>Lao People’s Democratic Republic</controllingFieldValue>
-                <controllingFieldValue>Latvia</controllingFieldValue>
-                <controllingFieldValue>Afghanistan</controllingFieldValue>
-                <controllingFieldValue>Lebanon</controllingFieldValue>
-                <controllingFieldValue>Aland Islands</controllingFieldValue>
-                <controllingFieldValue>Lesotho</controllingFieldValue>
-                <controllingFieldValue>Albania</controllingFieldValue>
-                <controllingFieldValue>Liberia</controllingFieldValue>
-                <controllingFieldValue>Algeria</controllingFieldValue>
-                <controllingFieldValue>Libyan Arab Jamahiriya</controllingFieldValue>
-                <controllingFieldValue>Andorra</controllingFieldValue>
-                <controllingFieldValue>Liechtenstein</controllingFieldValue>
-                <controllingFieldValue>Angola</controllingFieldValue>
-                <controllingFieldValue>Lithuania</controllingFieldValue>
-                <controllingFieldValue>Anguilla</controllingFieldValue>
-                <controllingFieldValue>Luxembourg</controllingFieldValue>
-                <controllingFieldValue>Antarctica</controllingFieldValue>
-                <controllingFieldValue>Macao</controllingFieldValue>
-                <controllingFieldValue>Antigua and Barbuda</controllingFieldValue>
-                <controllingFieldValue>Belarus</controllingFieldValue>
-                <controllingFieldValue>Belgium</controllingFieldValue>
-                <controllingFieldValue>Belize</controllingFieldValue>
-                <controllingFieldValue>Benin</controllingFieldValue>
-                <controllingFieldValue>Bermuda</controllingFieldValue>
-                <controllingFieldValue>Bhutan</controllingFieldValue>
-                <controllingFieldValue>Bolivia, Plurinational State of</controllingFieldValue>
-                <controllingFieldValue>Bonaire, Sint Eustatius and Saba</controllingFieldValue>
-                <controllingFieldValue>Bosnia and Herzegovina</controllingFieldValue>
-                <controllingFieldValue>Botswana</controllingFieldValue>
-                <controllingFieldValue>Macedonia, the former Yugoslav Republic of</controllingFieldValue>
-                <controllingFieldValue>Madagascar</controllingFieldValue>
-                <controllingFieldValue>Malawi</controllingFieldValue>
-                <controllingFieldValue>Malaysia</controllingFieldValue>
-                <controllingFieldValue>Taiwan</controllingFieldValue>
-                <controllingFieldValue>Maldives</controllingFieldValue>
-                <controllingFieldValue>Mali</controllingFieldValue>
-                <controllingFieldValue>Malta</controllingFieldValue>
-                <controllingFieldValue>Martinique</controllingFieldValue>
-                <controllingFieldValue>Mauritania</controllingFieldValue>
-                <controllingFieldValue>Vietnam</controllingFieldValue>
-                <controllingFieldValue>Mauritius</controllingFieldValue>
-                <controllingFieldValue>Bouvet Island</controllingFieldValue>
-                <controllingFieldValue>Brazil</controllingFieldValue>
-                <controllingFieldValue>British Indian Ocean Territory</controllingFieldValue>
-                <controllingFieldValue>Brunei Darussalam</controllingFieldValue>
-                <controllingFieldValue>Bulgaria</controllingFieldValue>
-                <controllingFieldValue>Burkina Faso</controllingFieldValue>
-                <controllingFieldValue>Burundi</controllingFieldValue>
-                <controllingFieldValue>Cambodia</controllingFieldValue>
-                <controllingFieldValue>Cameroon</controllingFieldValue>
-                <controllingFieldValue>Canada</controllingFieldValue>
-                <controllingFieldValue>Mayotte</controllingFieldValue>
-                <controllingFieldValue>Mexico</controllingFieldValue>
-                <controllingFieldValue>Moldova, Republic of</controllingFieldValue>
-                <controllingFieldValue>Monaco</controllingFieldValue>
-                <controllingFieldValue>Mongolia</controllingFieldValue>
-                <controllingFieldValue>Montenegro</controllingFieldValue>
-                <controllingFieldValue>Montserrat</controllingFieldValue>
-                <controllingFieldValue>Morocco</controllingFieldValue>
-                <controllingFieldValue>Mozambique</controllingFieldValue>
-                <controllingFieldValue>Myanmar</controllingFieldValue>
-                <controllingFieldValue>Cape Verde</controllingFieldValue>
-                <controllingFieldValue>Cayman Islands</controllingFieldValue>
-                <controllingFieldValue>Central African Republic</controllingFieldValue>
-                <controllingFieldValue>Chad</controllingFieldValue>
-                <controllingFieldValue>Chile</controllingFieldValue>
-                <controllingFieldValue>China</controllingFieldValue>
-                <controllingFieldValue>Christmas Island</controllingFieldValue>
-                <controllingFieldValue>Cocos (Keeling) Islands</controllingFieldValue>
-                <controllingFieldValue>Colombia</controllingFieldValue>
-                <controllingFieldValue>Namibia</controllingFieldValue>
-                <controllingFieldValue>Nauru</controllingFieldValue>
-                <controllingFieldValue>Nepal</controllingFieldValue>
-                <controllingFieldValue>Netherlands</controllingFieldValue>
-                <controllingFieldValue>New Caledonia</controllingFieldValue>
-                <controllingFieldValue>New Zealand</controllingFieldValue>
-                <controllingFieldValue>Nicaragua</controllingFieldValue>
-                <controllingFieldValue>Niger</controllingFieldValue>
-                <controllingFieldValue>Nigeria</controllingFieldValue>
-                <controllingFieldValue>Niue</controllingFieldValue>
-                <controllingFieldValue>Comoros</controllingFieldValue>
-                <controllingFieldValue>Congo</controllingFieldValue>
-                <controllingFieldValue>Congo, the Democratic Republic of the</controllingFieldValue>
-                <controllingFieldValue>Cook Islands</controllingFieldValue>
-                <controllingFieldValue>Costa Rica</controllingFieldValue>
-                <controllingFieldValue>Cote d’Ivoire</controllingFieldValue>
-                <controllingFieldValue>Croatia</controllingFieldValue>
-                <controllingFieldValue>Cuba</controllingFieldValue>
-                <controllingFieldValue>Curaçao</controllingFieldValue>
-                <controllingFieldValue>Cyprus</controllingFieldValue>
-                <controllingFieldValue>Tunisia</controllingFieldValue>
-                <controllingFieldValue>Norfolk Island</controllingFieldValue>
-                <controllingFieldValue>Norway</controllingFieldValue>
-                <controllingFieldValue>Oman</controllingFieldValue>
-                <controllingFieldValue>Pakistan</controllingFieldValue>
-                <controllingFieldValue>Palestinian Territory, Occupied</controllingFieldValue>
-                <controllingFieldValue>Panama</controllingFieldValue>
-                <controllingFieldValue>Papua New Guinea</controllingFieldValue>
-                <controllingFieldValue>Paraguay</controllingFieldValue>
-                <controllingFieldValue>Peru</controllingFieldValue>
-                <controllingFieldValue>Philippines</controllingFieldValue>
-                <controllingFieldValue>Czech Republic</controllingFieldValue>
-                <controllingFieldValue>Denmark</controllingFieldValue>
-                <controllingFieldValue>Djibouti</controllingFieldValue>
-                <controllingFieldValue>Dominica</controllingFieldValue>
-                <controllingFieldValue>Dominican Republic</controllingFieldValue>
-                <controllingFieldValue>Ecuador</controllingFieldValue>
-                <controllingFieldValue>Egypt</controllingFieldValue>
-                <controllingFieldValue>El Salvador</controllingFieldValue>
-                <controllingFieldValue>Equatorial Guinea</controllingFieldValue>
-                <controllingFieldValue>Eritrea</controllingFieldValue>
-                <controllingFieldValue>Pitcairn</controllingFieldValue>
-                <controllingFieldValue>Poland</controllingFieldValue>
-                <controllingFieldValue>Portugal</controllingFieldValue>
-                <controllingFieldValue>Qatar</controllingFieldValue>
-                <controllingFieldValue>Reunion</controllingFieldValue>
-                <controllingFieldValue>Romania</controllingFieldValue>
-                <controllingFieldValue>Russian Federation</controllingFieldValue>
-                <controllingFieldValue>Rwanda</controllingFieldValue>
-                <controllingFieldValue>Saint Barthélemy</controllingFieldValue>
-                <controllingFieldValue>Saint Helena, Ascension and Tristan da Cunha</controllingFieldValue>
-                <controllingFieldValue>Estonia</controllingFieldValue>
-                <controllingFieldValue>Ethiopia</controllingFieldValue>
-                <controllingFieldValue>Falkland Islands (Malvinas)</controllingFieldValue>
-                <controllingFieldValue>Faroe Islands</controllingFieldValue>
-                <controllingFieldValue>Fiji</controllingFieldValue>
-                <controllingFieldValue>Finland</controllingFieldValue>
-                <controllingFieldValue>France</controllingFieldValue>
-                <controllingFieldValue>French Guiana</controllingFieldValue>
-                <controllingFieldValue>French Polynesia</controllingFieldValue>
-                <controllingFieldValue>French Southern Territories</controllingFieldValue>
-                <controllingFieldValue>Saint Kitts and Nevis</controllingFieldValue>
-                <controllingFieldValue>Saint Lucia</controllingFieldValue>
-                <controllingFieldValue>Saint Martin (French part)</controllingFieldValue>
-                <controllingFieldValue>Saint Pierre and Miquelon</controllingFieldValue>
-                <controllingFieldValue>Saint Vincent and the Grenadines</controllingFieldValue>
-                <controllingFieldValue>Samoa</controllingFieldValue>
-                <controllingFieldValue>San Marino</controllingFieldValue>
-                <controllingFieldValue>Sao Tome and Principe</controllingFieldValue>
-                <controllingFieldValue>Saudi Arabia</controllingFieldValue>
-                <controllingFieldValue>Senegal</controllingFieldValue>
-                <controllingFieldValue>Gabon</controllingFieldValue>
-                <controllingFieldValue>Gambia</controllingFieldValue>
-                <controllingFieldValue>Georgia</controllingFieldValue>
-                <controllingFieldValue>Germany</controllingFieldValue>
-                <controllingFieldValue>Ghana</controllingFieldValue>
-                <controllingFieldValue>Gibraltar</controllingFieldValue>
-                <controllingFieldValue>Greece</controllingFieldValue>
-                <controllingFieldValue>Greenland</controllingFieldValue>
-                <controllingFieldValue>Grenada</controllingFieldValue>
-                <controllingFieldValue>Guadeloupe</controllingFieldValue>
-                <controllingFieldValue>Serbia</controllingFieldValue>
-                <controllingFieldValue>Seychelles</controllingFieldValue>
-                <controllingFieldValue>Sierra Leone</controllingFieldValue>
-                <controllingFieldValue>Singapore</controllingFieldValue>
-                <controllingFieldValue>Sint Maarten (Dutch part)</controllingFieldValue>
-                <controllingFieldValue>Slovakia</controllingFieldValue>
-                <controllingFieldValue>Slovenia</controllingFieldValue>
-                <controllingFieldValue>Solomon Islands</controllingFieldValue>
-                <controllingFieldValue>Somalia</controllingFieldValue>
-                <controllingFieldValue>South Africa</controllingFieldValue>
-                <controllingFieldValue>Guatemala</controllingFieldValue>
-                <controllingFieldValue>Guernsey</controllingFieldValue>
-                <controllingFieldValue>Guinea</controllingFieldValue>
-                <controllingFieldValue>Guinea-Bissau</controllingFieldValue>
-                <controllingFieldValue>Guyana</controllingFieldValue>
-                <controllingFieldValue>Haiti</controllingFieldValue>
-                <controllingFieldValue>Heard Island and McDonald Islands</controllingFieldValue>
-                <controllingFieldValue>Holy See (Vatican City State)</controllingFieldValue>
-                <controllingFieldValue>Honduras</controllingFieldValue>
-                <controllingFieldValue>Hungary</controllingFieldValue>
-                <controllingFieldValue>Hong Kong</controllingFieldValue>
-                <controllingFieldValue>Kosovo</controllingFieldValue>
-                <controllingFieldValue>South Georgia and the South Sandwich Islands</controllingFieldValue>
-                <controllingFieldValue>South Sudan</controllingFieldValue>
-                <controllingFieldValue>Spain</controllingFieldValue>
-                <controllingFieldValue>Sri Lanka</controllingFieldValue>
-                <controllingFieldValue>Sudan</controllingFieldValue>
-                <controllingFieldValue>Suriname</controllingFieldValue>
-                <controllingFieldValue>Svalbard and Jan Mayen</controllingFieldValue>
-                <controllingFieldValue>Swaziland</controllingFieldValue>
-                <controllingFieldValue>Sweden</controllingFieldValue>
-                <controllingFieldValue>Switzerland</controllingFieldValue>
-                <controllingFieldValue>Syrian Arab Republic</controllingFieldValue>
-                <controllingFieldValue>Tajikistan</controllingFieldValue>
-                <controllingFieldValue>Tanzania, United Republic of</controllingFieldValue>
-                <controllingFieldValue>Thailand</controllingFieldValue>
-                <controllingFieldValue>Timor-Leste</controllingFieldValue>
-                <controllingFieldValue>Togo</controllingFieldValue>
-                <controllingFieldValue>Tokelau</controllingFieldValue>
-                <controllingFieldValue>Tonga</controllingFieldValue>
-                <controllingFieldValue>Trinidad and Tobago</controllingFieldValue>
-                <controllingFieldValue>Turkey</controllingFieldValue>
-                <controllingFieldValue>Iceland</controllingFieldValue>
-                <controllingFieldValue>Turkmenistan</controllingFieldValue>
-                <controllingFieldValue>India</controllingFieldValue>
-                <controllingFieldValue>Turks and Caicos Islands</controllingFieldValue>
-                <controllingFieldValue>Indonesia</controllingFieldValue>
-                <controllingFieldValue>Tuvalu</controllingFieldValue>
-                <controllingFieldValue>Iran, Islamic Republic of</controllingFieldValue>
-                <controllingFieldValue>Uganda</controllingFieldValue>
-                <controllingFieldValue>Iraq</controllingFieldValue>
-                <controllingFieldValue>Ukraine</controllingFieldValue>
-                <controllingFieldValue>Ireland</controllingFieldValue>
-                <controllingFieldValue>United Arab Emirates</controllingFieldValue>
-                <controllingFieldValue>Isle of Man</controllingFieldValue>
-                <controllingFieldValue>United Kingdom</controllingFieldValue>
-                <controllingFieldValue>Israel</controllingFieldValue>
-                <controllingFieldValue>Italy</controllingFieldValue>
-                <controllingFieldValue>Uruguay</controllingFieldValue>
-                <controllingFieldValue>Jamaica</controllingFieldValue>
-                <valueName>Current or Prospective Investor in U.S.</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Uzbekistan</controllingFieldValue>
-                <controllingFieldValue>Japan</controllingFieldValue>
-                <controllingFieldValue>Vanuatu</controllingFieldValue>
-                <controllingFieldValue>Jersey</controllingFieldValue>
-                <controllingFieldValue>Venezuela, Bolivarian Republic of</controllingFieldValue>
-                <controllingFieldValue>Jordan</controllingFieldValue>
-                <controllingFieldValue>Kazakhstan</controllingFieldValue>
-                <controllingFieldValue>Virgin Islands, British</controllingFieldValue>
-                <controllingFieldValue>Kenya</controllingFieldValue>
-                <controllingFieldValue>Wallis and Futuna</controllingFieldValue>
-                <controllingFieldValue>Kiribati</controllingFieldValue>
-                <controllingFieldValue>Western Sahara</controllingFieldValue>
-                <controllingFieldValue>Korea, Democratic People’s Republic of</controllingFieldValue>
-                <controllingFieldValue>Yemen</controllingFieldValue>
-                <controllingFieldValue>Korea, Republic of</controllingFieldValue>
-                <controllingFieldValue>Zambia</controllingFieldValue>
-                <controllingFieldValue>Kuwait</controllingFieldValue>
-                <controllingFieldValue>Zimbabwe</controllingFieldValue>
-                <controllingFieldValue>Kyrgyzstan</controllingFieldValue>
-                <controllingFieldValue>Argentina</controllingFieldValue>
-                <controllingFieldValue>Armenia</controllingFieldValue>
-                <controllingFieldValue>Aruba</controllingFieldValue>
-                <controllingFieldValue>Australia</controllingFieldValue>
-                <controllingFieldValue>Austria</controllingFieldValue>
-                <controllingFieldValue>Azerbaijan</controllingFieldValue>
-                <controllingFieldValue>Bahamas</controllingFieldValue>
-                <controllingFieldValue>Bahrain</controllingFieldValue>
-                <controllingFieldValue>Bangladesh</controllingFieldValue>
-                <controllingFieldValue>Barbados</controllingFieldValue>
-                <controllingFieldValue>Lao People’s Democratic Republic</controllingFieldValue>
-                <controllingFieldValue>Latvia</controllingFieldValue>
-                <controllingFieldValue>Afghanistan</controllingFieldValue>
-                <controllingFieldValue>Lebanon</controllingFieldValue>
-                <controllingFieldValue>Aland Islands</controllingFieldValue>
-                <controllingFieldValue>Lesotho</controllingFieldValue>
-                <controllingFieldValue>Albania</controllingFieldValue>
-                <controllingFieldValue>Liberia</controllingFieldValue>
-                <controllingFieldValue>Algeria</controllingFieldValue>
-                <controllingFieldValue>Libyan Arab Jamahiriya</controllingFieldValue>
-                <controllingFieldValue>Andorra</controllingFieldValue>
-                <controllingFieldValue>Liechtenstein</controllingFieldValue>
-                <controllingFieldValue>Angola</controllingFieldValue>
-                <controllingFieldValue>Lithuania</controllingFieldValue>
-                <controllingFieldValue>Anguilla</controllingFieldValue>
-                <controllingFieldValue>Luxembourg</controllingFieldValue>
-                <controllingFieldValue>Antarctica</controllingFieldValue>
-                <controllingFieldValue>Macao</controllingFieldValue>
-                <controllingFieldValue>Antigua and Barbuda</controllingFieldValue>
-                <controllingFieldValue>Belarus</controllingFieldValue>
-                <controllingFieldValue>Belgium</controllingFieldValue>
-                <controllingFieldValue>Belize</controllingFieldValue>
-                <controllingFieldValue>Benin</controllingFieldValue>
-                <controllingFieldValue>Bermuda</controllingFieldValue>
-                <controllingFieldValue>Bhutan</controllingFieldValue>
-                <controllingFieldValue>Bolivia, Plurinational State of</controllingFieldValue>
-                <controllingFieldValue>Bonaire, Sint Eustatius and Saba</controllingFieldValue>
-                <controllingFieldValue>Bosnia and Herzegovina</controllingFieldValue>
-                <controllingFieldValue>Botswana</controllingFieldValue>
-                <controllingFieldValue>Macedonia, the former Yugoslav Republic of</controllingFieldValue>
-                <controllingFieldValue>Madagascar</controllingFieldValue>
-                <controllingFieldValue>Malawi</controllingFieldValue>
-                <controllingFieldValue>Malaysia</controllingFieldValue>
-                <controllingFieldValue>Taiwan</controllingFieldValue>
-                <controllingFieldValue>Maldives</controllingFieldValue>
-                <controllingFieldValue>Mali</controllingFieldValue>
-                <controllingFieldValue>Malta</controllingFieldValue>
-                <controllingFieldValue>Martinique</controllingFieldValue>
-                <controllingFieldValue>Mauritania</controllingFieldValue>
-                <controllingFieldValue>Vietnam</controllingFieldValue>
-                <controllingFieldValue>Mauritius</controllingFieldValue>
-                <controllingFieldValue>Bouvet Island</controllingFieldValue>
-                <controllingFieldValue>Brazil</controllingFieldValue>
-                <controllingFieldValue>British Indian Ocean Territory</controllingFieldValue>
-                <controllingFieldValue>Brunei Darussalam</controllingFieldValue>
-                <controllingFieldValue>Bulgaria</controllingFieldValue>
-                <controllingFieldValue>Burkina Faso</controllingFieldValue>
-                <controllingFieldValue>Burundi</controllingFieldValue>
-                <controllingFieldValue>Cambodia</controllingFieldValue>
-                <controllingFieldValue>Cameroon</controllingFieldValue>
-                <controllingFieldValue>Canada</controllingFieldValue>
-                <controllingFieldValue>Mayotte</controllingFieldValue>
-                <controllingFieldValue>Mexico</controllingFieldValue>
-                <controllingFieldValue>Moldova, Republic of</controllingFieldValue>
-                <controllingFieldValue>Monaco</controllingFieldValue>
-                <controllingFieldValue>Mongolia</controllingFieldValue>
-                <controllingFieldValue>Montenegro</controllingFieldValue>
-                <controllingFieldValue>Montserrat</controllingFieldValue>
-                <controllingFieldValue>Morocco</controllingFieldValue>
-                <controllingFieldValue>Mozambique</controllingFieldValue>
-                <controllingFieldValue>Myanmar</controllingFieldValue>
-                <controllingFieldValue>Cape Verde</controllingFieldValue>
-                <controllingFieldValue>Cayman Islands</controllingFieldValue>
-                <controllingFieldValue>Central African Republic</controllingFieldValue>
-                <controllingFieldValue>Chad</controllingFieldValue>
-                <controllingFieldValue>Chile</controllingFieldValue>
-                <controllingFieldValue>China</controllingFieldValue>
-                <controllingFieldValue>Christmas Island</controllingFieldValue>
-                <controllingFieldValue>Cocos (Keeling) Islands</controllingFieldValue>
-                <controllingFieldValue>Colombia</controllingFieldValue>
-                <controllingFieldValue>Namibia</controllingFieldValue>
-                <controllingFieldValue>Nauru</controllingFieldValue>
-                <controllingFieldValue>Nepal</controllingFieldValue>
-                <controllingFieldValue>Netherlands</controllingFieldValue>
-                <controllingFieldValue>New Caledonia</controllingFieldValue>
-                <controllingFieldValue>New Zealand</controllingFieldValue>
-                <controllingFieldValue>Nicaragua</controllingFieldValue>
-                <controllingFieldValue>Niger</controllingFieldValue>
-                <controllingFieldValue>Nigeria</controllingFieldValue>
-                <controllingFieldValue>Niue</controllingFieldValue>
-                <controllingFieldValue>Comoros</controllingFieldValue>
-                <controllingFieldValue>Congo</controllingFieldValue>
-                <controllingFieldValue>Congo, the Democratic Republic of the</controllingFieldValue>
-                <controllingFieldValue>Cook Islands</controllingFieldValue>
-                <controllingFieldValue>Costa Rica</controllingFieldValue>
-                <controllingFieldValue>Cote d’Ivoire</controllingFieldValue>
-                <controllingFieldValue>Croatia</controllingFieldValue>
-                <controllingFieldValue>Cuba</controllingFieldValue>
-                <controllingFieldValue>Curaçao</controllingFieldValue>
-                <controllingFieldValue>Cyprus</controllingFieldValue>
-                <controllingFieldValue>Tunisia</controllingFieldValue>
-                <controllingFieldValue>Norfolk Island</controllingFieldValue>
-                <controllingFieldValue>Norway</controllingFieldValue>
-                <controllingFieldValue>Oman</controllingFieldValue>
-                <controllingFieldValue>Pakistan</controllingFieldValue>
-                <controllingFieldValue>Palestinian Territory, Occupied</controllingFieldValue>
-                <controllingFieldValue>Panama</controllingFieldValue>
-                <controllingFieldValue>Papua New Guinea</controllingFieldValue>
-                <controllingFieldValue>Paraguay</controllingFieldValue>
-                <controllingFieldValue>Peru</controllingFieldValue>
-                <controllingFieldValue>Philippines</controllingFieldValue>
-                <controllingFieldValue>Czech Republic</controllingFieldValue>
-                <controllingFieldValue>Denmark</controllingFieldValue>
-                <controllingFieldValue>Djibouti</controllingFieldValue>
-                <controllingFieldValue>Dominica</controllingFieldValue>
-                <controllingFieldValue>Dominican Republic</controllingFieldValue>
-                <controllingFieldValue>Ecuador</controllingFieldValue>
-                <controllingFieldValue>Egypt</controllingFieldValue>
-                <controllingFieldValue>El Salvador</controllingFieldValue>
-                <controllingFieldValue>Equatorial Guinea</controllingFieldValue>
-                <controllingFieldValue>Eritrea</controllingFieldValue>
-                <controllingFieldValue>Pitcairn</controllingFieldValue>
-                <controllingFieldValue>Poland</controllingFieldValue>
-                <controllingFieldValue>Portugal</controllingFieldValue>
-                <controllingFieldValue>Qatar</controllingFieldValue>
-                <controllingFieldValue>Reunion</controllingFieldValue>
-                <controllingFieldValue>Romania</controllingFieldValue>
-                <controllingFieldValue>Russian Federation</controllingFieldValue>
-                <controllingFieldValue>Rwanda</controllingFieldValue>
-                <controllingFieldValue>Saint Barthélemy</controllingFieldValue>
-                <controllingFieldValue>Saint Helena, Ascension and Tristan da Cunha</controllingFieldValue>
-                <controllingFieldValue>Estonia</controllingFieldValue>
-                <controllingFieldValue>Ethiopia</controllingFieldValue>
-                <controllingFieldValue>Falkland Islands (Malvinas)</controllingFieldValue>
-                <controllingFieldValue>Faroe Islands</controllingFieldValue>
-                <controllingFieldValue>Fiji</controllingFieldValue>
-                <controllingFieldValue>Finland</controllingFieldValue>
-                <controllingFieldValue>France</controllingFieldValue>
-                <controllingFieldValue>French Guiana</controllingFieldValue>
-                <controllingFieldValue>French Polynesia</controllingFieldValue>
-                <controllingFieldValue>French Southern Territories</controllingFieldValue>
-                <controllingFieldValue>Saint Kitts and Nevis</controllingFieldValue>
-                <controllingFieldValue>Saint Lucia</controllingFieldValue>
-                <controllingFieldValue>Saint Martin (French part)</controllingFieldValue>
-                <controllingFieldValue>Saint Pierre and Miquelon</controllingFieldValue>
-                <controllingFieldValue>Saint Vincent and the Grenadines</controllingFieldValue>
-                <controllingFieldValue>Samoa</controllingFieldValue>
-                <controllingFieldValue>San Marino</controllingFieldValue>
-                <controllingFieldValue>Sao Tome and Principe</controllingFieldValue>
-                <controllingFieldValue>Saudi Arabia</controllingFieldValue>
-                <controllingFieldValue>Senegal</controllingFieldValue>
-                <controllingFieldValue>Gabon</controllingFieldValue>
-                <controllingFieldValue>Gambia</controllingFieldValue>
-                <controllingFieldValue>Georgia</controllingFieldValue>
-                <controllingFieldValue>Germany</controllingFieldValue>
-                <controllingFieldValue>Ghana</controllingFieldValue>
-                <controllingFieldValue>Gibraltar</controllingFieldValue>
-                <controllingFieldValue>Greece</controllingFieldValue>
-                <controllingFieldValue>Greenland</controllingFieldValue>
-                <controllingFieldValue>Grenada</controllingFieldValue>
-                <controllingFieldValue>Guadeloupe</controllingFieldValue>
-                <controllingFieldValue>Serbia</controllingFieldValue>
-                <controllingFieldValue>Seychelles</controllingFieldValue>
-                <controllingFieldValue>Sierra Leone</controllingFieldValue>
-                <controllingFieldValue>Singapore</controllingFieldValue>
-                <controllingFieldValue>Sint Maarten (Dutch part)</controllingFieldValue>
-                <controllingFieldValue>Slovakia</controllingFieldValue>
-                <controllingFieldValue>Slovenia</controllingFieldValue>
-                <controllingFieldValue>Solomon Islands</controllingFieldValue>
-                <controllingFieldValue>Somalia</controllingFieldValue>
-                <controllingFieldValue>South Africa</controllingFieldValue>
-                <controllingFieldValue>Guatemala</controllingFieldValue>
-                <controllingFieldValue>Guernsey</controllingFieldValue>
-                <controllingFieldValue>Guinea</controllingFieldValue>
-                <controllingFieldValue>Guinea-Bissau</controllingFieldValue>
-                <controllingFieldValue>Guyana</controllingFieldValue>
-                <controllingFieldValue>Haiti</controllingFieldValue>
-                <controllingFieldValue>Heard Island and McDonald Islands</controllingFieldValue>
-                <controllingFieldValue>Holy See (Vatican City State)</controllingFieldValue>
-                <controllingFieldValue>Honduras</controllingFieldValue>
-                <controllingFieldValue>Hungary</controllingFieldValue>
-                <controllingFieldValue>Hong Kong</controllingFieldValue>
-                <controllingFieldValue>Kosovo</controllingFieldValue>
-                <controllingFieldValue>South Georgia and the South Sandwich Islands</controllingFieldValue>
-                <controllingFieldValue>South Sudan</controllingFieldValue>
-                <controllingFieldValue>Spain</controllingFieldValue>
-                <controllingFieldValue>Sri Lanka</controllingFieldValue>
-                <controllingFieldValue>Sudan</controllingFieldValue>
-                <controllingFieldValue>Suriname</controllingFieldValue>
-                <controllingFieldValue>Svalbard and Jan Mayen</controllingFieldValue>
-                <controllingFieldValue>Swaziland</controllingFieldValue>
-                <controllingFieldValue>Sweden</controllingFieldValue>
-                <controllingFieldValue>Switzerland</controllingFieldValue>
-                <controllingFieldValue>Syrian Arab Republic</controllingFieldValue>
-                <controllingFieldValue>Tajikistan</controllingFieldValue>
-                <controllingFieldValue>Tanzania, United Republic of</controllingFieldValue>
-                <controllingFieldValue>Thailand</controllingFieldValue>
-                <controllingFieldValue>Timor-Leste</controllingFieldValue>
-                <controllingFieldValue>Togo</controllingFieldValue>
-                <controllingFieldValue>Tokelau</controllingFieldValue>
-                <controllingFieldValue>Tonga</controllingFieldValue>
-                <controllingFieldValue>Trinidad and Tobago</controllingFieldValue>
-                <controllingFieldValue>Turkey</controllingFieldValue>
-                <controllingFieldValue>Iceland</controllingFieldValue>
-                <controllingFieldValue>Turkmenistan</controllingFieldValue>
-                <controllingFieldValue>India</controllingFieldValue>
-                <controllingFieldValue>Turks and Caicos Islands</controllingFieldValue>
-                <controllingFieldValue>Indonesia</controllingFieldValue>
-                <controllingFieldValue>Tuvalu</controllingFieldValue>
-                <controllingFieldValue>Iran, Islamic Republic of</controllingFieldValue>
-                <controllingFieldValue>Uganda</controllingFieldValue>
-                <controllingFieldValue>Iraq</controllingFieldValue>
-                <controllingFieldValue>Ukraine</controllingFieldValue>
-                <controllingFieldValue>Ireland</controllingFieldValue>
-                <controllingFieldValue>United Arab Emirates</controllingFieldValue>
-                <controllingFieldValue>Isle of Man</controllingFieldValue>
-                <controllingFieldValue>United Kingdom</controllingFieldValue>
-                <controllingFieldValue>Israel</controllingFieldValue>
-                <controllingFieldValue>Italy</controllingFieldValue>
-                <controllingFieldValue>Uruguay</controllingFieldValue>
-                <controllingFieldValue>Jamaica</controllingFieldValue>
-                <valueName>Foreign Government Entity</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Uzbekistan</controllingFieldValue>
-                <controllingFieldValue>Japan</controllingFieldValue>
-                <controllingFieldValue>Vanuatu</controllingFieldValue>
-                <controllingFieldValue>Jersey</controllingFieldValue>
-                <controllingFieldValue>Venezuela, Bolivarian Republic of</controllingFieldValue>
-                <controllingFieldValue>Jordan</controllingFieldValue>
-                <controllingFieldValue>Kazakhstan</controllingFieldValue>
-                <controllingFieldValue>Virgin Islands, British</controllingFieldValue>
-                <controllingFieldValue>Kenya</controllingFieldValue>
-                <controllingFieldValue>Wallis and Futuna</controllingFieldValue>
-                <controllingFieldValue>Kiribati</controllingFieldValue>
-                <controllingFieldValue>Western Sahara</controllingFieldValue>
-                <controllingFieldValue>Korea, Democratic People’s Republic of</controllingFieldValue>
-                <controllingFieldValue>Yemen</controllingFieldValue>
-                <controllingFieldValue>Korea, Republic of</controllingFieldValue>
-                <controllingFieldValue>Zambia</controllingFieldValue>
-                <controllingFieldValue>Kuwait</controllingFieldValue>
-                <controllingFieldValue>Zimbabwe</controllingFieldValue>
-                <controllingFieldValue>Kyrgyzstan</controllingFieldValue>
-                <controllingFieldValue>Argentina</controllingFieldValue>
-                <controllingFieldValue>Armenia</controllingFieldValue>
-                <controllingFieldValue>Aruba</controllingFieldValue>
-                <controllingFieldValue>Australia</controllingFieldValue>
-                <controllingFieldValue>Austria</controllingFieldValue>
-                <controllingFieldValue>Azerbaijan</controllingFieldValue>
-                <controllingFieldValue>Bahamas</controllingFieldValue>
-                <controllingFieldValue>Bahrain</controllingFieldValue>
-                <controllingFieldValue>Bangladesh</controllingFieldValue>
-                <controllingFieldValue>Barbados</controllingFieldValue>
-                <controllingFieldValue>Lao People’s Democratic Republic</controllingFieldValue>
-                <controllingFieldValue>Latvia</controllingFieldValue>
-                <controllingFieldValue>Afghanistan</controllingFieldValue>
-                <controllingFieldValue>Lebanon</controllingFieldValue>
-                <controllingFieldValue>Aland Islands</controllingFieldValue>
-                <controllingFieldValue>Lesotho</controllingFieldValue>
-                <controllingFieldValue>Albania</controllingFieldValue>
-                <controllingFieldValue>Liberia</controllingFieldValue>
-                <controllingFieldValue>Algeria</controllingFieldValue>
-                <controllingFieldValue>Libyan Arab Jamahiriya</controllingFieldValue>
-                <controllingFieldValue>Andorra</controllingFieldValue>
-                <controllingFieldValue>Liechtenstein</controllingFieldValue>
-                <controllingFieldValue>Angola</controllingFieldValue>
-                <controllingFieldValue>Lithuania</controllingFieldValue>
-                <controllingFieldValue>Anguilla</controllingFieldValue>
-                <controllingFieldValue>Luxembourg</controllingFieldValue>
-                <controllingFieldValue>Antarctica</controllingFieldValue>
-                <controllingFieldValue>Macao</controllingFieldValue>
-                <controllingFieldValue>Antigua and Barbuda</controllingFieldValue>
-                <controllingFieldValue>Belarus</controllingFieldValue>
-                <controllingFieldValue>Belgium</controllingFieldValue>
-                <controllingFieldValue>Belize</controllingFieldValue>
-                <controllingFieldValue>Benin</controllingFieldValue>
-                <controllingFieldValue>Bermuda</controllingFieldValue>
-                <controllingFieldValue>Bhutan</controllingFieldValue>
-                <controllingFieldValue>Bolivia, Plurinational State of</controllingFieldValue>
-                <controllingFieldValue>Bonaire, Sint Eustatius and Saba</controllingFieldValue>
-                <controllingFieldValue>Bosnia and Herzegovina</controllingFieldValue>
-                <controllingFieldValue>Botswana</controllingFieldValue>
-                <controllingFieldValue>Macedonia, the former Yugoslav Republic of</controllingFieldValue>
-                <controllingFieldValue>Madagascar</controllingFieldValue>
-                <controllingFieldValue>Malawi</controllingFieldValue>
-                <controllingFieldValue>Malaysia</controllingFieldValue>
-                <controllingFieldValue>Taiwan</controllingFieldValue>
-                <controllingFieldValue>Maldives</controllingFieldValue>
-                <controllingFieldValue>Mali</controllingFieldValue>
-                <controllingFieldValue>Malta</controllingFieldValue>
-                <controllingFieldValue>Martinique</controllingFieldValue>
-                <controllingFieldValue>Mauritania</controllingFieldValue>
-                <controllingFieldValue>Vietnam</controllingFieldValue>
-                <controllingFieldValue>Mauritius</controllingFieldValue>
-                <controllingFieldValue>Bouvet Island</controllingFieldValue>
-                <controllingFieldValue>Brazil</controllingFieldValue>
-                <controllingFieldValue>British Indian Ocean Territory</controllingFieldValue>
-                <controllingFieldValue>Brunei Darussalam</controllingFieldValue>
-                <controllingFieldValue>Bulgaria</controllingFieldValue>
-                <controllingFieldValue>Burkina Faso</controllingFieldValue>
-                <controllingFieldValue>Burundi</controllingFieldValue>
-                <controllingFieldValue>Cambodia</controllingFieldValue>
-                <controllingFieldValue>Cameroon</controllingFieldValue>
-                <controllingFieldValue>Canada</controllingFieldValue>
-                <controllingFieldValue>Mayotte</controllingFieldValue>
-                <controllingFieldValue>Mexico</controllingFieldValue>
-                <controllingFieldValue>Moldova, Republic of</controllingFieldValue>
-                <controllingFieldValue>Monaco</controllingFieldValue>
-                <controllingFieldValue>Mongolia</controllingFieldValue>
-                <controllingFieldValue>Montenegro</controllingFieldValue>
-                <controllingFieldValue>Montserrat</controllingFieldValue>
-                <controllingFieldValue>Morocco</controllingFieldValue>
-                <controllingFieldValue>Mozambique</controllingFieldValue>
-                <controllingFieldValue>Myanmar</controllingFieldValue>
-                <controllingFieldValue>Cape Verde</controllingFieldValue>
-                <controllingFieldValue>Cayman Islands</controllingFieldValue>
-                <controllingFieldValue>Central African Republic</controllingFieldValue>
-                <controllingFieldValue>Chad</controllingFieldValue>
-                <controllingFieldValue>Chile</controllingFieldValue>
-                <controllingFieldValue>China</controllingFieldValue>
-                <controllingFieldValue>Christmas Island</controllingFieldValue>
-                <controllingFieldValue>Cocos (Keeling) Islands</controllingFieldValue>
-                <controllingFieldValue>Colombia</controllingFieldValue>
-                <controllingFieldValue>Namibia</controllingFieldValue>
-                <controllingFieldValue>Nauru</controllingFieldValue>
-                <controllingFieldValue>Nepal</controllingFieldValue>
-                <controllingFieldValue>Netherlands</controllingFieldValue>
-                <controllingFieldValue>New Caledonia</controllingFieldValue>
-                <controllingFieldValue>New Zealand</controllingFieldValue>
-                <controllingFieldValue>Nicaragua</controllingFieldValue>
-                <controllingFieldValue>Niger</controllingFieldValue>
-                <controllingFieldValue>Nigeria</controllingFieldValue>
-                <controllingFieldValue>Niue</controllingFieldValue>
-                <controllingFieldValue>Comoros</controllingFieldValue>
-                <controllingFieldValue>Congo</controllingFieldValue>
-                <controllingFieldValue>Congo, the Democratic Republic of the</controllingFieldValue>
-                <controllingFieldValue>Cook Islands</controllingFieldValue>
-                <controllingFieldValue>Costa Rica</controllingFieldValue>
-                <controllingFieldValue>Cote d’Ivoire</controllingFieldValue>
-                <controllingFieldValue>Croatia</controllingFieldValue>
-                <controllingFieldValue>Cuba</controllingFieldValue>
-                <controllingFieldValue>Curaçao</controllingFieldValue>
-                <controllingFieldValue>Cyprus</controllingFieldValue>
-                <controllingFieldValue>Tunisia</controllingFieldValue>
-                <controllingFieldValue>Norfolk Island</controllingFieldValue>
-                <controllingFieldValue>Norway</controllingFieldValue>
-                <controllingFieldValue>Oman</controllingFieldValue>
-                <controllingFieldValue>Pakistan</controllingFieldValue>
-                <controllingFieldValue>Palestinian Territory, Occupied</controllingFieldValue>
-                <controllingFieldValue>Panama</controllingFieldValue>
-                <controllingFieldValue>Papua New Guinea</controllingFieldValue>
-                <controllingFieldValue>Paraguay</controllingFieldValue>
-                <controllingFieldValue>Peru</controllingFieldValue>
-                <controllingFieldValue>Philippines</controllingFieldValue>
-                <controllingFieldValue>Czech Republic</controllingFieldValue>
-                <controllingFieldValue>Denmark</controllingFieldValue>
-                <controllingFieldValue>Djibouti</controllingFieldValue>
-                <controllingFieldValue>Dominica</controllingFieldValue>
-                <controllingFieldValue>Dominican Republic</controllingFieldValue>
-                <controllingFieldValue>Ecuador</controllingFieldValue>
-                <controllingFieldValue>Egypt</controllingFieldValue>
-                <controllingFieldValue>El Salvador</controllingFieldValue>
-                <controllingFieldValue>Equatorial Guinea</controllingFieldValue>
-                <controllingFieldValue>Eritrea</controllingFieldValue>
-                <controllingFieldValue>Pitcairn</controllingFieldValue>
-                <controllingFieldValue>Poland</controllingFieldValue>
-                <controllingFieldValue>Portugal</controllingFieldValue>
-                <controllingFieldValue>Qatar</controllingFieldValue>
-                <controllingFieldValue>Reunion</controllingFieldValue>
-                <controllingFieldValue>Romania</controllingFieldValue>
-                <controllingFieldValue>Russian Federation</controllingFieldValue>
-                <controllingFieldValue>Rwanda</controllingFieldValue>
-                <controllingFieldValue>Saint Barthélemy</controllingFieldValue>
-                <controllingFieldValue>Saint Helena, Ascension and Tristan da Cunha</controllingFieldValue>
-                <controllingFieldValue>Estonia</controllingFieldValue>
-                <controllingFieldValue>Ethiopia</controllingFieldValue>
-                <controllingFieldValue>Falkland Islands (Malvinas)</controllingFieldValue>
-                <controllingFieldValue>Faroe Islands</controllingFieldValue>
-                <controllingFieldValue>Fiji</controllingFieldValue>
-                <controllingFieldValue>Finland</controllingFieldValue>
-                <controllingFieldValue>France</controllingFieldValue>
-                <controllingFieldValue>French Guiana</controllingFieldValue>
-                <controllingFieldValue>French Polynesia</controllingFieldValue>
-                <controllingFieldValue>French Southern Territories</controllingFieldValue>
-                <controllingFieldValue>Saint Kitts and Nevis</controllingFieldValue>
-                <controllingFieldValue>Saint Lucia</controllingFieldValue>
-                <controllingFieldValue>Saint Martin (French part)</controllingFieldValue>
-                <controllingFieldValue>Saint Pierre and Miquelon</controllingFieldValue>
-                <controllingFieldValue>Saint Vincent and the Grenadines</controllingFieldValue>
-                <controllingFieldValue>Samoa</controllingFieldValue>
-                <controllingFieldValue>San Marino</controllingFieldValue>
-                <controllingFieldValue>Sao Tome and Principe</controllingFieldValue>
-                <controllingFieldValue>Saudi Arabia</controllingFieldValue>
-                <controllingFieldValue>Senegal</controllingFieldValue>
-                <controllingFieldValue>Gabon</controllingFieldValue>
-                <controllingFieldValue>Gambia</controllingFieldValue>
-                <controllingFieldValue>Georgia</controllingFieldValue>
-                <controllingFieldValue>Germany</controllingFieldValue>
-                <controllingFieldValue>Ghana</controllingFieldValue>
-                <controllingFieldValue>Gibraltar</controllingFieldValue>
-                <controllingFieldValue>Greece</controllingFieldValue>
-                <controllingFieldValue>Greenland</controllingFieldValue>
-                <controllingFieldValue>Grenada</controllingFieldValue>
-                <controllingFieldValue>Guadeloupe</controllingFieldValue>
-                <controllingFieldValue>Serbia</controllingFieldValue>
-                <controllingFieldValue>Seychelles</controllingFieldValue>
-                <controllingFieldValue>Sierra Leone</controllingFieldValue>
-                <controllingFieldValue>Singapore</controllingFieldValue>
-                <controllingFieldValue>Sint Maarten (Dutch part)</controllingFieldValue>
-                <controllingFieldValue>Slovakia</controllingFieldValue>
-                <controllingFieldValue>Slovenia</controllingFieldValue>
-                <controllingFieldValue>Solomon Islands</controllingFieldValue>
-                <controllingFieldValue>Somalia</controllingFieldValue>
-                <controllingFieldValue>South Africa</controllingFieldValue>
-                <controllingFieldValue>Guatemala</controllingFieldValue>
-                <controllingFieldValue>Guernsey</controllingFieldValue>
-                <controllingFieldValue>Guinea</controllingFieldValue>
-                <controllingFieldValue>Guinea-Bissau</controllingFieldValue>
-                <controllingFieldValue>Guyana</controllingFieldValue>
-                <controllingFieldValue>Haiti</controllingFieldValue>
-                <controllingFieldValue>Heard Island and McDonald Islands</controllingFieldValue>
-                <controllingFieldValue>Holy See (Vatican City State)</controllingFieldValue>
-                <controllingFieldValue>Honduras</controllingFieldValue>
-                <controllingFieldValue>Hungary</controllingFieldValue>
-                <controllingFieldValue>Hong Kong</controllingFieldValue>
-                <controllingFieldValue>Kosovo</controllingFieldValue>
-                <controllingFieldValue>South Georgia and the South Sandwich Islands</controllingFieldValue>
-                <controllingFieldValue>South Sudan</controllingFieldValue>
-                <controllingFieldValue>Spain</controllingFieldValue>
-                <controllingFieldValue>Sri Lanka</controllingFieldValue>
-                <controllingFieldValue>Sudan</controllingFieldValue>
-                <controllingFieldValue>Suriname</controllingFieldValue>
-                <controllingFieldValue>Svalbard and Jan Mayen</controllingFieldValue>
-                <controllingFieldValue>Swaziland</controllingFieldValue>
-                <controllingFieldValue>Sweden</controllingFieldValue>
-                <controllingFieldValue>Switzerland</controllingFieldValue>
-                <controllingFieldValue>Syrian Arab Republic</controllingFieldValue>
-                <controllingFieldValue>Tajikistan</controllingFieldValue>
-                <controllingFieldValue>Tanzania, United Republic of</controllingFieldValue>
-                <controllingFieldValue>Thailand</controllingFieldValue>
-                <controllingFieldValue>Timor-Leste</controllingFieldValue>
-                <controllingFieldValue>Togo</controllingFieldValue>
-                <controllingFieldValue>Tokelau</controllingFieldValue>
-                <controllingFieldValue>Tonga</controllingFieldValue>
-                <controllingFieldValue>Trinidad and Tobago</controllingFieldValue>
-                <controllingFieldValue>Turkey</controllingFieldValue>
-                <controllingFieldValue>Iceland</controllingFieldValue>
-                <controllingFieldValue>Turkmenistan</controllingFieldValue>
-                <controllingFieldValue>India</controllingFieldValue>
-                <controllingFieldValue>Turks and Caicos Islands</controllingFieldValue>
-                <controllingFieldValue>Indonesia</controllingFieldValue>
-                <controllingFieldValue>Tuvalu</controllingFieldValue>
-                <controllingFieldValue>Iran, Islamic Republic of</controllingFieldValue>
-                <controllingFieldValue>Uganda</controllingFieldValue>
-                <controllingFieldValue>Iraq</controllingFieldValue>
-                <controllingFieldValue>Ukraine</controllingFieldValue>
-                <controllingFieldValue>Ireland</controllingFieldValue>
-                <controllingFieldValue>United Arab Emirates</controllingFieldValue>
-                <controllingFieldValue>Isle of Man</controllingFieldValue>
-                <controllingFieldValue>United Kingdom</controllingFieldValue>
-                <controllingFieldValue>Israel</controllingFieldValue>
-                <controllingFieldValue>Italy</controllingFieldValue>
-                <controllingFieldValue>Uruguay</controllingFieldValue>
-                <controllingFieldValue>Jamaica</controllingFieldValue>
-                <valueName>Foreign Trade Show/Event Organizer</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Uzbekistan</controllingFieldValue>
-                <controllingFieldValue>Japan</controllingFieldValue>
-                <controllingFieldValue>Vanuatu</controllingFieldValue>
-                <controllingFieldValue>Jersey</controllingFieldValue>
-                <controllingFieldValue>Venezuela, Bolivarian Republic of</controllingFieldValue>
-                <controllingFieldValue>Jordan</controllingFieldValue>
-                <controllingFieldValue>Kazakhstan</controllingFieldValue>
-                <controllingFieldValue>Virgin Islands, British</controllingFieldValue>
-                <controllingFieldValue>Kenya</controllingFieldValue>
-                <controllingFieldValue>Wallis and Futuna</controllingFieldValue>
-                <controllingFieldValue>Kiribati</controllingFieldValue>
-                <controllingFieldValue>Western Sahara</controllingFieldValue>
-                <controllingFieldValue>Korea, Democratic People’s Republic of</controllingFieldValue>
-                <controllingFieldValue>Yemen</controllingFieldValue>
-                <controllingFieldValue>Korea, Republic of</controllingFieldValue>
-                <controllingFieldValue>Zambia</controllingFieldValue>
-                <controllingFieldValue>Kuwait</controllingFieldValue>
-                <controllingFieldValue>Zimbabwe</controllingFieldValue>
-                <controllingFieldValue>Kyrgyzstan</controllingFieldValue>
-                <controllingFieldValue>Argentina</controllingFieldValue>
-                <controllingFieldValue>Armenia</controllingFieldValue>
-                <controllingFieldValue>Aruba</controllingFieldValue>
-                <controllingFieldValue>Australia</controllingFieldValue>
-                <controllingFieldValue>Austria</controllingFieldValue>
-                <controllingFieldValue>Azerbaijan</controllingFieldValue>
-                <controllingFieldValue>Bahamas</controllingFieldValue>
-                <controllingFieldValue>Bahrain</controllingFieldValue>
-                <controllingFieldValue>Bangladesh</controllingFieldValue>
-                <controllingFieldValue>Barbados</controllingFieldValue>
-                <controllingFieldValue>Lao People’s Democratic Republic</controllingFieldValue>
-                <controllingFieldValue>Latvia</controllingFieldValue>
-                <controllingFieldValue>Afghanistan</controllingFieldValue>
-                <controllingFieldValue>Lebanon</controllingFieldValue>
-                <controllingFieldValue>Aland Islands</controllingFieldValue>
-                <controllingFieldValue>Lesotho</controllingFieldValue>
-                <controllingFieldValue>Albania</controllingFieldValue>
-                <controllingFieldValue>Liberia</controllingFieldValue>
-                <controllingFieldValue>Algeria</controllingFieldValue>
-                <controllingFieldValue>Libyan Arab Jamahiriya</controllingFieldValue>
-                <controllingFieldValue>Andorra</controllingFieldValue>
-                <controllingFieldValue>Liechtenstein</controllingFieldValue>
-                <controllingFieldValue>Angola</controllingFieldValue>
-                <controllingFieldValue>Lithuania</controllingFieldValue>
-                <controllingFieldValue>Anguilla</controllingFieldValue>
-                <controllingFieldValue>Luxembourg</controllingFieldValue>
-                <controllingFieldValue>Antarctica</controllingFieldValue>
-                <controllingFieldValue>Macao</controllingFieldValue>
-                <controllingFieldValue>Antigua and Barbuda</controllingFieldValue>
-                <controllingFieldValue>Belarus</controllingFieldValue>
-                <controllingFieldValue>Belgium</controllingFieldValue>
-                <controllingFieldValue>Belize</controllingFieldValue>
-                <controllingFieldValue>Benin</controllingFieldValue>
-                <controllingFieldValue>Bermuda</controllingFieldValue>
-                <controllingFieldValue>Bhutan</controllingFieldValue>
-                <controllingFieldValue>Bolivia, Plurinational State of</controllingFieldValue>
-                <controllingFieldValue>Bonaire, Sint Eustatius and Saba</controllingFieldValue>
-                <controllingFieldValue>Bosnia and Herzegovina</controllingFieldValue>
-                <controllingFieldValue>Botswana</controllingFieldValue>
-                <controllingFieldValue>Macedonia, the former Yugoslav Republic of</controllingFieldValue>
-                <controllingFieldValue>Madagascar</controllingFieldValue>
-                <controllingFieldValue>Malawi</controllingFieldValue>
-                <controllingFieldValue>Malaysia</controllingFieldValue>
-                <controllingFieldValue>Taiwan</controllingFieldValue>
-                <controllingFieldValue>Maldives</controllingFieldValue>
-                <controllingFieldValue>Mali</controllingFieldValue>
-                <controllingFieldValue>Malta</controllingFieldValue>
-                <controllingFieldValue>Martinique</controllingFieldValue>
-                <controllingFieldValue>Mauritania</controllingFieldValue>
-                <controllingFieldValue>Vietnam</controllingFieldValue>
-                <controllingFieldValue>Mauritius</controllingFieldValue>
-                <controllingFieldValue>Bouvet Island</controllingFieldValue>
-                <controllingFieldValue>Brazil</controllingFieldValue>
-                <controllingFieldValue>British Indian Ocean Territory</controllingFieldValue>
-                <controllingFieldValue>Brunei Darussalam</controllingFieldValue>
-                <controllingFieldValue>Bulgaria</controllingFieldValue>
-                <controllingFieldValue>Burkina Faso</controllingFieldValue>
-                <controllingFieldValue>Burundi</controllingFieldValue>
-                <controllingFieldValue>Cambodia</controllingFieldValue>
-                <controllingFieldValue>Cameroon</controllingFieldValue>
-                <controllingFieldValue>Canada</controllingFieldValue>
-                <controllingFieldValue>Mayotte</controllingFieldValue>
-                <controllingFieldValue>Mexico</controllingFieldValue>
-                <controllingFieldValue>Moldova, Republic of</controllingFieldValue>
-                <controllingFieldValue>Monaco</controllingFieldValue>
-                <controllingFieldValue>Mongolia</controllingFieldValue>
-                <controllingFieldValue>Montenegro</controllingFieldValue>
-                <controllingFieldValue>Montserrat</controllingFieldValue>
-                <controllingFieldValue>Morocco</controllingFieldValue>
-                <controllingFieldValue>Mozambique</controllingFieldValue>
-                <controllingFieldValue>Myanmar</controllingFieldValue>
-                <controllingFieldValue>Cape Verde</controllingFieldValue>
-                <controllingFieldValue>Cayman Islands</controllingFieldValue>
-                <controllingFieldValue>Central African Republic</controllingFieldValue>
-                <controllingFieldValue>Chad</controllingFieldValue>
-                <controllingFieldValue>Chile</controllingFieldValue>
-                <controllingFieldValue>China</controllingFieldValue>
-                <controllingFieldValue>Christmas Island</controllingFieldValue>
-                <controllingFieldValue>Cocos (Keeling) Islands</controllingFieldValue>
-                <controllingFieldValue>Colombia</controllingFieldValue>
-                <controllingFieldValue>Namibia</controllingFieldValue>
-                <controllingFieldValue>Nauru</controllingFieldValue>
-                <controllingFieldValue>Nepal</controllingFieldValue>
-                <controllingFieldValue>Netherlands</controllingFieldValue>
-                <controllingFieldValue>New Caledonia</controllingFieldValue>
-                <controllingFieldValue>New Zealand</controllingFieldValue>
-                <controllingFieldValue>Nicaragua</controllingFieldValue>
-                <controllingFieldValue>Niger</controllingFieldValue>
-                <controllingFieldValue>Nigeria</controllingFieldValue>
-                <controllingFieldValue>Niue</controllingFieldValue>
-                <controllingFieldValue>Comoros</controllingFieldValue>
-                <controllingFieldValue>Congo</controllingFieldValue>
-                <controllingFieldValue>Congo, the Democratic Republic of the</controllingFieldValue>
-                <controllingFieldValue>Cook Islands</controllingFieldValue>
-                <controllingFieldValue>Costa Rica</controllingFieldValue>
-                <controllingFieldValue>Cote d’Ivoire</controllingFieldValue>
-                <controllingFieldValue>Croatia</controllingFieldValue>
-                <controllingFieldValue>Cuba</controllingFieldValue>
-                <controllingFieldValue>Curaçao</controllingFieldValue>
-                <controllingFieldValue>Cyprus</controllingFieldValue>
-                <controllingFieldValue>Tunisia</controllingFieldValue>
-                <controllingFieldValue>Norfolk Island</controllingFieldValue>
-                <controllingFieldValue>Norway</controllingFieldValue>
-                <controllingFieldValue>Oman</controllingFieldValue>
-                <controllingFieldValue>Pakistan</controllingFieldValue>
-                <controllingFieldValue>Palestinian Territory, Occupied</controllingFieldValue>
-                <controllingFieldValue>Panama</controllingFieldValue>
-                <controllingFieldValue>Papua New Guinea</controllingFieldValue>
-                <controllingFieldValue>Paraguay</controllingFieldValue>
-                <controllingFieldValue>Peru</controllingFieldValue>
-                <controllingFieldValue>Philippines</controllingFieldValue>
-                <controllingFieldValue>Czech Republic</controllingFieldValue>
-                <controllingFieldValue>Denmark</controllingFieldValue>
-                <controllingFieldValue>Djibouti</controllingFieldValue>
-                <controllingFieldValue>Dominica</controllingFieldValue>
-                <controllingFieldValue>Dominican Republic</controllingFieldValue>
-                <controllingFieldValue>Ecuador</controllingFieldValue>
-                <controllingFieldValue>Egypt</controllingFieldValue>
-                <controllingFieldValue>El Salvador</controllingFieldValue>
-                <controllingFieldValue>Equatorial Guinea</controllingFieldValue>
-                <controllingFieldValue>Eritrea</controllingFieldValue>
-                <controllingFieldValue>Pitcairn</controllingFieldValue>
-                <controllingFieldValue>Poland</controllingFieldValue>
-                <controllingFieldValue>Portugal</controllingFieldValue>
-                <controllingFieldValue>Qatar</controllingFieldValue>
-                <controllingFieldValue>Reunion</controllingFieldValue>
-                <controllingFieldValue>Romania</controllingFieldValue>
-                <controllingFieldValue>Russian Federation</controllingFieldValue>
-                <controllingFieldValue>Rwanda</controllingFieldValue>
-                <controllingFieldValue>Saint Barthélemy</controllingFieldValue>
-                <controllingFieldValue>Saint Helena, Ascension and Tristan da Cunha</controllingFieldValue>
-                <controllingFieldValue>Estonia</controllingFieldValue>
-                <controllingFieldValue>Ethiopia</controllingFieldValue>
-                <controllingFieldValue>Falkland Islands (Malvinas)</controllingFieldValue>
-                <controllingFieldValue>Faroe Islands</controllingFieldValue>
-                <controllingFieldValue>Fiji</controllingFieldValue>
-                <controllingFieldValue>Finland</controllingFieldValue>
-                <controllingFieldValue>France</controllingFieldValue>
-                <controllingFieldValue>French Guiana</controllingFieldValue>
-                <controllingFieldValue>French Polynesia</controllingFieldValue>
-                <controllingFieldValue>French Southern Territories</controllingFieldValue>
-                <controllingFieldValue>Saint Kitts and Nevis</controllingFieldValue>
-                <controllingFieldValue>Saint Lucia</controllingFieldValue>
-                <controllingFieldValue>Saint Martin (French part)</controllingFieldValue>
-                <controllingFieldValue>Saint Pierre and Miquelon</controllingFieldValue>
-                <controllingFieldValue>Saint Vincent and the Grenadines</controllingFieldValue>
-                <controllingFieldValue>Samoa</controllingFieldValue>
-                <controllingFieldValue>San Marino</controllingFieldValue>
-                <controllingFieldValue>Sao Tome and Principe</controllingFieldValue>
-                <controllingFieldValue>Saudi Arabia</controllingFieldValue>
-                <controllingFieldValue>Senegal</controllingFieldValue>
-                <controllingFieldValue>Gabon</controllingFieldValue>
-                <controllingFieldValue>Gambia</controllingFieldValue>
-                <controllingFieldValue>Georgia</controllingFieldValue>
-                <controllingFieldValue>Germany</controllingFieldValue>
-                <controllingFieldValue>Ghana</controllingFieldValue>
-                <controllingFieldValue>Gibraltar</controllingFieldValue>
-                <controllingFieldValue>Greece</controllingFieldValue>
-                <controllingFieldValue>Greenland</controllingFieldValue>
-                <controllingFieldValue>Grenada</controllingFieldValue>
-                <controllingFieldValue>Guadeloupe</controllingFieldValue>
-                <controllingFieldValue>Serbia</controllingFieldValue>
-                <controllingFieldValue>Seychelles</controllingFieldValue>
-                <controllingFieldValue>Sierra Leone</controllingFieldValue>
-                <controllingFieldValue>Singapore</controllingFieldValue>
-                <controllingFieldValue>Sint Maarten (Dutch part)</controllingFieldValue>
-                <controllingFieldValue>Slovakia</controllingFieldValue>
-                <controllingFieldValue>Slovenia</controllingFieldValue>
-                <controllingFieldValue>Solomon Islands</controllingFieldValue>
-                <controllingFieldValue>Somalia</controllingFieldValue>
-                <controllingFieldValue>South Africa</controllingFieldValue>
-                <controllingFieldValue>Guatemala</controllingFieldValue>
-                <controllingFieldValue>Guernsey</controllingFieldValue>
-                <controllingFieldValue>Guinea</controllingFieldValue>
-                <controllingFieldValue>Guinea-Bissau</controllingFieldValue>
-                <controllingFieldValue>Guyana</controllingFieldValue>
-                <controllingFieldValue>Haiti</controllingFieldValue>
-                <controllingFieldValue>Heard Island and McDonald Islands</controllingFieldValue>
-                <controllingFieldValue>Holy See (Vatican City State)</controllingFieldValue>
-                <controllingFieldValue>Honduras</controllingFieldValue>
-                <controllingFieldValue>Hungary</controllingFieldValue>
-                <controllingFieldValue>Hong Kong</controllingFieldValue>
-                <controllingFieldValue>Kosovo</controllingFieldValue>
-                <controllingFieldValue>South Georgia and the South Sandwich Islands</controllingFieldValue>
-                <controllingFieldValue>South Sudan</controllingFieldValue>
-                <controllingFieldValue>Spain</controllingFieldValue>
-                <controllingFieldValue>Sri Lanka</controllingFieldValue>
-                <controllingFieldValue>Sudan</controllingFieldValue>
-                <controllingFieldValue>Suriname</controllingFieldValue>
-                <controllingFieldValue>Svalbard and Jan Mayen</controllingFieldValue>
-                <controllingFieldValue>Swaziland</controllingFieldValue>
-                <controllingFieldValue>Sweden</controllingFieldValue>
-                <controllingFieldValue>Switzerland</controllingFieldValue>
-                <controllingFieldValue>Syrian Arab Republic</controllingFieldValue>
-                <controllingFieldValue>Tajikistan</controllingFieldValue>
-                <controllingFieldValue>Tanzania, United Republic of</controllingFieldValue>
-                <controllingFieldValue>Thailand</controllingFieldValue>
-                <controllingFieldValue>Timor-Leste</controllingFieldValue>
-                <controllingFieldValue>Togo</controllingFieldValue>
-                <controllingFieldValue>Tokelau</controllingFieldValue>
-                <controllingFieldValue>Tonga</controllingFieldValue>
-                <controllingFieldValue>Trinidad and Tobago</controllingFieldValue>
-                <controllingFieldValue>Turkey</controllingFieldValue>
-                <controllingFieldValue>Iceland</controllingFieldValue>
-                <controllingFieldValue>Turkmenistan</controllingFieldValue>
-                <controllingFieldValue>India</controllingFieldValue>
-                <controllingFieldValue>Turks and Caicos Islands</controllingFieldValue>
-                <controllingFieldValue>Indonesia</controllingFieldValue>
-                <controllingFieldValue>Tuvalu</controllingFieldValue>
-                <controllingFieldValue>Iran, Islamic Republic of</controllingFieldValue>
-                <controllingFieldValue>Uganda</controllingFieldValue>
-                <controllingFieldValue>Iraq</controllingFieldValue>
-                <controllingFieldValue>Ukraine</controllingFieldValue>
-                <controllingFieldValue>Ireland</controllingFieldValue>
-                <controllingFieldValue>United Arab Emirates</controllingFieldValue>
-                <controllingFieldValue>Isle of Man</controllingFieldValue>
-                <controllingFieldValue>United Kingdom</controllingFieldValue>
-                <controllingFieldValue>Israel</controllingFieldValue>
-                <controllingFieldValue>Italy</controllingFieldValue>
-                <controllingFieldValue>Uruguay</controllingFieldValue>
-                <controllingFieldValue>Jamaica</controllingFieldValue>
-                <valueName>Foreign Student/Researcher</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. Business Currently Exporting Goods/Services</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. Business Seeking to Export Goods/Services</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. Citizen Seeking to Export Goods/Services</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. Educational Institution</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. Economic Development Organization</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. Travel &amp; Tourism Bureau</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. based Student/Researcher</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. Industry Associations</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. Trade Show/Event Organizer</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>Service Provider to U.S. Exporters</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>United States</controllingFieldValue>
+                <controllingFieldValue>Located in US</controllingFieldValue>
                 <valueName>U.S. Government</valueName>
             </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Located outside US</controllingFieldValue>
+                <valueName>Foreign Subsidiary of U.S. Company (95% U.S. owned)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Located outside US</controllingFieldValue>
+                <valueName>Foreign Subsidiary of U.S. Company (less than 95% U.S. owned)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Located outside US</controllingFieldValue>
+                <valueName>Current or Prospective Buyer of U.S. Goods/Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Located outside US</controllingFieldValue>
+                <valueName>Current or Prospective Investor in U.S.</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Located outside US</controllingFieldValue>
+                <valueName>Foreign Government Entity</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Located outside US</controllingFieldValue>
+                <valueName>Foreign Trade Show/Event Organizer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Located outside US</controllingFieldValue>
+                <valueName>Foreign Student/Researcher</valueName>
+            </valueSettings>
         </valueSet>
-    </fields>
-    <fields>
+       </fields>
+       <fields>
         <fullName>OwnerId</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
@@ -2606,6 +1024,18 @@
         <fullName>Rating</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Registrant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Registrant</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Sector_Hidden__c</fullName>
@@ -2740,7 +1170,7 @@
         <externalId>false</externalId>
         <label>Source Detail</label>
         <length>255</length>
-        <required>true</required>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2842,11 +1272,12 @@
     </listViews>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
-        <fullName>Partner_Lead</fullName>
+        <fullName>New_Registrant</fullName>
         <active>true</active>
-        <businessProcess>Partner Lead Process</businessProcess>
-        <description>Lead for Data Partners/Consumers.</description>
-        <label>Partner Lead</label>
+        <businessProcess>New Registrant</businessProcess>
+        <compactLayoutAssignment>New_Registrant</compactLayoutAssignment>
+        <description>A new registrant from the website</description>
+        <label>New Registrant</label>
         <picklistValues>
             <picklist>APIEndpoint__c</picklist>
             <values>
@@ -4101,6 +2532,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Sourced_from_CP_communities</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Strategic Partner</fullName>
                 <default>false</default>
             </values>
@@ -4133,6 +2568,17 @@
             </values>
             <values>
                 <fullName>Ms%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Location__c</picklist>
+            <values>
+                <fullName>Located in US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Located outside US</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4288,6 +2734,401 @@
             </values>
             <values>
                 <fullName>U%2ES%2E based Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SourceTechnology__c</picklist>
+            <values>
+                <fullName>API</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Excel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FTP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lotus Notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SharePoint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Word Document</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>XML</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+     </recordTypes>
+     <recordTypes>
+        <fullName>Partner_Lead</fullName>
+        <active>true</active>
+        <businessProcess>Partner Lead Process</businessProcess>
+        <description>Lead for Data Partners/Consumers.</description>
+        <label>Partner Lead</label>
+        <picklistValues>
+            <picklist>APIEndpoint__c</picklist>
+            <values>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consolidated Screening List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>De Minimis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FAQs on Exporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITA Offices %26 Centers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITA Taxonomies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Market Research Library</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tariff Rates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Leads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade News %26 Articles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Zip Code to USEAC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>AccountCategory__c</picklist>
+            <values>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Codes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Country Pages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Links</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Procurment Opportunity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotion Opportunity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Statistics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tariff Schedules</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Content</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DataPartnerType__c</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LeadSource</picklist>
+            <values>
+                <fullName>Government Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Call %2F Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral %2F Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strategic Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Name</picklist>
+            <values>
+                <fullName>Ambassador</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms%2E</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -74,6 +74,8 @@ global with sharing class MCP_LightningSelfRegisterController {
             l.Email = email;
             l.Company = 'PLEASE UPDATE INFORMATION';
             l.Source_Detail__c = 'Sourced from CP communities';
+            l.LeadSource = 'Sourced from CP communities';
+
             
             // create contact record 
             // find generic account for new External accounts
@@ -142,6 +144,7 @@ global with sharing class MCP_LightningSelfRegisterController {
             //get contact record from system
             if(test.isRunningTest() == false){
            		c = MCP_NonSharingUtilityClass.getNewContact(email, externalUserAccounts[0].id);
+                l.Registrant__c = c.id;
             }
             //get current rule set for lead assignments.
            list<AssignmentRule> rules = new list<AssignmentRule>();
@@ -150,8 +153,11 @@ global with sharing class MCP_LightningSelfRegisterController {
             database.DMLOptions dml = new  database.DMLOptions();
             dml.AssignmentRuleHeader.assignmentRuleId = rules[0].id;
             l.setOptions(dml);
-            database.insert(l);//  create the lead here
-            //if User is created sucesfully than create a related contact
+            String leadRecordTypeId = Schema.SObjectType.Lead.getRecordTypeInfosByName().get('New Registrant').getRecordTypeId();
+            l.RecordTypeId = leadRecordTypeId;
+            MCP_NonSharingUtilityClass.upsertLeadRecord(l);
+           // database.insert(l);//  create the lead here
+            //if User is created successfully than create a related contact
             if(userId == null){
                 return Label.MCP_FailedToCreateUSer;
             }
@@ -160,13 +166,14 @@ global with sharing class MCP_LightningSelfRegisterController {
             c.Email = email;
             c.Community_User__c = userId;
             c.AccountId = externalUserAccounts[0].id;
+            c.LeadSource = 'Sourced from CP communities';
+            c.RecordTypeId = MCP_NonSharingUtilityClass.getContactRecordType();
             if(test.isRunningTest() == false){
             c.MailingCountry = extraFieldsMapByAPIName.get('Country_1__c').toString();
-            }
-            //Removed org fields from contact object was decided that this not the place to store this info
-           // c.Organization_Location__c = extraFieldsMapByAPIName.get('Organization_Location__c').toString();
-           // c.Organization_Type__c = extraFieldsMapByAPIName.get('Organization_Type__c').t
-            database.insert(c);
+            } 
+            list<contact> newContacts = new list<contact>();
+            newContacts.add(c);
+            MCP_NonSharingUtilityClass.insertContactRecords(newContacts);
          //  MCP_NonSharingUtilityClass.insertContactRecords(cList);
             // create a fake userId for test.
             if (Test.isRunningTest()) {
@@ -276,9 +283,6 @@ global with sharing class MCP_LightningSelfRegisterController {
             isDependantPickList = FALSE;
             isControllingPickList = FALSE;
             ParentfieldDetail = new Map<String, Object>();
-        }          
-    }
-}
         }          
     }
 }
