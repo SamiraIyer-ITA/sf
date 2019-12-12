@@ -84,12 +84,17 @@ public class CP_SaveContactRequestFlowActionTest {
         leadList = [select id from Lead];
         groupList = [select id, name from group where name like 'cp_contact_%'];
         userList = [select id from user where userName =: 'cpEXTTestUser2@cpDanDev.com'];
+        map<String,Id> queueList = new map<String,Id>();
+        
+        for(group currentGroup :groupList){
+			queueList.put(currentGroup.Name,currentGroup.Id);
+        }
         
         CP_SaveContactRequestFlowAction.RequestVariables screenData = new CP_SaveContactRequestFlowAction.RequestVariables();
         list< CP_SaveContactRequestFlowAction.RequestVariables> reqVars = new list< CP_SaveContactRequestFlowAction.RequestVariables>();
         list<contactRequest> savedRecords = new list<ContactRequest>();
         
-        screenData.ownerId = groupList[3].id;
+        screenData.ownerId = queueList.get('CP_Contact_US_3');
         screenData.contactId = contactlist[0].id;
         screenData.converted = 'false';
         screenData.country = 'China';
@@ -116,13 +121,18 @@ public class CP_SaveContactRequestFlowActionTest {
         contactlist = [select id from contact];
         leadList = [select id from Lead];
         groupList = [select id, name from group where name like 'cp_contact_%'];
+        map<String,Id> queueList = new map<String,Id>();
+        for(group currentGroup :groupList){
+			queueList.put(currentGroup.Name,currentGroup.Id);
+        }
+       
         
         CP_SaveContactRequestFlowAction.RequestVariables screenData = new CP_SaveContactRequestFlowAction.RequestVariables();
         list< CP_SaveContactRequestFlowAction.RequestVariables> reqVars = new list< CP_SaveContactRequestFlowAction.RequestVariables>();
         list<contactRequest> savedRecords = new list<ContactRequest>();
         userList = [select id from user where userName =: 'cpEXTTestUser2@cpDanDev.com'];
  
-        screenData.ownerId = groupList[3].id;
+        screenData.ownerId =  queueList.get('CP_Contact_US_3');
         screenData.contactId = contactlist[0].id;
         screenData.converted = 'true';
         screenData.country = 'China';
@@ -151,12 +161,17 @@ public class CP_SaveContactRequestFlowActionTest {
         leadList = [select id from Lead];
         groupList = [select id, name from group where name like 'cp_contact_%'];
         userList = [select id from user where userName =: 'cpEXTTestUser2@cpDanDev.com'];
+        map<String,Id> queueList = new map<String,Id>();
+        
+        for(group currentGroup :groupList){
+			queueList.put(currentGroup.Name,currentGroup.Id);
+        }
         
         CP_SaveContactRequestFlowAction.RequestVariables screenData = new CP_SaveContactRequestFlowAction.RequestVariables();
         list< CP_SaveContactRequestFlowAction.RequestVariables> reqVars = new list< CP_SaveContactRequestFlowAction.RequestVariables>();
         list<contactRequest> savedRecords = new list<ContactRequest>();
         
-        screenData.ownerId = groupList[3].id;
+        screenData.ownerId = queueList.get('CP_Contact_US_3');
         screenData.contactId = null;
         screenData.converted = 'false';
         screenData.country = 'China';
