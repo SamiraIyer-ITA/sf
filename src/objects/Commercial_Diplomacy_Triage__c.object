@@ -448,17 +448,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Response_Reviewed__c</fullName>
-        <externalId>false</externalId>
-        <label>Response Reviewed</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>State__c</fullName>
         <description>Company address: the state</description>
         <externalId>false</externalId>
@@ -808,19 +797,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Zip_Postal_Code__c</fullName>
-        <description>Company Address: zip code</description>
-        <externalId>false</externalId>
-        <label>Zip/Postal Code</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>zPostal_Code__c</fullName>
         <externalId>false</externalId>
         <label>ZIP Postal Code</label>
@@ -832,17 +808,6 @@
         <unique>false</unique>
     </fields>
     <label>Commercial Diplomacy Triage</label>
-    <listViews>
-        <fullName>All1</fullName>
-        <columns>NAME</columns>
-        <columns>First_Name__c</columns>
-        <columns>Last_Name__c</columns>
-        <columns>Status__c</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>CREATEDBY_USER</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>A-{0000}</displayFormat>
         <label>Commercial Diplomacy Triage Name</label>
