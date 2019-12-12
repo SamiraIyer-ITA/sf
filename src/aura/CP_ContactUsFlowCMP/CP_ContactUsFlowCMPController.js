@@ -34,7 +34,7 @@
          
          var flowName = $A.get("$Label.CP_ContactUsFlowNAme");
         var flow = cmp.find("flow");
-               flow.startFlow("CP_Contatus_US_SplitFlow_Formulas");
+               flow.startFlow("CP_Contact_Request_Standard_Flow");
 
     },
     
