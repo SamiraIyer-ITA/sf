@@ -26,6 +26,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>AssignmentRules</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
