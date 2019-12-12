@@ -69,18 +69,3 @@
         <readable>true</readable>
     </fieldPermissions>
 </Profile>
-        <editable>true</editable>
-        <field>Lead.Organization_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.Organization_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.CP_Conversion_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-</Profile>
