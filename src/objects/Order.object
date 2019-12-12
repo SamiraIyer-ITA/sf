@@ -335,13 +335,13 @@
     <validationRules>
         <fullName>Toolkits_Must_Agree_to_Terms</fullName>
         <active>true</active>
-        <errorConditionFormula>isPickVal(Status, &apos;Paid&apos;) &amp;&amp; not(isBlank(Participant__c)) &amp;&amp; contains(Participant__r.RecordType.Name, &apos;Toolkit&apos;) &amp;&amp;  Participant__r.TermsandConditionsAcknowledgement__c  = false</errorConditionFormula>
+        <errorConditionFormula>RecordType.DeveloperName = &apos;Legacy&apos; &amp;&amp; isPickVal(Status, &apos;Paid&apos;) &amp;&amp; not(isBlank(Participant__c)) &amp;&amp; contains(Participant__r.RecordType.Name, &apos;Toolkit&apos;) &amp;&amp;  Participant__r.TermsandConditionsAcknowledgement__c  = false</errorConditionFormula>
         <errorMessage>You must agree to the Terms and Conditions</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Toolkits_have_Primary_Contacts</fullName>
         <active>true</active>
-        <errorConditionFormula>isPickVal(Status, &apos;Paid&apos;) &amp;&amp;  not(isBlank(Participant__c)) &amp;&amp;  Participant__r.Primary_Contacts__c = 0</errorConditionFormula>
+        <errorConditionFormula>RecordType.DeveloperName = &apos;Legacy&apos; &amp;&amp; isPickVal(Status, &apos;Paid&apos;) &amp;&amp;  not(isBlank(Participant__c)) &amp;&amp;  Participant__r.Primary_Contacts__c = 0</errorConditionFormula>
         <errorMessage>You must specify at least 1 Primary Contact</errorMessage>
     </validationRules>
 </CustomObject>
