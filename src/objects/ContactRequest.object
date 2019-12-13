@@ -1187,6 +1187,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>RequestReason</picklist>
+            <values>
+                <fullName>Contacting a local trade or export assistance expert %28*limited availability%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue with the website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media inquiry  %28* media members only%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My trade gov account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolving a trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status</picklist>
             <values>
                 <fullName>Abandoned</fullName>
