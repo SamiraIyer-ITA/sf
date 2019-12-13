@@ -4,7 +4,7 @@
     <label>CP Community oAuth2</label>
     <oauthConfig>
         <callbackUrl>https://ita-authentication.mobomo.net/mo_login</callbackUrl>
-        <consumerKey>3MVG9Zdl7Yn6QDKOkajSIXHBiNEhbK4CcBvwiXd_wT_h0RE5nd9WvXUhIWGfnBAIuRrP9sVTXHtc3yDUSNQCl</consumerKey>
+        <consumerKey></consumerKey>
         <isAdminApproved>false</isAdminApproved>
         <scopes>OpenID</scopes>
     </oauthConfig>
