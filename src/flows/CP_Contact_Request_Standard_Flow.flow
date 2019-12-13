@@ -162,14 +162,6 @@
         <picklistObject>ContactRequest</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
-        <name>LeadRequest</name>
-        <dataType>Picklist</dataType>
-        <displayField xsi:nil="true"/>
-        <object xsi:nil="true"/>
-        <picklistField>Request_Reason__c</picklistField>
-        <picklistObject>Lead</picklistObject>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
         <name>Reqiest_Reason_2</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>

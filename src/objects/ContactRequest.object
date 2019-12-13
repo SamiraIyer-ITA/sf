@@ -44,49 +44,6 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
-        <fullName>CP_Select_Issue__c</fullName>
-        <externalId>false</externalId>
-        <label>Select Issue</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
-                    <default>false</default>
-                    <label>Contacting a local trade or export assistance expert (*limited availability)</label>
-                </value>
-                <value>
-                    <fullName>Resolving a trade barrier</fullName>
-                    <default>false</default>
-                    <label>Resolving a trade barrier</label>
-                </value>
-                <value>
-                    <fullName>My trade gov account</fullName>
-                    <default>false</default>
-                    <label>My trade gov account</label>
-                </value>
-                <value>
-                    <fullName>Media inquiry  (* media members only)</fullName>
-                    <default>false</default>
-                    <label>Media inquiry  (* media members only)</label>
-                </value>
-                <value>
-                    <fullName>Issue with the website</fullName>
-                    <default>false</default>
-                    <label>Issue with the website</label>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                    <label>Other</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Country_1__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
@@ -251,33 +208,6 @@
         <active>true</active>
         <description>Record Type for Contact Requests created from Contact Us form on public website</description>
         <label>Contact Us</label>
-        <picklistValues>
-            <picklist>CP_Select_Issue__c</picklist>
-            <values>
-                <fullName>Contacting a local trade or export assistance expert %28*limited availability%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Issue with the website</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media inquiry  %28* media members only%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My trade gov account</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resolving a trade barrier</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Country_1__c</picklist>
             <values>
@@ -1254,33 +1184,6 @@
             <values>
                 <fullName>Phone</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>RequestReason</picklist>
-            <values>
-                <fullName>Contacting a local trade or export assistance expert %28*limited availability%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Issue with the website</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media inquiry  %28* media members only%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My trade gov account</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resolving a trade barrier</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
