@@ -83,4 +83,23 @@
       <field>Contact.CP_Conversion_Date__c</field>
       <readable>true</readable>
   </fieldPermissions>
+  <fieldPermissions>
+      <editable>true</editable>
+      <field>Lead.Registrant__c</field>
+      <readable>true</readable>
+  </fieldPermissions>
+  <fieldPermissions>
+      <editable>true</editable>
+      <field>Lead.Registrant__c</field>
+      <readable>true</readable>
+  </fieldPermissions>
+  <recordTypeVisibilities>
+      <default>false</default>
+      <recordType>Lead.New_Registrant</recordType>
+      <visible>true</visible>
+  </recordTypeVisibilities>
+  <layoutAssignments>
+      <layout>Lead-New Registrant</layout>
+      <recordType>Lead.New_Registrant</recordType>
+  </layoutAssignments>
 </Profile>
