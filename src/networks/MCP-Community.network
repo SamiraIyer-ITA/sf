@@ -23,22 +23,6 @@
     <enableTopicAssignmentRules>true</enableTopicAssignmentRules>
     <enableTopicSuggestions>false</enableTopicSuggestions>
     <enableUpDownVote>false</enableUpDownVote>
-    <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
-    <enableDirectMessages>false</enableDirectMessages>
-    <enableGuestChatter>false</enableGuestChatter>
-    <enableGuestFileAccess>false</enableGuestFileAccess>
-    <enableInvitation>false</enableInvitation>
-    <enableKnowledgeable>false</enableKnowledgeable>
-    <enableMemberVisibility>false</enableMemberVisibility>
-    <enableNicknameDisplay>false</enableNicknameDisplay>
-    <enablePrivateMessages>false</enablePrivateMessages>
-    <enableReputation>false</enableReputation>
-    <enableShowAllNetworkSettings>true</enableShowAllNetworkSettings>
-    <enableSiteAsContainer>true</enableSiteAsContainer>
-    <enableTalkingAboutStats>false</enableTalkingAboutStats>
-    <enableTopicAssignmentRules>true</enableTopicAssignmentRules>
-    <enableTopicSuggestions>false</enableTopicSuggestions>
-    <enableUpDownVote>false</enableUpDownVote>
     <forgotPasswordTemplate>CP_Community/CommunityChangePasswordEmailTemplate</forgotPasswordTemplate>
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
     <navigationLinkSet>
