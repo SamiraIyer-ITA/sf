@@ -19,20 +19,25 @@
         <!-- Controller Field -->
        <!-- <lightning:layoutItem size="12" padding="around-small">    -->
 
-      <div class="slds-form slds-grid slds-wrap" >
-        <div class="slds-size_2-of-8 slds-text-align_center"><br></br>{!v.parentFieldLabel}</div>
-            <div class="slds-size_1-of-8"> <span></span></div>
-            <lightning:select name="parentField" aura:id="parentField"
-                              value="{!v.parentValue}"
-                              label=""
-                              onchange="{!c.parentFieldChange}"
-                              class="slds-size_3-of-8 slds-text-align_left slds-col_bump-none
-">
-                <aura:iteration items="{!v.parentList}" var="value">
+
+
+<div class="slds-form-element slds-form-element_horizontal">
+<label class="slds-form-element__label" >{!v.parentFieldLabel}</label>
+<div class="slds-form-element__control">
+<div class="slds-select_container">
+<lightning:select name="parentField" aura:id="parentField" value="{!v.parentValue}" label="" onchange="{!c.parentFieldChange}"  >
+<aura:iteration items="{!v.parentList}" var="value">
                     <option value="{!value}">{!value}</option>
                 </aura:iteration>
-            </lightning:select>
-      </div>
+</lightning:select>
+</div>
+</div>
+</div>
+
+
+
+
+        
        <!-- </lightning:layoutItem> -->
     <!-- {!v.parentFieldLabel} -->
              

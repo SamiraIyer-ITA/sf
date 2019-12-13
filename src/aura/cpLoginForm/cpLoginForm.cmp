@@ -1,0 +1,78 @@
+<!-- add implements="forceCommunity:availableForAllPageTypes" to surface the component in community builder -->
+<aura:component controller="LightningLoginFormController" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="String" required="false" description="" access="private"/>
+    <aura:attribute name="startUrl" type="String" required="false" description="The url you go to after a successful login" />
+    <aura:attribute name="usernameLabel" type="String" required="false" default="Username"/>
+    <aura:attribute name="passwordLabel" type="String" required="false" default="Password"/>
+    <aura:attribute name="loginButtonLabel" type="String" required="false" default="Log in"/>
+    <aura:attribute name="expid" type="String" required="false" description="The branding experience ID" />        
+    
+    <aura:attribute name="forgotPasswordLabel" type="String" required="false" default="Forgot your password?"/>
+    <aura:attribute name="selfRegisterLabel" type="String" required="false" default="Not a member?"/>
+    <aura:attribute name="forgotPasswordUrl" type="String" required="false" default="/ForgotPassword"/>
+    <aura:attribute name="selfRegisterUrl" type="String" required="false" default="/SelfRegister"/>
+    
+    <aura:attribute name="isUsernamePasswordEnabled" type="Boolean" access="private"/>
+    <aura:attribute name="isSelfRegistrationEnabled" type="Boolean" access="private"/>
+    <aura:attribute name="communityForgotPasswordUrl" type="String" access="private" default="//cprest"/>
+    <aura:attribute name="communitySelfRegisterUrl" type="String" access="private"/>
+    
+    <aura:registerevent name="sitePropagatedStartUrl" type="c:setStartUrl"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    <aura:dependency resource="c:setStartUrl" type="EVENT"/>
+    <!-- Please uncomment
+    <aura:dependency resource="siteforce:registerQueryEventMap" type="EVENT"/>
+    -->
+    <ltng:require styles="/resource/SLDS201/assets/styles/salesforce-lightning-design-system.css" />
+    <aura:handler event="c:setStartUrl" action="{!c.setStartUrl}"/>
+    <aura:handler event="c:setExpId" action="{!c.setExpId}"/>    
+    <aura:dependency resource="c:setExpId" type="EVENT"/>  
+    
+    <div class="slds-grid slds-grid_align-center slds-m-bottom_large"><img src="{!$Resource.ita_logo2}" width="300"/></div>
+    
+    <div>
+        <aura:renderIf isTrue="{!v.isUsernamePasswordEnabled}">
+            <span>
+                <aura:renderIf isTrue="{!v.showError}">
+                    <div id="error">
+                        <ui:outputRichText value="{!v.errorMessage}"/>
+                    </div>
+                </aura:renderIf>
+            </span>            
+
+<div class="slds-form-element">
+<div class="slds-form-element__control">
+    <ui:inputText value="" aura:id="username" placeholder="{!v.usernameLabel}" keyup="{!c.onKeyUp}" class="slds-input" label="{!v.usernameLabel}" labelClass="assistiveText"/>
+</div>
+</div>
+            
+<div class="slds-form-element">
+<div class="slds-form-element__control">
+<ui:inputSecret value="" aura:id="password" placeholder="{!v.passwordLabel}" keyup="{!c.onKeyUp}" class="slds-input" label="{!v.passwordLabel}" labelClass="assistiveText"/>
+</div>
+</div>            
+ 
+    
+            <div class="sfdc">
+                <ui:button aura:id="submitButton" label="{!v.loginButtonLabel}" press="{!c.handleLogin}" class="slds-button slds-button_brand slds-button_stretch"/>
+                
+            
+           </div>
+            
+            <div  >
+                <span><a href="{!if(v.communityForgotPasswordUrl == null, v.forgotPasswordUrl, v.communityForgotPasswordUrl)}" style="color:black">{!v.forgotPasswordLabel}</a></span>
+                <aura:renderIf isTrue="{!v.isSelfRegistrationEnabled}">
+                    <span style="float:right" link="blue" class="SetLinkColor"> <a href="{!if(v.communitySelfRegisterUrl == null, v.selfRegisterUrl, v.communitySelfRegisterUrl )}" style="color:black">{!v.selfRegisterLabel} </a></span>
+                    <lightning:formattedUrl value="/cpforgotpassword" />
+                </aura:renderIf>                            
+            </div> 
+            <br/>
+            <div class="block__content"><p style="font-size: 10px;line-height: normal;"><strong>WARNING - NOTICE TO USERS</strong><br/>
+This is a Department of Commerce (DOC) computer system. DOC computer systems are provided for the processing of official U.S. Government information only. All data contained within DOC computer systems is owned by the DOC, and may be audited, intercepted, recorded, read, copied, or captured in any manner and disclosed in any manner, by authorized personnel. THERE IS NO RIGHT OF PRIVACY IN THIS SYSTEM. System personnel may disclose any potential evidence of crime found on DOC computer systems to appropriate authorities. USE OF THIS SYSTEM BY ANY USER, AUTHORIZED OR UNAUTHORIZED, CONSTITUTES CONSENT TO THIS AUDITING, INTERCEPTION, MONITORING, RECORDING, READING, COPYING, CAPTURING, and DISCLOSURE OF COMPUTER ACTIVITY. Any communication you submit is provided in your official capacity. Any communication transiting or stored on these sites may be disclosed or used for any lawful Government purpose. Posting of sensitive personally identifiable information (PII) or business identifiable information (BII) is prohibited.</p>
+<p style="font-size: 10px;line-height: normal;">By continuing to use this system you indicate your awareness of and consent to these terms and conditions of use. CLOSE YOUR BROWSER IMMEDIATELY if you do not agree to the conditions stated in this warning.</p>
+</div>
+            
+        </aura:renderIf>
+    </div>
+</aura:component>

@@ -142,8 +142,9 @@
 }
 
 .THIS  button:hover {
-    background-color:#3276b1;
-    border-color:#285e8e;
+    background-color: #0070d2;
+    border-color: #0070d2;
+    color: #fff;
     cursor:pointer;
 }
 
@@ -215,20 +216,10 @@
     border: 1px solid #000000;
 }
 
-.THIS .slds-select_container .three {
-    margin-left: -0.6rem;
-}
-
 .THIS .captchapage {
    margin-top:25px; 
 }
 
-.THIS .slds-col_bump-none {
-    margin-left: -0.6rem;
-    
-}
-
-.THIS .slds-col_bump-some {
-    margin-left: -0.3rem;
-    width: 188px;
+.THIS input {
+    margin:0;
 }
