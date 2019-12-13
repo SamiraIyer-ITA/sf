@@ -54,6 +54,7 @@ types=" app \
         md \
         mdt \
         namedCredential \
+	network \
         object \
 	objectTranslation \
         page \
@@ -67,6 +68,7 @@ types=" app \
         role \
         settings \
         sharingRules \
+	site \
         standardValueSets \
         synonymDictionary \
         tab \
