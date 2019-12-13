@@ -56,5 +56,5 @@
         <standardTab>Chatter</standardTab>
     </tabs>
     <urlPathPrefix>MCPCommunity</urlPathPrefix>
-    <welcomeTemplate>unfiled$public/CP_Welcome</welcomeTemplate>
+    <welcomeTemplate>CP_Community/CP_Welcome</welcomeTemplate>
 </Network>
