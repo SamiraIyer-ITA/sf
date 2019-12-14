@@ -328,7 +328,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         </outputAssignments>
         <outputAssignments>
             <assignToReference>contactId</assignToReference>
-            <field>Contact_18_ID__c</field>
+            <field>Id</field>
         </outputAssignments>
         <outputAssignments>
             <assignToReference>LeadSource</assignToReference>
