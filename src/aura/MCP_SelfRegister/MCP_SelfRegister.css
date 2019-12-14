@@ -142,8 +142,9 @@
 }
 
 .THIS  button:hover {
-    background-color:#3276b1;
-    border-color:#285e8e;
+    background-color: #0070d2;
+    border-color: #0070d2;
+    color: #fff;
     cursor:pointer;
 }
 
@@ -209,4 +210,16 @@
 
 .THIS input[type="checkbox"] + label {
     vertical-align: middle;
+}
+
+.THIS .slds-select {
+    border: 1px solid #000000;
+}
+
+.THIS .captchapage {
+   margin-top:25px; 
+}
+
+.THIS input {
+    margin:0;
 }
