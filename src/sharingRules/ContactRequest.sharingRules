@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>CP_Queue_1_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_Contact_Request_1 queue to public group CP_Contact_US_1</description>
+        <label>CP Queue 1 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group1</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_1</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CP_Queue_2_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_Contact_Request_2 queue to public group CP_Contact_US_2</description>
+        <label>CP Queue 2 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group2</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_2</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CP_Queue_3_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_Contact_Request_3 queue to public group CP_Contact_US_3</description>
+        <label>CP Queue 3 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group3</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_3</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CP_Queue_4_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_Contact_Request_4 queue to public group CP_Contact_US_4</description>
+        <label>CP Queue 4 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group4</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_4</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CP_Queue_5_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_Contact_Request_5 queue to public group CP_Contact_US_5</description>
+        <label>CP Queue 5 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group5</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_5</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CP_Queue_6_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_Contact_Request_6 queue to public group CP_Contact_US_6</description>
+        <label>CP Queue 6 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group6</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_6</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CP_Queue_7_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_Contact_Request_7 queue to public group CP_Contact_US_7</description>
+        <label>CP Queue 7 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group7</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_7</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CP_Queue_8_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_Contact_Request_8 queue to public group CP_Contact_US_8</description>
+        <label>CP Queue 8 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group8</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_8</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Closed_Contact_Requests</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Closed Contact Requests</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Conatct_Us_Closed</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
