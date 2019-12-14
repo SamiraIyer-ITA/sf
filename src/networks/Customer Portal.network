@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Network xmlns="http://soap.sforce.com/2006/04/metadata">
-    <allowInternalUserLogin>false</allowInternalUserLogin>
+    <allowInternalUserLogin>true</allowInternalUserLogin>
     <allowMembersToFlag>false</allowMembersToFlag>
     <changePasswordTemplate>CP_Community/CommunityChangePasswordEmailTemplate</changePasswordTemplate>
     <communityRoles/>
-    <disableReputationRecordConversations>true</disableReputationRecordConversations>
+    <disableReputationRecordConversations>false</disableReputationRecordConversations>
     <emailSenderAddress>noreply@trade.gov</emailSenderAddress>
     <emailSenderName>International Trade Association</emailSenderName>
     <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
-    <enableDirectMessages>true</enableDirectMessages>
+    <enableDirectMessages>false</enableDirectMessages>
     <enableGuestChatter>false</enableGuestChatter>
     <enableGuestFileAccess>false</enableGuestFileAccess>
     <enableGuestMemberVisibility>false</enableGuestMemberVisibility>
     <enableInvitation>false</enableInvitation>
     <enableKnowledgeable>false</enableKnowledgeable>
     <enableMemberVisibility>false</enableMemberVisibility>
-    <enableNicknameDisplay>true</enableNicknameDisplay>
+    <enableNicknameDisplay>false</enableNicknameDisplay>
     <enablePrivateMessages>false</enablePrivateMessages>
     <enableReputation>false</enableReputation>
-    <enableShowAllNetworkSettings>false</enableShowAllNetworkSettings>
+    <enableShowAllNetworkSettings>true</enableShowAllNetworkSettings>
     <enableSiteAsContainer>true</enableSiteAsContainer>
-    <enableTalkingAboutStats>true</enableTalkingAboutStats>
+    <enableTalkingAboutStats>false</enableTalkingAboutStats>
     <enableTopicAssignmentRules>true</enableTopicAssignmentRules>
     <enableTopicSuggestions>false</enableTopicSuggestions>
     <enableUpDownVote>false</enableUpDownVote>
     <forgotPasswordTemplate>CP_Community/CommunityForgotPasswordEmailTemplate</forgotPasswordTemplate>
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
+    <navigationLinkSet>
+          <navigationMenuItem>
+              <label>Topics</label>
+              <position>1</position>
+              <publiclyAvailable>true</publiclyAvailable>
+              <target>ShowMoreTopics</target>
+              <type>NavigationalTopic</type>
+          </navigationMenuItem>
+      </navigationLinkSet>
     <networkMemberGroups>
         <profile>Admin</profile>
         <profile>MCP-External-User</profile>
