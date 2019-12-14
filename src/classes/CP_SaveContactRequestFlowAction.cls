@@ -9,12 +9,16 @@ global without sharing class CP_SaveContactRequestFlowAction {
         newRecord.First_Name__c = userInputs.firstName; //mapedInputs.get('FirstName');
         newRecord.Last_Name__c = userInputs.lastName; //mapedInputs.get('LastName');
         newRecord.Email__c = userInputs.email; //mapedInputs.get('Email');
-        newRecord.Country_1__c = userInputs.country; //mapedInputs.get('Country');
+        if(userInputs.country != 'NONE'){
+            newRecord.Country_1__c = userInputs.country; //mapedInputs.get('Country');
+        }
         newRecord.RequestReason =  userInputs.requestReasson; //mapedInputs.get('Reason');
         //System and static fields 
         newRecord.OwnerId = userInputs.ownerId; //mapedInputs.get('QueueId');
         newRecord.Status = 'New';
-        newRecord.US_ZIP_CODE__c = userInputs.zipCode;
+        if(userInputs.zipCode != 'NONE'){
+            newRecord.US_ZIP_CODE__c = userInputs.zipCode;
+        }
         //using text as boolean since value is passed from flow  
         if(userInputs.converted == 'true'){
             newRecord.WhoId = userInputs.contactId;
@@ -42,11 +46,11 @@ global without sharing class CP_SaveContactRequestFlowAction {
         mail.setSaveAsActivity(false);     
         system.debug('user type = ' + userType);
         if(userType == 'verified' || userType == 'unverified'){
-       		 mail.setTargetObjectId(contactId);
+            mail.setTargetObjectId(contactId);
         }
         else{
-             mail.setTargetObjectId(UserInfo.getUserId());  
-            }
+            mail.setTargetObjectId(UserInfo.getUserId());  
+        }
         mail.setToAddresses(new list<string>{toAddress});
         Messaging.SendEmailResult[] resultMail = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
     }
@@ -58,19 +62,19 @@ global without sharing class CP_SaveContactRequestFlowAction {
         global String lastNAme;
         @InvocableVariable(label='Email' required=true)
         global String email;
-        @InvocableVariable(label='Country Name' required=true)
+        @InvocableVariable(label='Country Name' required=false)
         global String country;
-        @InvocableVariable(label='Request Reasson' required=true)
+        @InvocableVariable(label='Request Reasson' required=false)
         global String requestReasson;
-        @InvocableVariable(label='Queue Id' required=true)
+        @InvocableVariable(label='Queue Id' required=false)
         global String ownerId;
-        @InvocableVariable(label='Zip Code' required=true)
+        @InvocableVariable(label='Zip Code' required=false)
         global String zipCode;
-        @InvocableVariable(label='Converted' required=true)
+        @InvocableVariable(label='Converted' required=false)
         global String converted;
-        @InvocableVariable(label='Lead Id' required=true)
+        @InvocableVariable(label='Lead Id' required=false)
         global String leadId;
-        @InvocableVariable(label='Contact Id' required=true)
+        @InvocableVariable(label='Contact Id' required=false)
         global String contactId;
     }
 }

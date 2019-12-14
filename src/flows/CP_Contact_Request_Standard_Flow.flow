@@ -23,15 +23,15 @@
             </value>
         </inputParameters>
         <inputParameters>
-            <name>requestReasson</name>
+            <name>country</name>
             <value>
-                <elementReference>IssueBox</elementReference>
+                <elementReference>countryExt</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>zipCode</name>
+            <name>converted</name>
             <value>
-                <elementReference>U_S</elementReference>
+                <elementReference>Converted</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -43,19 +43,7 @@
         <inputParameters>
             <name>contactId</name>
             <value>
-                <elementReference>contactId</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>country</name>
-            <value>
-                <elementReference>Global</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>converted</name>
-            <value>
-                <elementReference>Converted</elementReference>
+                <elementReference>contactExt</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -68,6 +56,18 @@
             <name>leadId</name>
             <value>
                 <elementReference>LeadIdForExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>requestReasson</name>
+            <value>
+                <elementReference>IssueBox</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>zipCode</name>
+            <value>
+                <elementReference>zipCodeExt</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -197,9 +197,19 @@
         <expression>if({!CheckBoxCount} == 0,&apos;Please Select a reason for your request&apos;,if({!CheckBoxCount} &gt;1,&apos;Please select only one help request reason&apos;,null))</expression>
     </formulas>
     <formulas>
+        <name>contactExt</name>
+        <dataType>String</dataType>
+        <expression>if(isblank({!contactId}),&apos;NONE&apos;,{!contactId})</expression>
+    </formulas>
+    <formulas>
         <name>Converted</name>
         <dataType>String</dataType>
         <expression>if(IsNull({!conversionDate}),&apos;false&apos;,&apos;true&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>countryExt</name>
+        <dataType>String</dataType>
+        <expression>if(isBlank({!Global}),&apos;NONE&apos;,{!Global})</expression>
     </formulas>
     <formulas>
         <name>Europe_Region1</name>
@@ -274,6 +284,11 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
 {!Global} == &apos;El Salvador&apos; || {!Global} == &apos;Guatemala&apos; || {!Global} == &apos;Haiti&apos; || {!Global} == &apos;Honduras&apos; || {!Global} == &apos;Iceland&apos; || {!Global} == &apos;Jamaica&apos; || {!Global} == &apos;Lesotho&apos; || 
 {!Global} == &apos;Mexico&apos; || {!Global} == &apos;Nicaragua&apos; || {!Global} == &apos;Panama&apos; || {!Global} == &apos;Paraguay&apos; || {!Global} == &apos;Peru&apos; || {!Global} == &apos;Suriname&apos; || {!Global} == &apos;Uruguay&apos; || 
 {!Global} == &apos;Venezuela&apos; ,true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>zipCodeExt</name>
+        <dataType>String</dataType>
+        <expression>if(ISBLANK({!U_S}),&apos;NONE&apos;,{!U_S})</expression>
     </formulas>
     <interviewLabel>CP_Contact_Request_Standard_Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>CP_Contact_Request_Standard_Flow</label>
