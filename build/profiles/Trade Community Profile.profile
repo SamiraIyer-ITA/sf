@@ -7,7 +7,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Contact.Conversion_Date__c</field>
+        <field>Contact.CP_Conversion_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
