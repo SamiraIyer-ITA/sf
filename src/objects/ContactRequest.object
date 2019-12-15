@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -40,9 +120,38 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Assigned_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>MCP-85 This is the field that a user will manually populate with the person in the Contact Us queue who has been assigned to responding to a Contact Us record.</description>
+        <externalId>false</externalId>
+        <label>Assigned User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contact_Requests</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_to_Me__c</fullName>
+        <description>MCP-85 This field compares the Assigned User ID to the in context User ID to determine if the in context user is the assigned user.  This field is used to simulate &quot;My Records&quot; views on Listviews and Reports when the record is owned by a queue</description>
+        <externalId>false</externalId>
+        <formula>$User.Id =  Assigned_User__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Assigned to Me</label>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Country_1__c</fullName>
         <externalId>false</externalId>
@@ -126,81 +235,221 @@
         <fullName>WhoId</fullName>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>process_success__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>process success</label>
+        <type>Checkbox</type>
+    </fields>
     <listViews>
         <fullName>CP_Contact_US_1_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
         <label>CP_Contact_US_1</label>
         <queue>CP_Contact_US_1</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <group>CP_Contact_Us_Group1</group>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_2_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
         <label>CP_Contact_US_2</label>
         <queue>CP_Contact_US_2</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <group>CP_Contact_Us_Group2</group>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_3_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
         <label>CP_Contact_US_3</label>
         <queue>CP_Contact_US_3</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <group>CP_Contact_Us_Group3</group>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_4_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
         <label>CP_Contact_US_4</label>
         <queue>CP_Contact_US_4</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <group>CP_Contact_Us_Group4</group>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_5_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
         <label>CP_Contact_US_5</label>
         <queue>CP_Contact_US_5</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <group>CP_Contact_Us_Group5</group>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_6_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
         <label>CP_Contact_US_6</label>
         <queue>CP_Contact_US_6</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <group>CP_Contact_Us_Group6</group>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_7_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
         <label>CP_Contact_US_7</label>
         <queue>CP_Contact_US_7</queue>
+        <sharedTo>
+            <group>CP_Contact_Us_Group7</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CP_Contact_US_8_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>CP_Contact_US_8</label>
+        <queue>CP_Contact_US_8</queue>
+        <sharedTo>
+            <group>CP_Contact_Us_Group8</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CP_Contact_Us_Closed</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>CP_Contact_Us_Closed</label>
+        <queue>CP_Conatct_Us_Closed</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>CP_Contact_US_8_ContactRequest</fullName>
+        <fullName>Closed_Contact_Requests</fullName>
+        <columns>Name</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
+        <columns>Status</columns>
         <filterScope>Queue</filterScope>
-        <label>CP_Contact_US_8</label>
-        <queue>CP_Contact_US_8</queue>
+        <filters>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Abandoned,Closed</value>
+        </filters>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Closed Contact Requests</label>
+        <queue>CP_Conatct_Us_Closed</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>My_ContactRequests</fullName>
-        <filterScope>Mine</filterScope>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>PreferredChannel</columns>
+        <columns>PreferredPhone</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Assigned_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
         <label>My Contact Requests</label>
     </listViews>
     <recordTypes>
@@ -1224,6 +1473,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contacted</fullName>
                 <default>false</default>
             </values>
@@ -1233,7 +1486,7 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <webLinks>
         <fullName>Trade_Barrier_Link</fullName>
         <availability>online</availability>
