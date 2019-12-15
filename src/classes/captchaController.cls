@@ -9,7 +9,7 @@ public class captchaController {
         networkData = [select id, name from network where name =: 'Customer Portal'];
         URL = Network.getLoginUrl(networkData[0].id);
         List<CaptchaSettings__c> captchaSettings = CaptchaSettings__c.getAll().values();
-        map<string, string> captchaSettingValues = new Map<String, string>();
+        map<string, string> captchaSettingValues = new Map<string, string>();
         for(CaptchaSettings__c c :captchaSettings){
             captchaSettingValues.put(c.name, c.value__c);
         }
