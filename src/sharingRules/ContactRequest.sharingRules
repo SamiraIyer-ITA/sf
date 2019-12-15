@@ -104,7 +104,7 @@
             <allInternalUsers></allInternalUsers>
         </sharedTo>
         <sharedFrom>
-            <queue>CP_Conatct_Us_Closed</queue>
+            <queue>CP_Contact_Us_Closed</queue>
         </sharedFrom>
     </sharingOwnerRules>
 </SharingRules>
