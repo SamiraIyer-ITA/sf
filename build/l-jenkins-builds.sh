@@ -38,6 +38,7 @@ types=" app \
         crt \
         css \
         customPermission \
+	CustomNotificationType \
 	dashboard \
         email \
         evt \
