@@ -409,7 +409,7 @@
             <value>1</value>
         </filters>
         <label>CP_Contact_Us_Closed</label>
-        <queue>CP_Conatct_Us_Closed</queue>
+        <queue>CP_Contact_Us_Closed</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
@@ -433,7 +433,7 @@
             <value>1</value>
         </filters>
         <label>Closed Contact Requests</label>
-        <queue>CP_Conatct_Us_Closed</queue>
+        <queue>CP_Contact_Us_Closed</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
