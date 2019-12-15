@@ -129,7 +129,15 @@
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Contact_Us_CPL</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Contact_Us_CPL</fullName>
+        <fields>Assigned_User__c</fields>
+        <fields>Status</fields>
+        <fields>CreatedDate</fields>
+        <fields>Country_1__c</fields>
+        <label>Contact Us CPL</label>
+    </compactLayouts>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
@@ -234,13 +242,6 @@
     <fields>
         <fullName>WhoId</fullName>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>process_success__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>process success</label>
-        <type>Checkbox</type>
     </fields>
     <listViews>
         <fullName>CP_Contact_US_1_ContactRequest</fullName>
@@ -1487,23 +1488,4 @@
         </picklistValues>
     </recordTypes>
     <sharingModel>Private</sharingModel>
-    <webLinks>
-        <fullName>Trade_Barrier_Link</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Trade Barrier Link</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>https://tcc.export.gov/test/Report_a_Barrier/tancdeploy.asp</url>
-    </webLinks>
 </CustomObject>
