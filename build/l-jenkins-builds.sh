@@ -38,7 +38,6 @@ types=" app \
         crt \
         css \
         customPermission \
-	CustomNotificationType \
 	dashboard \
         email \
         evt \
@@ -52,6 +51,7 @@ types=" app \
         labels \
         layout \
         liveChatButton \
+	notiftype \
         md \
         mdt \
         namedCredential \
