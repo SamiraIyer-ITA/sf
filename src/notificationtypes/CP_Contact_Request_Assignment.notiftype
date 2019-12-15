@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomNotificationType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customNotifTypeName>CP_Contact_Request_Assignment</customNotifTypeName>
+    <desktop>true</desktop>
+    <masterLabel>CP_Contact_Request_Assignment</masterLabel>
+    <mobile>true</mobile>
+</CustomNotificationType>
