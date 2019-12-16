@@ -178,7 +178,7 @@
 
 
         <div class="captchapage">
-            <iframe src="/MCPCommunity/captchaPage" height="125px" width="365px" style="border:0px"/>
+            <iframe src="/cp/captchaPage" height="125px" width="365px" style="border:0px"/>
         </div>
                 <aura:renderIf isTrue="{!v.recaptchaValid == false}">
 
