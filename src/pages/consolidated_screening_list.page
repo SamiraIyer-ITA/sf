@@ -1,4 +1,4 @@
-<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false">
+<apex:page sidebar="false" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
  <apex:composition template="Site_Template">
      <apex:define name="page">
   
