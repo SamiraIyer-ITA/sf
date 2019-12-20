@@ -27,14 +27,6 @@ folder. If you don’t receive an email in any of your folders, please alert us 
         <value>MCP_REGFIELDS</value>
     </labels>
     <labels>
-        <fullName>MCPCommunityreCaptchaKey</fullName>
-        <categories>CP</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>CPCommunityreCaptchaKey</shortDescription>
-        <value>6LeiwL0UAAAAAGCMnlx9DrcajowCfVF0wjiHlQtC</value>
-    </labels>
-    <labels>
         <fullName>MCP_DuplicateUserName</fullName>
         <categories>CP</categories>
         <language>en_US</language>
