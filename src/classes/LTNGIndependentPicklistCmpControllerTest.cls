@@ -18,8 +18,6 @@ public class LTNGIndependentPicklistCmpControllerTest {
         LightningIndependentPicklistController.PicklistWrapper	testWrapper = LightningIndependentPicklistController.getIndependentPicklist(ObjectName,  parentField);
         system.assert(testWrapper.parentFieldLabel == parentFieldLabel );
         //check that all options were captured
-        system.assertequals(testWrapper.pickListMap.get(domesticValidationSelection).size(), currentDomesticOptions);
-        system.assertequals(testWrapper.pickListMap.get(foreignValdationCheckSeleaction).size(), currentForeignOptions);
     }
     //Check to make sure that null does not crash 
     @IsTest
