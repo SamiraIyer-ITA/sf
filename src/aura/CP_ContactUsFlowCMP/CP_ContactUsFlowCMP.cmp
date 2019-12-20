@@ -1,0 +1,17 @@
+<aura:component controller='ContactRequestController'>
+        <aura:handler name="init" value="{!this}" action="{!c.init}" />
+        <aura:attribute name="FlowName" type="String"/>
+    
+    <div class="slds-brand-band slds-brand-band_cover   forceBrandBand">
+    <div class="slds-m-top_small slds-m-around_large">
+    <div class="slds-grid slds-gutters">
+    <div class="slds-card">    
+    <lightning:flow title="Contact Us" aura:id="flow"/>
+    </div>
+    </div>
+    </div>
+    </div>
+     <div>
+ <iframe src="/MCPCommunity/captchaPage" height="500px" width="365px" style="border:0px"/> 
+        </div>
+</aura:component>
