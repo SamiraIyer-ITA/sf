@@ -1,0 +1,101 @@
+<aura:component controller="LightningDependentPicklistCmpController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   
+    <!-- aura attributes--> 
+    <aura:attribute name="parentList" type="list" default="[]" description=""/>
+    <aura:attribute name="childList" type="list" default="[]"/>
+    <aura:attribute name="pickListMap" type="map"/>
+    <aura:attribute name="disabledChildField" type="boolean" default="true"/>
+    <aura:attribute name="objectName" type="string" default="Lead"/>
+    <aura:attribute name="parentFieldAPI" type="string" default="Active__c"/>
+    <aura:attribute name="childFieldAPI" type="string" default="CustomerPriority__c"/>
+    <aura:attribute name="parentFieldLabel" type="string" />
+    <aura:attribute name="childFieldLabel" type="string"/>
+    <aura:attribute name="parentValue" type="string" default=""/>
+    <aura:attribute name="childValue" type="string" default=""/>
+    <aura:attribute name="currentParentValue" type="string" default=""/>
+    <aura:attribute name="currentChildValue" type="string" default=""/>
+    <aura:attribute name="parentFieldPAth" type="string" default=""/>
+    <aura:attribute name="childFieldPAth" type="string" default=""/>
+    <aura:attribute name="independantFieldPath" type="string" default=""/>
+    <aura:attribute name="updateValues" type="Aura.action"/>
+    <aura:registerEvent name="MCP_DependentPickListUpdate" type="c:MCP_DependentPickListUpdate"/>
+        <!-- Controller Field -->
+        <!-- <lightning:layoutItem size="12" padding="around-small">    -->
+        
+   
+    <div class="slds-form-element slds-form-element_horizontal">
+<label class="slds-form-element__label" >{!v.parentFieldLabel}</label>
+<div class="slds-form-element__control">
+<div class="slds-select_container">
+    
+    <lightning:select name="parentField" aura:id="parentField"
+                              value="{!v.parentValue}"
+                              label=""
+                              onchange="{!c.parentFieldChange}"
+                              >
+                            <div > <span></span> </div>
+
+                <aura:iteration items="{!v.parentList}" var="value">
+                    <option value="{!value}">{!value}</option>
+                </aura:iteration>
+            </lightning:select>
+    
+    
+    
+    
+    
+    
+    
+</div>
+</div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            <div  >
+
+        <!--</lightning:layoutItem> -->
+        
+        <!--Dependent Field-->
+        <!--<lightning:layoutItem size="12" padding="around-small">-->
+            
+                
+                
+                
+<div class="slds-form-element slds-form-element_horizontal">
+<label class="slds-form-element__label" >{!v.childFieldLabel}</label>
+<div class="slds-form-element__control">
+<div class="slds-select_container">
+    
+    
+<lightning:select name="childField"
+                               aura:id="childField"
+                              value="{!v.childValue}"
+                              label=""
+                              onchange="{!c.updateChildfield}"
+                              disabled="{!v.disabledChildField}">
+                <aura:iteration items="{!v.childList}" var="value">
+                    <option value="{!value}">{!value}</option>
+                </aura:iteration>
+            </lightning:select>    
+    
+    
+    
+</div>
+</div>
+</div>
+     
+                
+        <!--</lightning:layoutItem> {!v.childFieldLabel}-->
+        </div>
+</aura:component>
