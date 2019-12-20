@@ -9,3 +9,4 @@ src/classes/LightningLoginFormController.cls
 src/classes/LightningLoginFormControllerTest.cls
 src/classes/LightningSelfRegisterController.cls
 src/classes/LightningSelfRegisterControllerTest.cls
+src/aura/cpLoginForm/cpLoginForm.cmp
