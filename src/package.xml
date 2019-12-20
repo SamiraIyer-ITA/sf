@@ -85,11 +85,7 @@
         <name>DataCategoryGroup</name>
     </types>
     <types>
-        <members>CP_Community</members>
-        <members>CP_Community/CommunityChangePasswordEmailTemplate</members>
-        <members>CP_Community/CommunityForgotPasswordEmailTemplate</members>
-        <members>CP_Community/CommunityWelcomeEmailTemplate</members>
-
+        <members>*</members>
         <name>EmailTemplate</name>
     </types>
     <types>
