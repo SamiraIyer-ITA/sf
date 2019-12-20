@@ -19,12 +19,12 @@ public with sharing class CP_LightningLoginFormControllerTest {
 
  @IsTest
  static void testIsSelfRegistrationEnabled() {
-  System.assertEquals(true, CP_LightningLoginFormController.getIsSelfRegistrationEnabled());
+  System.assertEquals(false, CP_LightningLoginFormController.getIsSelfRegistrationEnabled());
  }
 
  @IsTest
  static void testGetSelfRegistrationURL() {
-  System.assert( ! String.isBlank(CP_LightningLoginFormController.getSelfRegistrationUrl()), 'No Registration URL Found');
+  System.assert(String.isBlank(CP_LightningLoginFormController.getSelfRegistrationUrl()), 'No Registration URL Found');
  }
 
  @IsTest
