@@ -10,3 +10,12 @@ src/classes/LightningLoginFormControllerTest.cls
 src/classes/LightningSelfRegisterController.cls
 src/classes/LightningSelfRegisterControllerTest.cls
 src/aura/cpLoginForm/cpLoginForm.cmp
+src/aura/cpLoginForm/cpLoginForm.auradoc
+src/aura/cpLoginForm/cpLoginForm.cmp
+src/aura/cpLoginForm/cpLoginForm.cmp-meta.xml
+src/aura/cpLoginForm/cpLoginFormController.js
+src/aura/cpLoginForm/cpLoginForm.css
+src/aura/cpLoginForm/cpLoginForm.design
+src/aura/cpLoginForm/cpLoginFormHelper.js
+src/aura/cpLoginForm/cpLoginFormRenderer.js
+src/aura/cpLoginForm/cpLoginForm.svg
