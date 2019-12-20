@@ -28,7 +28,7 @@ public class MCP_NonSharingUtilityClassTest {
         list<Contact> contactList = new list<contact>();
         contactList.add(testContact);
         MCP_NonSharingUtilityClass.insertContactRecords(contactList);
-        system.assert([select id from contact].size() > 0 , 'Contact failed to save!');
+        system.assert([select id from contact where email =: 'testmail1111@mytester.com'].size() > 0 , 'Contact failed to save!');
         reteriveContact = MCP_NonSharingUtilityClass.getNewContact(testContact.Email , testAccount.id);
         system.assert(reteriveContact != null, 'Contact failed to save!');
     }

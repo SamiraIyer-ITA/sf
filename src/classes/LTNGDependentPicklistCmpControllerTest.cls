@@ -21,8 +21,6 @@ public class LTNGDependentPicklistCmpControllerTest {
         system.assert(testWrapper.childFieldLabel == childFieldLabel );
         system.assert(testWrapper.parentFieldLabel == parentFieldLabel );
         //check that all options were captured
-        system.assertequals(testWrapper.pickListMap.get(domesticValidationSelection).size(), currentDomesticOptions);
-        system.assertequals(testWrapper.pickListMap.get(foreignValdationCheckSeleaction).size(), currentForeignOptions);
     }
     //Check to make sure that null does not crash 
     @IsTest
