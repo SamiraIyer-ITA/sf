@@ -9,6 +9,13 @@
         <value>CP_US_Exporter</value>
     </labels>
     <labels>
+        <fullName>CP_Redirect_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP Redirect URL</shortDescription>
+        <value>https://ita-authentication.mobomo.net/moLogin</value>
+    </labels>
+    <labels>
         <fullName>CP_temp_password_sent</fullName>
         <categories>CP</categories>
         <language>en_US</language>
