@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Contact Us Requested</name>
+    <style>freeForm</style>
+    <subject>International Trade Administration</subject>
+    <textOnly>Thanks for contacting the International Trade Administration. Your request has been routed to the appropriate staff who will respond back
+
+
+as soon as possible. In the meantime, continue to check out
+
+
+the breadth of our export and trade related content and expertise at
+
+
+export.gov and trade.gov
+
+
+
+
+
+_________________________________________________________
+
+This email was sent to email@email.com using Salesforce on behalf of the International Trade Administration | 1401 Constitution Avenue, Washington D.C.
+
+
+
+.</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
