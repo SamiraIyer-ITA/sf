@@ -192,12 +192,16 @@
             <default>false</default>
         </values>
     </businessProcesses>
-    <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-    <compactLayouts>                                                                                                                  <fullName>CRM_Case_Compact_Layout</fullName>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>CRM_Case_Compact_Layout</fullName>
         <fields>Subject</fields>
         <fields>CaseNumber</fields>
-        <fields>AccountId</fields>                                                                                                    <fields>Contact_Full_Name__c</fields>
-        <fields>OwnerId</fields>                                                                                                      <fields>RecordTypeId</fields>                                                                                                 <label>CRM Case Compact Layout</label>
+        <fields>AccountId</fields>
+        <fields>Contact_Full_Name__c</fields>
+        <fields>OwnerId</fields>
+        <fields>RecordTypeId</fields>
+        <label>CRM Case Compact Layout</label>
     </compactLayouts>
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
@@ -325,12 +329,12 @@
                 <value>
                     <fullName>National</fullName>
                     <default>false</default>
-                    <label>National</label>
+                    <label>More than One U.S. Interest</label>
                 </value>
                 <value>
                     <fullName>Exclusive</fullName>
                     <default>false</default>
-                    <label>Exclusive</label>
+                    <label>One U.S. Interest</label>
                 </value>
                 <value>
                     <fullName>Pending</fullName>
@@ -1212,7 +1216,7 @@ Select if this is a Compliance Case</description>
     <fields>
         <fullName>Control_Number__c</fullName>
         <externalId>false</externalId>
-        <label>Control Number</label>
+        <label>USG Military Branch</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3525,22 +3529,7 @@ Select if this is a Compliance Case</description>
         <columns>CASES.STATUS</columns>
         <columns>OWNER_NAME</columns>
         <columns>Actual_Create_Date__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.Advocacy</value>
-        </filters>
-        <filters>
-            <field>Days_Open__c</field>
-            <operation>greaterThan</operation>
-            <value>30</value>
-        </filters>
-        <filters>
-            <field>CASES.PRIORITY</field>
-            <operation>equals</operation>
-            <value>Medium</value>
-        </filters>
+        <filterScope>Team</filterScope>
         <label>All Open Cases</label>
     </listViews>
     <listViews>
@@ -3720,7 +3709,7 @@ Select if this is a Compliance Case</description>
         <columns>OWNER_NAME</columns>
         <columns>Actual_Create_Date__c</columns>
         <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
-        <filterScope>Mine</filterScope>
+        <filterScope>Everything</filterScope>
         <filters>
             <field>Request_Case_Removal__c</field>
             <operation>equals</operation>
@@ -3993,7 +3982,7 @@ Select if this is a Compliance Case</description>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Libby Hennemuth,Briggs DeLoach,Aryeh Ness,Yong Mi Oh</value>
+            <value>Libby Hennemuth,Briggs DeLoach,Aryeh Ness,Yong Mi Oh,Clinton Harper</value>
         </filters>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
@@ -4123,7 +4112,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work undertaken by the Advocacy Center in support of U.S. companies pursuing foreign government procurement.</description>
+        <description>Case work approved and coordinated by the Advocacy Center in support of U.S. companies pursuing foreign government procurement.</description>
         <label>Advocacy</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
@@ -37602,7 +37591,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work with a U.S. Economic Development Organization (EDO), investment partner, or foreign investor to increase investment to the U.S.</description>
+        <description>Work with a U.S. economic development organizations (EDOs), international or domestic company, or investment partner to increase business investment in the United States.</description>
         <label>Investment Promotion</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>

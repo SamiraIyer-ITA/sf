@@ -53,7 +53,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -113,7 +112,7 @@
         <fullName>Actual_Follow_on_Value__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Add additional sales made within 12 months of the initial sales in this field</inlineHelpText>
-        <label>Actual Follow-on Value</label>
+        <label>Actual Export Follow-on $ Value</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -126,7 +125,7 @@
         <fullName>Actual_Initial_Value__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>If you have a client provided actual value, please include it here</inlineHelpText>
-        <label>Actual Initial Value</label>
+        <label>Actual Export $ Value - Verified</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -435,7 +434,7 @@
         <fullName>Client_Provided_Value__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>If provided, please note the dollar value of this WIN. Leave blank if not provided.</inlineHelpText>
-        <label>Client Provided Value</label>
+        <label>Actual CD Export $ Value - Verified</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -548,7 +547,7 @@
         <fullName>Description_of_Results__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>For example Sales Revenue, signed distributor/partner agreements or other significant positive outcomes.</inlineHelpText>
-        <label>Description of Results</label>
+        <label>Description of Results/Impact</label>
         <length>4000</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -586,7 +585,7 @@
         <fullName>Estimated_Value_Explanation__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Please explain how you calculated the estimated value above</inlineHelpText>
-        <label>Estimated Value Explanation</label>
+        <label>Explanation of Dollar Value</label>
         <length>32768</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -598,7 +597,7 @@
         <fullName>Estimated_Value__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>If client did not provide value, please provide an estimation of the dollar value of this WIN</inlineHelpText>
-        <label>Estimated Value</label>
+        <label>ITA Economist Trade Barrier Valuation</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -1475,13 +1474,12 @@ Other Government entities that were involved with the WIN.</description>
     </listViews>
     <listViews>
         <fullName>All_Open_WINs</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>NAME</columns>
         <columns>Organization__c</columns>
         <columns>Contact_Name__c</columns>
-        <columns>OWNER.FIRST_NAME</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <columns>RECORDTYPE</columns>
         <columns>WIN_Name__c</columns>
+        <columns>WIN_Type__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Request_WIN_Removal__c</field>
@@ -1489,13 +1487,14 @@ Other Government entities that were involved with the WIN.</description>
             <value>0</value>
         </filters>
         <filters>
-            <field>Final_Line_Approval_Date__c</field>
-            <operation>equals</operation>
+            <field>NAME</field>
+            <operation>contains</operation>
+            <value>Commercial Diplomacy</value>
         </filters>
         <filters>
-            <field>Final_Approver__c</field>
-            <operation>equals</operation>
-            <value>Leslie Britton</value>
+            <field>NAME</field>
+            <operation>contains</operation>
+            <value>Export Promotion</value>
         </filters>
         <label>All Open WINs</label>
     </listViews>
