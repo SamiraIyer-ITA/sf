@@ -13,7 +13,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CP Redirect URL</shortDescription>
-        <value>https://ita-authentication.mobomo.net/moLogin</value>
+        <value>https://preview.trade.gov/moLogin</value>
     </labels>
     <labels>
         <fullName>CP_temp_password_sent</fullName>
