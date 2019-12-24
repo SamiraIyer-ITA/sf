@@ -1,40 +1,15 @@
-<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false">
- <apex:composition template="Site_Template">
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template2">
      <apex:define name="page">
-   
-      <link href="{!URLFor($Resource.adcvd_search, 'adcvd_search/app.css')}" rel="stylesheet" / >
-      
-      <body style="height: 100%; margin: 0">
-      
-      <div class="row content">                        
-       <div class="containerInternal enforceHeight">   
-             
-      <header>
-         <h1 style="font-size: 37px;font-weight:bold;">ADCVD Cases Search</h1> <br/><br/>     
-      </header>    
-      <!--<p class="usa-font-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->    
-     
-        <br/>
-                               
-      <div class="usa-grid">           
-        <section id="mi-app" class="mi-app"></section>
-      </div>
-       
-       </div>
-        </div>           
-      </body>
-      
-      <script type="text/javascript" src="{!URLFor($Resource.adcvd_search, 'adcvd_search/bundle.js')}"></script>
-      <script type="text/javascript">
-           var options = {
-             apis: {
-               adcvd_orders: true
-             },
-             use_index_page: false
-            };
-           MarketIntelligenceSearchApp.render('mi-app', options);
-         </script>
-      
+        <title>ADCVD Search</title>
+        <meta charset="utf-8"/><meta name="viewport"/>
+        <meta name="description" content="ADCVD Search Interface"/>
+        <script>document.addEventListener("DOMContentLoaded",function(){window.Explorer.renderAdcvdSearch("searchContainer")})</script>  
+    <link href="{!URLFor($Resource.adcvdsearch, 'adcvdsearch/adcvd_search.css')}" rel="stylesheet" />
+        <div id="searchContainer"></div>
+    <script src="{!URLFor($Resource.adcvdsearch, 'adcvdsearch/adcvd_search.js')}"></script>
+    <script src="{!URLFor($Resource.adcvdsearch, 'adcvdsearch/0adcvd_search.js')}"></script>
+
      </apex:define>
  </apex:composition>
 </apex:page>
