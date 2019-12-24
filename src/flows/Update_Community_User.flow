@@ -253,8 +253,8 @@
         </rules>
     </decisions>
     <description>When the Community User has a contact set, change the &apos;Community User&apos; field on the Contact.</description>
-    <interviewLabel>Upgrade_Community_User-5_InterviewLabel</interviewLabel>
-    <label>Upgrade Community User</label>
+    <interviewLabel>Update_Community_User-5_InterviewLabel</interviewLabel>
+    <label>Update Community User</label>
     <processMetadataValues>
         <name>ObjectType</name>
         <value>
