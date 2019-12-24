@@ -8,7 +8,6 @@
     <label>International Trade Administration&apos;s Web App</label>
     <oauthConfig>
         <callbackUrl>https://ita-authentication.mobomo.net/mo_login</callbackUrl>
-        <consumerKey>3MVG9Zdl7Yn6QDKOkajSIXHBiNEhbK4CcBvwiXd_wT_h0RE5nd9WvXUhIWGfnBAIuRrP9sVTXHtc3yDUSNQCl</consumerKey>
         <idTokenConfig>
             <idTokenIncludeAttributes>true</idTokenIncludeAttributes>
             <idTokenIncludeCustomPerms>false</idTokenIncludeCustomPerms>

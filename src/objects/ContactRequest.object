@@ -427,10 +427,6 @@
         <picklistValues>
             <picklist>Country_1__c</picklist>
             <values>
-                <fullName>--Select--</fullName>
-                <default>true</default>
-            </values>
-            <values>
                 <fullName>Afghanistan</fullName>
                 <default>false</default>
             </values>

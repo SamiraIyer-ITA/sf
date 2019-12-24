@@ -4,14 +4,14 @@
         <processMetadataValues>
             <name>emailAlertSelection</name>
             <value>
-                <stringValue>CP_Updrade_Account_Alert</stringValue>
+                <stringValue>CP_Upgrade_Account_Alert</stringValue>
             </value>
         </processMetadataValues>
         <name>myRule_3_A1</name>
         <label>Send Email Messag</label>
         <locationX>300</locationX>
         <locationY>200</locationY>
-        <actionName>User.CP_Updrade_Account_Alert</actionName>
+        <actionName>User.CP_Upgrade_Account_Alert</actionName>
         <actionType>emailAlert</actionType>
         <inputParameters>
             <name>SObjectRowId</name>
