@@ -367,7 +367,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <targetReference>Get_Lead_Record</targetReference>
         </connector>
         <filters>
-            <field>Name</field>
+            <field>DeveloperName</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>FormulaQueueSelector</elementReference>
