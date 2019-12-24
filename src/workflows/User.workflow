@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>CP_Upgrade_Account_Alert</fullName>
+        <description>Send alert when cp user account is upgraded</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>CP_Community/CP_User_Upgrade_Email</template>
+    </alerts>
+    <alerts>
         <fullName>Community_New_PS_User_Welcome_email</fullName>
         <description>Community - New PS User Welcome email</description>
         <protected>false</protected>
