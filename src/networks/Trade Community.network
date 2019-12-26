@@ -37,6 +37,7 @@
     </navigationLinkSet>
     <networkMemberGroups>
         <profile>Admin</profile>
+        <profile>MCP-External-User</profile>
         <profile>Salesforce Developer</profile>
         <profile>Customer Trade Community User</profile>
     </networkMemberGroups>
