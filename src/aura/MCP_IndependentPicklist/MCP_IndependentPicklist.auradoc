@@ -1,0 +1,16 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+    
+   <aura:description>
+        <code>c:MCP_IndependentPickListUpdate</code> Event used to passed back Values and Field Name to parent, Parent need to catch event and keep track of current values of updated values
+   		<code>parentFieldAPI</code> Field name of Controlling picklist Passed in from parent
+        <code>objectName</code>     API name of object that field belongs to
+        <code>parentField</code>    Used to reterive value of controlling picklist in parent componet 
+       
+       Sample code from parent to call this child
+       <code>c:MCP_IndependentPicklist objectName="{!v.fieldSetObjectAPI}" parentFieldAPI="{!curField.fieldPath}"
+           parentFieldLabel="{!curField.label}" /> </code>
+     
+    </aura:description> 
+
+</aura:documentation>

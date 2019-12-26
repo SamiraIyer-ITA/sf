@@ -51,6 +51,7 @@ types=" app \
         labels \
         layout \
         liveChatButton \
+	notiftype \
         md \
         mdt \
         namedCredential \

@@ -1232,6 +1232,31 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Organization_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Organization Location</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Located in US</fullName>
+                    <default>false</default>
+                    <label>Located in US</label>
+                </value>
+                <value>
+                    <fullName>Located outside US</fullName>
+                    <default>false</default>
+                    <label>Located outside US</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Organization_One__c</fullName>
         <description>This field is for the concept of Power of One. It is a field to use for summary counting sub groups and the like.</description>
         <externalId>false</externalId>
@@ -1245,6 +1270,211 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Organization Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>U.S. Business Currently Exporting Goods/Services</fullName>
+                    <default>false</default>
+                    <label>U.S. Business Currently Exporting Goods/Services</label>
+                </value>
+                <value>
+                    <fullName>U.S. Business Seeking to Export Goods/Services</fullName>
+                    <default>false</default>
+                    <label>U.S. Business Seeking to Export Goods/Services</label>
+                </value>
+                <value>
+                    <fullName>U.S. Citizen Seeking to Export Goods/Services</fullName>
+                    <default>false</default>
+                    <label>U.S. Citizen Seeking to Export Goods/Services</label>
+                </value>
+                <value>
+                    <fullName>U.S. Educational Institution</fullName>
+                    <default>false</default>
+                    <label>U.S. Educational Institution</label>
+                </value>
+                <value>
+                    <fullName>U.S. Economic Development Organization</fullName>
+                    <default>false</default>
+                    <label>U.S. Economic Development Organization</label>
+                </value>
+                <value>
+                    <fullName>U.S. Travel &amp; Tourism Bureau</fullName>
+                    <default>false</default>
+                    <label>U.S. Travel &amp; Tourism Bureau</label>
+                </value>
+                <value>
+                    <fullName>U.S. based Student/Researcher</fullName>
+                    <default>false</default>
+                    <label>U.S. based Student/Researcher</label>
+                </value>
+                <value>
+                    <fullName>U.S. Industry Associations</fullName>
+                    <default>false</default>
+                    <label>U.S. Industry Associations</label>
+                </value>
+                <value>
+                    <fullName>U.S. Trade Show/Event Organizer</fullName>
+                    <default>false</default>
+                    <label>U.S. Trade Show/Event Organizer</label>
+                </value>
+                <value>
+                    <fullName>Service Provider to U.S. Exporters</fullName>
+                    <default>false</default>
+                    <label>Service Provider to U.S. Exporters</label>
+                </value>
+                <value>
+                    <fullName>U.S. Government</fullName>
+                    <default>false</default>
+                    <label>U.S. Government</label>
+                </value>
+                <value>
+                    <fullName>Foreign Subsidiary of U.S. Company (95% U.S. owned)</fullName>
+                    <default>false</default>
+                    <label>Foreign Subsidiary of U.S. Company (95% U.S. owned)</label>
+                </value>
+                <value>
+                    <fullName>Foreign Subsidiary of U.S. Company (less than 95% U.S. owned)</fullName>
+                    <default>false</default>
+                    <label>Foreign Subsidiary of U.S. Company (less than 95% U.S. owned)</label>
+                </value>
+                <value>
+                    <fullName>Current or Prospective Buyer of U.S. Goods/Services</fullName>
+                    <default>false</default>
+                    <label>Current or Prospective Buyer of U.S. Goods/Services</label>
+                </value>
+                <value>
+                    <fullName>Current or Prospective Investor in U.S.</fullName>
+                    <default>false</default>
+                    <label>Current or Prospective Investor in U.S.</label>
+                </value>
+                <value>
+                    <fullName>Foreign Government Entity</fullName>
+                    <default>false</default>
+                    <label>Foreign Government Entity</label>
+                </value>
+                <value>
+                    <fullName>Foreign Trade Show/Event Organizer</fullName>
+                    <default>false</default>
+                    <label>Foreign Trade Show/Event Organizer</label>
+                </value>
+                <value>
+                    <fullName>Foreign Student/Researcher</fullName>
+                    <default>false</default>
+                    <label>Foreign Student/Researcher</label>
+                </value>
+                <value>
+                    <fullName>Aerospace &amp; Defense</fullName>
+                    <default>false</default>
+                    <label>Aerospace &amp; Defense</label>
+                </value>
+                <value>
+                    <fullName>Automotive &amp; Smart Mobility</fullName>
+                    <default>false</default>
+                    <label>Automotive &amp; Smart Mobility</label>
+                </value>
+                <value>
+                    <fullName>Advanced Manufacturing</fullName>
+                    <default>false</default>
+                    <label>Advanced Manufacturing</label>
+                </value>
+                <value>
+                    <fullName>Food and Agriculture Value Chain</fullName>
+                    <default>false</default>
+                    <label>Food and Agriculture Value Chain</label>
+                </value>
+                <value>
+                    <fullName>Healthcare and Health Technologies</fullName>
+                    <default>false</default>
+                    <label>Healthcare and Health Technologies</label>
+                </value>
+                <value>
+                    <fullName>Education and Training Services</fullName>
+                    <default>false</default>
+                    <label>Education and Training Services</label>
+                </value>
+                <value>
+                    <fullName>Energy</fullName>
+                    <default>false</default>
+                    <label>Energy</label>
+                </value>
+                <value>
+                    <fullName>Environment Technologies</fullName>
+                    <default>false</default>
+                    <label>Environment Technologies</label>
+                </value>
+                <value>
+                    <fullName>Information and Communication Technologies</fullName>
+                    <default>false</default>
+                    <label>Information and Communication Technologies</label>
+                </value>
+                <value>
+                    <fullName>Media and Entertainment</fullName>
+                    <default>false</default>
+                    <label>Media and Entertainment</label>
+                </value>
+                <value>
+                    <fullName>Travel and Tourism</fullName>
+                    <default>false</default>
+                    <label>Travel and Tourism</label>
+                </value>
+                <value>
+                    <fullName>Marine Technology</fullName>
+                    <default>false</default>
+                    <label>Marine Technology</label>
+                </value>
+                <value>
+                    <fullName>Public Safety and Security</fullName>
+                    <default>false</default>
+                    <label>Public Safety and Security</label>
+                </value>
+                <value>
+                    <fullName>Financial Services</fullName>
+                    <default>false</default>
+                    <label>Financial Services</label>
+                </value>
+                <value>
+                    <fullName>Supply Chain &amp; Logistics and Distribution Services</fullName>
+                    <default>false</default>
+                    <label>Supply Chain &amp; Logistics and Distribution Services</label>
+                </value>
+                <value>
+                    <fullName>Textile, Apparel, Footwear and Travel Goods</fullName>
+                    <default>false</default>
+                    <label>Textile, Apparel, Footwear and Travel Goods</label>
+                </value>
+                <value>
+                    <fullName>Design &amp; Construction, Building &amp; Heavy Equipment</fullName>
+                    <default>false</default>
+                    <label>Design &amp; Construction, Building &amp; Heavy Equipment</label>
+                </value>
+                <value>
+                    <fullName>Franchising</fullName>
+                    <default>false</default>
+                    <label>Franchising</label>
+                </value>
+                <value>
+                    <fullName>Recreational Transportation</fullName>
+                    <default>false</default>
+                    <label>Recreational Transportation</label>
+                </value>
+                <value>
+                    <fullName>Office of Textiles and Apparel</fullName>
+                    <default>false</default>
+                    <label>Office of Textiles and Apparel</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
@@ -2533,6 +2763,172 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Organization_Location__c</picklist>
+            <values>
+                <fullName>Located in US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Type__c</picklist>
+            <values>
+                <fullName>Advanced Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aerospace %26 Defense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive %26 Smart Mobility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Buyer of U%2ES%2E Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Investor in U%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design %26 Construction%2C Building %26 Heavy Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education and Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environment Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Agriculture Value Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Government Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %2895%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %28less than 95%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare and Health Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information and Communication Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Textiles and Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Safety and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreational Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider to U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain %26 Logistics and Distribution Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile%2C Apparel%2C Footwear and Travel Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Currently Exporting Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Citizen Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Economic Development Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Educational Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Industry Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Travel %26 Tourism Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E based Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Ownership</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -3330,6 +3726,172 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Organization_Location__c</picklist>
+            <values>
+                <fullName>Located in US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Type__c</picklist>
+            <values>
+                <fullName>Advanced Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aerospace %26 Defense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive %26 Smart Mobility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Buyer of U%2ES%2E Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Investor in U%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design %26 Construction%2C Building %26 Heavy Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education and Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environment Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Agriculture Value Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Government Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %2895%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %28less than 95%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare and Health Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information and Communication Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Textiles and Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Safety and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreational Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider to U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain %26 Logistics and Distribution Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile%2C Apparel%2C Footwear and Travel Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Currently Exporting Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Citizen Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Economic Development Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Educational Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Industry Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Travel %26 Tourism Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E based Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Ownership</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -4052,6 +4614,172 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Location__c</picklist>
+            <values>
+                <fullName>Located in US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Type__c</picklist>
+            <values>
+                <fullName>Advanced Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aerospace %26 Defense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive %26 Smart Mobility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Buyer of U%2ES%2E Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Investor in U%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design %26 Construction%2C Building %26 Heavy Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education and Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environment Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Agriculture Value Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Government Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %2895%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %28less than 95%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare and Health Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information and Communication Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Textiles and Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Safety and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreational Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider to U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain %26 Logistics and Distribution Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile%2C Apparel%2C Footwear and Travel Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Currently Exporting Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Citizen Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Economic Development Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Educational Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Industry Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Travel %26 Tourism Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E based Student%2FResearcher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4869,6 +5597,172 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Location__c</picklist>
+            <values>
+                <fullName>Located in US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Type__c</picklist>
+            <values>
+                <fullName>Advanced Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aerospace %26 Defense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive %26 Smart Mobility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Buyer of U%2ES%2E Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Investor in U%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design %26 Construction%2C Building %26 Heavy Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education and Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environment Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Agriculture Value Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Government Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %2895%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %28less than 95%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare and Health Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information and Communication Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Textiles and Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Safety and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreational Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider to U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain %26 Logistics and Distribution Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile%2C Apparel%2C Footwear and Travel Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Currently Exporting Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Citizen Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Economic Development Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Educational Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Industry Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Travel %26 Tourism Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E based Student%2FResearcher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

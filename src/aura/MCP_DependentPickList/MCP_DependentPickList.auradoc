@@ -1,0 +1,28 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+    
+   <aura:description>
+        <code>c:MCP_DependentPickListUpdate</code> Event used to passed back Values and Field Name to parent, Parent need to catch event and keep track of current values of updated values
+   		<code>parentFieldAPI</code> Field name of Controlling picklist Passed in from parent
+        <code>childFieldAPI</code>	Field name of Dependent picklist Passed in from parent
+        <code>objectName</code>     API name of object that field belongs to
+        <code>parentField</code>    Used to reterive value of controlling picklist in parent componet 
+        <code>childField</code>		Used to reterive value of dependant picklist in parent componet 
+       
+       
+       Sample code from parent to call this child
+       <code>  c:MCP_DependentPickList objectName="{!v.fieldSetObjectAPI}" parentFieldAPI="{!curField.pickListData.ParentfieldDetail.name}"
+                                                 childFieldAPI = "{!curField.name}" parentFieldLabel="{!curField.pickListData.ParentfieldDetail.label}"
+                                                 childFieldLabel= "{!curField.label}" </code>
+              
+    
+    
+    </aura:description> 
+    
+    
+    
+    
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		Example Description
+	</aura:example>
+</aura:documentation>
