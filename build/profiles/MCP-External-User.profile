@@ -32,8 +32,12 @@
         <apexClass>km_atom_controller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>                                                                                                                                                                 <apexClass>print_article_controller</apexClass>                                                                                                                             <enabled>true</enabled>                                                                                                                                                 </classAccesses>
-    <classAccesses>                                                                                                                                                                 <apexClass>urlRewriter</apexClass>
+    <classAccesses>
+	<apexClass>print_article_controller</apexClass>
+	<enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>urlRewriter</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <fieldPermissions>
@@ -76,66 +80,6 @@
         <field>Artifact__c.isCurrent__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Approval_Queue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Atom__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Days_Since_Last_Published_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Draft_Complete__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Level_0__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Level_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Level_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Level_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Basic_Guide_to_Exporting__kav.Mobile_Title__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Public_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.References__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Stage__c</field>
-        <readable>true</readable>                                                                                                                                               </fieldPermissions>                                                                                                                                                         <fieldPermissions>                                                                                                                                                              <editable>false</editable>
-        <field>Basic_Guide_to_Exporting__kav.Video__c</field>
-        <readable>true</readable>                                                                                                                                               </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Carousel_Item__c.Button_Path__c</field>
@@ -196,9 +140,14 @@
         <field>Contact.Active__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Contact.CTS_Contact_ID__c</field>                                                                                                                                    <readable>true</readable>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.CTS_Contact_ID__c</field>
+        <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Contact.CTS_Org_ID__c</field>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.CTS_Org_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -256,11 +205,14 @@
         <field>Contact.Other_County__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>
-        <field>Contact.ResearcherHIDDEN__c</field>                                                                                                                                  <readable>true</readable>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.ResearcherHIDDEN__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>                                                                                                                                                  <field>Contact.SharePoint_ID__c</field>
+        <editable>false</editable>
+        <field>Contact.SharePoint_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -298,16 +250,24 @@
         <field>Contact.iContactforSF__iContact_Contact_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contact.site__c</field>
-        <readable>true</readable>                                                                                                                                               </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Content_Container__c.Type__c</field>                                                                                                                                 <readable>true</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>                                                                                                                                                  <field>Content__c.Alt_Text__c</field>                                                                                                                                       <readable>true</readable>
+        <editable>false</editable>
+        <field>Content_Container__c.Type__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>                                                                                                                                                  <field>Content__c.Approver__c</field>
+        <editable>false</editable>
+        <field>Content__c.Alt_Text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.Approver__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -350,19 +310,32 @@
         <field>Content__c.Icon_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Content__c.Image__c</field>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.Image__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Content__c.LMOV__c</field>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.LMOV__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Content__c.Series_Type__c</field>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.Series_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Content__c.Status__c</field>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Content__c.Summary__c</field>                                                                                                                                        <readable>true</readable>                                                                                                                                               </fieldPermissions>                                                                                                                                                         <fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.Summary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Content__c.Type__c</field>
         <readable>true</readable>
@@ -392,174 +365,19 @@
         <field>Content__c.Video_Download__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Content__c.Video_File_Size__c</field>
-        <readable>true</readable>                                                                                                                                               </fieldPermissions>                                                                                                                                                         <fieldPermissions>                                                                                                                                                              <editable>false</editable>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Content__c.Web_Resource_Links__c</field>
-        <readable>true</readable>                                                                                                                                               </fieldPermissions>                                                                                                                                                         <fieldPermissions>                                                                                                                                                              <editable>false</editable>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Content__c.api_type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Country_Commercial__kav.Approval_Queue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Country_Commercial__kav.Atom__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Country_Commercial__kav.Daft_Complete__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Country_Commercial__kav.Level_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Country_Commercial__kav.Level_2__c</field>                                                                                                                           <readable>true</readable>                                                                                                                                               </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Country_Commercial__kav.Level_3__c</field>
-        <readable>true</readable>                                                                                                                                               </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Country_Commercial__kav.Mobile_Title__c</field>                                                                                                                      <readable>true</readable>                                                                                                                                               </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Country_Commercial__kav.Public_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Country_Commercial__kav.References__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Country_Commercial__kav.Stage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Country_Commercial__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Country_Commercial__kav.level_0__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Approval_Queue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Atom__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Draft_Complete__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Level_0__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Level_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Level_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Level_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Mobile_Title__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Public_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.References__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.References__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Stage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQ__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Answer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Approval_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Approval_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Approver__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Attachment_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Attachment_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Attachment_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Attachment_4__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Feedback__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FAQlegacy__kav.Question__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -855,136 +673,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Language__c.Language_Family__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.Approval_Queue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.Atom__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.Draft_Complete__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.Level_0__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.Level_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.Mobile_Title__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.Public_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.References__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.Stage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Insight__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Approver__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Atom__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Citation_Source__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Citation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Days_Since_Last_Published_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Draft_Complete__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Level_0__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Level_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Level_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Level_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Mobile_Title__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Public_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.References__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Series__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Stage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Video__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1654,61 +1342,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>State_Report__kav.Approval_Queue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.Atom__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.Draft_Complete__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.Internal_Comments__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.Level_0__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.Level_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.Level_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.Public_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.References__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.Stage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>State_Report__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Taxonomy_Tagging__c.Category__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1869,66 +1502,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Top_Markets__kav.Approval_Queue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Atom__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Draft_Complete__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Level_0__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Level_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Level_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Level_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Mobile_Title__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Public_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.References__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Stage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Top_Markets__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Translation__c.Atom__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2002,15 +1575,6 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Basic_Guide_to_Exporting__kav</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
         <object>Carousel_Item__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -2047,34 +1611,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Country_Commercial__kav</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
         <object>Covered_Entity__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>FAQ__kav</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>FAQlegacy__kav</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -2138,24 +1675,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Language__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Market_Insight__kav</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Market_Intelligence__kav</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -2278,15 +1797,6 @@
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>State_Report__kav</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -2353,15 +1863,6 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Top_Markets__kav</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
         <object>Translation__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -2387,10 +1888,10 @@
         <apexPage>ADCVD_Search</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>                                                                                                                                                                  <apexPage>CN_MarketingPage</apexPage>                                                                                                                                       <enabled>true</enabled>                                                                                                                                                 </pageAccesses>                                                                                                                                                             <pageAccesses>                                                                                                                                                                  <apexPage>CN_MarketingPage_Thankyou</apexPage>                                                                                                                              <enabled>true</enabled>                                                                                                                                                 </pageAccesses>
-    <pageAccesses>                                                                                                                                                                  <apexPage>ET_MarketingPage</apexPage>                                                                                                                                       <enabled>true</enabled>
+    <pageAccesses>  <apexPage>CN_MarketingPage</apexPage>     <enabled>true</enabled>     </pageAccesses>       <pageAccesses>  <apexPage>CN_MarketingPage_Thankyou</apexPage>      <enabled>true</enabled>     </pageAccesses>
+    <pageAccesses>  <apexPage>ET_MarketingPage</apexPage>     <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>                                                                                                                                                                  <apexPage>ET_MarketingPage_Thankyou</apexPage>                                                                                                                              <enabled>true</enabled>
+    <pageAccesses>  <apexPage>ET_MarketingPage_Thankyou</apexPage>      <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Exception</apexPage>
@@ -2400,9 +1901,9 @@
         <apexPage>FAQ</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>                                                                                                                                                                  <apexPage>IPR_Assistance</apexPage>                                                                                                                                         <enabled>true</enabled>
+    <pageAccesses>  <apexPage>IPR_Assistance</apexPage>       <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>                                                                                                                                                                  <apexPage>IPR_Assitance</apexPage>                                                                                                                                          <enabled>true</enabled>
+    <pageAccesses>  <apexPage>IPR_Assitance</apexPage>        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>door</apexPage>
@@ -2412,18 +1913,18 @@
         <apexPage>landing</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>                                                                                                                                                                  <apexPage>ng_search</apexPage>
+    <pageAccesses>  <apexPage>ng_search</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>                                                                                                                                                             <pageAccesses>                                                                                                                                                                  <apexPage>og_search</apexPage>
+    </pageAccesses>       <pageAccesses>  <apexPage>og_search</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>                                                                                                                                                             <pageAccesses>                                                                                                                                                                  <apexPage>page</apexPage>
+    </pageAccesses>       <pageAccesses>  <apexPage>page</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>                                                                                                                                                                  <apexPage>participant</apexPage>
+    <pageAccesses>  <apexPage>participant</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>participant_search</apexPage>                                                                                                                                     <enabled>true</enabled>
+        <apexPage>participant_search</apexPage>   <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>privacyshield_search</apexPage>
@@ -2466,17 +1967,17 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>toolkitSearch</apexPage>                                                                                                                                          <enabled>true</enabled>
+        <apexPage>toolkitSearch</apexPage>        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>toolkitssearch</apexPage>                                                                                                                                         <enabled>true</enabled>
+        <apexPage>toolkitssearch</apexPage>       <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>tpp_rates</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
-        <default>true</default>                                                                                                                                                     <personAccountDefault>true</personAccountDefault>                                                                                                                           <recordType>Artifact__c.Privacy_Policy</recordType>                                                                                                                         <visible>true</visible>
+        <default>true</default>         <personAccountDefault>true</personAccountDefault>   <recordType>Artifact__c.Privacy_Policy</recordType> <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
@@ -2489,14 +1990,14 @@
         <recordType>Contact.Partner_Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>                                                                                                                                                        <default>true</default>                                                                                                                                                     <personAccountDefault>true</personAccountDefault>                                                                                                                           <recordType>Content_Container__c.Admin_Only</recordType>
+    <recordTypeVisibilities>  <default>true</default>         <personAccountDefault>true</personAccountDefault>   <recordType>Content_Container__c.Admin_Only</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>                                                                                                                                                        <default>false</default>                                                                                                                                                    <recordType>Content_Container__c.Style</recordType>                                                                                                                         <visible>true</visible>
+    <recordTypeVisibilities>  <default>false</default>        <recordType>Content_Container__c.Style</recordType> <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>                                                                                                                                                        <default>true</default>                                                                                                                                                     <personAccountDefault>true</personAccountDefault>                                                                                                                           <recordType>Content__c.API</recordType>                                                                                                                                     <visible>true</visible>
+    <recordTypeVisibilities>  <default>true</default>         <personAccountDefault>true</personAccountDefault>   <recordType>Content__c.API</recordType>   <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>                                                                                                                                                        <default>false</default>                                                                                                                                                    <recordType>Content__c.Carousel</recordType>                                                                                                                                <visible>true</visible>
+    <recordTypeVisibilities>  <default>false</default>        <recordType>Content__c.Carousel</recordType>        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -2539,8 +2040,8 @@
         <recordType>Field__c.Text_Input</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>                                                                                                                                                        <default>true</default>
-        <personAccountDefault>true</personAccountDefault>                                                                                                                           <recordType>Form__c.OMB</recordType>                                                                                                                                        <visible>true</visible>                                                                                                                                                 </recordTypeVisibilities>
+    <recordTypeVisibilities>  <default>true</default>
+        <personAccountDefault>true</personAccountDefault>   <recordType>Form__c.OMB</recordType>      <visible>true</visible>     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
@@ -2657,9 +2158,9 @@
         <recordType>Taxonomy_Tagging__c.Trade_Region</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>                                                                                                                                                        <default>true</default>                                                                                                                                                     <personAccountDefault>true</personAccountDefault>                                                                                                                           <recordType>Third_Party_Master_List__c.Default</recordType>                                                                                                                 <visible>true</visible>
+    <recordTypeVisibilities>  <default>true</default>         <personAccountDefault>true</personAccountDefault>   <recordType>Third_Party_Master_List__c.Default</recordType>   <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>                                                                                                                                                        <default>true</default>                                                                                                                                                     <personAccountDefault>true</personAccountDefault>
+    <recordTypeVisibilities>  <default>true</default>         <personAccountDefault>true</personAccountDefault>
         <recordType>Third_Party__c.Resolution_Provider</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
