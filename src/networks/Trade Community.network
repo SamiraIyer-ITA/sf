@@ -5,7 +5,6 @@
     <changePasswordTemplate>Trade_Community/Trade_Community_Password_Reset</changePasswordTemplate>
     <communityRoles/>
     <disableReputationRecordConversations>false</disableReputationRecordConversations>
-    <emailFooterLogo>Communities_Shared_Document_Folder/Trade_logo.jpg</emailFooterLogo>
     <emailFooterText>International Trade Administration @ 1401 Constitution Avenue, NW, Washington, DC 20230</emailFooterText>
     <emailSenderAddress>noreply@trade.gov</emailSenderAddress>
     <emailSenderName>ITA Community</emailSenderName>
