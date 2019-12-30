@@ -244,6 +244,17 @@
         <type>Lookup</type>
     </fields>
     <listViews>
+        <fullName>All_ContactRequests</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>PreferredChannel</columns>
+        <columns>PreferredPhone</columns>
+        <columns>Assigned_User__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Contact Requests</label>
+    </listViews>
+    <listViews>
         <fullName>CP_Contact_US_1_ContactRequest</fullName>
         <columns>Name</columns>
         <columns>Status</columns>
@@ -251,12 +262,7 @@
         <columns>Assigned_User__c</columns>
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_US_1</label>
+        <label>Queue#1</label>
         <queue>CP_Contact_US_1</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group1</group>
@@ -270,12 +276,7 @@
         <columns>Assigned_User__c</columns>
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_US_2</label>
+        <label>Queue#2</label>
         <queue>CP_Contact_US_2</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group2</group>
@@ -289,12 +290,7 @@
         <columns>Assigned_User__c</columns>
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_US_3</label>
+        <label>Queue#3</label>
         <queue>CP_Contact_US_3</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group3</group>
@@ -308,12 +304,7 @@
         <columns>Assigned_User__c</columns>
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_US_4</label>
+        <label>Queue#4</label>
         <queue>CP_Contact_US_4</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group4</group>
@@ -327,12 +318,7 @@
         <columns>Assigned_User__c</columns>
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_US_5</label>
+        <label>Queue#5</label>
         <queue>CP_Contact_US_5</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group5</group>
@@ -346,12 +332,7 @@
         <columns>Assigned_User__c</columns>
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_US_6</label>
+        <label>Queue#6</label>
         <queue>CP_Contact_US_6</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group6</group>
@@ -365,12 +346,7 @@
         <columns>Assigned_User__c</columns>
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_US_7</label>
+        <label>Queue#7</label>
         <queue>CP_Contact_US_7</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group7</group>
@@ -384,34 +360,10 @@
         <columns>Assigned_User__c</columns>
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_US_8</label>
+        <label>Queue#8</label>
         <queue>CP_Contact_US_8</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group8</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>CP_Contact_Us_Closed</fullName>
-        <columns>Name</columns>
-        <columns>Status</columns>
-        <columns>CreatedDate</columns>
-        <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
-        <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_Us_Closed</label>
-        <queue>CP_Contact_Us_Closed</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
         </sharedTo>
     </listViews>
     <listViews>
@@ -427,12 +379,7 @@
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
         </filters>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>Closed Contact Requests</label>
+        <label>All Closed Contact Requests</label>
         <queue>CP_Contact_Us_Closed</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
