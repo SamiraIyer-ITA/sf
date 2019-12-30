@@ -58,6 +58,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>CustomNotificationType</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -83,6 +87,10 @@
     <types>
         <members>*</members>
         <name>DataCategoryGroup</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>EmailTemplate</name>
     </types>
     <types>
         <members>*</members>
@@ -138,6 +146,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>Network</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>PathAssistant</name>
     </types>
     <types>
@@ -182,6 +194,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>SiteDotCom</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>StandardValueSet</name>
     </types>
     <types>
@@ -220,5 +236,5 @@
         <members>*</members>
         <name>Workflow</name>
     </types>
-    <version>45.0</version>
+    <version>47.0</version>
 </Package>

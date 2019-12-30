@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
+        <default>false</default>
+        <label>Contacting a local trade or export assistance expert (*limited availability)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Resolving a trade barrier</fullName>
+        <default>false</default>
+        <label>Resolving a trade barrier</label>
+    </standardValue>
+    <standardValue>
+        <fullName>My trade gov account</fullName>
+        <default>false</default>
+        <label>My trade gov account</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Media inquiry  (* media members only)</fullName>
+        <default>false</default>
+        <label>Media inquiry  (* media members only)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Issue with the website</fullName>
+        <default>false</default>
+        <label>Issue with the website</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+</StandardValueSet>
