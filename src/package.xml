@@ -89,8 +89,7 @@
         <name>DataCategoryGroup</name>
     </types>
     <types>
-        <members>CP_Community</members>
-        <members>CP_Community/CP_User_Upgrade_Email</members>
+        <members>*</members>
         <name>EmailTemplate</name>
     </types>
     <types>
