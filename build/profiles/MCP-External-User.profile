@@ -1901,6 +1901,14 @@
         <apexPage>FAQ</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>form</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>form_start</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>	
     <pageAccesses>  <apexPage>IPR_Assistance</apexPage>       <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>  <apexPage>IPR_Assitance</apexPage>        <enabled>true</enabled>
