@@ -107,26 +107,26 @@
     <decisions>
         <name>Validate_Form</name>
         <label>Validate Form</label>
-        <locationX>88</locationX>
-        <locationY>310</locationY>
+        <locationX>71</locationX>
+        <locationY>497</locationY>
         <defaultConnector>
-            <targetReference>Contact_us</targetReference>
+            <targetReference>get_contact</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No selection / to many selectionss</defaultConnectorLabel>
         <rules>
-            <name>Success</name>
+            <name>No_Next_On_Trade_Barrier</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>CheckBoxCount</leftValueReference>
+                <leftValueReference>IssueBox</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <numberValue>1.0</numberValue>
+                    <stringValue>Resolving a trade barrier</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>get_contact</targetReference>
+                <targetReference>Contact_us</targetReference>
             </connector>
-            <label>Success</label>
+            <label>No Next On Trade Barrier</label>
         </rules>
     </decisions>
     <dynamicChoiceSets>
@@ -367,7 +367,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <targetReference>Get_Lead_Record</targetReference>
         </connector>
         <filters>
-            <field>Name</field>
+            <field>DeveloperName</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>FormulaQueueSelector</elementReference>
@@ -384,8 +384,8 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <screens>
         <name>Contact_us</name>
         <label>Contact us</label>
-        <locationX>207</locationX>
-        <locationY>116</locationY>
+        <locationX>74</locationX>
+        <locationY>283</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -407,7 +407,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         </fields>
         <fields>
             <name>URL</name>
-            <fieldText>&lt;p&gt;Click to report a trade barrier. &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://tcc.export.gov/test/Report_a_Barrier/tancdeploy.asp&quot; target=&quot;_blank&quot;&gt;https://tcc.export.gov/test/Report_a_Barrier/tancdeploy.asp&lt;/a&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;a href=&quot;https://tcc.export.gov/Report_a_Barrier/index.asp&quot; target=&quot;_blank&quot;&gt;https://tcc.export.gov/Report_a_Barrier/index.asp&lt;/a&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -562,8 +562,8 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>119</locationX>
-        <locationY>116</locationY>
+        <locationX>74</locationX>
+        <locationY>67</locationY>
         <connector>
             <targetReference>Contact_us</targetReference>
         </connector>
