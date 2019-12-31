@@ -6,8 +6,8 @@
         <name>AssignmentRule</name>
     </types>
     <types>
-        <members>Case</members>
-        <name>AutoResponseRules</name>
+        <members>Case.Salesforce Support Case</members>
+        <name>AutoResponseRule</name>
     </types>
     <types>
         <members>*</members>
