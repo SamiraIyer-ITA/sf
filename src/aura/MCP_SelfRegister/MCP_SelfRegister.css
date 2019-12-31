@@ -108,15 +108,15 @@
 .THIS .myBtn  {
     width: 350px;
     background-color: #004173;  
-    color: #ffffff
+    color: #ffffff;
+    visibility:visible;
+    margin-top:-800px;    
    
 }
 .THIS .myBtnDisabled  {
     width: 350px;
-      
-   
+    visibility:hidden;  
 }
-
 
 .THIS button.sfdc_button {
     width: 100%;
