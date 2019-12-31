@@ -101519,7 +101519,7 @@ Select if this is a Compliance Case</description>
     </validationRules>
     <validationRules>
         <fullName>Case_Closure</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>To ensure that a Case cannot be closed without a related Industry and Country record on the Taxonomy Tagging object. Applied to Advocacy, Commercial Diplomacy, Investment Promotion and Export Promotion cases.</description>
         <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1 ,Industry_Rollup_Sum__c = 0) &amp;&amp; 
 ($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
@@ -101535,7 +101535,7 @@ Select if this is a Compliance Case</description>
     </validationRules>
     <validationRules>
         <fullName>Country_Releated_list</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>To ensure that a Case cannot be closed without a related Industry and Country record on the Taxonomy Tagging object.  Applied to Advocacy, Commercial Diplomacy, Investment Promotion and Export Promotion cases.</description>
         <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1,Country_in_Case_Rollup__c = 0) &amp;&amp; 
 ($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
