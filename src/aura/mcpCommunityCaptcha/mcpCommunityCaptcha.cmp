@@ -1,0 +1,8 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes"  access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- <iframe src="/apex/captchaPage"  style="border:0px"/>-->
+        <iframe src="/DrupalCommunity/captchaPage"  style="border:0px"/>
+
+    <br/>
+    <lightning:button aura:id="myButton" label="Submit" onclick="{!c.doSubmit}" disabled="true" />    
+</aura:component>
