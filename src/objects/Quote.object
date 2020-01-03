@@ -246,6 +246,47 @@
         <filterScope>Mine</filterScope>
         <label>My Quotes</label>
     </listViews>
+    <recordTypes>
+        <fullName>Standard</fullName>
+        <active>true</active>
+        <description>Standard record type for quotes</description>
+        <label>Standard</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Denied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>QUOTE.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>OPPORTUNITY.NAME</customTabListAdditionalFields>
