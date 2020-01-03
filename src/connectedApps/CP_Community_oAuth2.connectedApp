@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <attributes>
+        <formula>$User.ContactId</formula>
+        <key>contactid</key>
+    </attributes>
     <contactEmail>mark.keckeis@trade.gov</contactEmail>
-    <label>CP Community oAuth2</label>
+    <label>International Trade Administration&apos;s Web App</label>
     <oauthConfig>
         <callbackUrl>https://ita-authentication.mobomo.net/mo_login</callbackUrl>
+        <idTokenConfig>
+            <idTokenIncludeAttributes>true</idTokenIncludeAttributes>
+            <idTokenIncludeCustomPerms>false</idTokenIncludeCustomPerms>
+            <idTokenIncludeStandardClaims>true</idTokenIncludeStandardClaims>
+            <idTokenValidity>2</idTokenValidity>
+        </idTokenConfig>
         <isAdminApproved>false</isAdminApproved>
+        <scopes>Basic</scopes>
+        <scopes>RefreshToken</scopes>
         <scopes>OpenID</scopes>
     </oauthConfig>
 </ConnectedApp>

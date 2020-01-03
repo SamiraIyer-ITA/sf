@@ -101,6 +101,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>External_User_Upgrade_Request__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>External User Upgrade Request</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ITA_Office__c</fullName>
         <description>temp field for collecting office names until picklist option is defined or master list.</description>
         <externalId>false</externalId>
