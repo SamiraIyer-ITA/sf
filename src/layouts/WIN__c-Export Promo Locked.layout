@@ -52,6 +52,22 @@
                 <behavior>Edit</behavior>
                 <field>Actual_Follow_on_Value__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Number_of_Jobs_Created__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Number_of_Jobs_Supported__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Anticipated_Export_Dollar_Value__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Export_Dollar_Value__c</field>
+            </layoutItems>            
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
