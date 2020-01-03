@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <applicationVisibilities>
-        <application>Consulting</application>
-        <default>false</default>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Contract.Participation_Agreement</recordType>
         <visible>true</visible>
-    </applicationVisibilities>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Order.Service</recordType>
+        <recordType>Lead.Export</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <recordType>Order.Legacy</recordType>
+        <recordType>Quote.Standard</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
 </Profile>
