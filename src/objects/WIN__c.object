@@ -1299,6 +1299,21 @@ Other Government entities that were involved with the WIN.</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Sys_Region_in_WIN_Rollup__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Number of Rergions related to the WIN</description>
+        <externalId>false</externalId>
+        <label>Sys Region in WIN Rollup</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Verify_Validate__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>By entering my name, I verify that all essential facts are validated.</inlineHelpText>
