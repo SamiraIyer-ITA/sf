@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionCalls>
+        <name>Save_Contact_Request</name>
+        <label>Save Contact Request</label>
+        <locationX>577</locationX>
+        <locationY>497</locationY>
+        <actionName>CP_SaveContactRequestFlowAction</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Success_Screen</targetReference>
+        </connector>
+        <inputParameters>
+            <name>email</name>
+            <value>
+                <elementReference>EMAIL2</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ownerId</name>
+            <value>
+                <elementReference>QueueId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>country</name>
+            <value>
+                <elementReference>countryExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>converted</name>
+            <value>
+                <elementReference>Converted</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>firstName</name>
+            <value>
+                <elementReference>First_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>contactId</name>
+            <value>
+                <elementReference>contactExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>lastNAme</name>
+            <value>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>leadId</name>
+            <value>
+                <elementReference>LeadIdForExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>requestReasson</name>
+            <value>
+                <elementReference>IssueBox</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>zipCode</name>
+            <value>
+                <elementReference>zipCodeExt</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <choices>
+        <name>Contactarep</name>
+        <choiceText>Contacting a local trade or export assistance expert (*limited availability)</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>contactSelect</elementReference>
+        </value>
+    </choices>
+    <choices>
+        <name>Issuewiththewebsite</name>
+        <choiceText>Issue with the website</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Mediainquiry</name>
+        <choiceText>Media inquiry&amp;nbsp;(* media members only)</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Mytradegovaccount</name>
+        <choiceText>My trade gov account</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Other2</name>
+        <choiceText>Other</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
+        <name>Resolvingatradebarrier</name>
+        <choiceText>Resolving a trade barrier</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <decisions>
+        <name>Validate_Form</name>
+        <label>Validate Form</label>
+        <locationX>71</locationX>
+        <locationY>497</locationY>
+        <defaultConnector>
+            <targetReference>get_contact</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No selection / to many selectionss</defaultConnectorLabel>
+        <rules>
+            <name>No_Next_On_Trade_Barrier</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IssueBox</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Resolving a trade barrier</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Contact_us</targetReference>
+            </connector>
+            <label>No Next On Trade Barrier</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>Country</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Country_1__c</picklistField>
+        <picklistObject>Lead</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>country1</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Country_1__c</picklistField>
+        <picklistObject>ContactRequest</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Country_2</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Contact_Us_Country__c</picklistField>
+        <picklistObject>Sys_Picklist_Values__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>issue</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>RequestReason</picklistField>
+        <picklistObject>ContactRequest</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Reqiest_Reason_2</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Contact_Us_Request_Reason__c</picklistField>
+        <picklistObject>Sys_Picklist_Values__c</picklistObject>
+    </dynamicChoiceSets>
+    <formulas>
+        <name>Asia_Region</name>
+        <dataType>Boolean</dataType>
+        <expression>if( {!Global} == &apos;Asian Development Bank&apos; || {!Global} == &apos;Australia&apos; || {!Global} == &apos;Banglades&apos; || {!Global} == &apos;Brunei&apos; || {!Global} == &apos;Burma&apos; || {!Global} == &apos;Fiji&apos; || {!Global} == &apos;India&apos; || {!Global} == &apos;Indonesia&apos; || {!Global} == &apos;Japan&apos; || {!Global} == &apos;Korea&apos; || {!Global} == &apos;Laos&apos; || {!Global} == &apos;Malaysia&apos; || {!Global} == &apos;Nepa&apos; || {!Global} == &apos;New Zealand&apos; || 
+{!Global} == &apos;Pakistan&apos; || {!Global} == &apos;Philippines&apos; || {!Global} == &apos;Singapore&apos; || {!Global} == &apos;Sri Lanka&apos; || {!Global} == &apos;Taiwan&apos; || {!Global} == &apos;Thailand&apos; ,true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>builderBox</name>
+        <dataType>String</dataType>
+        <expression>&apos;No longer in USE&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>CheckBoxCount</name>
+        <dataType>Number</dataType>
+        <expression>1</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>China_Region</name>
+        <dataType>Boolean</dataType>
+        <expression>if({!Global} == &apos;China&apos; || {!Global} == &apos;Hong Kong&apos; ,true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>conditionalerrormessage</name>
+        <dataType>String</dataType>
+        <expression>if({!CheckBoxCount} == 0,&apos;Please Select a reason for your request&apos;,if({!CheckBoxCount} &gt;1,&apos;Please select only one help request reason&apos;,null))</expression>
+    </formulas>
+    <formulas>
+        <name>contactExt</name>
+        <dataType>String</dataType>
+        <expression>if(isblank({!contactId}),&apos;NONE&apos;,{!contactId})</expression>
+    </formulas>
+    <formulas>
+        <name>Converted</name>
+        <dataType>String</dataType>
+        <expression>if(IsNull({!conversionDate}),&apos;false&apos;,&apos;true&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>countryExt</name>
+        <dataType>String</dataType>
+        <expression>if(isBlank({!Global}),&apos;NONE&apos;,{!Global})</expression>
+    </formulas>
+    <formulas>
+        <name>Europe_Region1</name>
+        <dataType>Boolean</dataType>
+        <expression>if({!Global} == &apos;Albania&apos; || {!Global} == &apos;Belgium&apos; || {!Global} == &apos;Austria&apos; || {!Global} == &apos;Croatia&apos; || {!Global} == &apos;Bosnia Herzegovina&apos; || {!Global} == &apos;Bulgaria&apos; || {!Global} == &apos;Czech Republic&apos; || 
+{!Global} == &apos;Denmark&apos; || {!Global} == &apos;Estonia&apos; || {!Global} == &apos;European Union&apos; ||  {!Global} == &apos;Finland&apos; || {!Global} == &apos;&apos; || {!Global} == &apos;France&apos; || 
+{!Global} == &apos;Germany&apos; || {!Global} == &apos;Greece&apos; || {!Global} == &apos;Hungary&apos; || {!Global} == &apos;Ireland&apos; || {!Global} == &apos;Italy&apos; || {!Global} == &apos;Kosovo&apos; || {!Global} == &apos;Latvia&apos; || 
+{!Global} == &apos;Lithuania&apos; || {!Global} == &apos;Moldova&apos; || {!Global} == &apos;Montenegro&apos; || {!Global} == &apos;Netherlands&apos; || {!Global} == &apos;North Macedonia &apos; || {!Global} == &apos;Norway&apos; || 
+{!Global} == &apos;Poland&apos; || {!Global} == &apos;Portugal&apos; || {!Global} == &apos;Romania&apos; || {!Global} == &apos;Russia&apos; || {!Global} == &apos;Serbia&apos; || {!Global} == &apos;Slovakia&apos; || {!Global} == &apos;Sweden&apos; || 
+{!Global} == &apos;Slovenia&apos; || {!Global} == &apos;Spain&apos; || {!Global} == &apos;Switzerland&apos; || {!Global} == &apos;United Kingdom&apos; ,true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>FormulaQueueSelector</name>
+        <dataType>String</dataType>
+        <expression>if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;
+ {!U_S} != &apos;Enter U.S. Zip Code&apos; &amp;&amp; !isBlank({!U_S}),&apos;CP_Contact_US_1&apos;,
+if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp; 
+{!Asia_Region},&apos;CP_Contact_US_2&apos;,
+if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!China_Region},&apos;CP_Contact_US_3&apos;,
+if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!Europe_Region1},&apos;CP_Contact_US_4&apos;,
+if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!Middle_East_And_Africa_Region},&apos;CP_Contact_US_5&apos;,
+if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!Western_Hemisphere_And_Canada},&apos;CP_Contact_US_6&apos;,
+if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos;CP_Contact_US_8&apos;)))))))</expression>
+    </formulas>
+    <formulas>
+        <name>LeadIdForExt</name>
+        <dataType>String</dataType>
+        <expression>if(!Isblank({!LeadId}),{!LeadId},&apos;NONE&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>Middle_East_And_Africa_Region</name>
+        <dataType>Boolean</dataType>
+        <expression>if({!Global} == &apos;Afghanistan&apos; || {!Global} == &apos;African&apos; || {!Global} == &apos;Algeria&apos; || {!Global} == &apos;Angola&apos; || {!Global} == &apos;Armenia&apos; || {!Global} == &apos;Azerbaijan&apos; || {!Global} == &apos;Bahrain&apos; || 
+{!Global} == &apos;Benin&apos; || {!Global} == &apos;Botswana&apos; || {!Global} == &apos;Burkina&apos; || {!Global} == &apos;Cambodia&apos; || {!Global} == &apos;Cameroon&apos; || {!Global} == &apos;Chad&apos; ||
+ {!Global} == &apos;Congo, the Democratic Republic of the&apos; || {!Global} == JSENCODE(&quot;Cote d&apos;Ivoire&quot;) || {!Global} == &apos;Cyprus&apos; || {!Global} == &apos;Egypt&apos; || {!Global} == &apos;Eswatini&apos; || {!Global} == &apos;Ethiopia&apos; || 
+{!Global} == &apos;Gabon&apos; || {!Global} == &apos;Gambia&apos; || {!Global} == &apos;Georgia&apos; || {!Global} == &apos;Ghana&apos; || {!Global} == &apos;Guinea&apos; || {!Global} == &apos;Guyana&apos; || {!Global} == &apos;Israel&apos; || {!Global} == &apos;Jordan&apos; || {!Global} == &apos;Kazakhstan&apos; || {!Global} == &apos;Kenya&apos; || {!Global} == &apos;Kuwait&apos; || {!Global} == &apos;Kyrgyz Republic&apos; || {!Global} == &apos;Lebanon&apos; || {!Global} == &apos;Liberia&apos; || {!Global} == &apos;Madagascar&apos; || {!Global} == &apos;Malawi&apos; || {!Global} == &apos;Mali&apos; || {!Global} == &apos;Mauritania&apos; || {!Global} == &apos;Mongolia&apos; || {!Global} == &apos;Morocco&apos; || {!Global} == &apos;Mozambique&apos; || {!Global} == &apos;Namibia&apos; || 
+{!Global} == &apos;Niger&apos; || {!Global} == &apos;Oman&apos; || {!Global} == &apos;Qatar&apos; || {!Global} == &apos;Rwanda&apos; || {!Global} == &apos;Saudi Arabia&apos; || {!Global} == &apos;South Africa&apos; || {!Global} == &apos;Tajikistan&apos; ||
+ {!Global} == &apos;Tanzania&apos; || {!Global} == &apos;Trinidad and Tobago&apos; || {!Global} == &apos;Tunisia&apos; || {!Global} == &apos;Turkey&apos; || {!Global} == &apos;Turkmenistan&apos; || {!Global} == &apos;Uganda&apos; || {!Global} == &apos;Ukraine&apos; || 
+{!Global} == &apos;United Arab Emirates&apos; || {!Global} == &apos;Uzbekistan&apos; || {!Global} == &apos;West Bank&apos; || {!Global} == &apos;Zambia&apos; || {!Global} == &apos;Zimbabwe&apos; ,true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>QueueSelection</name>
+        <dataType>Number</dataType>
+        <expression>0</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>readPickValue2</name>
+        <dataType>String</dataType>
+        <expression>{!IssueBox}</expression>
+    </formulas>
+    <formulas>
+        <name>SelectedReason</name>
+        <dataType>String</dataType>
+        <expression>&apos;&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>ShowLocalTrade</name>
+        <dataType>Boolean</dataType>
+        <expression>false</expression>
+    </formulas>
+    <formulas>
+        <name>TradeBArrierURL</name>
+        <dataType>String</dataType>
+        <expression>HYPERLINK(&quot;https://tcc.export.gov/test/Report_a_Barrier/tancdeploy.asp&quot;,&quot;Click to REport a trade barrier&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Western_Hemisphere_And_Canada</name>
+        <dataType>Boolean</dataType>
+        <expression>if( {!Global} == &apos;Argentina&apos; || {!Global} == &apos;Bahamas&apos; || {!Global} == &apos;Barbados&apos; || {!Global} == &apos;Belize&apos; || {!Global} == &apos;Bermuda&apos; || {!Global} == &apos;Bolivia&apos; || {!Global} == &apos;Brazil&apos; || 
+{!Global} == &apos;Canada&apos; || {!Global} == &apos;Chile&apos; || {!Global} == &apos;Colombia&apos; || {!Global} == &apos;Costa Rica&apos; || {!Global} == &apos;Dominican Republic&apos; || {!Global} == &apos;Ecuador&apos; ||
+{!Global} == &apos;El Salvador&apos; || {!Global} == &apos;Guatemala&apos; || {!Global} == &apos;Haiti&apos; || {!Global} == &apos;Honduras&apos; || {!Global} == &apos;Iceland&apos; || {!Global} == &apos;Jamaica&apos; || {!Global} == &apos;Lesotho&apos; || 
+{!Global} == &apos;Mexico&apos; || {!Global} == &apos;Nicaragua&apos; || {!Global} == &apos;Panama&apos; || {!Global} == &apos;Paraguay&apos; || {!Global} == &apos;Peru&apos; || {!Global} == &apos;Suriname&apos; || {!Global} == &apos;Uruguay&apos; || 
+{!Global} == &apos;Venezuela&apos; ,true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>zipCodeExt</name>
+        <dataType>String</dataType>
+        <expression>if(ISBLANK({!U_S}),&apos;NONE&apos;,{!U_S})</expression>
+    </formulas>
+    <interviewLabel>CP_Contact_Request_Standard_Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CP_Contact_Request_Standard_Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>get_contact</name>
+        <label>get contact</label>
+        <locationX>371</locationX>
+        <locationY>118</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_QueueIDs</targetReference>
+        </connector>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>EMAIL2</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>conversionDate</assignToReference>
+            <field>CP_Conversion_Date__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>contactId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>LeadSource</assignToReference>
+            <field>LeadSource</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Lead_Record</name>
+        <label>Get Lead Record</label>
+        <locationX>373</locationX>
+        <locationY>497</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Save_Contact_Request</targetReference>
+        </connector>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>EMAIL2</elementReference>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <outputAssignments>
+            <assignToReference>LeadId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_QueueIDs</name>
+        <label>Get QueueIDs</label>
+        <locationX>373</locationX>
+        <locationY>325</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Lead_Record</targetReference>
+        </connector>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>FormulaQueueSelector</elementReference>
+            </value>
+        </filters>
+        <object>Group</object>
+        <outputAssignments>
+            <assignToReference>QueueId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <sortField>Name</sortField>
+        <sortOrder>Desc</sortOrder>
+    </recordLookups>
+    <screens>
+        <name>Contact_us</name>
+        <label>Contact us</label>
+        <locationX>74</locationX>
+        <locationY>283</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Validate_Form</targetReference>
+        </connector>
+        <fields>
+            <name>help</name>
+            <fieldText>&lt;p&gt;I need help with...&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>IssueBox</name>
+            <choiceReferences>Reqiest_Reason_2</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Select an Issue</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>URL</name>
+            <fieldText>&lt;p&gt;&lt;a href=&quot;https://tcc.export.gov/Report_a_Barrier/index.asp&quot; target=&quot;_blank&quot;&gt;https://tcc.export.gov/Report_a_Barrier/index.asp&lt;/a&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>First_Name</name>
+            <dataType>String</dataType>
+            <fieldText>First Name:</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Last_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Last Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Company_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Company Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>EMAIL2</name>
+            <dataType>String</dataType>
+            <fieldText>EMAIL</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>U_S</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <stringValue>Enter U.S. Zip Code</stringValue>
+            </defaultValue>
+            <fieldText>U.S.</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contacting a local trade or export assistance expert (*limited availability)</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Global</name>
+            <choiceReferences>Country_2</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Country</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contacting a local trade or export assistance expert (*limited availability)</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Message</name>
+            <fieldText>Message</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Success_Screen</name>
+        <label>Success Screen</label>
+        <locationX>757</locationX>
+        <locationY>497</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Success_message</name>
+            <fieldText>&lt;p&gt;Your request has been submitted!&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>74</locationX>
+        <locationY>67</locationY>
+        <connector>
+            <targetReference>Contact_us</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>contactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>NONE</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>ContactRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <name>contactSelect</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>conversionDate</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>LeadId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>NONE</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>LeadSource</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>NONE</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>loopQueueIDS</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>QueueId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>QueueNameAssignment</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>QueueRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Group</objectType>
+    </variables>
+    <variables>
+        <name>ReadPciklistValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>IssueBox</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>SelectedQueue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

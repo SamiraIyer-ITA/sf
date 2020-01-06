@@ -78,6 +78,10 @@
                 <behavior>Edit</behavior>
                 <field>Registered_Domain__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>External_User_Upgrade_Request__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>

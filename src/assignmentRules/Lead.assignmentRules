@@ -1,3 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>CP_US_Exporter</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>MCP_Exporter_Lead</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Lead.Organization_Type__c</field>
+                <operation>contains</operation>
+                <value>U.S. Business Currently Exporting Goods/Services,U.S. Business Seeking to Export Goods/Services,U.S. Educational Institution,U.S. Travel &amp; Tourism Bureau,Foreign Subsidiary of U.S. Company (95% U.S. owned)</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>MCP_OTHER_TBD</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Lead.Organization_Type__c</field>
+                <operation>contains</operation>
+                <value>U.S. Citizen Seeking to Export Goods/Services,U.S. Economic Development Organization,U.S. based Student/Researcher,U.S. Industry Associations,U.S. Trade Show/Event Organizer,Service Provider to U.S. Exporters,U.S. Government,Foreign Subsidiary of U</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CP_LEAD_SHARE</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Leads with Registrant Group</description>
+        <label>CP LEAD SHARE</label>
+        <sharedTo>
+            <group>CP_Incoming_Registrations_group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>LeadSource</field>
+            <operation>equals</operation>
+            <value>Sourced from CP communities</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>
