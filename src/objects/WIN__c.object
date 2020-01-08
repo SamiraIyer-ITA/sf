@@ -182,6 +182,20 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Actual_Export_Dollar_Value__c</fullName>
+        <description>Actual export dollar value provided and verified by the client. These include actual sales, revenue, or other dollar value impact as a direct result of this WIN. This should not include any Advertising Equivalent Value (AEV). AEV can be recorded in the Impact/Results section instead.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>These include actual sales, revenue, or other dollar value impact as a direct result of this WIN. This should not include any Advertising Equivalent Value (AEV). AEV can be recorded in the Impact/Results section instead.</inlineHelpText>
+        <label>Actual Export Dollar Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>    
+    <fields>
         <fullName>Advocacy_Date_Contract_Signed__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Date foreign government signed the procurement contract.</inlineHelpText>
@@ -244,6 +258,20 @@
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
+    <fields>
+        <fullName>Anticipated_Export_Dollar_Value__c</fullName>
+        <description>Anticipated export dollar value provided by the client. These include anticipated sales, revenue, or other dollar value impact as a direct result of this case.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Anticipated export dollar value provided by the client. These include anticipated sales, revenue, or other dollar value impact as a direct result of this case.</inlineHelpText>
+        <label>Anticipated Export Dollar Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>    
     <fields>
         <fullName>Approved_Narrative_FTA__c</fullName>
         <externalId>false</externalId>
@@ -907,6 +935,21 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>ITA_Estimated_Dollar_Value__c</fullName>
+        <description>Approved trade barrier WINs are analyzed by ITA economists to assess the WIN’s impact in terms of the dollar value of U.S. exports and jobs supported by GM’s (and ITA’s) CD efforts. To help in the valuation process, please make sure to list all HS codes affected by the barrier in the designated HS codes field. Valuation calculated by ITA’s economists for all ITA-approved Trade Barrier WINs. Information provided by ITA staff on the WIN will be used to calculate the annual impact of reducing, removing, or preventing that trade barrier.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Valuation calculated by ITA’s economists for all ITA-approved Trade Barrier WINs.</inlineHelpText>
+        <label>ITA Estimated Dollar Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>    
+    <fields>
         <fullName>Links_to_Additional_Cases__c</fullName>
         <externalId>false</externalId>
         <label>Links to Additional Cases</label>
@@ -928,6 +971,36 @@
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
     </fields>
+    <fields>
+        <fullName>Number_of_Jobs_Created__c</fullName>
+        <description>The number of jobs created as a direct result of the assistance associated with the WIN, provided and verified by the client.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of jobs created as a direct result of the assistance associated with the WIN, provided and verified by the client.</inlineHelpText>
+        <label>Number of Jobs Created</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Jobs_Supported__c</fullName>
+        <description>The number of jobs supported as a direct result of the assistance associated with the WIN, provided and verified by the client.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of jobs supported as a direct result of the assistance associated with the WIN, provided and verified by the client.</inlineHelpText>
+        <label>Number of Jobs Supported</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>    
     <fields>
         <fullName>OPA_Ready__c</fullName>
         <defaultValue>false</defaultValue>
