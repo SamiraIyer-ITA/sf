@@ -2,9 +2,14 @@ global without sharing class CP_SaveContactRequestFlowAction {
     @InvocableMethod(label='Create Contact Request' description='Creates Contact Request Record.')
     global static void createRecord(List<RequestVariables> inputs) {
         
+        List<User> defaultUserList = new list<User>();
         ContactRequest newRecord = new ContactRequest();
         RequestVariables userInputs = inputs[0];
         String userType = '';
+        //Get User to set from in email
+        if(defaultUserList.isempty())  {
+            defaultUserList = [select id from user where Alias =: Label.CP_NoReply_Alias];
+        }
         //Standare Fields  
         newRecord.First_Name__c = userInputs.firstName; //mapedInputs.get('FirstName');
         newRecord.Last_Name__c = userInputs.lastName; //mapedInputs.get('LastName');
@@ -33,20 +38,17 @@ global without sharing class CP_SaveContactRequestFlowAction {
             userType = 'unregistered';
         }
         database.insert(newRecord);
-        sendEmail(newRecord.Email__c,userType,userInputs.contactId,newRecord.Id);
+        sendEmail(newRecord.Email__c,userType,defaultUserList[0].id,newRecord.Id);
     }
     
-    private static void sendEmail(String toAddress,String userType,String contactId,Id requestId){
-        list<USer> userList = new list <User>();
+    private static void sendEmail(String toAddress,String userType,String userId,Id requestId){
         List<EmailTemplate> templatesList = [SELECT Id, Body, Subject from EmailTemplate where DeveloperName = 'Contact_Us_Requested'];
         //find an active admin to statisfy email requirment when user is unregistered
-        userList = [select id from user where profile.name = 'System Admin' and isActive = true limit 1];
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.setTemplateId(templatesList[0].Id);
         mail.setSaveAsActivity(false);     
-        system.debug('user type = ' + userType);
         if(userType == 'verified' || userType == 'unverified'){
-            mail.setTargetObjectId(contactId);
+            mail.setTargetObjectId(userId);
         }
         else{
             mail.setTargetObjectId(UserInfo.getUserId());  
