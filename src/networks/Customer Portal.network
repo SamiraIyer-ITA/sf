@@ -50,7 +50,7 @@
     <picassoSite>Customer_Portal1</picassoSite>
     <selfRegProfile>mcp-external-user</selfRegProfile>
     <selfRegistration>true</selfRegistration>
-    <sendWelcomeEmail>true</sendWelcomeEmail>
+    <sendWelcomeEmail>false</sendWelcomeEmail>
     <site>Customer_Portal</site>
     <status>Live</status>
     <tabs>
