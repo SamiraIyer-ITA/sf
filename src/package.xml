@@ -190,6 +190,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>Settings</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>SharingRules</name>
     </types>
     <types>
