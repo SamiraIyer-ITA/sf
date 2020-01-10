@@ -145,6 +145,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Commercial_Diplomacy_Triage__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Commercial Diplomacy Triage</label>
+        <referenceTo>Commercial_Diplomacy_Triage__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Fiscal_Year__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(YEAR(DATEVALUE(CreatedDate + 92 )))</formula>

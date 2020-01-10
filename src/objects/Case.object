@@ -12967,19 +12967,11 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Created%2FImproved Business Opportunity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -101694,28 +101686,6 @@ NOT(ISPICKVAL(Potential_Primary_Outcome__c, &quot;Created/Improved Business Oppo
 )</errorConditionFormula>
         <errorDisplayField>Business_Opportunity_Created_Improved__c</errorDisplayField>
         <errorMessage>Business Opportunity Created/Improved should not be populated if the Potential Primary Outcome &quot;is Reduced/Removed/Prevented trade barrier&quot;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Commercial_Diplomacy_Case</fullName>
-        <active>false</active>
-        <description>Record Type cannot be &quot;Commercial Diplomacy&quot; if &quot;Adverse Impact on Exports&quot; and &quot;Requires Change by Foreign Government&quot; are not &quot;Yes&quot;.</description>
-        <errorConditionFormula>AND(
-$RecordType.DeveloperName = &quot;Commercial_Diplomacy_SW&quot;,
-ISPICKVAL(Adverse_Impact_on_Exports__c,&quot;No&quot;)||ISPICKVAL(Requires_Change_By_Foreign_Government__c,&quot;No&quot;)
-)</errorConditionFormula>
-        <errorMessage>Record Type cannot be &quot;Commercial Diplomacy&quot; if &quot;Adverse Impact on Exports&quot; and &quot;Requires Change by Foreign Government&quot; are not &quot;Yes&quot;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Potential_Primary_Outcome</fullName>
-        <active>false</active>
-        <description>Potential Primary Outcome must be &quot;Reduce/Remove/Prevent trade barrier&quot; if &quot;Adverse Impact on Exports&quot; and &quot;Requires Change by Foreign Government&quot; are &quot;Yes&quot;.</description>
-        <errorConditionFormula>AND(
-$RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot;, 
-NOT(ISPICKVAL(Potential_Primary_Outcome__c ,&quot;Reduced/Removed/Prevented trade barrier&quot;)), 
-ISPICKVAL(Adverse_Impact_on_Exports__c,&quot;Yes&quot;) &amp;&amp;
-ISPICKVAL(Requires_Change_By_Foreign_Government__c,&quot;Yes&quot;) 
-)</errorConditionFormula>
-        <errorMessage>Potential Primary Outcome must be &quot;Reduce/Remove/Prevent trade barrier&quot; if &quot;Adverse Impact on Exports&quot; and &quot;Requires Change by Foreign Government&quot; are &quot;Yes&quot;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>When_removal_selected_cant_edit</fullName>
