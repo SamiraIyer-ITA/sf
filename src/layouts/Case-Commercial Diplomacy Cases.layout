@@ -95,10 +95,6 @@
         <label>TANC Fields</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Case_Close_Summary__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CD_Case_Value__c</field>
             </layoutItems>

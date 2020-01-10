@@ -152,11 +152,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Commercial_Diplomacy_Triage__c.Zip_Postal_Code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Commercial_Diplomacy_Triage__c.zPostal_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
