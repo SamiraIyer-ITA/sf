@@ -357,12 +357,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>OwnerId</field>
-            <value>
-                <elementReference>Baron_User_ID</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>Phone__c</field>
             <value>
                 <elementReference>requesterPhone</elementReference>
@@ -422,63 +416,27 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>CD_Company__c</field>
-            <value>
-                <elementReference>requestorCompanyName</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>CD_Description_of_Trade_Barrier__c</field>
-            <value>
-                <elementReference>Description_of_the_Trade_Barrier</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>CD_Email__c</field>
             <value>
                 <elementReference>requesterEmail</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>CD_First_Name__c</field>
+            <field>Commercial_Diplomacy_Triage__c</field>
             <value>
-                <elementReference>FirstName</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>CD_Involved_Foreign_Government__c</field>
-            <value>
-                <elementReference>Foreign_Country_Involved_in_the_Trade_Barrier</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>CD_Last_Name__c</field>
-            <value>
-                <elementReference>LastName</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>CD_Problem__c</field>
-            <value>
-                <elementReference>What_Does_This_Problem_Involve_Task_Picklist</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>CD_Product_or_Service_Impacted__c</field>
-            <value>
-                <elementReference>Product_or_Service_Impacted</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>OwnerId</field>
-            <value>
-                <elementReference>Baron_User_ID</elementReference>
+                <elementReference>CD_Triage_ID</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Subject</field>
             <value>
                 <elementReference>Task_Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>CD_Triage_ID</elementReference>
             </value>
         </inputAssignments>
         <object>Task</object>
@@ -769,7 +727,13 @@
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
-    <startElementReference>Report_A_Foreign_Trade_Barrier</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Report_A_Foreign_Trade_Barrier</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <textTemplates>
         <name>Formatted_Email_Response_Body</name>

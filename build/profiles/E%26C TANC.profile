@@ -132,11 +132,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Commercial_Diplomacy_Triage__c.Response_Reviewed__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Commercial_Diplomacy_Triage__c.State__c</field>
         <readable>true</readable>
     </fieldPermissions>

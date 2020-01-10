@@ -83,7 +83,7 @@
             <label>Convert to Commercial Diplomacy Case?</label>
         </rules>
     </decisions>
-    <interviewLabel>Create_Commercial_Diplomacy_Case-16_InterviewLabel</interviewLabel>
+    <interviewLabel>Create_Commercial_Diplomacy_Case-17_InterviewLabel</interviewLabel>
     <label>Create Commercial Diplomacy Case</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -111,43 +111,10 @@
     </processMetadataValues>
     <processType>Workflow</processType>
     <recordCreates>
-        <name>myRule_1_A1</name>
-        <label>Create Commercial Diplomacy Case record</label>
+        <name>myRule_1_A2</name>
+        <label>Create Commercial Diplomacy Case</label>
         <locationX>100</locationX>
-        <locationY>200</locationY>
-        <connector>
-            <targetReference>myRule_1_A2</targetReference>
-        </connector>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>Picklist</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Adverse Impact on Exports</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Picklist</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>Adverse_Impact_on_Exports__c</field>
-            <value>
-                <stringValue>Yes</stringValue>
-            </value>
-        </inputAssignments>
+        <locationY>300</locationY>
         <inputAssignments>
             <processMetadataValues>
                 <name>dataType</name>
@@ -332,36 +299,6 @@
             <processMetadataValues>
                 <name>isRequired</name>
                 <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Requires Change By Foreign Government</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Picklist</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>Requires_Change_By_Foreign_Government__c</field>
-            <value>
-                <stringValue>Yes</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>Picklist</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
                     <booleanValue>false</booleanValue>
                 </value>
             </processMetadataValues>
@@ -445,10 +382,13 @@
         <processMetadataValues>
             <name>referenceTargetField</name>
         </processMetadataValues>
-        <name>myRule_1_A2</name>
+        <name>myRule_1_A1</name>
         <label>Update</label>
         <locationX>100</locationX>
-        <locationY>300</locationY>
+        <locationY>200</locationY>
+        <connector>
+            <targetReference>myRule_1_A2</targetReference>
+        </connector>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
