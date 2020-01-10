@@ -10,10 +10,6 @@
         <name>AutoResponseRule</name>
     </types>
     <types>
-        <members>*</members>
-        <name>EmailServicesFunction</name>
-    </types>
-    <types>
         <members>Tier_3_Salesforce_Support</members>
         <members>Tier_3_Salesforce_Support/Salesforce_Support_Request_Alert</members>
         <members>Tier_3_Salesforce_Support/Salesforce_Support_Request_Notification</members>
