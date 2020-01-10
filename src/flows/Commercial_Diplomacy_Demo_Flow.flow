@@ -175,7 +175,7 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>What_Does_This_Problem_Involve_Task_Picklist</leftValueReference>
+                <leftValueReference>CD_What_Does_This_Problem_Involve_Task_Picklist</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>--Select--</stringValue>
@@ -196,7 +196,7 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>What_Does_This_Problem_Involve_Task_Picklist</leftValueReference>
+                <leftValueReference>CD_What_Does_This_Problem_Involve_Task_Picklist</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue></stringValue>
@@ -223,6 +223,14 @@
         </rules>
     </decisions>
     <description>To mock up a demo of the online form to collect public trade barrier information and then create the needed records in Salesforce. 3rd iteration connects Commercial Diplomacy Triage to process</description>
+    <dynamicChoiceSets>
+        <name>CD_What_Does_This_Problem_Involve_Task_Picklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>What_does_this_problem_involve__c</picklistField>
+        <picklistObject>Commercial_Diplomacy_Triage__c</picklistObject>
+    </dynamicChoiceSets>
     <dynamicChoiceSets>
         <description>The country picklist from the Country object; will be replaced by Taxonomy Tagging object.</description>
         <name>Country_Picklist</name>
@@ -263,14 +271,6 @@
         <object xsi:nil="true"/>
         <picklistField>State__c</picklistField>
         <picklistObject>Commercial_Diplomacy_Triage__c</picklistObject>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
-        <name>What_Does_This_Problem_Involve_Task_Picklist</name>
-        <dataType>Picklist</dataType>
-        <displayField xsi:nil="true"/>
-        <object xsi:nil="true"/>
-        <picklistField>CD_Problem__c</picklistField>
-        <picklistObject>Task</picklistObject>
     </dynamicChoiceSets>
     <formulas>
         <name>TDueDate</name>
@@ -389,7 +389,7 @@
         <inputAssignments>
             <field>What_does_this_problem_involve__c</field>
             <value>
-                <elementReference>What_Does_This_Problem_Involve_Task_Picklist</elementReference>
+                <elementReference>CD_What_Does_This_Problem_Involve_Task_Picklist</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -413,6 +413,12 @@
             <field>ActivityDate</field>
             <value>
                 <elementReference>TDueDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CD_Email__c</field>
+            <value>
+                <elementReference>requesterEmail</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -654,7 +660,7 @@
         </fields>
         <fields>
             <name>What_does_this_problem_involve</name>
-            <choiceReferences>What_Does_This_Problem_Involve_Task_Picklist</choiceReferences>
+            <choiceReferences>CD_What_Does_This_Problem_Involve_Task_Picklist</choiceReferences>
             <dataType>String</dataType>
             <fieldText>What does this problem involve?  (Required)</fieldText>
             <fieldType>DropdownBox</fieldType>

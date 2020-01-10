@@ -779,6 +779,11 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>--Select--</fullName>
+                    <default>true</default>
+                    <label>--Select--</label>
+                </value>
+                <value>
                     <fullName>Foreign government actions affecting Exports FROM the U.S.</fullName>
                     <default>false</default>
                     <label>Foreign government actions affecting Exports FROM the U.S.</label>
@@ -787,11 +792,6 @@
                     <fullName>Foreign government actions affecting Exports INTO the U.S.</fullName>
                     <default>false</default>
                     <label>Foreign government actions affecting Exports INTO the U.S.</label>
-                </value>
-                <value>
-                    <fullName>--Select--</fullName>
-                    <default>true</default>
-                    <label>--Select--</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
