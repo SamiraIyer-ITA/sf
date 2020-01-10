@@ -416,12 +416,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>CD_Email__c</field>
-            <value>
-                <elementReference>requesterEmail</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>Commercial_Diplomacy_Triage__c</field>
             <value>
                 <elementReference>CD_Triage_ID</elementReference>
