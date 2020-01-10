@@ -25,14 +25,11 @@
     <profileName>ADCVD Policy PowerUser</profileName>
     <profileName>External Identity User</profileName>
     <profileName>ADCVD Front Office</profileName>
-    <profileName>Delete this community Profile</profileName>
     <profileName>ADCVD CRU</profileName>
-    <profileName>Delete2 Profile</profileName>
     <profileName>Librarian</profileName>
     <profileName>Customer Trade Community User</profileName>
     <profileName>Customer Portal Profile</profileName>
     <profileName>Beta Community Profile</profileName>
-    <profileName>Delete Profile</profileName>
     <profileName>MCP-Community Profile</profileName>
     <profileName>ADCVD Read Only</profileName>
     <profileName>Help Desk Specialist</profileName>
@@ -43,7 +40,6 @@
     <profileName>Security Review</profileName>
     <profileName>Customer Community User</profileName>
     <profileName>Salesforce Developer</profileName>
-    <profileName>Drupal Community</profileName>
     <profileName>Integrated User Profile</profileName>
     <profileName>Chatter External User</profileName>
     <profileName>I&amp;A</profileName>
@@ -57,7 +53,6 @@
     <profileName>Help Desk Administration</profileName>
     <profileName>GM Commercial Service</profileName>
     <profileName>GM Advocacy</profileName>
-    <profileName>Drupal Community Profile</profileName>
     <profileName>Contract Manager</profileName>
     <profileName>ADCVD PowerUser</profileName>
     <profileName>Marketing User</profileName>
@@ -68,13 +63,11 @@
     <profileName>Read Only</profileName>
     <profileName>System Administrator</profileName>
     <profileName>Analytics Cloud Security User</profileName>
-    <profileName>Market Diversification Profile</profileName>
     <profileName>Analytics Cloud Integration User</profileName>
     <profileName>ADCVD Standard Legal</profileName>
     <profileName>ReadOnly CRM</profileName>
     <profileName>ADCVD Legal PowerUser</profileName>
     <profileName>ADCVD Standard Policy</profileName>
-    <profileName>Test Profile</profileName>
     <profileName>ADCVD Standard Operations</profileName>
     <profileName>ADCVD Standard Customs</profileName>
 </ConnectedApp>
