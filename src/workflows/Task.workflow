@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CD_Send_email</fullName>
+        <ccEmails>tanc@trade.gov</ccEmails>
+        <description>CD -Send email</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>baron.green@trade.gov</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sean.babalola@trade.gov</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sean.washington@trade.gov</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/CD_Test</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Act_Lev_5_Country</fullName>
         <field>RH_Lev_5_Country__c</field>
