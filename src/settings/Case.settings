@@ -14,7 +14,7 @@
         <enableE2CSourceTracking>true</enableE2CSourceTracking>
         <enableEmailToCase>true</enableEmailToCase>
         <enableHtmlEmail>true</enableHtmlEmail>
-        <enableOnDemandEmailToCase>true</enableOnDemandEmailToCase>
+        <enableOnDemandEmailToCase>false</enableOnDemandEmailToCase>
         <enableThreadIDInBody>false</enableThreadIDInBody>
         <enableThreadIDInSubject>false</enableThreadIDInSubject>
         <notifyOwnerOnNewCaseEmail>false</notifyOwnerOnNewCaseEmail>
