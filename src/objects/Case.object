@@ -194,6 +194,7 @@
     </businessProcesses>
     <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
     <compactLayouts>
+        <fullName>CRM_Case_Compact_Layout</fullName>
         <fields>Subject</fields>
         <fields>AccountId</fields>
         <fields>Contact_Full_Name__c</fields>
@@ -9625,18 +9626,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -19654,18 +19643,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -26364,18 +26341,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -33083,18 +33048,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -43068,18 +43021,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -53229,18 +53170,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -56610,18 +56539,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -59987,18 +59904,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -63355,18 +63260,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -66728,18 +66621,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -73406,18 +73287,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -80154,18 +80023,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -83530,18 +83387,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -96918,18 +96763,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -100282,18 +100115,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
