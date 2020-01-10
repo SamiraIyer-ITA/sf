@@ -192,12 +192,16 @@
             <default>false</default>
         </values>
     </businessProcesses>
-    <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-    <compactLayouts>                                                                                                                  <fullName>CRM_Case_Compact_Layout</fullName>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>CRM_Case_Compact_Layout</fullName>
         <fields>Subject</fields>
         <fields>CaseNumber</fields>
-        <fields>AccountId</fields>                                                                                                    <fields>Contact_Full_Name__c</fields>
-        <fields>OwnerId</fields>                                                                                                      <fields>RecordTypeId</fields>                                                                                                 <label>CRM Case Compact Layout</label>
+        <fields>AccountId</fields>
+        <fields>Contact_Full_Name__c</fields>
+        <fields>OwnerId</fields>
+        <fields>RecordTypeId</fields>
+        <label>CRM Case Compact Layout</label>
     </compactLayouts>
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
@@ -325,12 +329,12 @@
                 <value>
                     <fullName>National</fullName>
                     <default>false</default>
-                    <label>National</label>
+                    <label>More than One U.S. Interest</label>
                 </value>
                 <value>
                     <fullName>Exclusive</fullName>
                     <default>false</default>
-                    <label>Exclusive</label>
+                    <label>One U.S. Interest</label>
                 </value>
                 <value>
                     <fullName>Pending</fullName>
@@ -1212,7 +1216,7 @@ Select if this is a Compliance Case</description>
     <fields>
         <fullName>Control_Number__c</fullName>
         <externalId>false</externalId>
-        <label>Control Number</label>
+        <label>USG Military Branch</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3339,6 +3343,31 @@ Select if this is a Compliance Case</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Sys_Owner_Added_as_Case_Contributor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This box will be checked by automation when the case contributor is added to the case. The case contributor is now added when all required taxonomies have been added.</description>
+        <externalId>false</externalId>
+        <label>Sys Owner Added as Case Contributor</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sys_Region_in_Case_Rollup__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Sys Region in Case Rollup</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>TANC_Case_Title__c</fullName>
         <description>Specific case title to be used only by E&amp;C TANC users</description>
         <externalId>false</externalId>
@@ -3525,22 +3554,7 @@ Select if this is a Compliance Case</description>
         <columns>CASES.STATUS</columns>
         <columns>OWNER_NAME</columns>
         <columns>Actual_Create_Date__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.Advocacy</value>
-        </filters>
-        <filters>
-            <field>Days_Open__c</field>
-            <operation>greaterThan</operation>
-            <value>30</value>
-        </filters>
-        <filters>
-            <field>CASES.PRIORITY</field>
-            <operation>equals</operation>
-            <value>Medium</value>
-        </filters>
+        <filterScope>Team</filterScope>
         <label>All Open Cases</label>
     </listViews>
     <listViews>
@@ -3720,7 +3734,7 @@ Select if this is a Compliance Case</description>
         <columns>OWNER_NAME</columns>
         <columns>Actual_Create_Date__c</columns>
         <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
-        <filterScope>Mine</filterScope>
+        <filterScope>Everything</filterScope>
         <filters>
             <field>Request_Case_Removal__c</field>
             <operation>equals</operation>
@@ -3959,7 +3973,7 @@ Select if this is a Compliance Case</description>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Libby Hennemuth,Briggs DeLoach,Aryeh Ness,Yong Mi Oh</value>
+            <value>Libby Hennemuth,Briggs DeLoach,Aryeh Ness,Yong Mi Oh,Clinton Harper</value>
         </filters>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
@@ -4089,7 +4103,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work undertaken by the Advocacy Center in support of U.S. companies pursuing foreign government procurement.</description>
+        <description>Case work approved and coordinated by the Advocacy Center in support of U.S. companies pursuing foreign government procurement.</description>
         <label>Advocacy</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
@@ -37568,7 +37582,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work with a U.S. Economic Development Organization (EDO), investment partner, or foreign investor to increase investment to the U.S.</description>
+        <description>Work with a U.S. economic development organizations (EDOs), international or domestic company, or investment partner to increase business investment in the United States.</description>
         <label>Investment Promotion</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
@@ -98094,7 +98108,7 @@ Select if this is a Compliance Case</description>
     </validationRules>
     <validationRules>
         <fullName>Case_Closure</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>To ensure that a Case cannot be closed without a related Industry and Country record on the Taxonomy Tagging object. Applied to Advocacy, Commercial Diplomacy, Investment Promotion and Export Promotion cases.</description>
         <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1 ,Industry_Rollup_Sum__c = 0) &amp;&amp; 
 ($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
@@ -98110,7 +98124,7 @@ Select if this is a Compliance Case</description>
     </validationRules>
     <validationRules>
         <fullName>Country_Releated_list</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>To ensure that a Case cannot be closed without a related Industry and Country record on the Taxonomy Tagging object.  Applied to Advocacy, Commercial Diplomacy, Investment Promotion and Export Promotion cases.</description>
         <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1,Country_in_Case_Rollup__c = 0) &amp;&amp; 
 ($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
@@ -98215,6 +98229,130 @@ ISBLANK(Subject)
 )</errorConditionFormula>
         <errorDisplayField>Subject</errorDisplayField>
         <errorMessage>You must enter a value for Subject.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V01AdvCaseCreateOnlyNewCase</fullName>
+        <active>true</active>
+        <description>You can only create a Case with the Status of &quot;New&quot;.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
+    $RecordType.DeveloperName = &quot;Advocacy&quot;,
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    ISNEW(),
+    NOT(ISPICKVAL(Status, &quot;New&quot;)) 
+)</errorConditionFormula>
+        <errorMessage>You can only create a Case with the Status of &quot;New&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V01AdvCaseRelatedTaxonomy</fullName>
+        <active>true</active>
+        <description>You must have at least one Industry AND one Region or Country related to the Advocacy Case Record.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
+    $RecordType.DeveloperName = &quot;Advocacy&quot;,
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    NOT(ISNEW()),
+    OR(Industry_Rollup_Sum__c = 0,
+       AND(Sys_Region_in_Case_Rollup__c  = 0,
+                     Country_in_Case_Rollup__c = 0)),
+    NOT(ISCHANGED(Industry_Rollup_Sum__c)), 
+    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)), 
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)) 
+    )</errorConditionFormula>
+        <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V03CommDiplomCaseRelatedTaxonomy</fullName>
+        <active>true</active>
+        <description>You must have at least one Industry AND one Region or Country related to the Commercial Diplomacy Case Record.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
+    $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot;,
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    NOT(ISNEW()),
+    OR(Industry_Rollup_Sum__c = 0,
+       AND(Sys_Region_in_Case_Rollup__c  = 0,
+           Country_in_Case_Rollup__c = 0)),
+    NOT(ISCHANGED(Industry_Rollup_Sum__c)), 
+    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)), 
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)) 
+    )</errorConditionFormula>
+        <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V03CommDiplomCreateOnlyNewCase</fullName>
+        <active>true</active>
+        <description>You can only create a Case with the Status of &quot;New&quot;.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
+    $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot;,
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    ISNEW(),
+    NOT(ISPICKVAL(Status, &quot;New&quot;)) 
+)</errorConditionFormula>
+        <errorMessage>You can only create a Case with the Status of &quot;New&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V09ExportPromoCaseRelatedTaxonomy</fullName>
+        <active>true</active>
+        <description>You must have at least one Industry AND one Region or Country related to the Export Promotion Case Record.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
+    $RecordType.DeveloperName = &quot;Export_Promotion&quot;,
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    NOT(ISNEW()),
+    OR(Industry_Rollup_Sum__c = 0,
+       AND(Sys_Region_in_Case_Rollup__c  = 0,
+           Country_in_Case_Rollup__c = 0)),
+    NOT(ISCHANGED(Industry_Rollup_Sum__c)), 
+    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)), 
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)) 
+    )</errorConditionFormula>
+        <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V09ExportPromoCreateOnlyNewCase</fullName>
+        <active>true</active>
+        <description>You can only create a Case with the Status of &quot;New&quot;.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
+    $RecordType.DeveloperName = &quot;Export_Promotion&quot;,
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    ISNEW(),
+    NOT(ISPICKVAL(Status, &quot;New&quot;)) 
+)</errorConditionFormula>
+        <errorMessage>You can only create a Case with the Status of &quot;New&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V11InvestPromoCaseRelatedTaxonomy</fullName>
+        <active>true</active>
+        <description>You must have at least one Industry AND one Region or Country related to the Investment Promotion Case Record.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
+    $RecordType.DeveloperName = &quot;Investment_Promotion&quot;,
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    NOT(ISNEW()),
+    OR(Industry_Rollup_Sum__c = 0,
+       AND(Sys_Region_in_Case_Rollup__c  = 0,
+           Country_in_Case_Rollup__c = 0)),
+    NOT(ISCHANGED(Industry_Rollup_Sum__c)), 
+    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)), 
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)) 
+    )</errorConditionFormula>
+        <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V11InvestPromoCreateOnlyNewCase</fullName>
+        <active>true</active>
+        <description>You can only create a Case with the Status of &quot;New&quot;.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
+    $RecordType.DeveloperName = &quot;Investment_Promotion&quot;,
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    ISNEW(),
+    NOT(ISPICKVAL(Status, &quot;New&quot;))
+)</errorConditionFormula>
+        <errorMessage>You can only create a Case with the Status of &quot;New&quot;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>When_removal_selected_cant_edit</fullName>
