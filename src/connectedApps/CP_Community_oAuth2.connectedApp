@@ -8,15 +8,74 @@
     <label>International Trade Administration&apos;s Web App</label>
     <oauthConfig>
         <callbackUrl>https://ita-authentication.mobomo.net/mo_login</callbackUrl>
+        <consumerKey></consumerKey>
         <idTokenConfig>
             <idTokenIncludeAttributes>true</idTokenIncludeAttributes>
             <idTokenIncludeCustomPerms>false</idTokenIncludeCustomPerms>
             <idTokenIncludeStandardClaims>true</idTokenIncludeStandardClaims>
             <idTokenValidity>2</idTokenValidity>
         </idTokenConfig>
-        <isAdminApproved>false</isAdminApproved>
+        <isAdminApproved>true</isAdminApproved>
         <scopes>Basic</scopes>
         <scopes>RefreshToken</scopes>
         <scopes>OpenID</scopes>
+        <singleLogoutUrl>https://ita-authentication.mobomo.net/user/logout</singleLogoutUrl>
     </oauthConfig>
+    <profileName>MCP-External-User</profileName>
+    <profileName>Trade Community Profile</profileName>
+    <profileName>ADCVD Policy PowerUser</profileName>
+    <profileName>External Identity User</profileName>
+    <profileName>ADCVD Front Office</profileName>
+    <profileName>Delete this community Profile</profileName>
+    <profileName>ADCVD CRU</profileName>
+    <profileName>Delete2 Profile</profileName>
+    <profileName>Librarian</profileName>
+    <profileName>Customer Trade Community User</profileName>
+    <profileName>Customer Portal Profile</profileName>
+    <profileName>Beta Community Profile</profileName>
+    <profileName>Delete Profile</profileName>
+    <profileName>MCP-Community Profile</profileName>
+    <profileName>ADCVD Read Only</profileName>
+    <profileName>Help Desk Specialist</profileName>
+    <profileName>Platform Profile</profileName>
+    <profileName>Guest License User</profileName>
+    <profileName>Premier Support User</profileName>
+    <profileName>Customer Community Login User</profileName>
+    <profileName>Security Review</profileName>
+    <profileName>Customer Community User</profileName>
+    <profileName>Salesforce Developer</profileName>
+    <profileName>Drupal Community</profileName>
+    <profileName>Integrated User Profile</profileName>
+    <profileName>Chatter External User</profileName>
+    <profileName>I&amp;A</profileName>
+    <profileName>GM SelectUSA</profileName>
+    <profileName>Chatter Free User</profileName>
+    <profileName>ITA User Read Only</profileName>
+    <profileName>ADCVD Manager</profileName>
+    <profileName>ITA OPA/OLIA</profileName>
+    <profileName>E&amp;C TANC</profileName>
+    <profileName>Chatter Moderator User</profileName>
+    <profileName>Help Desk Administration</profileName>
+    <profileName>GM Commercial Service</profileName>
+    <profileName>GM Advocacy</profileName>
+    <profileName>Drupal Community Profile</profileName>
+    <profileName>Contract Manager</profileName>
+    <profileName>ADCVD PowerUser</profileName>
+    <profileName>Marketing User</profileName>
+    <profileName>Data Team Admin</profileName>
+    <profileName>Core Team</profileName>
+    <profileName>Standard User</profileName>
+    <profileName>Solution Manager</profileName>
+    <profileName>Read Only</profileName>
+    <profileName>System Administrator</profileName>
+    <profileName>Analytics Cloud Security User</profileName>
+    <profileName>Market Diversification Profile</profileName>
+    <profileName>Analytics Cloud Integration User</profileName>
+    <profileName>ADCVD Standard Legal</profileName>
+    <profileName>ReadOnly CRM</profileName>
+    <profileName>ADCVD Legal PowerUser</profileName>
+    <profileName>ADCVD Standard Policy</profileName>
+    <profileName>Test Profile</profileName>
+    <profileName>ADCVD Standard Operations</profileName>
+    <profileName>ADCVD Standard Customs</profileName>
 </ConnectedApp>
