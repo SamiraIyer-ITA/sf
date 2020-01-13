@@ -191,6 +191,13 @@
                 <value>true</value>
             </componentInstanceProperties>
             <componentName>force:relatedListSingleContainer</componentName>
+			<visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.Status__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>Litigation</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>facet-33a8509a-cdb6-449d-b951-5f7bce0c7f6f</name>
         <type>Facet</type>
