@@ -21,19 +21,13 @@
         <singleLogoutUrl>https://ita-authentication.mobomo.net/user/logout</singleLogoutUrl>
     </oauthConfig>
     <profileName>MCP-External-User</profileName>
-    <profileName>Trade Community Profile</profileName>
     <profileName>ADCVD Policy PowerUser</profileName>
     <profileName>External Identity User</profileName>
     <profileName>ADCVD Front Office</profileName>
     <profileName>ADCVD CRU</profileName>
     <profileName>Librarian</profileName>
     <profileName>Customer Trade Community User</profileName>
-    <profileName>Customer Portal Profile</profileName>
-    <profileName>Beta Community Profile</profileName>
     <profileName>ADCVD Read Only</profileName>
-    <profileName>Help Desk Specialist</profileName>
-    <profileName>Platform Profile</profileName>
-    <profileName>Guest License User</profileName>
     <profileName>Premier Support User</profileName>
     <profileName>Customer Community Login User</profileName>
     <profileName>Security Review</profileName>
@@ -41,13 +35,13 @@
     <profileName>Salesforce Developer</profileName>
     <profileName>Integrated User Profile</profileName>
     <profileName>Chatter External User</profileName>
-    <profileName>I&amp;A</profileName>
+    <profileName>I&A</profileName>
     <profileName>GM SelectUSA</profileName>
     <profileName>Chatter Free User</profileName>
     <profileName>ITA User Read Only</profileName>
     <profileName>ADCVD Manager</profileName>
     <profileName>ITA OPA/OLIA</profileName>
-    <profileName>E&amp;C TANC</profileName>
+    <profileName>E&C TANC</profileName>
     <profileName>Chatter Moderator User</profileName>
     <profileName>Help Desk Administration</profileName>
     <profileName>GM Commercial Service</profileName>
@@ -64,7 +58,6 @@
     <profileName>Analytics Cloud Security User</profileName>
     <profileName>Analytics Cloud Integration User</profileName>
     <profileName>ADCVD Standard Legal</profileName>
-    <profileName>ReadOnly CRM</profileName>
     <profileName>ADCVD Legal PowerUser</profileName>
     <profileName>ADCVD Standard Policy</profileName>
     <profileName>ADCVD Standard Operations</profileName>
