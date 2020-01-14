@@ -165,6 +165,21 @@
         <field>Harmonized_Tariff_Schedule__c.Commercial_Diplomacy_Triage__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Commercial_Diplomacy_Triage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.CD_First_Name1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.CD_Last_Name1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Commercial_Diplomacy_Triage__c-Commercial Diplomacy Triage Layout</layout>
     </layoutAssignments>
