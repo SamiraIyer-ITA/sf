@@ -8,7 +8,8 @@
             <field>Email</field>
             <type>email</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>noreply@trade.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>CP_Community/CP_User_Upgrade_Email</template>
     </alerts>
     <alerts>
