@@ -1,0 +1,52 @@
+<apex:page id="Registration" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false"  >
+
+
+<apex:composition template="Site_Template">
+<apex:define name="page">
+    <head>
+        <title>CP Transition</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"/>
+        <link href="{!URLFor($Resource.ps, 'ps/application.css')}" rel="stylesheet" />
+
+    </head>
+
+
+
+
+ <div class="container-fluid" id="reglayout">
+
+    <div class="row reglayout_zeropad">
+
+    <apex:form id="theForm" forceSSL="true">
+    
+ 
+
+    <apex:outputpanel layout="block" styleClass="containerInternal enforceHeight" >
+    
+    
+    <h2>Proceeding to Customer Portal</h2>
+    
+    
+    <p>Standby for a short delay while we prepare your account. Please check your email for link to Customer Portal.
+
+</p>
+
+<apex:commandButton id="form-submit" styleClass="itaLoginBtn pull-left" style="border-radius: 4px;text-transform:none;font-size:14px;width:130px;"  value="Accept"  />
+
+
+
+ 
+    
+</apex:outputpanel>
+
+
+      
+      </apex:form>
+
+    </div>
+    </div><!-- /.container -->   
+    
+    
+</apex:define>
+</apex:composition>
+</apex:page>
