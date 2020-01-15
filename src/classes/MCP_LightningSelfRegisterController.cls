@@ -68,6 +68,8 @@ global with sharing class MCP_LightningSelfRegisterController {
             u.put('Email',email);
             u.FirstName = firstname;
             u.LastName = lastname;
+			u.Keep_Active__c = true;
+            u.Registered_Domain__c = 'OneWeb';
             //Redirect lead fields to lead object
             l.FirstName = firstName;
             l.LastName = lastName;
