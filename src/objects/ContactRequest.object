@@ -243,13 +243,14 @@
         <fullName>WhoId</fullName>
         <type>Lookup</type>
     </fields>
-    <listViews>
+<listViews>
         <fullName>All_ContactRequests</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>RequestDescription</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
-        <columns>PreferredChannel</columns>
-        <columns>PreferredPhone</columns>
         <columns>Assigned_User__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Contact Requests</label>
@@ -257,10 +258,11 @@
     <listViews>
         <fullName>CP_Contact_US_1_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <label>Queue#1</label>
         <queue>CP_Contact_US_1</queue>
@@ -271,10 +273,11 @@
     <listViews>
         <fullName>CP_Contact_US_2_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <label>Queue#2</label>
         <queue>CP_Contact_US_2</queue>
@@ -285,10 +288,11 @@
     <listViews>
         <fullName>CP_Contact_US_3_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <label>Queue#3</label>
         <queue>CP_Contact_US_3</queue>
@@ -299,10 +303,11 @@
     <listViews>
         <fullName>CP_Contact_US_4_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <label>Queue#4</label>
         <queue>CP_Contact_US_4</queue>
@@ -313,10 +318,11 @@
     <listViews>
         <fullName>CP_Contact_US_5_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <label>Queue#5</label>
         <queue>CP_Contact_US_5</queue>
@@ -327,10 +333,11 @@
     <listViews>
         <fullName>CP_Contact_US_6_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <label>Queue#6</label>
         <queue>CP_Contact_US_6</queue>
@@ -341,10 +348,11 @@
     <listViews>
         <fullName>CP_Contact_US_7_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <label>Queue#7</label>
         <queue>CP_Contact_US_7</queue>
@@ -355,10 +363,11 @@
     <listViews>
         <fullName>CP_Contact_US_8_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <label>Queue#8</label>
         <queue>CP_Contact_US_8</queue>
@@ -367,18 +376,14 @@
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>Closed_Contact_Requests</fullName>
+        <fullName>CP_Contact_Us_Closed_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
+        <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
-        <columns>Status</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Status</field>
-            <operation>equals</operation>
-            <value>Abandoned,Closed</value>
-        </filters>
         <label>All Closed Contact Requests</label>
         <queue>CP_Contact_Us_Closed</queue>
         <sharedTo>
@@ -389,9 +394,10 @@
         <fullName>My_ContactRequests</fullName>
         <columns>Name</columns>
         <columns>Status</columns>
+        <columns>RequestReason</columns>
+        <columns>RequestDescription</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
-        <columns>PreferredChannel</columns>
-        <columns>PreferredPhone</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Assigned_to_Me__c</field>
