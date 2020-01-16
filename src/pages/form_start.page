@@ -37,8 +37,13 @@
                <apex:commandButton rendered="{!$Profile.Name != 'MCP-External-User'}" styleClass="itaLoginBtn pull-left" style="width:130px;border-radius: 4px;text-transform:none;font-size:14px;" action="{!start}" rerender="formtemplate" value="{!if(participantRecord.id != null, 'Continue', 'Start')}"/>
 
                 <!--start button if MCP External User profile is true--->
-                <apex:commandButton rendered="{!$Profile.Name == 'MCP-External-User'}" styleClass="itaLoginBtn pull-left" style="width:130px;border-radius: 4px;text-transform:none;font-size:14px;" value="Start" onclick="location.href='/cp_transition';"/>
+                <apex:commandButton rendered="{!$Profile.Name == 'MCP-External-User'}" styleClass="itaLoginBtn pull-left" style="width:130px;border-radius: 4px;text-transform:none;font-size:14px;" value="Start" oncomplete="cp();"/>
 
+<script>
+function cp() {
+    window.location = '/cp_transition';
+}
+</script>
 
 
             </apex:form>
