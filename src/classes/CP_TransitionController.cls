@@ -28,7 +28,7 @@ public class CP_TransitionController {
             if(currentUser.id == UserInfo.getUserId() && currentUser.profileId == profiles[0].id){
                 currentUser.External_User_Upgrade_Request__c = true;
                 database.update(currentUser);
-                return new PageReference(label.CP_ContactUsRedirectURL);
+                return new PageReference(label.CP_Redirect_URL);
             }
         }
                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Your account is not eligible for this upgrade'));
