@@ -1,48 +1,31 @@
-<apex:page id="Registration" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false"  >
-
+<apex:page showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false"  >
 
 <apex:composition template="Site_Template">
 <apex:define name="page">
     <head>
         <title>CP Transition</title>
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"/>
-        <link href="{!URLFor($Resource.ps, 'ps/application.css')}" rel="stylesheet" />
-
     </head>
-
-
-
-
- <div class="container-fluid" id="reglayout">
-
+    
+    <div class="container-fluid" id="reglayout">
     <div class="row reglayout_zeropad">
-
-    <apex:form id="theForm" forceSSL="true">
-    
- 
-
-    <apex:outputpanel layout="block" styleClass="containerInternal enforceHeight" >
-    
-    
-    <h2>Proceeding to Customer Portal</h2>
-    
-    
-    <p>Standby for a short delay while we prepare your account. Please check your email for link to Customer Portal.
-
-</p>
-
-<apex:commandButton id="form-submit" styleClass="itaLoginBtn pull-left" style="border-radius: 4px;text-transform:none;font-size:14px;width:130px;"  value="Accept"  />
-
-
-
- 
-    
-</apex:outputpanel>
-
-
-      
-      </apex:form>
-
+       
+    <div class="section clearfix secondary-bg-ita">
+                <div>
+                    <div class="row content">
+                         <div class="containerInternal enforceHeight">
+                                    <div class="col-md-12">  
+                                        <div class="call-to-action">
+                                                <h1 class="text-center">Proceeding to Customer Portal</h1>
+                                        <p class="text-center lead"></p><p style="text-align: center;">Standby for a short delay while we prepare your account. Please check your email for a link to Customer Portal.</p><p></p>
+                                            
+                                            <a class="btn-dark" href="https://ita-testing.mobomo.net/user/login" target="_self" title="" value="Connect">Accept</a><div class="itaBr"></div>
+                                        </div>
+                                    </div> 
+                        
+                        </div>   
+                    </div>
+                </div>
+                </div>
     </div>
     </div><!-- /.container -->   
     
