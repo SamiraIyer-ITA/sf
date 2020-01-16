@@ -20,22 +20,18 @@ public class CP_TransitionController {
         profiles = [SELECT id from profile where name = 'MCP-External-User' limit 1];
         if(profiles.isempty()){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'System error: Unable to locate required system profile'));
-            //ApexPages.addMessage(myMsg);
             return null;
         }
         userList = [SELECT id, profileId FROM user WHERE id =: UserInfo.getUserId() limit 1];
-        if(userList != null && !userList.isEmpty()){
-            system.debug('user list not empty');
-            if(userlist[0].id == UserInfo.getUserId() && userlist[0].profileId == profiles[0].id){
-                system.debug('profiles match');
+        currentUser = userList[0];
+        if(currentUser != null){
+            if(currentUser.id == UserInfo.getUserId() && currentUser.profileId == profiles[0].id){
                 currentUser.External_User_Upgrade_Request__c = true;
                 database.update(currentUser);
                 return new PageReference(label.CP_ContactUsRedirectURL);
             }
         }
-       
-            system.debug('bogus account!');
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Your account is not eligible for this upgrade'));
+                   ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Your account is not eligible for this upgrade'));
         return null;
-    } //oncomplete="navigate();"
+    } 
 }
