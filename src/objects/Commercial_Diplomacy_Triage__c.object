@@ -808,6 +808,18 @@
         <unique>false</unique>
     </fields>
     <label>Commercial Diplomacy Triage</label>
+    <listViews>
+        <fullName>All1</fullName>
+        <columns>NAME</columns>
+        <columns>First_Name__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Last_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>A-{0000}</displayFormat>
         <label>Commercial Diplomacy Triage Name</label>
