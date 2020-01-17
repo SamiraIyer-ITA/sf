@@ -14705,11 +14705,11 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>form</apexPage>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>form_start</apexPage>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>fta_tariff_search</apexPage>
