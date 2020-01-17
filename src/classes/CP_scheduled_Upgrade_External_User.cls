@@ -21,7 +21,7 @@
 //}
 
 
-global class CP_Scheduled_Upgrade_External_User implements Schedulable {
+global class CP_scheduled_Upgrade_External_User implements Schedulable {
     
     private static Id communityTradeUserProfileId {
         get {
