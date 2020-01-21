@@ -11,7 +11,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
             defaultUserList = [select id from user where Alias =: Label.CP_NoReply_Alias];
         }
         //Standare Fields  
-        newRecord.First_Name__c = userInputs.firstName; //mapedInputs.get('FirstName');
+        newRecord.First_Name__c = userInputs.firstName; //mapedInputs.get('FirstName');b
         newRecord.Last_Name__c = userInputs.lastName; //mapedInputs.get('LastName');
         newRecord.Email__c = userInputs.email; //mapedInputs.get('Email');
         if(userInputs.country != 'NONE'){
@@ -53,6 +53,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
         else{
             mail.setTargetObjectId(UserInfo.getUserId());  
         }
+        mail.setSenderDisplayName('noreply@trade.gov');
         mail.setToAddresses(new list<string>{toAddress});
         Messaging.SendEmailResult[] resultMail = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
     }
