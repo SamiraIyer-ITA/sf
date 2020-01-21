@@ -792,8 +792,8 @@ telInput.on("keyup change", reset);
 				<apex:outputPanel layout="block" id="Artifacts" style="margin-bottom:150px;">
 				   <c:PrivacyPolicyComponent artifacts="{!artifacts}" theParticipantId="{!participation.Id}" id="ppComponent"/>
 				</apex:outputPanel>
-				<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing();" reRender="errors, Step_6, Step_7">
-					<apex:param name="CurrentStep" value="{!if(door = 'addition', 'Step_5', 'Step_6')}" />
+				<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing();" reRender="errors, Step_4, Step_6, Step_7">
+                    			<apex:param name="CurrentStep" value="{!if(door = 'addition', 'Step_5', if(door = 'edit' , 'Step_4', 'Step_6'))}" />
 				</apex:commandLink>
 				<apex:commandButton styleClass="ApplicationStepButton btn btn-dark pull-right step_7_next" value="{!if(door = 'edit', 'Finish', 'Next')}" action="{!step7}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, Step_7, Step_8" />
 			</apex:outputPanel>
