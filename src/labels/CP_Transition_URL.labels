@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
-        <fullName>CP_Redirect_URL</fullName>
+        <fullName>CP_Transition_URL</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>CP Redirect URL</shortDescription>
-        <value>https://ita-testing.mobomo.net/moLogin</value>
+        <shortDescription>CP Transition URL</shortDescription>
+        <value>/</value>
     </labels>
 </CustomLabels>
