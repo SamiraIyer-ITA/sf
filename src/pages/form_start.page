@@ -41,7 +41,7 @@
 
 <script>
 function cp() {
-    window.location = '/cp_transition';
+    window.location = '/cp_transition2';
 }
 </script>
 
