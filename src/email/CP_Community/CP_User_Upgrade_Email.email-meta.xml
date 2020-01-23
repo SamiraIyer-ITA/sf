@@ -5,7 +5,7 @@
     <letterhead>ITA_Logo</letterhead>
     <name>CP_User_Upgrade_Email</name>
     <style>freeForm</style>
-    <subject>Account Upgraded to Community User Login</subject>
+    <subject>Continue your International Trade Administration Application</subject>
     <type>html</type>
     <uiType>Aloha</uiType>
 </EmailTemplate>
