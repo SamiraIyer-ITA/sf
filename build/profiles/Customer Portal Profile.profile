@@ -14,4 +14,14 @@
         <object>Sys_Picklist_Values__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+   <fieldPermissions>
+        <editable>true</editable>
+        <field>Sys_Picklist_Values__c.Contact_Us_Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Sys_Picklist_Values__c.Contact_Us_Request_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 </Profile>
