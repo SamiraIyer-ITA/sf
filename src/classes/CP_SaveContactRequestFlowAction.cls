@@ -38,7 +38,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
             userType = 'unregistered';
         }
         database.insert(newRecord);
-        sendEmail(newRecord.Email__c,userType,userInputs.contactId,newRecord.Id);
+        sendEmail(newRecord.Email__c,userType,defaultUserList[0].id,newRecord.Id);
     }
     
     private static void sendEmail(String toAddress,String userType,String userId,Id requestId){
