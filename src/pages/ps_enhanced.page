@@ -64,7 +64,19 @@
 				<br/>
 				<apex:actionFunction action="{!doNothing}" name="checkStartButton" reRender="startButton"/>
 				<apex:outputpanel id="startButton" styleClass="text-center">
-					<apex:commandbutton disabled="{!selectedFrameworks.size == 0}" styleClass="btn btn-dark" value="Start" action="{!start}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, welcome, Step_1" />
+					
+					<!--start button if MCP External User profile is false--->
+					<apex:commandbutton rendered="{!$Profile.Name != 'MCP-External-User'}" disabled="{!selectedFrameworks.size == 0}" styleClass="btn btn-dark" value="Start" action="{!start}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, welcome, Step_1" />
+
+  					<!--start button if MCP External User profile is true--->
+					<apex:commandbutton rendered="{!$Profile.Name == 'MCP-External-User'}" styleClass="btn btn-dark" value="Start" oncomplete="cp();"  />
+
+					<script>
+function cp() {
+    window.location = '/cp_transition';
+}
+</script>
+
 				</apex:outputpanel>
 			</apex:outputpanel>
 			</apex:outputPanel>
