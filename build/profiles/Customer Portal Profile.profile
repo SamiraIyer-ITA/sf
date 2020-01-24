@@ -7,10 +7,10 @@
   </recordTypeVisibilities>
   <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
+        <modifyAllRecords>flase</modifyAllRecords>
         <object>Sys_Picklist_Values__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
