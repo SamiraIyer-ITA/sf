@@ -11,39 +11,33 @@
             <targetReference>Success_Screen</targetReference>
         </connector>
         <inputParameters>
-            <name>message</name>
-            <value>
-                <elementReference>Message</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>contactId</name>
-            <value>
-                <elementReference>contactExt</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>lastNAme</name>
-            <value>
-                <elementReference>Last_Name</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>converted</name>
-            <value>
-                <elementReference>Converted</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
             <name>ownerId</name>
             <value>
                 <elementReference>QueueId</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
+            <name>requestReasson</name>
+            <value>
+                <elementReference>IssueBox</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
             <name>firstName</name>
             <value>
                 <elementReference>First_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>zipCode</name>
+            <value>
+                <elementReference>zipCodeExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>contactId</name>
+            <value>
+                <elementReference>contactExt</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -59,21 +53,27 @@
             </value>
         </inputParameters>
         <inputParameters>
+            <name>lastName</name>
+            <value>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>converted</name>
+            <value>
+                <elementReference>Converted</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <elementReference>Message</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
             <name>leadId</name>
             <value>
                 <elementReference>LeadIdForExt</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>requestReasson</name>
-            <value>
-                <elementReference>IssueBox</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>zipCode</name>
-            <value>
-                <elementReference>zipCodeExt</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -589,6 +589,16 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
                 <assignToReference>flowCountry</assignToReference>
                 <name>selection</name>
             </outputParameters>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Message</name>
