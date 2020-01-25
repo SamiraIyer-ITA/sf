@@ -90,6 +90,7 @@
     </types>
     <types>
         <members>CP_Community</members>
+        <members>CP_Community/CP_User_Upgrade_Email</members>
         <members>CP_Community/Contact_Us_Requested</members>
 	<members>CP_Community/Registration_Verification_Email</members>
         <name>EmailTemplate</name>
