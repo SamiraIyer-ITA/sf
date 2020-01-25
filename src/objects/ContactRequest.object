@@ -376,7 +376,7 @@
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>CP_Contact_Us_Closed_ContactRequest</fullName>
+        <fullName>Closed_Contact_Requests</fullName>
         <columns>Name</columns>
         <columns>RequestReason</columns>
         <columns>Status</columns>
