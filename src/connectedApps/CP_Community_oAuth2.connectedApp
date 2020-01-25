@@ -20,46 +20,39 @@
         <scopes>OpenID</scopes>
         <singleLogoutUrl>https://ita-authentication.mobomo.net/user/logout</singleLogoutUrl>
     </oauthConfig>
-    <profileName>MCP-External-User</profileName>
-    <profileName>ADCVD Policy PowerUser</profileName>
-    <profileName>External Identity User</profileName>
-    <profileName>ADCVD Front Office</profileName>
     <profileName>ADCVD CRU</profileName>
-    <profileName>Librarian</profileName>
-    <profileName>Customer Trade Community User</profileName>
-    <profileName>ADCVD Read Only</profileName>
-    <profileName>Premier Support User</profileName>
-    <profileName>Customer Community Login User</profileName>
-    <profileName>Security Review</profileName>
-    <profileName>Customer Community User</profileName>
-    <profileName>Salesforce Developer</profileName>
-    <profileName>Integrated User Profile</profileName>
-    <profileName>Chatter External User</profileName>
-    <profileName>I&amp;A</profileName>
-    <profileName>GM SelectUSA</profileName>
-    <profileName>Chatter Free User</profileName>
-    <profileName>ITA User Read Only</profileName>
-    <profileName>ADCVD Manager</profileName>
-    <profileName>ITA OPA/OLIA</profileName>
-    <profileName>E&amp;C TANC</profileName>
-    <profileName>Chatter Moderator User</profileName>
-    <profileName>Help Desk Administration</profileName>
-    <profileName>GM Commercial Service</profileName>
-    <profileName>GM Advocacy</profileName>
-    <profileName>Contract Manager</profileName>
-    <profileName>ADCVD PowerUser</profileName>
-    <profileName>Marketing User</profileName>
-    <profileName>Data Team Admin</profileName>
-    <profileName>Core Team</profileName>
-    <profileName>Standard User</profileName>
-    <profileName>Solution Manager</profileName>
-    <profileName>Read Only</profileName>
-    <profileName>System Administrator</profileName>
-    <profileName>Analytics Cloud Security User</profileName>
-    <profileName>Analytics Cloud Integration User</profileName>
-    <profileName>ADCVD Standard Legal</profileName>
+    <profileName>ADCVD Front Office</profileName>
     <profileName>ADCVD Legal PowerUser</profileName>
-    <profileName>ADCVD Standard Policy</profileName>
-    <profileName>ADCVD Standard Operations</profileName>
+    <profileName>ADCVD Manager</profileName>
+    <profileName>ADCVD Policy PowerUser</profileName>
+    <profileName>ADCVD PowerUser</profileName>
     <profileName>ADCVD Standard Customs</profileName>
+    <profileName>ADCVD Standard Legal</profileName>
+    <profileName>ADCVD Standard Operations</profileName>
+    <profileName>ADCVD Standard Policy</profileName>
+    <profileName>Analytics Cloud Integration User</profileName>
+    <profileName>Analytics Cloud Security User</profileName>
+    <profileName>Chatter External User</profileName>
+    <profileName>Chatter Free User</profileName>
+    <profileName>Chatter Moderator User</profileName>
+    <profileName>Core Team</profileName>
+    <profileName>Customer Community Login User</profileName>
+    <profileName>Customer Community User</profileName>
+    <profileName>Customer Trade Community User</profileName>
+    <profileName>Data Team Admin</profileName>
+    <profileName>E&amp;C TANC</profileName>
+    <profileName>External Identity User</profileName>
+    <profileName>GM Advocacy</profileName>
+    <profileName>GM Commercial Service</profileName>
+    <profileName>GM SelectUSA</profileName>
+    <profileName>Help Desk Administration</profileName>
+    <profileName>I&amp;A</profileName>
+    <profileName>Integrated User Profile</profileName>
+    <profileName>ITA User Read Only</profileName>
+    <profileName>Librarian</profileName>
+    <profileName>MCP-External-User</profileName>
+    <profileName>Premier Support User</profileName>
+    <profileName>Salesforce Developer</profileName>
+    <profileName>Security Review</profileName>
+    <profileName>Standard User</profileName>
 </ConnectedApp>
