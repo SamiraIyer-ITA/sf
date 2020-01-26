@@ -11,15 +11,27 @@
             <targetReference>Success_Screen</targetReference>
         </connector>
         <inputParameters>
-            <name>ownerId</name>
+            <name>converted</name>
             <value>
-                <elementReference>QueueId</elementReference>
+                <elementReference>Converted</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>requestReasson</name>
+            <name>leadId</name>
             <value>
-                <elementReference>IssueBox</elementReference>
+                <elementReference>LeadIdForExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <elementReference>Message</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ownerId</name>
+            <value>
+                <elementReference>QueueId</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -53,27 +65,15 @@
             </value>
         </inputParameters>
         <inputParameters>
+            <name>requestReason</name>
+            <value>
+                <elementReference>IssueBox</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
             <name>lastName</name>
             <value>
                 <elementReference>Last_Name</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>converted</name>
-            <value>
-                <elementReference>Converted</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>message</name>
-            <value>
-                <elementReference>Message</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>leadId</name>
-            <value>
-                <elementReference>LeadIdForExt</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -451,16 +451,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <name>URL</name>
             <fieldText>&lt;p&gt;&lt;a href=&quot;https://tcc.export.gov/Report_a_Barrier/index.asp&quot; target=&quot;_blank&quot;&gt;https://tcc.export.gov/Report_a_Barrier/index.asp&lt;/a&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>Resolving a trade barrier</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
         </fields>
         <fields>
             <name>First_Name</name>
@@ -468,16 +458,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <fieldText>First Name</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Resolving a trade barrier</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
         </fields>
         <fields>
             <name>Last_Name</name>
@@ -485,16 +465,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <fieldText>Last Name</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Resolving a trade barrier</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
         </fields>
         <fields>
             <name>Company_Name</name>
@@ -502,16 +472,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <fieldText>Company Name</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Resolving a trade barrier</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
         </fields>
         <fields>
             <name>EMAIL2</name>
@@ -519,16 +479,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <fieldText>Email</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Resolving a trade barrier</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
         </fields>
         <fields>
             <name>U_S</name>
@@ -539,16 +489,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <fieldText>U.S.</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contacting a local trade or export assistance expert (*limited availability)</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
         </fields>
         <fields>
             <name>Global</name>
@@ -589,32 +529,12 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
                 <assignToReference>flowCountry</assignToReference>
                 <name>selection</name>
             </outputParameters>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Resolving a trade barrier</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
         </fields>
         <fields>
             <name>Message</name>
             <fieldText>Message</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>true</isRequired>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Resolving a trade barrier</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -635,13 +555,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
-    <start>
-        <locationX>74</locationX>
-        <locationY>67</locationY>
-        <connector>
-            <targetReference>getrecordTypeId</targetReference>
-        </connector>
-    </start>
+    <startElementReference>getrecordTypeId</startElementReference>
     <status>Active</status>
     <variables>
         <name>contactId</name>

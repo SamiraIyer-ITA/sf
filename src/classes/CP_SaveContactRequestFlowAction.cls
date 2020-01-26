@@ -18,7 +18,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
         if(userInputs.country != 'NONE'){
             newRecord.Country_1__c = userInputs.country; //mapedInputs.get('Country');
         }
-        newRecord.RequestReason =  userInputs.requestReasson; //mapedInputs.get('Reason');
+        newRecord.RequestReason =  userInputs.requestReason; //mapedInputs.get('Reason');
         //System and static fields 
         newRecord.OwnerId = userInputs.ownerId; //mapedInputs.get('QueueId');
         newRecord.Status = 'New';
@@ -68,8 +68,8 @@ global without sharing class CP_SaveContactRequestFlowAction {
         global String email;
         @InvocableVariable(label='Country Name' required=false)
         global String country;
-        @InvocableVariable(label='Request Reasson' required=false)
-        global String requestReasson;
+        @InvocableVariable(label='Request Reason' required=false)
+        global String requestReason;
         @InvocableVariable(label='Queue Id' required=false)
         global String ownerId;
         @InvocableVariable(label='Zip Code' required=false)
@@ -80,7 +80,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
         global String leadId;
         @InvocableVariable(label='Contact Id' required=false)
         global String contactId;
-        @InvocableVariable(label='message' required=false)
+        @InvocableVariable(label='Message' required=false)
         global String message;
     }
 }
