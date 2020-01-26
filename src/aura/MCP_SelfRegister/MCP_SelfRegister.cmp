@@ -8,7 +8,7 @@
     <aura:attribute name="errorMessage" type="String" required="false" description="" access="private"/>
     <aura:attribute name="firstnameLabel" type="String" required="false" default="First Name"/>
     <aura:attribute name="lastnameLabel" type="String" required="false" default="Last Name"/>
-    
+    <aura:attribute name="urlname" type="String" required="false" />
     <aura:attribute name="recaptchaValid" type="boolean" required="false" default="true"/>
     <aura:attribute name="eventData" type="string" required="false" default="no data"/>
     <aura:attribute name="emailLabel" type="String" required="false" default="Email"/>
