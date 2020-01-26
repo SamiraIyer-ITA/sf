@@ -82,12 +82,12 @@ public class CP_SaveContactRequestFlowActionTest {
         list<Contact> contactList = new list<contact>();
         contactlist = [ select id from contact];
         leadList = [select id from Lead];
-        groupList = [select id, name from group where name like 'cp_contact_%'];
+        groupList = [select id, name,DeveloperName from group where developerName like 'cp_contact_%'];
         userList = [select id from user where userName =: 'cpEXTTestUser2@cpDanDev.com'];
         map<String,Id> queueList = new map<String,Id>();
         
         for(group currentGroup :groupList){
-			queueList.put(currentGroup.Name,currentGroup.Id);
+			queueList.put(currentGroup.DeveloperName,currentGroup.Id);
         }
         
         CP_SaveContactRequestFlowAction.RequestVariables screenData = new CP_SaveContactRequestFlowAction.RequestVariables();
@@ -120,10 +120,10 @@ public class CP_SaveContactRequestFlowActionTest {
         list<Contact> contactList = new list<contact>();
         contactlist = [select id from contact];
         leadList = [select id from Lead];
-        groupList = [select id, name from group where name like 'cp_contact_%'];
+        groupList = [select id, name,DeveloperName from group where name like 'cp_contact_%'];
         map<String,Id> queueList = new map<String,Id>();
         for(group currentGroup :groupList){
-			queueList.put(currentGroup.Name,currentGroup.Id);
+			queueList.put(currentGroup.DeveloperName,currentGroup.Id);
         }
        
         
@@ -159,12 +159,12 @@ public class CP_SaveContactRequestFlowActionTest {
         list<Contact> contactList = new list<contact>();
         contactlist = [ select id from contact];
         leadList = [select id from Lead];
-        groupList = [select id, name from group where name like 'cp_contact_%'];
+        groupList = [select id, name,DeveloperName from group where name like 'cp_contact_%'];
         userList = [select id from user where userName =: 'cpEXTTestUser2@cpDanDev.com'];
         map<String,Id> queueList = new map<String,Id>();
         
         for(group currentGroup :groupList){
-			queueList.put(currentGroup.Name,currentGroup.Id);
+			queueList.put(currentGroup.DeveloperName,currentGroup.Id);
         }
         
         CP_SaveContactRequestFlowAction.RequestVariables screenData = new CP_SaveContactRequestFlowAction.RequestVariables();
