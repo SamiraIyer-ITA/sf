@@ -11,51 +11,9 @@
             <targetReference>Success_Screen</targetReference>
         </connector>
         <inputParameters>
-            <name>email</name>
-            <value>
-                <elementReference>EMAIL2</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
             <name>ownerId</name>
             <value>
                 <elementReference>QueueId</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>country</name>
-            <value>
-                <elementReference>countryExt</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>converted</name>
-            <value>
-                <elementReference>Converted</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>firstName</name>
-            <value>
-                <elementReference>First_Name</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>contactId</name>
-            <value>
-                <elementReference>contactExt</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>lastNAme</name>
-            <value>
-                <elementReference>Last_Name</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>leadId</name>
-            <value>
-                <elementReference>LeadIdForExt</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -65,9 +23,57 @@
             </value>
         </inputParameters>
         <inputParameters>
+            <name>firstName</name>
+            <value>
+                <elementReference>First_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
             <name>zipCode</name>
             <value>
                 <elementReference>zipCodeExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>contactId</name>
+            <value>
+                <elementReference>contactExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>country</name>
+            <value>
+                <elementReference>countryExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>email</name>
+            <value>
+                <elementReference>EMAIL2</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>lastName</name>
+            <value>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>converted</name>
+            <value>
+                <elementReference>Converted</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <elementReference>Message</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>leadId</name>
+            <value>
+                <elementReference>LeadIdForExt</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -104,6 +110,20 @@
         <choiceText>Resolving a trade barrier</choiceText>
         <dataType>String</dataType>
     </choices>
+    <constants>
+        <name>objectName</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Sys_Picklist_Values__c</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>PickListName</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Country</stringValue>
+        </value>
+    </constants>
     <decisions>
         <name>Validate_Form</name>
         <label>Validate Form</label>
@@ -172,8 +192,8 @@
     <formulas>
         <name>Asia_Region</name>
         <dataType>Boolean</dataType>
-        <expression>if( {!Global} == &apos;Asian Development Bank&apos; || {!Global} == &apos;Australia&apos; || {!Global} == &apos;Banglades&apos; || {!Global} == &apos;Brunei&apos; || {!Global} == &apos;Burma&apos; || {!Global} == &apos;Fiji&apos; || {!Global} == &apos;India&apos; || {!Global} == &apos;Indonesia&apos; || {!Global} == &apos;Japan&apos; || {!Global} == &apos;Korea&apos; || {!Global} == &apos;Laos&apos; || {!Global} == &apos;Malaysia&apos; || {!Global} == &apos;Nepa&apos; || {!Global} == &apos;New Zealand&apos; || 
-{!Global} == &apos;Pakistan&apos; || {!Global} == &apos;Philippines&apos; || {!Global} == &apos;Singapore&apos; || {!Global} == &apos;Sri Lanka&apos; || {!Global} == &apos;Taiwan&apos; || {!Global} == &apos;Thailand&apos; ,true,false)</expression>
+        <expression>if( {!flowCountry} == &apos;Asian Development Bank&apos; || {!flowCountry} == &apos;Australia&apos; || {!flowCountry} == &apos;Banglades&apos; || {!flowCountry} == &apos;Brunei&apos; || {!flowCountry} == &apos;Burma&apos; || {!flowCountry} == &apos;Fiji&apos; || {!flowCountry} == &apos;India&apos; || {!flowCountry} == &apos;Indonesia&apos; || {!flowCountry} == &apos;Japan&apos; || {!flowCountry} == &apos;Korea&apos; || {!flowCountry} == &apos;Laos&apos; || {!flowCountry} == &apos;Malaysia&apos; || {!flowCountry} == &apos;Nepa&apos; || {!flowCountry} == &apos;New Zealand&apos; || 
+{!flowCountry} == &apos;Pakistan&apos; || {!flowCountry} == &apos;Philippines&apos; || {!flowCountry} == &apos;Singapore&apos; || {!flowCountry} == &apos;Sri Lanka&apos; || {!flowCountry} == &apos;Taiwan&apos; || {!flowCountry} == &apos;Thailand&apos; ,true,false)</expression>
     </formulas>
     <formulas>
         <name>builderBox</name>
@@ -189,7 +209,7 @@
     <formulas>
         <name>China_Region</name>
         <dataType>Boolean</dataType>
-        <expression>if({!Global} == &apos;China&apos; || {!Global} == &apos;Hong Kong&apos; ,true,false)</expression>
+        <expression>if({!flowCountry} == &apos;China&apos; || {!flowCountry} == &apos;Hong Kong&apos; ,true,false)</expression>
     </formulas>
     <formulas>
         <name>conditionalerrormessage</name>
@@ -209,17 +229,17 @@
     <formulas>
         <name>countryExt</name>
         <dataType>String</dataType>
-        <expression>if(isBlank({!Global}),&apos;NONE&apos;,{!Global})</expression>
+        <expression>if(isBlank({!flowCountry}),&apos;NONE&apos;,{!flowCountry})</expression>
     </formulas>
     <formulas>
         <name>Europe_Region1</name>
         <dataType>Boolean</dataType>
-        <expression>if({!Global} == &apos;Albania&apos; || {!Global} == &apos;Belgium&apos; || {!Global} == &apos;Austria&apos; || {!Global} == &apos;Croatia&apos; || {!Global} == &apos;Bosnia Herzegovina&apos; || {!Global} == &apos;Bulgaria&apos; || {!Global} == &apos;Czech Republic&apos; || 
-{!Global} == &apos;Denmark&apos; || {!Global} == &apos;Estonia&apos; || {!Global} == &apos;European Union&apos; ||  {!Global} == &apos;Finland&apos; || {!Global} == &apos;&apos; || {!Global} == &apos;France&apos; || 
-{!Global} == &apos;Germany&apos; || {!Global} == &apos;Greece&apos; || {!Global} == &apos;Hungary&apos; || {!Global} == &apos;Ireland&apos; || {!Global} == &apos;Italy&apos; || {!Global} == &apos;Kosovo&apos; || {!Global} == &apos;Latvia&apos; || 
-{!Global} == &apos;Lithuania&apos; || {!Global} == &apos;Moldova&apos; || {!Global} == &apos;Montenegro&apos; || {!Global} == &apos;Netherlands&apos; || {!Global} == &apos;North Macedonia &apos; || {!Global} == &apos;Norway&apos; || 
-{!Global} == &apos;Poland&apos; || {!Global} == &apos;Portugal&apos; || {!Global} == &apos;Romania&apos; || {!Global} == &apos;Russia&apos; || {!Global} == &apos;Serbia&apos; || {!Global} == &apos;Slovakia&apos; || {!Global} == &apos;Sweden&apos; || 
-{!Global} == &apos;Slovenia&apos; || {!Global} == &apos;Spain&apos; || {!Global} == &apos;Switzerland&apos; || {!Global} == &apos;United Kingdom&apos; ,true,false)</expression>
+        <expression>if({!flowCountry} == &apos;Albania&apos; || {!flowCountry} == &apos;Belgium&apos; || {!flowCountry} == &apos;Austria&apos; || {!flowCountry} == &apos;Croatia&apos; || {!flowCountry} == &apos;Bosnia Herzegovina&apos; || {!flowCountry} == &apos;Bulgaria&apos; || {!flowCountry} == &apos;Czech Republic&apos; || 
+{!flowCountry} == &apos;Denmark&apos; || {!flowCountry} == &apos;Estonia&apos; || {!flowCountry} == &apos;European Union&apos; ||  {!flowCountry} == &apos;Finland&apos; || {!flowCountry} == &apos;&apos; || {!flowCountry} == &apos;France&apos; || 
+{!flowCountry} == &apos;Germany&apos; || {!flowCountry} == &apos;Greece&apos; || {!flowCountry} == &apos;Hungary&apos; || {!flowCountry} == &apos;Ireland&apos; || {!flowCountry} == &apos;Italy&apos; || {!flowCountry} == &apos;Kosovo&apos; || {!flowCountry} == &apos;Latvia&apos; || 
+{!flowCountry} == &apos;Lithuania&apos; || {!flowCountry} == &apos;Moldova&apos; || {!flowCountry} == &apos;Montenegro&apos; || {!flowCountry} == &apos;Netherlands&apos; || {!flowCountry} == &apos;North Macedonia &apos; || {!flowCountry} == &apos;Norway&apos; || 
+{!flowCountry} == &apos;Poland&apos; || {!flowCountry} == &apos;Portugal&apos; || {!flowCountry} == &apos;Romania&apos; || {!flowCountry} == &apos;Russia&apos; || {!flowCountry} == &apos;Serbia&apos; || {!flowCountry} == &apos;Slovakia&apos; || {!flowCountry} == &apos;Sweden&apos; || 
+{!flowCountry} == &apos;Slovenia&apos; || {!flowCountry} == &apos;Spain&apos; || {!flowCountry} == &apos;Switzerland&apos; || {!flowCountry} == &apos;United Kingdom&apos; ,true,false)</expression>
     </formulas>
     <formulas>
         <name>FormulaQueueSelector</name>
@@ -242,13 +262,13 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <formulas>
         <name>Middle_East_And_Africa_Region</name>
         <dataType>Boolean</dataType>
-        <expression>if({!Global} == &apos;Afghanistan&apos; || {!Global} == &apos;African&apos; || {!Global} == &apos;Algeria&apos; || {!Global} == &apos;Angola&apos; || {!Global} == &apos;Armenia&apos; || {!Global} == &apos;Azerbaijan&apos; || {!Global} == &apos;Bahrain&apos; || 
-{!Global} == &apos;Benin&apos; || {!Global} == &apos;Botswana&apos; || {!Global} == &apos;Burkina&apos; || {!Global} == &apos;Cambodia&apos; || {!Global} == &apos;Cameroon&apos; || {!Global} == &apos;Chad&apos; ||
- {!Global} == &apos;Congo, the Democratic Republic of the&apos; || {!Global} == JSENCODE(&quot;Cote d&apos;Ivoire&quot;) || {!Global} == &apos;Cyprus&apos; || {!Global} == &apos;Egypt&apos; || {!Global} == &apos;Eswatini&apos; || {!Global} == &apos;Ethiopia&apos; || 
-{!Global} == &apos;Gabon&apos; || {!Global} == &apos;Gambia&apos; || {!Global} == &apos;Georgia&apos; || {!Global} == &apos;Ghana&apos; || {!Global} == &apos;Guinea&apos; || {!Global} == &apos;Guyana&apos; || {!Global} == &apos;Israel&apos; || {!Global} == &apos;Jordan&apos; || {!Global} == &apos;Kazakhstan&apos; || {!Global} == &apos;Kenya&apos; || {!Global} == &apos;Kuwait&apos; || {!Global} == &apos;Kyrgyz Republic&apos; || {!Global} == &apos;Lebanon&apos; || {!Global} == &apos;Liberia&apos; || {!Global} == &apos;Madagascar&apos; || {!Global} == &apos;Malawi&apos; || {!Global} == &apos;Mali&apos; || {!Global} == &apos;Mauritania&apos; || {!Global} == &apos;Mongolia&apos; || {!Global} == &apos;Morocco&apos; || {!Global} == &apos;Mozambique&apos; || {!Global} == &apos;Namibia&apos; || 
-{!Global} == &apos;Niger&apos; || {!Global} == &apos;Oman&apos; || {!Global} == &apos;Qatar&apos; || {!Global} == &apos;Rwanda&apos; || {!Global} == &apos;Saudi Arabia&apos; || {!Global} == &apos;South Africa&apos; || {!Global} == &apos;Tajikistan&apos; ||
- {!Global} == &apos;Tanzania&apos; || {!Global} == &apos;Trinidad and Tobago&apos; || {!Global} == &apos;Tunisia&apos; || {!Global} == &apos;Turkey&apos; || {!Global} == &apos;Turkmenistan&apos; || {!Global} == &apos;Uganda&apos; || {!Global} == &apos;Ukraine&apos; || 
-{!Global} == &apos;United Arab Emirates&apos; || {!Global} == &apos;Uzbekistan&apos; || {!Global} == &apos;West Bank&apos; || {!Global} == &apos;Zambia&apos; || {!Global} == &apos;Zimbabwe&apos; ,true,false)</expression>
+        <expression>if({!flowCountry} == &apos;Afghanistan&apos; || {!flowCountry} == &apos;African&apos; || {!flowCountry} == &apos;Algeria&apos; || {!flowCountry} == &apos;Angola&apos; || {!flowCountry} == &apos;Armenia&apos; || {!flowCountry} == &apos;Azerbaijan&apos; || {!flowCountry} == &apos;Bahrain&apos; || 
+{!flowCountry} == &apos;Benin&apos; || {!flowCountry} == &apos;Botswana&apos; || {!flowCountry} == &apos;Burkina&apos; || {!flowCountry} == &apos;Cambodia&apos; || {!flowCountry} == &apos;Cameroon&apos; || {!flowCountry} == &apos;Chad&apos; ||
+ {!flowCountry} == &apos;Congo, the Democratic Republic of the&apos; || {!flowCountry} == JSENCODE(&quot;Cote d&apos;Ivoire&quot;) || {!flowCountry} == &apos;Cyprus&apos; || {!flowCountry} == &apos;Egypt&apos; || {!flowCountry} == &apos;Eswatini&apos; || {!flowCountry} == &apos;Ethiopia&apos; || 
+{!flowCountry} == &apos;Gabon&apos; || {!flowCountry} == &apos;Gambia&apos; || {!flowCountry} == &apos;Georgia&apos; || {!flowCountry} == &apos;Ghana&apos; || {!flowCountry} == &apos;Guinea&apos; || {!flowCountry} == &apos;Guyana&apos; || {!flowCountry} == &apos;Israel&apos; || {!flowCountry} == &apos;Jordan&apos; || {!flowCountry} == &apos;Kazakhstan&apos; || {!flowCountry} == &apos;Kenya&apos; || {!flowCountry} == &apos;Kuwait&apos; || {!flowCountry} == &apos;Kyrgyz Republic&apos; || {!flowCountry} == &apos;Lebanon&apos; || {!flowCountry} == &apos;Liberia&apos; || {!flowCountry} == &apos;Madagascar&apos; || {!flowCountry} == &apos;Malawi&apos; || {!flowCountry} == &apos;Mali&apos; || {!flowCountry} == &apos;Mauritania&apos; || {!flowCountry} == &apos;Mongolia&apos; || {!flowCountry} == &apos;Morocco&apos; || {!flowCountry} == &apos;Mozambique&apos; || {!flowCountry} == &apos;Namibia&apos; || 
+{!flowCountry} == &apos;Niger&apos; || {!flowCountry} == &apos;Oman&apos; || {!flowCountry} == &apos;Qatar&apos; || {!flowCountry} == &apos;Rwanda&apos; || {!flowCountry} == &apos;Saudi Arabia&apos; || {!flowCountry} == &apos;South Africa&apos; || {!flowCountry} == &apos;Tajikistan&apos; ||
+ {!flowCountry} == &apos;Tanzania&apos; || {!flowCountry} == &apos;Trinidad and Tobago&apos; || {!flowCountry} == &apos;Tunisia&apos; || {!flowCountry} == &apos;Turkey&apos; || {!flowCountry} == &apos;Turkmenistan&apos; || {!flowCountry} == &apos;Uganda&apos; || {!flowCountry} == &apos;Ukraine&apos; || 
+{!flowCountry} == &apos;United Arab Emirates&apos; || {!flowCountry} == &apos;Uzbekistan&apos; || {!flowCountry} == &apos;West Bank&apos; || {!flowCountry} == &apos;Zambia&apos; || {!flowCountry} == &apos;Zimbabwe&apos; ,true,false)</expression>
     </formulas>
     <formulas>
         <name>QueueSelection</name>
@@ -279,11 +299,11 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <formulas>
         <name>Western_Hemisphere_And_Canada</name>
         <dataType>Boolean</dataType>
-        <expression>if( {!Global} == &apos;Argentina&apos; || {!Global} == &apos;Bahamas&apos; || {!Global} == &apos;Barbados&apos; || {!Global} == &apos;Belize&apos; || {!Global} == &apos;Bermuda&apos; || {!Global} == &apos;Bolivia&apos; || {!Global} == &apos;Brazil&apos; || 
-{!Global} == &apos;Canada&apos; || {!Global} == &apos;Chile&apos; || {!Global} == &apos;Colombia&apos; || {!Global} == &apos;Costa Rica&apos; || {!Global} == &apos;Dominican Republic&apos; || {!Global} == &apos;Ecuador&apos; ||
-{!Global} == &apos;El Salvador&apos; || {!Global} == &apos;Guatemala&apos; || {!Global} == &apos;Haiti&apos; || {!Global} == &apos;Honduras&apos; || {!Global} == &apos;Iceland&apos; || {!Global} == &apos;Jamaica&apos; || {!Global} == &apos;Lesotho&apos; || 
-{!Global} == &apos;Mexico&apos; || {!Global} == &apos;Nicaragua&apos; || {!Global} == &apos;Panama&apos; || {!Global} == &apos;Paraguay&apos; || {!Global} == &apos;Peru&apos; || {!Global} == &apos;Suriname&apos; || {!Global} == &apos;Uruguay&apos; || 
-{!Global} == &apos;Venezuela&apos; ,true,false)</expression>
+        <expression>if( {!flowCountry} == &apos;Argentina&apos; || {!flowCountry} == &apos;Bahamas&apos; || {!flowCountry} == &apos;Barbados&apos; || {!flowCountry} == &apos;Belize&apos; || {!flowCountry} == &apos;Bermuda&apos; || {!flowCountry} == &apos;Bolivia&apos; || {!flowCountry} == &apos;Brazil&apos; || 
+{!flowCountry} == &apos;Canada&apos; || {!flowCountry} == &apos;Chile&apos; || {!flowCountry} == &apos;Colombia&apos; || {!flowCountry} == &apos;Costa Rica&apos; || {!flowCountry} == &apos;Dominican Republic&apos; || {!flowCountry} == &apos;Ecuador&apos; ||
+{!flowCountry} == &apos;El Salvador&apos; || {!flowCountry} == &apos;Guatemala&apos; || {!flowCountry} == &apos;Haiti&apos; || {!flowCountry} == &apos;Honduras&apos; || {!flowCountry} == &apos;Iceland&apos; || {!flowCountry} == &apos;Jamaica&apos; || {!flowCountry} == &apos;Lesotho&apos; || 
+{!flowCountry} == &apos;Mexico&apos; || {!flowCountry} == &apos;Nicaragua&apos; || {!flowCountry} == &apos;Panama&apos; || {!flowCountry} == &apos;Paraguay&apos; || {!flowCountry} == &apos;Peru&apos; || {!flowCountry} == &apos;Suriname&apos; || {!flowCountry} == &apos;Uruguay&apos; || 
+{!flowCountry} == &apos;Venezuela&apos; ,true,false)</expression>
     </formulas>
     <formulas>
         <name>zipCodeExt</name>
@@ -381,11 +401,33 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <sortField>Name</sortField>
         <sortOrder>Desc</sortOrder>
     </recordLookups>
+    <recordLookups>
+        <name>getrecordTypeId</name>
+        <label>getrecordTypeId</label>
+        <locationX>76</locationX>
+        <locationY>182</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Contact_us</targetReference>
+        </connector>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ContactRequest</stringValue>
+            </value>
+        </filters>
+        <object>RecordType</object>
+        <outputAssignments>
+            <assignToReference>sys_PcikList_RecordTypeId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
     <screens>
         <name>Contact_us</name>
         <label>Contact us</label>
-        <locationX>74</locationX>
-        <locationY>283</locationY>
+        <locationX>78</locationX>
+        <locationY>307</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -423,7 +465,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <fields>
             <name>First_Name</name>
             <dataType>String</dataType>
-            <fieldText>First Name:</fieldText>
+            <fieldText>First Name</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
             <visibilityRule>
@@ -474,7 +516,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <fields>
             <name>EMAIL2</name>
             <dataType>String</dataType>
-            <fieldText>EMAIL</fieldText>
+            <fieldText>Email</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
             <visibilityRule>
@@ -510,18 +552,50 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         </fields>
         <fields>
             <name>Global</name>
-            <choiceReferences>Country_2</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Country</fieldText>
-            <fieldType>DropdownBox</fieldType>
+            <extensionName>c:Flow_RecordTypePickListScreenCmp</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>selection</name>
+                <value>
+                    <stringValue>NONE</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>RecordTypeId</name>
+                <value>
+                    <elementReference>sys_PcikList_RecordTypeId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>Object</name>
+                <value>
+                    <stringValue>Sys_Picklist_Values__c</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>fieldLabel</name>
+                <value>
+                    <stringValue>Country</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>fieldAPIName</name>
+                <value>
+                    <stringValue>Contact_Us_Country__c</stringValue>
+                </value>
+            </inputParameters>
             <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>flowCountry</assignToReference>
+                <name>selection</name>
+            </outputParameters>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
                     <leftValueReference>IssueBox</leftValueReference>
-                    <operator>EqualTo</operator>
+                    <operator>NotEqualTo</operator>
                     <rightValue>
-                        <stringValue>Contacting a local trade or export assistance expert (*limited availability)</stringValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -565,7 +639,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <locationX>74</locationX>
         <locationY>67</locationY>
         <connector>
-            <targetReference>Contact_us</targetReference>
+            <targetReference>getrecordTypeId</targetReference>
         </connector>
     </start>
     <status>Active</status>
@@ -597,6 +671,13 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <variables>
         <name>conversionDate</name>
         <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>flowCountry</name>
+        <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
@@ -666,5 +747,15 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>sys_PcikList_RecordTypeId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>null</stringValue>
+        </value>
     </variables>
 </Flow>
