@@ -104,9 +104,9 @@ public class CP_SaveContactRequestFlowActionTest {
         screenData.country = 'China';
         screenData.email = 'mycptest1@ztest.com';
         screenData.firstName = 'test';
-        screenData.requestReasson = '';
+        screenData.requestReason = '';
         screenData.zipCode = '78250';
-        screenData.lastNAme = 'test';
+        screenData.lastName = 'test';
         screenData.leadId = leadList[0].Id;
         reqVars.add(screenData);
         CP_SaveContactRequestFlowAction.createRecord(reqVars);
@@ -140,9 +140,9 @@ public class CP_SaveContactRequestFlowActionTest {
         screenData.country = 'China';
         screenData.email = 'mycptest1@ztest.com';
         screenData.firstName = 'test';
-        screenData.requestReasson = '';
+        screenData.requestReason = '';
         screenData.zipCode = '78250';
-        screenData.lastNAme = 'test';
+        screenData.lastName = 'test';
         screenData.leadId = leadList[0].Id;
         reqVars.add(screenData);
         CP_SaveContactRequestFlowAction.createRecord(reqVars);
@@ -176,9 +176,9 @@ public class CP_SaveContactRequestFlowActionTest {
         screenData.country = 'China';
         screenData.email = 'mycptest1@ztest.com';
         screenData.firstName = 'test';
-        screenData.requestReasson = '';
+        screenData.requestReason = '';
         screenData.zipCode = '78250';
-        screenData.lastNAme = 'test';
+        screenData.lastName = 'test';
         screenData.leadId = 'NONE';
         reqVars.add(screenData);
         CP_SaveContactRequestFlowAction.createRecord(reqVars);
