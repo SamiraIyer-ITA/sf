@@ -148,7 +148,7 @@
                 <field>NAICS_Description__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Minority_Owned_Indicator__c</field>
             </layoutItems>
             <layoutItems>
