@@ -27,23 +27,23 @@ private class UpdateCCDLookupIdTest {
 		testAccount.add(accSet);
 		insert testAccount;
 
-		List<DandBCompany> dnb = new List<DandBCompany>();
-		List<DandBCompany> dnbUpdate = new List<DandBCompany>();		
-		DandBCompany dbSet = new DandBCompany();
-		dbSet.DunsNumber ='1234';
+		List<DNBoptimizer__DnBCompanyRecord__c> dnb = new List<DNBoptimizer__DnBCompanyRecord__c>();
+		List<DNBoptimizer__DnBCompanyRecord__c> dnbUpdate = new List<DNBoptimizer__DnBCompanyRecord__c>();		
+		DNBoptimizer__DnBCompanyRecord__c dbSet = new DNBoptimizer__DnBCompanyRecord__c();
+		dbSet.DNBoptimizer__DUNSNumber__c ='1234';
 		dbSet.Name =' DnB company';
-		dbSet.UsTaxId ='89765';
+		dbSet.DNBoptimizer__USTaxID__c ='89765';
 		dnb.add(dbSet);
 		insert dnb;
 
-		dbSet = new DandBCompany();
+		dbSet = new DNBoptimizer__DnBCompanyRecord__c();
 		dbSet.Id = dnb[0].Id;
-		dbSet.UsTaxId = Null;
+		dbSet.DNBoptimizer__USTaxID__c = Null;
 		dnbUpdate.add(dbSet);
 		update dnbUpdate;
 
 		//System.assertEquals(testAccount[0].billingPostalCode.replace('-',''), mCCD[0].Max9Zip__c);
-        System.assertEquals(dnbUpdate[0].UsTaxId,Null);
+        System.assertEquals(dnbUpdate[0].DNBoptimizer__USTaxID__c,Null);
 		Test.stopTest();
 	}
 	}
@@ -72,25 +72,25 @@ private class UpdateCCDLookupIdTest {
 		accSet.BillingCountry ='United States';
 		testAccount.add(accSet);
 		
-		List<DandBCompany> dnb = new List<DandBCompany>();
-		List<DandBCompany> dnbUpdate = new List<DandBCompany>();		
-		DandBCompany dbSet = new DandBCompany();
-		dbSet.DunsNumber ='1234';
+		List<DNBoptimizer__DnBCompanyRecord__c> dnb = new List<DNBoptimizer__DnBCompanyRecord__c>();
+		List<DNBoptimizer__DnBCompanyRecord__c> dnbUpdate = new List<DNBoptimizer__DnBCompanyRecord__c>();		
+		DNBoptimizer__DnBCompanyRecord__c dbSet = new DNBoptimizer__DnBCompanyRecord__c();
+		dbSet.DNBoptimizer__DUNSNumber__c ='1234';
 		dbSet.Name =' DnB company';
-		dbSet.UsTaxId ='89765';
+		dbSet.DNBoptimizer__USTaxID__c ='89765';
 		dnb.add(dbSet);
 		insert dnb;
 
-		dbSet = new DandBCompany();
+		dbSet = new DNBoptimizer__DnBCompanyRecord__c();
 		dbSet.Id = dnb[0].Id;
-		dbSet.UsTaxId = '98765';
+		dbSet.DNBoptimizer__USTaxID__c = '98765';
 		dnbUpdate.add(dbSet);
 		update dnbUpdate;
 
 		insert testAccount;
 		insert mCCD;
 		//System.assertNotEquals(mCCD[0].Max9Zip__c, testAccount[0].billingPostalCode.replace('-',''));
-        System.assertNotEquals(dnbUpdate[0].UsTaxId,Null);
+        System.assertNotEquals(dnbUpdate[0].DNBoptimizer__USTaxID__c,Null);
 		Test.stopTest();
 	}
 	}	
