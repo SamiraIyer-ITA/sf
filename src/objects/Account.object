@@ -1756,23 +1756,6 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>TracHier__Global_Ultimate_Grouping_Id__c</fullName>
-        <deprecated>false</deprecated>
-        <description>Field used by Traction Hierarchies for grouping by Global Ultimate Parent account in reports</description>
-        <externalId>false</externalId>
-        <formula>if(!ISBLANK( TracHier__DUNS_Global_Ultimate_Parent__c), 
-TracHier__DUNS_Global_Ultimate_Parent__r.Name &amp; &quot; (&quot; &amp; TracHier__DUNS_Global_Ultimate_Parent__r.DunsNumber &amp; &quot;)&quot; 
-, 
-Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Available&quot;) &amp; &quot;)&quot; 
-)</formula>
-        <inlineHelpText>Use this field to group records by Global Ultimate Parent account in reports</inlineHelpText>
-        <label>Global Ultimate Grouping Id</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>TracHier__Owner__c</fullName>
         <deprecated>false</deprecated>
         <description>The name of the Sales rep who owns the Account.</description>
