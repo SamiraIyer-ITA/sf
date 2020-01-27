@@ -3,12 +3,12 @@
     <baseObject>Account</baseObject>
     <category>accounts</category>
     <deployed>true</deployed>
-    <description>Cases with their related Organization. Provides no info about Case Contributors.</description>
+    <description>Organizations, Contacts, and Taxonomy Tags</description>
     <join>
-        <outerJoin>false</outerJoin>
-        <relationship>Cases</relationship>
+        <outerJoin>true</outerJoin>
+        <relationship>Taxonomy_Tagging__r</relationship>
     </join>
-    <label>Organizations with Cases</label>
+    <label>Organizations, Contacts, and Taxonomy Tags</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -22,17 +22,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>NameLocal</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AccountNumber</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Owner</field>
+            <field>Type</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -42,17 +32,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Site</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Create_Date__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AnnualRevenue</field>
+            <field>Parent</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -62,7 +42,32 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>BillingStreet</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>BillingCity</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BillingState</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BillingPostalCode</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BillingCountry</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>BillingStateCode</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -82,22 +87,257 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>BillingStateCode</field>
+            <field>BillingGeocodeAccuracy</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>BillingStreet</field>
+            <field>ShippingAddress</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>BillingPostalCode</field>
+            <field>ShippingStreet</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ShippingCity</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ShippingState</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ShippingPostalCode</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ShippingCountry</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ShippingStateCode</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ShippingCountryCode</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ShippingLatitude</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ShippingLongitude</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ShippingGeocodeAccuracy</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Phone</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Fax</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AccountNumber</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Website</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Sic</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Industry</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AnnualRevenue</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NumberOfEmployees</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Ownership</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TickerSymbol</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Description</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Rating</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Site</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NameLocal</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Owner</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastActivityDate</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IsExcludedFromRealign</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Jigsaw</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CleanStatus</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AccountSource</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DunsNumber</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Tradestyle</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NaicsCode</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>NaicsDesc</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>YearStarted</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SicDesc</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DandbCompany</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>test__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>test_number__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TracHier__DUNS_Global_Ultimate_Parent__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TracHier__Excluded_From_Account_Hierarchies__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TracHier__Owner__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TracHier__Parent_Company__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Associated_Business_Names__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CTS_Org_ID__c</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -117,47 +357,37 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
+            <field>DUNS_field__c</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany</field>
+            <field>DupeBlocker_Insert_Action__c</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Description</field>
+            <field>DupeBlocker_Update_Action__c</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DunsNumber</field>
+            <field>For_Dupeblocker_Triggering__c</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>NumberOfEmployees</field>
+            <field>Has_Exported_To__c</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Fax</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>TracHier__DUNS_Global_Ultimate_Parent__c</field>
+            <field>ITA_Organization_and_Product_Description__c</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Industries__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Industry</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -172,27 +402,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ITA_Organization_and_Product_Description__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastActivityDate</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Local_ITA_Office__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Merged_Organization__c</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -202,12 +417,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>NaicsCode</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>NaicsDesc</field>
+            <field>Organization_18_ID__c</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -217,37 +427,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>TracHier__Excluded_From_Account_Hierarchies__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>TracHier__Owner__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Owner_Office__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Ownership</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Parent</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>TracHier__Parent_Company__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Phone</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -262,17 +442,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Sic</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SicDesc</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>SME__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SharePoint_ID__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Sharepoint_Org_Name__c</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -282,17 +462,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>TickerSymbol</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Tradestyle</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Type</field>
+            <field>US_Tax_ID_from_Data_com__c</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -302,12 +472,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Website</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>YearStarted</field>
+            <field>Verification_Status__c</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -317,7 +482,77 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.OutOfBusiness</field>
+            <field>eMenu_ES_ID__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>eMenu_Org_Name__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>zipCodeLen__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Ignore__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Create_Date__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Lead_Industry_Holder__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Lead_Sector_Holder__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Lead_Sub_sector_Holder__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account_Type__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>TracHier__Global_Ultimate_Grouping_Id__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Category__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DataPartnerType__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SourceTechnology__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Privacy_Shield_Disabled__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Is_Law_Firm__c</field>
             <table>Account</table>
         </columns>
         <masterLabel>Accounts</masterLabel>
@@ -325,440 +560,105 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Advocacy_Actions_to_Date_Summary__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Advocacy_Case_Description__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Advocacy_Competitors__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Advocacy_Expected_Project_Value__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Advocacy_Expected_US_Export_Content__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Advocacy_Foreign_Decision_Makers__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Advocacy_Official_USG_Advisory_Position__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Advocacy_Pro__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Advocacy_Project_Status__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Create_Date__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Asset</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Attended_SelectUSA_Investment_Summit_201__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>BusinessHours</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_18_ID__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_Close_Summary__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_Contributor_Rollup__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>CaseNumber</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_One__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Origin</field>
-            <table>Account.Cases</table>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Owner</field>
-            <table>Account.Cases</table>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Reason</field>
-            <table>Account.Cases</table>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>RecordType</field>
-            <table>Account.Cases</table>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Client_Objective__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsClosed</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsClosedOnCreate</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Compliance_Case__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Contact_is_Active__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Contact</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Contact_Name_copy__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Control_Number__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Copy_Contact_Email__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country_in_Case_Rollup__c</field>
-            <table>Account.Cases</table>
+            <field>CreatedDate</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ClosedDate</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Days_Open__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Description</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsEscalated</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Fee__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Fiscal_Year__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Fiscal_Year_Calculation_2015__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Foreign_Buyer_Delegate__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Industry_Rollup_Sum__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Industry_Sector__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investment_Promotion__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ITA_Action_Plan__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>Account.Cases</table>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
-            <table>Account.Cases</table>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Number_of_WINs_associated_to_Case__c</field>
-            <table>Account.Cases</table>
+            <field>LastModifiedBy</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Org_City__c</field>
-            <table>Account.Cases</table>
+            <field>Category__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Org_Country__c</field>
-            <table>Account.Cases</table>
+            <field>Country__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Org_County__c</field>
-            <table>Account.Cases</table>
+            <field>Industry__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Org_State__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Org_Street__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Other_Countries__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Owners_Office__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Parent</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Primary_Country__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Priority</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Related_Case_del__c</field>
-            <table>Account.Cases</table>
+            <field>Related_Application__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Related_Case__c</field>
-            <table>Account.Cases</table>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Request_Case_Removal__c</field>
-            <table>Account.Cases</table>
+            <field>Related_Lead__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Running_user_Case_Contributor__c</field>
-            <table>Account.Cases</table>
+            <field>Related_WIN__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Sensitive_Attachment_Links__c</field>
-            <table>Account.Cases</table>
+            <field>Sector__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Status</field>
-            <table>Account.Cases</table>
+            <field>Sub_Sector__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Subject</field>
-            <table>Account.Cases</table>
+            <field>Taxonomy_One__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>IP_Case_Origin__c</field>
-            <table>Account.Cases</table>
+            <field>Trade_Issue__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>IP_Case_Origin_Other__c</field>
-            <table>Account.Cases</table>
+            <field>Trade_Region__c</field>
+            <table>Account.Taxonomy_Tagging__r</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IP_Case_Reason__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IP_Client_Type__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IP_EDO_Type__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IP_Service_Provided_to_Date_Summary__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Agreement_Notes__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Case_Origin__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Case_Origin_Notes__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Case_Value__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Compliance_Case__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Compliance_Case_Initiated_Date__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Describe_Other_Trade_Barrier_Area_s__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Explanation_of_Case_Value__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Initiation_Summary__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Interested_Parties__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Relevant_Agreement__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Success_Definition__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Tanc_Tags__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CD_Trade_Barrier__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Trade_Barrier__c</field>
-            <table>Account.Cases</table>
-        </columns>
-        <masterLabel>Cases</masterLabel>
+        <masterLabel>Taxonomy Tagging</masterLabel>
     </sections>
     <sections>
         <columns>
