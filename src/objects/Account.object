@@ -2009,28 +2009,6 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         <label>My Organizations Not Cleaned</label>
     </listViews>
     <listViews>
-        <fullName>MyAccountsNotCleaned</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.ADDRESS1_STREET</columns>
-        <columns>ACCOUNT.ADDRESS1_CITY</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
-        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
-        <columns>CLEAN_STATUS</columns>
-        <columns>ACCOUNT.CREATED_DATE</columns>
-        <filterScope>Mine</filterScope>
-        <filters>
-            <field>Request_Organization_Removal__c</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>
-        <filters>
-            <field>CLEAN_STATUS</field>
-            <operation>equals</operation>
-            <value>3,5,6,7</value>
-        </filters>
-        <label>My Organizations Not Cleaned</label>
-    </listViews>
-    <listViews>
         <fullName>MyAccounts_with_Clean_Status</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.ADDRESS1_STREET</columns>
@@ -2081,30 +2059,6 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             <field>Request_Organization_Removal__c</field>
             <operation>equals</operation>
             <value>1</value>
-        </filters>
-        <label>Request For Removal Cleaned</label>
-        <sharedTo>
-            <group>Data_Admin_Team</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Request_For_Removal</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>CLEAN_STATUS</columns>
-        <columns>ACCOUNT.LAST_ACTIVITY</columns>
-        <columns>TracHier__Owner__c</columns>
-        <columns>Owner_Office__c</columns>
-        <columns>Request_Organization_Removal__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Request_Organization_Removal__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <filters>
-            <field>CLEAN_STATUS</field>
-            <operation>equals</operation>
-            <value>0,1,2,3,4,7</value>
         </filters>
         <label>Request For Removal Cleaned</label>
         <sharedTo>
