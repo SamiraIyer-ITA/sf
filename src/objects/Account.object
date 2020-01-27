@@ -1225,13 +1225,21 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>                                                                                                                         <fullName>NAICS__c</fullName>                                                                                                <description>IF(DNBoptimizer__DnBCompanyRecord__r.      DNBoptimizer__NAICSCode1__c&gt;0, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription1__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c</description>                                                                                                                  <externalId>false</externalId>
+    <fields>
+        <fullName>NAICS__c</fullName>
+        <description>IF(DNBoptimizer__DnBCompanyRecord__r.      DNBoptimizer__NAICSCode1__c&gt;0, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription1__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c</description>
+        <externalId>false</externalId>
         <formula>(IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c)) , DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription1__c,&quot;&quot;) &amp;^M
-IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c,&quot;&quot;) &amp;^M                                                                                               IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c, &quot;&quot;)^M
-)</formula>                                                                                                                          <inlineHelpText>Displays top 3 NAICS codes with their description for this company.</inlineHelpText>
-        <label>NAICS</label>                                                                                                         <required>false</required>
+IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c,&quot;&quot;) &amp;^M
+IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c, &quot;&quot;)^M
+)</formula>
+        <inlineHelpText>Displays top 3 NAICS codes with their description for this company.</inlineHelpText>
+        <label>NAICS</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Text</type>                                                                                                            <unique>false</unique>                                                                                                   </fields>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>NaicsCode</fullName>
         <trackFeedHistory>false</trackFeedHistory>
