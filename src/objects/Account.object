@@ -1325,6 +1325,18 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c)), 
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Organization_Size__c</fullName>
+        <description>Decision on organization size is based on number of employees. If employees’ field is entered by TS, formula is based on that field, otherwise, use D&amp;B employee fields. 1-499 = Small, 500-999 = Medium, &gt;999 = Large</description>
+        <externalId>false</externalId>
+        <label>Organization Size</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Organization_Type__c</fullName>
         <externalId>false</externalId>
         <label>Organization Type</label>
