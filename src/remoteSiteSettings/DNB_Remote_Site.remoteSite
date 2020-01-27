@@ -2,5 +2,5 @@
 <RemoteSiteSetting xmlns="http://soap.sforce.com/2006/04/metadata">
     <disableProtocolSecurity>false</disableProtocolSecurity>
     <isActive>true</isActive>
-    <url>https://trade--dboptim.lightning.force.com</url>
+    <url>https://trade.lightning.force.com</url>
 </RemoteSiteSetting>
