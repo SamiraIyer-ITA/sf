@@ -74,7 +74,6 @@
         <fields>Name</fields>
         <fields>Congressional_District_formula__c</fields>
         <fields>OwnerId</fields>
-        <fields>CleanStatus</fields>
         <label>CRM Organization Compact Layout</label>
     </compactLayouts>
     <compactLayouts>
@@ -82,7 +81,6 @@
         <fields>Name</fields>
         <fields>Website</fields>
         <fields>Congressional_District_formula__c</fields>
-        <fields>CleanStatus</fields>
         <label>Compact Layout</label>
     </compactLayouts>
     <enableEnhancedLookup>true</enableEnhancedLookup>
@@ -163,7 +161,7 @@
     <fields>
         <fullName>AnnualRevenue</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Associated_Business_Names__c</fullName>
@@ -347,6 +345,18 @@
         <length>200</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>D_B_Company_Record_Link__c</fullName>
+        <description>Opens a new tab with the related D&amp;B Company information.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&apos;/&apos; &amp; DNBoptimizer__DnBCompanyRecord__r.Name, &apos;Access Additional D&amp;B Company Data&apos;)</formula>
+        <inlineHelpText>Opens a new tab with the related D&amp;B Company information.</inlineHelpText>
+        <label>D&amp;B Company Record Link</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1100,6 +1110,17 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>LD_USE_DnB_Optimize__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Allows or prevents account match and enrich from D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, match and enrich from D&amp;B Optimizer will process</inlineHelpText>
+        <label>Allow D&amp;B Optimizer</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Lead_Industry_Holder__c</fullName>
         <externalId>false</externalId>
         <label>Lead Industry Holder</label>
@@ -1179,20 +1200,38 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>NAICS__c</fullName>
-        <description>IF(DandbCompany.PrimaryNaics &gt;0, DandbCompany.PrimaryNaics &amp; &quot;: &quot; &amp;  DandbCompany.PrimaryNaicsDesc &amp; &quot;, &quot; &amp;  DandbCompany.SecondNaics &amp; &quot;: &quot; &amp;  DandbCompany.SecondNaicsDesc &amp; &quot;, &quot; &amp;  DandbCompany.ThirdNaics &amp; &quot;: &quot; &amp;  DandbCompany.ThirdNaicsDesc</description>
+        <fullName>NAICS_Code__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
-        <formula>(IF(NOT(ISBLANK(DandbCompany.PrimaryNaics)) , DandbCompany.PrimaryNaics &amp; &quot;: &quot; &amp;  DandbCompany.PrimaryNaicsDesc,&quot;&quot;) &amp;
-IF(NOT(ISBLANK(DandbCompany.SecondNaics)), &quot;, &quot; &amp;  DandbCompany.SecondNaics &amp; &quot;: &quot; &amp;  DandbCompany.SecondNaicsDesc,&quot;&quot;) &amp;
-IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.ThirdNaics &amp; &quot;: &quot; &amp;  DandbCompany.ThirdNaicsDesc, &quot;&quot;)
-)</formula>
-        <inlineHelpText>Displays top 3 NAICS codes with their description for this company.</inlineHelpText>
-        <label>NAICS</label>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>aaaNAICS Code</label>
+        <length>8</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>NAICS_Description__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>aaaNAICS Description</label>
+        <length>120</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>                                                                                                                         <fullName>NAICS__c</fullName>                                                                                                <description>IF(DNBoptimizer__DnBCompanyRecord__r.      DNBoptimizer__NAICSCode1__c&gt;0, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription1__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c</description>                                                                                                                  <externalId>false</externalId>
+        <formula>(IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c)) , DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription1__c,&quot;&quot;) &amp;^M
+IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c,&quot;&quot;) &amp;^M                                                                                               IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c, &quot;&quot;)^M
+)</formula>                                                                                                                          <inlineHelpText>Displays top 3 NAICS codes with their description for this company.</inlineHelpText>
+        <label>NAICS</label>                                                                                                         <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>                                                                                                            <unique>false</unique>                                                                                                   </fields>
     <fields>
         <fullName>NaicsCode</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1217,7 +1256,13 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
         <fullName>NumberOfEmployees</fullName>
         <inlineHelpText>The highest number of employees from the Data.com employee count fields.</inlineHelpText>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OperatingHoursId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Organization_18_ID__c</fullName>
@@ -1510,17 +1555,12 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
-    <fields>
-        <fullName>Primary_Trade_Style__c</fullName>
-        <description>Primary Trade Style from D&amp;B</description>
+    <fields>                                                                                                                         <fullName>Primary_Trade_Style__c</fullName>
+        <description>Primary Trade Style from D&amp;B Optimizer</description>
         <externalId>false</externalId>
-        <formula>DandbCompany.TradeStyle1</formula>
-        <label>Primary Trade Style</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+        <formula>DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__TradestyleName1__c</formula>
+        <label>Primary Trade Style</label>                                                                                           <required>false</required>                                                                                                   <trackHistory>false</trackHistory>
+        <type>Text</type>                                                                                                            <unique>false</unique>                                                                                                   </fields>
     <fields>
         <fullName>Privacy_Shield_Disabled__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1589,12 +1629,12 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
     <fields>
         <fullName>Sic</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>SicDesc</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Site</fullName>
@@ -1765,6 +1805,19 @@ Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Ava
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Tradestyle__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>aaaTradestyle</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Type</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1825,7 +1878,7 @@ Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Ava
     <fields>
         <fullName>Website</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Woman_Owned_Indicator__c</fullName>
@@ -1843,6 +1896,19 @@ Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Ava
         <inlineHelpText>The year the entity commenced operations in its current form. If the entity was acquired by another company, the start date may reflect the date it was acquired.</inlineHelpText>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Year_Started__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>aaaYear Started</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>eMenu_ES_ID__c</fullName>
@@ -1927,15 +1993,37 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     <listViews>
         <fullName>All_smd</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
         <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
         <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>Category__c</columns>
         <columns>ACCOUNT.ADDRESS1_CITY</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.NAME</field>
+            <operation>contains</operation>
+            <value>Tarte</value>
+        </filters>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>MyAccountsNotCleaned</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_STREET</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Request_Organization_Removal__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>DNBoptimizer__DnBCompanyRecord__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>My Organizations Not Cleaned</label>
     </listViews>
     <listViews>
         <fullName>MyAccountsNotCleaned</fullName>
@@ -1975,6 +2063,14 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         </filters>
         <label>My Organizations with Clean Status</label>
     </listViews>
+    <listViews>                                                                                                                      <fullName>My_Organizations1</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_STREET</columns>                                                                                   <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+        <filterScope>Mine</filterScope>                                                                                              <filters>                                                                                                                        <field>Request_Organization_Removal__c</field>
+            <operation>equals</operation>                                                                                                <value>0</value>                                                                                                         </filters>                                                                                                                   <label>My Organizations</label>
+    </listViews>
     <listViews>
         <fullName>Organization_Hierarchy</fullName>
         <columns>ACCOUNT.NAME</columns>
@@ -1992,6 +2088,21 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             <value>0</value>
         </filters>
         <label>Organization Hierarchy</label>
+    </listViews>
+    <listViews>
+        <fullName>Request_For_Removal</fullName>
+        <columns>ACCOUNT.NAME</columns>                                                                                              <columns>ACCOUNT.LAST_ACTIVITY</columns>                                                                                     <columns>TracHier__Owner__c</columns>
+        <columns>Owner_Office__c</columns>                                                                                           <columns>Request_Organization_Removal__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_Organization_Removal__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Request For Removal Cleaned</label>
+        <sharedTo>
+            <group>Data_Admin_Team</group>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Request_For_Removal</fullName>
@@ -2022,7 +2133,7 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     <recordTypes>
         <fullName>ITA_CRM_Law_Firm</fullName>
         <active>true</active>
-        <compactLayoutAssignment>CRM_Organization_Compact_Layout</compactLayoutAssignment>
+	<compactLayoutAssignment>CRM_Organization_Compact_Layout</compactLayoutAssignment>
         <label>ITA CRM Law Firm</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
