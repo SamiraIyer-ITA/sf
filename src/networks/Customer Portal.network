@@ -6,7 +6,7 @@
     <communityRoles/>
     <disableReputationRecordConversations>false</disableReputationRecordConversations>
     <emailSenderAddress>noreply@trade.gov</emailSenderAddress>
-    <emailSenderName>International Trade Association</emailSenderName>
+    <emailSenderName>International Trade Administration</emailSenderName>
     <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
     <enableDirectMessages>false</enableDirectMessages>
     <enableGuestChatter>false</enableGuestChatter>

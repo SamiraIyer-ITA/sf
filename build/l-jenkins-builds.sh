@@ -61,6 +61,7 @@ types=" app \
         page \
 	pathAssistant \
 	permissionset \
+	profilePasswordPolicy \
         queue \
         quickAction \
 	report \
@@ -69,6 +70,7 @@ types=" app \
         role \
         settings \
         sharingRules \
+	site \
         standardValueSets \
         synonymDictionary \
         tab \

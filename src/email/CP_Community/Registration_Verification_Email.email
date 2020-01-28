@@ -1,0 +1,8 @@
+Hello {!Target_User.FirstName},
+
+Thanks for registering with the International Trade Administration.  Your personal portal allows you to save important personalized content and in the future will serve as a centralized source for all services and digital interactions with ITA.
+
+Your Username is your email address: {!Target_User.Email}
+
+Thanks,
+International Trade Administration
