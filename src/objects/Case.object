@@ -101423,7 +101423,7 @@ CONTAINS(TEXT(IP_Case_Reason__c),&quot;Information Assistance&quot;)
         <errorConditionFormula>OR(
      (NOT(ISBLANK(ContactId)))&amp;&amp;ISBLANK(Contact.AccountId),
      (ISBLANK(ContactId)) &amp;&amp; (ISBLANK(AccountId))
-) &amp;&amp; ($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
+) &amp;&amp; ($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($Profile.Name &lt;&gt; &quot;E&amp;C TANC&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
         <errorDisplayField>AccountId</errorDisplayField>
         <errorMessage>To create a case, you must specify the related organization or a contact related to that organization.</errorMessage>
     </validationRules>
