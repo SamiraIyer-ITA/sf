@@ -1189,6 +1189,19 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Minority_Owned_Indicator1__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Minority Owned Indicator</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Minority_Owned_Indicator__c</fullName>
         <description>Minority-Owned Indicator from D&amp;B</description>
         <externalId>false</externalId>
