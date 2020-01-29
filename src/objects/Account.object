@@ -1243,8 +1243,7 @@
         <description>IF(DNBoptimizer__DnBCompanyRecord__r.      DNBoptimizer__NAICSCode1__c&gt;0, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription1__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c</description>
         <externalId>false</externalId>
         <formula>(IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c)) , DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription1__c,&quot;&quot;) &amp;
-IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c,&quot;&quot;) &amp;
-IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c, &quot;&quot;)
+IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c,&quot;&quot;) &amp;                                                                                               IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c, &quot;&quot;)
 )</formula>
         <inlineHelpText>Displays top 3 NAICS codes with their description for this company.</inlineHelpText>
         <label>NAICS</label>
@@ -1762,7 +1761,7 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c)), 
     <fields>
         <fullName>TickerSymbol</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>TracHier__DUNS_Global_Ultimate_Parent__c</fullName>
