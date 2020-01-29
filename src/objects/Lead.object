@@ -446,11 +446,11 @@
     </fields>
     <fields>
         <fullName>Address</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>AnnualRevenue</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>CampaignId</fullName>
@@ -704,11 +704,11 @@
     </fields>
     <fields>
         <fullName>Name</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>NumberOfEmployees</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Organization_Location__c</fullName>
@@ -1028,7 +1028,7 @@
     </fields>
     <fields>
         <fullName>Phone</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Rating</fullName>
@@ -1202,7 +1202,7 @@
     </fields>
     <fields>
         <fullName>Title</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Web_Campaign_ID__c</fullName>
@@ -1216,7 +1216,7 @@
     </fields>
     <fields>
         <fullName>Website</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>iContactforSF__iContact_Contact_Id__c</fullName>
