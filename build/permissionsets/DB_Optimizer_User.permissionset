@@ -4,10 +4,6 @@
         <apexClass>DNBoptimizer__DNB_AccountController_VFC</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>DNB_AccountController_VFC</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.LD_USE_DnB_Optimize__c</field>
