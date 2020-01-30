@@ -107,6 +107,12 @@
                 <field>LD_USE_DnB_Contact__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DNBoptimizer__DnBContactRecord__c</field>
+            </layoutItems>
+        </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

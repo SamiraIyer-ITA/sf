@@ -104,16 +104,12 @@
                 <field>DNBoptimizer__DNB_D_U_N_S_Number__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>ParentId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Phone</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Primary_Trade_Style__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

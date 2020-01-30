@@ -152,7 +152,7 @@
         <label>Dun &amp; Bradstreet Company Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>DNBoptimizer__DNB_D_U_N_S_Number__c</field>
             </layoutItems>
             <layoutItems>
