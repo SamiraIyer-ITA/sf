@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Grants access to the D&B Optimizer fields on Contact, Account/Organization, and Lead. Does NOT grant access to the 'Check for New Data' functionality.</description>
+    <description>Grants access to the D&amp;B Optimizer fields on Contact, Account/Organization, and Lead. Does NOT grant access to the 'Check for New Data' functionality.</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.D_B_Company_Record_Link__c</field>
