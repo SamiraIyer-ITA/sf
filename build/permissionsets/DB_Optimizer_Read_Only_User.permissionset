@@ -1370,7 +1370,7 @@
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__combined_address__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <label>DBOptimizerUserPermissionSet</label>
+    <label>DBOptimizerReadOnlyUserPermissionSet</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
