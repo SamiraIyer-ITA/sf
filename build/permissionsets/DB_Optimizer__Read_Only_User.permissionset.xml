@@ -241,1200 +241,1165 @@
         <enabled>true</enabled>
     </classAccesses>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.D_B_Company_Record_Link__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.DNBoptimizer__DnBCompanyRecord__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.DNBoptimizer__DNB_D_U_N_S_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.LD_USE_DnB_Optimize__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.DNBoptimizer__DnBContactRecord__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Contact.LD_USE_DnB_Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBAccountMetadata__c.DNBoptimizer__LinkageOpportunityType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBAccountMetadata__c.DNBoptimizer__Parent_DUNS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBAccountMetadata__c.DNBoptimizer__parent_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBAccountMetadata__c.DNBoptimizer__reparented__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__BusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__DUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__DelistedIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__DomesticUltimateBusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__DomesticUltimateDUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__EmployeeCountTotalReliabilityCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__EmployeeCountTotalReliabilityDescription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__EmployeeCountTotal__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__EmployeeCountTrendYear__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__EmployeesHereReliabilityCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__EmployeesHereReliabilityDescription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__EmployeesHere__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__FaxNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__Fortune1000Rank__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__GlobalUltimateBusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__GlobalUltimateDUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__HeadquarterBusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__HeadquarterDUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__ImporterExporterDescription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__ImporterExporterIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__LegalStatusCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__LegalStructureDescription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__LocationType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MailingAddress1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MailingAddress2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MailingCityName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MailingCountryCode_ISO__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MailingCountryCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MailingPostalCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MailingStateAbbreviation_ISO__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MailingStateAbbreviation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MailingStateName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MarketableIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__MinorityOwnedIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__NAICSCode1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__NAICSCode2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__NAICSCode3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__NAICSDescription1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__NAICSDescription2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__NAICSDescription3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__NationalIdentificationNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__NationalIdentificationSystem__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__NumberofFamilyMembers__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__OutofBusinessIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__ParentBusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__ParentDUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryCityName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryCountryCode_ISO__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryCountryCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryLatitude__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryLongitude__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryOwns_RentsCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryPostalCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimarySquareFootage__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryStateProvinceAbbreviation_ISO__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryStateProvinceAbbreviation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryStateProvinceName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryStreetAddress2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__PrimaryStreetAddress__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__Public_PrivateIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__RevenueTrendYear__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC4Code1Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC4Code1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC4Code2Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC4Code2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC4Code3Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC4Code3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC8Code1Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC8Code1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC8Code2Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC8Code2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC8Code3Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SIC8Code3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SalesVolumeReliabilityCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SalesVolumeUSDollars__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__SmallBusinessIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__StockExchange__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__StockSymbol__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__TelephoneNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__TradestyleName1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__TradestyleName2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__TradestyleName3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__USTaxID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__WebAddress__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__combined_address__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBCompanyRecord__c.DNBoptimizer__inactive__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__BusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__City__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__ContactID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__ContactPhone__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__CountryCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__DUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__EmailDeliverabilityScore__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__EmailDeliverability__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__Email__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__FirstName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__JobTitle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__LastName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__MiddleName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__NamePrefix__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__NameSuffix__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__PhoneAccuracyScore__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__PhoneAccuracy__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__PostalCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__SIC4Code1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__SIC4Desc1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__StateProvinceAbbrev__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__StateProvince__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBContactRecord__c.DNBoptimizer__inactive__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
+        <field>Lead.LD_USE_DnB_Optimize__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__BusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__City__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__ContactID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__ContactPhone__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__CountryCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__DUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__EmailDeliverabilityScore__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__Email__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__FirstName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__JobTitle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__LastName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__MiddleName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__NamePrefix__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__NameSuffix__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__PhoneAccuracyScore__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__PostalCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__SIC4Code1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__SIC4Desc1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__StateProvinceAbbrev__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__StateProvince__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalContactRecord__x.DNBoptimizer__baseDataId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__BusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__DUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__DUNSRight_MatchConfidenceCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__DUNSRight_MatchDataProfile__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__DUNSRight_MatchGrade__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__DelistedIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__DomesticUltimateBusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__DomesticUltimateDUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__EmployeeCountTotalReliabilityCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__EmployeeCountTotalReliabilityDescription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__EmployeeCountTotal__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__EmployeeCountTrendYear__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__EmployeesHereReliabilityCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__EmployeesHereReliabilityDescription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__EmployeesHere__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__FaxNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__Fortune1000Rank__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__GlobalUltimateBusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__GlobalUltimateDUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__HeadquarterBusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__HeadquarterDUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__ImporterExporterDescription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__ImporterExporterIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__LegalStatusCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__LegalStructureDescription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__LocationType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MailingAddress1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MailingAddress2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MailingCityName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MailingCountryCode_ISO__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MailingCountryCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MailingPostalCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MailingStateAbbreviation_ISO__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MailingStateAbbreviation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MailingStateName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MarketableIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__MinorityOwnedIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__NAICSCode1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__NAICSCode2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__NAICSCode3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__NAICSDescription1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__NAICSDescription2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__NAICSDescription3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__NationalIdentificationNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__NationalIdentificationSystem__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__NumberofFamilyMembers__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__OutofBusinessIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__ParentBusinessName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__ParentDUNSNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryCityName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryCountryCode_ISO__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryCountryCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryLatitude__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryLongitude__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryOwns_RentsCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryPostalCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimarySquareFootage__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryStateProvinceAbbreviation_ISO__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryStateProvinceAbbreviation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryStateProvinceName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryStreetAddress2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__PrimaryStreetAddress__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__Public_PrivateIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__RevenueTrendYear__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC4Code1Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC4Code1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC4Code2Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC4Code2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC4Code3Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC4Code3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC8Code1Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC8Code1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC8Code2Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC8Code2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC8Code3Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SIC8Code3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SalesVolumeReliabilityCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SalesVolumeUSDollars__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__SmallBusinessIndicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__StockExchange__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__StockSymbol__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__TelephoneNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__TradestyleName1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__TradestyleName2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__TradestyleName3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__USTaxID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__WebAddress__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__baseDataId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DNBoptimizer__DnBExternalRecord__x.DNBoptimizer__combined_address__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.DNBoptimizer__DnBContactRecord__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.DNBoptimizer__DnBCompanyRecord__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.DNBoptimizer__DNB_D_U_N_S_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.LD_USE_DnB_Optimize__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <label>DBOptimizerUserPermissionSet</label>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>DNBoptimizer__DnBAccountMetadata__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>DNBoptimizer__DnBCompanyRecord__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>DNBoptimizer__DnBContactRecord__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
@@ -1443,7 +1408,7 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
@@ -1452,13 +1417,13 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>DNBoptimizer__DNB_FamilyTreeData__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
         <apexPage>DNBoptimizer__DNB_Base_URL</apexPage>

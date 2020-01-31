@@ -20,4 +20,9 @@
         <field>Account.Year_Started__c</field>                                                                                                                          
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Minority_Owned_Indicator1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 </Profile>
