@@ -391,6 +391,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mexico</fullName>
                 <default>false</default>
             </values>
@@ -400,6 +404,10 @@
             </values>
             <values>
                 <fullName>Mozambique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Myanmar</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -520,14 +528,6 @@
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Zambia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Zimbabwe</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
