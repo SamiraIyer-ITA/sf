@@ -107,4 +107,26 @@
             <queue>CP_Contact_Us_Closed</queue>
         </sharedFrom>
     </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Public_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers></allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Public_Access_Queue_records</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access Queue records</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <group>CP_Master_Queue_Group</group>
+        </sharedFrom>
+    </sharingOwnerRules>
 </SharingRules>
