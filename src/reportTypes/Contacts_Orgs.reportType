@@ -743,11 +743,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account.Minority_Owned_Indicator__c</field>
-            <table>Contact</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Account.NAICS__c</field>
             <table>Contact</table>
         </columns>

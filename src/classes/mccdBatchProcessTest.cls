@@ -1,8 +1,8 @@
 @isTest
 public class mccdBatchProcessTest {
-	
-	public static testmethod void testMccdBatchJob()
-	{   
+    
+    public static testmethod void testMccdBatchJob()
+    {   
         Profile p = [SELECT Id FROM Profile WHERE Name='Data Team Admin']; 
         User testUser = new User();
         testUser.LastName = 'demo';
@@ -16,11 +16,11 @@ public class mccdBatchProcessTest {
         testUser.TimeZoneSidKey='America/Los_Angeles';
         //insert testuser;
 /*
-        List<DandBCompany> dnb = new List<DandBCompany>();
-        DandBCompany dbSet = new DandBCompany();
-        dbSet.DunsNumber ='1234';
+        List<DNBoptimizer__DnBCompanyRecord__c> dnb = new List<DNBoptimizer__DnBCompanyRecord__c>();
+        DNBoptimizer__DnBCompanyRecord__c dbSet = new DNBoptimizer__DnBCompanyRecord__c();
+        dbSet.DNBoptimizer__DUNSNumber__c ='1234';
         dbSet.Name =' DnB company';
-        dbSet.UsTaxId ='89765';
+        dbSet.DNBoptimizer__USTaxID__c ='89765';
         dnb.add(dbSet);
         insert dnb;*/
         System.runAs(testUser)
@@ -113,5 +113,5 @@ public class mccdBatchProcessTest {
             //mccdBatchProcess.sendMailtoUser(testBlob,funFlag,emailBody);
             Test.stopTest();
         }
-	}
+    }
 }
