@@ -97,36 +97,91 @@
         </sharedFrom>
     </sharingOwnerRules>
     <sharingOwnerRules>
-        <fullName>Closed_Contact_Requests</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Closed Contact Requests</label>
+        <fullName>Public_Access_Queue_1</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access Queue 1</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_1</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Public_Access_Queue_2</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access Queue 2</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_2</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Public_Access_Queue_3</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access Queue 3</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_3</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Public_Access_Queue_4</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access Queue 4</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_4</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Public_Access_Queue_5</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access Queue 5</label>
+        <sharedTo>
+            <allCustomerPortalUsers></allCustomerPortalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_5</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Public_Access_Queue_6</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access Queue 6</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_6</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Public_Access_Queue_7</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access Queue 7</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_8</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Public_Access_Queue_Closed</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Public Access Queue Closed</label>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
         <sharedFrom>
             <queue>CP_Contact_Us_Closed</queue>
-        </sharedFrom>
-    </sharingOwnerRules>
-    <sharingOwnerRules>
-        <fullName>Public_Access</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Public Access</label>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-        <sharedFrom>
-            <allInternalUsers></allInternalUsers>
-        </sharedFrom>
-    </sharingOwnerRules>
-    <sharingOwnerRules>
-        <fullName>Public_Access_Queue_records</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Public Access Queue records</label>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-        <sharedFrom>
-            <group>CP_Master_Queue_Group</group>
         </sharedFrom>
     </sharingOwnerRules>
 </SharingRules>
