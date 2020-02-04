@@ -34,12 +34,20 @@
         	     let vfOrigin = baseURL; //response.getReturnValue(); //    "https://danieldev-trade.cs33.force.com";
        			 window.addEventListener("message", function(event) {
        	    		 if (event.origin !== vfOrigin) {
+                                                  console.log('No data ' + event.data);
+
                      return;
             			} 
             		if (event.data==="Unlock"){  
+                                                 console.log('Unlock Event ' + event.data);
+
             		    component.set("v.eventData", event.data);    
              		    component.set("v.recaptchaValid", false);
-            			}            
+                        
+            			}    
+                     else{
+                         console.log('Unknown Event ' + event.data);
+                     }
         			}, false);                
        		 }
         });

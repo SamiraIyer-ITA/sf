@@ -6,7 +6,7 @@
     <communityRoles/>
     <disableReputationRecordConversations>false</disableReputationRecordConversations>
     <emailSenderAddress>noreply@trade.gov</emailSenderAddress>
-    <emailSenderName>International Trade Association</emailSenderName>
+    <emailSenderName>International Trade Administration</emailSenderName>
     <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
     <enableDirectMessages>false</enableDirectMessages>
     <enableGuestChatter>false</enableGuestChatter>
@@ -50,7 +50,7 @@
     <picassoSite>Customer_Portal1</picassoSite>
     <selfRegProfile>mcp-external-user</selfRegProfile>
     <selfRegistration>true</selfRegistration>
-    <sendWelcomeEmail>true</sendWelcomeEmail>
+    <sendWelcomeEmail>false</sendWelcomeEmail>
     <site>Customer_Portal</site>
     <status>Live</status>
     <tabs>

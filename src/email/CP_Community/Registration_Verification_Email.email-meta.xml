@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>MCP-170: &quot;The Business would like to send out a welcome email for any new registration. The welcome email should only be sent once for every new registration.&quot;</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Registration Verification Email</name>
+    <style>none</style>
+    <subject>Welcome to the International Trade Administration</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

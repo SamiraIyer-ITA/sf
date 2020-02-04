@@ -8,6 +8,26 @@
     border-radius: 2px;
 }
 
+.THIS .logoImage{
+    width:500px;
+    height:150px;
+}
+
+@media (min-width: 768px) {
+    .THIS .logoImage
+    {
+        width:450px;
+        height:150px;
+    }
+}
+     @media ( min-width: 1024px ) {
+        .THIS .logoImage
+        {
+            width:500px;
+            height:125px;
+        }
+    }
+
 .THIS .SetLinkColor{
     color:#000000
     
@@ -89,7 +109,7 @@
 }
 
 .THIS button .label {
-    color: #fff;    
+    color: #fff;	
 }
 
 .THIS  input {
@@ -116,11 +136,11 @@
 }
 
 .THIS .uiButton--default {
-    text-shadow:none;
+	text-shadow:none;
     margin: 5px 0px;
 }
 .THIS .uiButton--default:hover {
-    background-color: #005fb2;
+	background-color: #005fb2;
     border-color: #005fb2;
     color: #fff;
 }
