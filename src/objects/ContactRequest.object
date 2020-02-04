@@ -526,14 +526,20 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <fullName>My_ContactRequests</fullName>
         <columns>Name</columns>
         <columns>Status</columns>
+        <columns>RequestReason</columns>
+        <columns>RequestDescription</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
-        <columns>PreferredChannel</columns>
-        <columns>PreferredPhone</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Assigned_to_Me__c</field>
             <operation>equals</operation>
             <value>1</value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operation>notEqual</operation>
+            <value>Abandoned,Closed</value>
         </filters>
         <label>My Contact Requests</label>
     </listViews>
