@@ -223,14 +223,6 @@
         <picklistValues>
             <picklist>Contact_Us_Country__c</picklist>
             <values>
-                <fullName>Afghanistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Albania</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Algeria</fullName>
                 <default>false</default>
             </values>
@@ -243,10 +235,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Armenia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Australia</fullName>
                 <default>false</default>
             </values>
@@ -255,51 +243,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Azerbaijan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bahamas</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bahrain</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bangladesh</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Barbados</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Belgium</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Belize</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Benin</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bermuda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bosnia and Herzegovina</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Botswana</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -307,31 +251,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Brunei Darussalam</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bulgaria</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Burkina Faso</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cambodia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cameroon</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Canada</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chad</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -347,27 +271,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Congo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Congo%2C the Democratic Republic of the</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Costa Rica</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cote d%E2%80%99Ivoire</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Croatia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cyprus</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -383,10 +291,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ecuador</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Egypt</fullName>
                 <default>false</default>
             </values>
@@ -395,15 +299,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Estonia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Ethiopia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fiji</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -412,18 +308,6 @@
             </values>
             <values>
                 <fullName>France</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gabon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gambia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Georgia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -443,18 +327,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Guinea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guyana</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Haiti</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -467,11 +339,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Iceland</fullName>
+                <fullName>India</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>India</fullName>
+                <fullName>Indonesia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -484,10 +356,6 @@
             </values>
             <values>
                 <fullName>Italy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jamaica</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -515,19 +383,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Kosovo</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kuwait</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Latvia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -535,67 +391,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lesotho</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Liberia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lithuania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Madagascar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malawi</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mali</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malta</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mauritania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mauritius</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mongolia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Montenegro</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -607,11 +407,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Namibia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nepal</fullName>
+                <fullName>Myanmar</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -623,14 +419,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Nicaragua</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Niger</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Nigeria</fullName>
                 <default>false</default>
             </values>
@@ -639,19 +427,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Oman</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Pakistan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Panama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paraguay</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -683,14 +463,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rwanda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sao Tome and Principe</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Saudi Arabia</fullName>
                 <default>false</default>
             </values>
@@ -707,10 +479,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Slovenia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>South Africa</fullName>
                 <default>false</default>
             </values>
@@ -719,27 +487,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sri Lanka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suriname</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Switzerland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tajikistan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -751,19 +503,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trinidad and Tobago</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Turkey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Turkmenistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Uganda</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -787,23 +527,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Uzbekistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Zambia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Zimbabwe</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
