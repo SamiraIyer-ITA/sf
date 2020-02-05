@@ -50,9 +50,4 @@
         <field>ContactRequest.Total_time_to_close_case_Once_assigned__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>ContactRequest.system_now__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
 </Profile>
