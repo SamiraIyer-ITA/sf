@@ -371,11 +371,12 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Name</columns>
         <columns>Status</columns>
         <columns>CreatedDate</columns>
-        <columns>PreferredChannel</columns>
-        <columns>PreferredPhone</columns>
         <columns>Assigned_User__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Contact Requests</label>
+        <sharedTo>
+            <group>super_group</group>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_1_ContactRequest</fullName>
