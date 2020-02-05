@@ -141,13 +141,6 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
-        <fullName>Assigned_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Assigned Date</label>
-        <required>false</required>
-        <type>DateTime</type>
-    </fields>
-    <fields>
         <fullName>Assigned_User__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>MCP-85 This is the field that a user will manually populate with the person in the Contact Us queue who has been assigned to responding to a Contact Us record.</description>
@@ -166,13 +159,6 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Assigned to Me</label>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Closed_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Closed Date</label>
-        <required>false</required>
-        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Country_1__c</fullName>
@@ -212,13 +198,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Last_Status_Change_date__c</fullName>
-        <externalId>false</externalId>
-        <label>Last Status Change date</label>
-        <required>false</required>
-        <type>DateTime</type>
-    </fields>
-    <fields>
         <fullName>OwnerId</fullName>
         <type>Lookup</type>
     </fields>
@@ -239,100 +218,6 @@
     <fields>
         <fullName>Status</fullName>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Time_Assignment_Pending__c</fullName>
-        <externalId>false</externalId>
-        <formula>if(   ISNULL( Assigned_Date__c ),
-TEXT(
- FLOOR( NOW()  - CreatedDate)
-)  &amp; &quot; Days &quot; &amp;
-TEXT(
-ROUND(MOD(( NOW() - CreatedDate)*24,24),0)
-         )  &amp;&quot; Hours &quot; &amp;
-TEXT(
-ROUND(MOD(( NOW()  - CreatedDate)*1440,60),0)
-) &amp;&quot; Minutes &quot;, &quot;Assigned&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Time Assignment Pending</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Time_Since_Assigned__c</fullName>
-        <externalId>false</externalId>
-        <formula>if(!ISNULL(Assigned_Date__c) &amp;&amp; IsNull(Closed_Date__c)  ,
-TEXT(
- FLOOR( NOW() - Assigned_Date__c  )
-)  &amp; &quot; Days &quot; &amp;
-TEXT(
-ROUND(MOD(( NOW() - Assigned_Date__c )*24,24),0)
-         )  &amp;&quot; Hours &quot; &amp;
-TEXT(
-ROUND(MOD(( NOW() - Assigned_Date__c )*1440,60),0)
-) &amp;&quot; Minutes &quot;,&quot;Not Assigned or Closed&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Time Since Assigned</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Total_Time_since_last_Status_Change__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(
- FLOOR(NOW() -  Last_Status_Change_date__c )
-)  &amp; &quot; Days &quot; &amp;
-TEXT(
-ROUND(MOD((NOW() -  Last_Status_Change_date__c)*24,24),0)
-         )  &amp;&quot; Hours &quot; &amp;
-TEXT(
-ROUND(MOD((NOW() -  Last_Status_Change_date__c)*1440,60),0)
-) &amp;&quot; Minutes &quot;</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Total Time Since Last Status Change</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Total_time_Unassigned__c</fullName>
-        <externalId>false</externalId>
-        <formula>if(  !ISNULL( Assigned_Date__c ) ,
-TEXT(
- FLOOR(Assigned_Date__c- CreatedDate)
-)  &amp; &quot; Days &quot; &amp;
-TEXT(
-ROUND(MOD((Assigned_Date__c- CreatedDate)*24,24),0)
-         )  &amp;&quot; Hours &quot; &amp;
-TEXT(
-ROUND(MOD((Assigned_Date__c- CreatedDate)*1440,60),0)
-) &amp;&quot; Minutes &quot; , &quot;Not Assigned&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Total Time Unassigned</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Total_time_to_close_case_Once_assigned__c</fullName>
-        <externalId>false</externalId>
-        <formula>if( !ISNULL(Closed_Date__c ) ,
-TEXT(
- FLOOR(Closed_Date__c - Assigned_Date__c )
-)  &amp; &quot; Days &quot; &amp;
-TEXT(
-ROUND(MOD((Closed_Date__c - Assigned_Date__c )*24,24),0)
-         )  &amp;&quot; Hours &quot; &amp;
-TEXT(
-ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
-) &amp;&quot; Minutes &quot; , &quot;Assignment Not Closed&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Total Time To Close Since Assigned</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Trade_Barrier_URL__c</fullName>
@@ -358,37 +243,30 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <fullName>WhoId</fullName>
         <type>Lookup</type>
     </fields>
-    <fields>
-        <fullName>system_now__c</fullName>
-        <defaultValue>NOW()</defaultValue>
-        <externalId>false</externalId>
-        <label>system_now</label>
-        <required>false</required>
-        <type>DateTime</type>
-    </fields>
     <listViews>
         <fullName>All_ContactRequests</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>RequestDescription</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
-        <columns>PreferredChannel</columns>
-        <columns>PreferredPhone</columns>
         <columns>Assigned_User__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Contact Requests</label>
+        <sharedTo>
+            <group>super_group</group>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_1_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_User__c</field>
-            <operation>equals</operation>
-        </filters>
         <label>Queue#1</label>
         <queue>CP_Contact_US_1</queue>
         <sharedTo>
@@ -398,15 +276,12 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     <listViews>
         <fullName>CP_Contact_US_2_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_User__c</field>
-            <operation>equals</operation>
-        </filters>
         <label>Queue#2</label>
         <queue>CP_Contact_US_2</queue>
         <sharedTo>
@@ -416,15 +291,12 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     <listViews>
         <fullName>CP_Contact_US_3_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_User__c</field>
-            <operation>equals</operation>
-        </filters>
         <label>Queue#3</label>
         <queue>CP_Contact_US_3</queue>
         <sharedTo>
@@ -434,15 +306,12 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     <listViews>
         <fullName>CP_Contact_US_4_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_User__c</field>
-            <operation>equals</operation>
-        </filters>
         <label>Queue#4</label>
         <queue>CP_Contact_US_4</queue>
         <sharedTo>
@@ -452,15 +321,12 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     <listViews>
         <fullName>CP_Contact_US_5_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_User__c</field>
-            <operation>equals</operation>
-        </filters>
         <label>Queue#5</label>
         <queue>CP_Contact_US_5</queue>
         <sharedTo>
@@ -470,15 +336,12 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     <listViews>
         <fullName>CP_Contact_US_6_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_User__c</field>
-            <operation>equals</operation>
-        </filters>
         <label>Queue#6</label>
         <queue>CP_Contact_US_6</queue>
         <sharedTo>
@@ -488,15 +351,12 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     <listViews>
         <fullName>CP_Contact_US_8_ContactRequest</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
         <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_User__c</field>
-            <operation>equals</operation>
-        </filters>
         <label>Queue#7</label>
         <queue>CP_Contact_US_8</queue>
         <sharedTo>
@@ -504,18 +364,23 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>CP_Contact_Us_Closed_ContactRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>All Closed Contact Requests</label>
+        <queue>CP_Contact_Us_Closed</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Closed_Contact_Requests</fullName>
         <columns>Name</columns>
+        <columns>RequestReason</columns>
+        <columns>Status</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
-        <columns>Status</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Status</field>
-            <operation>equals</operation>
-            <value>Abandoned,Closed</value>
-        </filters>
         <label>All Closed Contact Requests</label>
         <queue>CP_Contact_Us_Closed</queue>
         <sharedTo>
