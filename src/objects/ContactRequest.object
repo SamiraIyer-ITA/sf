@@ -375,7 +375,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <filterScope>Everything</filterScope>
         <label>All Contact Requests</label>
         <sharedTo>
-            <group>super_group</group>
+            <group>CP_Master_Queue_Group</group>
         </sharedTo>
     </listViews>
     <listViews>
