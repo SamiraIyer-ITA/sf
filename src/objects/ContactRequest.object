@@ -1,134 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Contact_Us_LPL</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
     <compactLayoutAssignment>Contact_Us_CPL</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Contact_Us_CPL</fullName>
@@ -175,72 +46,13 @@
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>Country_1__c</fullName>
-        <externalId>false</externalId>
-        <label>Country</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>Country_1</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Email__c</fullName>
-        <externalId>false</externalId>
-        <label>Email</label>
-        <required>false</required>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>First_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>First Name</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Last_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Last Name</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Last_Status_Change_date__c</fullName>
         <externalId>false</externalId>
         <label>Last Status Change date</label>
         <required>false</required>
         <type>DateTime</type>
     </fields>
-    <fields>
-        <fullName>OwnerId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>PreferredChannel</fullName>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>PreferredPhone</fullName>
-    </fields>
-    <fields>
-        <fullName>RequestDescription</fullName>
-    </fields>
-    <fields>
-        <fullName>RequestReason</fullName>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Status</fullName>
-        <type>Picklist</type>
-    </fields>
-    <fields>
+     <fields>
         <fullName>Time_Assignment_Pending__c</fullName>
         <externalId>false</externalId>
         <formula>if(   ISNULL( Assigned_Date__c ),
@@ -333,38 +145,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Trade_Barrier_URL__c</fullName>
-        <externalId>false</externalId>
-        <label>Trade Barrier URL</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>US_ZIP_CODE__c</fullName>
-        <externalId>false</externalId>
-        <label>US ZIP CODE</label>
-        <length>30</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>WhatId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>WhoId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>system_now__c</fullName>
-        <defaultValue>NOW()</defaultValue>
-        <externalId>false</externalId>
-        <label>system_now</label>
-        <required>false</required>
-        <type>DateTime</type>
     </fields>
     <listViews>
         <fullName>All_ContactRequests</fullName>
