@@ -1,43 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>Contact_Us_CPL</compactLayoutAssignment>
-    <compactLayouts>
-        <fullName>Contact_Us_CPL</fullName>
-        <fields>Assigned_User__c</fields>
-        <fields>Status</fields>
-        <fields>CreatedDate</fields>
-        <fields>Country_1__c</fields>
-        <label>Contact Us CPL</label>
-    </compactLayouts>
-    <enableFeeds>false</enableFeeds>
-    <externalSharingModel>Private</externalSharingModel>
-    <fields>
-        <fullName>Assigned_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Assigned Date</label>
-        <required>false</required>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Assigned_User__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>MCP-85 This is the field that a user will manually populate with the person in the Contact Us queue who has been assigned to responding to a Contact Us record.</description>
-        <externalId>false</externalId>
-        <label>Assigned User</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Contact_Requests</relationshipName>
-        <required>false</required>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Assigned_to_Me__c</fullName>
-        <description>MCP-85 This field compares the Assigned User ID to the in context User ID to determine if the in context user is the assigned user.  This field is used to simulate &quot;My Records&quot; views on Listviews and Reports when the record is owned by a queue</description>
-        <externalId>false</externalId>
-        <formula>$User.Id =  Assigned_User__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Assigned to Me</label>
-        <type>Checkbox</type>
-    </fields>
     <fields>
         <fullName>Closed_Date__c</fullName>
         <externalId>false</externalId>
