@@ -269,14 +269,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <fullName>WhoId</fullName>
         <type>Lookup</type>
     </fields>
-    <fields>
-        <fullName>system_now__c</fullName>
-        <defaultValue>NOW()</defaultValue>
-        <externalId>false</externalId>
-        <label>system_now</label>
-        <required>false</required>
-        <type>DateTime</type>
-    </fields>
     <listViews>
         <fullName>All_ContactRequests</fullName>
         <columns>Name</columns>
