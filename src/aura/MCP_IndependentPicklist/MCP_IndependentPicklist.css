@@ -1,0 +1,11 @@
+.THIS .sfdc_picklist_container{
+}
+.THIS #sfdc_user{
+    float:left;
+    width:10px;
+    height:10px;
+    padding-top:1px;
+    padding-left:2px;
+    margin:0px;
+
+}

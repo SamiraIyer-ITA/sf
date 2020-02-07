@@ -74,7 +74,6 @@
         <fields>Name</fields>
         <fields>Congressional_District_formula__c</fields>
         <fields>OwnerId</fields>
-        <fields>CleanStatus</fields>
         <label>CRM Organization Compact Layout</label>
     </compactLayouts>
     <compactLayouts>
@@ -82,7 +81,6 @@
         <fields>Name</fields>
         <fields>Website</fields>
         <fields>Congressional_District_formula__c</fields>
-        <fields>CleanStatus</fields>
         <label>Compact Layout</label>
     </compactLayouts>
     <enableEnhancedLookup>true</enableEnhancedLookup>
@@ -163,7 +161,7 @@
     <fields>
         <fullName>AnnualRevenue</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Associated_Business_Names__c</fullName>
@@ -347,6 +345,18 @@
         <length>200</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>D_B_Company_Record_Link__c</fullName>
+        <description>Opens a new tab with the related D&amp;B Company information.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&apos;/&apos; &amp; DNBoptimizer__DnBCompanyRecord__r.Name, &apos;Access Additional D&amp;B Company Data&apos;)</formula>
+        <inlineHelpText>Opens a new tab with the related D&amp;B Company information.</inlineHelpText>
+        <label>D&amp;B Company Record Link</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1100,6 +1110,17 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>LD_USE_DnB_Optimize__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Allows or prevents account match and enrich from D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, match and enrich from D&amp;B Optimizer will process</inlineHelpText>
+        <label>Allow D&amp;B Optimizer</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Lead_Industry_Holder__c</fullName>
         <externalId>false</externalId>
         <label>Lead Industry Holder</label>
@@ -1168,6 +1189,19 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Minority_Owned_Indicator1__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Minority Owned Indicator</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Minority_Owned_Indicator__c</fullName>
         <description>Minority-Owned Indicator from D&amp;B</description>
         <externalId>false</externalId>
@@ -1179,12 +1213,37 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>NAICS__c</fullName>
-        <description>IF(DandbCompany.PrimaryNaics &gt;0, DandbCompany.PrimaryNaics &amp; &quot;: &quot; &amp;  DandbCompany.PrimaryNaicsDesc &amp; &quot;, &quot; &amp;  DandbCompany.SecondNaics &amp; &quot;: &quot; &amp;  DandbCompany.SecondNaicsDesc &amp; &quot;, &quot; &amp;  DandbCompany.ThirdNaics &amp; &quot;: &quot; &amp;  DandbCompany.ThirdNaicsDesc</description>
+        <fullName>NAICS_Code__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
-        <formula>(IF(NOT(ISBLANK(DandbCompany.PrimaryNaics)) , DandbCompany.PrimaryNaics &amp; &quot;: &quot; &amp;  DandbCompany.PrimaryNaicsDesc,&quot;&quot;) &amp;
-IF(NOT(ISBLANK(DandbCompany.SecondNaics)), &quot;, &quot; &amp;  DandbCompany.SecondNaics &amp; &quot;: &quot; &amp;  DandbCompany.SecondNaicsDesc,&quot;&quot;) &amp;
-IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.ThirdNaics &amp; &quot;: &quot; &amp;  DandbCompany.ThirdNaicsDesc, &quot;&quot;)
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>aaaNAICS Code</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NAICS_Description__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>aaaNAICS Description</label>
+        <length>120</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NAICS__c</fullName>
+        <description>IF(DNBoptimizer__DnBCompanyRecord__r.      DNBoptimizer__NAICSCode1__c&gt;0, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription1__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c &amp; &quot;, &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp;  DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c</description>
+        <externalId>false</externalId>
+        <formula>(IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c)) , DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode1__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription1__c,&quot;&quot;) &amp;
+IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription2__c,&quot;&quot;) &amp;                                                                                               IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c)), &quot;, &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode3__c &amp; &quot;: &quot; &amp; DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSDescription3__c, &quot;&quot;)
 )</formula>
         <inlineHelpText>Displays top 3 NAICS codes with their description for this company.</inlineHelpText>
         <label>NAICS</label>
@@ -1217,7 +1276,13 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
         <fullName>NumberOfEmployees</fullName>
         <inlineHelpText>The highest number of employees from the Data.com employee count fields.</inlineHelpText>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OperatingHoursId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Organization_18_ID__c</fullName>
@@ -1230,6 +1295,31 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Organization Location</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Located in US</fullName>
+                    <default>false</default>
+                    <label>Located in US</label>
+                </value>
+                <value>
+                    <fullName>Located outside US</fullName>
+                    <default>false</default>
+                    <label>Located outside US</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Organization_One__c</fullName>
@@ -1245,6 +1335,223 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Size__c</fullName>
+        <description>Decision on organization size is based on number of employees. If employees’ field is entered by TS, formula is based on that field, otherwise, use D&amp;B employee fields. 1-499 = Small, 500-999 = Medium, &gt;999 = Large</description>
+        <externalId>false</externalId>
+        <label>Organization Size</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Organization Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>U.S. Business Currently Exporting Goods/Services</fullName>
+                    <default>false</default>
+                    <label>U.S. Business Currently Exporting Goods/Services</label>
+                </value>
+                <value>
+                    <fullName>U.S. Business Seeking to Export Goods/Services</fullName>
+                    <default>false</default>
+                    <label>U.S. Business Seeking to Export Goods/Services</label>
+                </value>
+                <value>
+                    <fullName>U.S. Citizen Seeking to Export Goods/Services</fullName>
+                    <default>false</default>
+                    <label>U.S. Citizen Seeking to Export Goods/Services</label>
+                </value>
+                <value>
+                    <fullName>U.S. Educational Institution</fullName>
+                    <default>false</default>
+                    <label>U.S. Educational Institution</label>
+                </value>
+                <value>
+                    <fullName>U.S. Economic Development Organization</fullName>
+                    <default>false</default>
+                    <label>U.S. Economic Development Organization</label>
+                </value>
+                <value>
+                    <fullName>U.S. Travel &amp; Tourism Bureau</fullName>
+                    <default>false</default>
+                    <label>U.S. Travel &amp; Tourism Bureau</label>
+                </value>
+                <value>
+                    <fullName>U.S. based Student/Researcher</fullName>
+                    <default>false</default>
+                    <label>U.S. based Student/Researcher</label>
+                </value>
+                <value>
+                    <fullName>U.S. Industry Associations</fullName>
+                    <default>false</default>
+                    <label>U.S. Industry Associations</label>
+                </value>
+                <value>
+                    <fullName>U.S. Trade Show/Event Organizer</fullName>
+                    <default>false</default>
+                    <label>U.S. Trade Show/Event Organizer</label>
+                </value>
+                <value>
+                    <fullName>Service Provider to U.S. Exporters</fullName>
+                    <default>false</default>
+                    <label>Service Provider to U.S. Exporters</label>
+                </value>
+                <value>
+                    <fullName>U.S. Government</fullName>
+                    <default>false</default>
+                    <label>U.S. Government</label>
+                </value>
+                <value>
+                    <fullName>Foreign Subsidiary of U.S. Company (95% U.S. owned)</fullName>
+                    <default>false</default>
+                    <label>Foreign Subsidiary of U.S. Company (95% U.S. owned)</label>
+                </value>
+                <value>
+                    <fullName>Foreign Subsidiary of U.S. Company (less than 95% U.S. owned)</fullName>
+                    <default>false</default>
+                    <label>Foreign Subsidiary of U.S. Company (less than 95% U.S. owned)</label>
+                </value>
+                <value>
+                    <fullName>Current or Prospective Buyer of U.S. Goods/Services</fullName>
+                    <default>false</default>
+                    <label>Current or Prospective Buyer of U.S. Goods/Services</label>
+                </value>
+                <value>
+                    <fullName>Current or Prospective Investor in U.S.</fullName>
+                    <default>false</default>
+                    <label>Current or Prospective Investor in U.S.</label>
+                </value>
+                <value>
+                    <fullName>Foreign Government Entity</fullName>
+                    <default>false</default>
+                    <label>Foreign Government Entity</label>
+                </value>
+                <value>
+                    <fullName>Foreign Trade Show/Event Organizer</fullName>
+                    <default>false</default>
+                    <label>Foreign Trade Show/Event Organizer</label>
+                </value>
+                <value>
+                    <fullName>Foreign Student/Researcher</fullName>
+                    <default>false</default>
+                    <label>Foreign Student/Researcher</label>
+                </value>
+                <value>
+                    <fullName>Aerospace &amp; Defense</fullName>
+                    <default>false</default>
+                    <label>Aerospace &amp; Defense</label>
+                </value>
+                <value>
+                    <fullName>Automotive &amp; Smart Mobility</fullName>
+                    <default>false</default>
+                    <label>Automotive &amp; Smart Mobility</label>
+                </value>
+                <value>
+                    <fullName>Advanced Manufacturing</fullName>
+                    <default>false</default>
+                    <label>Advanced Manufacturing</label>
+                </value>
+                <value>
+                    <fullName>Food and Agriculture Value Chain</fullName>
+                    <default>false</default>
+                    <label>Food and Agriculture Value Chain</label>
+                </value>
+                <value>
+                    <fullName>Healthcare and Health Technologies</fullName>
+                    <default>false</default>
+                    <label>Healthcare and Health Technologies</label>
+                </value>
+                <value>
+                    <fullName>Education and Training Services</fullName>
+                    <default>false</default>
+                    <label>Education and Training Services</label>
+                </value>
+                <value>
+                    <fullName>Energy</fullName>
+                    <default>false</default>
+                    <label>Energy</label>
+                </value>
+                <value>
+                    <fullName>Environment Technologies</fullName>
+                    <default>false</default>
+                    <label>Environment Technologies</label>
+                </value>
+                <value>
+                    <fullName>Information and Communication Technologies</fullName>
+                    <default>false</default>
+                    <label>Information and Communication Technologies</label>
+                </value>
+                <value>
+                    <fullName>Media and Entertainment</fullName>
+                    <default>false</default>
+                    <label>Media and Entertainment</label>
+                </value>
+                <value>
+                    <fullName>Travel and Tourism</fullName>
+                    <default>false</default>
+                    <label>Travel and Tourism</label>
+                </value>
+                <value>
+                    <fullName>Marine Technology</fullName>
+                    <default>false</default>
+                    <label>Marine Technology</label>
+                </value>
+                <value>
+                    <fullName>Public Safety and Security</fullName>
+                    <default>false</default>
+                    <label>Public Safety and Security</label>
+                </value>
+                <value>
+                    <fullName>Financial Services</fullName>
+                    <default>false</default>
+                    <label>Financial Services</label>
+                </value>
+                <value>
+                    <fullName>Supply Chain &amp; Logistics and Distribution Services</fullName>
+                    <default>false</default>
+                    <label>Supply Chain &amp; Logistics and Distribution Services</label>
+                </value>
+                <value>
+                    <fullName>Textile, Apparel, Footwear and Travel Goods</fullName>
+                    <default>false</default>
+                    <label>Textile, Apparel, Footwear and Travel Goods</label>
+                </value>
+                <value>
+                    <fullName>Design &amp; Construction, Building &amp; Heavy Equipment</fullName>
+                    <default>false</default>
+                    <label>Design &amp; Construction, Building &amp; Heavy Equipment</label>
+                </value>
+                <value>
+                    <fullName>Franchising</fullName>
+                    <default>false</default>
+                    <label>Franchising</label>
+                </value>
+                <value>
+                    <fullName>Recreational Transportation</fullName>
+                    <default>false</default>
+                    <label>Recreational Transportation</label>
+                </value>
+                <value>
+                    <fullName>Office of Textiles and Apparel</fullName>
+                    <default>false</default>
+                    <label>Office of Textiles and Apparel</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
@@ -1280,17 +1587,12 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
-    <fields>
-        <fullName>Primary_Trade_Style__c</fullName>
-        <description>Primary Trade Style from D&amp;B</description>
+    <fields>                                                                                                                         <fullName>Primary_Trade_Style__c</fullName>
+        <description>Primary Trade Style from D&amp;B Optimizer</description>
         <externalId>false</externalId>
-        <formula>DandbCompany.TradeStyle1</formula>
-        <label>Primary Trade Style</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
+        <formula>DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__TradestyleName1__c</formula>
+        <label>Primary Trade Style</label>                                                                                           <required>false</required>                                                                                                   <trackHistory>false</trackHistory>
+        <type>Text</type>                                                                                                            <unique>false</unique>                                                                                                   </fields>
     <fields>
         <fullName>Privacy_Shield_Disabled__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1359,12 +1661,12 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
     <fields>
         <fullName>Sic</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>SicDesc</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Site</fullName>
@@ -1459,7 +1761,7 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
     <fields>
         <fullName>TickerSymbol</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>TracHier__DUNS_Global_Ultimate_Parent__c</fullName>
@@ -1484,23 +1786,6 @@ IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.Thi
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>TracHier__Global_Ultimate_Grouping_Id__c</fullName>
-        <deprecated>false</deprecated>
-        <description>Field used by Traction Hierarchies for grouping by Global Ultimate Parent account in reports</description>
-        <externalId>false</externalId>
-        <formula>if(!ISBLANK( TracHier__DUNS_Global_Ultimate_Parent__c), 
-TracHier__DUNS_Global_Ultimate_Parent__r.Name &amp; &quot; (&quot; &amp; TracHier__DUNS_Global_Ultimate_Parent__r.DunsNumber &amp; &quot;)&quot; 
-, 
-Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Available&quot;) &amp; &quot;)&quot; 
-)</formula>
-        <inlineHelpText>Use this field to group records by Global Ultimate Parent account in reports</inlineHelpText>
-        <label>Global Ultimate Grouping Id</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>TracHier__Owner__c</fullName>
@@ -1533,6 +1818,19 @@ Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Ava
         <fullName>Tradestyle</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Tradestyle__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>aaaTradestyle</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Type</fullName>
@@ -1595,7 +1893,7 @@ Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Ava
     <fields>
         <fullName>Website</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Woman_Owned_Indicator__c</fullName>
@@ -1613,6 +1911,19 @@ Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Ava
         <inlineHelpText>The year the entity commenced operations in its current form. If the entity was acquired by another company, the start date may reflect the date it was acquired.</inlineHelpText>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Year_Started__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>aaaYear Started</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>eMenu_ES_ID__c</fullName>
@@ -1697,14 +2008,16 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     <listViews>
         <fullName>All_smd</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
         <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
         <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>Category__c</columns>
         <columns>ACCOUNT.ADDRESS1_CITY</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.NAME</field>
+            <operation>contains</operation>
+            <value>Tarte</value>
+        </filters>
         <label>All</label>
     </listViews>
     <listViews>
@@ -1714,7 +2027,6 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         <columns>ACCOUNT.ADDRESS1_CITY</columns>
         <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
         <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
-        <columns>CLEAN_STATUS</columns>
         <columns>ACCOUNT.CREATED_DATE</columns>
         <filterScope>Mine</filterScope>
         <filters>
@@ -1723,9 +2035,8 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             <value>0</value>
         </filters>
         <filters>
-            <field>CLEAN_STATUS</field>
+            <field>DNBoptimizer__DnBCompanyRecord__c</field>
             <operation>equals</operation>
-            <value>3,5,6,7</value>
         </filters>
         <label>My Organizations Not Cleaned</label>
     </listViews>
@@ -1744,6 +2055,14 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             <value>0</value>
         </filters>
         <label>My Organizations with Clean Status</label>
+    </listViews>
+    <listViews>                                                                                                                      <fullName>My_Organizations1</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_STREET</columns>                                                                                   <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+        <filterScope>Mine</filterScope>                                                                                              <filters>                                                                                                                        <field>Request_Organization_Removal__c</field>
+            <operation>equals</operation>                                                                                                <value>0</value>                                                                                                         </filters>                                                                                                                   <label>My Organizations</label>
     </listViews>
     <listViews>
         <fullName>Organization_Hierarchy</fullName>
@@ -1765,22 +2084,13 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     </listViews>
     <listViews>
         <fullName>Request_For_Removal</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>CLEAN_STATUS</columns>
-        <columns>ACCOUNT.LAST_ACTIVITY</columns>
-        <columns>TracHier__Owner__c</columns>
-        <columns>Owner_Office__c</columns>
-        <columns>Request_Organization_Removal__c</columns>
+        <columns>ACCOUNT.NAME</columns>                                                                                              <columns>ACCOUNT.LAST_ACTIVITY</columns>                                                                                     <columns>TracHier__Owner__c</columns>
+        <columns>Owner_Office__c</columns>                                                                                           <columns>Request_Organization_Removal__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Request_Organization_Removal__c</field>
             <operation>equals</operation>
             <value>1</value>
-        </filters>
-        <filters>
-            <field>CLEAN_STATUS</field>
-            <operation>equals</operation>
-            <value>0,1,2,3,4,7</value>
         </filters>
         <label>Request For Removal Cleaned</label>
         <sharedTo>
@@ -1792,7 +2102,7 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     <recordTypes>
         <fullName>ITA_CRM_Law_Firm</fullName>
         <active>true</active>
-        <compactLayoutAssignment>CRM_Organization_Compact_Layout</compactLayoutAssignment>
+	<compactLayoutAssignment>CRM_Organization_Compact_Layout</compactLayoutAssignment>
         <label>ITA CRM Law Firm</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
@@ -2529,6 +2839,172 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Location__c</picklist>
+            <values>
+                <fullName>Located in US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Type__c</picklist>
+            <values>
+                <fullName>Advanced Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aerospace %26 Defense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive %26 Smart Mobility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Buyer of U%2ES%2E Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Investor in U%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design %26 Construction%2C Building %26 Heavy Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education and Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environment Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Agriculture Value Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Government Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %2895%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %28less than 95%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare and Health Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information and Communication Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Textiles and Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Safety and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreational Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider to U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain %26 Logistics and Distribution Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile%2C Apparel%2C Footwear and Travel Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Currently Exporting Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Citizen Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Economic Development Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Educational Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Industry Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Travel %26 Tourism Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E based Student%2FResearcher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3330,6 +3806,172 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Organization_Location__c</picklist>
+            <values>
+                <fullName>Located in US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Type__c</picklist>
+            <values>
+                <fullName>Advanced Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aerospace %26 Defense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive %26 Smart Mobility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Buyer of U%2ES%2E Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Investor in U%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design %26 Construction%2C Building %26 Heavy Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education and Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environment Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Agriculture Value Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Government Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %2895%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %28less than 95%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare and Health Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information and Communication Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Textiles and Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Safety and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreational Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider to U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain %26 Logistics and Distribution Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile%2C Apparel%2C Footwear and Travel Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Currently Exporting Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Citizen Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Economic Development Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Educational Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Industry Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Travel %26 Tourism Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E based Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Ownership</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -4052,6 +4694,172 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Location__c</picklist>
+            <values>
+                <fullName>Located in US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Type__c</picklist>
+            <values>
+                <fullName>Advanced Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aerospace %26 Defense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive %26 Smart Mobility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Buyer of U%2ES%2E Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Investor in U%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design %26 Construction%2C Building %26 Heavy Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education and Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environment Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Agriculture Value Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Government Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %2895%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %28less than 95%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare and Health Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information and Communication Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Textiles and Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Safety and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreational Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider to U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain %26 Logistics and Distribution Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile%2C Apparel%2C Footwear and Travel Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Currently Exporting Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Citizen Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Economic Development Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Educational Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Industry Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Travel %26 Tourism Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E based Student%2FResearcher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4869,6 +5677,172 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Location__c</picklist>
+            <values>
+                <fullName>Located in US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Type__c</picklist>
+            <values>
+                <fullName>Advanced Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aerospace %26 Defense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive %26 Smart Mobility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Buyer of U%2ES%2E Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current or Prospective Investor in U%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design %26 Construction%2C Building %26 Heavy Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education and Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environment Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Agriculture Value Chain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Government Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Student%2FResearcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %2895%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Subsidiary of U%2ES%2E Company %28less than 95%25 U%2ES%2E owned%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare and Health Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information and Communication Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Textiles and Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Safety and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreational Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider to U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supply Chain %26 Logistics and Distribution Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile%2C Apparel%2C Footwear and Travel Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Currently Exporting Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Citizen Seeking to Export Goods%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Economic Development Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Educational Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Industry Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade Show%2FEvent Organizer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Travel %26 Tourism Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E based Student%2FResearcher</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

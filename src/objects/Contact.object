@@ -161,6 +161,15 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>CP_Conversion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Conversion Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>CTS_Contact_ID__c</fullName>
         <description>Legacy Contact ID for easy data loading and validation.</description>
         <externalId>true</externalId>
@@ -333,6 +342,17 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>LD_USE_DnB_Contact__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Allows or prevents account match and enrich from D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, match and enrich from D&amp;B Optimizer will process</inlineHelpText>
+        <label>Allow D&amp;B Optimizer</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>LastCURequestDate</fullName>
     </fields>
     <fields>
@@ -500,6 +520,18 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Sys_Prior_Account_Name__c</fullName>
+        <description>Used in a validation rule - not displayed.</description>
+        <externalId>false</externalId>
+        <formula>Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sys Prior Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Test__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Field used for data migration purposes.</description>
@@ -588,11 +620,6 @@
         <columns>CORE.USERS.FIRST_NAME</columns>
         <columns>CORE.USERS.LAST_NAME</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>Active__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
         <label>All Contacts</label>
     </listViews>
     <listViews>
@@ -642,6 +669,10 @@
             </values>
             <values>
                 <fullName>Referral %2F Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sourced_from_CP_communities</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -703,6 +734,10 @@
             </values>
             <values>
                 <fullName>Referral %2F Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sourced_from_CP_communities</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -778,7 +813,8 @@
 Add System admin condition eventually.
 $Profile.Name &lt;&gt; &quot;System Administrator&quot;,</description>
         <errorConditionFormula>AND(
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+PRIORVALUE( Sys_Prior_Account_Name__c) &lt;&gt; $Label.MCP_ExternalUserAccount,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
 $Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;,
 $Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
 ISCHANGED(AccountId)

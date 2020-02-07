@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="parentValue" type="String"/>
+    <aura:attribute name="parentPath" type="String"/>
+</aura:event>

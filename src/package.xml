@@ -26,6 +26,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>AssignmentRules</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -54,6 +58,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>CustomNotificationType</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -79,6 +87,10 @@
     <types>
         <members>*</members>
         <name>DataCategoryGroup</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>EmailTemplate</name>
     </types>
     <types>
         <members>*</members>
@@ -134,6 +146,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>Network</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>PathAssistant</name>
     </types>
     <types>
@@ -143,6 +159,10 @@
     <types>
         <members>*</members>
         <name>Profile</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ProfilePasswordPolicy</name>
     </types>
     <types>
         <members>*</members>
@@ -175,6 +195,10 @@
     <types>
         <members>*</members>
         <name>SharingSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>SiteDotCom</name>
     </types>
     <types>
         <members>*</members>

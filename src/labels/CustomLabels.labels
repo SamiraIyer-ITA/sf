@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>CP_Lead_Assignment</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_Lead_Assignment</shortDescription>
+        <value>CP_US_Exporter</value>
+    </labels>
+    <labels>
+        <fullName>CP_NoReply_Alias</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_NoReply_Alias</shortDescription>
+        <value>iowne</value>
+    </labels>
+    <labels>
+        <fullName>CP_temp_password_sent</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>temp_password_sent</shortDescription>
+        <value>Check your email for instructions to reset your password.  Be sure to check your SPAM 
+folder. If you don’t receive an email in any of your folders, please alert us by selecting 
+&apos;Account Issue’ via the Contact Us form at &lt;link to be provided by drupal&gt;.</value>
+    </labels>
+    <labels>
+        <fullName>MCP</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP__FieldSet</shortDescription>
+        <value>MCP_REGFIELDS</value>
+    </labels>
+    <labels>
+        <fullName>MCP_DuplicateUserName</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_DuplicateUserName</shortDescription>
+        <value>Email address has already been registered. Please use the Forgot My password  page to retrieve / reset your password. If you do not already have an account please registrar with a different email address.</value>
+    </labels>
+    <labels>
+        <fullName>MCP_EmailDoNotMatch</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmailDoNotMatch</shortDescription>
+        <value>Emails do not match please update email</value>
+    </labels>
+    <labels>
+        <fullName>MCP_ExternalUserAccount</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_ExternalUserAccount</shortDescription>
+        <value>CP Account</value>
+    </labels>
+    <labels>
+        <fullName>MCP_FailedToCreateUSer</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_FailedToCreateUser</shortDescription>
+        <value>Unable to create user account please contact you administrator.</value>
+    </labels>
+    <labels>
+        <fullName>MCP_FieldSet</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_FieldSet</shortDescription>
+        <value>MCP_REGFIELDS</value>
+    </labels>
+    <labels>
+        <fullName>MCP_GenricAccountNotFound</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_GenricAccountNotFound</shortDescription>
+        <value>Generic account for external user not found please contact your administrator</value>
+    </labels>
+    <labels>
+        <fullName>MPCFieldSet</fullName>
+        <categories>MCP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MCPFieldSet</shortDescription>
+        <value>MPCRegFields</value>
+    </labels>
+    <labels>
+        <fullName>cp_community_address</fullName>
+        <categories>CP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>cp_community_address</shortDescription>
+        <value>https://danieldev-trade.cs33.force.com/MCPCommunity</value>
+    </labels>
+    <labels>
         <fullName>export_gov</fullName>
         <language>en_US</language>
         <protected>false</protected>
