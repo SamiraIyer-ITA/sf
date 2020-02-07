@@ -1,2 +1,4 @@
 src/standardValueSets/LeadSource.standardValueSet
 src/standardValueSets/LeadStatus.standardValueSet
+src/queues/MCP_OTHER_TBD.queue
+src/queues/MCP_Exporter_Lead.queue
