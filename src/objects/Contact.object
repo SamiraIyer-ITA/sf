@@ -342,6 +342,17 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>LD_USE_DnB_Contact__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Allows or prevents account match and enrich from D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, match and enrich from D&amp;B Optimizer will process</inlineHelpText>
+        <label>Allow D&amp;B Optimizer</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>LastCURequestDate</fullName>
     </fields>
     <fields>
@@ -609,11 +620,6 @@
         <columns>CORE.USERS.FIRST_NAME</columns>
         <columns>CORE.USERS.LAST_NAME</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>Active__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
         <label>All Contacts</label>
     </listViews>
     <listViews>

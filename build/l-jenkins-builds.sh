@@ -64,6 +64,7 @@ types=" app \
 	profilePasswordPolicy \
         queue \
         quickAction \
+	remoteSite \
 	report \
         reportType \
         resource \
