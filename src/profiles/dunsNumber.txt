@@ -1,0 +1,100 @@
+ADCVD CRU.profile:        <field>Account.DunsNumber</field>
+ADCVD CRU.profile:        <field>Lead.CompanyDunsNumber</field>
+ADCVD Front Office.profile:        <field>Account.DunsNumber</field>
+ADCVD Front Office.profile:        <field>Lead.CompanyDunsNumber</field>
+ADCVD Legal PowerUser.profile:        <field>Account.DunsNumber</field>
+ADCVD Legal PowerUser.profile:        <field>Lead.CompanyDunsNumber</field>
+ADCVD Manager.profile:        <field>Account.DunsNumber</field>
+ADCVD Manager.profile:        <field>Lead.CompanyDunsNumber</field>
+ADCVD Policy PowerUser.profile:        <field>Account.DunsNumber</field>
+ADCVD Policy PowerUser.profile:        <field>Lead.CompanyDunsNumber</field>
+ADCVD PowerUser.profile:        <field>Account.DunsNumber</field>
+ADCVD PowerUser.profile:        <field>Lead.CompanyDunsNumber</field>
+ADCVD Standard Customs.profile:        <field>Account.DunsNumber</field>
+ADCVD Standard Customs.profile:        <field>Lead.CompanyDunsNumber</field>
+ADCVD Standard Legal.profile:        <field>Account.DunsNumber</field>
+ADCVD Standard Legal.profile:        <field>Lead.CompanyDunsNumber</field>
+ADCVD Standard Operations.profile:        <field>Account.DunsNumber</field>
+ADCVD Standard Operations.profile:        <field>Lead.CompanyDunsNumber</field>
+ADCVD Standard Policy.profile:        <field>Account.DunsNumber</field>
+ADCVD Standard Policy.profile:        <field>Lead.CompanyDunsNumber</field>
+Admin.profile:        <field>Account.DunsNumber</field>
+Admin.profile:        <field>Lead.CompanyDunsNumber</field>
+Analytics Cloud Integration User.profile:        <field>Account.DunsNumber</field>
+Analytics Cloud Integration User.profile:        <field>Lead.CompanyDunsNumber</field>
+Analytics Cloud Security User.profile:        <field>Account.DunsNumber</field>
+Analytics Cloud Security User.profile:        <field>Lead.CompanyDunsNumber</field>
+Beta Community Profile.profile:        <field>Account.DunsNumber</field>
+Beta Community Profile.profile:        <field>Lead.CompanyDunsNumber</field>
+Chatter External User.profile:        <field>Account.DunsNumber</field>
+Chatter External User.profile:        <field>Lead.CompanyDunsNumber</field>
+Chatter Free User.profile:        <field>Account.DunsNumber</field>
+Chatter Free User.profile:        <field>Lead.CompanyDunsNumber</field>
+Chatter Moderator User.profile:        <field>Account.DunsNumber</field>
+Chatter Moderator User.profile:        <field>Lead.CompanyDunsNumber</field>
+ContractManager.profile:        <field>Account.DunsNumber</field>
+ContractManager.profile:        <field>Lead.CompanyDunsNumber</field>
+Core Team.profile:        <field>Account.DunsNumber</field>
+Core Team.profile:        <field>Lead.CompanyDunsNumber</field>
+Customer Community Login User.profile:        <field>Account.DunsNumber</field>
+Customer Community Login User.profile:        <field>Lead.CompanyDunsNumber</field>
+Customer Community User.profile:        <field>Account.DunsNumber</field>
+Customer Community User.profile:        <field>Lead.CompanyDunsNumber</field>
+Customer Portal Profile.profile:        <field>Account.DunsNumber</field>
+Customer Portal Profile.profile:        <field>Lead.CompanyDunsNumber</field>
+Customer Trade Community User.profile:        <field>Account.DunsNumber</field>
+Customer Trade Community User.profile:        <field>Lead.CompanyDunsNumber</field>
+Data Team Admin.profile:        <field>Account.DunsNumber</field>
+Data Team Admin.profile:        <field>Lead.CompanyDunsNumber</field>
+Delete2 Profile.profile:        <field>Account.DunsNumber</field>
+Delete2 Profile.profile:        <field>Lead.CompanyDunsNumber</field>
+Delete Profile.profile:        <field>Account.DunsNumber</field>
+Delete Profile.profile:        <field>Lead.CompanyDunsNumber</field>
+E%26C TANC.profile:        <field>Account.DunsNumber</field>
+E%26C TANC.profile:        <field>Lead.CompanyDunsNumber</field>
+External Identity User.profile:        <field>Account.DunsNumber</field>
+External Identity User.profile:        <field>Lead.CompanyDunsNumber</field>
+GM Advocacy.profile:        <field>Account.DunsNumber</field>
+GM Advocacy.profile:        <field>Lead.CompanyDunsNumber</field>
+GM Commercial Service.profile:        <field>Account.DunsNumber</field>
+GM Commercial Service.profile:        <field>Lead.CompanyDunsNumber</field>
+GM SelectUSA.profile:        <field>Account.DunsNumber</field>
+GM SelectUSA.profile:        <field>Lead.CompanyDunsNumber</field>
+Guest License User.profile:        <field>Account.DunsNumber</field>
+Guest License User.profile:        <field>Lead.CompanyDunsNumber</field>
+Help Desk Administration.profile:        <field>Account.DunsNumber</field>
+Help Desk Administration.profile:        <field>Lead.CompanyDunsNumber</field>
+I%26A.profile:        <field>Account.DunsNumber</field>
+I%26A.profile:        <field>Lead.CompanyDunsNumber</field>
+Integrated User Profile.profile:        <field>Account.DunsNumber</field>
+Integrated User Profile.profile:        <field>Lead.CompanyDunsNumber</field>
+ITA OPA%2FOLIA.profile:        <field>Account.DunsNumber</field>
+ITA OPA%2FOLIA.profile:        <field>Lead.CompanyDunsNumber</field>
+ITA User Read Only.profile:        <field>Account.DunsNumber</field>
+ITA User Read Only.profile:        <field>Lead.CompanyDunsNumber</field>
+Librarian.profile:        <field>Account.DunsNumber</field>
+Librarian.profile:        <field>Lead.CompanyDunsNumber</field>
+Market Diversification Profile.profile:        <field>Account.DunsNumber</field>
+Market Diversification Profile.profile:        <field>Lead.CompanyDunsNumber</field>
+MarketingProfile.profile:        <field>Account.DunsNumber</field>
+MarketingProfile.profile:        <field>Lead.CompanyDunsNumber</field>
+MCP-External-User.profile:        <field>Account.DunsNumber</field>
+MCP-External-User.profile:        <field>Lead.CompanyDunsNumber</field>
+Platform Profile.profile:        <field>Account.DunsNumber</field>
+Platform Profile.profile:        <field>Lead.CompanyDunsNumber</field>
+Premier Support User.profile:        <field>Account.DunsNumber</field>
+Premier Support User.profile:        <field>Lead.CompanyDunsNumber</field>
+ReadOnly.profile:        <field>Account.DunsNumber</field>
+ReadOnly.profile:        <field>Lead.CompanyDunsNumber</field>
+Salesforce Developer.profile:        <field>Account.DunsNumber</field>
+Salesforce Developer.profile:        <field>Lead.CompanyDunsNumber</field>
+Security Review.profile:        <field>Account.DunsNumber</field>
+Security Review.profile:        <field>Lead.CompanyDunsNumber</field>
+SolutionManager.profile:        <field>Account.DunsNumber</field>
+SolutionManager.profile:        <field>Lead.CompanyDunsNumber</field>
+Standard.profile:        <field>Account.DunsNumber</field>
+Standard.profile:        <field>Lead.CompanyDunsNumber</field>
+Test Profile.profile:        <field>Account.DunsNumber</field>
+Test Profile.profile:        <field>Lead.CompanyDunsNumber</field>
+Trade Community Profile.profile:        <field>Account.DunsNumber</field>
+Trade Community Profile.profile:        <field>Lead.CompanyDunsNumber</field>
