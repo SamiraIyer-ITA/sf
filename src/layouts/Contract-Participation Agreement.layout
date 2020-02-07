@@ -8,7 +8,7 @@
         <label>Contract Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Pricebook2Id</field>
             </layoutItems>
             <layoutItems>
