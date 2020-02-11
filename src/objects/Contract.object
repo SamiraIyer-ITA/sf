@@ -188,48 +188,6 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>Administrative_Contact__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Administrative Contact</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Contact.AccountId</field>
-                <operation>equals</operation>
-                <valueField>$Source.AccountId</valueField>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>Contact</referenceTo>
-        <relationshipLabel>Contracts</relationshipLabel>
-        <relationshipName>Administrative_Contacts</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Alternate_Contact__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Alternate Contact</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Contact.AccountId</field>
-                <operation>equals</operation>
-                <valueField>$Source.AccountId</valueField>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>Contact</referenceTo>
-        <relationshipLabel>Contracts</relationshipLabel>
-        <relationshipName>Alternate_Contacts</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>BillingAddress</fullName>
         <trackHistory>true</trackHistory>
     </fields>
@@ -283,27 +241,6 @@
     <fields>
         <fullName>Pricebook2Id</fullName>
         <trackHistory>true</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Primary_Contact__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Primary Contact</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Contact.AccountId</field>
-                <operation>equals</operation>
-                <valueField>$Source.AccountId</valueField>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>Contact</referenceTo>
-        <relationshipLabel>Contracts</relationshipLabel>
-        <relationshipName>Primary_Contacts</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
