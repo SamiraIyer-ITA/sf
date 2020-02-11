@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="selection" label="userPickListSelection" />
+    <design:attribute name="Object" label="Sobject" />
+    <design:attribute name="RecordTypeId" label="recordTypeId" />
+    <design:attribute name="fieldLabel" label="fieldLabel" />
+    <design:attribute name="fieldAPIName" label="fieldAPIName" />
+</design:component>

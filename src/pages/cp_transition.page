@@ -1,0 +1,58 @@
+<apex:page showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="CP_TransitionController" >
+    
+    <apex:composition template="Site_Template">
+        <apex:define name="page">
+            <head>
+                <title>CP Transition</title>
+                <style>
+                    .itaLoginBtn, input[type="submit"] {   
+                    float: none;
+                    }
+                    .secondary-bg-ita .btn-dark {
+                    padding: 0;
+                    width:350px;
+                    }
+                </style>
+            </head>
+            
+            <div class="container-fluid" id="reglayout">
+                <div class="row reglayout_zeropad">
+                      <div class="section clearfix secondary-bg-ita">
+                        <div>
+                            <div class="row content">
+                                <div class="containerInternal enforceHeight">
+                                    <div class="col-md-12">  
+                                        <div class="call-to-action">
+                                            <h4 class="text-center" style="color:red;text-align:left;"> <apex:pageMessages id="showmsg"></apex:pageMessages></h4>
+                                            <h1 class="text-center">We need a few minutes…</h1>
+                                            <p  style="text-align:left;">Before you continue your Privacy Shield application, we need to make a few updates to your account. This may take a few minutes, so we’ll send you an email when it’s ready.<br/><br/>Thank you in advance for your patience. </p>
+                                            
+                                            
+                                            <apex:form id="buttonForm">
+                                                
+                                                <apex:commandButton action="{!upgeadeAccount}" value="SEND ME AN EMAIL WHEN IT’S READY" id="theButton"  styleClass="btn-dark" rerender="showmsg" oncomplete="cp();"/>
+                                            
+                                            <script>
+function cp() {
+    window.location = '/';
+}
+</script>
+                                            </apex:form>  
+                                            
+                                            
+                                        </div>
+                                    </div> 
+                                    
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div><!-- /.container -->   
+            
+            
+        </apex:define>
+    </apex:composition>
+   
+</apex:page>
