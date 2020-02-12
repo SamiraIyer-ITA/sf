@@ -1,5 +1,4 @@
 ({
-    
     qsToEventMap: {
         'startURL'  : 'e.c:setStartUrl'
     },

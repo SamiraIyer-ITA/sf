@@ -162,6 +162,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>ProfilePasswordPolicy</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Queue</name>
     </types>
     <types>
