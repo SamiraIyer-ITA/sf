@@ -1147,21 +1147,6 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>STPS</pluralLabel>
-    <searchLayouts>
-        <listViewButtons>Launch_STP_Flow</listViewButtons>
-    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
-    <webLinks>
-        <fullName>Launch_STP_Flow</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <height>600</height>
-        <linkType>page</linkType>
-        <masterLabel>Launch STP Flow</masterLabel>
-        <openType>sidebar</openType>
-        <page>STP_Flow_VF</page>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-    </webLinks>
 </CustomObject>
