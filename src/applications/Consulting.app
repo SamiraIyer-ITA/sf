@@ -4,16 +4,29 @@
         <headerColor>#0070D2</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
-    <description>App for qualifying and consulting with clients</description>
+    <description>App for consulting w/ ITA clients</description>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Consulting</label>
     <navType>Standard</navType>
-    <tabs>standard-Account</tabs>
-    <tabs>standard-Contact</tabs>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Services_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Services</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
     <tabs>standard-Lead</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Account</tabs>
     <tabs>standard-Opportunity</tabs>
+    <tabs>standard-Quote</tabs>
+    <tabs>standard-Contract</tabs>
+    <tabs>standard-Product2</tabs>
+    <tabs>standard-Order</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Consulting_UtilityBar</utilityBar>
 </CustomApplication>
