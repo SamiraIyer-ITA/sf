@@ -37,5 +37,5 @@
     <tabs>standard-Product2</tabs>
     <tabs>standard-Order</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Consulting_UtilityBar1</utilityBar>
+    <utilityBar>Consulting_UtilityBar</utilityBar>
 </CustomApplication>
