@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+	<applicationVisibilities>
+        <application>Consulting</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
 	<fieldPermissions>
 		<editable>true</editable>
 		<field>STP__c.Additional_Services_or_Assistance_Requir__c</field>
@@ -333,6 +338,10 @@
 	<layoutAssignments>
         <layout>Contract-Participation Agreement</layout>
     </layoutAssignments>
+     <layoutAssignments>
+        <layout>Opportunity-Services</layout>
+        <recordType>Opportunity.Services</recordType>
+    </layoutAssignments>
 	<objectPermissions>
 		<allowCreate>true</allowCreate>
 		<allowDelete>true</allowDelete>
@@ -350,6 +359,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead.Export</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Opportunity.Services</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
