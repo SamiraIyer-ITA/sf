@@ -583,6 +583,21 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         </sharedTo>
     </listViews>
     <listViews>
+      <fullName>CP_Contact_US_9_ContactRequest</fullName>
+      <columns>Name</columns>
+      <columns>RequestReason</columns>
+      <columns>Status</columns>
+      <columns>Country_1__c</columns>
+      <columns>CreatedDate</columns>
+      <columns>Assigned_User__c</columns>
+      <filterScope>Queue</filterScope>
+      <label>Queue#8</label>
+      <queue>CP_Contact_US_9</queue>
+      <sharedTo>
+          <group>CP_Contact_Us_Group9</group>
+      </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Closed_Contact_Requests</fullName>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
