@@ -101617,6 +101617,18 @@ ISBLANK(Subject)
         <errorMessage>You must enter a value for Subject.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Validate_Business_Opp_Created_Improved</fullName>
+        <active>true</active>
+        <description>Business Opportunity Created/Improved should not be populated if Potential Primary Outcome &quot;is Reduced/Removed/Prevented trade barrier&quot;.</description>
+        <errorConditionFormula>AND(
+$RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot;,
+NOT(ISBLANK (Business_Opportunity_Created_Improved__c )),
+NOT(ISPICKVAL(Potential_Primary_Outcome__c, &quot;Created/Improved Business Opportunity&quot;))
+)</errorConditionFormula>
+        <errorDisplayField>Business_Opportunity_Created_Improved__c</errorDisplayField>
+        <errorMessage>Business Opportunity Created/Improved should not be populated if Potential Primary Outcome &quot;is Reduced/Removed/Prevented trade barrier&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>When_removal_selected_cant_edit</fullName>
         <active>true</active>
         <description>Unless administrator, can not edit cases marked for removal.
