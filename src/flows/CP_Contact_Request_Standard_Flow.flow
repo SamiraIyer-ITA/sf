@@ -629,7 +629,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <allowPause>false</allowPause>
         <fields>
             <name>Success_message</name>
-            <fieldText>&lt;p&gt;Your request has been submitted!&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Thanks for contacting the International Trade Administration. Your request has been routed to the appropriate staff who will respond back as soon as possible.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
