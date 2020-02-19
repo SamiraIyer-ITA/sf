@@ -3,12 +3,12 @@
     <actionCalls>
         <name>Get_Group_Id</name>
         <label>Get Group Id</label>
-        <locationX>342</locationX>
-        <locationY>370</locationY>
+        <locationX>340</locationX>
+        <locationY>470</locationY>
         <actionName>CP_Flow_Query_Groups</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Get_Lead_Record</targetReference>
+            <targetReference>Save_Contact_Request</targetReference>
         </connector>
         <inputParameters>
             <name>groupName</name>
@@ -375,49 +375,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <assignToReference>LeadSource</assignToReference>
             <field>LeadSource</field>
         </outputAssignments>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Lead_Record</name>
-        <label>Get Lead Record</label>
-        <locationX>373</locationX>
-        <locationY>497</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Save_Contact_Request</targetReference>
-        </connector>
-        <filters>
-            <field>Email</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>EMAIL2</elementReference>
-            </value>
-        </filters>
-        <object>Lead</object>
-        <outputAssignments>
-            <assignToReference>LeadId</assignToReference>
-            <field>Id</field>
-        </outputAssignments>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_QueueIDs</name>
-        <label>Get QueueIDs</label>
-        <locationX>579</locationX>
-        <locationY>192</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <filters>
-            <field>DeveloperName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>FormulaQueueSelector</elementReference>
-            </value>
-        </filters>
-        <object>Group</object>
-        <outputAssignments>
-            <assignToReference>QueueId</assignToReference>
-            <field>Id</field>
-        </outputAssignments>
-        <sortField>Name</sortField>
-        <sortOrder>Desc</sortOrder>
     </recordLookups>
     <recordLookups>
         <name>getrecordTypeId</name>
