@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
+        <name>Get_Group_Id</name>
+        <label>Get Group Id</label>
+        <locationX>342</locationX>
+        <locationY>370</locationY>
+        <actionName>CP_Flow_Query_Groups</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Get_Lead_Record</targetReference>
+        </connector>
+        <inputParameters>
+            <name>groupName</name>
+            <value>
+                <elementReference>FormulaQueueSelector</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>QueueId</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
         <name>Save_Contact_Request</name>
         <label>Save Contact Request</label>
         <locationX>577</locationX>
@@ -328,11 +349,11 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <recordLookups>
         <name>get_contact</name>
         <label>get contact</label>
-        <locationX>371</locationX>
-        <locationY>118</locationY>
+        <locationX>343</locationX>
+        <locationY>68</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_QueueIDs</targetReference>
+            <targetReference>Get_Group_Id</targetReference>
         </connector>
         <filters>
             <field>Email</field>
@@ -380,12 +401,9 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <recordLookups>
         <name>Get_QueueIDs</name>
         <label>Get QueueIDs</label>
-        <locationX>373</locationX>
-        <locationY>325</locationY>
+        <locationX>579</locationX>
+        <locationY>192</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Get_Lead_Record</targetReference>
-        </connector>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
