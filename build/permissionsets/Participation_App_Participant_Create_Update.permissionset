@@ -85,11 +85,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.DunsNumber</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.DupeBlocker_Insert_Action__c</field>
         <readable>true</readable>
     </fieldPermissions>
