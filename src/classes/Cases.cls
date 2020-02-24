@@ -31,7 +31,7 @@ public class Cases extends fflib_SObjectDomain implements ICases {
 
 	public override void onAfterUpdate(Map<Id, SObject> existingRecords) {
 		updateAssets((Map<Id,Case>)existingRecords,Trigger.New);
-		sendToEximBank(Trigger.New);
+//		sendToEximBank(Trigger.New);
 	}
 
 	public void updateCaseContactAndOfficer(List<Case> casesToUpdate) {
