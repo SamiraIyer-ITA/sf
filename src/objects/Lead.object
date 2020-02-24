@@ -147,6 +147,7 @@
     </compactLayouts>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <externalSharingModel>Private</externalSharingModel>
     <fieldSets>
         <fullName>MCP_REGFIELDS</fullName>
         <description>Field set to add extra fields to the MCP Registration community form</description>
@@ -470,15 +471,7 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>CleanStatus</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Company</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>CompanyDunsNumber</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -506,11 +499,6 @@
             <restricted>true</restricted>
             <valueSetName>Country_1</valueSetName>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>DandbCompanyId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>DataPartnerType__c</fullName>
