@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
+        <name>Get_Group_Id</name>
+        <label>Get Group Id</label>
+        <locationX>340</locationX>
+        <locationY>470</locationY>
+        <actionName>CP_Flow_Query_Groups</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Save_Contact_Request</targetReference>
+        </connector>
+        <inputParameters>
+            <name>groupName</name>
+            <value>
+                <elementReference>FormulaQueueSelector</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>QueueId</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
         <name>Save_Contact_Request</name>
         <label>Save Contact Request</label>
         <locationX>577</locationX>
@@ -328,11 +349,11 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <recordLookups>
         <name>get_contact</name>
         <label>get contact</label>
-        <locationX>371</locationX>
-        <locationY>118</locationY>
+        <locationX>343</locationX>
+        <locationY>68</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_QueueIDs</targetReference>
+            <targetReference>Get_Group_Id</targetReference>
         </connector>
         <filters>
             <field>Email</field>
@@ -354,52 +375,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             <assignToReference>LeadSource</assignToReference>
             <field>LeadSource</field>
         </outputAssignments>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Lead_Record</name>
-        <label>Get Lead Record</label>
-        <locationX>373</locationX>
-        <locationY>497</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Save_Contact_Request</targetReference>
-        </connector>
-        <filters>
-            <field>Email</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>EMAIL2</elementReference>
-            </value>
-        </filters>
-        <object>Lead</object>
-        <outputAssignments>
-            <assignToReference>LeadId</assignToReference>
-            <field>Id</field>
-        </outputAssignments>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_QueueIDs</name>
-        <label>Get QueueIDs</label>
-        <locationX>373</locationX>
-        <locationY>325</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Get_Lead_Record</targetReference>
-        </connector>
-        <filters>
-            <field>DeveloperName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>FormulaQueueSelector</elementReference>
-            </value>
-        </filters>
-        <object>Group</object>
-        <outputAssignments>
-            <assignToReference>QueueId</assignToReference>
-            <field>Id</field>
-        </outputAssignments>
-        <sortField>Name</sortField>
-        <sortOrder>Desc</sortOrder>
     </recordLookups>
     <recordLookups>
         <name>getrecordTypeId</name>
@@ -629,7 +604,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <allowPause>false</allowPause>
         <fields>
             <name>Success_message</name>
-            <fieldText>&lt;p&gt;Your request has been submitted!&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Thanks for contacting the International Trade Administration. Your request has been routed to the appropriate staff who will respond back as soon as possible.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
