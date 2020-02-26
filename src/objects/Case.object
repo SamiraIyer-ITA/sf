@@ -193,11 +193,15 @@
         </values>
     </businessProcesses>
     <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-    <compactLayouts>                                                                                                                  <fullName>CRM_Case_Compact_Layout</fullName>
+    <compactLayouts>
+        <fullName>CRM_Case_Compact_Layout</fullName>
         <fields>Subject</fields>
         <fields>CaseNumber</fields>
-        <fields>AccountId</fields>                                                                                                    <fields>Contact_Full_Name__c</fields>
-        <fields>OwnerId</fields>                                                                                                      <fields>RecordTypeId</fields>                                                                                                 <label>CRM Case Compact Layout</label>
+        <fields>AccountId</fields>
+        <fields>Contact_Full_Name__c</fields>
+        <fields>OwnerId</fields>
+        <fields>RecordTypeId</fields>
+        <label>CRM Case Compact Layout</label>
     </compactLayouts>
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
@@ -2429,6 +2433,12 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Language</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
         <fullName>Number_of_WINs_associated_to_Case__c</fullName>
         <externalId>false</externalId>
         <label>Number of WINs associated to Case</label>
@@ -3550,22 +3560,7 @@ Select if this is a Compliance Case</description>
         <columns>CASES.STATUS</columns>
         <columns>OWNER_NAME</columns>
         <columns>Actual_Create_Date__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.Advocacy</value>
-        </filters>
-        <filters>
-            <field>Days_Open__c</field>
-            <operation>greaterThan</operation>
-            <value>30</value>
-        </filters>
-        <filters>
-            <field>CASES.PRIORITY</field>
-            <operation>equals</operation>
-            <value>Medium</value>
-        </filters>
+        <filterScope>Team</filterScope>
         <label>All Open Cases</label>
     </listViews>
     <listViews>
@@ -3745,7 +3740,7 @@ Select if this is a Compliance Case</description>
         <columns>OWNER_NAME</columns>
         <columns>Actual_Create_Date__c</columns>
         <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
-        <filterScope>Mine</filterScope>
+        <filterScope>Everything</filterScope>
         <filters>
             <field>Request_Case_Removal__c</field>
             <operation>equals</operation>
@@ -3835,33 +3830,6 @@ Select if this is a Compliance Case</description>
             <value>0</value>
         </filters>
         <label>PS Applications</label>
-        <sharedTo>
-            <group>PrivacyShield</group>
-            <group>Privacy_Shield</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>PS_Website_Assistance_Cases_2</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.TYPE</columns>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.LAST_UPDATE</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>OWNER_NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.Dispute_Resolution_and_Enforcement,Case.PS_Feedback,Case.Outreach,Case.Participation</value>
-        </filters>
-        <filters>
-            <field>CASES.CLOSED</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>
-        <label>PS Website Assistance Cases</label>
         <sharedTo>
             <group>PrivacyShield</group>
             <group>Privacy_Shield</group>
@@ -4018,12 +3986,12 @@ Select if this is a Compliance Case</description>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Libby Hennemuth,Briggs DeLoach,Aryeh Ness,Yong Mi Oh</value>
+            <value>Libby Hennemuth,Briggs DeLoach,Aryeh Ness,Yong Mi Oh,Clinton Harper</value>
         </filters>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Ayotunde Oyedokun</value>
+            <value>Ayotunde Oyedokun,Cristina Clement</value>
         </filters>
         <label>Unassigned PS Applications</label>
         <sharedTo>
@@ -4080,26 +4048,35 @@ Select if this is a Compliance Case</description>
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>Unassigned_PS_Website_Assistance_Cases</fullName>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+        <fullName>Unassigned_Web_Assistanc</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7</booleanFilter>
         <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.TYPE</columns>
+        <columns>NAME</columns>
         <columns>ACCOUNT.NAME</columns>
         <columns>CASES.SUBJECT</columns>
-        <columns>CASES.LAST_UPDATE</columns>
+        <columns>CASES.STATUS</columns>
         <columns>CASES.CREATED_DATE</columns>
-        <columns>OWNER_NAME</columns>
+        <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CASES.RECORDTYPE</field>
             <operation>equals</operation>
-            <value>Case.Dispute_Resolution_and_Enforcement,Case.PS_Feedback,Case.Outreach,Case.Participation</value>
+            <value>Case.PS_Feedback,Case.Dispute_Resolution_and_Enforcement,Case.Participation</value>
         </filters>
         <filters>
-            <field>CASES.CLOSED</field>
+            <field>CASES.STATUS</field>
             <operation>equals</operation>
-            <value>0</value>
+            <value>New</value>
+        </filters>
+        <filters>
+            <field>CASES.SUBJECT</field>
+            <operation>notEqual</operation>
+            <value>Application for Review</value>
+        </filters>
+        <filters>
+            <field>Case_Owner_Full_Name__c</field>
+            <operation>notEqual</operation>
+            <value>Andres Lahiguera,Andrew Steele,Joshua Blume,Rochelle Osei-Tutu,Blake Murray</value>
         </filters>
         <filters>
             <field>Owners_Office__c</field>
@@ -4107,16 +4084,16 @@ Select if this is a Compliance Case</description>
             <value>IA SVCS-ODSI-DPT,GM-CS EMEA-Field-Belgium</value>
         </filters>
         <filters>
-            <field>Case_Owner_Full_Name__c</field>
+            <field>CASES.NAME</field>
             <operation>notEqual</operation>
-            <value>Andres Lahiguera,Andrew Steele,Joshua Blume,Blake Murray,Rochelle Osei-Tutu</value>
+            <value>dyen</value>
         </filters>
         <filters>
-            <field>CASES.SUBJECT</field>
-            <operation>notContain</operation>
-            <value>6663464.com,6663405.com,6663462.com,6663465.com</value>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>notEqual</operation>
+            <value>PrivacyShield</value>
         </filters>
-        <label>Unassigned PS Website Assistance Cases</label>
+        <label>Unassigned Web Assistance</label>
         <sharedTo>
             <group>PrivacyShield</group>
             <group>Privacy_Shield</group>
