@@ -8,6 +8,6 @@ public interface ICases extends fflib_ISObjectDomain {
 
 	void updateCaseContactAndOfficer(List<Case> existingCases);
     void updateAssets(Map<Id,Case> existingRecords, List<Case> newCases);
-    void sendToEximBank(List<Case> newCases);
+    //void sendToEximBank(List<Case> newCases);
 
 }
