@@ -32,27 +32,39 @@
             <targetReference>Success_Screen</targetReference>
         </connector>
         <inputParameters>
-            <name>converted</name>
+            <name>country</name>
             <value>
-                <elementReference>Converted</elementReference>
+                <elementReference>countryExt</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>leadId</name>
+            <name>email</name>
             <value>
-                <elementReference>LeadIdForExt</elementReference>
+                <elementReference>EMAIL2</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>message</name>
+            <name>companyName</name>
             <value>
-                <elementReference>Message</elementReference>
+                <elementReference>Company_Name</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>ownerId</name>
+            <name>lastName</name>
             <value>
-                <elementReference>QueueId</elementReference>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>contactId</name>
+            <value>
+                <elementReference>contactExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>requestReason</name>
+            <value>
+                <elementReference>IssueBox</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -68,33 +80,27 @@
             </value>
         </inputParameters>
         <inputParameters>
-            <name>contactId</name>
+            <name>converted</name>
             <value>
-                <elementReference>contactExt</elementReference>
+                <elementReference>Converted</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>country</name>
+            <name>ownerId</name>
             <value>
-                <elementReference>countryExt</elementReference>
+                <elementReference>QueueId</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>email</name>
+            <name>leadId</name>
             <value>
-                <elementReference>EMAIL2</elementReference>
+                <elementReference>LeadIdForExt</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>requestReason</name>
+            <name>message</name>
             <value>
-                <elementReference>IssueBox</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>lastName</name>
-            <value>
-                <elementReference>Last_Name</elementReference>
+                <elementReference>Message</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -273,7 +279,8 @@ if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (
 if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!Europe_Region1},&apos;CP_Contact_US_4&apos;,
 if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!Middle_East_And_Africa_Region},&apos;CP_Contact_US_5&apos;,
 if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!Western_Hemisphere_And_Canada},&apos;CP_Contact_US_6&apos;,
-if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos;CP_Contact_US_8&apos;)))))))</expression>
+if({!IssueBox} = &apos;Policy-Identifying Top MarketsIndustry Trends&apos;, &apos;CP_Contact_US_9&apos;,
+if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apos;CP_Contact_US_8&apos;))))))))</expression>
     </formulas>
     <formulas>
         <name>LeadIdForExt</name>
@@ -404,7 +411,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <locationX>78</locationX>
         <locationY>307</locationY>
         <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
+        <allowFinish>false</allowFinish>
         <allowPause>true</allowPause>
         <connector>
             <targetReference>Validate_Form</targetReference>
@@ -591,7 +598,13 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
                 </conditions>
             </visibilityRule>
         </fields>
-        <showFooter>true</showFooter>
+        <fields>
+            <name>Captcha</name>
+            <extensionName>c:CaptchaScreenCMP</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>false</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
