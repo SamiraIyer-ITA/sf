@@ -86,6 +86,15 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Company_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name</label>
+        <length>200</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Country_1__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
