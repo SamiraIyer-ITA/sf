@@ -78,19 +78,6 @@
                 <value>Case.TANC_Fields</value>
             </componentInstanceProperties>
             <componentName>console:relatedRecord</componentName>
-            <visibilityRule>
-                <booleanFilter>1 AND 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.RecordType.Name}</leftValue>
-                    <operator>CONTAINS</operator>
-                    <rightValue>Commercial Diplomacy</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!$User.Profile.Name}</leftValue>
-                    <operator>CONTAINS</operator>
-                    <rightValue>TANC</rightValue>
-                </criteria>
-            </visibilityRule>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
