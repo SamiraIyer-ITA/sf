@@ -308,13 +308,12 @@
         <object>Company_Questionnaire__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-     <recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Company_Questionnaire__c.Exporter</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <tabVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Contract.Participation_Agreement</recordType>
