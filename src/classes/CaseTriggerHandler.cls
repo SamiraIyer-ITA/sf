@@ -12,8 +12,8 @@ public without sharing class CaseTriggerHandler {
         if (isAfter && isUpdate) {
             
             //Check if any of these cases qualify to be sent to Exim Bank
-            sendToEximBank(newList); 
-            updateAssets(newList);
+            //sendToEximBank(newList); 
+            //updateAssets(newList);
         }   
     }
     
