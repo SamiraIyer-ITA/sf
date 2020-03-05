@@ -188,6 +188,11 @@
                     <label>Resolving a trade barrier</label>
                 </value>
                 <value>
+                    <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
+                    <default>false</default>
+                    <label>Policy-Identifying Top Markets-Industry Trends</label>
+                </value>
+                <value>
                     <fullName>My trade gov account</fullName>
                     <default>false</default>
                     <label>My trade gov account</label>
