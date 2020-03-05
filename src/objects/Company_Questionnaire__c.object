@@ -791,6 +791,144 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Partner_City__c</fullName>
+        <description>Local partner city.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner city.</inlineHelpText>
+        <label>Partner City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Company_Name__c</fullName>
+        <description>Local partner company name.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner company name.</inlineHelpText>
+        <label>Partner Company Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Contact_Email__c</fullName>
+        <description>Local partner contact email.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner contact email.</inlineHelpText>
+        <label>Partner Contact Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Contact_First_Name__c</fullName>
+        <description>Local partner contact first name.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner contact first name.</inlineHelpText>
+        <label>Partner Contact First Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Contact_Last_Name__c</fullName>
+        <description>Local partner contact last name.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner contact last name.</inlineHelpText>
+        <label>Partner Contact Last Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Contact_Telephone__c</fullName>
+        <description>Local partner contact telephone.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner contact telephone.</inlineHelpText>
+        <label>Partner Contact Telephone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Contact_Title__c</fullName>
+        <description>Local partner contact title.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner contact title.</inlineHelpText>
+        <label>Partner Contact Title</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Country__c</fullName>
+        <description>Local partner company country.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner company country.</inlineHelpText>
+        <label>Partner Country</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Postal_Code__c</fullName>
+        <description>Local partner company postal code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner company postal code.</inlineHelpText>
+        <label>Partner Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_State__c</fullName>
+        <description>Local partner company state.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner company state.</inlineHelpText>
+        <label>Partner State</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Website__c</fullName>
+        <description>Local partner company website.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Local partner company website.</inlineHelpText>
+        <label>Partner Website</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
         <fullName>Primary_Contact__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
@@ -1014,16 +1152,16 @@
     </fields>
     <fields>
         <fullName>USEAC_Location__c</fullName>
+        <description>U.S. Commercial Service Field Office location.</description>
         <externalId>false</externalId>
+        <inlineHelpText>U.S. Commercial Service Field Office location.</inlineHelpText>
         <label>If yes, USEAC location</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>USEAC_Locations</valueSetName>
-        </valueSet>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>US_Prod_Licenses_Registrations_Pending__c</fullName>
@@ -4271,21 +4409,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>USEAC_Location__c</picklist>
-            <values>
-                <fullName>Belgium%2C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hamburg%2C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tokyo</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
