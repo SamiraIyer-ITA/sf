@@ -71,25 +71,6 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>titleFieldName</name>
-                <value>TANC Fields</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>updateQuickActionName</name>
-                <value>Case.TANC_Fields</value>
-            </componentInstanceProperties>
-            <componentName>console:relatedRecord</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>createQuickActionName</name>
-                <value>NewCase</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>lookupFieldName</name>
-                <value>Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>titleFieldName</name>
                 <value>SelectUSA Fields</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
