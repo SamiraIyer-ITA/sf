@@ -165,6 +165,51 @@
         <field>Harmonized_Tariff_Schedule__c.Commercial_Diplomacy_Triage__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.CD_Company1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.CD_First_Name1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.CD_Last_Name1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>                                                                                                   <editable>false</editable>                                                                                       <field>Event.Commercial_Diplomacy_Triage__c</field>                                                              <readable>true</readable>                                                                                    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.CD_Company1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.CD_First_Name1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.CD_Last_Name1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>                                                                                                   <editable>false</editable>
+        <field>Task.Commercial_Diplomacy_Triage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Commercial_Diplomacy_Triage__c-Commercial Diplomacy Triage Layout</layout>
     </layoutAssignments>
@@ -203,6 +248,12 @@
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Harmonized_Tariff_Schedule__c.Commercial_Diplomacy_Triage</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Task.Tasks</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
