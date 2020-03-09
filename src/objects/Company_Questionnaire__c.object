@@ -643,7 +643,7 @@
     <fields>
         <fullName>Hyperlinks_For_Marketing_Materials__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>Please list here any hyperlinks for marketing materials (links to online .pdf brochures, online videos, etc.). If you prefer, please email any materials to your local contact along with this form.|Text Area (rich) 50,000 – Upload?</inlineHelpText>
+        <inlineHelpText>Please list here any hyperlinks for marketing materials (links to online .pdf brochures, online videos, etc.). If you prefer, please email any materials to your local contact along with this form.</inlineHelpText>
         <label>Hyperlinks for marketing materials</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
