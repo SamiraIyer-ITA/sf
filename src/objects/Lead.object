@@ -115,6 +115,27 @@
         </values>
     </businessProcesses>
     <businessProcesses>
+        <fullName>Services Export</fullName>
+        <description>Services Export Support Process</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Contacted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unqualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unverified</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>Standard Leads</fullName>
         <isActive>true</isActive>
         <values>
