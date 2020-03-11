@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Lead</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Export Lead Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-family: Arial, sans-serif; font-size: 10.5pt;&quot;&gt;This is placeholder text to be filled in once business requirements are received.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Contacted</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-family: Arial, sans-serif; font-size: 10.5pt;&quot;&gt;This is placeholder text to be filled in once business requirements are received.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Qualified</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-family: Arial, sans-serif; font-size: 10.5pt;&quot;&gt;This is placeholder text to be filled in once business requirements are received.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Unqualified</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-family: Arial, sans-serif; font-size: 10.5pt;&quot;&gt;This is placeholder text to be filled in once business requirements are received.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Unverified</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Export</recordTypeName>
+</PathAssistant>
