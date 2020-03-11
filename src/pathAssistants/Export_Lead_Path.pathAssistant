@@ -5,19 +5,15 @@
     <fieldName>Status</fieldName>
     <masterLabel>Export Lead Path</masterLabel>
     <pathAssistantSteps>
-        <info>&lt;p&gt;&lt;span style=&quot;font-family: Arial, sans-serif; font-size: 10.5pt;&quot;&gt;This is placeholder text to be filled in once business requirements are received.&lt;/span&gt;&lt;/p&gt;</info>
         <picklistValueName>Contacted</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
-        <info>&lt;p&gt;&lt;span style=&quot;font-family: Arial, sans-serif; font-size: 10.5pt;&quot;&gt;This is placeholder text to be filled in once business requirements are received.&lt;/span&gt;&lt;/p&gt;</info>
         <picklistValueName>Qualified</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
-        <info>&lt;p&gt;&lt;span style=&quot;font-family: Arial, sans-serif; font-size: 10.5pt;&quot;&gt;This is placeholder text to be filled in once business requirements are received.&lt;/span&gt;&lt;/p&gt;</info>
         <picklistValueName>Unqualified</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
-        <info>&lt;p&gt;&lt;span style=&quot;font-family: Arial, sans-serif; font-size: 10.5pt;&quot;&gt;This is placeholder text to be filled in once business requirements are received.&lt;/span&gt;&lt;/p&gt;</info>
         <picklistValueName>Unverified</picklistValueName>
     </pathAssistantSteps>
     <recordTypeName>Export</recordTypeName>
