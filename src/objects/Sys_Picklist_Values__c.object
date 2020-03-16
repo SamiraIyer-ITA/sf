@@ -566,10 +566,8 @@
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
-
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
