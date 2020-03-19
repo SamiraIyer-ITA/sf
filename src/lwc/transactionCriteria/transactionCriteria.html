@@ -1,0 +1,64 @@
+<template>
+	<lightning-card>
+		<div class="header">
+			Search Criteria
+		</div>
+		<lightning-accordion active-section-name={activeAccordionSection}>
+			<lightning-accordion-section name="accountTypeSection" label={accountTypeText}>
+				<div>
+					<lightning-radio-group name="accountTypeGroup"
+										   options={accountTypeOptions}
+										   value={accountType}
+										   type="radio"
+										   onchange={handleAccountTypeChange}>
+					</lightning-radio-group>
+				</div>
+			</lightning-accordion-section>
+
+			<lightning-accordion-section name="transactionTypeSection" label={transactionTypeText}>
+				<div>
+					<lightning-radio-group name="transactionType"
+										   options={transactionTypeOptions}
+										   value={transactionType}
+										   type="radio"
+										   onchange={handleTransactionTypeChange}>
+					</lightning-radio-group>
+				</div>
+			</lightning-accordion-section>
+
+			<lightning-accordion-section name="paymentMethodSection" label={paymentMethodText}>
+				<div>
+					<template if:false={isRefund}>
+						<lightning-radio-group name="paymentMethod"
+						                       options={paymentMethodOptions}
+						                       value={paymentMethod}
+						                       type="radio"
+						                       onchange={handlePaymentMethodChange}>
+						</lightning-radio-group>
+					</template>
+					<template if:true={isRefund}>
+					<lightning-radio-group name="paymentMethod"
+											options={paymentMethodOptions}
+											value={paymentMethod}
+											type="radio"
+											onchange={handlePaymentMethodChange}
+											disabled>
+					</lightning-radio-group>
+					</template>
+				</div>
+			</lightning-accordion-section>
+
+			<lightning-accordion-section name="dateRangeSection" label={dateRangeText}>
+				<div class="dateStyle">
+					<lightning-input type="date" name="fromDate" label="From Date" value={fromDate} onchange={handleFromDateRangeChange}></lightning-input>
+				</div>
+				<div class="dateStyle">
+					<lightning-input type="date" name="toDate" label="To Date" value={toDate} onchange={handleToDateRangeChange}></lightning-input>
+				</div>
+			</lightning-accordion-section>
+		</lightning-accordion>
+		<div class="buttonStyle">
+			<lightning-button class="buttonStyle" variant="brand" label="Search" onclick={handleSearchClick}></lightning-button>
+		</div>
+	</lightning-card>
+</template>
