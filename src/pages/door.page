@@ -144,7 +144,7 @@
                </apex:repeat>
       </apex:outputpanel>         
       <apex:outputpanel layout="block" styleClass="col-md-2">        
-               <apex:commandLink action="{!AddFramework}" rerender="none" styleClass="btn btn-gray btn-sm pull-right">
+               <apex:commandLink action="{!AddFramework}" rerender="none" styleClass="btn btn-gray btn-sm pull-right" rendered="{!ableToRecertify}">
                            <apex:param name="SelectedDoor" assignTo="{!SelectedDoor}" value="recertify"/ >
                            Recertify
                </apex:commandLink>
