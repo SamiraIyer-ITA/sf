@@ -2433,6 +2433,12 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Language</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
         <fullName>Number_of_WINs_associated_to_Case__c</fullName>
         <externalId>false</externalId>
         <label>Number of WINs associated to Case</label>
@@ -3709,7 +3715,7 @@ Select if this is a Compliance Case</description>
         <columns>OWNER_NAME</columns>
         <columns>Actual_Create_Date__c</columns>
         <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
-        <filterScope>Everything</filterScope>
+        <filterScope>Mine</filterScope>
         <filters>
             <field>Request_Case_Removal__c</field>
             <operation>equals</operation>
@@ -3811,6 +3817,40 @@ Select if this is a Compliance Case</description>
         <queue>Renewable_Energies_Toolkit</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Salesforce_Support_Case</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.LAST_UPDATE</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Queue</filterScope>
+        <label>Salesforce Support</label>
+        <queue>Salesforce_Support</queue>
+        <sharedTo>
+            <role>System_Admin</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Salesforce_Support_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.EMAIL</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Salesforce_Support</value>
+        </filters>
+        <label>Salesforce Support (Record Types) Cases</label>
+        <sharedTo>
+            <role>System_Admin</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3926,7 +3966,7 @@ Select if this is a Compliance Case</description>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Ayotunde Oyedokun</value>
+            <value>Ayotunde Oyedokun,Cristina Clement,Ian Wallace</value>
         </filters>
         <label>Unassigned PS Applications</label>
         <sharedTo>
@@ -3984,7 +4024,7 @@ Select if this is a Compliance Case</description>
     </listViews>
     <listViews>
         <fullName>Unassigned_Web_Assistanc</fullName>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8</booleanFilter>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>NAME</columns>
         <columns>ACCOUNT.NAME</columns>
@@ -4022,6 +4062,16 @@ Select if this is a Compliance Case</description>
             <field>CASES.NAME</field>
             <operation>notEqual</operation>
             <value>dyen</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.ALIAS</field>
+            <operation>notEqual</operation>
+            <value>PrivacyShield</value>
+        </filters>
+        <filters>
+            <field>CASES.SUBJECT</field>
+            <operation>notEqual</operation>
+            <value>dsada</value>
         </filters>
         <label>Unassigned Web Assistance</label>
         <sharedTo>
