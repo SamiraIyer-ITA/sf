@@ -32,7 +32,20 @@
             <apex:outputText escape="false" value="{!form.Instructions__c}" rendered="{!form.Instructions__c != null}" styleClass="test-justify article-body" />
             <br/><br/>
             <apex:form >
-                <apex:commandButton styleClass="itaLoginBtn pull-left" style="width:130px;border-radius: 4px;text-transform:none;font-size:14px;" action="{!start}" rerender="formtemplate" value="{!if(participantRecord.id != null, 'Continue', 'Start')}"/>
+
+               <!--start button if MCP External User profile is false--->
+               <apex:commandButton rendered="{!$Profile.Name != 'MCP-External-User'}" styleClass="itaLoginBtn pull-left" style="width:130px;border-radius: 4px;text-transform:none;font-size:14px;" action="{!start}" rerender="formtemplate" value="{!if(participantRecord.id != null, 'Continue', 'Start')}"/>
+
+                <!--start button if MCP External User profile is true--->
+                <apex:commandButton rendered="{!$Profile.Name == 'MCP-External-User'}" styleClass="itaLoginBtn pull-left" style="width:130px;border-radius: 4px;text-transform:none;font-size:14px;" value="Start" oncomplete="cp();"/>
+
+<script>
+function cp() {
+    window.location = '/cp_transition2';
+}
+</script>
+
+
             </apex:form>
             <br/><br/><br/>
             </apex:outputpanel>
