@@ -93,6 +93,13 @@
         <field>ContactRequest.US_ZIP_CODE__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <layoutAssignments>
+        <layout>ContactRequest-Contact Us</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContactRequest-Contact Us</layout>
+        <recordType>ContactRequest.Contact_Us</recordType>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
