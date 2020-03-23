@@ -104,6 +104,22 @@
             </value>
         </inputParameters>
     </actionCalls>
+    <assignments>
+        <name>Update_IssueBox_flag</name>
+        <label>Update IssueBox flag</label>
+        <locationX>187</locationX>
+        <locationY>362</locationY>
+        <assignmentItems>
+            <assignToReference>IssueBoxSelectionError</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Contact_us</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>Contactarep</name>
         <choiceText>Contacting a local trade or export assistance expert (*limited availability)</choiceText>
@@ -170,6 +186,14 @@
                     <stringValue>Resolving a trade barrier</stringValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>Contact_us</targetReference>
+            </connector>
+            <label>No Next On Trade Barrier</label>
+        </rules>
+        <rules>
+            <name>No_Selection_for_issue_box</name>
+            <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>IssueBox</leftValueReference>
                 <operator>EqualTo</operator>
@@ -178,9 +202,9 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Contact_us</targetReference>
+                <targetReference>Update_IssueBox_flag</targetReference>
             </connector>
-            <label>No Next On Trade Barrier</label>
+            <label>No Selection for issue box</label>
         </rules>
     </decisions>
     <dynamicChoiceSets>
@@ -423,6 +447,21 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
         <connector>
             <targetReference>Validate_Form</targetReference>
         </connector>
+        <fields>
+            <name>IssueSelectError</name>
+            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 16px; color: rgb(211, 25, 25);&quot;&gt;Please select an issue to continue.&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBoxSelectionError</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
         <fields>
             <name>help</name>
             <fieldText>&lt;p&gt;I need help with...&lt;/p&gt;</fieldText>
@@ -676,6 +715,16 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>IssueBoxSelectionError</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
     </variables>
     <variables>
         <name>LeadId</name>
