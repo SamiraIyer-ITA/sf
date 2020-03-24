@@ -39,9 +39,6 @@ private class Flow_IssueCreditCardRefundTest {
 		orderItem1.PricebookEntryId=pbe.id;
 		insert orderItem1;
 
-		order1.Status = 'Paid';
-		update order1;
-
 		OrderItem orderItem2 = new OrderItem();
 		orderItem2.OrderId = order2.id;
 		orderItem2.Quantity = 2;
@@ -50,21 +47,25 @@ private class Flow_IssueCreditCardRefundTest {
 		orderItem2.PricebookEntryId=pbe.id;
 		insert orderItem2;
 
-		order2.Status = 'Paid';
-		update order2;
+		//Insert a Payment record for Order 1 and Order 2
+		Payment2__c payment1 = new Payment2__c();
+		payment1.Account_Type__c = 'Services';
+		payment1.RecordTypeId = Utils.getRecordTypeNameByDeveloperName('Credit_Card_or_ACH_Payment', 'Payment2__c');
+		payment1.Payment_Processor__c = 'Paygov';
+		payment1.Transaction_Status__c = 'Success';
+		payment1.Transaction_Amount__c = 9600.00;
+		payment1.Payment_Type__c = 'PLASTIC_CARD';
+		insert payment1;
 
-		//Insert a Payment record
-		Flow_CreatePaymentRecord.RequestVariables requestVariables = new Flow_CreatePaymentRecord.RequestVariables();
-		requestVariables.paymentType = 'Check';
-		requestVariables.amount = 4800;
-		requestVariables.orders = orders;
-		requestVariables.contractId = order1.ContractId;
-		requestVariables.bankName = 'Bank One';
-		requestVariables.checkNumber = '1001';
-		requestVariables.checkDate = Date.today();
-		List<Flow_CreatePaymentRecord.RequestVariables> requestVariablesList = new List<Flow_CreatePaymentRecord.RequestVariables>();
-		requestVariablesList.add(requestVariables);
-		List<String> returnList = Flow_CreatePaymentRecord.createPaymentRecord(requestVariablesList);
+		order1.Payment2__c = payment1.Id;
+		order1.Status = 'Paid';
+		order1.Order_Paid__c = true;
+		update order1;
+
+		order2.Payment2__c = payment1.Id;
+		order2.Status = 'Paid';
+		order2.Order_Paid__c = true;
+		update order2;
 
 		//Reduction Order 1
 		Order reductionOrder1 = new Order(
@@ -131,7 +132,7 @@ private class Flow_IssueCreditCardRefundTest {
 	static void createRefundRecord_Exception() {
 		Flow_IssueCreditCardRefund.RequestVariables requestVariables = new Flow_IssueCreditCardRefund.RequestVariables();
 		requestVariables.refundAmount = 2000;
-		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM ORDER WHERE Name = 'Reduction Order X'];
+		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM ORDER WHERE Name = 'Test Order X'];
 		requestVariables.orders = orders;
 		List<Flow_IssueCreditCardRefund.RequestVariables> requestVariablesList = new List<Flow_IssueCreditCardRefund.RequestVariables>();
 		requestVariablesList.add(requestVariables);
@@ -141,10 +142,9 @@ private class Flow_IssueCreditCardRefundTest {
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
-			System.assert(exceptionMessage.startsWith('Insert failed.'));
+			System.assert(exceptionMessage.startsWith('List index out of bounds'));
 		}
 	}
-
 
 	@IsTest
 	static void createRefundRecord_Exception2() {
@@ -167,7 +167,7 @@ private class Flow_IssueCreditCardRefundTest {
 	static void createRefundRecord_Null() {
 		List<Flow_IssueCreditCardRefund.RequestVariables> requestVariablesList = new List<Flow_IssueCreditCardRefund.RequestVariables>();
 		List<Flow_IssueCreditCardRefund.ResponseVariables> returnList = Flow_IssueCreditCardRefund.issueCreditCardRefund(requestVariablesList);
-		System.assertEquals(null, returnList);
+		System.assertEquals(null, returnList[0].refundId);
 	}
 
 }

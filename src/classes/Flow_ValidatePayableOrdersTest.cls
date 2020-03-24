@@ -16,13 +16,13 @@ private class Flow_ValidatePayableOrdersTest {
 		insert contract;
 		List<Order> orders = new List<Order>();
 		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
-		order1.Type = 'Service';
+		order1.Type = 'Services';
 		order1.Name = 'Test Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
 		orders.add(order1);
 		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
-		order2.Type = 'Service';
+		order2.Type = 'Services';
 		order2.Name = 'Test Order X';
 		order2.ContractId = contract.Id;
 		order2.RecordTypeId = servicesRecordTypeId;

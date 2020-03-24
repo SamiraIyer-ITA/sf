@@ -18,13 +18,13 @@ private class Flow_ValidateRefundableOrdersTest {
 		update contract;
 		List<Order> orders = new List<Order>();
 		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
-		order1.Type = 'Service';
+		order1.Type = 'Services';
 		order1.Name = 'Test Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
 		orders.add(order1);
 		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
-		order2.Type = 'Service';
+		order2.Type = 'Services';
 		order2.Name = 'Test Order X';
 		order2.ContractId = contract.Id;
 		order2.RecordTypeId = servicesRecordTypeId;
@@ -40,6 +40,7 @@ private class Flow_ValidateRefundableOrdersTest {
 		insert orderItem1;
 
 		order1.Status = 'Paid';
+		order1.Order_Paid__c = true;
 		update order1;
 
 		OrderItem orderItem2 = new OrderItem();
@@ -51,6 +52,7 @@ private class Flow_ValidateRefundableOrdersTest {
 		insert orderItem2;
 
 		order2.Status = 'Paid';
+		order2.Order_Paid__c = true;
 		update order2;
 
 		//Insert a Payment record
@@ -73,7 +75,7 @@ private class Flow_ValidateRefundableOrdersTest {
 			Pricebook2Id = order1.Pricebook2Id,
 			EffectiveDate = order1.EffectiveDate,
 			Status = 'Draft',
-			Type = 'Service',
+			Type = 'Services',
 			RecordTypeId = servicesRecordTypeId,
 			ContractId = order1.ContractId,
 			AccountId = order1.AccountId,
@@ -97,7 +99,7 @@ private class Flow_ValidateRefundableOrdersTest {
 			Pricebook2Id = order2.Pricebook2Id,
 			EffectiveDate = order2.EffectiveDate,
 			Status = 'Draft',
-			Type = 'Service',
+			Type = 'Services',
 			RecordTypeId = servicesRecordTypeId,
 			ContractId = order1.ContractId,
 			AccountId = order2.AccountId,

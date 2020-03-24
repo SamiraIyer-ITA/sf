@@ -40,6 +40,7 @@ private class Flow_CreateRefundRecordTest {
 		insert orderItem1;
 
 		order1.Status = 'Paid';
+		order1.Order_Paid__c = true;
 		update order1;
 
 		OrderItem orderItem2 = new OrderItem();
@@ -51,6 +52,7 @@ private class Flow_CreateRefundRecordTest {
 		insert orderItem2;
 
 		order2.Status = 'Paid';
+		order2.Order_Paid__c = true;
 		update order2;
 
 		//Insert a Payment record

@@ -2,18 +2,20 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 
 	public static final String METADATA_SETTINGS_NAME = 'PayGov';
 
-	public String authorizePayment(PaymentAuthenticationDetails authenticationDetails) {
+	public String authorizePayment(Payment2.PaymentAuthenticationDetails authenticationDetails) {
 		RecordLog.push('Payment.authorizePayment');
 		RecordLog.message('Remote Account Name: ' + authenticationDetails.remoteAccountName);
 
 		PayGovTCSOnline.StartOnlineCollectionRequest startOnlineCollectionRequest = new PayGovTCSOnline.StartOnlineCollectionRequest();
 
+		Map<String, Object> paymentSettingsMap = CustomMetadataSelector.getPaymentSettings(METADATA_SETTINGS_NAME);
+
 		//POPULATE REQUIRED ELEMENTS
 		startOnlineCollectionRequest.tcs_app_id = authenticationDetails.remoteAccountName;
-		startOnlineCollectionRequest.agency_tracking_id = authenticationDetails.paymentIdentifier;  //21 char LIMIT in general, but 11 char LIMIT for Vantiv.  SP + 9 digits
+		startOnlineCollectionRequest.agency_tracking_id = authenticationDetails.paymentIdentifier;  //21 char LIMIT in general, but 11 char LIMIT for Vantiv.  SP + 9 digits in production
 		startOnlineCollectionRequest.transaction_type = authenticationDetails.transactionType;  //'Authorization' or 'Sale'
 		startOnlineCollectionRequest.transaction_amount = authenticationDetails.transactionAmount;  //cannot be negative
-		startOnlineCollectionRequest.language = Payment.LANGUAGE;
+		startOnlineCollectionRequest.language = (String) paymentSettingsMap.get('Language_Code__c');
 		startOnlineCollectionRequest.url_success = authenticationDetails.successUrl;
 		startOnlineCollectionRequest.url_cancel = authenticationDetails.cancelUrl;
 		//END REQUIRED ELEMENTS
@@ -54,15 +56,19 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		RecordLog.message('Transaction Type: ' + authenticationDetails.transactionType);
 		RecordLog.message('Custom Field 1: ' + customFields.custom_field_1);
 
-		PayGovTCSOnline.TCSOnlineServicePort payGovOnline = new  PayGovTCSOnline.TCSOnlineServicePort();
+		PayGovTCSOnline.TCSOnlineServicePort payGovOnline = new PayGovTCSOnline.TCSOnlineServicePort();
 		PayGovTCSOnline.StartOnlineCollectionResponse startOnlineCollectionResponse;
 		//RecordLog.emit() will be called in payGovOnline.startOnlineCollection
 		try {
-			startOnlineCollectionResponse = payGovOnline.startOnlineCollection(startOnlineCollectionRequest, authenticationDetails.paymentId);
+			if (Test.isRunningTest()) {
+				startOnlineCollectionResponse = new PayGovTCSOnline.StartOnlineCollectionResponse();
+				startOnlineCollectionResponse.token = 'token';
+			} else {
+				startOnlineCollectionResponse = payGovOnline.startOnlineCollection(startOnlineCollectionRequest, authenticationDetails.paymentId);
+			}
 			RecordLog.push('Redirect to Pay.gov');
 			RecordLog.message('Token: ' + startOnlineCollectionResponse.token);
 			RecordLog.message('Remote Account Name: ' + authenticationDetails.remoteAccountName);
-			Map<String, Object> paymentSettingsMap = CustomMetadataSelector.getPaymentSettings(METADATA_SETTINGS_NAME);
 			String redirectURL = (String) paymentSettingsMap.get('Redirect_URL__c');
 			String paymentRedirectURL = redirectURL + '?token=' + startOnlineCollectionResponse.token + '&tcsAppID=' + authenticationDetails.remoteAccountName;
 			RecordLog.message('Redirect URL: ' + paymentRedirectURL);
@@ -89,7 +95,18 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		Boolean error = false;
 		String errorMessage = null;
 		try {
-			completeOnlineCollectionWithDetailsResponse = payGovOnline.completeOnlineCollectionWithDetails(completeOnlineCollectionWithDetailsRequest, paymentId);
+			if (Test.isRunningTest()) {
+				completeOnlineCollectionWithDetailsResponse = new PayGovTCSOnline.CompleteOnlineCollectionWithDetailsResponse();
+				completeOnlineCollectionWithDetailsResponse.paygov_tracking_id = '3XL4M20';
+				completeOnlineCollectionWithDetailsResponse.transaction_amount = '2500.00';
+				completeOnlineCollectionWithDetailsResponse.transaction_type = 'Sale';
+				completeOnlineCollectionWithDetailsResponse.payment_type = 'PLASTIC_CARD';
+				completeOnlineCollectionWithDetailsResponse.transaction_status = 'Success';
+				completeOnlineCollectionWithDetailsResponse.transaction_date = date.today();
+				completeOnlineCollectionWithDetailsResponse.payment_date = date.today();
+			} else {
+				completeOnlineCollectionWithDetailsResponse = payGovOnline.completeOnlineCollectionWithDetails(completeOnlineCollectionWithDetailsRequest, paymentId);
+			}
 		} catch (Exception e) {
 			//The payment failed
 			RecordLog.push('Payment.completeTransaction Exception');
@@ -150,6 +167,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			uow.commitWork();
 		} catch (Exception e) {
 			RecordLog.message('Exception: ' + e.getMessage());
+			System.debug('CARY: ' + e.getMessage());
 			error = true;
 			errorMessage += 'Unable to update payment and/or order record.';
 		} finally {

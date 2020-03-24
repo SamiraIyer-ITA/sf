@@ -1,9 +1,3 @@
-/*
-	Author: Andrew La Russa
-	Date: 08/12/19
-	Name: OrdersSelector.cls
-	Purpose: The implementation of IOrdersSelector. The only place Order queries should live.
- */
 public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSelector {
 
 	public static IOrdersSelector newInstance(){
@@ -12,15 +6,6 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 
 	public List<Order> selectById(Set<Id> idSet) {
 		return (List<Order>) selectSObjectsById(idSet);
-	}
-
-	public List<Order> selectWithReductionOrderDetails(Set<Id> idSet) {
-		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
-		ordersQueryFactory.selectFields(new Set<String>{'OriginalOrder.Payment2__r.Payment_Type__c',
-			'OriginalOrder.Payment2__r.Transaction_Status__c'});
-		new OrdersSelector().configureQueryFactoryFields(ordersQueryFactory, 'OriginalOrder');
-		String condition = 'Id IN :idSet ';
-		return (List<Order>) Database.query(ordersQueryFactory.setCondition(condition).toSOQL());
 	}
 
 	public List<Order> selectWithReductionOrderDetails(Set<Id> idSet, Boolean normalOrders, Boolean reductionOrders, Boolean nonPaidOnly, Boolean paidOnly) {

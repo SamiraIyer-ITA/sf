@@ -1,9 +1,3 @@
-/*
-	Author: Andrew La Russa
-	Date: 08/21/19
-	Name: UsersSelector.cls
-	Purpose: The implementation of IUsersSelector. The only place User queries should live.
- */
 public class UsersSelector extends fflib_SObjectSelector implements IUsersSelector {
 
 	public static IUsersSelector newInstance(){
@@ -18,17 +12,6 @@ public class UsersSelector extends fflib_SObjectSelector implements IUsersSelect
 
 		return (List<User>) Database.query(
 			usersQueryFactory.setCondition('id in :idSet').toSOQL());
-	}
-
-	public List<User> selectById(Set<Id> idSet, Schema.FieldSet fieldSet) {
-		return
-			(List<User>)
-				Database.query(
-					newQueryFactory()
-						.selectFieldSet(fieldSet)
-						.setCondition('Id IN :idSet')
-						.toSOQL()
-				);
 	}
 
 	private List<Schema.SObjectField> getSObjectFieldList() {

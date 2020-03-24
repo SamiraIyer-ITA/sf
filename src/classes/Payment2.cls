@@ -215,7 +215,7 @@ public with sharing class Payment2 {
 	@AuraEnabled(cacheable=false)
 	public static String authorizePayment(String authenticationDetailsString) {
 		try {
-			PaymentAuthenticationDetails authenticationDetails = (PaymentAuthenticationDetails)JSON.deserialize(authenticationDetailsString, PaymentAuthenticationDetails.class);
+			Payment2.PaymentAuthenticationDetails authenticationDetails = (Payment2.PaymentAuthenticationDetails)JSON.deserialize(authenticationDetailsString, PaymentAuthenticationDetails.class);
 			IPayment payment = (IPayment) di_Injector.Org.getInstance('PaymentProcessor');
 			return payment.authorizePayment(authenticationDetails);
 		} catch(Exception e) {
@@ -296,6 +296,25 @@ public with sharing class Payment2 {
 		String accountMetaDataName = accountType.replace(' ', '_') + '_Remote_Account__c';
 		Map<String, Object> paymentSettingsMap = CustomMetadataSelector.getPaymentSettings('PayGov');
 		return (String) paymentSettingsMap.get(accountMetaDataName);
+	}
+
+	public class PaymentAuthenticationDetails {
+		public Id paymentId;
+		public String paymentIdentifier;
+		public String remoteAccountName;
+		public String transactionType;
+		public String transactionAmount;
+		public String successUrl;
+		public String cancelUrl;
+		public String accountHolderName;
+		public String billingAddress;
+		public String billingAddress2;
+		public String billingCity;
+		public String billingStateCode;
+		public String billingZip;
+		public String billingCountryCode;
+		public String email;
+		public String accountType;
 	}
 
 }
