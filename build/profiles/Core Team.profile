@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>Consulting</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <fieldPermissions>
         <editable>false</editable>
         <field>Contract.ActivatedById</field>
@@ -92,6 +97,10 @@
         <layout>Contract-Participation Agreement</layout>
         <recordType>Contract.Participation_Agreement</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Services</layout>
+        <recordType>Opportunity.Services</recordType>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -115,6 +124,11 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Quote.Standard</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Opportunity.Services</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
