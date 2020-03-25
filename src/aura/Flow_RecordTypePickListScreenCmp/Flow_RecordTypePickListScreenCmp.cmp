@@ -1,0 +1,25 @@
+<aura:component  implements="lightning:availableForFlowScreens,flexipage:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute name="Object" type="String" />
+    <aura:attribute name="localRecordTypeName" type="String" default="ContactRequest"/>
+    <aura:attribute name="RecordTypeId" type="String" />
+    <aura:attribute name="selection" type="String" />
+    <aura:attribute name="fieldLabel" type="String" />
+    <aura:attribute name="fieldAPIName" type="String" />
+    <aura:attribute name="monitor" type="String" default="{!v.selection}"/>
+    <aura:handler name="change" value="{!v.monitor}" action="{!c.updateSelection}" />
+    <lightning:recordEditForm
+                              objectApiName="{!v.Object}"
+                              recordTypeId = "{!v.RecordTypeId}">
+        <!-- the messages component is for error messages -->
+        <lightning:messages />
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col slds-size_5-of-8 .slds-container_left outPutBox" >
+                <div>{!v.fieldLabel}<br/>  </div>
+                <lightning:inputField aura:Id = "countrySelect" value="{!v.monitor}" variant="label-hidden"
+                                      fieldName="{!v.fieldAPIName}" onChange="c.updateSelection" class= "outPutBox"
+                                      required ="true"/>
+            </div>
+        </div>
+    </lightning:recordEditForm>
+</aura:component>
