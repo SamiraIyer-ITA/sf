@@ -153,7 +153,6 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			orders = OrdersSelector.newInstance().selectById(orderIdSet);
 			for (Order order: orders) {
 				order.Payment2__c = paymentId;
-				order.Status = 'Paid';
 				order.Order_Paid__c = true;
 			}
 		}
