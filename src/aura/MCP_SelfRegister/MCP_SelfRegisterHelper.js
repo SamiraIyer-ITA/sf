@@ -50,7 +50,7 @@
             for (index in mylist) { 
                 console.log(mylist[index].pickListData.isPickList);
                 if(mylist[index].pickListData.isPickList){
-                    if(mylist[index].name == parentFieldPath){
+                    if(mylist[index].name == parentFieldPath){ 
                         mylist[index].value = ParentSet; //component.find('Parent').get("v.value");
                         if(mylist[index].name == 'Country_1__c'){
                            component.set("v.country", ParentSet);

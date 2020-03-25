@@ -8,7 +8,7 @@ public class CP_scheduled_Upgrade_External_User_Test {
 		list<User> newUsers = new list<User>();
         UserRole r = new UserRole(DeveloperName = 'testingRole', Name = 'Test Role');
 		Profile adminProfile = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
- //avoid mix DML use for (System Objects)
+ 		//avoid mix DML use for (System Objects)
         System.runAs(superUSser){
            insert r; 
         }
@@ -34,7 +34,7 @@ public class CP_scheduled_Upgrade_External_User_Test {
         }
         
         Account testAccount = new Account();
- 		testAccount.Name='Test Account';
+ 		testAccount.Name= Label.MCP_ExternalUserAccount;
         testAccount.OwnerId = standardUser.id;
         //Avoid mix DML   
         system.runAs(standardUser)  {  
@@ -44,7 +44,7 @@ public class CP_scheduled_Upgrade_External_User_Test {
         Contact testContact = new Contact();
         testContact.FirstName = 'test';
         testContact.LastName = 'test';
-        testContact.CP_Conversion_Date__c = mydt;
+        testContact.CP_Conversion_Date__c = null;
         testContact.email = 'mycptest1@ztest.com';
         testContact.AccountId = testAccount.Id;
        //Avoid mix DML   
@@ -68,6 +68,8 @@ public class CP_scheduled_Upgrade_External_User_Test {
         testLead.email = 'mycptest1@ztest.com';
         testLead.LeadSource = null;
         testLead.Company = 'Test Co';
+        testLead.Organization_Name__c = 'New Org';
+        testLead.Registrant__c =  testContact.Id;   
            //avoid mix dml     
         system.runAs(standardUser)  {  
        		 insert(testLead);
@@ -79,7 +81,10 @@ public class CP_scheduled_Upgrade_External_User_Test {
  static testmethod void test() {
    Test.startTest();
      list<user> testUserList = new list<User>();
+     list<contact> conList = new list<Contact>();
      testUserList = [select id from user where Alias = 'ExtUser'];
+     conList = [select id,name,account.name from contact];
+     system.debug(conList[0].account.name);
      
 
        String CRON_EXP = '0 0 0 3 9 ? 2022';
@@ -103,7 +108,15 @@ public class CP_scheduled_Upgrade_External_User_Test {
          String.valueOf(ct.NextFireTime));
    
    Test.stopTest();
-
   
    }
+    
+     static testmethod void testAccountAction() {
+		     list<User> testUserList = new list<User>();
+             list<Id> userIdList = new list<Id>();
+    		 testUserList = [select id from user where Alias = 'ExtUser'];
+             userIdList.add(testUserList[0].id);
+             CP_scheduled_Upgrade_External_User.AccountAction();
+
+     }
 }

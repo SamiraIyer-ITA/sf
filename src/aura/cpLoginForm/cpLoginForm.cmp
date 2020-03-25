@@ -1,5 +1,6 @@
 <!-- add implements="forceCommunity:availableForAllPageTypes" to surface the component in community builder -->
 <aura:component controller="CP_LightningLoginFormController" implements="forceCommunity:availableForAllPageTypes">
+    
     <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
     <aura:attribute name="errorMessage" type="String" required="false" description="" access="private"/>
     <aura:attribute name="startUrl" type="String" required="false" description="The url you go to after a successful login" />
@@ -28,8 +29,14 @@
     <aura:handler event="c:setStartUrl" action="{!c.setStartUrl}"/>
     <aura:handler event="c:setExpId" action="{!c.setExpId}"/>    
     <aura:dependency resource="c:setExpId" type="EVENT"/>  
+  
+    <aura:renderIf isTrue =  "{!or ($Browser.isAndroid == true , $Browser.isPhone == false)}">
+    <div ><img src="{!$Resource.ita_logo2}" class="logoImage"/></div>
+    </aura:renderIf>
     
-    <div class="slds-grid slds-grid_align-center slds-m-bottom_large"><img src="{!$Resource.ita_logo2}" width="300"/></div>
+     <aura:renderIf isTrue =  "{!and ($Browser.isAndroid == false , $Browser.isPhone == true)}">
+    <div ><img src="{!$Resource.ita_logo}" class="logoImage"/></div>
+    </aura:renderIf>
     
     <div>
         <aura:renderIf isTrue="{!v.isUsernamePasswordEnabled}">
@@ -56,7 +63,7 @@
     
             <div class="sfdc">
                 <ui:button aura:id="submitButton" label="{!v.loginButtonLabel}" press="{!c.handleLogin}" class="slds-button slds-button_brand slds-button_stretch"/>
-                
+            	
             
            </div>
             
