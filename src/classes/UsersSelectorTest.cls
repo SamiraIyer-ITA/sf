@@ -20,16 +20,4 @@ private class UsersSelectorTest {
 		System.assertNotEquals(0, result.size(), 'List not empty');
 	}
 
-	@IsTest
-	static void selectByIdWithFieldSet_Positive() {
-		List<User> users = [SELECT Id FROM User];
-		Set<Id> userIds = new Set<Id>();
-		for (User user: users) {
-			userIds.add(user.Id);
-		}
-		Map<String, Schema.FieldSet> fieldSetMap = Schema.SObjectType.User.fieldSets.getMap();
-		List<User> result = UsersSelector.newInstance().selectById(userIds, fieldSetMap.values());
-		System.assertNotEquals(null, result, 'Selector returned null instead of list');
-		System.assertNotEquals(0, result.size(), 'List not empty');
-	}
 }
