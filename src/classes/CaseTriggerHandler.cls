@@ -119,7 +119,8 @@ public without sharing class CaseTriggerHandler {
         
         return toInsert;
     }
-    private static void updateAssets(list<Case> caseList){
+    
+  /*  private static void updateAssets(list<Case> caseList){
         set<id> OrderIds = new set<id>();
         set<id> AccountIds = new set<id>();
         set<id> MakeAssets = new set<id>();
@@ -221,13 +222,18 @@ public without sharing class CaseTriggerHandler {
                                                                     SendOpenTasks = false,
                                                                     SendEmails = false);
                     prncList.add(newConnection);
+                    
                 }
             }
                 
             if (prncList.size() > 0) {
-                database.insert(prncList);
+          
+             database.insert(prncList);
+               
             }
         }
             
-    } 
+   } 
+}
+*/
 }
