@@ -46,6 +46,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>CspTrustedSite</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>CustomApplication</name>
     </types>
     <types>
@@ -239,10 +243,6 @@
     <types>
         <members>*</members>
         <name>Workflow</name>
-    </types>
-    <types>
-        <members>pay_gov</members>
-        <name>CspTrustedSite</name>
     </types>
     <version>48.0</version>
 </Package>
