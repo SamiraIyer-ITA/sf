@@ -240,5 +240,9 @@
         <members>*</members>
         <name>Workflow</name>
     </types>
+    <types>
+        <members>pay_gov</members>
+        <name>CspTrustedSite</name>
+    </types>
     <version>47.0</version>
 </Package>

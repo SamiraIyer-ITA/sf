@@ -1,0 +1,36 @@
+<template>
+
+	<div class="card">
+		<h3 class="cardTitle">
+			<lightning-icon icon-name="standard:lead_list" size="small"></lightning-icon>
+			<span class="slds-text-title_bold slds-m-left_small">Available Reduction Orders</span>
+		</h3>
+
+		<template if:false={gotData}>
+			<div class="slds-p-around--medium">
+				<div class="slds-text-heading--small">Determining available reduction orders...</div>
+			</div>
+		</template>
+
+		<template if:true={hasNoOrders}>
+			<div class="slds-p-around--medium slds-text-heading--small">No reduction orders are available.</div>
+		</template>
+
+		<template if:true={hasOrders}>
+			<lightning-datatable
+					data={datatableOrders}
+					columns={orderColumns}
+					key-field="Id"
+					onrowselection={handleRowSelection}
+					selected-rows={selectedOrderIds}>
+			</lightning-datatable>
+
+			<div class="cardFooter slds-p-top_small slds-p-bottom_small">
+				<span class="slds-m-left_medium" style="float: left">Refund Total: <lightning-formatted-number value={refundTotal} format-style="currency" currency-code="USD"></lightning-formatted-number></span>
+				<div>&nbsp;</div>  <!--To maintain height-->
+			</div>
+		</template>
+
+	</div>
+
+</template>

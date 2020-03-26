@@ -35,8 +35,10 @@ trigger Order_Events on Order (after insert, after update) {
         }
     }
     // Call trigger handler class and methods
-    Order_Events_Controller controller =
-        new Order_Events_Controller(legacyOrders, legacyOrdersOldMap, legacyOrdersNewMap);
-    controller.updateAssets();
-    controller.updateThirdParties();
+    if (legacyOrders.size() > 0) {
+        Order_Events_Controller controller =
+            new Order_Events_Controller(legacyOrders, legacyOrdersOldMap, legacyOrdersNewMap);
+        controller.updateAssets();
+        controller.updateThirdParties();
+    }
 }
