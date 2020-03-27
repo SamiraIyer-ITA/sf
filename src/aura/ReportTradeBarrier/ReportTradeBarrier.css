@@ -1,0 +1,64 @@
+.THIS .input{
+     background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(217, 219, 221);
+    border-radius: .25rem;
+    width: 100%;
+    transition: border .1s linear,background-color .1s linear;
+    display: inline-block;
+    padding: 0 1rem 0 .75rem;
+    line-height: 1.875rem;
+    min-height: calc(1.875rem + (1px * 2));
+}
+
+.THIS .select{
+	background-color: #fff;
+    border: 1px solid #dddbda;
+    border-radius: .25rem;
+    width: 100%;
+    transition: border .1s linear,background-color .1s linear;
+    line-height: 1.875rem;
+    height: 1.875rem;
+}
+
+.THIS .slds-listbox_vertical {
+    padding: .1rem .1rem;
+}
+
+.THIS .slds-listbox__option_plain {
+    padding: .1rem .1rem;
+}
+
+.THIS .textarea{ 
+    background-color: #fff;
+    border: 1px solid #dddbda;
+    border-radius: .25rem;
+    width: 100%;
+    transition: border .1s linear,background-color .1s linear;
+    resize: vertical;
+    padding: .5rem .75rem;
+    
+}
+
+.THIS .flowruntimeInputWrapper {
+    padding-bottom: 0.75rem;
+}
+
+.THIS .slds-m-bottom_large {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.THIS .flowruntimeAddress {
+    padding-top: 0.0rem;
+    padding-bottom: 0.5rem;
+}
+
+.THIS .flowruntimePhone {
+    padding-top: 0rem;
+    padding-bottom: 0.5rem;
+}
+
+.THIS .slds-listbox__option-icon {
+    margin-right: 0;
+    display: none;
+}
