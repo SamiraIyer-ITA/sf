@@ -12923,11 +12923,19 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <fullName>Created%2FImproved Business Opportunity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Created%2FImproved Business Opportunity</fullName>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
