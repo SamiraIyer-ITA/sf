@@ -2866,22 +2866,20 @@ Select if this is a Compliance Case</description>
                     <label>Created/Improved Business Opportunity</label>
                 </value>
                 <value>
-                    <fullName>Compliance with trade agreement</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Compliance with trade agreement</label>
-                </value>
-                <value>
                     <fullName>Facilitated export transaction</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>Facilitated export transaction</label>
                 </value>
                 <value>
                     <fullName>Reduced/Eliminated threat to US business</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>Reduced/Eliminated threat to US business</label>
+                </value>
+                <value>
+                    <fullName>Compliance with trade agreement</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Compliance with trade agreement</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
