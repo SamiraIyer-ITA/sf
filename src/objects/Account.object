@@ -398,9 +398,17 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>DunsNumber</fullName>
+        <fullName>Domestic_Ultimate_Business__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Domestic Ultimate Business</label>
+        <length>255</length>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>DupeBlocker_Insert_Action__c</fullName>
@@ -443,6 +451,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Global_Ultimate_Business__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Global Ultimate Business</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Has_Exported_To__c</fullName>
         <description>list of contries visited</description>
         <externalId>false</externalId>
@@ -473,6 +494,19 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Importer_Exporter_Indicator__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Importer Exporter Indicator</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Industries__c</fullName>
@@ -1165,6 +1199,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Location_Type__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Location Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Merged_Organization__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>displays the organization it will be merged with.</description>
@@ -1217,7 +1264,7 @@
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
         <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
-        <label>aaaNAICS Code</label>
+        <label>NAICS Code</label>
         <length>8</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1230,7 +1277,7 @@
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
         <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
-        <label>aaaNAICS Description</label>
+        <label>NAICS Description</label>
         <length>120</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1337,16 +1384,61 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Organization_Size__c</fullName>
-        <description>Decision on organization size is based on number of employees. If employees’ field is entered by TS, formula is based on that field, otherwise, use D&amp;B employee fields. 1-499 = Small, 500-999 = Medium, &gt;999 = Large</description>
+        <fullName>Organization_Size_Formula__c</fullName>
+        <description>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</description>
         <externalId>false</externalId>
-        <label>Organization Size</label>
-        <length>255</length>
+        <formula>IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 1,&apos;No Data&apos;,
+IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 499, &apos;Small&apos;,
+IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 999, &apos;Medium&apos;,
+IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &gt; 999, &apos;Large&apos;,&apos;No Data&apos;))))</formula>
+        <inlineHelpText>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</inlineHelpText>
+        <label>Organization Size - Formula</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Size__c</fullName>
+        <description>Decision on organization size is based on number of employees. If employees’ field is entered by TS, formula is based on that field, otherwise, use D&amp;B employee fields. 1-499 = Small, 500-999 = Medium, &gt;999 = Large</description>
+        <externalId>false</externalId>
+        <inlineHelpText>1-499=Small; 
+500-999=Medium; 
+&gt;999=Large.</inlineHelpText>
+        <label>Organization Size</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Data</fullName>
+                    <default>false</default>
+                    <label>No Data</label>
+                </value>
+                <value>
+                    <fullName>Small</fullName>
+                    <default>false</default>
+                    <label>Small</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Large</fullName>
+                    <default>false</default>
+                    <label>Large</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Organization_Type__c</fullName>
@@ -1824,7 +1916,7 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
         <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
-        <label>aaaTradestyle</label>
+        <label>Tradestyle</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1917,7 +2009,7 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
         <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
-        <label>aaaYear Started</label>
+        <label>Year Started</label>
         <length>4</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2041,21 +2133,18 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         <label>My Organizations Not Cleaned</label>
     </listViews>
     <listViews>
-        <fullName>MyAccounts_with_Clean_Status</fullName>
+        <fullName>My_Organizations1</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.ADDRESS1_STREET</columns>
         <columns>ACCOUNT.ADDRESS1_CITY</columns>
         <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
         <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
-        <columns>CLEAN_STATUS</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>Request_Organization_Removal__c</field>
             <operation>equals</operation>
             <value>0</value>
         </filters>
-        <label>My Organizations with Clean Status</label>
-    </listViews>
     <listViews>                                                                                                                      <fullName>My_Organizations1</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.ADDRESS1_STREET</columns>                                                                                   <columns>ACCOUNT.ADDRESS1_CITY</columns>
@@ -2850,6 +2939,25 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Size__c</picklist>
+            <values>
+                <fullName>Large</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3817,6 +3925,25 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Organization_Size__c</picklist>
+            <values>
+                <fullName>Large</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Organization_Type__c</picklist>
             <values>
                 <fullName>Advanced Manufacturing</fullName>
@@ -4705,6 +4832,25 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Size__c</picklist>
+            <values>
+                <fullName>Large</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5688,6 +5834,25 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Size__c</picklist>
+            <values>
+                <fullName>Large</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
