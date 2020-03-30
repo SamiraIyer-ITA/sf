@@ -250,6 +250,16 @@
         <default>false</default>
         <label>Wyoming</label>
     </customValue>
+    <customValue>
+        <fullName>District of Columbia</fullName>
+        <default>false</default>
+        <label>District of Columbia</label>
+    </customValue>
+    <customValue>
+        <fullName>--Select--</fullName>
+        <default>true</default>
+        <label>--Select--</label>
+    </customValue>
     <masterLabel>States</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>
