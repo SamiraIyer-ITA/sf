@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" controller="TaskCommercialInfoCmpCont" access="global" >
+<!-- Handler to call function when page is loaded initially -->
+    <aura:handler name="init" action="{!c.getCommercialRecord}" value="{!this}" />
+    <aura:attribute name="commObj" type="Commercial_Diplomacy_Triage__c" />
+    <lightning:recordViewForm recordId="{!v.commObj.Id}" 
+                              objectApiName="Commercial_Diplomacy_Triage__c">
+    <div class="slds-grid">
+        <div class="slds-col slds-size_2-of-3">
+            <lightning:outputField fieldName="First_Name__c" />
+            <lightning:outputField fieldName="Last_Name__c" />
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <lightning:outputField fieldName="Company__c" />
+            <lightning:outputField fieldName="Email__c" />
+        </div>
+    </div>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_2-of-3">
+            <lightning:outputField fieldName="Description_of_Trade_Barrier__c" />
+            <lightning:outputField fieldName="Foreign_Countries_Involved1__c" />
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <lightning:outputField fieldName="Product_or_Service_Impacted__c" />
+            <lightning:outputField fieldName="What_does_this_problem_involve__c" />
+        </div>
+    </div>
+</lightning:recordViewForm>
+    
+</aura:component>
