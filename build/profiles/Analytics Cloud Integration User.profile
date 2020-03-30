@@ -2,7 +2,7 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Order.Service</recordType>
+        <recordType>Order.Services</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

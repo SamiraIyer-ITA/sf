@@ -988,10 +988,6 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Order.Legacy</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <recordType>Third_Party__c.Resolution_Provider</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
