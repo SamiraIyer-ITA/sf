@@ -2145,13 +2145,20 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             <operation>equals</operation>
             <value>0</value>
         </filters>
-    <listViews>                                                                                                                      <fullName>My_Organizations1</fullName>
+    </listViews>
+    <listViews>
+        <fullName>My_Organizations1</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.ADDRESS1_STREET</columns>                                                                                   <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STREET</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
         <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
         <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
-        <filterScope>Mine</filterScope>                                                                                              <filters>                                                                                                                        <field>Request_Organization_Removal__c</field>
-            <operation>equals</operation>                                                                                                <value>0</value>                                                                                                         </filters>                                                                                                                   <label>My Organizations</label>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Request_Organization_Removal__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>                                                                                                                   <label>My Organizations</label>
     </listViews>
     <listViews>
         <fullName>Organization_Hierarchy</fullName>
