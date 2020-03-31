@@ -30,11 +30,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ContactRequest.Company_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>ContactRequest.Country_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
