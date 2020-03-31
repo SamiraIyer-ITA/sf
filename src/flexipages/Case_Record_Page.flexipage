@@ -71,38 +71,6 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>titleFieldName</name>
-                <value>TANC Fields</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>updateQuickActionName</name>
-                <value>Case.TANC_Fields</value>
-            </componentInstanceProperties>
-            <componentName>console:relatedRecord</componentName>
-            <visibilityRule>
-                <booleanFilter>1 AND 2</booleanFilter>
-                <criteria>
-                    <leftValue>{!Record.RecordType.Name}</leftValue>
-                    <operator>CONTAINS</operator>
-                    <rightValue>Commercial Diplomacy</rightValue>
-                </criteria>
-                <criteria>
-                    <leftValue>{!$User.Profile.Name}</leftValue>
-                    <operator>CONTAINS</operator>
-                    <rightValue>TANC</rightValue>
-                </criteria>
-            </visibilityRule>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>createQuickActionName</name>
-                <value>NewCase</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>lookupFieldName</name>
-                <value>Id</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>titleFieldName</name>
                 <value>SelectUSA Fields</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
@@ -192,6 +160,29 @@
             <componentInstanceProperties>
                 <name>relatedListComponentOverride</name>
                 <value>NONE</value>
+            </componentInstanceProperties>
+            <componentName>force:relatedListSingleContainer</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>parentFieldApiName</name>
+                <value>Case.Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListApiName</name>
+                <value>Harmonized_Tariff_Schedules__r</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListComponentOverride</name>
+                <value>NONE</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>10</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
             </componentInstanceProperties>
             <componentName>force:relatedListSingleContainer</componentName>
         </componentInstances>
