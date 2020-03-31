@@ -7,8 +7,8 @@ export default class TransactionCriteria extends LightningElement {
 	@wire(CurrentPageReference) pageRef;
 
 	accountTypeOptions = [
-		{ label: 'Service', value: 'Service' },
-		{ label: 'Event', value: 'Event' },
+		{ label: 'Services', value: 'Services' },
+		{ label: 'Events', value: 'Events' },
 		{ label: 'Privacy Shield', value: 'Privacy Shield' }
 	];
 

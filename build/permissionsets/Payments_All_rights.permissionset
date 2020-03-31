@@ -4,6 +4,10 @@
         <application>Payment_Manager_2</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Transaction_Management</application>
+        <visible>true</visible>
+    </applicationVisibilities>
     <description>Rights to the Payment2 object. This should only be assigned to Admins.</description>
     <fieldPermissions>
         <editable>true</editable>
@@ -123,6 +127,10 @@
     </recordTypeVisibilities>
     <tabSettings>
         <tab>Payment2__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Transaction_Management</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
