@@ -298,11 +298,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>CleanStatus</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Congressional_District__c</fullName>
         <externalId>false</externalId>
         <label>Congressional District</label>
@@ -360,12 +355,6 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>DandbCompanyId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>DataPartnerType__c</fullName>
@@ -1249,17 +1238,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Minority_Owned_Indicator__c</fullName>
-        <description>Minority-Owned Indicator from D&amp;B</description>
-        <externalId>false</externalId>
-        <formula>TEXT(DandbCompany.MinorityOwned)</formula>
-        <label>Minority-Owned Indicator</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>NAICS_Code__c</fullName>
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
@@ -1300,16 +1278,6 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>NaicsCode</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>NaicsDesc</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Name</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -1324,12 +1292,6 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <inlineHelpText>The highest number of employees from the Data.com employee count fields.</inlineHelpText>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
-    </fields>
-    <fields>
-        <fullName>OperatingHoursId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Organization_18_ID__c</fullName>
@@ -1711,17 +1673,6 @@ MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeC
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>SME__c</fullName>
-        <description>Checkbox is checked when # of employees on record is &gt;1 and &lt;500 Old Formula: IF(MAX(DandbCompany.GlobalUltimateTotalEmployees, NumberOfEmployees, DandbCompany.EmployeesHere, DandbCompany.EmployeesTotal)&lt;501, TRUE, FALSE)</description>
-        <externalId>false</externalId>
-        <formula>IF(MAX(DandbCompany.GlobalUltimateTotalEmployees, NumberOfEmployees, DandbCompany.EmployeesHere, DandbCompany.EmployeesTotal)&lt;501 &amp;&amp; BillingCountry = &apos;United States&apos;, TRUE, FALSE)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>Populated based on Data.com, where there are less than 501 employees &amp; country = US, includes null values.</inlineHelpText>
-        <label>SME (U.S. Only)</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>SharePoint_ID__c</fullName>
         <description>Legacy SharePoint record ID</description>
         <externalId>false</externalId>
@@ -1907,11 +1858,6 @@ MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeC
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Tradestyle</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Tradestyle__c</fullName>
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
@@ -1986,23 +1932,6 @@ MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeC
         <fullName>Website</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Woman_Owned_Indicator__c</fullName>
-        <description>Woman-Owned Indicator from Data.com</description>
-        <externalId>false</externalId>
-        <formula>TEXT(DandbCompany.WomenOwned)</formula>
-        <label>Woman-Owned Indicator</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>YearStarted</fullName>
-        <inlineHelpText>The year the entity commenced operations in its current form. If the entity was acquired by another company, the start date may reflect the date it was acquired.</inlineHelpText>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Year_Started__c</fullName>
@@ -2145,20 +2074,6 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             <operation>equals</operation>
             <value>0</value>
         </filters>
-    </listViews>
-    <listViews>
-        <fullName>My_Organizations1</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.ADDRESS1_STREET</columns>
-        <columns>ACCOUNT.ADDRESS1_CITY</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
-        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
-        <filterScope>Mine</filterScope>
-        <filters>
-            <field>Request_Organization_Removal__c</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>                                                                                                                   <label>My Organizations</label>
     </listViews>
     <listViews>
         <fullName>Organization_Hierarchy</fullName>
