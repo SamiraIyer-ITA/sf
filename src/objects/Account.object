@@ -1825,15 +1825,6 @@ MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeC
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
-    <fields>                                                                                                                                                                           <fullName>TracHier__Global_Ultimate_Grouping_Id__c</fullName>
-        <deprecated>false</deprecated>                                                                                                                                                 <description>Field used by Traction Hierarchies for grouping by Global Ultimate Parent account in reports</description>
-        <externalId>false</externalId>                                                                                                                                                 <formula>ENCODED:[treatNullAsNull]if(!ISBLANK( {!ID:00Nt0000000ZTTp}),
-            {!ID:00Nt0000000ZTTp.TextName} &amp; &quot; (&quot; &amp; {!ID:00Nt0000000ZTTp.DunsNumber} &amp; &quot;)&quot;
-            ,                                                                                                                                                                              {!ID:TextName} &amp; &quot; (&quot; &amp; BLANKVALUE({!ID:DunsNumber}, &quot;No D&amp;B Data Available&quot;) &amp; &quot;)&quot;
-            )</formula>
-        <inlineHelpText>Use this field to group records by Global Ultimate Parent account in reports</inlineHelpText>
-        <label>Global Ultimate Grouping Id</label>                                                                                                                                     <required>false</required>                                                                                                                                                     <trackHistory>false</trackHistory>
-        <type>Text</type>                                                                                                                                                              <unique>false</unique>                                                                                                                                                     </fields>
     <fields>
         <fullName>TracHier__Excluded_From_Account_Hierarchies__c</fullName>
         <defaultValue>false</defaultValue>
