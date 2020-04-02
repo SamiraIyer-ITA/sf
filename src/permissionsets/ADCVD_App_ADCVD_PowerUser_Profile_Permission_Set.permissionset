@@ -3191,10 +3191,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>DDC_clean__Clean_Metrics</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>InvestigationOverride</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
