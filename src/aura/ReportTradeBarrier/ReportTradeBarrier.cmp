@@ -1,0 +1,15 @@
+<aura:component description="Component to Report a Trade Barrier.  Used in Lightning Out.">
+	
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+	
+    <div class="slds-brand-band slds-brand-band_cover   forceBrandBand">
+    <div class="slds-m-top_small slds-m-around_large">
+    <div class="slds-grid slds-gutters">
+    <div class="slds-card">    
+    <lightning:flow title="Report a Trade Barrier" aura:id="flow"/>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+</aura:component>
