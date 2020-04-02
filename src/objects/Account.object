@@ -2090,6 +2090,7 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             <operation>equals</operation>
             <value>0</value>
         </filters>
+        <label>My Organizations</label>
     </listViews>
     <listViews>
         <fullName>Organization_Hierarchy</fullName>
@@ -2111,8 +2112,11 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     </listViews>
     <listViews>
         <fullName>Request_For_Removal</fullName>
-        <columns>ACCOUNT.NAME</columns>                                                                                              <columns>ACCOUNT.LAST_ACTIVITY</columns>                                                                                     <columns>TracHier__Owner__c</columns>
-        <columns>Owner_Office__c</columns>                                                                                           <columns>Request_Organization_Removal__c</columns>
+	<columns>ACCOUNT.NAME</columns>
+	<columns>ACCOUNT.LAST_ACTIVITY</columns>
+	<columns>TracHier__Owner__c</columns>
+	<columns>Owner_Office__c</columns>
+	<columns>Request_Organization_Removal__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Request_Organization_Removal__c</field>
