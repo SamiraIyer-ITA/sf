@@ -5,27 +5,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -33,27 +13,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Delete</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -61,27 +21,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>List</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -89,27 +29,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Tab</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -119,15 +39,6 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>Contact_Us_CPL</compactLayoutAssignment>
     <compactLayouts>
@@ -140,6 +51,13 @@
     </compactLayouts>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Assigned_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Assigned Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>Assigned_User__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -159,6 +77,13 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Assigned to Me</label>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Closed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Closed Date</label>
+        <required>false</required>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Country_1__c</fullName>
@@ -198,6 +123,13 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Last_Status_Change_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Status Change date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>OwnerId</fullName>
         <type>Lookup</type>
     </fields>
@@ -218,6 +150,100 @@
     <fields>
         <fullName>Status</fullName>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Time_Assignment_Pending__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(   ISNULL( Assigned_Date__c ),
+TEXT(
+ FLOOR( NOW()  - CreatedDate)
+)  &amp; &quot; Days &quot; &amp;
+TEXT(
+ROUND(MOD(( NOW() - CreatedDate)*24,24),0)
+         )  &amp;&quot; Hours &quot; &amp;
+TEXT(
+ROUND(MOD(( NOW()  - CreatedDate)*1440,60),0)
+) &amp;&quot; Minutes &quot;, &quot;Assigned&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Time Assignment Pending</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_Since_Assigned__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(!ISNULL(Assigned_Date__c) &amp;&amp; IsNull(Closed_Date__c)  ,
+TEXT(
+ FLOOR( NOW() - Assigned_Date__c  )
+)  &amp; &quot; Days &quot; &amp;
+TEXT(
+ROUND(MOD(( NOW() - Assigned_Date__c )*24,24),0)
+         )  &amp;&quot; Hours &quot; &amp;
+TEXT(
+ROUND(MOD(( NOW() - Assigned_Date__c )*1440,60),0)
+) &amp;&quot; Minutes &quot;,&quot;Not Assigned or Closed&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Time Since Assigned</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Time_since_last_Status_Change__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(
+ FLOOR(NOW() -  Last_Status_Change_date__c )
+)  &amp; &quot; Days &quot; &amp;
+TEXT(
+ROUND(MOD((NOW() -  Last_Status_Change_date__c)*24,24),0)
+         )  &amp;&quot; Hours &quot; &amp;
+TEXT(
+ROUND(MOD((NOW() -  Last_Status_Change_date__c)*1440,60),0)
+) &amp;&quot; Minutes &quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Time Since Last Status Change</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_time_Unassigned__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(  !ISNULL( Assigned_Date__c ) ,
+TEXT(
+ FLOOR(Assigned_Date__c- CreatedDate)
+)  &amp; &quot; Days &quot; &amp;
+TEXT(
+ROUND(MOD((Assigned_Date__c- CreatedDate)*24,24),0)
+         )  &amp;&quot; Hours &quot; &amp;
+TEXT(
+ROUND(MOD((Assigned_Date__c- CreatedDate)*1440,60),0)
+) &amp;&quot; Minutes &quot; , &quot;Not Assigned&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Time Unassigned</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_time_to_close_case_Once_assigned__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( !ISNULL(Closed_Date__c ) ,
+TEXT(
+ FLOOR(Closed_Date__c - Assigned_Date__c )
+)  &amp; &quot; Days &quot; &amp;
+TEXT(
+ROUND(MOD((Closed_Date__c - Assigned_Date__c )*24,24),0)
+         )  &amp;&quot; Hours &quot; &amp;
+TEXT(
+ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
+) &amp;&quot; Minutes &quot; , &quot;Assignment Not Closed&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Time To Close Since Assigned</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Trade_Barrier_URL__c</fullName>
@@ -244,6 +270,193 @@
         <type>Lookup</type>
     </fields>
     <listViews>
+        <fullName>All_ContactRequests</fullName>
+        <columns>Name</columns>
+        <columns>Status</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Contact Requests</label>
+        <sharedTo>
+            <group>CP_Master_Queue_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Anchorage_Closed_Requests</fullName>
+        <columns>Name</columns>
+        <columns>CreatedDate</columns>
+        <columns>PreferredPhone</columns>
+        <columns>PreferredChannel</columns>
+        <columns>Status</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Email__c</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>RequestDescription</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>New,Attempted,Contacted</value>
+        </filters>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>995,996,997,998,999</value>
+        </filters>
+        <filters>
+            <field>RequestReason</field>
+            <operation>equals</operation>
+            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
+        </filters>
+        <label>_Anchorage_Closed_Requests</label>
+        <sharedTo>
+            <role>GM_Advocacy</role>
+            <role>GM_Commercial_Service</role>
+            <role>GM_SelectUSA</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Anchorage_Open_Requests</fullName>
+        <columns>Name</columns>
+        <columns>CreatedDate</columns>
+        <columns>PreferredPhone</columns>
+        <columns>PreferredChannel</columns>
+        <columns>Status</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Email__c</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>RequestDescription</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>New,Attempted,Contacted</value>
+        </filters>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>995,996,997,998,999</value>
+        </filters>
+        <filters>
+            <field>RequestReason</field>
+            <operation>equals</operation>
+            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
+        </filters>
+        <label>_Anchorage_Open_Requests</label>
+        <sharedTo>
+            <role>GM_Advocacy</role>
+            <role>GM_Commercial_Service</role>
+            <role>GM_SelectUSA</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Atlanta_Closed_Requests</fullName>
+        <columns>Name</columns>
+        <columns>CreatedDate</columns>
+        <columns>PreferredPhone</columns>
+        <columns>PreferredChannel</columns>
+        <columns>Status</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Email__c</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>RequestDescription</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>Abandoned,Closed</value>
+        </filters>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>300,3010,3011,3012,3013,3014,3015,3016,3017,3018,302,303,305,306,307,3080,3081,3082,3102,3103,3105,3107,3109,311,312,3171,3174,3178,3180,3181,3182,3183,319,399</value>
+        </filters>
+        <filters>
+            <field>RequestReason</field>
+            <operation>equals</operation>
+            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
+        </filters>
+        <label>_Atlanta_Closed_Requests</label>
+        <sharedTo>
+            <role>GM_Advocacy</role>
+            <role>GM_Commercial_Service</role>
+            <role>GM_SelectUSA</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Atlanta_Open_Requests</fullName>
+        <columns>Name</columns>
+        <columns>CreatedDate</columns>
+        <columns>PreferredPhone</columns>
+        <columns>PreferredChannel</columns>
+        <columns>Status</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Email__c</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>RequestDescription</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>New,Attempted,Contacted</value>
+        </filters>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>300,3010,3011,3012,3013,3014,3015,3016,3017,3018,302,303,305,306,307,3080,3081,3082,3102,3103,3105,3107,3109,311,312,3171,3174,3178,3180,3181,3182,3183,319,399</value>
+        </filters>
+        <filters>
+            <field>RequestReason</field>
+            <operation>equals</operation>
+            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
+        </filters>
+        <label>_Atlanta_Open_Requests</label>
+        <sharedTo>
+            <role>GM_Advocacy</role>
+            <role>GM_Commercial_Service</role>
+            <role>GM_SelectUSA</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Austin_Open_Requests</fullName>
+        <columns>Name</columns>
+        <columns>CreatedDate</columns>
+        <columns>PreferredPhone</columns>
+        <columns>PreferredChannel</columns>
+        <columns>Status</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Email__c</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>RequestDescription</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RequestReason</field>
+            <operation>equals</operation>
+            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>New,Attempted,Contacted</value>
+        </filters>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>733,7644,765,7662,7663,7664,7665,7666,7668,767,7680,7682,7683,7684,7685,7687,7688,7689,7695,7787,7860,7861,7862,7863,7864,7865,7866,7868,7869,787,7894,7896</value>
+        </filters>
+        <label>_Austin_Open_Requests</label>
+        <sharedTo>
+            <role>GM_Advocacy</role>
+            <role>GM_Commercial_Service</role>
+            <role>GM_SelectUSA</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>CP_Contact_US_1_ContactRequest</fullName>
         <columns>Name</columns>
         <columns>Status</columns>
@@ -252,11 +465,10 @@
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <filters>
-            <field>Assigned_to_Me__c</field>
+            <field>Assigned_User__c</field>
             <operation>equals</operation>
-            <value>1</value>
         </filters>
-        <label>CP_Contact_US_1</label>
+        <label>Queue#1</label>
         <queue>CP_Contact_US_1</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group1</group>
@@ -271,11 +483,10 @@
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <filters>
-            <field>Assigned_to_Me__c</field>
+            <field>Assigned_User__c</field>
             <operation>equals</operation>
-            <value>1</value>
         </filters>
-        <label>CP_Contact_US_2</label>
+        <label>Queue#2</label>
         <queue>CP_Contact_US_2</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group2</group>
@@ -290,11 +501,10 @@
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <filters>
-            <field>Assigned_to_Me__c</field>
+            <field>Assigned_User__c</field>
             <operation>equals</operation>
-            <value>1</value>
         </filters>
-        <label>CP_Contact_US_3</label>
+        <label>Queue#3</label>
         <queue>CP_Contact_US_3</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group3</group>
@@ -309,11 +519,10 @@
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <filters>
-            <field>Assigned_to_Me__c</field>
+            <field>Assigned_User__c</field>
             <operation>equals</operation>
-            <value>1</value>
         </filters>
-        <label>CP_Contact_US_4</label>
+        <label>Queue#4</label>
         <queue>CP_Contact_US_4</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group4</group>
@@ -328,11 +537,10 @@
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <filters>
-            <field>Assigned_to_Me__c</field>
+            <field>Assigned_User__c</field>
             <operation>equals</operation>
-            <value>1</value>
         </filters>
-        <label>CP_Contact_US_5</label>
+        <label>Queue#5</label>
         <queue>CP_Contact_US_5</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group5</group>
@@ -347,33 +555,13 @@
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <filters>
-            <field>Assigned_to_Me__c</field>
+            <field>Assigned_User__c</field>
             <operation>equals</operation>
-            <value>1</value>
         </filters>
-        <label>CP_Contact_US_6</label>
+        <label>Queue#6</label>
         <queue>CP_Contact_US_6</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group6</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>CP_Contact_US_7_ContactRequest</fullName>
-        <columns>Name</columns>
-        <columns>Status</columns>
-        <columns>CreatedDate</columns>
-        <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
-        <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_US_7</label>
-        <queue>CP_Contact_US_7</queue>
-        <sharedTo>
-            <group>CP_Contact_Us_Group7</group>
         </sharedTo>
     </listViews>
     <listViews>
@@ -385,33 +573,13 @@
         <columns>Country_1__c</columns>
         <filterScope>Queue</filterScope>
         <filters>
-            <field>Assigned_to_Me__c</field>
+            <field>Assigned_User__c</field>
             <operation>equals</operation>
-            <value>1</value>
         </filters>
-        <label>CP_Contact_US_8</label>
+        <label>Queue#7</label>
         <queue>CP_Contact_US_8</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group8</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>CP_Contact_Us_Closed</fullName>
-        <columns>Name</columns>
-        <columns>Status</columns>
-        <columns>CreatedDate</columns>
-        <columns>Assigned_User__c</columns>
-        <columns>Country_1__c</columns>
-        <filterScope>Queue</filterScope>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>CP_Contact_Us_Closed</label>
-        <queue>CP_Contact_Us_Closed</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
         </sharedTo>
     </listViews>
     <listViews>
@@ -427,12 +595,7 @@
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
         </filters>
-        <filters>
-            <field>Assigned_to_Me__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>Closed Contact Requests</label>
+        <label>All Closed Contact Requests</label>
         <queue>CP_Contact_Us_Closed</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
@@ -442,14 +605,20 @@
         <fullName>My_ContactRequests</fullName>
         <columns>Name</columns>
         <columns>Status</columns>
+        <columns>RequestReason</columns>
+        <columns>RequestDescription</columns>
+        <columns>Country_1__c</columns>
         <columns>CreatedDate</columns>
-        <columns>PreferredChannel</columns>
-        <columns>PreferredPhone</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Assigned_to_Me__c</field>
             <operation>equals</operation>
             <value>1</value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operation>notEqual</operation>
+            <value>Abandoned,Closed</value>
         </filters>
         <label>My Contact Requests</label>
     </listViews>

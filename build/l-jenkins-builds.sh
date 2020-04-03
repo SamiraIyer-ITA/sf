@@ -55,19 +55,23 @@ types=" app \
         md \
         mdt \
         namedCredential \
+	network \
         object \
 	objectTranslation \
         page \
 	pathAssistant \
 	permissionset \
+	profilePasswordPolicy \
         queue \
         quickAction \
+	remoteSite \
 	report \
         reportType \
         resource \
         role \
         settings \
         sharingRules \
+	site \
         standardValueSets \
         synonymDictionary \
         tab \

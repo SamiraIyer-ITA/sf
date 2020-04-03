@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>CP_User_Upgrade_Email</name>
+    <style>freeForm</style>
+    <subject>Continue your International Trade Administration Application</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

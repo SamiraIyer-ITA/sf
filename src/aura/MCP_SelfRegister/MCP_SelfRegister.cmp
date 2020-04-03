@@ -8,7 +8,7 @@
     <aura:attribute name="errorMessage" type="String" required="false" description="" access="private"/>
     <aura:attribute name="firstnameLabel" type="String" required="false" default="First Name"/>
     <aura:attribute name="lastnameLabel" type="String" required="false" default="Last Name"/>
-    
+    <aura:attribute name="urlname" type="String" required="false" />
     <aura:attribute name="recaptchaValid" type="boolean" required="false" default="true"/>
     <aura:attribute name="eventData" type="string" required="false" default="no data"/>
     <aura:attribute name="emailLabel" type="String" required="false" default="Email"/>
@@ -18,7 +18,7 @@
     <aura:attribute name="includePasswordField" type="Boolean" required="false" default="false" description="Whether to include password"/>    
     <aura:attribute name="extraFieldsFieldSet" type="String" required="false" description="A field set name whose fields are desired for user registration"/>
     <aura:attribute name="extraFields" type="list" required="false" description="A field set name whose fields are desired for user registration"/>
-    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    <aura:handler   name="init" value="{!this}" action="{!c.initialize}"/>
     <aura:attribute name="expid" type="String" required="false" description="The branding experience ID" />    
     <aura:attribute name="country" type="String" required="false" description="Track contry to control zip field" />    
     
@@ -39,15 +39,26 @@
     -->
     <aura:handler event="c:setStartUrl" action="{!c.setStartUrl}"/> 
     <aura:handler event="c:setExpId" action="{!c.setExpId}"/>    
-    <aura:dependency resource="c:setExpId" type="EVENT"/>   
+    <aura:dependency resource="c:setExpId" type="EVENT"/> 
+    
+    
+    
+    <aura:renderIf isTrue =  "{!or ($Browser.isAndroid == true , $Browser.isPhone == false)}">
+    <div ><img src="{!$Resource.ita_logo2}" class="logoImage"/></div>
+    </aura:renderIf>
+    
+     <aura:renderIf isTrue =  "{!and ($Browser.isAndroid == false , $Browser.isPhone == true)}">
+    <div ><img src="{!$Resource.ita_logo}" class="logoImage"/></div>
+    </aura:renderIf> 
+    
     
     <div class="slds-grid slds-grid_align-center">
 
 <div class="slds-col slds-size_5-of-12 slds-small-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_1-of-1 ">
 
 
-    <div class="slds-grid slds-grid_align-center"><img src="{!$Resource.ita_logo2}" width="300"/></div>
-
+ 
+   
 
 <div>
 <aura:renderIf isTrue="{!v.showError}">
@@ -122,8 +133,8 @@
 
 
 
-                    <!-- Process PickList fields *IndependentPicklist case -->
-                    <aura:if isTrue = "{!and (curField.pickListData.isPickList == true, curField.pickListData.isDependantPickList != true)}">
+                	<!-- Process PickList fields *IndependentPicklist case -->
+                	<aura:if isTrue = "{!and (curField.pickListData.isPickList == true, curField.pickListData.isDependantPickList != true)}">
                         <!--                     <div id="sfdc_extrafield_container" class="sfdc slds-size_9-of-12"> -->
                         <div>
                             <!--                         <span id="sfdc_user" class="login-icon" data-icon="a"></span> --> 
@@ -132,7 +143,7 @@
                                                        parentFieldLabel="{!curField.label}"
                                                        />
                         </div>    
-                    </aura:if>
+                	</aura:if>
 
 
                 
@@ -178,18 +189,18 @@
 
 
         <div class="captchapage">
-            <iframe src="/cp/captchaPage" height="125px" width="365px" style="border:0px"/>
+            <iframe src="/cp/captchaPage" height="500px" width="350px" style="border:0px"/>
         </div>
                 <aura:renderIf isTrue="{!v.recaptchaValid == false}">
 
-        <div class="sfdc slds-p-bottom_medium">         
+        <div class="sfdc slds-p-bottom_medium">			
             <lightning:button aura:id="submitButton"  disabled="{!v.recaptchaValid}" label="{!v.submitButtonLabel}" onclick="{!c.handleSelfRegister}" class="myBtn slds-button slds-button_brand slds-button_stretch" />
         </div>
         </aura:renderIf>
         
            <aura:renderIf isTrue="{!v.recaptchaValid == true}">
 
-        <div class="sfdc slds-p-bottom_medium">         
+        <div class="sfdc slds-p-bottom_medium">			
             <lightning:button variant="brand"  aura:id="submitButton"  disabled="{!v.recaptchaValid}" label="{!v.submitButtonLabel}" onclick="{!c.handleSelfRegister}" class="myBtnDisabled slds-button slds-button_stretch" />
         </div>
         </aura:renderIf>

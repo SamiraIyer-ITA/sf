@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+	<alerts>
+        <fullName>Send_One_Time_Welcome_Email_to_CP_User</fullName>
+        <description>Send One Time Welcome Email to CP User</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>noreply@trade.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>CP_Community/Registration_Verification_Email</template>
+    </alerts>
+	<alerts>
+        <fullName>CP_Upgrade_Account_Alert</fullName>
+        <description>Send alert when cp user account is upgraded</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>noreply@trade.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>CP_Community/CP_User_Upgrade_Email</template>
+    </alerts>
     <alerts>
         <fullName>Community_New_PS_User_Welcome_email</fullName>
         <description>Community - New PS User Welcome email</description>

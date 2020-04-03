@@ -9,6 +9,34 @@
     -moz-border-radius: 20px;
     border-radius: 20px;
 }
+.THIS .logoImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:500px;
+    height:150px;
+}
+
+@media (min-width: 768px) {
+    .THIS .logoImage
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:450px;
+        height:150px;
+    }
+}
+@media ( min-width: 1024px ) {
+    .THIS .logoImage
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:325px;
+        height:125px;
+    }
+}
 
 .THIS .RoundedBox {
     border-radius: 25px;
@@ -58,7 +86,7 @@
     padding-top:1px;
     padding-left:2px;
     margin:0px;
-
+    
 }
 
 .THIS #sfdc_lock{
@@ -108,15 +136,15 @@
 .THIS .myBtn  {
     width: 350px;
     background-color: #004173;  
-    color: #ffffff
-   
+    color: #ffffff;
+    visibility:visible;
+    margin-top:-800px;    
+    
 }
 .THIS .myBtnDisabled  {
     width: 350px;
-      
-   
+    visibility:hidden;  
 }
-
 
 .THIS button.sfdc_button {
     width: 100%;
@@ -217,7 +245,7 @@
 }
 
 .THIS .captchapage {
-   margin-top:25px; 
+    margin-top:25px; 
 }
 
 .THIS input {
