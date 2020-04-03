@@ -1,0 +1,4 @@
+A new trade barrier has been reported. Please log into Salesforce for additional details. 
+
+Name:{!Commercial_Diplomacy_Triage__c.First_Name__c} {!Commercial_Diplomacy_Triage__c.Last_Name__c}
+Company: {!Commercial_Diplomacy_Triage__c.Company__c}
