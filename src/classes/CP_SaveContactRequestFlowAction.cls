@@ -64,7 +64,6 @@ global without sharing class CP_SaveContactRequestFlowAction {
         else{
             mail.setTargetObjectId(UserInfo.getUserId());  
         }
-       // mail.setSenderDisplayName('noreply@trade.gov');
         if(orgEmails != null && orgEmails.size() > 0){
        	 mail.setOrgWideEmailAddressId(orgEmails[0].Id);
         }
