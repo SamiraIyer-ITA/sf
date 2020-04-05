@@ -751,11 +751,11 @@
         <description>Create&apos;s a compound address from the Account&apos;s address fields.</description>
         <name>fx_Headquarters_Address</name>
         <dataType>String</dataType>
-        <expression>{!varRecord_Portal_Contact.Account.BillingStreet} &amp; BR() &amp;
-            {!varRecord_Portal_Contact.Account.BillingCity} &amp; &quot;, &quot; &amp;
-            {!varRecord_Portal_Contact.Account.BillingState} &amp; &quot; &quot; &amp;
-            {!varRecord_Portal_Contact.Account.BillingPostalCode} &amp; BR() &amp;
-            {!varRecord_Portal_Contact.Account.BillingCountry}</expression>
+        <expression>IF(NOT(ISBLANK({!varRecord_Portal_Contact.Account.BillingStreet})), {!varRecord_Portal_Contact.Account.BillingStreet} &amp; &quot; &quot;, &quot;&quot; ) &amp; BR() 
+  &amp; IF(NOT(ISBLANK({!varRecord_Portal_Contact.Account.BillingCity})), {!varRecord_Portal_Contact.Account.BillingCity} &amp; &quot;, &quot;, &quot;&quot; )
+  &amp; IF(NOT(ISBLANK({!varRecord_Portal_Contact.Account.BillingState})), {!varRecord_Portal_Contact.Account.BillingState} &amp; &quot; &quot;, &quot;&quot; )
+  &amp; IF(NOT(ISBLANK({!varRecord_Portal_Contact.Account.BillingPostalCode})), {!varRecord_Portal_Contact.Account.BillingPostalCode}, &quot;&quot;) &amp; BR()
+  &amp; IF(NOT(ISBLANK({!varRecord_Portal_Contact.Account.BillingCountry})), {!varRecord_Portal_Contact.Account.BillingCountry}, &quot;&quot;)</expression>
     </formulas>
     <formulas>
         <description>Stores the user&apos;s Contact Id so we can query the user&apos;s contact record.</description>
