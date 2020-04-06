@@ -1345,24 +1345,15 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>Organization_Size_Formula__c</fullName>
-        <description>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</description>
-        <externalId>false</externalId>
-        <formula>IF(
-MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 1,&apos;No Data&apos;,
-IF(
-MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 499, &apos;Small&apos;,
-IF(
-MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 999, &apos;Medium&apos;,
-IF(
-MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &gt; 999, &apos;Large&apos;,&apos;No Data&apos;))))</formula>
-        <inlineHelpText>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</inlineHelpText>
-        <label>Organization Size - Formula</label>
+    <fields>                                                                                                                                  <fullName>Organization_Size_Formula__c</fullName>
+        <description>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</description>                                                                               <externalId>false</externalId>                                                                                                        <formula>IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 1,&apos;No Data&apos;,                                                                               IF(                                                                                                                                 MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 499, &apos;Small&apos;,
+IF(                                                                                                                                 MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 999, &apos;Medium&apos;,
+IF(                                                                                                                                 MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &gt; 998, &apos;Large&apos;,&apos;No Data&apos;))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>                                                                              <inlineHelpText>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</inlineHelpText>                                                                         <label>Organization Size - Formula</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Text</type>                                                                                                                     <unique>false</unique>
     </fields>
     <fields>
         <fullName>Organization_Size__c</fullName>
