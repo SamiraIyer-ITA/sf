@@ -36,7 +36,7 @@
           </navigationMenuItem>
       </navigationLinkSet>
     <networkMemberGroups>
-        <permissionSet>C0303ClientFormExporterCompanyQuestionnaireReadCreateEdit</permissionSet>
+        <permissionSet>C03ClientFormExporterCompanyQuestionnaireReadCreateEdit</permissionSet>
         <permissionSet>C08ClientForm</permissionSet>
         <profile>Admin</profile>
         <profile>MCP-External-User</profile>
