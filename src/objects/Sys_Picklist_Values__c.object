@@ -159,7 +159,7 @@
         <defaultValue>&apos;--Select--&apos;</defaultValue>
         <externalId>false</externalId>
         <label>Country</label>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
