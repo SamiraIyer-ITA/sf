@@ -13,13 +13,18 @@ export default class TransactionCriteria extends LightningElement {
 	];
 
 	transactionTypeOptions = [
-		{ label: 'Payment', value: 'Payment' },
-		{ label: 'Refund', value: 'Refund' }
+		{ label: 'Payments', value: 'Payments' },
+		{ label: 'Refunds', value: 'Refunds' }
 	];
 
 	paymentMethodOptions = [
 		{ label: 'Credit Card', value: 'Credit Card' },
 		{ label: 'ACH', value: 'ACH' }
+	];
+
+	downloadedOptions = [
+		{ label: 'Not Yet Downloaded', value: 'Not Yet Downloaded' },
+		{ label: 'All', value: 'All' }
 	];
 
 	@track fromDate;
@@ -29,6 +34,7 @@ export default class TransactionCriteria extends LightningElement {
 	@track accountType;
 	@track transactionType;
 	@track paymentMethod;
+	@track downloaded = "Not Yet Downloaded";
 	@track activeAccordionSection = "accountTypeSection";
 	firstTimeDateSelection = true;
 	firstTimeRefundSelection = true;
@@ -63,8 +69,15 @@ export default class TransactionCriteria extends LightningElement {
 		return "Transaction Type";
 	}
 
+	get downloadedText() {
+		if (this.downloaded) {
+			return "Transactions to Display: " + this.downloaded;
+		}
+		return "Transactions to Display";
+	}
+
 	get isRefund() {
-		if (this.transactionType == "Refund") {
+		if (this.transactionType == "Refunds") {
 			return true;
 		}
 		return false;
@@ -72,7 +85,7 @@ export default class TransactionCriteria extends LightningElement {
 
 	handleTransactionTypeChange(event) {
 		this.transactionType = event.detail.value;
-		if (this.transactionType == "Refund") {
+		if (this.transactionType == "Refunds") {
 			this.paymentMethod = "Credit Card";
 			if (this.firstTimeRefundSelection == true) {
 				this.activeAccordionSection = "dateRangeSection";
@@ -101,7 +114,6 @@ export default class TransactionCriteria extends LightningElement {
 
 	get dateRangeText() {
 		if (this.fromDateText && this.toDateText) {
-			//return "Date Range: " + this.getDateFormatted(this.fromDate) + " - " + this.getDateFormatted(this.toDate);
 			return "Date Range: " + this.fromDateText + " - " + this.toDateText;
 		}
 		return "Date Range";
@@ -129,8 +141,13 @@ export default class TransactionCriteria extends LightningElement {
 		obj.paymentMethod = this.paymentMethod;
 		obj.fromDate = this.fromDateText;
 		obj.toDate = this.toDateText;
+		obj.downloaded = this.downloaded;
 		let searchCriteria = JSON.stringify(obj);
 
 		fireEvent(this.pageRef, 'transactionListUpdate', searchCriteria);
+	}
+
+	handleDownloadedChange(event) {
+		this.downloaded = event.detail.value;
 	}
 }
