@@ -40,7 +40,7 @@ global without sharing class Flow_CreatePaymentRecord {
 			}
 
 			payment.Account_Type__c = accountType;
-			payment.RecordTypeId = Utils.getRecordTypeNameByDeveloperName(recordTypeName, 'Payment2__c');
+			payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
 			payment.Contract__c = contractId;
 			payment.Payment_Processor__c = '';
 			payment.Transaction_Status__c = 'Success';

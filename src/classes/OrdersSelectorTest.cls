@@ -42,7 +42,7 @@ private class OrdersSelectorTest {
 		//Insert a Payment record for Order 1 and Order 2
 		Payment2__c payment1 = new Payment2__c();
 		payment1.Account_Type__c = 'Services';
-		payment1.RecordTypeId = Utils.getRecordTypeNameByDeveloperName('Credit_Card_or_ACH_Payment', 'Payment2__c');
+		payment1.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		payment1.Payment_Processor__c = 'Paygov';
 		payment1.Transaction_Status__c = 'Success';
 		payment1.Transaction_Amount__c = 4800.00;

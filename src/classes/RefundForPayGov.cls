@@ -4,26 +4,6 @@ public with sharing class RefundForPayGov implements IRefund {
 
 	public Payment2__c issueRefund(Payment2__c payment, List<Order> reductionOrders, Decimal refundAmount) {
 
-		Map<String, Object> paymentSettingsMap = CustomMetadataSelector.getPaymentSettings(METADATA_SETTINGS_NAME);
-		String agencyId = (String) paymentSettingsMap.get('Agency_Id__c');
-
-		String remoteAccountName = Payment2.getRemoteAccountName(payment.Account_Type__c);
-
-		PayGovTCSSingleService.PCRefundRequestType pcRefund = new PayGovTCSSingleService.PCRefundRequestType();
-		pcRefund.orig_paygov_tracking_id = payment.Remote_Tracking_Id__c;
-		pcRefund.transaction_amount = String.valueOf(refundAmount);
-		pcRefund.orig_agency_tracking_id = payment.Name;
-
-		PayGovTCSSingleService.TCSSinglePort payGovSingleService = new PayGovTCSSingleService.TCSSinglePort();
-		PayGovTCSSingleService.PCRefundResponse_element pcRefundResponse;
-		if (Test.isRunningTest()) {
-			pcRefundResponse = new PayGovTCSSingleService.PCRefundResponse_element();
-			pcRefundResponse.PCRefund = new PayGovTCSSingleService.PCRefundResponseType();
-			pcRefundResponse.PCRefund.transaction_status = 'Failed';
-		} else {
-			pcRefundResponse = payGovSingleService.processPCRefund(agencyId, remoteAccountName, pcRefund);
-		}
-
 		String transactionStatus;
 		String returnCode;
 		String returnDetail;
@@ -32,25 +12,20 @@ public with sharing class RefundForPayGov implements IRefund {
 		String transactionDate;
 		String status;
 
+		Map<String, Object> paymentSettingsMap = CustomMetadataSelector.getPaymentSettings(METADATA_SETTINGS_NAME);
+		String agencyId = (String) paymentSettingsMap.get('Agency_Id__c');
+
+		String remoteAccountName = Payment2.getRemoteAccountName(payment.Account_Type__c);
+
+		//Get the Refund Response from Pay.gov
+		PayGovTCSSingleService.PCRefundResponse_element pcRefundResponse = RefundForPayGov.getRefundResponse(payment, refundAmount, agencyId, remoteAccountName);
+
 		if (pcRefundResponse.PCRefund.transaction_status == 'Failed') {
 			//Try to cancel the transaction instead of refunding it.  This is needed if the refund is attempted in less than 1 day.
-			PayGovTCSSingleService.PCCancelRequestType pcCancel = new PayGovTCSSingleService.PCCancelRequestType();
-			pcCancel.orig_paygov_tracking_id = payment.Remote_Tracking_Id__c;
-			pcCancel.transaction_amount = String.valueOf(refundAmount);
-			pcCancel.agency_tracking_id = payment.Name;
-			PayGovTCSSingleService.PCCancelResponse_element pcCancelResponse;
-			if (Test.isRunningTest()) {
-				pcCancelResponse = new PayGovTCSSingleService.PCCancelResponse_element();
-				pcCancelResponse.PCCancel = new PayGovTCSSingleService.PCCancelResponseType();
-				pcCancelResponse.PCCancel.transaction_status = 'Canceled';
-				pcCancelResponse.PCCancel.orig_paygov_tracking_id = '9XVKY2';
-				pcCancelResponse.PCCancel.transaction_amount = '9600';
-				pcCancelResponse.PCCancel.transaction_date = '2020-03-20T20:16:37';
-				pcCancelResponse.PCCancel.return_code = '3C';
-				pcCancelResponse.PCCancel.return_detail = 'Successfully canceled';
-			} else {
-				pcCancelResponse = payGovSingleService.processPCCancel(agencyId, remoteAccountName, pcCancel);
-			}
+
+			//Get the cancel response from Pay.gov
+			PayGovTCSSingleService.PCCancelResponse_element pcCancelResponse = RefundForPayGov.getCancelResponse(payment, refundAmount, agencyId, remoteAccountName);
+
 			if (pcCancelResponse.PCCancel.transaction_status == 'Canceled') {
 				payGovTrackingId = pcCancelResponse.PCCancel.orig_paygov_tracking_id;
 				returnedTransactionAmount = Decimal.valueOf(pcCancelResponse.PCCancel.transaction_amount);
@@ -85,6 +60,55 @@ public with sharing class RefundForPayGov implements IRefund {
 			returnDetail = pcRefundResponse.PCRefund.return_detail;
 		}
 
+		//Create the Refund record
+		Payment2__c refund = RefundForPayGov.createRefundRecord(payment, reductionOrders, refundAmount,
+			transactionDate, returnCode, returnDetail, payGovTrackingId, status);
+		return refund;
+	}
+
+	private static PayGovTCSSingleService.PCRefundResponse_element getRefundResponse(Payment2__c payment, Decimal refundAmount, String agencyId, String remoteAccountName) {
+		PayGovTCSSingleService.PCRefundRequestType pcRefund = new PayGovTCSSingleService.PCRefundRequestType();
+		pcRefund.orig_paygov_tracking_id = payment.Remote_Tracking_Id__c;
+		pcRefund.transaction_amount = String.valueOf(refundAmount);
+		pcRefund.orig_agency_tracking_id = payment.Name;
+
+		PayGovTCSSingleService.PCRefundResponse_element pcRefundResponse;
+		if (Test.isRunningTest()) {
+			pcRefundResponse = new PayGovTCSSingleService.PCRefundResponse_element();
+			pcRefundResponse.PCRefund = new PayGovTCSSingleService.PCRefundResponseType();
+			pcRefundResponse.PCRefund.transaction_status = 'Failed';
+		} else {
+			PayGovTCSSingleService.TCSSinglePort payGovSingleService = new PayGovTCSSingleService.TCSSinglePort();
+			pcRefundResponse = payGovSingleService.processPCRefund(agencyId, remoteAccountName, pcRefund);
+		}
+		return pcRefundResponse;
+	}
+
+	private static PayGovTCSSingleService.PCCancelResponse_element getCancelResponse(Payment2__c payment, Decimal refundAmount, String agencyId, String remoteAccountName) {
+		PayGovTCSSingleService.PCCancelRequestType pcCancel = new PayGovTCSSingleService.PCCancelRequestType();
+		pcCancel.orig_paygov_tracking_id = payment.Remote_Tracking_Id__c;
+		pcCancel.transaction_amount = String.valueOf(refundAmount);
+		pcCancel.agency_tracking_id = payment.Name;
+		PayGovTCSSingleService.PCCancelResponse_element pcCancelResponse;
+		if (Test.isRunningTest()) {
+			pcCancelResponse = new PayGovTCSSingleService.PCCancelResponse_element();
+			pcCancelResponse.PCCancel = new PayGovTCSSingleService.PCCancelResponseType();
+			pcCancelResponse.PCCancel.transaction_status = 'Canceled';
+			pcCancelResponse.PCCancel.orig_paygov_tracking_id = '9XVKY2';
+			pcCancelResponse.PCCancel.transaction_amount = '9600';
+			pcCancelResponse.PCCancel.transaction_date = '2020-03-20T20:16:37';
+			pcCancelResponse.PCCancel.return_code = '3C';
+			pcCancelResponse.PCCancel.return_detail = 'Successfully canceled';
+		} else {
+			PayGovTCSSingleService.TCSSinglePort payGovSingleService = new PayGovTCSSingleService.TCSSinglePort();
+			pcCancelResponse = payGovSingleService.processPCCancel(agencyId, remoteAccountName, pcCancel);
+		}
+		return pcCancelResponse;
+	}
+
+	private static Payment2__c createRefundRecord(Payment2__c payment, List<Order> reductionOrders,
+		Decimal refundAmount, String transactionDate, String returnCode, String returnDetail, String payGovTrackingId,
+		String status) {
 		DateTime transactionDateGMT = null;
 		if (!String.isEmpty(transactionDate)) {
 			transactionDateGMT = DateTime.Valueof(transactionDate.replace('T', ' '));
@@ -92,7 +116,7 @@ public with sharing class RefundForPayGov implements IRefund {
 		}
 
 		Payment2__c refund = new Payment2__c();
-		refund.RecordTypeId = Utils.getRecordTypeNameByDeveloperName('Credit_Card_Refund', 'Payment2__c');
+		refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_Refund');
 		refund.Transaction_Amount__c = refundAmount;
 		refund.Transaction_Date__c = transactionDateGMT;
 		refund.Return_Code__c = returnCode;

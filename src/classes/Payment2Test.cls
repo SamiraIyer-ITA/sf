@@ -66,7 +66,7 @@ private class Payment2Test {
 		//Insert a Payment record for Order 1 and Order 2
 		Payment2__c payment1 = new Payment2__c();
 		payment1.Account_Type__c = 'Services';
-		payment1.RecordTypeId = Utils.getRecordTypeNameByDeveloperName('Credit_Card_or_ACH_Payment', 'Payment2__c');
+		payment1.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		payment1.Payment_Processor__c = 'Paygov';
 		payment1.Transaction_Status__c = 'Success';
 		payment1.Transaction_Amount__c = 4800.00;
@@ -132,7 +132,7 @@ private class Payment2Test {
 		//Insert a Credit Card payment that is unrelated to the orders or the contract
 		Payment2__c payment2 = new Payment2__c();
 		payment2.Account_Type__c = 'Services';
-		payment2.RecordTypeId = Utils.getRecordTypeNameByDeveloperName('Credit_Card_or_ACH_Payment', 'Payment2__c');
+		payment2.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		payment2.Payment_Processor__c = 'Pay.gov';
 		payment2.Transaction_Status__c = 'Success';
 		payment2.Transaction_Amount__c = 15.00;
@@ -143,14 +143,14 @@ private class Payment2Test {
 	@IsTest
 	static void getTransactions_Positive_Payment() {
 		String today = Date.today().format();
-		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payment', today, today);
+		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
 		System.assertNotEquals(null, payments[0].Id);
 	}
 
 	@IsTest
 	static void getTransactions_Negative() {
 		String today = Date.today().format();
-		List<Payment2__c> payments = Payment2.getTransactions('Blah', 'Credit Card', 'Payment', today, today);
+		List<Payment2__c> payments = Payment2.getTransactions('Blah', 'Credit Card', 'Payments', today, today, 'All Transactions');
 		System.assert(payments.isEmpty());
 	}
 
@@ -159,7 +159,7 @@ private class Payment2Test {
 		String today = 'Blah';
 		String exceptionMessage;
 		try {
-			List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payment', today, today);
+			List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'All Transactions');
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {

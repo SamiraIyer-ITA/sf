@@ -9,14 +9,16 @@ public class PaymentsSelector2 extends fflib_SObjectSelector implements IPayment
 	}
 
 	public List<Payment2__c> selectByTransactionDetails(String accountType, String paymentType, String recordTypeId,
-		String transactionStatus, Datetime fromDatetime, Datetime toDatetime) {
+		String transactionStatus, Datetime fromDatetime, Datetime toDatetime, Boolean nonTransmittedOnly) {
 		String condition = 'Account_Type__c = :accountType ';
 		condition += 'AND Payment_Type__c = :paymentType ';
 		condition += 'AND RecordTypeId = :recordTypeId ';
 		condition += 'AND Transaction_Status__c = :transactionStatus ';
 		condition += 'AND Transaction_Date__c >= :fromDatetime ';
 		condition += 'AND Transaction_Date__c <= :toDatetime ';
-		condition += 'AND Transmitted__c = false';
+		if (nonTransmittedOnly) {
+			condition += 'AND Transmitted__c = false';
+		}
 		return (List<Payment2__c>) Database.query(newQueryFactory()
 			.setCondition(condition).toSOQL());
 	}
