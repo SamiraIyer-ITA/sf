@@ -409,6 +409,10 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Bahrain</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bangladesh</fullName>
                 <default>false</default>
             </values>
@@ -446,6 +450,10 @@ C-###-### for CVD</inlineHelpText>
             </values>
             <values>
                 <fullName>Costa Rica</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Croatia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -629,11 +637,19 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Serbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Singapore</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Slovakia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovenia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1865,6 +1881,10 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Bahrain</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bangladesh</fullName>
                 <default>false</default>
             </values>
@@ -1902,6 +1922,10 @@ C-###-### for CVD</inlineHelpText>
             </values>
             <values>
                 <fullName>Costa Rica</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Croatia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2073,11 +2097,19 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Serbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Singapore</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Slovakia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovenia</fullName>
                 <default>false</default>
             </values>
             <values>
