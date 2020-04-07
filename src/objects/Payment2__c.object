@@ -470,7 +470,7 @@
         </sharedTo>
     </listViews>
     <nameField>
-        <displayFormat>CDF{0000000}</displayFormat>
+        <displayFormat>SP{00000000}</displayFormat>
         <label>Payment ID</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
