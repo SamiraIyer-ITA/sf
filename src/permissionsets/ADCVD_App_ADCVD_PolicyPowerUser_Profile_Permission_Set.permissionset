@@ -3182,10 +3182,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>DDC_clean__Clean_Metrics</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>OrderAttachmentWriter</apexPage>
         <enabled>true</enabled>
     </pageAccesses>

@@ -1,5 +1,6 @@
 public without sharing class ps_enhanced_controller {
 
+  public Boolean ableToRecertify {get;set;}
   public Boolean mustCheckbeforeProceeding {get;set;}
   public pageReference redirectPSEnhanced(){
     if(this.participation.assets__r.size() == 0){
@@ -410,8 +411,12 @@ public without sharing class ps_enhanced_controller {
       output.put(framework.name, new Asset());
     }
 
+    ableToRecertify = false;
     for(asset asset : this.participation.assets__r){
       output.put(asset.framework__r.name, asset);
+      if(asset.status == 'Active' || (asset.status == 'Inactive' && asset.inactive_status_reason__r.description__c != 'Withdrawal')) {
+          ableToRecertify = true;
+      }
     }
     return output;
   }
