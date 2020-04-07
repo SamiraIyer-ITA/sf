@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>This LPL is used for New Registrant Lead created via Website registration.</description>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
@@ -31,7 +30,7 @@
                 <name>variant</name>
                 <value>linear</value>
             </componentInstanceProperties>
-            <componentName>runtime_sales_lead:pathAssistant</componentName>
+            <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>subheader</name>
@@ -51,10 +50,17 @@
                 <name>relatedListComponentOverride</name>
                 <value>NONE</value>
             </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>10</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
+            </componentInstanceProperties>
             <componentName>force:relatedListContainer</componentName>
         </componentInstances>
-        <mode>Replace</mode>
-        <name>activityTabContent</name>
+        <name>Facet-2983da5b-60a2-4520-b88f-48ab6d105167</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -75,12 +81,8 @@
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
-                <name>active</name>
-                <value>false</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
                 <name>body</name>
-                <value>activityTabContent</value>
+                <value>Facet-2983da5b-60a2-4520-b88f-48ab6d105167</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
@@ -107,40 +109,51 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
-                <name>displayOption</name>
-                <value>BOTH</value>
+                <name>context</name>
+                <value>RECORD</value>
             </componentInstanceProperties>
-            <componentName>runtime_sales_merge:mergeCandidatesPreviewCard</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>createQuickActionName</name>
-                <value>NewContact</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>lookupFieldName</name>
-                <value>Registrant__c</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>titleFieldName</name>
-                <value>Registrant Contact Record</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>updateQuickActionName</name>
-                <value>Contact._LightningRelatedContact</value>
-            </componentInstanceProperties>
-            <componentName>console:relatedRecord</componentName>
+            <componentName>forceChatter:publisher</componentName>
         </componentInstances>
         <componentInstances>
             <componentName>runtime_sales_activities:activityPanel</componentName>
+        </componentInstances>
+        <name>Facet-841fc467-aa0d-4582-8276-bce5801efc58</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>active</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-841fc467-aa0d-4582-8276-bce5801efc58</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Standard.Tab.activity</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <name>Facet-07f6c385-aabc-4a96-b70a-63f0246cb215</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>tabs</name>
+                <value>Facet-07f6c385-aabc-4a96-b70a-63f0246cb215</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tabset</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>New Registrant LPL</masterLabel>
-    <parentFlexiPage>runtime_sales_lead__Lead_rec_L</parentFlexiPage>
-    <sobjectType>Lead</sobjectType>
+    <masterLabel>Services LPL</masterLabel>
+    <parentFlexiPage>sfa__Opportunity_rec_L</parentFlexiPage>
+    <sobjectType>Opportunity</sobjectType>
     <template>
         <name>flexipage:recordHomeWithSubheaderTemplateDesktop</name>
     </template>

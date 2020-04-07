@@ -46,6 +46,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>CspTrustedSite</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>CustomApplication</name>
     </types>
     <types>
@@ -240,5 +244,5 @@
         <members>*</members>
         <name>Workflow</name>
     </types>
-    <version>47.0</version>
+    <version>48.0</version>
 </Package>
