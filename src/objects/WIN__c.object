@@ -1,4 +1,4 @@
-e?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -2899,7 +2899,7 @@ Other Government entities that were involved with the WIN.</description>
         <picklistValues>
             <picklist>Primary_Outcome__c</picklist>
             <values>
-                <fullName>Created%2FImproved Business Opportunity%2FEnvironment</fullName>
+                <fullName>Compliance with trade agreement</fullName>
                 <default>false</default>
             </values>
             <values>
