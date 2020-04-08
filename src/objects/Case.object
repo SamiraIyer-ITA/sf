@@ -2866,7 +2866,7 @@ Select if this is a Compliance Case</description>
                 <value>
                     <fullName>Created/Improved Business Opportunity</fullName>
                     <default>false</default>
-                    <label>Created/Improved Business Opportunity</label>
+                    <label>Created/Improved Business Opportunity/Environment</label>
                 </value>
                 <value>
                     <fullName>Facilitated export transaction</fullName>
