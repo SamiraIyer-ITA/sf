@@ -196,12 +196,21 @@
     <compactLayouts>
         <fullName>CRM_Case_Compact_Layout</fullName>
         <fields>Subject</fields>
-        <fields>CaseNumber</fields>
         <fields>AccountId</fields>
         <fields>Contact_Full_Name__c</fields>
         <fields>OwnerId</fields>
         <fields>RecordTypeId</fields>
         <label>CRM Case Compact Layout</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>Commercial_Diplomacy_Layout</fullName>
+        <fields>CaseNumber</fields>
+        <fields>Subject</fields>
+        <fields>AccountId</fields>
+        <fields>Contact_Full_Name__c</fields>
+        <fields>OwnerId</fields>
+        <fields>RecordTypeId</fields>
+        <label>Commercial Diplomacy Layout</label>
     </compactLayouts>
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
@@ -431,6 +440,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Business_Opportunity_Created_Improved__c</fullName>
+        <description>This is a brief explanation of the business opportunity created/improved as a result of ITA efforts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Include a brief explanation of the business opportunity created/improved as a result of ITA efforts.</inlineHelpText>
+        <label>Business Opportunity Created/Improved</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>CD_Agreement_Notes__c</fullName>
@@ -1123,6 +1143,19 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Commercial_Diplomacy_Triage__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Commercial Diplomacy Triage</label>
+        <referenceTo>Commercial_Diplomacy_Triage__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Compliance_Case__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1533,6 +1566,16 @@ Select if this is a Compliance Case</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>HTS_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>HTS Comments</label>
+        <length>131071</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>IP_Case_Origin_Other__c</fullName>
@@ -2433,12 +2476,6 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>Language</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-    </fields>
-    <fields>
         <fullName>Number_of_WINs_associated_to_Case__c</fullName>
         <externalId>false</externalId>
         <label>Number of WINs associated to Case</label>
@@ -2807,6 +2844,7 @@ Select if this is a Compliance Case</description>
         <fullName>Potential_Primary_Outcome__c</fullName>
         <description>This field will be used to track the number of trade barriers reduced/removed/prevented while the case is in progress to predict the $ value impact of a WIN.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Select Reduce/Remove/Prevent Trade Barrier when a foreign government’s practice, policy or procedure restricts U.S. exports and/or treats them unfairly, including foreign government non-compliance with a trade agreement.</inlineHelpText>
         <label>Potential Primary Outcome</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2818,9 +2856,14 @@ Select if this is a Compliance Case</description>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Compliance with trade agreement</fullName>
+                    <fullName>Reduced/Removed/Prevented trade barrier</fullName>
                     <default>false</default>
-                    <label>Compliance with trade agreement</label>
+                    <label>Reduced/Removed/Prevented trade barrier</label>
+                </value>
+                <value>
+                    <fullName>Created/Improved Business Opportunity</fullName>
+                    <default>false</default>
+                    <label>Created/Improved Business Opportunity</label>
                 </value>
                 <value>
                     <fullName>Facilitated export transaction</fullName>
@@ -2833,9 +2876,10 @@ Select if this is a Compliance Case</description>
                     <label>Reduced/Eliminated threat to US business</label>
                 </value>
                 <value>
-                    <fullName>Reduced/Removed/Prevented trade barrier</fullName>
+                    <fullName>Compliance with trade agreement</fullName>
                     <default>false</default>
-                    <label>Reduced/Removed/Prevented trade barrier</label>
+                    <isActive>false</isActive>
+                    <label>Compliance with trade agreement</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -9548,18 +9592,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -10778,7 +10810,7 @@ Select if this is a Compliance Case</description>
         <fullName>Commercial_Diplomacy</fullName>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
-        <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
+        <compactLayoutAssignment>Commercial_Diplomacy_Layout</compactLayoutAssignment>
         <description>G2G work to protect/advance interests of U.S. business/industry.</description>
         <label>Commercial Diplomacy</label>
         <picklistValues>
@@ -12889,7 +12921,7 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
+                <fullName>Created%2FImproved Business Opportunity</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19583,18 +19615,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -26294,18 +26314,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -33013,18 +33021,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -42998,18 +42994,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -53159,18 +53143,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -56540,18 +56512,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -59917,18 +59877,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -63285,18 +63233,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -66658,18 +66594,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -73336,18 +73260,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -80084,18 +79996,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -83460,18 +83360,6 @@ Select if this is a Compliance Case</description>
         </picklistValues>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
-            <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
@@ -96848,18 +96736,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -100213,18 +100089,6 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Potential_Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Facilitated export transaction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reduced%2FEliminated threat to US business</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
                 <default>false</default>
             </values>
@@ -101459,6 +101323,18 @@ Select if this is a Compliance Case</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>Business_Opp_Created_Improved_required</fullName>
+        <active>true</active>
+        <description>Business Opportunity Created/Improved field is required if Potential Primary Outcome is &quot;Created/Improved Business Opportunity&quot;.</description>
+        <errorConditionFormula>AND(
+$RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot;,
+ISPICKVAL(Potential_Primary_Outcome__c,&quot;Created/Improved Business Opportunity&quot;), 
+ISBLANK(Business_Opportunity_Created_Improved__c)
+)</errorConditionFormula>
+        <errorDisplayField>Business_Opportunity_Created_Improved__c</errorDisplayField>
+        <errorMessage>Business Opportunity Created/Improved field is required if Potential Primary Outcome is &quot;Created/Improved Business Opportunity&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Can_not_change_Case_Record_Type</fullName>
         <active>true</active>
         <description>Can not change Case Record Type post creation of the case.</description>
@@ -101520,7 +101396,7 @@ CONTAINS(TEXT(IP_Case_Reason__c),&quot;Information Assistance&quot;)
         <errorConditionFormula>OR(
      (NOT(ISBLANK(ContactId)))&amp;&amp;ISBLANK(Contact.AccountId),
      (ISBLANK(ContactId)) &amp;&amp; (ISBLANK(AccountId))
-) &amp;&amp; ($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
+) &amp;&amp; ($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($Profile.Name &lt;&gt; &quot;E&amp;C TANC&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
         <errorDisplayField>AccountId</errorDisplayField>
         <errorMessage>To create a case, you must specify the related organization or a contact related to that organization.</errorMessage>
     </validationRules>
@@ -101592,6 +101468,18 @@ ISBLANK(Subject)
 )</errorConditionFormula>
         <errorDisplayField>Subject</errorDisplayField>
         <errorMessage>You must enter a value for Subject.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Business_Opp_Created_Improved</fullName>
+        <active>true</active>
+        <description>Business Opportunity Created/Improved should not be populated if Potential Primary Outcome is &quot;Reduced/Removed/Prevented trade barrier&quot;.</description>
+        <errorConditionFormula>AND(
+$RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot;,
+NOT(ISBLANK (Business_Opportunity_Created_Improved__c )),
+NOT(ISPICKVAL(Potential_Primary_Outcome__c, &quot;Created/Improved Business Opportunity&quot;))
+)</errorConditionFormula>
+        <errorDisplayField>Business_Opportunity_Created_Improved__c</errorDisplayField>
+        <errorMessage>Business Opportunity Created/Improved should not be populated if Potential Primary Outcome is &quot;Reduced/Removed/Prevented trade barrier&quot;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>When_removal_selected_cant_edit</fullName>
