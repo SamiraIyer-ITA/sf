@@ -2585,7 +2585,7 @@ Other Government entities that were involved with the WIN.</description>
         <picklistValues>
             <picklist>Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
+                <fullName>Created%2FImproved Business Opportunity%2FEnvironment</fullName>
                 <default>false</default>
             </values>
             <values>
