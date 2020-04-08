@@ -1182,6 +1182,11 @@ Other Government entities that were involved with the WIN.</description>
                     <default>false</default>
                     <label>Reduced/Removed/Prevented trade barrier</label>
                 </value>
+                <value>
+                    <fullName>Created/Improved Business Opportunity/Environment</fullName>
+                    <default>false</default>
+                    <label>Created/Improved Business Opportunity/Environment</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
