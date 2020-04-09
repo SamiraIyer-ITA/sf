@@ -448,6 +448,7 @@
         <inlineHelpText>Include a brief explanation of the business opportunity created/improved as a result of ITA efforts.</inlineHelpText>
         <label>Business Opportunity Created/Improved</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
@@ -1151,6 +1152,7 @@ Select if this is a Compliance Case</description>
         <relationshipLabel>Cases</relationshipLabel>
         <relationshipName>Cases</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -1572,6 +1574,7 @@ Select if this is a Compliance Case</description>
         <externalId>false</externalId>
         <label>HTS Comments</label>
         <length>131071</length>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
@@ -2863,7 +2866,7 @@ Select if this is a Compliance Case</description>
                 <value>
                     <fullName>Created/Improved Business Opportunity</fullName>
                     <default>false</default>
-                    <label>Created/Improved Business Opportunity</label>
+                    <label>Created/Improved Business Opportunity/Environment</label>
                 </value>
                 <value>
                     <fullName>Facilitated export transaction</fullName>
@@ -4010,7 +4013,7 @@ Select if this is a Compliance Case</description>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Ayotunde Oyedokun,Cristina Clement</value>
+            <value>Ayotunde Oyedokun,Cristina Clement,Ian Wallace,Kelsey Schrenk</value>
         </filters>
         <label>Unassigned PS Applications</label>
         <sharedTo>
