@@ -374,11 +374,42 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
         <columns>RequestReason</columns>
+        <columns>RequestDescription</columns>
+        <columns>Country_1__c</columns>
+        <columns>Closed_Date__c</columns>
+        <columns>IsDeleted</columns>
+        <columns>US_ZIP_CODE__c</columns>
+        <columns>Total_time_to_close_case_Once_assigned__c</columns>
+        <columns>Time_Since_Assigned__c</columns>
+        <columns>Time_Assignment_Pending__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Contact Requests</label>
         <sharedTo>
             <group>CP_Master_Queue_Group</group>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Contact_a_Trade_Specialist</fullName>
+        <columns>Name</columns>
+        <columns>CreatedDate</columns>
+        <columns>PreferredPhone</columns>
+        <columns>PreferredChannel</columns>
+        <columns>Status</columns>
+        <columns>RequestDescription</columns>
+        <columns>RequestReason</columns>
+        <columns>US_ZIP_CODE__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status</field>
+            <operation>equals</operation>
+            <value>New,Attempted,Contacted</value>
+        </filters>
+        <filters>
+            <field>RequestReason</field>
+            <operation>equals</operation>
+            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
+        </filters>
+        <label>All Open Contact a Trade Specialist</label>
     </listViews>
     <listViews>
         <fullName>Anchorage_Closed_Requests</fullName>
@@ -396,7 +427,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <filters>
             <field>Status</field>
             <operation>equals</operation>
-            <value>New,Attempted,Contacted</value>
+            <value>Abandoned,Closed</value>
         </filters>
         <filters>
             <field>US_ZIP_CODE__c</field>
@@ -452,6 +483,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Atlanta_Closed_Requests</fullName>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -468,17 +500,37 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
         </filters>
+	<filters>
+	    <field>RequestReason</field>
+            <operation>equals</operation>
+            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
+        </filters>
         <filters>
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
-            <value>300,3010,3011,3012,3013,3014,3015,3016,3017,3018,302,303,305,306,307,3080,3081,3082,3102,3103,3105,3107,3109,311,312,3171,3174,3178,3180,3181,3182,3183,319,399</value>
+            <value>300,302,303,305,306,307,311,312,319,399,3010,3011,3012,3014,3015,3016,3017,3180,3181,3182,30132,30133,30134,30135,30137,30139,30180,30182,30183,30184,30185,30188,30189,30802,30806,30807,30808,30809,30810,30813</value>
+        </filters>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>30814,30817,30819,30820,30821,30823,30824,30828,30833,31004,31005,31006,31007,31008,31013,31016,31017,31018,31020,31024,31025,31026,31028,31029,31030,31031,31032,31033,31034,31035,31038,31039,31041,31042,31044,31045,31046,31047,31050,31051</value>
+        </filters>
+        <filters>
+           <field>US_ZIP_CODE__c</field>
+           <operation>startsWith</operation>
+           <value>31052,31054,31057,31058,31059,31061,31062,31063,31064,31066,31067,31068,31069,31070,31076,31078,31082,31085,31086,31087,31088,31089,31090,31091,31092,31093,31095,31097,31098,31099,31544,31709,31710,31711,31719,31735,31743,31764,31780,31830</value>
+        </filters>
+        <filters>
+           <field>US_ZIP_CODE__c</field>
+           <operation>startsWith</operation>
+           <value>31832,31833,31836</value>
         </filters>
         <filters>
             <field>RequestReason</field>
             <operation>equals</operation>
             <value>Contacting a local trade or export assistance expert (*limited availability)</value>
         </filters>
-        <label>_Atlanta_Closed_Requests</label>
+        <label>Atlanta_Closed_Requests</label>
         <sharedTo>
             <role>GM_Advocacy</role>
             <role>GM_Commercial_Service</role>
@@ -487,6 +539,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Atlanta_Open_Requests</fullName>
+        <booleanFilter>1 AND 3 AND (2 OR 4 OR 5 OR 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -506,7 +559,22 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <filters>
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
-            <value>300,3010,3011,3012,3013,3014,3015,3016,3017,3018,302,303,305,306,307,3080,3081,3082,3102,3103,3105,3107,3109,311,312,3171,3174,3178,3180,3181,3182,3183,319,399</value>
+            <value>300,302,303,305,306,307,311,312,319,399,3010,3011,3012,3014,3015,3016,3017,3180,3181,3182,30132,30133,30134,30135,30137,30139,30180,30182,30183,30184,30185,30188,30189,30802,30806,30807,30808,30809,30810,30813</value>
+        </filters>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>30814,30817,30819,30820,30821,30823,30824,30828,30833,31004,31005,31006,31007,31008,31013,31016,31017,31018,31020,31024,31025,31026,31028,31029,31030,31031,31032,31033,31034,31035,31038,31039,31041,31042,31044,31045,31046,31047,31050,31051</value>
+        </filters>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>31052,31054,31057,31058,31059,31061,31062,31063,31064,31066,31067,31068,31069,31070,31076,31078,31082,31085,31086,31087,31088,31089,31090,31091,31092,31093,31095,31097,31098,31099,31544,31709,31710,31711,31719,31735,31743,31764,31780,31830</value>
+        </filters>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>31832,31833,31836</value>
         </filters>
         <filters>
             <field>RequestReason</field>
@@ -578,6 +646,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Austin_Open_Requests</fullName>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -602,7 +671,21 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <filters>
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
-            <value>733,7644,765,7662,7663,7664,7665,7666,7668,767,7680,7682,7683,7684,7685,7687,7688,7689,7695,7787,7860,7861,7862,7863,7864,7865,7866,7868,7869,787,7894,7896</value>
+	    <value>733,765,767,787,7680,7684,7689,7864,7866,7868,7869,76055,76432,76436,76442,76444,76452,76455,76457,76468,76474,76621,76622,76624,76627,76628,76629,76630,76631,76632,76633,76635,76636,76638,76640,76642,76643,76644,76645,76648</value>
+        </filter>
+        <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>76650,76653,76654,76655,76656,76657,76660,76661,76664,76666,76667,76673,76676,76678,76680,76682,76684,76685,76686,76687,76691,76692,76820,76823,76824,76825,76827,76828,76831,76832,76834,76836,76852,76853,76854,76856,76857,76858,76859,76864</value>
+         </filters>
+        <filters>                                                                                                                                                                                                                 <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>
+            <value>76869,76870,76871,76872,76873,76874,76877,76878,76880,76882,76884,76885,76887,76888,76936,76950,77836,77837,77838,77852,77853,77856,77857,77859,77863,77867,77870,77878,77879,77882,78602,78605,78606,78607,78608,78609,78610,78611,78612,78613</value>
+        </filters>                                                                                                                                                                                                            <filters>
+            <field>US_ZIP_CODE__c</field>
+            <operation>startsWith</operation>                                                                                                                                                                                     <value>78615,78616,78617,78618,78619,78620,78621,78622,78624,78626,78627,78628,78630,78631,78634,78635,78636,78639,78650,78651,78652,78653,78654,78655,78656,78657,78659,78671,78672,78673,78674,78675,78676,78932,78938,78940,78941,78942,78945,78946</value>
+        </filters>                                                                                                                                                                                                            <filters>                                                                                                                                                                                                                 <field>US_ZIP_CODE__c</field>                                                                                                                                                                                         <operation>startsWith</operation>
+            <value>78947,78948,78949,78952,78953,78954,78956,78957,78960,78961,78963,79519,79538</value>
         </filters>
         <label>_Austin_Open_Requests</label>
         <sharedTo>
