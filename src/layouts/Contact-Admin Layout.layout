@@ -98,7 +98,7 @@
         <label>Additional Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>LD_USE_DnB_Contact__c</field>
             </layoutItems>
         </layoutColumns>

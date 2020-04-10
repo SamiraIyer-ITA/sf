@@ -319,7 +319,7 @@
         <formula>IF(State_Code__c &lt;&gt; NULL &amp;&amp;  Congressional_District__c &lt;&gt; NULL , State_Code__c +&apos;-&apos;+ Congressional_District__c , &quot;&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>This field is auto populated for US Organizations based on zip code</inlineHelpText>
-        <label>Congressional District</label>
+        <label>Congressional District (US Only)</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>

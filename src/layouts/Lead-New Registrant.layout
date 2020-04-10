@@ -110,24 +110,16 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>FirstNameLocal</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>NumberOfEmployees</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>LastNameLocal</field>
+                <behavior>Readonly</behavior>
+                <field>AnnualRevenue</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AnnualRevenue</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>LD_USE_DnB_Optimize__c</field>
             </layoutItems>
             <layoutItems>
@@ -135,7 +127,7 @@
                 <field>DNBoptimizer__DnBContactRecord__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>DNBoptimizer__DnBCompanyRecord__c</field>
             </layoutItems>
         </layoutColumns>
