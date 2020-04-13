@@ -1,0 +1,20 @@
+diff a/src/layouts/Tolling_Day__c-Toll By Specific Record.layout b/src/layouts/Tolling_Day__c-Toll By Specific Record.layout	(rejected hunks)
+@@ -9,15 +9,15 @@
+         <layoutColumns>
+             <layoutItems>
+                 <behavior>Required</behavior>
+-                <field>End_Date__c</field>
++                <field>Start_Date__c</field>
+             </layoutItems>
+             <layoutItems>
+                 <behavior>Required</behavior>
+-                <field>Reason__c</field>
++                <field>End_Date__c</field>
+             </layoutItems>
+             <layoutItems>
+                 <behavior>Required</behavior>
+-                <field>Start_Date__c</field>
++                <field>Reason__c</field>
+             </layoutItems>
+         </layoutColumns>
+         <layoutColumns>
