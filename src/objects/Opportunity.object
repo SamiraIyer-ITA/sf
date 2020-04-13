@@ -440,7 +440,7 @@
         <label>Company Questionnaire</label>
         <referenceTo>Client_Form__c</referenceTo>
         <relationshipLabel>Opportunities</relationshipLabel>
-        <relationshipName>Opportunitiy_Company_Questionnaires</relationshipName>
+        <relationshipName>Opportunity_Company_Questionnaires</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
