@@ -18,7 +18,6 @@ public with sharing class PaymentDetailsForPayGov implements IPaymentDetails {
 				queryResult = singleQueryPort.processTCSSingleQuery(agencyId, remoteAccountName, paymentIdentifier, remoteTrackingId, '');
 				break;
 			} catch (Exception e) {
-				System.debug('Current Attempt ' + currentAttempt + ' failed');
 				currentAttempt += 1;
 			}
 		}
