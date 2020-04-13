@@ -93,6 +93,36 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>CD_Company1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Commercial_Diplomacy_Triage__r.Company__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Company</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CD_First_Name1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Commercial_Diplomacy_Triage__r.First_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CD_Last_Name1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Commercial_Diplomacy_Triage__r.Last_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CTS_Activity_ID__c</fullName>
         <description>Legacy CTS Activity ID for data loading and validation.</description>
         <externalId>true</externalId>
@@ -113,6 +143,17 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Commercial_Diplomacy_Triage__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Commercial Diplomacy Triage</label>
+        <referenceTo>Commercial_Diplomacy_Triage__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Fiscal_Year__c</fullName>
