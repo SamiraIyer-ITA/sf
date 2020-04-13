@@ -28,7 +28,7 @@
 			<div class="slds-text-title_bold totalStyle">Selected Total: <lightning-formatted-number value={selectedTotal} format-style="currency" currency-code="USD"></lightning-formatted-number>
 				<span class="buttonGroupStyle">
 					<lightning-button variant="brand-outline" label="To Excel" class="buttonStyle" onclick={handleToExcel}></lightning-button>
-					<lightning-button variant="brand" label="Download" class="buttonStyle" onclick={handleDownload}></lightning-button>
+					<lightning-button variant="brand" label="To CBS" class="buttonStyle" onclick={handleToCBS}></lightning-button>
 				</span>
 			</div>
 		</template>
@@ -41,5 +41,6 @@
 				</div>
 			</div>
 		</template>
+
 	</lightning-card>
 </template>

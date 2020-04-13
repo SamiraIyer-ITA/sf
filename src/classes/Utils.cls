@@ -197,8 +197,10 @@ public without sharing class Utils {
 				query += ', ' + fieldName;
 			}
 		}
-		query += ' FROM '+ sObjectName +' WHERE Id IN: sObjectIdSet';
-		System.debug('****** '+query);
+		query += ' FROM '+ sObjectName;
+		if (sObjectIdSet != null && ! sObjectIdSet.isEmpty()) {
+			query += ' WHERE Id IN: sObjectIdSet';
+		}
 		return database.query(query);
 	}
 

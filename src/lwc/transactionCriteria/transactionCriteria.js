@@ -1,10 +1,8 @@
 import {LightningElement, track, wire} from 'lwc';
-import {CurrentPageReference} from 'lightning/navigation';
-import {fireEvent} from 'c/pubsub';
+import {publish,createMessageContext,releaseMessageContext} from 'lightning/messageService';
+import messageChannel from "@salesforce/messageChannel/TransactionManagement__c";
 
 export default class TransactionCriteria extends LightningElement {
-
-	@wire(CurrentPageReference) pageRef;
 
 	accountTypeOptions = [
 		{ label: 'Services', value: 'Services' },
@@ -38,6 +36,7 @@ export default class TransactionCriteria extends LightningElement {
 	@track activeAccordionSection = "accountTypeSection";
 	firstTimeDateSelection = true;
 	firstTimeRefundSelection = true;
+	context = createMessageContext();
 
 	connectedCallback() {
 		let d = new Date();
@@ -46,6 +45,11 @@ export default class TransactionCriteria extends LightningElement {
 		d.setDate(d.getDate() - 1);
 		this.fromDate = d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + d.getDate();
 		this.fromDateText = this.getDateFormatted(this.fromDate);
+	}
+
+	disconnectedCallback() {
+		//Release Message Context for Lightning Message Service
+		releaseMessageContext(this.context);
 	}
 
 	get accountTypeText() {
@@ -144,7 +148,13 @@ export default class TransactionCriteria extends LightningElement {
 		obj.downloaded = this.downloaded;
 		let searchCriteria = JSON.stringify(obj);
 
-		fireEvent(this.pageRef, 'transactionListUpdate', searchCriteria);
+		//Send the search criteria to the transactionList LWC
+		const payload = {
+			source: "transactionCriteria",
+			messageBody: searchCriteria
+		};
+		publish(this.context, messageChannel, payload);
+
 	}
 
 	handleDownloadedChange(event) {

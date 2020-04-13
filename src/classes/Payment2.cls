@@ -9,7 +9,7 @@ public with sharing class Payment2 {
 	 * @param fromDateString The starting date from which to search for transactions.
 	 * @param toDateString The ending date used in searching for transactions.
 	 */
-	@AuraEnabled(cacheable=true)
+	@AuraEnabled(cacheable=false)
 	public static List<Payment2__c> getTransactions(String accountType, String paymentMethod, String transactionType, String fromDateString, String toDateString, String downloaded) {
 		try {
 			String transactionStatus;

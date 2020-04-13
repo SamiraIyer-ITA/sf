@@ -35,7 +35,9 @@ public class PaymentsSelector2 extends fflib_SObjectSelector implements IPayment
 			Payment2__c.Payment_Type__c,
 			Payment2__c.Transaction_Date__c,
 			Payment2__c.Transaction_Status__c,
-			Payment2__c.RecordTypeId
+			Payment2__c.RecordTypeId,
+			Payment2__c.Account_Holder_Name__c,
+			Payment2__c.Account_Number__c
 		};
 	}
 

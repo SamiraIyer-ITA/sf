@@ -1,15 +1,17 @@
 import {LightningElement, wire, track} from 'lwc';
-import {CurrentPageReference} from 'lightning/navigation';
-import {registerListener, unregisterAllListeners} from 'c/pubsub';
 import {reduceErrors} from 'c/ldsUtils';
 import getTransactions from '@salesforce/apex/Payment2.getTransactions';
 import LWCStyles from '@salesforce/resourceUrl/LWCStyles';
 import {loadStyle} from 'lightning/platformResourceLoader';
+import {createMessageContext,releaseMessageContext, subscribe, APPLICATION_SCOPE} from 'lightning/messageService';
+import messageChannel from "@salesforce/messageChannel/TransactionManagement__c";
+import getCBSdata from '@salesforce/apex/TransactionManagement.getCBSdata';
 
 const columns = [
-	{label: 'Transaction Date', fieldName: 'Transaction_Date__c', type: 'date'},
-	{label: 'Payment Id', fieldName: 'Name', type: 'text'},
+	{label: 'Transaction Date', fieldName: 'Transaction_Date__c', type: 'date', typeAttributes:{year: "numeric", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"}},
+	{label: 'Payment Id', fieldName: 'IdUrl', type: 'url', typeAttributes: {label: { fieldName: 'Name' }, target: '_blank'}},
 	{label: 'Pay.gov Id', fieldName: 'Remote_Tracking_Id__c', type: 'text'},
+	{label: 'Account Holder Name', fieldName: 'Account_Holder_Name__c', type: 'text'},
 	{label: 'Amount', fieldName: 'Transaction_Amount__c', type: 'currency', typeAttributes: { currencyCode: 'USD'}, cellAttributes: { class: { fieldName: "Amount-Color" }, alignment: "left"}}
 ];
 
@@ -23,8 +25,11 @@ export default class TransactionList extends LightningElement {
 	@track recordColumns = columns;
 	@track tableTitle;
 	obj;  //Object populated from the transactionCriteria LWC
+	baseUrl;  //The base Url serving up the page
+	subscription = null;
+	context = createMessageContext();
+	searchCriteria;
 
-	@wire(CurrentPageReference) pageRef; // Required by pubsub
 	get hasData() {
 		if (this.records) {
 			return true;
@@ -44,18 +49,25 @@ export default class TransactionList extends LightningElement {
 		Promise.all([
 			loadStyle(this, LWCStyles)
 		]).then(() => {
-			// subscribe to transactionListUpdate event
-			registerListener('transactionListUpdate', this.handleTransactionListUpdate, this);
+			//Subscribe to the Lightning Message Service
+			this.subscription = subscribe(this.context, messageChannel, (message) => {
+				this.handleTransactionListUpdate(message);
+			}, {scope: APPLICATION_SCOPE});
+
+			//Get the baseUrl serving up this page
+			this.baseUrl = window.location.origin;
 		});
 	}
+
 	disconnectedCallback() {
-		// unsubscribe from all events
-		unregisterAllListeners(this);
+		//Release Message Context for Lightning Message Service
+		releaseMessageContext(this.context);
 	}
 
 	handleTransactionListUpdate(searchCriteria) {
 		this.records = undefined;
-		this.obj = JSON.parse(searchCriteria);
+		this.searchCriteria = searchCriteria;  //Save searchCriteria for refresh after the Download button is pressed
+		this.obj = JSON.parse(searchCriteria.messageBody);
 		this.retrievingData = true;
 
 		getTransactions({accountType: this.obj.accountType, paymentMethod: this.obj.paymentMethod,
@@ -72,6 +84,7 @@ export default class TransactionList extends LightningElement {
 					let pair;
 					for (let i = 0; i < rows.length; i++) {
 						let row = rows[i];
+						//Populate the pair/value needed for showing the amount in red or green
 						if (this.obj.transactionType == "Payments") {
 							pair = {"Amount-Color": "color-green"};
 						} else {
@@ -79,6 +92,12 @@ export default class TransactionList extends LightningElement {
 							pair = {"Amount-Color": "color-red"};
 						}
 						row = {...row, ...pair};
+
+						//Populate the pair/value needed for linking the Name field to a Payment record
+						pair = {IdUrl: this.baseUrl + "/lightning/r/Payment2__c/" + row.Id + "/view"};
+						row = {...row, ...pair};
+
+
 						rowBuilder.push(row);
 						this.selectedRows.push(row.Id);  //Select all Rows by default
 						this.selectedTotal += row.Transaction_Amount__c;  //Add up the total amount
@@ -86,7 +105,6 @@ export default class TransactionList extends LightningElement {
 					this.tableTitle = this.obj.downloaded + " " + this.obj.accountType + " " + this.obj.paymentMethod + " "
 						+ this.obj.transactionType + " for " + this.obj.fromDate + " - " + this.obj.toDate;
 					this.records = rowBuilder;
-					//console.log(JSON.stringify(this.records));
 				}
 				this.retrievingData = false;
 				this.error = undefined;
@@ -117,13 +135,24 @@ export default class TransactionList extends LightningElement {
 		}
 	}
 
-	handleDownload() {
-		console.log("handleDownload.  TODO");
+	handleToCBS() {
+		getCBSdata({paymentIds: this.selectedRows})
+			.then(result => {
+				if (! this.isEmpty(result)) {
+					this.createFile('CBSData.txt', result);
+
+					//Refresh the list
+					this.handleTransactionListUpdate(this.searchCriteria);
+				}
+			})
+			.catch(error => {
+				this.error = reduceErrors(error).join(', ');
+			});
 	}
 
 	handleToExcel() {
-		let columnHeader = ["Transaction Date", "Payment Id", "Pay.gov Id", "Amount", "Account Type", "Record Id", "Payment Type"];  // This array holds the Column headers to be displayed
-		let jsonKeys = ["Transaction_Date__c", "Name", "Remote_Tracking_Id__c", "Transaction_Amount__c", "Account_Type__c", "Id", "Payment_Type__c"]; // This array holds the keys in the json data
+		let columnHeader = ["Transaction Date", "Payment Id", "Pay.gov Id", "Amount", "Account Type", "Record Id", "Payment Type", "Account Holder Name", "Account Number"];  // This array holds the Column headers to be displayed
+		let jsonKeys = ["Transaction_Date__c", "Name", "Remote_Tracking_Id__c", "Transaction_Amount__c", "Account_Type__c", "Id", "Payment_Type__c", "Account_Holder_Name__c", "Account_Number__c"]; // This array holds the keys in the json data
 
 		let jsonRecordsData = [];
 		//Only export the selected records
@@ -166,19 +195,21 @@ export default class TransactionList extends LightningElement {
 			}
 			csvIterativeData += newLineCharacter;
 		}
-		//console.log("csvIterativeData", csvIterativeData);
 
-		// Creating anchor element to download
+		this.createFile('Data.csv', csvIterativeData);
+	}
+
+	createFile(fileName, contents) {
 		let downloadElement = document.createElement('a');
 
 		// This  encodeURI encodes special characters, except: , / ? : @ & = + $ # (Use encodeURIComponent() to encode these characters).
-		downloadElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvIterativeData);
+		downloadElement.href = 'data:text/plain;charset=utf-8,' + encodeURI(contents);
 		downloadElement.target = '_self';
 		// CSV File Name
-		downloadElement.download = 'Data.csv';
+		downloadElement.download = fileName;
 		// below statement is required if you are using firefox browser
 		document.body.appendChild(downloadElement);
-		// click() Javascript function to download CSV file
+		// click() Javascript function to download file
 		downloadElement.click();
 	}
 
