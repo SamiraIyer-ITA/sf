@@ -104,20 +104,26 @@
         <editHeading>true</editHeading>
         <label>Dun &amp; Bradstreet Company Information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
+            <layoutItems>                                                                                                               <behavior>Readonly</behavior>
                 <field>DNBoptimizer__DNB_D_U_N_S_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>FirstNameLocal</field>                                                                                       </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>LastNameLocal</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>NumberOfEmployees</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AnnualRevenue</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>LD_USE_DnB_Optimize__c</field>
