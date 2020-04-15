@@ -344,6 +344,16 @@
                     <default>false</default>
                     <label>2019</label>
                 </value>
+                <value>
+                    <fullName>2020</fullName>
+                    <default>false</default>
+                    <label>2020</label>
+                </value>
+                <value>
+                    <fullName>2021</fullName>
+                    <default>false</default>
+                    <label>2021</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1172,6 +1182,11 @@ Other Government entities that were involved with the WIN.</description>
                     <default>false</default>
                     <label>Reduced/Removed/Prevented trade barrier</label>
                 </value>
+                <value>
+                    <fullName>Created/Improved Business Opportunity/Environment</fullName>
+                    <default>false</default>
+                    <label>Created/Improved Business Opportunity/Environment</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1750,6 +1765,14 @@ Other Government entities that were involved with the WIN.</description>
                 <fullName>2019</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Cleared_For__c</picklist>
@@ -2054,6 +2077,14 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2019</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2362,6 +2393,14 @@ Other Government entities that were involved with the WIN.</description>
                 <fullName>2019</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Cleared_For__c</picklist>
@@ -2546,7 +2585,7 @@ Other Government entities that were involved with the WIN.</description>
         <picklistValues>
             <picklist>Primary_Outcome__c</picklist>
             <values>
-                <fullName>Compliance with trade agreement</fullName>
+                <fullName>Created%2FImproved Business Opportunity%2FEnvironment</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2666,6 +2705,14 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2019</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2974,6 +3021,14 @@ Other Government entities that were involved with the WIN.</description>
                 <fullName>2019</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Cleared_For__c</picklist>
@@ -3280,6 +3335,14 @@ Other Government entities that were involved with the WIN.</description>
                 <fullName>2019</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Cleared_For__c</picklist>
@@ -3580,6 +3643,14 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2019</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3884,6 +3955,14 @@ Other Government entities that were involved with the WIN.</description>
                 <fullName>2019</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Cleared_For__c</picklist>
@@ -4184,6 +4263,14 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2019</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2021</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
