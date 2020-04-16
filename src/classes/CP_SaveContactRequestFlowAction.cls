@@ -1,7 +1,7 @@
 global without sharing class CP_SaveContactRequestFlowAction {
     @InvocableMethod(label='Create Contact Request' description='Creates Contact Request Record.')
     global static void createRecord(List<RequestVariables> inputs) {
-        
+        list<lead> leadList = new list<lead>();
         List<User> defaultUserList = new list<User>();
         ContactRequest newRecord = new ContactRequest();
         RequestVariables userInputs = inputs[0];
@@ -10,7 +10,14 @@ global without sharing class CP_SaveContactRequestFlowAction {
         if(defaultUserList.isempty())  {
             defaultUserList = [SELECT Id from User WHERE Alias =: Label.CP_NoReply_Alias];
         }
-        //Standare Fields  
+        leadList= [select id from lead where email =: userInputs.email AND recordType.DeveloperName = 'New_Registrant' limit 1];
+        if(!leadList.isempty()){
+            userInputs.leadId = leadList[0].id;
+        }
+        else{
+            userInputs.leadId = 'NONE';
+        }
+        //Standard Fields  
         newRecord.First_Name__c = userInputs.firstName; //mapedInputs.get('FirstName');b
         newRecord.Last_Name__c = userInputs.lastName; //mapedInputs.get('LastName');
         newRecord.Email__c = userInputs.email; //mapedInputs.get('Email');
@@ -44,6 +51,8 @@ global without sharing class CP_SaveContactRequestFlowAction {
     }
     
     private static void sendEmail(String toAddress,String userType,String userId,Id requestId){
+        List<OrgWideEmailAddress> orgEmails = new list<OrgWideEmailAddress>();
+        orgEmails = [SELECT Id FROM OrgWideEmailAddress WHERE Address =: 'noreply@trade.gov' LIMIT 1];
         List<EmailTemplate> templatesList = [SELECT Id, Body, Subject FROM EmailTemplate WHERE DeveloperName =: 'Contact_Us_Requested'];
         //find an active admin to statisfy email requirment when user is unregistered
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
@@ -55,7 +64,9 @@ global without sharing class CP_SaveContactRequestFlowAction {
         else{
             mail.setTargetObjectId(UserInfo.getUserId());  
         }
-        mail.setSenderDisplayName('noreply@trade.gov');
+        if(orgEmails != null && orgEmails.size() > 0){
+       	 mail.setOrgWideEmailAddressId(orgEmails[0].Id);
+        }
         mail.setToAddresses(new list<string>{toAddress});
         Messaging.SendEmailResult[] resultMail = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
     }
