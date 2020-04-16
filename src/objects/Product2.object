@@ -4089,6 +4089,15 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>IsPrimary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Helps distinguish between Services that are being sold versus add-ons.</description>
+        <externalId>false</externalId>
+        <label>IsPrimary</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Name</fullName>
         <trackHistory>false</trackHistory>
     </fields>

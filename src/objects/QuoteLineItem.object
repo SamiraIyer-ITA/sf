@@ -120,6 +120,15 @@
         <fullName>Discount</fullName>
     </fields>
     <fields>
+        <fullName>IsPrimary__c</fullName>
+        <description>Helps distinguish between Services that are being sold versus add-ons.</description>
+        <externalId>false</externalId>
+        <formula>Product2.IsPrimary__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IsPrimary</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ListPrice</fullName>
     </fields>
     <fields>
