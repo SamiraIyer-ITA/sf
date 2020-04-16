@@ -178,6 +178,11 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>Select</fullName>
+                    <default>true</default>
+                    <label>Select</label>
+                </value>
+                <value>
                     <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
                     <default>false</default>
                     <label>Contacting a local trade or export assistance expert (*limited availability)</label>
