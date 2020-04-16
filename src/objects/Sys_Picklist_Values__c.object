@@ -156,6 +156,7 @@
     <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Contact_Us_Country__c</fullName>
+        <defaultValue>&apos;--Select--&apos;</defaultValue>
         <externalId>false</externalId>
         <label>Country</label>
         <required>false</required>
@@ -180,17 +181,22 @@
                 <value>
                     <fullName>Select</fullName>
                     <default>true</default>
-                    <label>Select</label>
+                    <label>--Select--</label>
                 </value>
                 <value>
-                    <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
+                    <fullName>Contact a local trade or export assistance expert in the US</fullName>
                     <default>false</default>
-                    <label>Contacting a local trade or export assistance expert (*limited availability)</label>
+                    <label>Contact a local trade or export assistance expert in the US</label>
                 </value>
                 <value>
                     <fullName>Resolving a trade barrier</fullName>
                     <default>false</default>
                     <label>Resolving a trade barrier</label>
+                </value>
+                <value>
+                    <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
+                    <default>false</default>
+                    <label>Policy-Identifying Top Markets-Industry Trends</label>
                 </value>
                 <value>
                     <fullName>My trade gov account</fullName>
@@ -212,6 +218,11 @@
                     <default>false</default>
                     <label>Other</label>
                 </value>
+                <value>
+                    <fullName>Contact a local trade or export assistance expert outside the US</fullName>
+                    <default>false</default>
+                    <label>Contact a local trade or export assistance expert outside the US</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -227,6 +238,10 @@
         <label>ContactRequest</label>
         <picklistValues>
             <picklist>Contact_Us_Country__c</picklist>
+            <values>
+                <fullName>--Select--</fullName>
+                <default>true</default>
+            </values>
             <values>
                 <fullName>Algeria</fullName>
                 <default>false</default>
@@ -539,7 +554,11 @@
         <picklistValues>
             <picklist>Contact_Us_Request_Reason__c</picklist>
             <values>
-                <fullName>Contacting a local trade or export assistance expert %28*limited availability%29</fullName>
+                <fullName>Contact a local trade or export assistance expert in the US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact a local trade or export assistance expert outside the US</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -559,7 +578,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Resolving a trade barrier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Select</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
