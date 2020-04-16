@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <assignments>
-        <name>myVariable_waitStartTimeAssignment</name>
-        <label>myVariable_waitStartTimeAssignment</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>myDecision</targetReference>
-        </connector>
-    </assignments>
     <decisions>
         <processMetadataValues>
             <name>index</name>
@@ -30,7 +14,7 @@
         <defaultConnectorLabel>default</defaultConnectorLabel>
         <rules>
             <name>myRule_1</name>
-            <conditionLogic>or</conditionLogic>
+            <conditionLogic>(1 OR 2 OR 3 OR 4) AND ((7 AND 5) OR (7 AND 6))</conditionLogic>
             <conditions>
                 <processMetadataValues>
                     <name>inputDataType</name>
@@ -155,6 +139,99 @@
                     <stringValue>Investment Promotion</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Country_in_Case_Rollup__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Sys_Region_in_Case_Rollup__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <processMetadataValues>
+                    <name>inputDataType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>leftHandSideType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>operatorDataType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <processMetadataValues>
+                    <name>rightHandSideType</name>
+                    <value>
+                        <stringValue>Number</stringValue>
+                    </value>
+                </processMetadataValues>
+                <leftValueReference>myVariable_current.Industry_Rollup_Sum__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>myRule_1_A1</targetReference>
             </connector>
@@ -162,7 +239,7 @@
         </rules>
     </decisions>
     <description>Updating as filter did not remove earlier.</description>
-    <interviewLabel>Case_Update_Contributor_w_Creator_Owner-10_Case</interviewLabel>
+    <interviewLabel>Case_Update_Contributor_w_Creator_Owner-13_InterviewLabel</interviewLabel>
     <label>Case Update Contributor w Creator Owner</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -185,15 +262,15 @@
     <processMetadataValues>
         <name>TriggerType</name>
         <value>
-            <stringValue>onCreateOnly</stringValue>
+            <stringValue>onAllChanges</stringValue>
         </value>
     </processMetadataValues>
     <processType>Workflow</processType>
     <recordCreates>
-        <name>myRule_1_A1</name>
+        <name>myRule_1_A2</name>
         <label>Create Owner Contributor</label>
         <locationX>100</locationX>
-        <locationY>200</locationY>
+        <locationY>300</locationY>
         <inputAssignments>
             <processMetadataValues>
                 <name>dataType</name>
@@ -244,6 +321,12 @@
                 </value>
             </processMetadataValues>
             <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue>User</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
                 <name>rightHandSideType</name>
                 <value>
                     <stringValue>Reference</stringValue>
@@ -256,7 +339,139 @@
         </inputAssignments>
         <object>Case_Contributor__c</object>
     </recordCreates>
-    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>criteria</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>extraTypeInfo</name>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Case]</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>referenceTargetField</name>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Update Owner Added as Case Contributor Field</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <connector>
+            <targetReference>myRule_1_A2</targetReference>
+        </connector>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>inputDataType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Sys Owner Added as Case Contributor</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>operatorDataType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Sys_Owner_Added_as_Case_Contributor__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Sys Owner Added as Case Contributor</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Boolean</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Sys_Owner_Added_as_Case_Contributor__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <startElementReference>myDecision</startElementReference>
     <status>Active</status>
     <variables>
         <name>myVariable_current</name>
@@ -273,15 +488,5 @@
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <objectType>Case</objectType>
-    </variables>
-    <variables>
-        <name>myVariable_waitStartTimeVariable</name>
-        <dataType>DateTime</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Flow.CurrentDateTime</elementReference>
-        </value>
     </variables>
 </Flow>
