@@ -14,6 +14,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
         newRecord.First_Name__c = userInputs.firstName; //mapedInputs.get('FirstName');b
         newRecord.Last_Name__c = userInputs.lastName; //mapedInputs.get('LastName');
         newRecord.Email__c = userInputs.email; //mapedInputs.get('Email');
+        newrecord.Company_Name__c = userInputs.companyName;
         newRecord.RequestDescription =  userInputs.message;
         if(userInputs.country != 'NONE'){
             newRecord.Country_1__c = userInputs.country; //mapedInputs.get('Country');
@@ -82,5 +83,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
         global String contactId;
         @InvocableVariable(label='Message' required=false)
         global String message;
+        @InvocableVariable(label='Company Name' required=false)
+        global String companyName;
     }
 }
