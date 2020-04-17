@@ -25,4 +25,9 @@
         <field>Account.Domestic_Ultimate_Business__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Organization_Size_Formula__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 </Profile>
