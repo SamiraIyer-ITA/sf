@@ -2442,11 +2442,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Domestic_Ultimate_Business__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Account.DupeBlocker_Insert_Action__c</field>
         <readable>false</readable>
@@ -2468,11 +2463,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Global_Ultimate_Business__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Has_Exported_To__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2484,11 +2474,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Ignore__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Importer_Exporter_Indicator__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2549,11 +2534,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Local_ITA_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Location_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
