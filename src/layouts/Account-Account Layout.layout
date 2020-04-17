@@ -38,7 +38,7 @@
                 <field>NumberOfEmployees</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>LD_USE_DnB_Optimize__c</field>
             </layoutItems>
         </layoutColumns>
@@ -148,7 +148,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Organization_Size__c</field>
+                <field>Organization_Size_Formula__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

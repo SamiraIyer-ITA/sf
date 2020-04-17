@@ -314,7 +314,7 @@
         <formula>IF(State_Code__c &lt;&gt; NULL &amp;&amp;  Congressional_District__c &lt;&gt; NULL , State_Code__c +&apos;-&apos;+ Congressional_District__c , &quot;&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>This field is auto populated for US Organizations based on zip code</inlineHelpText>
-        <label>Congressional District</label>
+        <label>Congressional District (US Only)</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -331,6 +331,36 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DNBoptimizer__DNB_D_U_N_S_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Upon successful match, Optimizer populates this field and references it for future refreshes. The Dun &amp; Bradstreet D-U-N-S® Number is an identification number assigned by Dun &amp; Bradstreet that uniquely identifies the entity in accordance with the Data Universal Numbering System (D-U-N-S).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Upon successful match, Optimizer populates this field and references it for future refreshes. It is an identification number assigned by Dun &amp; Bradstreet that uniquely identifies the entity based on the Data Universal Numbering System (D-U-N-S).</inlineHelpText>
+        <label>D&amp;B DUNS Number</label>
+        <length>9</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DNBoptimizer__DnBCompanyRecord__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Upon a successful match, Optimizer populates this field that links the Account record to a specific D-U-N-S Number for display of the correct custom object with D&amp;B data.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Upon a successful match, Optimizer populates this field that links the Account record to a specific D-U-N-S Number for display of the correct custom object with D&amp;B data.</inlineHelpText>
+        <label>AccountToDnB</label>
+        <referenceTo>DNBoptimizer__DnBCompanyRecord__c</referenceTo>
+        <relationshipLabel>AccountToDnB</relationshipLabel>
+        <relationshipName>AccountToDnB</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>DUNS_field__c</fullName>
@@ -1238,6 +1268,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Minority_Owned_Indicator__c</fullName>
+        <description>Minority-Owned Indicator from D&amp;B</description>
+        <externalId>false</externalId>
+        <formula>ENCODED:[treatNullAsNull]TEXT({!ID:DandbCompany.MinorityOwned})</formula>
+        <label>Minority-Owned Indicator</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>NAICS_Code__c</fullName>
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
@@ -1345,15 +1386,25 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <fields>                                                                                                                                  <fullName>Organization_Size_Formula__c</fullName>
-        <description>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</description>                                                                               <externalId>false</externalId>                                                                                                        <formula>IF(
-MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 1,&apos;No Data&apos;,                                                                               IF(                                                                                                                                 MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 499, &apos;Small&apos;,
-IF(                                                                                                                                 MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 999, &apos;Medium&apos;,
-IF(                                                                                                                                 MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &gt; 998, &apos;Large&apos;,&apos;No Data&apos;))))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>                                                                              <inlineHelpText>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</inlineHelpText>                                                                         <label>Organization Size - Formula</label>
+    <fields>
+        <fullName>Organization_Size_Formula__c</fullName>
+        <description>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</description>
+        <externalId>false</externalId>
+        <formula>IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 1,&apos;No Data&apos;,
+IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 500, &apos;Small&apos;,
+IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 1000, &apos;Medium&apos;,
+IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &gt; 999, &apos;Large&apos;,&apos;No Data&apos;))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</inlineHelpText>
+        <label>Organization Size</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Text</type>                                                                                                                     <unique>false</unique>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Organization_Size__c</fullName>
@@ -1362,7 +1413,7 @@ IF(                                                                             
         <inlineHelpText>1-499=Small; 
 500-999=Medium; 
 &gt;999=Large.</inlineHelpText>
-        <label>Organization Size</label>
+        <label>zzzOrganization Size</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1669,6 +1720,17 @@ IF(                                                                             
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>SME__c</fullName>
+        <description>Checkbox is checked when # of employees on record is &gt;1 and &lt;500 Old Formula: IF(MAX(DandbCompany.GlobalUltimateTotalEmployees, NumberOfEmployees, DandbCompany.EmployeesHere, DandbCompany.EmployeesTotal)&lt;501, TRUE, FALSE)</description>
+        <externalId>false</externalId>
+        <formula>ENCODED:IF(MAX({!ID:DandbCompany.GlobalUltimateTotalEmployees}, {!ID:NumberOfEmployees}, {!ID:DandbCompany.EmployeesHere}, {!ID:DandbCompany.EmployeesTotal})&lt;501 &amp;&amp; {!ID:BillingCountry} = &apos;United States&apos;, TRUE, FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Populated based on Data.com, where there are less than 501 employees &amp; country = US, includes null values.</inlineHelpText>
+        <label>SME (U.S. Only)</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>SharePoint_ID__c</fullName>
         <description>Legacy SharePoint record ID</description>
         <externalId>false</externalId>
@@ -1826,9 +1888,34 @@ IF(                                                                             
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
-    <fields>                                                                                                                                                                           <fullName>TracHier__Hierarchy_ID__c</fullName>                                                                                                                                 <deprecated>false</deprecated>                                                                                                                                                 <externalId>true</externalId>                                                                                                                                                  <label>Hierarchy ID</label>
+    <fields>
+        <fullName>TracHier__Global_Ultimate_Grouping_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field used by Traction Hierarchies for grouping by Global Ultimate Parent account in reports</description>
+        <externalId>false</externalId>
+        <formula>ENCODED:[treatNullAsNull]if(!ISBLANK( {!ID:00Nt0000000ZTTp}),
+	    {!ID:00Nt0000000ZTTp.TextName} &amp; &quot; (&quot; &amp; {!ID:00Nt0000000ZTTp.DunsNumber} &amp; &quot;)&quot;
+	    ,
+	    {!ID:TextName} &amp; &quot; (&quot; &amp; BLANKVALUE({!ID:DunsNumber}, &quot;No D&amp;B Data Available&quot;) &amp; &quot;)&quot;
+	    )</formula>
+        <inlineHelpText>Use this field to group records by Global Ultimate Parent account in reports</inlineHelpText>
+        <label>Global Ultimate Grouping Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TracHier__Hierarchy_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Hierarchy ID</label>
         <length>255</length>
-        <required>false</required>                                                                                                                                                     <trackFeedHistory>false</trackFeedHistory>                                                                                                                                     <trackHistory>false</trackHistory>                                                                                                                                             <type>Text</type>                                                                                                                                                              <unique>false</unique>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>TracHier__Owner__c</fullName>
@@ -1857,8 +1944,11 @@ IF(                                                                             
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
-    <fields>                                                                                                                                                                           <fullName>TracHier__Re_Run_Traction_Hierarchies__c</fullName>                                                                                                                  <defaultValue>false</defaultValue>
-        <deprecated>false</deprecated>                                                                                                                                                 <externalId>false</externalId>
+    <fields>
+        <fullName>TracHier__Re_Run_Traction_Hierarchies__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
         <label>Re-run Traction Hierarchies</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1939,6 +2029,17 @@ IF(                                                                             
         <fullName>Website</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Woman_Owned_Indicator__c</fullName>
+        <description>Woman-Owned Indicator from Data.com</description>
+        <externalId>false</externalId>
+        <formula>ENCODED:[treatNullAsNull]TEXT({!ID:DandbCompany.WomenOwned})</formula>
+        <label>zzzWoman-Owned Indicator</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Year_Started__c</fullName>
@@ -2024,9 +2125,9 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         <columns>Industries__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
+            <field>TracHier__Owner__c</field>
             <operation>equals</operation>
-            <value>Account.Partner_Account</value>
+            <value>Malih Kabbani</value>
         </filters>
         <label>All API Partner Organizations</label>
         <sharedTo>
@@ -2040,12 +2141,7 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         <columns>ACCOUNT.PHONE1</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>ACCOUNT.ADDRESS1_CITY</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.NAME</field>
-            <operation>contains</operation>
-            <value>Tarte</value>
-        </filters>
+        <filterScope>Mine</filterScope>
         <label>All</label>
     </listViews>
     <listViews>
@@ -2103,11 +2199,11 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     </listViews>
     <listViews>
         <fullName>Request_For_Removal</fullName>
-	<columns>ACCOUNT.NAME</columns>
-	<columns>ACCOUNT.LAST_ACTIVITY</columns>
-	<columns>TracHier__Owner__c</columns>
-	<columns>Owner_Office__c</columns>
-	<columns>Request_Organization_Removal__c</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.LAST_ACTIVITY</columns>
+        <columns>TracHier__Owner__c</columns>
+        <columns>Owner_Office__c</columns>
+        <columns>Request_Organization_Removal__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Request_Organization_Removal__c</field>
@@ -2124,7 +2220,7 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     <recordTypes>
         <fullName>ITA_CRM_Law_Firm</fullName>
         <active>true</active>
-	<compactLayoutAssignment>CRM_Organization_Compact_Layout</compactLayoutAssignment>
+        <compactLayoutAssignment>CRM_Organization_Compact_Layout</compactLayoutAssignment>
         <label>ITA CRM Law Firm</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
@@ -6130,13 +6226,13 @@ ISBLANK( Merged_Organization__c )</errorConditionFormula>
         <fullName>Verify_Country_Exists</fullName>
         <active>true</active>
         <description>Verify Country has value populated.</description>
-        <errorConditionFormula>AND( 
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
-$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;, 
-$User.Id &lt;&gt; &quot;005r0000000EZ0K&quot;, 
-$User.Alias &lt;&gt; &quot;autocln&quot;, 
-ISBLANK(BillingCountry) 
+        <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;,
+$User.Id &lt;&gt; &quot;005r0000000EZ0K&quot;,
+$User.Alias &lt;&gt; &quot;autocln&quot;,
+ISBLANK(BillingCountry)
 )</errorConditionFormula>
         <errorMessage>You must enter a value for Country.</errorMessage>
     </validationRules>
@@ -6145,11 +6241,11 @@ ISBLANK(BillingCountry)
         <active>true</active>
         <description>Unless administrator, can not edit wins marked for removal.
 
-AND( 
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
 $Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
-$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;, 
-Request_Organization_Removal__c = TRUE 
+$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;,
+Request_Organization_Removal__c = TRUE
 )</description>
         <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;System Administrator&quot;,
 $Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
