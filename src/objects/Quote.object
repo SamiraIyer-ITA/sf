@@ -168,6 +168,38 @@
         <fullName>BillingName</fullName>
     </fields>
     <fields>
+        <fullName>Client_Form_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Form Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Client_Form_Type</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Client_Form__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Link a completed product specific client form.</description>
+        <externalId>false</externalId>
+        <label>Client Form</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Client_Form__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <valueField>$Source.Client_Form_Type__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Client_Form__c</referenceTo>
+        <relationshipLabel>Quotes</relationshipLabel>
+        <relationshipName>Quotes</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>ContactId</fullName>
         <type>Lookup</type>
     </fields>
@@ -251,6 +283,25 @@
         <active>true</active>
         <description>Standard record type for quotes</description>
         <label>Standard</label>
+        <picklistValues>
+            <picklist>Client_Form_Type__c</picklist>
+            <values>
+                <fullName>Business_Service_Provider</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International_Company_Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single_Company_Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single_Location_Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Status</picklist>
             <values>
