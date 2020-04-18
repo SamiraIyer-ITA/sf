@@ -1,4 +1,4 @@
-global with sharing class Flow_DetermineNISTCaseReason {
+global without sharing class Flow_DetermineNISTCaseReason {
 
 	/**
 	* Return the value of the Case Reason field for a new Transaction Management Support Case.
@@ -17,8 +17,11 @@ global with sharing class Flow_DetermineNISTCaseReason {
 			} else {
 				caseReason = 'To NIST';
 			}
+			QueueSobject queue = [SELECT Id, QueueId FROM QueueSobject WHERE Queue.DeveloperName = 'Transaction_Management_Support' LIMIT 1];
 			ResponseVariables responseVariables = new ResponseVariables();
+			responseVariables.queueId = queue.QueueId;
 			responseVariables.caseReason = caseReason;
+			responseVariables.recordTypeId = Utils.getRecordTypeIdMap('Case').get('Transaction_Management_Support');
 			List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 			responseVariablesList.add(responseVariables);
 			return responseVariablesList;
@@ -31,6 +34,12 @@ global with sharing class Flow_DetermineNISTCaseReason {
 	global class ResponseVariables {
 		@InvocableVariable(label='Case Reason' required=true)
 		global String caseReason;
+
+		@InvocableVariable(label='Transaction Management Record Type Id' required=true)
+		global String recordTypeId;
+
+		@InvocableVariable(label='Transaction Management Support Queue Id' required=true)
+		global String queueId;
 	}
 
 	class DetermineNISTCaseReasonActionException extends Exception {}
