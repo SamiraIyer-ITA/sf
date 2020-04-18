@@ -52,9 +52,15 @@ global without sharing class Flow_ValidateRefundableReductionOrders {
 
 			//Determine the account type.  All orders need to be the same Type.
 			String accountType = orders[0].Type;
+			String selectedOrdersAsText = '';
 
 			Decimal totalAmount = 0.00;
 			for (Order order: orders) {
+				if (String.isNotBlank(selectedOrdersAsText)) {
+					selectedOrdersAsText += ', ';
+				}
+				selectedOrdersAsText += 'Order Number: ' + order.OriginalOrder.OrderNumber
+					+ ' (Payment Id: ' + order.OriginalOrder.Payment2__r.Name + ')';
 				totalAmount += order.TotalAmount;  //Add up the total amount for all orders
 				if (! order.IsReductionOrder) {
 					errorList.add('<li>Order \'' + order.Name + '\' is a not a reduction order.</li>');
@@ -80,6 +86,9 @@ global without sharing class Flow_ValidateRefundableReductionOrders {
 					if (Math.abs(order.TotalAmount) > (order.OriginalOrder.TotalAmount - order.OriginalOrder.Refunded_Amount__c)) {
 						errorList.add('<li>Order \'' + order.Name + '\' has a total amount that exceeds the amount available to be refunded.</li>');
 					}
+					if (order.OriginalOrder.Payment2__r.Payment_Type__c != null && order.OriginalOrder.Payment2__r.Payment_Type__c != 'PLASTIC_CARD') {
+						responseVariables.nonCreditCardPayment = true;
+					}
 				}
 			}
 
@@ -90,6 +99,7 @@ global without sharing class Flow_ValidateRefundableReductionOrders {
 			} else {
 				responseVariables.isValid = true;
 			}
+			responseVariables.selectedOrdersAsText = selectedOrdersAsText;
 			responseVariables.accountType = accountType;
 			responseVariablesList.add(responseVariables);
 			return responseVariablesList;
@@ -111,13 +121,19 @@ global without sharing class Flow_ValidateRefundableReductionOrders {
 		global Decimal totalAmount;
 
 		@InvocableVariable(label='Is Valid' required=true)
-		global Boolean isValid;
+		global Boolean isValid = false;
 
 		@InvocableVariable(label='Invalid Reasons' required=true)
 		global String invalidReasons;
 
 		@InvocableVariable(label='Account Type' required=true)
 		global String accountType;
+
+		@InvocableVariable(label='Non-credit card Payment' required=true)
+		global Boolean nonCreditCardPayment = false;
+
+		@InvocableVariable(label='Selected Order as Text' required=true)
+		global String selectedOrdersAsText;
 	}
 
 	class ValidateRefundableReductionOrdersActionException extends Exception {}
