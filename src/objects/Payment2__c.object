@@ -491,12 +491,9 @@
         <columns>CREATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-        <sharedTo>
-            <role>System_Admin</role>
-        </sharedTo>
     </listViews>
     <nameField>
-        <displayFormat>CDF3{000000}</displayFormat>
+        <displayFormat>P{000000000}</displayFormat>
         <label>Payment ID</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
