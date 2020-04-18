@@ -1,4 +1,4 @@
-public with sharing class TransactionManagement {
+public without sharing class TransactionManagement {
 
 	/**
 	* Get the transaction (payment/refund) data that will be saved as a file and imported into CBS by NIST.
@@ -23,13 +23,15 @@ public with sharing class TransactionManagement {
 			Map<Id,Payment2__c> paymentMap = new Map<Id,Payment2__c>();
 			Map<Id,List<Order>> paymentOrderMap = new Map<Id,List<Order>>();
 
-			for(Payment2__c pay : [SELECT Id,Transaction_Amount__c,Payment_Type__c,Account_Holder_Name__c FROM Payment2__c WHERE Id IN : paymentIdsSet]) {
+			for(Payment2__c pay : [SELECT Id, Transaction_Amount__c, Payment_Type__c, Account_Holder_Name__c
+				FROM Payment2__c WHERE Id IN : paymentIdsSet]) {
 				pay.Transmitted__c = true;
 				paymentMap.put(pay.id,pay);
 				totalAmt += pay.Transaction_Amount__c;
 			}
 
-			for(Order ord: [SELECT Id,Payment2__c,AccountId,Account.Name,OpportunityId,Opportunity.AccountId,Opportunity.Account.Name FROM Order WHERE Payment2__c IN: paymentMap.keySet()]) {
+			for(Order ord: [SELECT Id, Payment2__c, AccountId, Account.Name, OpportunityId, Opportunity.AccountId,
+				Opportunity.Account.Name FROM Order WHERE Payment2__c IN: paymentMap.keySet()]) {
 				if(paymentOrderMap.containsKey(ord.Payment2__c)){
 					List<Order> ordList = new List<Order>();
 					ordList = paymentOrderMap.get(ord.Payment2__c);
