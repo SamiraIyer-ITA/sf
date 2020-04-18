@@ -135,14 +135,25 @@ export default class TransactionList extends LightningElement {
 		}
 	}
 
+	getFormattedDate() {
+		let date = new Date().toJSON().slice(0, 10);
+		let formattedDate = date.slice(5, 7) + '-'
+			+ date.slice(8, 10) + '-'
+			+ date.slice(0, 4);
+		return formattedDate;
+	}
+
 	handleToCBS() {
 		getCBSdata({paymentIds: this.selectedRows})
 			.then(result => {
-				if (! this.isEmpty(result)) {
-					this.createFile('CBSData.txt', result);
+				if ((! this.isEmpty(result)) && result.csvString && result.batchNumber) {
+					let fileName = this.getFormattedDate() + "_Batch_" + result.batchNumber + ".txt";
+					this.createFile(fileName, result.csvString);
 
 					//Refresh the list
 					this.handleTransactionListUpdate(this.searchCriteria);
+				} else {
+					this.error = "No data available";
 				}
 			})
 			.catch(error => {
