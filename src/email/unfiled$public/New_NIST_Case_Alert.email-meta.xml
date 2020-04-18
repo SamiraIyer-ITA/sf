@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Alert NIST users about new Tickets</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>New NIST Case Alert</name>
+    <style>freeForm</style>
+    <subject>Transaction Management Support Request has been opened</subject>
+    <textOnly>Case {!Case.CaseNumber} has just been created and is awaiting your review.
+
+To view the case please click the link below:
+https://trade.my.salesforce.com/{!Case.Id}
+
+
+
+Sent:  {!Case.CreatedDate},
+Subject: {!Case.Subject}
+
+{!Case.Description}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
