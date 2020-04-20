@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,11 +89,41 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -44,16 +134,34 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Tolling_Day_Compact_Layout</fullName>
+        <fields>RecordTypeId</fields>
+        <fields>Name</fields>
+        <fields>Start_Date__c</fields>
+        <fields>End_Date__c</fields>
+        <fields>Reason__c</fields>
+        <label>Tolling Day Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -78,6 +186,21 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Investigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a lookup field to the Investigation Object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a lookup field to the Investigation Object.</inlineHelpText>
+        <label>Investigation</label>
+        <referenceTo>Investigation__c</referenceTo>
+        <relationshipLabel>Investigation Tolling</relationshipLabel>
+        <relationshipName>Tolling_Days</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Locked__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -85,6 +208,179 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Object_Type_To_Be_Tolled__c</fullName>
+        <description>Picklist to determine what Object Type the user is trying to select for Tolling Days</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select what type of object you are adding Tolling Days to.</inlineHelpText>
+        <label>Object Type To Be Tolled</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Petition__c</fullName>
+                    <default>false</default>
+                    <label>Petition</label>
+                </value>
+                <value>
+                    <fullName>Investigation__c</fullName>
+                    <default>false</default>
+                    <label>Investigation</label>
+                </value>
+                <value>
+                    <fullName>Segment__c</fullName>
+                    <default>false</default>
+                    <label>Segment</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Petition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a lookup field to the Petition Object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is a lookup field to the Petition Object.</inlineHelpText>
+        <label>Petition</label>
+        <referenceTo>Petition__c</referenceTo>
+        <relationshipLabel>Petition Tolling</relationshipLabel>
+        <relationshipName>Tolling_Days</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Reacord_Type_To_Be_Tolled__c</fullName>
+        <description>This is a dependent picklist of all the record types of the objects Petition, Investigation, and Segment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please, select the record type you are adding Tolling days to.</inlineHelpText>
+        <label>Record Type To Be Tolled</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Object_Type_To_Be_Tolled__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Filed</fullName>
+                    <default>false</default>
+                    <label>Filed</label>
+                </value>
+                <value>
+                    <fullName>Private</fullName>
+                    <default>false</default>
+                    <label>Private</label>
+                </value>
+                <value>
+                    <fullName>Self_Initiated</fullName>
+                    <default>false</default>
+                    <label>Self-Initiated</label>
+                </value>
+                <value>
+                    <fullName>AD</fullName>
+                    <default>false</default>
+                    <label>AD</label>
+                </value>
+                <value>
+                    <fullName>CVD</fullName>
+                    <default>false</default>
+                    <label>CVD</label>
+                </value>
+                <value>
+                    <fullName>Administrative_Review</fullName>
+                    <default>false</default>
+                    <label>Administrative Review</label>
+                </value>
+                <value>
+                    <fullName>Anti_Circumvention_Review</fullName>
+                    <default>false</default>
+                    <label>Anti-Circumvention Review</label>
+                </value>
+                <value>
+                    <fullName>Changed_Circumstances_Review</fullName>
+                    <default>false</default>
+                    <label>Changed Circumstances Review</label>
+                </value>
+                <value>
+                    <fullName>Expedited_Review</fullName>
+                    <default>false</default>
+                    <label>Expedited Review</label>
+                </value>
+                <value>
+                    <fullName>New_Shipper_Review</fullName>
+                    <default>false</default>
+                    <label>New Shipper Review</label>
+                </value>
+                <value>
+                    <fullName>Scope_Inquiry</fullName>
+                    <default>false</default>
+                    <label>Scope Inquiry</label>
+                </value>
+                <value>
+                    <fullName>Sunset_Review</fullName>
+                    <default>false</default>
+                    <label>Sunset Review</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Petition__c</controllingFieldValue>
+                <valueName>Filed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Petition__c</controllingFieldValue>
+                <valueName>Private</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Petition__c</controllingFieldValue>
+                <valueName>Self_Initiated</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Investigation__c</controllingFieldValue>
+                <valueName>AD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Investigation__c</controllingFieldValue>
+                <valueName>CVD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Segment__c</controllingFieldValue>
+                <valueName>Administrative_Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Segment__c</controllingFieldValue>
+                <valueName>Anti_Circumvention_Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Segment__c</controllingFieldValue>
+                <valueName>Changed_Circumstances_Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Segment__c</controllingFieldValue>
+                <valueName>Expedited_Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Segment__c</controllingFieldValue>
+                <valueName>New_Shipper_Review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Segment__c</controllingFieldValue>
+                <valueName>Scope_Inquiry</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Segment__c</controllingFieldValue>
+                <valueName>Sunset_Review</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Reason__c</fullName>
@@ -96,6 +392,21 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a lookup field to the Segment Object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a lookup field to the Segment Object.</inlineHelpText>
+        <label>Segment</label>
+        <referenceTo>Segment__c</referenceTo>
+        <relationshipLabel>Segment Tolling</relationshipLabel>
+        <relationshipName>Tolling_Days</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Start_Date__c</fullName>
@@ -110,11 +421,42 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
         <columns>Start_Date__c</columns>
         <columns>End_Date__c</columns>
         <columns>Reason__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Standard_Tolling</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Reason__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Tolling_Day__c.Standard_Tolling</value>
+        </filters>
+        <label>Standard Tolling</label>
+    </listViews>
+    <listViews>
+        <fullName>Toll_By_Specific_Record</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Reason__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Tolling_Day__c.Toll_By_Specific_Record</value>
+        </filters>
+        <label>Toll By Specific Record</label>
     </listViews>
     <listViews>
         <fullName>Tolling_Day_Open_Queue_Tolling_Day</fullName>
@@ -132,7 +474,232 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Tolling Days</pluralLabel>
-    <searchLayouts/>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Standard_Tolling</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Tolling_Day_Compact_Layout</compactLayoutAssignment>
+        <description>This is the Standard Tolling record type.</description>
+        <label>Standard Tolling</label>
+        <picklistValues>
+            <picklist>Object_Type_To_Be_Tolled__c</picklist>
+            <values>
+                <fullName>Investigation%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petition%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segment%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reacord_Type_To_Be_Tolled__c</picklist>
+            <values>
+                <fullName>AD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Administrative_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anti_Circumvention_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CVD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Changed_Circumstances_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expedited_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Filed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New_Shipper_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scope_Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self_Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sunset_Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Toll_By_Record_Type</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Tolling_Day_Compact_Layout</compactLayoutAssignment>
+        <description>The is the &quot;Toll By Record Type&quot; record type</description>
+        <label>Toll By Record Type</label>
+        <picklistValues>
+            <picklist>Object_Type_To_Be_Tolled__c</picklist>
+            <values>
+                <fullName>Investigation%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petition%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segment%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reacord_Type_To_Be_Tolled__c</picklist>
+            <values>
+                <fullName>AD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Administrative_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anti_Circumvention_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CVD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Changed_Circumstances_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expedited_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Filed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New_Shipper_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scope_Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self_Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sunset_Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Toll_By_Specific_Record</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Tolling_Day_Compact_Layout</compactLayoutAssignment>
+        <description>This is the &quot;Toll By Specific Record&quot; record type.</description>
+        <label>Toll By Specific Record</label>
+        <picklistValues>
+            <picklist>Object_Type_To_Be_Tolled__c</picklist>
+            <values>
+                <fullName>Investigation%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petition%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segment%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reacord_Type_To_Be_Tolled__c</picklist>
+            <values>
+                <fullName>AD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Administrative_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anti_Circumvention_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CVD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Changed_Circumstances_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expedited_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Filed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New_Shipper_Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scope_Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self_Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sunset_Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Reason__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
@@ -142,6 +709,22 @@ NOT(ISNEW()),
 PRIORVALUE(Locked__c) == true 
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V03TollBySpecificRecordEnsureOneParent</fullName>
+        <active>true</active>
+        <description>You cannot create a Tolling record without a single parent record: either an Investigation, Petition, or Segment attached to it. If all three of these lookup fields are empty, the validation error message will trigger.</description>
+        <errorConditionFormula>AND(
+$Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
+Locked__c = false,
+$RecordType.DeveloperName = &apos;Toll_By_Specific_Record&apos;,
+(
+IF(ISBLANK(Petition__c),0,1)+
+IF(ISBLANK(Segment__c),0,1)+
+IF(ISBLANK(Investigation__c),0,1) &lt;&gt;1
+)
+)</errorConditionFormula>
+        <errorMessage>You must have only one of the following: Petition, Investigation, or Segment associated to this Tolling.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
