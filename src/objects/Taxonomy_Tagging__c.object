@@ -208,50 +208,29 @@
                 <valueName>Hardware Stores</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
-                <valueName>Access Control Systems</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
+                <controllingFieldValue>Safety and Security</controllingFieldValue>
                 <controllingFieldValue>Information and Communications Technology</controllingFieldValue>
                 <valueName>Cybersecurity</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
-                <controllingFieldValue>Consumer Goods</controllingFieldValue>
-                <valueName>Firearms and Accessories</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
+                <controllingFieldValue>Safety and Security</controllingFieldValue>
                 <valueName>Fire Safety and Rescue Equipment</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
-                <valueName>Home Security Systems</valueName>
+                <controllingFieldValue>Safety and Security</controllingFieldValue>
+                <valueName>Public Safety</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
-                <valueName>Industrial Safety and Security</valueName>
+                <controllingFieldValue>Safety and Security</controllingFieldValue>
+                <valueName>Safety and Protection</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
-                <valueName>Police Equipment</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
-                <valueName>Protective Equipment</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
-                <valueName>Safety Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
-                <valueName>Security and Safety Equipment</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Safety &amp; Security</controllingFieldValue>
+                <controllingFieldValue>Safety and Security</controllingFieldValue>
                 <valueName>Security Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety and Security</controllingFieldValue>
+                <valueName>Security Technology</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Textiles and Apparel</controllingFieldValue>
@@ -1357,6 +1336,34 @@
                 <valueName>Lodging</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>Public Safety</controllingFieldValue>
+                <valueName>First-Responder Communication Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Safety</controllingFieldValue>
+                <valueName>Forensics Equipment and Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Safety</controllingFieldValue>
+                <valueName>Police Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Safety</controllingFieldValue>
+                <valueName>Police Vehicles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Safety</controllingFieldValue>
+                <valueName>Prison Equipment and Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Safety</controllingFieldValue>
+                <valueName>Traffic-Management Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Public Safety</controllingFieldValue>
+                <valueName>Weapons and Accessories</valueName>
+            </valueSettings>
+            <valueSettings>
                 <controllingFieldValue>Adult Education and Training</controllingFieldValue>
                 <controllingFieldValue>Higher Education</controllingFieldValue>
                 <valueName>Executive Education</valueName>
@@ -1671,6 +1678,30 @@
                 <valueName>Commercial Fishing Equipment</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>Security Services</controllingFieldValue>
+                <valueName>Authentication and Anti-Counterfeiting Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Services</controllingFieldValue>
+                <valueName>Corporate Security Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Services</controllingFieldValue>
+                <valueName>Crisis- and Emergency-Management Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Services</controllingFieldValue>
+                <valueName>Protection Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Services</controllingFieldValue>
+                <valueName>Security-Consulting Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Services</controllingFieldValue>
+                <valueName>Security Training Services</valueName>
+            </valueSettings>
+            <valueSettings>
                 <controllingFieldValue>Consumer Electronics</controllingFieldValue>
                 <valueName>Photographic Equipment</valueName>
             </valueSettings>
@@ -1831,6 +1862,34 @@
                 <valueName>Custom Brokerage</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>Fire Safety and Rescue Equipment</controllingFieldValue>
+                <valueName>Fire-Detection Devices</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fire Safety and Rescue Equipment</controllingFieldValue>
+                <valueName>Firefighting and Rescue Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fire Safety and Rescue Equipment</controllingFieldValue>
+                <valueName>Firefighting and Rescue Vehicles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fire Safety and Rescue Equipment</controllingFieldValue>
+                <valueName>Fire-Safety Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fire Safety and Rescue Equipment</controllingFieldValue>
+                <valueName>Fire-Suppression Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fire Safety and Rescue Equipment</controllingFieldValue>
+                <valueName>Search-and-Rescue Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fire Safety and Rescue Equipment</controllingFieldValue>
+                <valueName>Water-Delivery Devices</valueName>
+            </valueSettings>
+            <valueSettings>
                 <controllingFieldValue>Fluiding Handling Equipment</controllingFieldValue>
                 <valueName>Fluid Power Components</valueName>
             </valueSettings>
@@ -1901,6 +1960,30 @@
             <valueSettings>
                 <controllingFieldValue>Passenger Transportation Services</controllingFieldValue>
                 <valueName>Water Transportation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Technology</controllingFieldValue>
+                <valueName>Access Control Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Technology</controllingFieldValue>
+                <valueName>Mass-Notification Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Technology</controllingFieldValue>
+                <valueName>Physical and Perimeter Security Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Technology</controllingFieldValue>
+                <valueName>Scanning and Detection Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Technology</controllingFieldValue>
+                <valueName>Surveillance Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Security Technology</controllingFieldValue>
+                <valueName>Tracking and Monitoring Systems</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>K-12 Education</controllingFieldValue>
@@ -1997,6 +2080,22 @@
             <valueSettings>
                 <controllingFieldValue>Higher Education</controllingFieldValue>
                 <valueName>Undergraduate Study</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety and Protection</controllingFieldValue>
+                <valueName>Emergency Medical Protective Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety and Protection</controllingFieldValue>
+                <valueName>Industrial Safety Systems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety and Protection</controllingFieldValue>
+                <valueName>Personal-Protective Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Safety and Protection</controllingFieldValue>
+                <valueName>Safety and Protection Services</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Destination Management Organizations</controllingFieldValue>
@@ -2261,10 +2360,6 @@
             <valueSettings>
                 <controllingFieldValue>Specialty Vehicles</controllingFieldValue>
                 <valueName>Military Vehicles</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Specialty Vehicles</controllingFieldValue>
-                <valueName>Police Patrol Vehicles</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Specialty Vehicles</controllingFieldValue>
@@ -3700,7 +3795,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Safety %26 Security</fullName>
+                <fullName>Safety and Security</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3720,10 +3815,6 @@
             <picklist>Sector__c</picklist>
             <values>
                 <fullName>3D Printing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Access Control Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4063,10 +4154,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Firearms and Accessories</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fluiding Handling Equipment</fullName>
                 <default>false</default>
             </values>
@@ -4143,10 +4230,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Home Security Systems</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Hotel and Restaurant Equipment</fullName>
                 <default>false</default>
             </values>
@@ -4160,10 +4243,6 @@
             </values>
             <values>
                 <fullName>Industrial Design Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Industrial Safety and Security</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4335,10 +4414,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Police Equipment</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Powersports</fullName>
                 <default>false</default>
             </values>
@@ -4359,7 +4434,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Protective Equipment</fullName>
+                <fullName>Public Safety</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4407,7 +4482,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Safety Services</fullName>
+                <fullName>Safety and Protection</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4431,7 +4506,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Security and Safety Equipment</fullName>
+                <fullName>Security Technology</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4464,6 +4539,10 @@
             </values>
             <values>
                 <fullName>Sports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State-Owned Enterprises</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4594,6 +4673,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Access Control Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Air Pollution Monitoring Equipment</fullName>
                 <default>false</default>
             </values>
@@ -4651,6 +4734,10 @@
             </values>
             <values>
                 <fullName>Asphalt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Authentication and Anti-Counterfeiting Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4854,7 +4941,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Corporate Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Corporate Travel Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crisis- and Emergency-Management Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4966,6 +5061,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Emergency Medical Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Energy Storage</fullName>
                 <default>false</default>
             </values>
@@ -5030,7 +5129,35 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fire-Detection Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Safety Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Suppression Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First-Responder Communication Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Fluid Power Components</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forensics Equipment and Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5150,6 +5277,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Industrial Safety Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Industrial Waste Water</fullName>
                 <default>false</default>
             </values>
@@ -5226,11 +5357,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Maritime Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Market Research Services</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Masonry and Stone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass-Notification Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5434,6 +5573,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Personal-Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Personnel Vehicles</fullName>
                 <default>false</default>
             </values>
@@ -5466,6 +5609,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Physical and Perimeter Security Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Plaster and Gypsum Board</fullName>
                 <default>false</default>
             </values>
@@ -5482,7 +5629,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Police Patrol Vehicles</fullName>
+                <fullName>Police Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Police Vehicles</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5518,11 +5669,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Prison Equipment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Process Water</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Product Safety Testing and Certification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Protection Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5590,11 +5749,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Safety and Protection Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Satellite Television Networks</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Satellites</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scanning and Detection Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5607,6 +5774,18 @@
             </values>
             <values>
                 <fullName>Scrap Pulp and Paper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Search-and-Rescue Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security-Consulting Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5690,6 +5869,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Surveillance Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>System Infrastructure Software</fullName>
                 <default>false</default>
             </values>
@@ -5750,7 +5933,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Tracking and Monitoring Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traffic-Management Equipment</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5855,6 +6046,14 @@
             </values>
             <values>
                 <fullName>Water Treatment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water-Delivery Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weapons and Accessories</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7286,7 +7485,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Safety %26 Security</fullName>
+                <fullName>Safety and Security</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7306,10 +7505,6 @@
             <picklist>Sector__c</picklist>
             <values>
                 <fullName>3D Printing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Access Control Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7649,10 +7844,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Firearms and Accessories</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fluiding Handling Equipment</fullName>
                 <default>false</default>
             </values>
@@ -7729,10 +7920,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Home Security Systems</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Hotel and Restaurant Equipment</fullName>
                 <default>false</default>
             </values>
@@ -7746,10 +7933,6 @@
             </values>
             <values>
                 <fullName>Industrial Design Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Industrial Safety and Security</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7921,10 +8104,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Police Equipment</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Powersports</fullName>
                 <default>false</default>
             </values>
@@ -7945,7 +8124,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Protective Equipment</fullName>
+                <fullName>Public Safety</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7993,7 +8172,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Safety Services</fullName>
+                <fullName>Safety and Protection</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8017,7 +8196,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Security and Safety Equipment</fullName>
+                <fullName>Security Technology</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8050,6 +8229,10 @@
             </values>
             <values>
                 <fullName>Sports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State-Owned Enterprises</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8180,6 +8363,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Access Control Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Air Pollution Monitoring Equipment</fullName>
                 <default>false</default>
             </values>
@@ -8237,6 +8424,10 @@
             </values>
             <values>
                 <fullName>Asphalt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Authentication and Anti-Counterfeiting Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8440,7 +8631,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Corporate Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Corporate Travel Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crisis- and Emergency-Management Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8552,6 +8751,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Emergency Medical Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Energy Storage</fullName>
                 <default>false</default>
             </values>
@@ -8616,7 +8819,35 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fire-Detection Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Safety Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Suppression Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First-Responder Communication Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Fluid Power Components</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forensics Equipment and Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8736,6 +8967,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Industrial Safety Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Industrial Waste Water</fullName>
                 <default>false</default>
             </values>
@@ -8812,11 +9047,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Maritime Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Market Research Services</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Masonry and Stone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass-Notification Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9020,6 +9263,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Personal-Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Personnel Vehicles</fullName>
                 <default>false</default>
             </values>
@@ -9052,6 +9299,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Physical and Perimeter Security Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Plaster and Gypsum Board</fullName>
                 <default>false</default>
             </values>
@@ -9068,7 +9319,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Police Patrol Vehicles</fullName>
+                <fullName>Police Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Police Vehicles</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9104,11 +9359,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Prison Equipment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Process Water</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Product Safety Testing and Certification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Protection Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9176,11 +9439,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Safety and Protection Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Satellite Television Networks</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Satellites</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scanning and Detection Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9193,6 +9464,18 @@
             </values>
             <values>
                 <fullName>Scrap Pulp and Paper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Search-and-Rescue Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security-Consulting Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9276,6 +9559,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Surveillance Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>System Infrastructure Software</fullName>
                 <default>false</default>
             </values>
@@ -9336,7 +9623,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Tracking and Monitoring Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traffic-Management Equipment</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9441,6 +9736,14 @@
             </values>
             <values>
                 <fullName>Water Treatment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water-Delivery Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weapons and Accessories</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10872,7 +11175,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Safety %26 Security</fullName>
+                <fullName>Safety and Security</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10892,10 +11195,6 @@
             <picklist>Sector__c</picklist>
             <values>
                 <fullName>3D Printing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Access Control Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11235,10 +11534,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Firearms and Accessories</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fluiding Handling Equipment</fullName>
                 <default>false</default>
             </values>
@@ -11315,10 +11610,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Home Security Systems</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Hotel and Restaurant Equipment</fullName>
                 <default>false</default>
             </values>
@@ -11332,10 +11623,6 @@
             </values>
             <values>
                 <fullName>Industrial Design Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Industrial Safety and Security</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11503,10 +11790,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Police Equipment</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Powersports</fullName>
                 <default>false</default>
             </values>
@@ -11527,7 +11810,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Protective Equipment</fullName>
+                <fullName>Public Safety</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11575,7 +11858,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Safety Services</fullName>
+                <fullName>Safety and Protection</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11599,7 +11882,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Security and Safety Equipment</fullName>
+                <fullName>Security Technology</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11632,6 +11915,10 @@
             </values>
             <values>
                 <fullName>Sports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State-Owned Enterprises</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11762,6 +12049,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Access Control Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Air Pollution Monitoring Equipment</fullName>
                 <default>false</default>
             </values>
@@ -11819,6 +12110,10 @@
             </values>
             <values>
                 <fullName>Asphalt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Authentication and Anti-Counterfeiting Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12022,7 +12317,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Corporate Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Corporate Travel Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crisis- and Emergency-Management Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12134,6 +12437,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Emergency Medical Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Energy Storage</fullName>
                 <default>false</default>
             </values>
@@ -12198,7 +12505,35 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fire-Detection Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Safety Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Suppression Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First-Responder Communication Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Fluid Power Components</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forensics Equipment and Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12318,6 +12653,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Industrial Safety Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Industrial Waste Water</fullName>
                 <default>false</default>
             </values>
@@ -12394,11 +12733,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Maritime Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Market Research Services</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Masonry and Stone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass-Notification Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12602,6 +12949,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Personal-Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Personnel Vehicles</fullName>
                 <default>false</default>
             </values>
@@ -12630,6 +12981,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Physical and Perimeter Security Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Plaster and Gypsum Board</fullName>
                 <default>false</default>
             </values>
@@ -12646,7 +13001,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Police Patrol Vehicles</fullName>
+                <fullName>Police Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Police Vehicles</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12682,11 +13041,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Prison Equipment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Process Water</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Product Safety Testing and Certification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Protection Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12754,11 +13121,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Safety and Protection Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Satellite Television Networks</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Satellites</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scanning and Detection Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12771,6 +13146,18 @@
             </values>
             <values>
                 <fullName>Scrap Pulp and Paper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Search-and-Rescue Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security-Consulting Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12854,6 +13241,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Surveillance Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>System Infrastructure Software</fullName>
                 <default>false</default>
             </values>
@@ -12914,7 +13305,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Tracking and Monitoring Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traffic-Management Equipment</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13019,6 +13418,14 @@
             </values>
             <values>
                 <fullName>Water Treatment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water-Delivery Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weapons and Accessories</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14450,7 +14857,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Safety %26 Security</fullName>
+                <fullName>Safety and Security</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14470,10 +14877,6 @@
             <picklist>Sector__c</picklist>
             <values>
                 <fullName>3D Printing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Access Control Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14813,10 +15216,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Firearms and Accessories</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fluiding Handling Equipment</fullName>
                 <default>false</default>
             </values>
@@ -14893,10 +15292,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Home Security Systems</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Hotel and Restaurant Equipment</fullName>
                 <default>false</default>
             </values>
@@ -14910,10 +15305,6 @@
             </values>
             <values>
                 <fullName>Industrial Design Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Industrial Safety and Security</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15081,10 +15472,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Police Equipment</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Powersports</fullName>
                 <default>false</default>
             </values>
@@ -15105,7 +15492,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Protective Equipment</fullName>
+                <fullName>Public Safety</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15153,7 +15540,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Safety Services</fullName>
+                <fullName>Safety and Protection</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15177,7 +15564,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Security and Safety Equipment</fullName>
+                <fullName>Security Technology</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15210,6 +15597,10 @@
             </values>
             <values>
                 <fullName>Sports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State-Owned Enterprises</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15340,6 +15731,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Access Control Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Air Pollution Monitoring Equipment</fullName>
                 <default>false</default>
             </values>
@@ -15397,6 +15792,10 @@
             </values>
             <values>
                 <fullName>Asphalt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Authentication and Anti-Counterfeiting Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15600,7 +15999,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Corporate Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Corporate Travel Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crisis- and Emergency-Management Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15712,6 +16119,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Emergency Medical Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Energy Storage</fullName>
                 <default>false</default>
             </values>
@@ -15776,7 +16187,35 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fire-Detection Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Safety Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Suppression Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First-Responder Communication Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Fluid Power Components</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forensics Equipment and Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15896,6 +16335,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Industrial Safety Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Industrial Waste Water</fullName>
                 <default>false</default>
             </values>
@@ -15972,11 +16415,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Maritime Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Market Research Services</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Masonry and Stone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass-Notification Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16180,6 +16631,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Personal-Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Personnel Vehicles</fullName>
                 <default>false</default>
             </values>
@@ -16208,6 +16663,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Physical and Perimeter Security Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Plaster and Gypsum Board</fullName>
                 <default>false</default>
             </values>
@@ -16224,7 +16683,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Police Patrol Vehicles</fullName>
+                <fullName>Police Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Police Vehicles</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16260,11 +16723,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Prison Equipment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Process Water</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Product Safety Testing and Certification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Protection Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16332,11 +16803,19 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Safety and Protection Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Satellite Television Networks</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Satellites</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scanning and Detection Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16349,6 +16828,18 @@
             </values>
             <values>
                 <fullName>Scrap Pulp and Paper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Search-and-Rescue Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security-Consulting Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16432,6 +16923,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Surveillance Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>System Infrastructure Software</fullName>
                 <default>false</default>
             </values>
@@ -16492,7 +16987,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Tracking and Monitoring Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traffic-Management Equipment</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16597,6 +17100,14 @@
             </values>
             <values>
                 <fullName>Water Treatment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water-Delivery Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weapons and Accessories</fullName>
                 <default>false</default>
             </values>
             <values>
