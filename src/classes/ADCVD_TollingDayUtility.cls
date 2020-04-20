@@ -1,38 +1,32 @@
-/**
- * 
- *    Created by Tim Barsotti
- *    on Feb 6 2017
- *    MIL Corporation
- *
- * 
- **/
- public without sharing class ADCVD_TollingDayUtility {
- 	/*****************************************************
-	* This class 
-	* 1. Queries tolling day records
-	* 2. Converts them to a set of dates
-	* 3. Checks if a date is a holiday
-	* 4. Checks if a date is a tolling day
-	* 5. Checks if a date is a workday
-	* 6. Checks if a date is a weekend
-	* 7. Provides methods to roll forward or roll back from
-	* a date that is not a workday.
-	* 8. Provides a method to count back a specific number
-	* of working days
-	*****************************************************/
+public without sharing class ADCVD_TollingDayUtility {
+	private static ADCVD_TollingDayMapper tollingMapper = new ADCVD_TollingDayMapper().getInstance();
+
 	@TestVisible private static List<Tolling_Day__c> tollingDayList {
 		get {
-			if(tollingDayList == null) {
-				tollingDayList = [SELECT Id, Start_Date__c, End_Date__c FROM Tolling_Day__c];
-			}
-			return tollingDayList;
+			return tollingMapper.getMap().values();
 		}
+	}
+	@TestVisible private static List<Tolling_Day__c> recordSpecificTollingDayList {get;private set;}
+	@TestVisible private static List<Tolling_Day__c> setRecordSpecificTollingDayList(Id parentId) {
+		List<Tolling_Day__c> returnList = (parentId != null
+				&& tollingMapper.getMap(parentId) != null
+				&& !tollingMapper.getMap(parentId).isEmpty())
+				? tollingMapper.getMap(parentId).values()
+				: new List<Tolling_Day__c>();
+		return returnList;
 	}
 	@TestVisible private static Set<Date> tollingDaySet {
 		get {
-			if(tollingDaySet == null) {
-				tollingDaySet = new Set<Date>();
-				for(Tolling_Day__c td: tollingDayList) {
+			tollingDaySet = new Set<Date>();
+			for(Tolling_Day__c td: tollingDayList) {
+				Date dt = td.Start_Date__c;
+				while(dt <= td.End_Date__c) {
+					tollingDaySet.add(dt);
+					dt = dt.addDays(1);
+				}
+			}
+			if (recordSpecificTollingDayList != null) {
+				for(Tolling_Day__c td: recordSpecificTollingDayList) {
 					Date dt = td.Start_Date__c;
 					while(dt <= td.End_Date__c) {
 						tollingDaySet.add(dt);
@@ -85,13 +79,18 @@
 		return deadline;
 	}
 
-	/* Method used to determine the new value of the deadline tolling day, holiday and weekends accounted for
-	*  Input Params: 	startDate:  	should be passed in to determine how many of the days are in scope 
-	*					deadline: 	 	this is the current deadline (without tolling days in scope)
-	*					rollforward: 	boolean to either roll the date forward or back to next or previous working day
-	*  Return Value: New deadline
-	*  (e.g. petition start should be 'start date' for a petition)
-	*/ 
+	public static Date getCalculatedDate(Date startDate, Date deadline, Boolean rollforward, Id recordId) {
+		recordSpecificTollingDayList = recordId != null ? setRecordSpecificTollingDayList(recordId) : new List<Tolling_Day__c>();
+		return getCalculatedDate(startDate, deadline, rollforward);
+	}
+
+		/* Method used to determine the new value of the deadline tolling day, holiday and weekends accounted for
+        *  Input Params: 	startDate:  	should be passed in to determine how many of the days are in scope
+        *					deadline: 	 	this is the current deadline (without tolling days in scope)
+        *					rollforward: 	boolean to either roll the date forward or back to next or previous working day
+        *  Return Value: New deadline
+        *  (e.g. petition start should be 'start date' for a petition)
+        */
 	public static Date getCalculatedDate(Date startDate, Date deadline, Boolean rollforward) {
 		deadline = deadlineWithTollingDays(startDate, deadline);
 		if(rollforward) {
