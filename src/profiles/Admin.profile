@@ -11831,11 +11831,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Taxonomy_Tagging__c.Sub_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Taxonomy_Tagging__c.Taxonomy_One__c</field>
         <readable>true</readable>
@@ -11848,11 +11843,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Taxonomy_Tagging__c.Trade_Region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Taxonomy_Tagging__c.Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13898,8 +13888,7 @@
         <recordType>Task.Tasks</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Taxonomy_Tagging__c-Client Counseling Layout</layout>
-        <recordType>Taxonomy_Tagging__c.Client_Counseling</recordType>
+        <layout>Taxonomy_Tagging__c-Country</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Taxonomy_Tagging__c-Country</layout>
@@ -16222,11 +16211,6 @@
         <recordType>Task.Tasks</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Taxonomy_Tagging__c.Client_Counseling</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>    
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Taxonomy_Tagging__c.Country</recordType>
