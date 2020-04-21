@@ -151,7 +151,7 @@
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Quote Record Page</masterLabel>
+    <masterLabel>Quote LPL</masterLabel>
     <parentFlexiPage>runtime_sales_quotes__Quote_rec_L</parentFlexiPage>
     <sobjectType>Quote</sobjectType>
     <template>
