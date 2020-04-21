@@ -178,6 +178,9 @@
     </types>
     <types>
         <members>*</members>
+        <members>ITA_Clients_Assisted_Reports/Cases_with_Client_Counseling</members>
+        <members>ITA_Clients_Assisted_Reports/Organizations_with_Client_Counseling</members>
+        <members>ITA_Clients_Assisted_Reports/WINs_with_Client_Counseling</members>
         <name>Report</name>
     </types>
     <types>
