@@ -49,7 +49,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -2465,7 +2464,7 @@
                 <valueName>eCommerce</valueName>
             </valueSettings>
         </valueSet>
-    </fields>    
+    </fields>
     <fields>
         <fullName>Taxonomy_One__c</fullName>
         <description>The power of one for this taxonomy object</description>
@@ -2703,7 +2702,7 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>    
+    </fields>
     <label>Taxonomy Tagging</label>
     <listViews>
         <fullName>All</fullName>
@@ -6140,7 +6139,7 @@
                 <fullName>eCommerce</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
         <picklistValues>
             <picklist>Trade_Issue__c</picklist>
             <values>
@@ -6433,7 +6432,7 @@
                 <fullName>Digital Strategy</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Country</fullName>
@@ -9844,7 +9843,7 @@
                 <fullName>eCommerce</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
         <picklistValues>
             <picklist>Trade_Issue__c</picklist>
             <values>
@@ -10137,7 +10136,7 @@
                 <fullName>Digital Strategy</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Industry</fullName>
@@ -13548,7 +13547,7 @@
                 <fullName>eCommerce</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
         <picklistValues>
             <picklist>Trade_Issue__c</picklist>
             <values>
@@ -13841,7 +13840,7 @@
                 <fullName>Digital Strategy</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Trade_Issue</fullName>
@@ -17244,7 +17243,7 @@
                 <fullName>eCommerce</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
         <picklistValues>
             <picklist>Trade_Issue__c</picklist>
             <values>
@@ -17537,7 +17536,7 @@
                 <fullName>Digital Strategy</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Trade_Region</fullName>
@@ -20940,7 +20939,7 @@
                 <fullName>eCommerce</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
         <picklistValues>
             <picklist>Trade_Issue__c</picklist>
             <values>
@@ -21233,7 +21232,7 @@
                 <fullName>Digital Strategy</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>        
+        </picklistValues>
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
@@ -21241,11 +21240,11 @@
         <fullName>Only_Choose_One_Related_Record</fullName>
         <active>true</active>
         <description>The user may only select one related record per entry.</description>
-        <errorConditionFormula>( IF(ISBLANK( Related_Organization__c ),0,1) + 
-IF(ISBLANK( Related_WIN__c),0,1) + 
+        <errorConditionFormula>( IF(ISBLANK( Related_Organization__c ),0,1) +
+IF(ISBLANK( Related_WIN__c),0,1) +
 IF(ISBLANK( Related_Case__c ),0,1)+
 IF(ISBLANK( Related_Lead__c),0,1) +
-IF(ISBLANK( Related_Application__c),0,1) 
+IF(ISBLANK( Related_Application__c),0,1)
 ) &gt; 1</errorConditionFormula>
         <errorMessage>You may only select one Related Record</errorMessage>
     </validationRules>
