@@ -96,7 +96,7 @@
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Quote Line Item Record Page</masterLabel>
+    <masterLabel>Quote Line Item LPL</masterLabel>
     <parentFlexiPage>flexipage__default_rec_L</parentFlexiPage>
     <sobjectType>QuoteLineItem</sobjectType>
     <template>
