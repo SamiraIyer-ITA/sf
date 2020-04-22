@@ -1,0 +1,7 @@
+<apex:page sidebar="false" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+        <iframe src="https://public.tableau.com/views/6-U_S_FDIEmploymentbyIndustry/U_S_FDIEmploymentbyIndustry?:showVizHome=no&amp;:embed=y&amp;:toolbar=n" style="height: 1000px; overflow: auto; width: 100%; min-width: 800px; border-style: none;"></iframe>
+     </apex:define>
+ </apex:composition>
+</apex:page>
