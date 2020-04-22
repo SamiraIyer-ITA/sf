@@ -135,10 +135,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Year_Started__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>DNBoptimizer__DnBCompanyRecord__c</field>
             </layoutItems>
         </layoutColumns>
