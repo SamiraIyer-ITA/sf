@@ -161,10 +161,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>DNBoptimizer__DnBCompanyRecord__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>D_B_Company_Record_Link__c</field>
             </layoutItems>
         </layoutColumns>
