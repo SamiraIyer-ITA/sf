@@ -56,11 +56,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Target_Country__c</field>
+                <field>Ultimate_Postal_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ultimate_Postal_Code__c</field>
+                <field>Ultimate_Country__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -111,11 +111,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ultimate_Country__c</field>
+                <field>Target_Postal_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Target_Postal_Code__c</field>
+                <field>Target_Country__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
