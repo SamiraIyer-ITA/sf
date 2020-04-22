@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Client_Form__c.Desired_Dates_for_Service__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -21,7 +21,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Client_Form__c.Objectives_Interests_In_Target_Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
