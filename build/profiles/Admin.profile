@@ -177,12 +177,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.More_Than_One_Distributor_Details__c</field>
+        <field>Client_Form__c.More_Than_One_Distributor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.More_Than_One_Distributor__c</field>
+        <field>Client_Form__c.More_Than_One_Distributor_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -342,12 +342,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.Sub_Sectors_Served_Prioritized__c</field>
+        <field>Client_Form__c.Sub_Sectors_Served__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.Sub_Sectors_Served__c</field>
+        <field>Client_Form__c.Sub_Sectors_Served_Prioritized__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -358,6 +358,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Client_Form__c.Target_City__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -378,11 +383,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Client_Form__c.Target_Company_Website__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Client_Form__c.Target_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -447,17 +447,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.Ultimate_Client_Company__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Client_Form__c.Ultimate_Address_Line1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Client_Form__c.Ultimate_City__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Ultimate_Client_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -487,12 +487,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.USEAC_Location__c</field>
+        <field>Client_Form__c.US_Prod_Licenses_Registrations_Pending__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.US_Prod_Licenses_Registrations_Pending__c</field>
+        <field>Client_Form__c.USEAC_Location__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -607,12 +607,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>OpportunityLineItem.ITA_Product_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Order.Payment2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Order.Refunded_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OrderItem.ITA_Product_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -626,13 +636,13 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Quote.Client_Form_Type__c</field>
+        <editable>true</editable>
+        <field>Quote.Client_Form__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Quote.Client_Form__c</field>
+        <editable>false</editable>
+        <field>Quote.Client_Form_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -643,6 +653,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>QuoteLineItem.IsPrimary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>QuoteLineItem.ITA_Product_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
@@ -666,10 +681,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Collection_Fulfillment__c-Collection %26 Fulfillment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Collection_Fulfillment__c-Collection %26 Fulfillment Layout</layout>
-        <recordType>Collection_Fulfillment__c.Standard</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contract-Contract Layout</layout>
@@ -699,15 +710,11 @@
         <recordType>Payment2__c.Check_Payment</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Payment2__c-Credit Card or ACH Payment</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Payment2__c-Credit Card Refund</layout>
         <recordType>Payment2__c.Credit_Card_Refund</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Payment2__c-Credit Card or ACH Payment</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Payment2__c-Credit Card or ACH Payment</layout>
-        <recordType>Payment2__c.Credit_Card_or_ACH_Payment</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Payment2__c-NIST-Issued Refund</layout>
@@ -784,13 +791,13 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Order.Services</recordType>
+        <default>true</default>
+        <recordType>Order.Legacy</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Order.Legacy</recordType>
+        <default>false</default>
+        <recordType>Order.Services</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

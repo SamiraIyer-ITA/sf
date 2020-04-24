@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
-        <actionName>AddQuoteLine</actionName>
+        <actionName>AddProduct</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>AddQuoteLine</actionName>
+        <actionName>AddProduct</actionName>
         <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>AddQuoteLine</actionName>
+        <actionName>AddProduct</actionName>
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
@@ -57,16 +57,16 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>EditAllQuoteLine</actionName>
+        <actionName>EditAllProduct</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>EditAllQuoteLine</actionName>
+        <actionName>EditAllProduct</actionName>
         <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>EditAllQuoteLine</actionName>
+        <actionName>EditAllProduct</actionName>
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
@@ -100,46 +100,82 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
-        <fullName>Client_Form_Type__c</fullName>
+        <fullName>Affirmation__c</fullName>
+        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Client Form Type</label>
-        <required>false</required>
+        <label>Affirmation</label>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>Client_Form_Type</valueSetName>
-        </valueSet>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AvailableQuantity</fullName>
+    </fields>
+    <fields>
+        <fullName>Confirm_HR_Compliance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Confirm HR Compliance</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>Discount</fullName>
+        <fullName>EndDate</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>IsPrimary__c</fullName>
-        <description>Helps distinguish between Services that are being sold versus add-ons.</description>
+        <fullName>Framework__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <formula>Product2.IsPrimary__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>IsPrimary</label>
+        <label>Framework</label>
+        <referenceTo>Framework__c</referenceTo>
+        <relationshipLabel>Order Products</relationshipLabel>
+        <relationshipName>Order_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HR_Data__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>HR Data</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
-     <fields>
+    <fields>
         <fullName>ITA_Product_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>Product2.ProductCode</formula>
+        <formula>PricebookEntry.Product2.ProductCode</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>ITA Product Code</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>ListPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>Non_HR_Data__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Non-HR Data</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OrderId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OriginalOrderItemId</fullName>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Product2Id</fullName>
@@ -150,22 +186,22 @@
     </fields>
     <fields>
         <fullName>Quantity</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>QuoteId</fullName>
-        <type>MasterDetail</type>
+        <fullName>QuoteLineItemId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ServiceDate</fullName>
-    </fields>
-    <fields>
-        <fullName>Subtotal</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>TotalPrice</fullName>
     </fields>
     <fields>
         <fullName>UnitPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
-    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
