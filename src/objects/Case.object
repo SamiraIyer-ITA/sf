@@ -1315,7 +1315,7 @@ Select if this is a Compliance Case</description>
         <description>Count of days open between Today and Created Date.</description>
         <externalId>false</externalId>
         <formula>IF( ISNULL(  ClosedDate ) ,
-            TODAY()  -    DATEVALUE( Actual_Create_Date__c )   ,
+            TODAY()  -    DATEVALUE( Actual_Create_Date__c )   , 
             ClosedDate   -    Actual_Create_Date__c   )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Days Open</label>
@@ -101356,7 +101356,7 @@ Select if this is a Compliance Case</description>
         <description>Business Opportunity Created/Improved field is required if Potential Primary Outcome is &quot;Created/Improved Business Opportunity&quot;.</description>
         <errorConditionFormula>AND(
 $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot;,
-ISPICKVAL(Potential_Primary_Outcome__c,&quot;Created/Improved Business Opportunity&quot;),
+ISPICKVAL(Potential_Primary_Outcome__c,&quot;Created/Improved Business Opportunity&quot;), 
 ISBLANK(Business_Opportunity_Created_Improved__c)
 )</errorConditionFormula>
         <errorDisplayField>Business_Opportunity_Created_Improved__c</errorDisplayField>
@@ -101374,12 +101374,28 @@ ISBLANK(Business_Opportunity_Created_Improved__c)
         <errorMessage>Can not change case record types.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Case_Closure</fullName>
+        <active>false</active>
+        <description>To ensure that a Case cannot be closed without a related Industry and Country record on the Taxonomy Tagging object. Applied to Advocacy, Commercial Diplomacy, Investment Promotion and Export Promotion cases.</description>
+        <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1 ,Industry_Rollup_Sum__c = 0) &amp;&amp; 
+($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
+        <errorMessage>Case can not be closed without a related Industry record on the Taxonomy Tagging object.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Case_Contributor_Validation</fullName>
         <active>true</active>
         <description>If a case is closed without a case contributor this validation will be fired.</description>
-        <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1,Case_Contributor_Rollup__c = 0) &amp;&amp;
+        <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1,Case_Contributor_Rollup__c = 0) &amp;&amp; 
 ($Profile.Name &lt;&gt; &quot;System Administrator&quot;)  &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
         <errorMessage>Case Can Not Be Closed Without Case Contributor.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Country_Releated_list</fullName>
+        <active>false</active>
+        <description>To ensure that a Case cannot be closed without a related Industry and Country record on the Taxonomy Tagging object.  Applied to Advocacy, Commercial Diplomacy, Investment Promotion and Export Promotion cases.</description>
+        <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1,Country_in_Case_Rollup__c = 0) &amp;&amp; 
+($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
+        <errorMessage>Case can not be closed without a related Country record on the Taxonomy Tagging object.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Legacy_Case_SUSA_Case_Reason</fullName>
@@ -101398,7 +101414,7 @@ CONTAINS(TEXT(IP_Case_Reason__c),&quot;Information Assistance&quot;)
         <fullName>Must_have_Contact_to_Close_a_Case</fullName>
         <active>true</active>
         <description>In order to Close the Case,  a Contact that is associated to Organization, must be associated to the Case.</description>
-        <errorConditionFormula>AND(ISPICKVAL(Status, &quot;Administratively Closed&quot;) || ISPICKVAL(Status, &quot;Successfully Closed&quot;) || ISPICKVAL(Status, &quot;Unable to Resolve&quot;), OR(ISBLANK(Contact.AccountId)))&amp;&amp;
+        <errorConditionFormula>AND(ISPICKVAL(Status, &quot;Administratively Closed&quot;) || ISPICKVAL(Status, &quot;Successfully Closed&quot;) || ISPICKVAL(Status, &quot;Unable to Resolve&quot;), OR(ISBLANK(Contact.AccountId)))&amp;&amp; 
 ($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
         <errorMessage>Can not close the case without an associated Contact.</errorMessage>
     </validationRules>
@@ -101416,10 +101432,10 @@ CONTAINS(TEXT(IP_Case_Reason__c),&quot;Information Assistance&quot;)
         <fullName>Required_Description</fullName>
         <active>false</active>
         <description>12/29/14 - Inactivated; Description is Required for Case</description>
-        <errorConditionFormula>AND(
+        <errorConditionFormula>AND( 
 OR($RecordType.Name &lt;&gt; &quot;Client Assists&quot;,$RecordType.Name &lt;&gt;&quot;PA Case Creation select RT&quot;, $RecordType.Name &lt;&gt; &quot;Relate Organization to WIN&quot;),
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
 ISBLANK(Description)
 )</errorConditionFormula>
         <errorDisplayField>Description</errorDisplayField>
@@ -101432,8 +101448,8 @@ ISBLANK(Description)
         <errorConditionFormula>AND(
 $RecordType.Name = &quot;Investment Promotion&quot;,
 $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
-$Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;,
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+$Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
 ISPICKVAL(IP_Case_Origin__c, &quot;Other&quot;),
 ISBLANK(IP_Case_Origin_Other__c)
 )</errorConditionFormula>
@@ -101445,17 +101461,17 @@ ISBLANK(IP_Case_Origin_Other__c)
         <active>false</active>
         <description>Inactivated 12/10/14;  ITA Action Plan is Required for Case Record Types &lt;&gt; Client Assists.  Only for ITA Users.
 
-AND(
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+AND( 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
 ISBLANK(ITA_Action_Plan__c)
 )</description>
         <errorConditionFormula>AND(
 OR($RecordType.Name &lt;&gt; &quot;Client Assists&quot;,$RecordType.Name &lt;&gt;&quot;PA Case Creation select RT&quot;, $RecordType.Name &lt;&gt; &quot;Relate Organization to WIN&quot;),
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
 ISBLANK(ITA_Action_Plan__c),
-CONTAINS(TEXT(Status),&quot;close&quot;)
+CONTAINS(TEXT(Status),&quot;close&quot;) 
 )</errorConditionFormula>
         <errorDisplayField>ITA_Action_Plan__c</errorDisplayField>
         <errorMessage>You must enter a value for ITA Action Plan.</errorMessage>
@@ -101473,9 +101489,9 @@ CONTAINS(TEXT(Status),&quot;close&quot;)
         <active>false</active>
         <description>12/29/14 - Inactivated;  Subject is Required for Case</description>
         <errorConditionFormula>AND(
-OR($RecordType.Name &lt;&gt; &quot;Client Assists&quot;,$RecordType.Name &lt;&gt;&quot;PA Case Creation select RT&quot;, $RecordType.Name &lt;&gt; &quot;Relate Organization to WIN&quot;),
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+OR($RecordType.Name &lt;&gt; &quot;Client Assists&quot;,$RecordType.Name &lt;&gt;&quot;PA Case Creation select RT&quot;, $RecordType.Name &lt;&gt; &quot;Relate Organization to WIN&quot;), 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
 ISBLANK(Subject)
 )</errorConditionFormula>
         <errorDisplayField>Subject</errorDisplayField>
@@ -101490,7 +101506,7 @@ ISBLANK(Subject)
     $RecordType.DeveloperName = &quot;Advocacy&quot;,
     $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
     ISNEW(),
-    NOT(ISPICKVAL(Status, &quot;New&quot;))
+    NOT(ISPICKVAL(Status, &quot;New&quot;)) 
 )</errorConditionFormula>
         <errorMessage>You can only create a Case with the Status of &quot;New&quot;.</errorMessage>
     </validationRules>
@@ -101506,9 +101522,9 @@ ISBLANK(Subject)
     OR(Industry_Rollup_Sum__c = 0,
        AND(Sys_Region_in_Case_Rollup__c  = 0,
                      Country_in_Case_Rollup__c = 0)),
-    NOT(ISCHANGED(Industry_Rollup_Sum__c)),
-    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)),
-    NOT(ISCHANGED(Country_in_Case_Rollup__c))
+    NOT(ISCHANGED(Industry_Rollup_Sum__c)), 
+    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)), 
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)) 
     )</errorConditionFormula>
         <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
     </validationRules>
@@ -101524,9 +101540,9 @@ ISBLANK(Subject)
     OR(Industry_Rollup_Sum__c = 0,
        AND(Sys_Region_in_Case_Rollup__c  = 0,
            Country_in_Case_Rollup__c = 0)),
-    NOT(ISCHANGED(Industry_Rollup_Sum__c)),
-    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)),
-    NOT(ISCHANGED(Country_in_Case_Rollup__c))
+    NOT(ISCHANGED(Industry_Rollup_Sum__c)), 
+    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)), 
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)) 
     )</errorConditionFormula>
         <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
     </validationRules>
@@ -101539,7 +101555,7 @@ ISBLANK(Subject)
     $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot;,
     $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
     ISNEW(),
-    NOT(ISPICKVAL(Status, &quot;New&quot;))
+    NOT(ISPICKVAL(Status, &quot;New&quot;)) 
 )</errorConditionFormula>
         <errorMessage>You can only create a Case with the Status of &quot;New&quot;.</errorMessage>
     </validationRules>
@@ -101555,9 +101571,9 @@ ISBLANK(Subject)
     OR(Industry_Rollup_Sum__c = 0,
        AND(Sys_Region_in_Case_Rollup__c  = 0,
            Country_in_Case_Rollup__c = 0)),
-    NOT(ISCHANGED(Industry_Rollup_Sum__c)),
-    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)),
-    NOT(ISCHANGED(Country_in_Case_Rollup__c))
+    NOT(ISCHANGED(Industry_Rollup_Sum__c)), 
+    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)), 
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)) 
     )</errorConditionFormula>
         <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
     </validationRules>
@@ -101570,7 +101586,7 @@ ISBLANK(Subject)
     $RecordType.DeveloperName = &quot;Export_Promotion&quot;,
     $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
     ISNEW(),
-    NOT(ISPICKVAL(Status, &quot;New&quot;))
+    NOT(ISPICKVAL(Status, &quot;New&quot;)) 
 )</errorConditionFormula>
         <errorMessage>You can only create a Case with the Status of &quot;New&quot;.</errorMessage>
     </validationRules>
@@ -101586,9 +101602,9 @@ ISBLANK(Subject)
     OR(Industry_Rollup_Sum__c = 0,
        AND(Sys_Region_in_Case_Rollup__c  = 0,
            Country_in_Case_Rollup__c = 0)),
-    NOT(ISCHANGED(Industry_Rollup_Sum__c)),
-    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)),
-    NOT(ISCHANGED(Country_in_Case_Rollup__c))
+    NOT(ISCHANGED(Industry_Rollup_Sum__c)), 
+    NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)), 
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)) 
     )</errorConditionFormula>
         <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
     </validationRules>
@@ -101622,9 +101638,9 @@ NOT(ISPICKVAL(Potential_Primary_Outcome__c, &quot;Created/Improved Business Oppo
         <active>true</active>
         <description>Unless administrator, can not edit cases marked for removal.
 
-AND(
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+AND( 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
 Request_Case_Removal__c = TRUE
 )</description>
         <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;System Administrator&quot;,
@@ -101634,22 +101650,6 @@ $Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;,
 PRIORVALUE(Request_Case_Removal__c) &lt;&gt; FALSE
 )</errorConditionFormula>
         <errorMessage>This case is requested to be removed.  If you believe this is in error, please contact the help desk immediately.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>zzCase_Closure</fullName>
-        <active>false</active>
-        <description>To ensure that a Case cannot be closed without a related Industry and Country record on the Taxonomy Tagging object. Applied to Advocacy, Commercial Diplomacy, Investment Promotion and Export Promotion cases.</description>
-        <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1 ,Industry_Rollup_Sum__c = 0) &amp;&amp; 
-($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
-        <errorMessage>Case can not be closed without a related Industry record on the Taxonomy Tagging object.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>zzCountry_Releated_list</fullName>
-        <active>false</active>
-        <description>To ensure that a Case cannot be closed without a related Industry and Country record on the Taxonomy Tagging object.  Applied to Advocacy, Commercial Diplomacy, Investment Promotion and Export Promotion cases.</description>
-        <errorConditionFormula>AND( CASE( Status , &quot;Successfully Closed&quot;, 1, &quot;Administratively Closed&quot;, 1,&quot;Unable to Resolve&quot;,1,0)=1,Country_in_Case_Rollup__c = 0) &amp;&amp; 
-($Profile.Name &lt;&gt; &quot;System Administrator&quot;) &amp;&amp; ($RecordType.DeveloperName = &quot;Advocacy&quot; || $RecordType.DeveloperName = &quot;Commercial_Diplomacy&quot; || $RecordType.DeveloperName = &quot;Investment_Promotion&quot; || $RecordType.DeveloperName = &quot;Export_Promotion&quot;)</errorConditionFormula>
-        <errorMessage>Case can not be closed without a related Country record on the Taxonomy Tagging object.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Related_WINs</fullName>
