@@ -276,11 +276,6 @@
             <sortOrder>10</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>CaseHierarchy</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>11</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>PrintableView</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>12</sortOrder>
@@ -310,6 +305,11 @@
             <actionType>QuickAction</actionType>
             <sortOrder>3</sortOrder>
         </platformActionListItems>
+        <platformActionListItems>
+            <actionName>CaseHierarchy</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>11</sortOrder>
+        </platformActionListItems>
     </platformActionList>
     <relatedContent>
         <relatedContentItems>
@@ -338,6 +338,8 @@
         <fields>Industry__c</fields>
         <fields>Sector__c</fields>
         <fields>Sub_Sector__c</fields>
+		<fields>Type__c</fields>
+        <fields>Sub_Type__c</fields>
         <relatedList>Taxonomy_Tagging__c.Related_Case__c</relatedList>
     </relatedLists>
     <relatedLists>
