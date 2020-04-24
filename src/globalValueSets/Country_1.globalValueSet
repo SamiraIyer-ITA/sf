@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <customValue>
+        <fullName>--Select--</fullName>
+        <default>true</default>
+        <label>--Select--</label>
+    </customValue>
+    <customValue>
         <fullName>Afghanistan</fullName>
         <default>false</default>
         <label>Afghanistan</label>
@@ -1101,6 +1106,11 @@
         <label>Trinidad and Tobago</label>
     </customValue>
     <customValue>
+        <fullName>Tunisia</fullName>
+        <default>false</default>
+        <label>Tunisia</label>
+    </customValue>
+    <customValue>
         <fullName>Turkey</fullName>
         <default>false</default>
         <label>Turkey</label>
@@ -1199,11 +1209,6 @@
         <fullName>Zimbabwe</fullName>
         <default>false</default>
         <label>Zimbabwe</label>
-    </customValue>
-    <customValue>
-        <fullName>Tunisia</fullName>
-        <default>false</default>
-        <label>Tunisia</label>
     </customValue>
     <customValue>
         <fullName>Herzegovina</fullName>
