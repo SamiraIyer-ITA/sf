@@ -612,11 +612,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Order.MileStone_Tracking__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Order.Payment2__c</field>
         <readable>true</readable>
     </fieldPermissions>
