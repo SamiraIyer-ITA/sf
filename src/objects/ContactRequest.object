@@ -485,7 +485,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
         </filters>
-	<filters>
         <filters>
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
