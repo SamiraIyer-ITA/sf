@@ -1587,7 +1587,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Chicago_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4 or 5 or 6 or 7 or 8 or 9)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 or 4 or 5 or 6 or 7 or 8)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6726,7 +6726,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Diego_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6757,7 +6757,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Diego_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6788,7 +6788,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Francisco_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6819,7 +6819,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Francisco_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6922,7 +6922,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Juan_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
