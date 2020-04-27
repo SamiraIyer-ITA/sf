@@ -5,4 +5,8 @@
         <field>Quote.Client_Form_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <layoutAssignments>
+        <layout>Quote-Standard Layout</layout>
+        <recordType>Quote.Standard</recordType>
+    </layoutAssignments>
 </Profile>
