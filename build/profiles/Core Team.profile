@@ -631,7 +631,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Quote.Client_Form_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
