@@ -2814,7 +2814,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Greensboro_Open_Requests</fullName>
-        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3046,7 +3046,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Houston_Closed_Requests</fullName>
-        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
