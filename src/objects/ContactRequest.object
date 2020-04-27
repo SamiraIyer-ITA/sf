@@ -662,7 +662,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Bakersfield_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -698,7 +698,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Bakersfield_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1361,7 +1361,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CharlestonSC_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1397,7 +1397,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CharlestonSC_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1433,7 +1433,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CharlestonWV_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1469,7 +1469,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CharlestonWV_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2224,7 +2224,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Des_Moines_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2260,7 +2260,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Des_Moines_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2450,7 +2450,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fargo_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2486,7 +2486,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fargo_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2522,7 +2522,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fort_Lauderdale_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2558,7 +2558,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fort_Lauderdale_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3138,7 +3138,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Indianapolis_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3174,7 +3174,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Indianapolis_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3210,7 +3210,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Inland_Empire_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3246,7 +3246,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Inland_Empire_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3282,7 +3282,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Irvine_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3318,7 +3318,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Irvine_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3416,7 +3416,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Jacksonville_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3452,7 +3452,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Jacksonville_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3590,7 +3590,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Knoxville_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3626,7 +3626,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Knoxville_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3724,7 +3724,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Lexington_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3760,7 +3760,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Lexington_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3920,7 +3920,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Los_Angeles_Downtown_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3956,7 +3956,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Los_Angeles_Downtown_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4074,7 +4074,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Louisville_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4110,7 +4110,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Louisville_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4693,7 +4693,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Nashville_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4729,7 +4729,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Nashville_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4827,7 +4827,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>New_Orleans_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4863,7 +4863,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>New_Orleans_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4961,7 +4961,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>North_Bay_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4997,7 +4997,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>North_Bay_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5217,7 +5217,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Northern_VA_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5253,7 +5253,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Northern_VA_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5289,7 +5289,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Oakland_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5325,7 +5325,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Oakland_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5801,7 +5801,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Phoenix_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5837,7 +5837,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Phoenix_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5965,7 +5965,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Pontiac_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6001,7 +6001,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Pontiac_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6356,7 +6356,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Richmond_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6392,7 +6392,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Richmond_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6510,7 +6510,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Sacramento_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6546,7 +6546,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Sacramento_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6850,7 +6850,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Jose_CA_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6886,7 +6886,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Jose_CA_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7066,7 +7066,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Seattle_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7102,7 +7102,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Seattle_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7138,7 +7138,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Shreveport_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7174,7 +7174,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Shreveport_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7652,7 +7652,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tucson_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7688,7 +7688,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tucson_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8206,7 +8206,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Ypsilanti_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8242,7 +8242,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Ypsilanti_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+<booleanFilter>1 AND (3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
