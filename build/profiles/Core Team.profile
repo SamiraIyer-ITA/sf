@@ -683,6 +683,10 @@
         <layout>Opportunity-Services</layout>
         <recordType>Opportunity.Services</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Quote-Standard Layout</layout>
+        <recordType>Quote.Standard</recordType>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

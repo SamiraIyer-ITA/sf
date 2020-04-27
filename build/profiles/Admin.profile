@@ -720,6 +720,10 @@
         <layout>Payment2__c-NIST-Issued Refund</layout>
         <recordType>Payment2__c.NIST_Issued_Refund</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Quote-Standard Layout</layout>
+        <recordType>Quote.Standard</recordType>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
