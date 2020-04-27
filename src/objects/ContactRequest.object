@@ -404,11 +404,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
         </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <label>All Open Contact a Trade Specialist</label>
     </listViews>
     <listViews>
@@ -433,11 +428,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
             <value>995,996,997,998,999</value>
-        </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
         </filters>
         <label>_Anchorage_Closed_Requests</label>
         <sharedTo>
@@ -469,11 +459,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <operation>startsWith</operation>
             <value>995,996,997,998,999</value>
         </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <label>_Anchorage_Open_Requests</label>
         <sharedTo>
             <role>GM_Advocacy</role>
@@ -501,10 +486,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <value>Abandoned,Closed</value>
         </filters>
 	<filters>
-	    <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
@@ -571,11 +552,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <operation>startsWith</operation>
             <value>31832,31833,31836</value>
         </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <label>_Atlanta_Open_Requests</label>
         <sharedTo>
             <role>GM_Advocacy</role>
@@ -597,11 +573,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -654,11 +625,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -710,11 +676,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -751,11 +712,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -791,11 +747,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -825,11 +776,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -861,11 +807,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -895,11 +836,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -931,11 +867,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -965,11 +896,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1001,11 +927,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -1035,11 +956,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1071,11 +987,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1127,11 +1038,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1325,11 +1231,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -1361,11 +1262,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -1396,11 +1292,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1443,11 +1334,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -1489,11 +1375,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -1529,11 +1410,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1571,11 +1447,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -1612,11 +1483,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -1652,11 +1518,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1699,11 +1560,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -1744,11 +1600,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1811,11 +1662,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -1877,11 +1723,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -1922,11 +1763,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1969,11 +1805,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -2014,11 +1845,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2061,11 +1887,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -2106,11 +1927,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2172,11 +1988,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -2218,11 +2029,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -2263,11 +2069,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2314,11 +2115,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2380,11 +2176,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -2416,11 +2207,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -2451,11 +2237,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2493,11 +2274,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -2533,11 +2309,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2585,11 +2356,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -2636,11 +2402,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -2672,11 +2433,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -2707,11 +2463,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2749,11 +2500,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -2789,11 +2535,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2831,11 +2572,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -2871,11 +2607,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2923,11 +2654,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -2974,11 +2700,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -3020,11 +2741,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -3065,11 +2781,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3117,11 +2828,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -3168,11 +2874,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -3203,11 +2904,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3240,11 +2936,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -3275,11 +2966,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3312,11 +2998,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -3348,11 +3029,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -3383,11 +3059,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3435,11 +3106,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -3486,11 +3152,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -3526,11 +3187,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3568,11 +3224,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -3608,11 +3259,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3650,11 +3296,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -3690,11 +3331,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3732,11 +3368,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -3768,11 +3399,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -3803,11 +3429,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3845,11 +3466,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -3885,11 +3501,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3942,11 +3553,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -3998,11 +3604,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -4038,11 +3639,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4080,11 +3676,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -4116,11 +3707,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -4151,11 +3737,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4193,11 +3774,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -4234,11 +3810,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -4269,11 +3840,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4306,11 +3872,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -4342,11 +3903,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -4377,11 +3933,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4419,11 +3970,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -4459,11 +4005,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4506,11 +4047,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -4552,11 +4088,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -4592,11 +4123,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4634,11 +4160,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -4669,11 +4190,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4706,11 +4222,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -4741,11 +4252,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4778,11 +4284,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -4813,11 +4314,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4850,11 +4346,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -4886,11 +4377,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -4921,11 +4407,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4973,11 +4454,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -5024,11 +4500,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -5059,11 +4530,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5096,11 +4562,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -5131,11 +4592,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5168,11 +4624,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -5203,11 +4654,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5261,11 +4707,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -5301,11 +4742,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5343,11 +4779,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -5379,11 +4810,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -5414,11 +4840,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5456,11 +4877,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -5497,11 +4913,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -5533,11 +4944,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -5568,11 +4974,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5610,11 +5011,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -5650,11 +5046,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5707,11 +5098,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -5763,11 +5149,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -5808,11 +5189,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5855,11 +5231,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -5895,11 +5266,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5937,11 +5303,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -5978,11 +5339,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -6018,11 +5374,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6065,11 +5416,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -6111,11 +5457,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -6147,11 +5488,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -6182,11 +5518,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6229,11 +5560,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -6274,11 +5600,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6336,11 +5657,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -6397,11 +5713,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -6452,11 +5763,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6509,11 +5815,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -6549,11 +5850,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6594,11 +5890,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
-        </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
         </filters>
         <filters>
             <field>US_ZIP_CODE__c</field>
@@ -6652,11 +5943,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <value>150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,168,1670,1673,1675,16724,16725,16726,16727,16728,16729,16740,16743,16744,16745,16749,17002,17004,17006,17009,17014,17020,17021,17024</value>
         </filters>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
             <value>17029,17035,17037,17040,17044,17045,17047,17049,17051,17052,17053,17054,17056,17058,17059,17060,17062,17063,17066,17068,17069,17071,17074,17075,17076,17082,17084,17086,17090,17094,17099,17211,17212,17213,17215,17223,17228,17229,17233,17238</value>
@@ -6692,11 +5978,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6734,11 +6015,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -6775,11 +6051,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -6810,11 +6081,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6857,11 +6123,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -6903,11 +6164,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -6939,11 +6195,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -6974,11 +6225,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7021,11 +6267,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7067,11 +6308,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -7103,11 +6339,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7138,11 +6369,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7180,11 +6406,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7220,11 +6441,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7267,11 +6483,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7313,11 +6524,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -7353,11 +6559,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7395,11 +6596,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -7431,11 +6627,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7466,11 +6657,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7513,11 +6699,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7559,11 +6740,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -7594,11 +6770,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7631,11 +6802,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -7667,11 +6833,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7702,11 +6863,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7744,11 +6900,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7785,11 +6936,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -7821,11 +6967,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7856,11 +6997,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7903,11 +7039,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -7949,11 +7080,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -7989,11 +7115,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8031,11 +7152,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -8072,11 +7188,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -8112,11 +7223,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8159,11 +7265,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -8205,11 +7306,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -8240,11 +7336,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8277,11 +7368,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -8313,11 +7399,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -8348,11 +7429,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8400,11 +7476,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -8451,11 +7522,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -8496,11 +7562,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8543,11 +7604,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -8579,11 +7635,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -8614,11 +7665,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8656,11 +7702,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -8696,11 +7737,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8743,11 +7779,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -8789,11 +7820,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -8825,11 +7851,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -8860,11 +7881,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8907,11 +7923,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -8952,11 +7963,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -9004,11 +8010,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -9055,11 +8056,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -9100,11 +8096,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -9147,11 +8138,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -9192,11 +8178,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -9239,11 +8220,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -9279,11 +8255,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
