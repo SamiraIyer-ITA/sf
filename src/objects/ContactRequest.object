@@ -404,11 +404,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
         </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <label>All Open Contact a Trade Specialist</label>
     </listViews>
     <listViews>
@@ -433,11 +428,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
             <value>995,996,997,998,999</value>
-        </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
         </filters>
         <label>_Anchorage_Closed_Requests</label>
         <sharedTo>
@@ -469,11 +459,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <operation>startsWith</operation>
             <value>995,996,997,998,999</value>
         </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <label>_Anchorage_Open_Requests</label>
         <sharedTo>
             <role>GM_Advocacy</role>
@@ -483,7 +468,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Atlanta_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -499,11 +484,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
-        </filters>
-	<filters>
-	    <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
         </filters>
         <filters>
             <field>US_ZIP_CODE__c</field>
@@ -534,7 +514,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Atlanta_Open_Requests</fullName>
-        <booleanFilter>1 AND 3 AND (2 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -571,11 +551,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <operation>startsWith</operation>
             <value>31832,31833,31836</value>
         </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <label>_Atlanta_Open_Requests</label>
         <sharedTo>
             <role>GM_Advocacy</role>
@@ -585,7 +560,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Austin_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -597,11 +572,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -641,7 +611,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Austin_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -653,11 +623,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -697,7 +662,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Bakersfield_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -709,11 +674,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -738,7 +698,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Bakersfield_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -750,11 +710,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -791,11 +746,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -825,11 +775,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -861,11 +806,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -895,11 +835,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -931,11 +866,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -965,11 +895,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1001,11 +926,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
@@ -1036,11 +956,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
-        <filters>
             <field>Status</field>
             <operation>equals</operation>
             <value>New,Attempted,Contacted</value>
@@ -1059,7 +974,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Buffalo_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4 or 5 or 6 or 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1071,11 +986,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1115,7 +1025,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Buffalo_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1127,11 +1037,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1296,23 +1201,23 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>CP_Contact_US_9_ContactRequest</fullName>
-        <columns>Name</columns>
-        <columns>RequestReason</columns>
-        <columns>Status</columns>
-        <columns>Country_1__c</columns>
-        <columns>CreatedDate</columns>
-        <columns>Assigned_User__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>Queue#9</label>
-        <queue>CP_Contact_US_9</queue>
-        <sharedTo>
-            <group>CP_Contact_Us_Group9</group>
-        </sharedTo>
+      <fullName>CP_Contact_US_9_ContactRequest</fullName>
+      <columns>Name</columns>
+      <columns>RequestReason</columns>
+      <columns>Status</columns>
+      <columns>Country_1__c</columns>
+      <columns>CreatedDate</columns>
+      <columns>Assigned_User__c</columns>
+      <filterScope>Queue</filterScope>
+      <label>Queue#9</label>
+      <queue>CP_Contact_US_9</queue>
+      <sharedTo>
+          <group>CP_Contact_Us_Group9</group>
+      </sharedTo>
     </listViews>
     <listViews>
         <fullName>Cabazon_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1324,11 +1229,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1348,7 +1248,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Cabazon_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1360,11 +1260,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1384,7 +1279,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CentralSouthernNJ_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1396,11 +1291,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1430,7 +1320,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CentralSouthernNJ_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1442,11 +1332,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1476,7 +1361,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CharlestonSC_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+    <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1488,11 +1373,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1517,7 +1397,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CharlestonSC_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1529,11 +1409,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1558,7 +1433,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CharlestonWV_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1570,11 +1445,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1599,7 +1469,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CharlestonWV_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1611,11 +1481,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1640,7 +1505,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Charlotte_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4 or 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1652,11 +1517,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1686,7 +1546,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Charlotte_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4 or 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1698,11 +1558,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1732,7 +1587,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Chicago_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4 or 5 or 6 or 7 or 8 or 9)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 or 4 or 5 or 6 or 7 or 8)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1744,11 +1599,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1798,7 +1648,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Chicago_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4 or 5 or 6 or 7 or 8 or 9)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6 or 7 or 8)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1810,11 +1660,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1864,7 +1709,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Cincinnati_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1876,11 +1721,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1910,7 +1750,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Cincinnati_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1922,11 +1762,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -1956,7 +1791,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Clearwater_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -1968,11 +1803,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2002,7 +1832,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Clearwater_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2014,11 +1844,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2048,7 +1873,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Cleveland_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2060,11 +1885,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2094,7 +1914,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Cleveland_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2106,11 +1926,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2159,7 +1974,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Columbia_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2171,11 +1986,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2205,7 +2015,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Columbia_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2217,11 +2027,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2251,7 +2056,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Columbus_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2263,11 +2068,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2302,7 +2102,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Columbus_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2314,11 +2114,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2367,7 +2162,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Denver_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2379,11 +2174,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2403,7 +2193,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Denver_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2415,11 +2205,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2439,7 +2224,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Des_Moines_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2451,11 +2236,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2480,7 +2260,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Des_Moines_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2492,11 +2272,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2521,7 +2296,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Detroit_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2533,11 +2308,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2572,7 +2342,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Detroit_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2584,11 +2354,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2623,7 +2388,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>El_Paso_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2635,11 +2400,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2659,7 +2419,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>El_Paso_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2671,11 +2431,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2695,7 +2450,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fargo_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2707,11 +2462,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2736,7 +2486,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fargo_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2748,11 +2498,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2777,7 +2522,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fort_Lauderdale_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2789,11 +2534,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2818,7 +2558,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fort_Lauderdale_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2830,11 +2570,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2859,7 +2594,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fresno_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2871,11 +2606,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2910,7 +2640,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Fresno_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2922,11 +2652,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -2961,7 +2686,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Grand_Rapids_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -2973,11 +2698,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3007,7 +2727,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Grand_Rapids_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3019,11 +2739,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3053,7 +2768,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Greensboro_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3065,11 +2780,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3104,7 +2814,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Greensboro_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3116,11 +2826,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3155,7 +2860,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Greenvile_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3167,11 +2872,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3191,7 +2891,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Greenvile_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3203,11 +2903,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3227,7 +2922,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Harlem_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3239,11 +2934,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3263,7 +2953,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Harlem_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3275,11 +2965,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3299,7 +2984,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Honolulu_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3311,11 +2996,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3335,7 +3015,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Honolulu_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3347,11 +3027,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3371,7 +3046,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Houston_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3383,11 +3058,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3422,7 +3092,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Houston_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3434,11 +3104,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3473,7 +3138,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Indianapolis_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3485,11 +3150,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3514,7 +3174,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Indianapolis_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3526,11 +3186,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3555,7 +3210,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Inland_Empire_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3567,11 +3222,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3596,7 +3246,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Inland_Empire_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3608,11 +3258,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3637,7 +3282,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Irvine_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3649,11 +3294,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3678,7 +3318,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Irvine_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3690,11 +3330,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3719,7 +3354,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Jackson_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3731,11 +3366,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3755,7 +3385,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Jackson_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3767,11 +3397,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3791,7 +3416,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Jacksonville_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3803,11 +3428,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3832,7 +3452,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Jacksonville_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3844,11 +3464,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3873,7 +3488,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Kansas_City_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3885,11 +3500,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3929,7 +3539,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Kansas_City_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3941,11 +3551,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -3985,7 +3590,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Knoxville_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -3997,11 +3602,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4026,7 +3626,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Knoxville_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4038,11 +3638,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4067,7 +3662,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Las_Vegas_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4079,11 +3674,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4103,7 +3693,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Las_Vegas_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4115,11 +3705,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4139,7 +3724,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Lexington_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4151,11 +3736,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4180,7 +3760,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Lexington_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4192,11 +3772,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4221,7 +3796,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Little_Rock_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4233,11 +3808,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4257,7 +3827,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Little_Rock_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4269,11 +3839,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4293,7 +3858,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Long_Island_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4305,11 +3870,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4329,7 +3889,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Long_Island_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4341,11 +3901,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4365,7 +3920,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Los_Angeles_Downtown_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4377,11 +3932,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4406,7 +3956,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Los_Angeles_Downtown_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4418,11 +3968,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4447,7 +3992,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Los_Angeles_West_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4459,11 +4004,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4493,7 +4033,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Los_Angeles_West_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4505,11 +4045,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4539,7 +4074,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Louisville_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4551,11 +4086,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4580,7 +4110,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Louisville_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4592,11 +4122,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4621,7 +4146,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Memphis_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4633,11 +4158,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4657,7 +4177,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Memphis_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4669,11 +4189,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4693,7 +4208,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Miami_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4705,11 +4220,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4729,7 +4239,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Miami_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4741,11 +4251,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4765,7 +4270,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Middletown_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4777,11 +4282,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4801,7 +4301,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Middletown_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4813,11 +4313,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4837,7 +4332,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Milwaukee_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4849,11 +4344,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4873,7 +4363,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Milwaukee_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4885,11 +4375,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4909,7 +4394,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Minneapolis_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 or 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4921,11 +4406,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -4960,7 +4440,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Minneapolis_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -4972,11 +4452,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5011,7 +4486,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Montana_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5023,11 +4498,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5047,7 +4517,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Montana_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5059,11 +4529,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5083,7 +4548,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Monterey_Bay_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5095,11 +4560,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5119,7 +4579,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Monterey_Bay_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5131,11 +4591,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5155,7 +4610,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Montpelier_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5167,11 +4622,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5191,7 +4641,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Montpelier_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5203,11 +4653,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5248,7 +4693,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Nashville_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5260,11 +4705,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5289,7 +4729,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Nashville_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5301,11 +4741,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5330,7 +4765,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>New_Hampshire_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5342,11 +4777,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5366,7 +4796,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>New_Hampshire_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5378,11 +4808,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5402,7 +4827,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>New_Orleans_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5414,11 +4839,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5443,7 +4863,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>New_Orleans_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5455,11 +4875,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5484,7 +4899,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>New_York_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5496,11 +4911,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5520,7 +4930,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>New_York_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5532,11 +4942,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5556,7 +4961,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>North_Bay_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5568,11 +4973,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5597,7 +4997,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>North_Bay_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5609,11 +5009,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5638,7 +5033,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>North_Texas_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5650,11 +5045,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5694,7 +5084,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>North_Texas_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5706,11 +5096,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5750,7 +5135,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Northern_New_Jersey_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5762,11 +5147,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5796,7 +5176,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Northern_New_Jersey_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5808,11 +5188,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5842,7 +5217,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Northern_VA_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5854,11 +5229,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5883,7 +5253,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Northern_VA_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5895,11 +5265,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5924,7 +5289,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Oakland_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5936,11 +5301,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -5965,7 +5325,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Oakland_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -5977,11 +5337,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6006,7 +5361,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Oklahoma_City_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6018,11 +5373,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6052,7 +5402,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Oklahoma_City_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6064,11 +5414,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6098,7 +5443,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Omaha_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6110,11 +5455,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6134,7 +5474,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Omaha_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6146,11 +5486,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6170,7 +5505,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Orlando_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6182,11 +5517,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6216,7 +5546,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Orlando_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6228,11 +5558,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6262,7 +5587,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Peoria_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7 OR 8)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6274,11 +5599,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6323,7 +5643,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Peoria_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7 OR 8)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6335,11 +5655,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6384,7 +5699,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Philadelphia_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6396,11 +5711,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6440,7 +5750,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Philadelphia_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6 OR 7)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5 or 6)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6452,11 +5762,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6496,7 +5801,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Phoenix_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6508,11 +5813,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6537,7 +5837,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Phoenix_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6549,11 +5849,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6578,7 +5873,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Pittsburgh_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 or 4 or 5 or 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6594,11 +5889,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <field>Status</field>
             <operation>equals</operation>
             <value>Abandoned,Closed</value>
-        </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
         </filters>
         <filters>
             <field>US_ZIP_CODE__c</field>
@@ -6629,7 +5919,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Pittsburgh_Open_Requests</fullName>
-        <booleanFilter>1 AND 3 AND (2 or 4 or 5 or 6)</booleanFilter>
+        <booleanFilter>1 AND (2 or 3 or 4 or 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6650,11 +5940,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
             <value>150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,168,1670,1673,1675,16724,16725,16726,16727,16728,16729,16740,16743,16744,16745,16749,17002,17004,17006,17009,17014,17020,17021,17024</value>
-        </filters>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
         </filters>
         <filters>
             <field>US_ZIP_CODE__c</field>
@@ -6680,7 +5965,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Pontiac_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6692,11 +5977,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6721,7 +6001,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Pontiac_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6733,11 +6013,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6762,7 +6037,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Portland_ME_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6774,11 +6049,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6798,7 +6068,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Portland_OR_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6810,11 +6080,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6844,7 +6109,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Portland_OR_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6856,11 +6121,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6890,7 +6150,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Providence_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6902,11 +6162,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6926,7 +6181,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Providence_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6938,11 +6193,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -6962,7 +6212,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Raleigh_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -6974,11 +6224,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7008,7 +6253,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Raleigh_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7020,11 +6265,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7054,7 +6294,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Reno_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7066,11 +6306,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7090,7 +6325,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Reno_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7102,11 +6337,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7126,7 +6356,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Richmond_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7138,11 +6368,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7167,7 +6392,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Richmond_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7179,11 +6404,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7208,7 +6428,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Rockford_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7220,11 +6440,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7254,7 +6469,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Rockford_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7266,11 +6481,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7300,7 +6510,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Sacramento_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7312,11 +6522,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7341,7 +6546,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Sacramento_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7353,11 +6558,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7382,7 +6582,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Salt_Lake_City_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7394,11 +6594,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7418,7 +6613,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Salt_Lake_City_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7430,11 +6625,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7454,7 +6644,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Antonio_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7466,11 +6656,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7500,7 +6685,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Antonio_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7512,11 +6697,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7546,7 +6726,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Diego_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7558,11 +6738,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7582,7 +6757,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Diego_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7594,11 +6769,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7618,7 +6788,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Francisco_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7630,11 +6800,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7654,7 +6819,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Francisco_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7666,11 +6831,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7690,7 +6850,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Jose_CA_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7702,11 +6862,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7731,7 +6886,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Jose_CA_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7743,11 +6898,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7772,7 +6922,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Juan_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7784,11 +6934,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7808,7 +6953,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>San_Juan_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7820,11 +6965,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7844,7 +6984,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Savannah_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7856,11 +6996,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7890,7 +7025,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Savannah_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7902,11 +7037,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7936,7 +7066,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Seattle_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7948,11 +7078,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -7977,7 +7102,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Seattle_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -7989,11 +7114,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8018,7 +7138,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Shreveport_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8030,11 +7150,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8059,7 +7174,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Shreveport_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8071,11 +7186,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8100,7 +7210,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Sioux_Falls_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8112,11 +7222,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8146,7 +7251,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Sioux_Falls_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8158,11 +7263,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8192,7 +7292,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>South_Texas_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8204,11 +7304,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8228,7 +7323,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>South_Texas_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8240,11 +7335,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8264,7 +7354,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Spokane_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8276,11 +7366,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8300,7 +7385,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Spokane_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8312,11 +7397,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8336,7 +7416,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>StLouis_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8348,11 +7428,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8387,7 +7462,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>StLouis_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8399,11 +7474,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8438,7 +7508,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tacoma_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8450,11 +7520,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8484,7 +7549,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tacoma_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8496,11 +7561,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8530,7 +7590,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tallahassee_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8542,11 +7602,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8566,7 +7621,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tallahassee_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8578,11 +7633,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8602,7 +7652,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tucson_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8614,11 +7664,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8643,7 +7688,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tucson_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8655,11 +7700,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8684,7 +7724,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tulsa_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8696,11 +7736,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8730,7 +7765,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Tulsa_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8742,11 +7777,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8776,7 +7806,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Ventura_County_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8788,11 +7818,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8812,7 +7837,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Ventura_County_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8824,11 +7849,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8848,7 +7868,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>West_Texas_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8860,11 +7880,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8894,7 +7909,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>West_Texas_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8906,11 +7921,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8940,7 +7950,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Westchester_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 or 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -8952,11 +7962,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -8991,7 +7996,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Westchester_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 or 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -9003,11 +8008,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -9042,7 +8042,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Wheeling_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -9054,11 +8054,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -9088,7 +8083,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Wheeling_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -9100,11 +8095,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -9134,7 +8124,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Wichita_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -9146,11 +8136,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -9180,7 +8165,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Wichita_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -9192,11 +8177,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -9226,7 +8206,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Ypsilanti_Closed_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -9238,11 +8218,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -9267,7 +8242,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>Ypsilanti_Open_Requests</fullName>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
         <columns>CreatedDate</columns>
         <columns>PreferredPhone</columns>
@@ -9279,11 +8254,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <columns>Last_Name__c</columns>
         <columns>RequestDescription</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RequestReason</field>
-            <operation>equals</operation>
-            <value>Contacting a local trade or export assistance expert (*limited availability)</value>
-        </filters>
         <filters>
             <field>Status</field>
             <operation>equals</operation>
@@ -10296,15 +9266,15 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
+                <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>My trade gov account</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
                 <default>false</default>
             </values>
             <values>
