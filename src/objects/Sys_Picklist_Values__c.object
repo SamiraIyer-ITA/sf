@@ -188,11 +188,6 @@
                     <label>Resolving a trade barrier</label>
                 </value>
                 <value>
-                    <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
-                    <default>false</default>
-                    <label>Policy-Identifying Top Markets-Industry Trends</label>
-                </value>
-                <value>
                     <fullName>My trade gov account</fullName>
                     <default>false</default>
                     <label>My trade gov account</label>
@@ -543,15 +538,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Resolving a trade barrier</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My trade gov account</fullName>
+                <fullName>Issue with the website</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -559,15 +546,20 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Issue with the website</fullName>
+                <fullName>My trade gov account</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Resolving a trade barrier</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
     </recordTypes>
+    <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
