@@ -49,7 +49,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -2444,6 +2443,29 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Type__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>eCommerce</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Digital Strategy</controllingFieldValue>
+                <valueName>eCommerce</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Taxonomy_One__c</fullName>
         <description>The power of one for this taxonomy object</description>
         <externalId>false</externalId>
@@ -2663,6 +2685,24 @@
             <valueSetName>Trade_Region</valueSetName>
         </valueSet>
     </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Digital Strategy</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <label>Taxonomy Tagging</label>
     <listViews>
         <fullName>All</fullName>
@@ -2690,6 +2730,3710 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Taxonomy Tagging</pluralLabel>
+    <recordTypes>
+        <fullName>Client_Counseling</fullName>
+        <active>true</active>
+        <label>Client Counseling</label>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Customs and Border Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Remedies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government Procurement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intellectual Property Rights</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Law and Corruption</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standards%2C Regulatory and Technical Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Owned Enterprises</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country__c</picklist>
+            <values>
+                <fullName>Afghanistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aland Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Albania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Algeria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Andorra</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Angola</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anguilla</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Antarctica</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Antigua and Barbuda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Argentina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Armenia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aruba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Austria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Azerbaijan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bahamas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bahrain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bangladesh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Barbados</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belarus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belize</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Benin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bermuda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bhutan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bolivia%2C Plurinational State of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bosnia and Herzegovina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Botswana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bouvet Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brazil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British Indian Ocean Territory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brunei Darussalam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bulgaria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Burkina Faso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Burundi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cambodia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cameroon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cape Verde</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cayman Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central African Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chad</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Christmas Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cocos %28Keeling%29 Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colombia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Comoros</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Congo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Congo%2C the Democratic Republic of the</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cook Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Costa Rica</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cote d%E2%80%99Ivoire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Croatia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cuba</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Curaçao</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cyprus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Czech Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Denmark</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Djibouti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dominica</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dominican Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ecuador</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Egypt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>El Salvador</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equatorial Guinea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eritrea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethiopia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Falkland Islands %28Malvinas%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faroe Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fiji</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French Guiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French Polynesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French Southern Territories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gabon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gambia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ghana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gibraltar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greece</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grenada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guadeloupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guatemala</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guernsey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guinea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guinea-Bissau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guyana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Haiti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heard Island and McDonald Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Holy See %28Vatican City State%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Honduras</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hong Kong</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hungary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iceland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>India</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iran%2C Islamic Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iraq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Isle of Man</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Israel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jamaica</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jersey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jordan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kazakhstan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kenya</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kiribati</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea%2C Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kosovo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kuwait</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kyrgyzstan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Latvia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lebanon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lesotho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Liberia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Libyan Arab Jamahiriya</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Liechtenstein</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lithuania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxembourg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Macao</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Madagascar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malawi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maldives</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mali</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Martinique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mauritania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mauritius</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mayotte</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moldova%2C Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monaco</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mongolia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Montenegro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Montserrat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morocco</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mozambique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Myanmar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Namibia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nauru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nepal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Caledonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicaragua</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niger</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nigeria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norfolk Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norway</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pakistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Palestinian Territory%2C Occupied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Panama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Papua New Guinea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paraguay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Philippines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pitcairn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portugal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qatar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reunion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Romania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian Federation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rwanda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saint Barthélemy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saint Helena%2C Ascension and Tristan da Cunha</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saint Kitts and Nevis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saint Lucia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saint Martin %28French part%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saint Pierre and Miquelon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saint Vincent and the Grenadines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Marino</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sao Tome and Principe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saudi Arabia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senegal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Serbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seychelles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sierra Leone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sint Maarten %28Dutch part%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovakia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovenia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Solomon Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Somalia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Georgia and the South Sandwich Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Sudan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sri Lanka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sudan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suriname</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Svalbard and Jan Mayen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swaziland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sweden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Switzerland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Syrian Arab Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tajikistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tanzania%2C United Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timor-Leste</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Togo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokelau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tonga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trinidad and Tobago</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tunisia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkmenistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turks and Caicos Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tuvalu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uganda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ukraine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Arab Emirates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Kingdom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United States</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uruguay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uzbekistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vanuatu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virgin Islands%2C British</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wallis and Futuna</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Sahara</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yemen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Zambia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Zimbabwe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry__c</picklist>
+            <values>
+                <fullName>Aerospace and Defense</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agribusiness</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business and Professional Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design and Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution and Logistics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment and Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial Materials</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information and Communications Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Profits and Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safety and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textiles and Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wholesale Trade</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>3D Printing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accommodations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accounting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adhesives and Sealants</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adult Education and Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertising Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Commodities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Equipment and Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Pollution Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Armored Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artwork</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asset Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audio-Visual Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Retailers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autotech</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aviation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Baby Food</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bakeries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beverages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biopharmaceuticals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brand Merchandise Licensing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catalog and Mail Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ceramics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chambers of Commerce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical Production Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Civil Nuclear Power</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cloud Computing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coatings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Composites</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Hardware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer-Aided Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Condiments and Seasonings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confectionary Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction Equipment and Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Convenience Stores</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmetics and Toiletries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Curriculum Development Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cybersecurity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dairy Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Death Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Debt Collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Department Stores</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design and Construction Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Destination Management Organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Selling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discount Stores</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distance Learning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drug Stores</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Due Diligence Investigation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dyes and Pigments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Early Childhood Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Accreditation Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Consortiums</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Publishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Trade Fair Organizers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Educational Tour Operators</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Educational Toys and Games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity Infrastructure</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Remediation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exam Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Explosives</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Express Delivery Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fabrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Film Industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire Safety and Rescue Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fluiding Handling Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Processing Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food and Grocery Retailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry Equipment and Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freight Forwarding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fruit Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fueling Infrastructure Stations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture Retailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gambling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Giftware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grains and Legumes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grid Transmission Distribution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hardware Stores</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Information Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare Facilities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Higher Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hotel and Restaurant Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Household Appliances</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housewares</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial Design Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Technology Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inorganic Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intelligent Transportation Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jewelry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>K-12 Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Language Learning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawn and Garden Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather and Fur Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Livestock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery and Tools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Consulting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maritime Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Material Handling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Materials Handling Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meat Processing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Textiles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining Equipment and Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moving Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music and Sound Recordings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musical Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil and Gas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operations and Maintenance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organic Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Packaging Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Transportation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Performing Arts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pet Foods and Supplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographic and Cinematographic Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastic Materials and Resins</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastic Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Production Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pleasure Boats %26 Accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Powersports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private Equity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Controls</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Training Services for Educators</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Safety</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Publishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pulp and Paper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rail Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreational Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Economic Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewable Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewable Fuels</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Restaurants and Bars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safety and Protection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scientific Laboratory Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scientific and Technical Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scrap Materials</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seafood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Serviced Office Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Snack Foods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Software</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Space</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialty Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sporting Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State-Owned Enterprises</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Recruitment Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sweeteners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Television Broadcasting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Equipment and Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Made-Ups</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tourist Attractions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toys and Games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Schools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Translation and Interpretation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Marketing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Writers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trucking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwater Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwater Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used Textiles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used and Reconditioned Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vegetable Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Rental Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venture Capital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veterinary Medicine and Animal Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visual Arts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vitamins and Supplements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waste Management and Recycling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water and Wastewater</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yarns</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eCommerce Industry</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Sector__c</picklist>
+            <values>
+                <fullName>Academic Certificate Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Access Control Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Pollution Monitoring Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Pollution Monitoring Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Traffic Control Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aircraft and Aircraft Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Airport and Ground Support Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>All Terrain Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Amusement Parks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Analytics Software</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Animation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Application Software</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Architecture Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Armored Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artists and Performers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asphalt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Authentication and Anti-Counterfeiting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Aftermarket Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Franchises</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Specialty Equipment Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autonomous Vehicle Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autonomous Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aviation Security Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avionics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Beer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bicycles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biodiesel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biologics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biomass Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biopharmaceuticals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Boarding Schools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Book Publishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Box Office Receipts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bulk Commodities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Burden Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bus Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buses</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CAD%2FCAM Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CAE Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CNG Fueling Stations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cable Television Networks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campgrounds and RV Parks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Dealerships</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Rentals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Casinos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catering Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cement and Concrete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chambers of Commerce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charter Schools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cinema Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Classified Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clean Coal Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal Gasification Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coffee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Fishing Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Vessel Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commission Agents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Colleges</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Peripherals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Console Games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Content Delivery Networks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Continuing Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Travel Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crisis- and Emergency-Management Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Custom Brokerage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Custom Coaches</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cutting Tools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Processing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daycare Centers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental Equipment and Supplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Desktop Computers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Marketing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distilled Spirits</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Doors and Windows</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drug Development and Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Earthmoving Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Research Organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Trade Publishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Web Design Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Educational Software</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Educational Technology Hardware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electric Motors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electric Vehicle Charging Stations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electric Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical Systems and Lighting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electromedical and Electrotherapeutic Apparatus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Components</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Control Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Health Records</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Product Testing Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Elementary Schools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Emergency Medical Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Storage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Engineering Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Monitoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethanol Fueling Stations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fertilizers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Film Distribution and Licensing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Film Festivals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Film Studios</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Film and Video Post-Production Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Film and Video Post-Production Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Film and Video Production Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Film and Video Production Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Detection Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Safety Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fire-Suppression Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Firefighting and Rescue Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First-Responder Communication Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fluid Power Components</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forensics Equipment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fragrances</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gasoline Service Stations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generic Pharamceuticals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geothermal Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Glass</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Health and Relief Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf Carts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Graduate Schools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Graphic Design Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Groundwater Remediation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HVAC Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hand Tools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hazardous Waste</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Data Analytics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Information Exchange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare Consulting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Helicopters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heritage Sites</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High Performance Computers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>High Schools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Historical Sites</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Household Appliances</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hydrogen Fueling Stations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hydropower</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IT Consulting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IT Service Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IaaS Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Vitro Diagnostics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial Safety Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial Waste Water</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insulation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intensive English Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interior Design Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Patient Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internet Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internet Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iron and Steel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Irradiation Appartus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Junior High Schools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kindergarten</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LNG Fueling Stations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Landscape Design Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Law Schools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Limousines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Live Music</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lodging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lumber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machine Tools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maritime Security Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Market Research Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Masonry and Stone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass-Notification Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Massive Open Online Course Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Laboratory Supplies and Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Waste</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium and Heavy Duty Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metal Building Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Military Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile Applications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile Games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile Health Applications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile Source Air Pollution Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motorcycles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motorhomes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Movie Theaters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Municipal Drinking Water</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Municipal Solid Waste</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Municipal Wastewater</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Museums</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music Labels</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music Licensing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music Merchandise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music Publishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music Streaming Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musical Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Parks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper Publishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nightclubs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonferrous Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonroad Diesel Engines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nuclear Fuels</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nuclear Reactors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nuclear Waste Processing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OEM Auto Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ocean Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Furniture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil %26 Gas Field Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online Games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online K-12 Schools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ophthalmic Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Home Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Over the Counter Drugs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC Games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PaaS Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper Product Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and Paperboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parking Lots and Garages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Cars and Light Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patent and Trademark Law Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Periodical Publishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal-Protective Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personnel Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pesticides</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pet Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petrochemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum Refineries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmaceuticals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographic Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographic Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physical and Perimeter Security Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plaster and Gypsum Board</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Materials and Resins</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Production Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plumbing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Police Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Police Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portable Computers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Powersports Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-College Summer Programs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Precious Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preschools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Print Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printed Circuit Boards</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printing and Graphic Arts Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prison Equipment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Water</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Safety Testing and Certification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Protection Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Protective and Safety Clothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pumps%2C Valves and Compressors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rail Travel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Railroad Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rare Earth Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Receptive Travel Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Record Manufacturing and Duplication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recycling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Remanufactured Auto Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewable Energy Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rescue Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ride Sharing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rolling Mills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SaaS Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safety and Protection Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Satellite Television Networks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Satellites</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scanning and Detection Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scrap Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scrap Plastics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scrap Pulp and Paper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Search-and-Rescue Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security Training Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security-Consulting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Semiconductor Manufacturing Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Semiconductors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Care Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipbuidling Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shopping Destinations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sightseeing Transportation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ski Areas and Resorts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smart Grid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Snowmobiles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soaps and Detergents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Software Development Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Software Development Tools</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soil Remediation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Solar Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Space Launch Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sporting Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stationary Fuel Cells</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stationary Source Air Pollution Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgical Appliances</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgical and Medical Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surveillance Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Infrastructure Software</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Talent Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taxi Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telemedicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Television Advertising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Television Broadcasting Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Television Stations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tires</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tooling Equipment and Supplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tour Operators</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tourism Bureaus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tow Tractors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tracking and Monitoring Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traffic-Management Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trams</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Clubs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Trailers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Undergraduate Study</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urban Planning and Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urban Transit Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used Auto Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used Clothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utility Task Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vaccines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Value-Added Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Customization Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Repair Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veterinary Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Prototyping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visual Effects</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vitamins and Supplements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wagon Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waste Management Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Monitoring</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Treatment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water-Delivery Devices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weapons and Accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welding Equipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wind Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wireless</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wood Pellets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wood Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woodworking Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Works of Art</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Workstation Computers</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Trade_Issue__c</picklist>
+            <values>
+                <fullName>Accreditation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anti-Dumping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bribery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Certificate of Origin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Certification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conformity Assessment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Copyright</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cross-Border Data Flow Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customs Barriers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customs Fees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customs Valuation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Exclusivity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data Localization Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equity Limitation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Zones</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Good Regulatory Practices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government Procurement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Licenses</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Quotas and Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labeling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Rule of Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Content Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monopolies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notice and Comment Rulemaking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Packaging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preshipment Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price Control</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regulatory Cooperation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rules of Origin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safeguards</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sanitary and Phytosanitary Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services Barriers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standards Barriers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Owned Enterprises</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tariffs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taxes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Testing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Facilitation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Secrets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trademarks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transition Period for New Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transparency in Regulations</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Trade_Region__c</picklist>
+            <values>
+                <fullName>African Growth and Opportunity Act</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Andean Community</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asia Pacific Economic Cooperation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Association of Southeast Asian Nations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CAFTA-DR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Caribbean Community and Common Market</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Market for Eastern and Southern Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commonwealth of Independent States</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Cooperation Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic and Monetary Community of Central Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eurasian Economic Union</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>European Free Trade Association</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>European Union - 28</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global System of Trade Preferences among Developing Countries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gulf Cooperation Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organization of the Petroleum Exporting Countries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South African Customs Union</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South African Development Community</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Asian Association for Regional Cooperation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Southern Common Market</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trans Pacific Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>West African Economic and Monetary Union</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Digital Strategy</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <recordTypes>
         <fullName>Country</fullName>
         <active>true</active>
@@ -6094,6 +9838,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Trade_Issue__c</picklist>
             <values>
                 <fullName>Accreditation</fullName>
@@ -6376,6 +10127,13 @@
             </values>
             <values>
                 <fullName>West African Economic and Monetary Union</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Digital Strategy</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9784,6 +13542,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Trade_Issue__c</picklist>
             <values>
                 <fullName>Accreditation</fullName>
@@ -10066,6 +13831,13 @@
             </values>
             <values>
                 <fullName>West African Economic and Monetary Union</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Digital Strategy</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13466,6 +17238,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Trade_Issue__c</picklist>
             <values>
                 <fullName>Accreditation</fullName>
@@ -13748,6 +17527,13 @@
             </values>
             <values>
                 <fullName>West African Economic and Monetary Union</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Digital Strategy</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17148,6 +20934,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>eCommerce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Trade_Issue__c</picklist>
             <values>
                 <fullName>Accreditation</fullName>
@@ -17433,6 +21226,13 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Digital Strategy</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
@@ -17440,11 +21240,11 @@
         <fullName>Only_Choose_One_Related_Record</fullName>
         <active>true</active>
         <description>The user may only select one related record per entry.</description>
-        <errorConditionFormula>( IF(ISBLANK( Related_Organization__c ),0,1) + 
-IF(ISBLANK( Related_WIN__c),0,1) + 
+        <errorConditionFormula>( IF(ISBLANK( Related_Organization__c ),0,1) +
+IF(ISBLANK( Related_WIN__c),0,1) +
 IF(ISBLANK( Related_Case__c ),0,1)+
 IF(ISBLANK( Related_Lead__c),0,1) +
-IF(ISBLANK( Related_Application__c),0,1) 
+IF(ISBLANK( Related_Application__c),0,1)
 ) &gt; 1</errorConditionFormula>
         <errorMessage>You may only select one Related Record</errorMessage>
     </validationRules>
