@@ -350,6 +350,13 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentInstanceProperties>
+                <name>context</name>
+                <value>RECORD</value>
+            </componentInstanceProperties>
+            <componentName>forceChatter:publisher</componentName>
+        </componentInstances>
+        <componentInstances>
             <componentName>runtime_sales_activities:activityPanel</componentName>
         </componentInstances>
         <name>Facet-841fc467-aa0d-4582-8276-bce5801efc58</name>
