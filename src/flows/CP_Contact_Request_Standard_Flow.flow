@@ -291,6 +291,7 @@ if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outs
 if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Western_Hemisphere_And_Canada},&apos;CP_Contact_US_6&apos;,
 if({!IssueBox} = &apos;Policy-Identifying Top Markets-Industry Trends&apos;, &apos;CP_Contact_US_9&apos;,
 if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apos;CP_Contact_US_8&apos;))))))))</expression>
+if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apos;CP_Contact_US_8&apos;))))))))</expression>
     </formulas>
     <formulas>
         <name>LeadIdForExt</name>
