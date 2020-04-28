@@ -84,21 +84,6 @@
         <template>Participation_App_Templates/Toolkit_Application_Submitted</template>
     </alerts>
     <alerts>
-        <fullName>New_Salesforce_Support_Case_Alert</fullName>
-        <description>New Salesforce Support Case Alert</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <recipients>
-            <recipient>sandip.menon@trade.gov</recipient>
-            <type>user</type>
-        </recipients>
-        <senderAddress>noreply@trade.gov</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
-        <template>Tier_3_Salesforce_Support/Salesforce_Support_Request_Alert</template>
-    </alerts>
-    <alerts>
         <fullName>Notify_Case_Creator_of_Toolkit_Support_Case_Creation</fullName>
         <description>Notify Case Creator of Toolkit Support Case Creation</description>
         <protected>false</protected>
@@ -1414,20 +1399,6 @@
         </criteriaItems>
         <description>Privacyshield.gov Website Feedback Case Assignment</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Salesforce Support Case Assignment</fullName>
-        <actions>
-            <name>New_Salesforce_Support_Case_Alert</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Salesforce Support</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Send Summary CA to contact</fullName>
