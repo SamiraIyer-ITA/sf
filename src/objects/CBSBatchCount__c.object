@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This is used in the Transaction Management class to reference Batch Count</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BatchFileCount__c</fullName>
+        <externalId>false</externalId>
+        <label>BatchFileCount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>CBSBatchCount</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -88,7 +88,9 @@ public without sharing class Utils {
 	public static Map<String,Id> getRecordTypeIdMap(String sObjectName){
 		Map<String,Id> returnMap = new Map<String,Id>();
 		for(RecordType rt : recordTypeIdToRecordTypeMap.values()){
-			returnMap.put(rt.DeveloperName, rt.Id);
+			if (rt.SObjectType == sObjectName) {
+				returnMap.put(rt.DeveloperName, rt.Id);
+			}
 		}
 		return returnMap;
 	}
@@ -195,8 +197,10 @@ public without sharing class Utils {
 				query += ', ' + fieldName;
 			}
 		}
-		query += ' FROM '+ sObjectName +' WHERE Id IN: sObjectIdSet';
-		System.debug('****** '+query);
+		query += ' FROM '+ sObjectName;
+		if (sObjectIdSet != null && ! sObjectIdSet.isEmpty()) {
+			query += ' WHERE Id IN: sObjectIdSet';
+		}
 		return database.query(query);
 	}
 
@@ -496,6 +500,43 @@ public without sharing class Utils {
 				so.put(address1Fld, street);
 			}
 		}
+	}
+	/**
+	 * Creates an SObject query based on a fieldset and set of additional fields
+	 *
+	 * This method contains logic to ignore the Id field if present in the fieldset or additional fields as the Id field
+	 * is added to most queries and usually left out of fieldsets.
+	 *
+	 * @param fs SObject field set
+	 * @param additionalFields Optional String set of additional fields to add to query
+	 *
+	 * @return
+	 */
+	public static String getFieldSetQuery(Schema.FieldSet fs, Set<String> additionalFields) {
+		// Create a list of fields from the field set and optional additional fields
+		List<String> fields = new List<String>();
+		// Add additional fields
+		if (additionalFields != null && !additionalFields.isEmpty()) {
+			for (String additionalField: additionalFields) {
+				// Omit the Id field
+				if (!additionalField.equalsIgnoreCase('Id')) {
+					fields.add(additionalField.toLowerCase());
+				}
+			}
+		}
+		// Add fieldset fields
+		List<String> fieldSetFields = new List<String>();
+		for(Schema.FieldSetMember f: fs.getFields()) {
+			String fld = f.getFieldPath().toLowerCase();
+			// Omit the id field and check if field has already been added
+			if (!fld.equalsIgnoreCase('Id') && !fields.contains(fld)) {
+				fieldSetFields.add(fld);
+			}
+		}
+		fields.addAll(fieldSetFields);
+		// Get SObject name and return query
+		String soName = fs.getSObjectType().getDescribe().getName();
+		return 'SELECT ' + String.join(fields, ', ') + ', Id FROM ' + soName;
 	}
 
 }

@@ -27,4 +27,18 @@
             <value>Participation,Commercial Diplomacy,Media,Export Promotion,Data Protection Authority,European Business,Dispute Resolution and Enforcement,Advocacy,Investment Promotion,Export_Feedback,Outreach,PS_Feedback,Privacy Shield</value>
         </criteriaItems>
     </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NIST_User_Case_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Allows NIST users r/w access to all cases with the transaction management support record type. Works in conjunction with payments process and transaction management</description>
+        <label>NIST User Case Access</label>
+        <sharedTo>
+            <role>NIST</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Transaction Management Support</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
 </SharingRules>
