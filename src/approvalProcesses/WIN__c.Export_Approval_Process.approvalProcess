@@ -91,7 +91,7 @@
     <description>Must have country</description>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</booleanFilter>
+        <booleanFilter>1 AND 2 AND 4 AND 5 AND 6 AND 7 AND (3 OR 8)</booleanFilter>
         <criteriaItems>
             <field>WIN__c.RecordType</field>
             <operation>equals</operation>
@@ -104,7 +104,7 @@
         </criteriaItems>
         <criteriaItems>
             <field>WIN__c.Country_in_Win__c</field>
-            <operation>greaterThan</operation>
+            <operation>notEqual</operation>
             <value>0</value>
         </criteriaItems>
         <criteriaItems>
@@ -119,6 +119,16 @@
         </criteriaItems>
         <criteriaItems>
             <field>WIN__c.Related_Cases_to_WIN_Count__c</field>
+            <operation>notEqual</operation>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>WIN__c.Client_Verified__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>WIN__c.Sys_Region_in_WIN_Rollup__c</field>
             <operation>notEqual</operation>
             <value>0</value>
         </criteriaItems>
