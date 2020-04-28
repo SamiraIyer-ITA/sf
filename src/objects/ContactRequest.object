@@ -9278,10 +9278,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Resolving a trade barrier</fullName>
                 <default>false</default>
             </values>
