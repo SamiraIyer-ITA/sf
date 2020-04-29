@@ -599,10 +599,10 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Service</fullName>
+        <fullName>Services</fullName>
         <active>true</active>
-        <description>Service order record type</description>
-        <label>Service</label>
+        <description>Services order record type</description>
+        <label>Services</label>
         <picklistValues>
             <picklist>Status</picklist>
             <values>
