@@ -173,14 +173,24 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-        <valueSet>
+<valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
+                    <fullName>Select</fullName>
+                    <default>true</default>
+                    <label>--Select--</label>
+                </value>
+                <value>
+                    <fullName>Contact a local trade or export assistance expert in the US</fullName>
                     <default>false</default>
-                    <label>Contacting a local trade or export assistance expert (*limited availability)</label>
+                    <label>Contact a local trade or export assistance expert in the US</label>
+                </value>
+                <value>
+                    <fullName>Contact a local trade or export assistance expert outside the US</fullName>
+                    <default>false</default>
+                    <label>Contact a local trade or export assistance expert outside the US</label>
                 </value>
                 <value>
                     <fullName>Resolving a trade barrier</fullName>
