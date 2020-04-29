@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -86,7 +86,7 @@
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>This should be in the following format:
-A-###-### for AD 
+A-###-### for AD
 C-###-### for CVD</inlineHelpText>
         <label>ADCVD Case Type</label>
         <required>true</required>
@@ -282,6 +282,19 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <label>ADCVD Case</label>
+    <listViews>
+        <fullName>ADCVD_Case_Open</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product__c</columns>
+        <columns>Product_Short_Name__c</columns>
+        <columns>Country__c</columns>
+        <columns>Commodity__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>ADCVD Case Open</label>
+        <queue>ADCVD_Case_Open</queue>
+    </listViews>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -3451,8 +3464,8 @@ C-###-### for CVD</inlineHelpText>
         <fullName>CBP_Case_number_for_AD_and_CVD_Format</fullName>
         <active>true</active>
         <description>CBP Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
-(NOT(OR(ISBLANK( CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;,
+(NOT(OR(ISBLANK( CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))),
 (NOT(OR(ISBLANK(CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
         <errorDisplayField>CBP_Case_Number__c</errorDisplayField>
         <errorMessage>Format should be A-###-### or C-###-###</errorMessage>
@@ -3460,9 +3473,9 @@ C-###-### for CVD</inlineHelpText>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Permission.Edit_ADCVD_Locked_Records == false, 
-NOT(ISNEW()), 
-PRIORVALUE(Locked__c) == true 
+        <errorConditionFormula>AND($Permission.Edit_ADCVD_Locked_Records == false,
+NOT(ISNEW()),
+PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked. Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
@@ -3470,7 +3483,7 @@ PRIORVALUE(Locked__c) == true
         <fullName>CaseType_must_match_format_of_CaseNumber</fullName>
         <active>true</active>
         <description>ADCVD Case Type should and Case Number must match</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,  
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 IF(
   OR(
     AND(
@@ -3497,10 +3510,10 @@ IF(
         <active>true</active>
         <description>Case Number must be formatted specifically this way.</description>
         <errorConditionFormula>AND(
-     $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-     Locked__c == false, 
-     NOT(REGEX(Name,&quot;C-[0-9]{3}-[0-9]{3}&quot;)), 
-     NOT(REGEX(Name,&quot;A-[0-9]{3}-[0-9]{3}&quot;)) 
+     $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+     Locked__c == false,
+     NOT(REGEX(Name,&quot;C-[0-9]{3}-[0-9]{3}&quot;)),
+     NOT(REGEX(Name,&quot;A-[0-9]{3}-[0-9]{3}&quot;))
    )</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>Invalid ADCVD Case Number Format. For AD cases valid Case Number format should be  A-###-###. For CVD cases valid Case Number format should be C-###-###.</errorMessage>
