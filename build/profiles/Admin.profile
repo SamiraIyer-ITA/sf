@@ -252,6 +252,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Client_Form__c.Partner_Street__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Client_Form__c.Partner_Website__c</field>
         <readable>true</readable>
     </fieldPermissions>
