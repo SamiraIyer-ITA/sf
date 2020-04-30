@@ -174,7 +174,7 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-        <valueSet>
+<valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -187,6 +187,11 @@
                     <fullName>Contact a local trade or export assistance expert in the US</fullName>
                     <default>false</default>
                     <label>Contact a local trade or export assistance expert in the US</label>
+                </value>
+                <value>
+                    <fullName>Contact a local trade or export assistance expert outside the US</fullName>
+                    <default>false</default>
+                    <label>Contact a local trade or export assistance expert outside the US</label>
                 </value>
                 <value>
                     <fullName>Resolving a trade barrier</fullName>
