@@ -343,6 +343,13 @@
             </value>
         </assignmentItems>
         <assignmentItems>
+            <assignToReference>varRecord_CQ.Partner_Street__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fld_Partner_Street</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
             <assignToReference>varRecord_CQ.Partner_Website__c</assignToReference>
             <operator>Assign</operator>
             <value>
@@ -713,6 +720,14 @@
         <displayField xsi:nil="true"/>
         <object xsi:nil="true"/>
         <picklistField>More_Than_One_Distributor__c</picklistField>
+        <picklistObject>Client_Form__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>choiceSet_Partner_Country</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Partner_Country__c</picklistField>
         <picklistObject>Client_Form__c</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
@@ -1400,6 +1415,12 @@
             <isRequired>false</isRequired>
         </fields>
         <fields>
+            <name>fld_Partner_Street</name>
+            <fieldText>Street:</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
             <name>fld_Partner_City</name>
             <dataType>String</dataType>
             <fieldText>City:</fieldText>
@@ -1422,10 +1443,12 @@
         </fields>
         <fields>
             <name>fld_Partner_Country</name>
+            <choiceReferences>choice_PicklistDefault</choiceReferences>
+            <choiceReferences>choiceSet_Partner_Country</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Country:</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>false</isRequired>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>fld_Partner_Website</name>
