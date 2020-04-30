@@ -102,6 +102,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Client_Form__c.Desired_Event_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Client_Form__c.Desired_Locations__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -113,6 +118,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Client_Form__c.Domestic_And_International_Trade_Shows__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Economic_Development_Organization__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -162,12 +172,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.More_Than_One_Distributor_Details__c</field>
+        <field>Client_Form__c.More_Than_One_Distributor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.More_Than_One_Distributor__c</field>
+        <field>Client_Form__c.More_Than_One_Distributor_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -178,6 +188,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Client_Form__c.Number_Of_Employees__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Objective_and_Target_Audience_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -198,6 +213,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Client_Form__c.Other_Company_Activities__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Other_Type_of_Event__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -272,6 +292,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Client_Form__c.Prior_Experience_in_other_Markets__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Client_Form__c.Product_License_Or_Registration_In_US__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -297,6 +322,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Client_Form__c.Requested_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Role_of_Current_Distributor_in_Event__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Client_Form__c.Schedule_BHS_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -307,12 +342,77 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Client_Form__c.Sub_Sectors_Served__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Client_Form__c.Sub_Sectors_Served_Prioritized__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.Sub_Sectors_Served__c</field>
+        <field>Client_Form__c.Target_Address_Line1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_City__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Company_Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Company_First_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Company_Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Company_Website__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Contact_Last_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Contact_Title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Group_Size__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_Postal_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Target_State__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -327,6 +427,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Client_Form__c.Type_of_Event__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Type_of_Services_Requested__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Client_Form__c.Typical_Dist_Marketing_Outside_US__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -337,12 +447,52 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.USEAC_Location__c</field>
+        <field>Client_Form__c.Ultimate_Address_Line1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Ultimate_City__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Ultimate_Client_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Ultimate_Client_Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Ultimate_Client_Website__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Ultimate_Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Ultimate_Postal_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Ultimate_State__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Client_Form__c.US_Prod_Licenses_Registrations_Pending__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.USEAC_Location__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
@@ -351,6 +501,18 @@
     <layoutAssignments>
         <layout>Client_Form__c-Exporter Company Questionnaire Layout</layout>
         <recordType>Client_Form__c.Exporter_Company_Questionnaire</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Client_Form__c-International Company Profile Layout</layout>
+        <recordType>Client_Form__c.International_Company_Profile</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Client_Form__c-Single Company Promotion Layout</layout>
+        <recordType>Client_Form__c.Single_Company_Promotion</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Client_Form__c-Single Location Promotion Layout</layout>
+        <recordType>Client_Form__c.Single_Location_Promotion</recordType>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -365,6 +527,21 @@
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Client_Form__c.Exporter_Company_Questionnaire</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Client_Form__c.International_Company_Profile</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Client_Form__c.Single_Company_Promotion</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Client_Form__c.Single_Location_Promotion</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
