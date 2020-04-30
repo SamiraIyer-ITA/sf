@@ -532,7 +532,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Client_Form__c.International_Company_Profile</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
