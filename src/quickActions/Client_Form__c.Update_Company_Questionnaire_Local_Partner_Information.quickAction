@@ -22,6 +22,11 @@
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
+                <field>Partner_Street__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
                 <field>Partner_City__c</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
