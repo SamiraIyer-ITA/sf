@@ -495,6 +495,11 @@
         <field>Client_Form__c.USEAC_Location__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Company_Questionnaire__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Client_Form__c-Client Form Layout</layout>
     </layoutAssignments>
