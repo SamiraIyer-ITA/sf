@@ -606,7 +606,7 @@
     <fields>
         <fullName>Estimated_Value__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>If client did not provide value, please provide an estimation of the dollar value of this WIN</inlineHelpText>
+        <inlineHelpText>Valuation calculated by ITA’s economists for all ITA-approved Trade Barrier WINs.</inlineHelpText>
         <label>Estimated Value</label>
         <precision>18</precision>
         <required>false</required>
@@ -867,6 +867,21 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>ITA_Estimated_Dollar_Value__c</fullName>
+        <description>Approved trade barrier WINs are analyzed by ITA economists to assess the WIN’s impact in terms of the dollar value of U.S. exports and jobs supported by GM’s (and ITA’s) CD efforts. To help in the valuation process, please make sure to list all HS codes affected by the barrier in the designated HS codes field. Valuation calculated by ITA’s economists for all ITA-approved Trade Barrier WINs. Information provided by ITA staff on the WIN will be used to calculate the annual impact of reducing, removing, or preventing that trade barrier.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If client did not provide value, please provide an estimation of the dollar value of this WIN</inlineHelpText>
+        <label>ITA Estimated Dollar Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>	
     <fields>
         <fullName>Impact_of_Exporting__c</fullName>
         <externalId>false</externalId>
