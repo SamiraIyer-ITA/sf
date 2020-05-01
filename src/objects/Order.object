@@ -606,23 +606,6 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>In Progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paid</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Services</fullName>
-        <active>true</active>
-        <description>Services order record type</description>
-        <label>Services</label>
-        <picklistValues>
-            <picklist>Status</picklist>
-            <values>
                 <fullName>Draft</fullName>
                 <default>true</default>
             </values>
