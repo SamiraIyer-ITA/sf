@@ -27,5 +27,10 @@
         <field>WIN__c.Number_of_Jobs_Supported__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <userLicense>Salesforce</userLicense>    
+<fieldPermissions>
+    <editable>false</editable>
+    <field>WIN__c.Estimated_Value__c</field>
+    <readable>true</readable>
+</fieldPermissions>
+    <userLicense>Salesforce</userLicense>
 </Profile>
