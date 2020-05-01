@@ -500,6 +500,11 @@
         <field>Opportunity.Company_Questionnaire__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Quote.Client_Form_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Client_Form__c-Client Form Layout</layout>
     </layoutAssignments>
@@ -518,6 +523,10 @@
     <layoutAssignments>
         <layout>Client_Form__c-Single Location Promotion Layout</layout>
         <recordType>Client_Form__c.Single_Location_Promotion</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Quote-Standard Layout</layout>
+        <recordType>Quote.Standard</recordType>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
