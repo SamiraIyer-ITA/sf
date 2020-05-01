@@ -1176,17 +1176,15 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Target_Address_Line1__c</fullName>
-        <description>Target Address Line1</description>
+        <fullName>Target_Address__c</fullName>
+        <description>Target Address</description>
         <externalId>false</externalId>
-        <inlineHelpText>Target Address Line1</inlineHelpText>
-        <label>Target Address Line1</label>
-        <length>100</length>
+        <inlineHelpText>Target Address</inlineHelpText>
+        <label>Target Address</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Target_City__c</fullName>
@@ -1542,15 +1540,15 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Ultimate_Address_Line1__c</fullName>
+        <fullName>Ultimate_Address__c</fullName>
+        <description>Ultimate Address</description>
         <externalId>false</externalId>
-        <label>Ultimate Address Line1</label>
-        <length>100</length>
+        <inlineHelpText>Ultimate Address</inlineHelpText>
+        <label>Ultimate Address</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Ultimate_City__c</fullName>

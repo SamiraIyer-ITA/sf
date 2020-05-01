@@ -352,7 +352,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.Target_Address_Line1__c</field>
+        <field>Client_Form__c.Target_Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -447,7 +447,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.Ultimate_Address_Line1__c</field>
+        <field>Client_Form__c.Ultimate_Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

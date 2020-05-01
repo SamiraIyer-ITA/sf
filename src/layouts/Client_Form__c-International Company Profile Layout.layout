@@ -44,7 +44,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ultimate_Address_Line1__c</field>
+                <field>Ultimate_Address__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -99,7 +99,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Target_Address_Line1__c</field>
+                <field>Target_Address__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
