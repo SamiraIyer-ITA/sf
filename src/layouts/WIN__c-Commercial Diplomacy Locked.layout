@@ -51,7 +51,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ITA_Estimated_Dollar_Value__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Estimated_Value__c</field>
@@ -62,16 +62,12 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ITA_Estimated_Dollar_Value__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Number_of_Jobs_Created__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Number_of_Jobs_Supported__c</field>
-            </layoutItems>            
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -114,7 +110,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Number_of_Jobs_Supported__c</field>
-            </layoutItems>		
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Other_USG_Entities_Involved__c</field>
