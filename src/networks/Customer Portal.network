@@ -36,11 +36,9 @@
           </navigationMenuItem>
       </navigationLinkSet>
     <networkMemberGroups>
-        <permissionSet>C03ClientFormExporterCompanyQuestionnaireReadCreateEdit</permissionSet>
-        <permissionSet>C08ClientForm</permissionSet>
         <profile>Admin</profile>
         <profile>MCP-External-User</profile>
-        <profile>customer trade community user</profile>
+		<profile>customer trade community user</profile>
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>

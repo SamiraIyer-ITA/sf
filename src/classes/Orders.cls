@@ -24,45 +24,23 @@ public class Orders extends fflib_SObjectDomain implements IOrders {
 		}
 	}
 
-	private static Id legacyRecordTypeId = Schema.SObjectType.Order
-		.getRecordTypeInfosByDeveloperName().get('Legacy').getRecordTypeId();
-	/*
-     * SM-133: Order: Update Triggers by Record Type
-     *
-     * Legacy functionality. Triggers that use legacy functionality can pass this list.
-     */
-	public List<Order> legacyOrders {
-		get {
-			if (legacyOrders == null) {
-				legacyOrders = new List<Order>();
-				for (Order order: (List<Order>)Records) {
-					if (order.RecordTypeId == legacyRecordTypeId) {
-						legacyOrders.add(order);
-					}
-				}
-			}
-			return legacyOrders;
-		}
-		private set;
-	}
-
 	public override void onBeforeInsert() {
-		updateOrderContactAndOfficer(legacyOrders);
+		updateOrderContactAndOfficer(Trigger.New);
 	}
 
 	public override void onBeforeUpdate(Map<Id, SObject> existingRecords) {
-		updateOrderContactAndOfficer(legacyOrders);
+		updateOrderContactAndOfficer(Trigger.New);
 	}
 
 	public override void onAfterUpdate(Map<Id, SObject> existingRecords) {
-		updatePayments(legacyOrders);
+		updatePayments(Trigger.New);
 	}
 
 	public void updateOrderContactAndOfficer(List<Order> ordersToUpdate) {
 		try {
 			OrdersService.updateOrderContactAndOfficer(ordersToUpdate);
 		} catch (OrdersService.OrdersServiceException e){
-			ordersToUpdate.get(0).addError(e.getMessage());
+			Records.get(0).addError(e.getMessage());
 		}
 	}
 
@@ -70,7 +48,7 @@ public class Orders extends fflib_SObjectDomain implements IOrders {
 		try {
 			OrdersService.updatePayments(newOrders);
 		} catch (OrdersService.OrdersServiceException e){
-			newOrders.get(0).addError(e.getMessage());
+			Records.get(0).addError(e.getMessage());
 		}
 	}
 

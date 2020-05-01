@@ -7,9 +7,6 @@
 @IsTest
 private class OrdersTest {
 
-    static Id legacyRecordTypeId = Schema.SObjectType.Order
-        .getRecordTypeInfosByDeveloperName().get('Legacy').getRecordTypeId();
-
 	@IsTest
 	static void testNewInstanceOfOrdersDomain_PassListWithOneNonInsertedObject_ReturnsValidInterface() {
 		List<Order> orderList  = new List<Order>();
@@ -43,7 +40,7 @@ private class OrdersTest {
         asset.AccountId = myAccount.Id;
         insert asset;
 
-        Order myOrder = new Order(RecordTypeId = legacyRecordTypeId, Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
         insert myOrder;
 
         Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);
@@ -91,7 +88,7 @@ private class OrdersTest {
         asset.AccountId = myAccount.Id;
         insert asset;
 
-        Order myOrder = new Order(RecordTypeId = legacyRecordTypeId, Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
         insert myOrder;
 
         Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);

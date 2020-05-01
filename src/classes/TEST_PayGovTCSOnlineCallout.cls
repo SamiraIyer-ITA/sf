@@ -29,7 +29,6 @@ public class TEST_PayGovTCSOnlineCallout {
 		PayGovTCSOnline.CompleteOnlineCollectionWithDetailsRequest completeOnlineCollectionWithDetailsRequest = new PayGovTCSOnline.CompleteOnlineCollectionWithDetailsRequest();
 		completeOnlineCollectionWithDetailsRequest.tcs_app_id = 'tcs_app_id';
 		completeOnlineCollectionWithDetailsRequest.token = 'token';
-
 		PayGovTCSOnline.TCSOnlineServicePort payGovOnline = new  PayGovTCSOnline.TCSOnlineServicePort();
 		return payGovOnline.completeOnlineCollectionWithDetails(completeOnlineCollectionWithDetailsRequest, 'paymentId');
 	}
