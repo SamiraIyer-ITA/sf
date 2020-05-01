@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Taxonomy_Tagging__r$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Taxonomy_Tagging__r$RecordType</field>
+    </columns>
+    <columns>
+        <field>Account.Taxonomy_Tagging__r$Type__c</field>
+    </columns>
+    <columns>
+        <field>Account.Taxonomy_Tagging__r$Sub_Type__c</field>
+    </columns>
+    <description>Organizations with Client Counseling</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Taxonomy_Tagging__r$RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Taxonomy_Tagging__c.Client_Counseling</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Organizations with Client Counseling</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Taxonomy_Tagging__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account.Taxonomy_Tagging__r$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
