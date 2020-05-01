@@ -282,6 +282,36 @@
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>parentFieldApiName</name>
+                <value>Investigation__c.Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListApiName</name>
+                <value>Tolling_Days__r</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListComponentOverride</name>
+                <value>NONE</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>10</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>force:relatedListSingleContainer</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$Permission.CustomPermission.View_Record_Tolling_Related_Lists}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>true</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>

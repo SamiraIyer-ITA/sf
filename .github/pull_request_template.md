@@ -1,5 +1,4 @@
-## What type of Pull Request is this? [Story, Feature, Workstream]: 
-### Jira Story(s): 
+### Story(s) Number: 
 #### Validation against QA box passed [Yes, No]: 
 #### Refresh date for sandbox used in development: 
 #### All classes being changed test at or above 85%: 
