@@ -272,7 +272,7 @@
     <fields>
         <fullName>Collection_Org_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>Org_Code__r.Org_Code__c</formula>
+        <formula>Opportunity.Collection_Post__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Collection Org Code</label>
         <required>false</required>
@@ -334,7 +334,7 @@
     <fields>
         <fullName>Fulfillment_Org_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>Org_Code__r.Org_Code__c</formula>
+        <formula>Opportunity.Fulfillment_Post__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Fulfillment  Org Code</label>
         <required>false</required>
@@ -365,6 +365,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Opportunity_Org_Code__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity Org Code</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>OrderReferenceNumber</fullName>
         <trackHistory>true</trackHistory>
     </fields>
@@ -375,18 +387,6 @@
         <label>Order Paid</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Org_Code__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Org Code</label>
-        <referenceTo>Collection_Fulfillment__c</referenceTo>
-        <relationshipLabel>Orders</relationshipLabel>
-        <relationshipName>Orders</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Organization_Contact__c</fullName>
