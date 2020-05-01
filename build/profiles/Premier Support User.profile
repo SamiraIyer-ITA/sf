@@ -1,46 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <custom>true</custom>
-    <description>This profile allows users to Edit Approved locked Wins and includes all ITA Network Directors.</description>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.Actual_Export_Dollar_Value__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.Anticipated_Export_Dollar_Value__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.ITA_Estimated_Dollar_Value__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.Number_of_Jobs_Created__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.Number_of_Jobs_Supported__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-<fieldPermissions>
-    <editable>false</editable>
-    <field>WIN__c.Estimated_Value__c</field>
-    <readable>true</readable>
-</fieldPermissions>
+    <custom>false</custom>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Advocacy</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Commercial_Diplomacy</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
@@ -51,7 +20,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Investment_Promotion</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -66,7 +35,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>WIN__c.Advocacy_Locked</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -87,7 +56,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>WIN__c.Export_Promotion_Locked</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -104,5 +73,5 @@
         <recordType>WIN__c.WIN_Standard_Record_Type</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-    <userLicense>Salesforce</userLicense>
+    <userLicense>Premier Support</userLicense>
 </Profile>

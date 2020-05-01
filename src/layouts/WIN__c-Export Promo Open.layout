@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Validate</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
@@ -41,10 +40,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Impact_of_Exporting__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Actual_Initial_Value__c</field>
             </layoutItems>
             <layoutItems>
@@ -70,7 +65,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Export_Dollar_Value__c</field>
-            </layoutItems>            
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -82,16 +77,8 @@
                 <field>Contact_Name__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Calendar_Year_of_Results__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Specific_Product__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

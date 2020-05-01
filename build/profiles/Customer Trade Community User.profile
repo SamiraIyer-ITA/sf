@@ -1,50 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
-    <description>This profile allows users to Edit Approved locked Wins and includes all ITA Network Directors.</description>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.Actual_Export_Dollar_Value__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.Anticipated_Export_Dollar_Value__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.ITA_Estimated_Dollar_Value__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.Number_of_Jobs_Created__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>WIN__c.Number_of_Jobs_Supported__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-<fieldPermissions>
-    <editable>false</editable>
-    <field>WIN__c.Estimated_Value__c</field>
-    <readable>true</readable>
-</fieldPermissions>
+    <description>Custom profile for Customer Community Users.</description>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Advocacy</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Commercial_Diplomacy</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
+        <default>false</default>
         <recordType>Case.Export_Promotion</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -61,7 +30,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>WIN__c.Advocacy</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -71,7 +40,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>WIN__c.Commercial_Diplomacy</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -79,10 +48,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
+        <default>false</default>
         <recordType>WIN__c.Export_Promotion</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -92,7 +60,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>WIN__c.Investment_Promotion</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -104,5 +72,49 @@
         <recordType>WIN__c.WIN_Standard_Record_Type</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-    <userLicense>Salesforce</userLicense>
+    <userLicense>Customer Community Login</userLicense>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ActivitiesAccess</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AllowUniversalSearch</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApexRestServices</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApiEnabled</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AssignTopics</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterEditOwnPost</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterOwnGroups</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EnableNotifications</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SelectFilesFromSalesforce</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ShowCompanyNameAsUserBadge</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>UseWebLink</name>
+    </userPermissions>
 </Profile>

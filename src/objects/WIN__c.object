@@ -46,7 +46,6 @@
         <fullName>WIN_Compact_Layout</fullName>
         <fields>Name</fields>
         <fields>OwnerId</fields>
-        <fields>Calendar_Year_of_Results__c</fields>
         <fields>RecordTypeId</fields>
         <label>WIN Compact Layout</label>
     </compactLayouts>
@@ -246,9 +245,10 @@
     </fields>
     <fields>
         <fullName>Advocacy_US_Export_Content_Services__c</fullName>
+        <description>Changed from &apos;AC US Export Content (Services)&apos;</description>
         <externalId>false</externalId>
         <inlineHelpText>The value of U.S. Export Content (Services) related to the contract award.</inlineHelpText>
-        <label>AC US Export Content (Services)</label>
+        <label>AC Total US Export Content - Confirmed</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>

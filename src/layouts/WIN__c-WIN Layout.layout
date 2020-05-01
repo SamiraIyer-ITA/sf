@@ -32,10 +32,6 @@
                 <field>Quote_Testimonial__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Calendar_Year_of_Results__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>WIN_Name__c</field>
             </layoutItems>
