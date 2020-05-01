@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Creates a new Region record on Taxonomy Tagging related to the Case.</description>
+    <label>Add Region</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Trade_Region__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <targetObject>Taxonomy_Tagging__c</targetObject>
+    <targetParentField>Related_Case__c</targetParentField>
+    <targetRecordType>Taxonomy_Tagging__c.Trade_Region</targetRecordType>
+    <type>Create</type>
+</QuickAction>
