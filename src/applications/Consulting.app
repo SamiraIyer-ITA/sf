@@ -72,7 +72,6 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Consulting</label>
     <navType>Standard</navType>
-<<<<<<< HEAD
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Services_LPL</content>
@@ -82,9 +81,7 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
-=======
     <tabs>standard-home</tabs>
->>>>>>> merge/edge/SM-196
     <tabs>standard-Lead</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Account</tabs>
