@@ -66,12 +66,6 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
-    <description>App for consulting w/ ITA clients</description>
-    <formFactors>Large</formFactors>
-    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
-    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
-    <label>Consulting</label>
-    <navType>Standard</navType>
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Services_LPL</content>
@@ -80,7 +74,12 @@
         <recordType>Opportunity.Services</recordType>
         <type>Flexipage</type>
         <profile>Admin</profile>
-    </profileActionOverrides>
+    <description>App for consulting w/ ITA clients</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Consulting</label>
+    <navType>Standard</navType>
     <tabs>standard-home</tabs>
     <tabs>standard-Lead</tabs>
     <tabs>standard-Contact</tabs>
