@@ -151,6 +151,11 @@
             <field>Company_Name__c</field>
             <table>ContactRequest</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Owner_Name__c</field>
+            <table>ContactRequest</table>
+        </columns>
         <masterLabel>Contact Requests</masterLabel>
     </sections>
 </ReportType>
