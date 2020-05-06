@@ -223,11 +223,6 @@
                     <default>false</default>
                     <label>Other</label>
                 </value>
-                <value>
-                    <fullName>Contact a local trade or export assistance expert outside the US</fullName>
-                    <default>false</default>
-                    <label>Contact a local trade or export assistance expert outside the US</label>
-                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
