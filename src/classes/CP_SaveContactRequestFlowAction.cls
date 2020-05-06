@@ -20,17 +20,17 @@ global without sharing class CP_SaveContactRequestFlowAction {
         String userType = '';
        
         //Standard Fields  
-        newRecord.First_Name__c = userInputs.firstName; //mapedInputs.get('FirstName');
-        newRecord.Last_Name__c = userInputs.lastName; //mapedInputs.get('LastName');
-        newRecord.Email__c = userInputs.email; //mapedInputs.get('Email');
+        newRecord.First_Name__c = userInputs.firstName; 
+        newRecord.Last_Name__c = userInputs.lastName; 
+        newRecord.Email__c = userInputs.email; 
         newrecord.Company_Name__c = userInputs.companyName;
         newRecord.RequestDescription =  userInputs.message;
         if(userInputs.country != 'NONE'){
-            newRecord.Country_1__c = userInputs.country; //mapedInputs.get('Country');
+            newRecord.Country_1__c = userInputs.country; 
         }
-        newRecord.RequestReason =  userInputs.requestReason; //mapedInputs.get('Reason');
+        newRecord.RequestReason =  userInputs.requestReason; 
         //System and static fields 
-        newRecord.OwnerId = userInputs.ownerId; //mapedInputs.get('QueueId');
+        newRecord.OwnerId = userInputs.ownerId; 
         newRecord.Status = 'New';
         if(userInputs.zipCode != 'NONE'){
             newRecord.US_ZIP_CODE__c = userInputs.zipCode;
