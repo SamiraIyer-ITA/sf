@@ -87,8 +87,8 @@
         <description>This is an Error Toast handling for no Country or Trade Region Taxonomy Taggings on the Case to relate to the WIN.</description>
         <name>Error_Toast_For_No_Country_or_Region_Taxonomy_To_Relate</name>
         <label>Error Toast For No Country or Region Taxonomy To Relate</label>
-        <locationX>4308</locationX>
-        <locationY>1540</locationY>
+        <locationX>4309</locationX>
+        <locationY>1550</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
         <connector>
@@ -110,6 +110,52 @@
             <name>message</name>
             <value>
                 <elementReference>singlevarErrorToast</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Note:</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>type</name>
+            <value>
+                <stringValue>warning</stringValue>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>singlevarErrorToastOutput</assignToReference>
+            <name>message</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>This is an Error Toast handling for no Country Taxonomy Taggings on the WIN</description>
+        <name>Error_Toast_For_No_Country_Taxonomy_To_Relate_from_WIN</name>
+        <label>Error Toast For No Country Taxonomy To Relate from WIN</label>
+        <locationX>3961</locationX>
+        <locationY>1388</locationY>
+        <actionName>c:showToast</actionName>
+        <actionType>component</actionType>
+        <connector>
+            <targetReference>Relate_Existing_Trade_Region_or_Country_to_WIN</targetReference>
+        </connector>
+        <inputParameters>
+            <name>mode</name>
+            <value>
+                <stringValue>dismissible</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>duration</name>
+            <value>
+                <stringValue>35</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <stringValue>There are no current Country Taxonomies on the WIN!</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -214,6 +260,52 @@
             </value>
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>This is an Error Toast handling for no Trade Region Taxonomy Taggings on the WIN</description>
+        <name>Error_Toast_For_No_Region_Taxonomy_To_Relate_from_WIN</name>
+        <label>Error Toast For No Region Taxonomy To Relate from WIN</label>
+        <locationX>3846</locationX>
+        <locationY>1382</locationY>
+        <actionName>c:showToast</actionName>
+        <actionType>component</actionType>
+        <connector>
+            <targetReference>Relate_Existing_Trade_Region_or_Country_to_WIN</targetReference>
+        </connector>
+        <inputParameters>
+            <name>mode</name>
+            <value>
+                <stringValue>dismissible</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>duration</name>
+            <value>
+                <stringValue>35</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <stringValue>There are no current Trade Region Taxonomies on the WIN!</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Note:</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>type</name>
+            <value>
+                <stringValue>warning</stringValue>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>singlevarErrorToastOutput</assignToReference>
+            <name>message</name>
+        </outputParameters>
     </actionCalls>
     <actionCalls>
         <description>This is an error toast for Several taxonomies on the current WIN.</description>
@@ -1765,6 +1857,13 @@
                 <elementReference>varEmptyCollection</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>createSingle_taxonomyTagging</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varEmptyVariable</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Get_Case_Record</targetReference>
         </connector>
@@ -1841,8 +1940,8 @@
         <description>This Assignment is assigning a variable to the Error Toast Element. The variable will contain the below value in the message.</description>
         <name>Error_Toast_Assignment_For_NO_Trade_Region_Taxonomy</name>
         <label>Error Toast Assignment For NO Trade Region Taxonomy</label>
-        <locationX>4113</locationX>
-        <locationY>1540</locationY>
+        <locationX>4123</locationX>
+        <locationY>1550</locationY>
         <assignmentItems>
             <assignToReference>singlevarErrorToast</assignToReference>
             <operator>Assign</operator>
@@ -2809,14 +2908,21 @@
         <description>This decision is evaluating if the user selected country or region AND if it does in fact have one of those taxonomies related to the Case. If it does not then the path will create one of those taxonomies for the user</description>
         <name>Region_or_Country_Decision</name>
         <label>Region or Country Decision</label>
-        <locationX>4107</locationX>
-        <locationY>1729</locationY>
+        <locationX>4106</locationX>
+        <locationY>1730</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>User_selected_Region_WITHOUT_a_Region_Taxonomy</name>
+            <name>User_selected_From_Case_WITHOUT_a_Region_Taxonomy_on_Case</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>TradeRegionChoice</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>CaseObject2</leftValueReference>
                 <operator>WasSelected</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -2829,6 +2935,28 @@
                     <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>Error_Toast_Assignment_For_NO_Trade_Region_Taxonomy</targetReference>
+            </connector>
+            <label>User selected From Case WITHOUT a Region Taxonomy on Case</label>
+        </rules>
+        <rules>
+            <name>User_selected_From_WIN_WITHOUT_a_Region_Taxonomy_on_WIN</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>TradeRegionChoice</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>WINObjectChoice2</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <conditions>
                 <leftValueReference>Start_WIN_recordId.Sys_Region_in_WIN_Rollup__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -2837,9 +2965,67 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Error_Toast_Assignment_For_NO_Trade_Region_Taxonomy</targetReference>
+                <targetReference>Error_Toast_For_No_Region_Taxonomy_To_Relate_from_WIN</targetReference>
             </connector>
-            <label>User selected Region WITHOUT a Region Taxonomy</label>
+            <label>User selected From WIN WITHOUT a Region Taxonomy on WIN</label>
+        </rules>
+        <rules>
+            <name>User_selected_From_Case_WITHOUT_a_Country_Taxonomy_on_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CountryChoice</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>CaseObject</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Record.Country_in_Case_Rollup__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error_Toast_Assignment_For_NO_Country_Taxonomy</targetReference>
+            </connector>
+            <label>User selected From Case WITHOUT a Country Taxonomy on Case</label>
+        </rules>
+        <rules>
+            <name>User_selected_From_WIN_WITHOUT_a_Country_Taxonomy_on_WIN</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CountryChoice</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>WINObject</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Start_WIN_recordId.Country_in_Win__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error_Toast_For_No_Country_Taxonomy_To_Relate_from_WIN</targetReference>
+            </connector>
+            <label>User selected From WIN WITHOUT a Country Taxonomy on WIN</label>
         </rules>
         <rules>
             <name>User_selected_Region_WITH_a_Region_Or_Country_Taxonomy</name>
@@ -2890,35 +3076,6 @@
                 <targetReference>What_was_the_choice_Relating_Taxonomy_to_WIN_New_Case</targetReference>
             </connector>
             <label>User selected Region or Country WITH a Region Or Country Taxonomy</label>
-        </rules>
-        <rules>
-            <name>User_selected_Country_WITHOUT_a_Country_Taxonomy</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>CountryChoice</leftValueReference>
-                <operator>WasSelected</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Get_Case_Record.Country_in_Case_Rollup__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <numberValue>0.0</numberValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Start_WIN_recordId.Country_in_Win__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <numberValue>0.0</numberValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Error_Toast_Assignment_For_NO_Country_Taxonomy</targetReference>
-            </connector>
-            <label>User selected Country WITHOUT a Country Taxonomy</label>
         </rules>
     </decisions>
     <decisions>
@@ -4152,7 +4309,7 @@
         <description>Create a new Country or Trade Region Taxonomy Tagging record</description>
         <name>Create_a_new_Country_or_Trade_Region_Taxonomy_Tagging_record</name>
         <label>Create a new Country or Trade Region Taxonomy Tagging record</label>
-        <locationX>3152</locationX>
+        <locationX>3153</locationX>
         <locationY>1160</locationY>
         <connector>
             <targetReference>Empty_Collection_Variables</targetReference>
@@ -5793,26 +5950,12 @@
             <fieldType>RadioButtons</fieldType>
             <isRequired>true</isRequired>
             <visibilityRule>
-                <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+                <conditionLogic>and</conditionLogic>
                 <conditions>
                     <leftValueReference>CountryChoice</leftValueReference>
                     <operator>WasSelected</operator>
                     <rightValue>
                         <booleanValue>true</booleanValue>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>Get_Case_Record.Country_in_Case_Rollup__c</leftValueReference>
-                    <operator>GreaterThanOrEqualTo</operator>
-                    <rightValue>
-                        <numberValue>1.0</numberValue>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>Start_WIN_recordId.Country_in_Win__c</leftValueReference>
-                    <operator>GreaterThanOrEqualTo</operator>
-                    <rightValue>
-                        <numberValue>1.0</numberValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -5823,6 +5966,13 @@
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>CountryChoice</leftValueReference>
+                    <operator>WasSelected</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
                 <conditions>
                     <leftValueReference>CaseObject</leftValueReference>
                     <operator>WasSelected</operator>
@@ -5835,13 +5985,6 @@
                     <operator>EqualTo</operator>
                     <rightValue>
                         <numberValue>0.0</numberValue>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>CountryChoice</leftValueReference>
-                    <operator>WasSelected</operator>
-                    <rightValue>
-                        <booleanValue>true</booleanValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -5916,6 +6059,13 @@
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
+                    <leftValueReference>CountryChoice</leftValueReference>
+                    <operator>WasSelected</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
                     <leftValueReference>WINObject</leftValueReference>
                     <operator>WasSelected</operator>
                     <rightValue>
@@ -5927,13 +6077,6 @@
                     <operator>EqualTo</operator>
                     <rightValue>
                         <numberValue>0.0</numberValue>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>CountryChoice</leftValueReference>
-                    <operator>WasSelected</operator>
-                    <rightValue>
-                        <booleanValue>true</booleanValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -6010,26 +6153,12 @@
             <fieldType>RadioButtons</fieldType>
             <isRequired>true</isRequired>
             <visibilityRule>
-                <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+                <conditionLogic>and</conditionLogic>
                 <conditions>
                     <leftValueReference>TradeRegionChoice</leftValueReference>
                     <operator>WasSelected</operator>
                     <rightValue>
                         <booleanValue>true</booleanValue>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>Get_Case_Record.Sys_Region_in_Case_Rollup__c</leftValueReference>
-                    <operator>GreaterThanOrEqualTo</operator>
-                    <rightValue>
-                        <numberValue>1.0</numberValue>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>Start_WIN_recordId.Sys_Region_in_WIN_Rollup__c</leftValueReference>
-                    <operator>GreaterThanOrEqualTo</operator>
-                    <rightValue>
-                        <numberValue>1.0</numberValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
