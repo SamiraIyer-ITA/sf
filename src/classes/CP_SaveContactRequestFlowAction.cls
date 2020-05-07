@@ -11,26 +11,21 @@ global without sharing class CP_SaveContactRequestFlowAction {
         User defaultUser = getDefaultUser();
         OrgWideEmailAddress noReplyEmail = getOrgWideEmail();
         ContactRequest newRecord = new ContactRequest();
-        if(Test.isRunningTest()){
-            //Do not reset lead value as it will not return the correct value in test * fed in from test class
-        }
-        else{
 		userInputs.leadId = getUserLeadId(userInputs.email);
-        }
         String userType = '';
        
         //Standard Fields  
         newRecord.First_Name__c = userInputs.firstName; 
-        newRecord.Last_Name__c = userInputs.lastName; 
-        newRecord.Email__c = userInputs.email; 
+        newRecord.Last_Name__c = userInputs.lastName;
+        newRecord.Email__c = userInputs.email;
         newrecord.Company_Name__c = userInputs.companyName;
         newRecord.RequestDescription =  userInputs.message;
         if(userInputs.country != 'NONE'){
-            newRecord.Country_1__c = userInputs.country; 
+            newRecord.Country_1__c = userInputs.country;
         }
-        newRecord.RequestReason =  userInputs.requestReason; 
+        newRecord.RequestReason =  userInputs.requestReason;
         //System and static fields 
-        newRecord.OwnerId = userInputs.ownerId; 
+        newRecord.OwnerId = userInputs.ownerId;
         newRecord.Status = 'New';
         if(userInputs.zipCode != 'NONE'){
             newRecord.US_ZIP_CODE__c = userInputs.zipCode;
