@@ -177,7 +177,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
                        Id IN (SELECT UserOrGroupId FROM GROUPMEMBER WHERE Group.DeveloperName =: publicgroup)]){
             emailList.add(cu.Id);    
          }
-        return emailList;
+        return emailList; 
     }
     
     global class RequestVariables {
