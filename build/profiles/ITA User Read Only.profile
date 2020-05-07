@@ -2,6 +2,21 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
     <description>Default profile automatically assigned to individuals who have taken the Salesforce CBT. Once the training is completed, individuals are instructed to submit a form to the CSC. Salesforce users are created through the Azure AD integration.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WIN__c.ITA_Estimated_Dollar_Value__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WIN__c.Number_of_Jobs_Created__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WIN__c.Number_of_Jobs_Supported__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Advocacy</recordType>
