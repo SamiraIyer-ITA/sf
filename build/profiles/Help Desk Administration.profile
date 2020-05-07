@@ -5,6 +5,21 @@
         <field>WIN__c.Estimated_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
+        <fieldPermissions>
+        <editable>true</editable>
+        <field>WIN__c.ITA_Estimated_Dollar_Value__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WIN__c.Number_of_Jobs_Created__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WIN__c.Number_of_Jobs_Supported__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <custom>true</custom>
     <description>Helpdesk Administrators, who could able to Manage Users and complete CRM Access</description>
     <recordTypeVisibilities>
