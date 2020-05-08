@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
-        <actionName>AddProduct</actionName>
+        <actionName>AddContactRole</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>AddProduct</actionName>
+        <actionName>AddContactRole</actionName>
         <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>AddProduct</actionName>
+        <actionName>AddContactRole</actionName>
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
@@ -25,20 +25,6 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>CancelEdit</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>ChoosePricebook</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>ChoosePricebook</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>ChoosePricebook</actionName>
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
@@ -71,20 +57,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>EditAllProduct</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>EditAllProduct</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>EditAllProduct</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -95,68 +67,31 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
-        <fullName>Description</fullName>
+        <fullName>ContactId</fullName>
+        <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Discount</fullName>
+        <fullName>IsPrimary</fullName>
     </fields>
     <fields>
-        <fullName>ITA_Product_Code__c</fullName>
+        <fullName>Lead__c</fullName>
+        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <formula>PricebookEntry.Product2.ProductCode</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>ITA Product Code</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>ListPrice</fullName>
+        <label>Lead</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>OpportunityId</fullName>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Product2Id</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>ProductCode</fullName>
-    </fields>
-    <fields>
-        <fullName>Quantity</fullName>
-    </fields>
-    <fields>
-        <fullName>ServiceDate</fullName>
-    </fields>
-    <fields>
-        <fullName>Subtotal</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalPrice</fullName>
-    </fields>
-    <fields>
-        <fullName>UnitPrice</fullName>
+        <fullName>Role</fullName>
+        <type>Picklist</type>
     </fields>
 </CustomObject>
