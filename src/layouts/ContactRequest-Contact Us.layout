@@ -38,6 +38,10 @@
                 <behavior>Readonly</behavior>
                 <field>Last_Status_Change_date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Company_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
