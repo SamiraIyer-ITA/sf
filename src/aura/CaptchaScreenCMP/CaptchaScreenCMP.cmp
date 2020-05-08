@@ -1,0 +1,23 @@
+<aura:component controller="MCP_LightningSelfRegisterController" implements="lightning:availableForFlowScreens,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="s1" type="String" />
+    <aura:attribute name="s2" type="String" />
+    <aura:attribute name="capStatus" type="boolean" default ="false"/>
+    <aura:attribute name="baseURL" type="String" default="{!$Label.c.CP_CaptchaFlow_URL}"/>
+    <aura:attribute name="captchaStatus" type="Boolean"  default ="false"/>
+    <aura:attribute name="eventData" type="string" required="false" default="no data"/>
+    <aura:handler   name="init" value="{!this}" action="{!c.initialize}"/>
+       
+      <aura:if isTrue="{!v.captchaStatus == false}">
+  
+        <form    aura:id="page1" >    
+            <div class="captchapage" >
+                <iframe  src="{!v.baseURL}" height="500px" width="350px" style="border:0px"/> 
+            </div>
+        </form>
+    </aura:if>
+  
+    <aura:if isTrue="{!v.captchaStatus == true}">
+    <lightning:button aura:id="NEXT" label="Submit" 
+               variant="brand" onclick="{!c.onButtonPressed}"  class="slds-align_absolute-center"/>
+    </aura:if>
+</aura:component>

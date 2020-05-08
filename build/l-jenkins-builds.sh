@@ -83,21 +83,6 @@ types=" app \
 	wlens \
         workflow \
 	xmd"
-        
-typemeta="      asset \
-		cls \
-                cmp \
-                component \
-                crt \
-                email \
-                evt \
-		geodata \
-                page \
-                resource \
-                trigger \
-		wdash \
-		wdf \
-		wlens"
 
 typesubfolders="	email \
 		dashboard \
@@ -130,7 +115,6 @@ function makePackage() {
    while read srcfile; do
         type=`echo "$srcfile" | grep -o '\.[a-zA-Z]*$' | cut -f 2 -d .`
         dofile=`echo $types | grep $type` || true
-        dometa=`echo $typemeta | grep $type`|| true
 	dosubfolders=`echo $typesubfolders | grep $type` || true
 	folder=`echo "$srcfile" | cut -f 2 -d /`
 	subfolder=`echo "$srcfile" | cut -f 3 -d /`
@@ -145,12 +129,9 @@ function makePackage() {
                 else
                         echo Copying "$srcfile"
 		        [ -f "$srcfile" ] && [ ! -z "$isSrc" ] && cp -rp --parents "$srcfile" $sandbox
-#                        if [ ! -z "$dometa"  ]; then
                         [ -f "${srcfile}-meta.xml" ] && cp -rp --parents "${srcfile}-meta.xml" $sandbox
-#                        fi
 			[ -f "src/${folder}/${subfolder}-meta.xml" ] && cp -rp --parents "src/${folder}/${subfolder}-meta.xml" $sandbox
 
-#			echo "TEST  src/${folder}/${subfolder}-meta.xml"
                 fi
         fi
   done < $gitfiles
@@ -183,7 +164,7 @@ function makeBuildXML() {
 
  # SFDCClasses=`zipinfo -1 "$sandbox/$archive" | grep '.cls$'`
  SFDCClasses=`ls $sandbox/src/classes/*.cls | grep '.cls$'`
-   
+
 ############## FIX FIX FIX ######################
 
   echo '<project name="Salesforce Ant tasks" default="tradeDeploy" basedir="." xmlns:sf="antlib:com.salesforce">' > "$buildXML"
@@ -194,7 +175,7 @@ function makeBuildXML() {
     echo "$none" >> "$buildXML"
   else
     echo "$runSpecifiedTests" >> "$buildXML"
-   
+
     for SFDCClass in $SFDCClasses; do
        testCLS=`echo $SFDCClass | grep -i Test` || true
        metaFile=`echo $SFDCClass | grep meta` || true
@@ -207,15 +188,15 @@ function makeBuildXML() {
           [ -f "src/classes/${cls}Test.cls" ] && echo "         <runTest>${cls}Test</runTest>" >> "$buildXML"
        fi
     done
-   
+
     if [ -f "$runUnitTests" ]; then
-	   unitTests=`cat $runUnitTests`	
+	   unitTests=`cat $runUnitTests`
 	   for unitTest in $unitTests; do
 		 echo "         <runTest>$unitTest</runTest>" >> "$buildXML"
 	   done
     fi
   fi
-   
+
    echo '      </sf:deploy>' >> "$buildXML"
 
    echo '   </target>' >> "$buildXML"
