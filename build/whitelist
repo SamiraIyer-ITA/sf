@@ -1,7 +1,5 @@
 src/globalValueSets/Country_1.globalValueSet
-src/aura/CaptchaScreenCMP
-src/aura/CaptchaScreenCMP
-src/aura/CaptchaScreenCMP
+src/aura/CaptchaScreenCMP/CaptchaScreenCMP.cmp
 src/aura/Flow_RecordTypePickListScreenCmp
 src/classes/CP_SaveContactRequestFlowAction.cls
 src/classes/captchaController.cls
