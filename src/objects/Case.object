@@ -1143,19 +1143,6 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>Commercial_Diplomacy_Triage__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Commercial Diplomacy Triage</label>
-        <referenceTo>Commercial_Diplomacy_Triage__c</referenceTo>
-        <relationshipLabel>Cases</relationshipLabel>
-        <relationshipName>Cases</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Compliance_Case__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -105108,6 +105095,18 @@ PRIORVALUE(Request_Case_Removal__c) &lt;&gt; FALSE
 )</errorConditionFormula>
         <errorMessage>This case is requested to be removed.  If you believe this is in error, please contact the help desk immediately.</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Close_Case_NIST</fullName>
+        <availability>online</availability>
+        <description>Close NIST case by updating owner and status fields based on user profile</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Close Case</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/flow/Close_NIST_Case?recordId={!Case.Id}&amp;retURL={!Case.Id}</url>
+    </webLinks>
     <webLinks>
         <fullName>Related_WINs</fullName>
         <availability>online</availability>
