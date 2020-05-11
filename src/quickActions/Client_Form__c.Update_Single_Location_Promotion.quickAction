@@ -17,6 +17,11 @@
             </quickActionLayoutItems>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
+                <field>Other_Type_of_Event__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
                 <field>Objective_and_Target_Audience_Details__c</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>

@@ -117,6 +117,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Client_Form__c.Disclose_Requestor_to_Target_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Disclose_Ultimate_Client_Target_Company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Client_Form__c.Domestic_And_International_Trade_Shows__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -133,6 +143,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Client_Form__c.Export_Control_Classification_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Client_Form__c.Firms_Individuals_to_Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
