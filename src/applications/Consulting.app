@@ -30,7 +30,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Product_Events_Legacy_LPL</content>
+        <content>Product_Events_LPL</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
