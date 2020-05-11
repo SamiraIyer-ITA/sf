@@ -20,23 +20,16 @@ private class Payment2Test {
 		List<Order> orders = new List<Order>();
 		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
 		order1.Type = 'Services';
-		order1.Name = 'Test Order X';
+		order1.Name = 'Paid Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
 		orders.add(order1);
 		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
 		order2.Type = 'Services';
-		order2.Name = 'Test Order X';
+		order2.Name = 'Unpaid Order X';
 		order2.ContractId = contract.Id;
 		order2.RecordTypeId = servicesRecordTypeId;
 		orders.add(order2);
-		//order3 is an unpaid order
-		Order order3 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
-		order3.Type = 'Services';
-		order3.Name = 'Test Order 3';
-		order3.ContractId = contract.Id;
-		order3.RecordTypeId = servicesRecordTypeId;
-		orders.add(order3);
 		update orders;
 
 		OrderItem orderItem1 = new OrderItem();
@@ -55,15 +48,7 @@ private class Payment2Test {
 		orderItem2.PricebookEntryId=pbe.id;
 		insert orderItem2;
 
-		OrderItem orderItem3 = new OrderItem();
-		orderItem3.OrderId = order3.id;
-		orderItem3.Quantity = 2;
-		orderItem3.UnitPrice = 2400;
-		orderItem3.Product2id = product2.id;
-		orderItem3.PricebookEntryId=pbe.id;
-		insert orderItem3;
-
-		//Insert a Payment record for Order 1 and Order 2
+		//Insert a Payment record for Order 1
 		Payment2__c payment1 = new Payment2__c();
 		payment1.Account_Type__c = 'Services';
 		payment1.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
@@ -76,58 +61,6 @@ private class Payment2Test {
 		order1.Payment2__c = payment1.Id;
 		order1.Status = 'Paid';
 		update order1;
-
-		order2.Payment2__c = payment1.Id;
-		order2.Status = 'Paid';
-		update order2;
-
-		//Reduction Order 1
-		Order reductionOrder1 = new Order(
-			IsReductionOrder = true,
-			OriginalOrderId = order1.Id,
-			Pricebook2Id = order1.Pricebook2Id,
-			EffectiveDate = order1.EffectiveDate,
-			Status = 'Draft',
-			Type = 'Services',
-			RecordTypeId = servicesRecordTypeId,
-			ContractId = order1.ContractId,
-			AccountId = order1.AccountId,
-			Name = 'Reduction Order X');
-
-		insert reductionOrder1;
-
-		OrderItem reductionOrderItem1 = new OrderItem();
-		reductionOrderItem1.OriginalOrderItemId = orderItem1.Id;
-		reductionOrderItem1.OrderId = reductionOrder1.id;
-		reductionOrderItem1.Quantity = -2;
-		reductionOrderItem1.UnitPrice = 2400;
-		reductionOrderItem1.Product2id = product2.id;
-		reductionOrderItem1.PricebookEntryId=pbe.id;
-		insert reductionOrderItem1;
-
-		//Reduction Order 2
-		Order reductionOrder2 = new Order(
-			IsReductionOrder = true,
-			OriginalOrderId = order2.Id,
-			Pricebook2Id = order2.Pricebook2Id,
-			EffectiveDate = order2.EffectiveDate,
-			Status = 'Draft',
-			Type = 'Services',
-			RecordTypeId = servicesRecordTypeId,
-			ContractId = order1.ContractId,
-			AccountId = order2.AccountId,
-			Name = 'Reduction Order X');
-
-		insert reductionOrder2;
-
-		OrderItem reductionOrderItem2 = new OrderItem();
-		reductionOrderItem2.OriginalOrderItemId = orderItem2.Id;
-		reductionOrderItem2.OrderId = reductionOrder2.id;
-		reductionOrderItem2.Quantity = -2;
-		reductionOrderItem2.UnitPrice = 2400;
-		reductionOrderItem2.Product2id = product2.id;
-		reductionOrderItem2.PricebookEntryId=pbe.id;
-		insert reductionOrderItem2;
 
 		//Insert a Credit Card payment that is unrelated to the orders or the contract
 		Payment2__c payment2 = new Payment2__c();
@@ -168,50 +101,24 @@ private class Payment2Test {
 	}
 
 	@IsTest
-	static void getOrder_Positive() {
-		List<Order> orders = [SELECT Id FROM ORDER WHERE Name = 'Test Order X'];
-		Order order = Payment2.getOrder(orders[0].Id);
+	static void getOrderByPaidNonPaidOnly_Positive() {
+		List<Order> orders = [SELECT Id FROM ORDER WHERE Name = 'Paid Order X'];
+		Order order = Payment2.getOrderByPaidNonPaidOnly(orders[0].Id, false, false);
 		System.assertEquals(orders[0].Id, order.Id);
 	}
 
 	@IsTest
-	static void getOrder_Null() {
+	static void getOrderByPaidNonPaidOnly_Null() {
 		List<Payment2__c> payments = [Select Id FROM Payment2__c];
-		Order order = Payment2.getOrder(payments[0].Id);
+		Order order = Payment2.getOrderByPaidNonPaidOnly(payments[0].Id, false, true);
 		System.assertEquals(null, order);
 	}
 
 	@IsTest
-	static void getOrder_Exception() {
+	static void getOrderByPaidNonPaidOnly_Exception() {
 		String exceptionMessage;
 		try {
-			Order order = Payment2.getOrder('Not an Id');
-		} catch (Exception e) {
-			exceptionMessage = e.getMessage();
-		} finally {
-			System.assertEquals('Script-thrown exception', exceptionMessage);
-		}
-	}
-
-	@IsTest
-	static void getOrderWithReductionOrderDetails_Positive() {
-		List<Order> orders = [SELECT Id FROM ORDER WHERE Name = 'Reduction Order X'];
-		Order order = Payment2.getOrderWithReductionOrderDetails(orders[0].Id, false, true, false, false);
-		System.assertEquals(orders[0].Id, order.Id);
-	}
-
-	@IsTest
-	static void getOrderWithReductionOrderDetails_Null() {
-		List<Payment2__c> payments = [Select Id FROM Payment2__c];
-		Order order = Payment2.getOrderWithReductionOrderDetails(payments[0].Id, false, false, false, true);
-		System.assertEquals(null, order);
-	}
-
-	@IsTest
-	static void getOrderWithReductionOrderDetails_Exception() {
-		String exceptionMessage;
-		try {
-			Order order = Payment2.getOrderWithReductionOrderDetails('Not an Id', false, false, false, true);
+			Order order = Payment2.getOrderByPaidNonPaidOnly('Not an Id', false, true);
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
@@ -221,22 +128,22 @@ private class Payment2Test {
 
 	@IsTest
 	static void getOrdersByContractId_Positive() {
-		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Test Order X'];
-		List<Order> orderList = Payment2.getOrdersByContractId(orders[0].ContractId, true, false, false, false);
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Paid Order X'];
+		List<Order> orderList = Payment2.getOrdersByContractId(orders[0].ContractId, false, false, false);
 		System.assertEquals(orders[0].Id, orderList[0].Id);
 	}
 
 	@IsTest
 	static void getOrdersByContractId_Positive2() {
-		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Reduction Order X'];
-		List<Order> orderList = Payment2.getOrdersByContractId(orders[0].ContractId, false, true, true, false);
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Paid Order X'];
+		List<Order> orderList = Payment2.getOrdersByContractId(orders[0].ContractId, true, false, true);
 		System.assertEquals(orders[0].Id, orderList[0].Id);
 	}
 
 	@IsTest
 	static void getOrdersByContractId_Empty() {
 		List<Payment2__c> payments = [Select Id FROM Payment2__c];
-		List<Order> orderList = Payment2.getOrdersByContractId(payments[0].Id, false, false, false, true);
+		List<Order> orderList = Payment2.getOrdersByContractId(payments[0].Id, false, false, true);
 		System.assertEquals(true, orderList.isEmpty());
 	}
 
@@ -244,7 +151,7 @@ private class Payment2Test {
 	static void getOrdersByContractId_Exception() {
 		String exceptionMessage;
 		try {
-			List<Order> orderList = Payment2.getOrdersByContractId('Not an Id', false, false, false, true);
+			List<Order> orderList = Payment2.getOrdersByContractId('Not an Id', false, false, true);
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
@@ -292,7 +199,7 @@ private class Payment2Test {
 
 	@IsTest
 	static void confirmPayment_Positive() {
-		List<Order> orders = [SELECT Id, ContractId, Payment2__c FROM ORDER WHERE Name = 'Test Order X'];
+		List<Order> orders = [SELECT Id, ContractId, Payment2__c FROM ORDER WHERE Name = 'Paid Order X'];
 		String[] orderIds = new String[]{};
 		for (Order order: orders) {
 			orderIds.add(order.Id);

@@ -29,12 +29,15 @@ global without sharing class Flow_CreatePaymentRecord {
 					payment.Bank_Name__c = bankName;
 					payment.Check_Number__c = checkNumber;
 					payment.Check_Date__c = checkDate;
+					payment.Payment_Type__c = 'Check';
 				}
 				when 'Cash' {
 					recordTypeName = 'Cash_Payment';
+					payment.Payment_Type__c = 'Cash';
 				}
 				when 'Bank Transfer' {
 					recordTypeName = 'Bank_Transfer_Payment';
+					payment.Payment_Type__c = 'Bank Transfer';
 					payment.Transaction_Date__c = bankTransferDatetime;
 				}
 				when else {

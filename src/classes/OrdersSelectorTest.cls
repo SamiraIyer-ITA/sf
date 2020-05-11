@@ -39,7 +39,7 @@ private class OrdersSelectorTest {
 		orderItem1.PricebookEntryId=pbe.id;
 		insert orderItem1;
 
-		//Insert a Payment record for Order 1 and Order 2
+		//Insert a Payment record for Order 1
 		Payment2__c payment1 = new Payment2__c();
 		payment1.Account_Type__c = 'Services';
 		payment1.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
@@ -53,21 +53,6 @@ private class OrdersSelectorTest {
 		order1.Status = 'Paid';
 		order1.Order_Paid__c = true;
 		update order1;
-
-		//Reduction Order 1
-		Order reductionOrder1 = new Order(
-			IsReductionOrder = true,
-			OriginalOrderId = order1.Id,
-			Pricebook2Id = order1.Pricebook2Id,
-			EffectiveDate = order1.EffectiveDate,
-			Status = 'Draft',
-			Type = 'Services',
-			RecordTypeId = servicesRecordTypeId,
-			ContractId = order1.ContractId,
-			AccountId = order1.AccountId,
-			Name = 'Reduction Order X');
-
-		insert reductionOrder1;
 	}
 
 	@IsTest
@@ -83,23 +68,13 @@ private class OrdersSelectorTest {
 	}
 
 	@IsTest
-	static void selectWithReductionOrderDetails_Positive() {
-		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM Order WHERE Name = 'Reduction Order X'];
+	static void selectByPaidNonPaidOnly_Positive() {
+		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM Order WHERE Name = 'Nonpaid Order X'];
 		Set<Id> orderIds = new Set<Id>();
 		for (Order order: orders) {
 			orderIds.add(order.Id);
 		}
-		List<Order> result = OrdersSelector.newInstance().selectWithReductionOrderDetails(orderIds, false, true, true, false);
-		System.assertNotEquals(null, result, 'Selector returned null instead of list');
-		System.assertNotEquals(0, result.size(), 'List empty');
-	}
-
-	@IsTest
-	static void selectReductionOrdersByContractId_Positive() {
-		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM Order WHERE Name = 'Reduction Order X'];
-		Set<Id> contractIds = new Set<Id>();
-		contractIds.add(orders[0].ContractId);
-		List<Order> result = OrdersSelector.newInstance().selectReductionOrdersByContractId(contractIds, false, false, false);
+		List<Order> result = OrdersSelector.newInstance().selectByPaidNonPaidOnly(orderIds, true, false);
 		System.assertNotEquals(null, result, 'Selector returned null instead of list');
 		System.assertNotEquals(0, result.size(), 'List empty');
 	}
@@ -109,7 +84,7 @@ private class OrdersSelectorTest {
 		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM Order WHERE Name = 'Paid Order X'];
 		Set<Id> contractIds = new Set<Id>();
 		contractIds.add(orders[0].ContractId);
-		List<Order> result = OrdersSelector.newInstance().selectByContractId(contractIds, true, false, false, true);
+		List<Order> result = OrdersSelector.newInstance().selectByContractId(contractIds, false, false, true);
 		System.assertNotEquals(null, result, 'Selector returned null instead of list');
 		System.assertNotEquals(0, result.size(), 'List empty');
 	}

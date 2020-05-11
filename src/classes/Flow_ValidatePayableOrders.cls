@@ -31,14 +31,14 @@ global without sharing class Flow_ValidatePayableOrders {
 			List<String> errorList = new List<String>();
 			for (Order order: orders) {
 				totalAmount += order.TotalAmount;  //Add up the total amount for all orders
-				if (order.IsReductionOrder) {
-					errorList.add('<li>Order \'' + order.Name + '\' is a reduction order.</li>');
-				}
-				if (order.Order_Paid__c && (! order.IsReductionOrder)) {
+				if (order.Order_Paid__c) {
 					errorList.add('<li>Order \'' + order.Name + '\' has already been paid.</li>');
 				}
 				if (accountType != order.Type) {
 					errorList.add('<li>The  \'Type\' field for all orders must match.</li>');
+				}
+				if (order.TotalAmount == 0) {
+					errorList.add('<li>Order \'' + order.Name + '\' doesn\'t have an amount to be paid.</li>');
 				}
 			}
 

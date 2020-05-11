@@ -120,6 +120,14 @@
         <relatedList>Order.Payment2__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Payment_Date__c</fields>
+        <fields>Transaction_Amount__c</fields>
+        <fields>Transaction_Date__c</fields>
+        <fields>Transaction_Status__c</fields>
+        <relatedList>Payment2__c.Payment_2__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
