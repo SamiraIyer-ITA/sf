@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>None</fullName>
+        <default>false</default>
+        <label>None</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Certification</fullName>
+        <default>false</default>
+        <label>Certification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Faciliated Investment Mission (SelectUSA)</fullName>
+        <default>false</default>
+        <label>Faciliated Investment Mission (SelectUSA)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Foreign Buyer Delegation</fullName>
+        <default>false</default>
+        <label>Foreign Buyer Delegation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trade Fair Certification (Show Organizer)</fullName>
+        <default>false</default>
+        <label>Trade Fair Certification (Show Organizer)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other Event</fullName>
+        <default>false</default>
+        <label>Other Event</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Seminar-Webinar</fullName>
+        <default>false</default>
+        <label>Seminar-Webinar</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trade Event</fullName>
+        <default>false</default>
+        <label>Trade Event</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Certified Trade Mission</fullName>
+        <default>false</default>
+        <label>Certified Trade Mission</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trade Show Representation</fullName>
+        <default>false</default>
+        <label>Trade Show Representation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>International Buyer Program (Show Organizer)</fullName>
+        <default>false</default>
+        <label>International Buyer Program (Show Organizer)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Virtual Fair</fullName>
+        <default>false</default>
+        <label>Virtual Fair</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trade Mission</fullName>
+        <default>false</default>
+        <label>Trade Mission</label>
+    </standardValue>
+</StandardValueSet>
