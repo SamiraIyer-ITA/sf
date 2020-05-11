@@ -6,7 +6,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
         Boolean emailsTurnedOn = false;
         List<String> managerEmailList = getQueueManagerEmails(userInputs.queueDeveloperName);
         List<lead> leadList = new List<lead>();
-        Map<String,EmailTemplate> emailTemplateMap = getEmailTempletes();
+        Map<String,EmailTemplate> emailTemplateMap = getEmailTemplates();
         Map<String,String> fromEmailMap = new Map<String,String>();
         User defaultUser = getDefaultUser();
         OrgWideEmailAddress noReplyEmail = getOrgWideEmail();
@@ -100,7 +100,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
         return body;
     }
         
-     private static map<String,EmailTemplate> getEmailTempletes(){
+     private static map<String,EmailTemplate> getEmailTemplates(){
        List<String> templateNameList = new list <String>();
        List<EmailTemplate> templeateList = new list <EmailTemplate>(); 
        map<String,emailTemplate> templateMap = new map<String,EmailTemplate>();
