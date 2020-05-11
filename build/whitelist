@@ -1,1 +1,15 @@
 src/globalValueSets/Country_1.globalValueSet
+src/aura/CaptchaScreenCMP
+src/aura/CaptchaScreenCMP
+src/aura/CaptchaScreenCMP
+src/aura/Flow_RecordTypePickListScreenCmp
+src/classes/CP_SaveContactRequestFlowAction.cls
+src/classes/captchaController.cls
+src/flows/CP_Contact_Request_Standard_Flow.flow
+src/labels/CP_CaptchaFlow_URL.labels
+src/layouts/ContactRequest-Contact Us.layout
+src/objects/ContactRequest.object
+src/objects/Segment__c.object
+src/objects/Sys_Picklist_Values__c.object
+src/pages/CaptchaFlowPage.page
+src/globalValueSets/Country_1.globalValueSet
