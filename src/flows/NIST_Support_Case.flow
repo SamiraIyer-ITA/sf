@@ -24,6 +24,15 @@
             <name>queueId</name>
         </outputParameters>
     </actionCalls>
+    <actionCalls>
+        <description>Minimizes the Utility Item.  Intended for use after a Flow finishes.</description>
+        <name>Minimize_Utility_Item</name>
+        <label>Minimize Utility Item</label>
+        <locationX>830</locationX>
+        <locationY>99</locationY>
+        <actionName>c:MinimizeUtilityItem</actionName>
+        <actionType>component</actionType>
+    </actionCalls>
     <choices>
         <description>The High Priority for a Case.</description>
         <name>PriorityHigh</name>
@@ -156,6 +165,9 @@
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Minimize_Utility_Item</targetReference>
+        </connector>
         <fields>
             <name>Thanks</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;{!FinalScreenMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
