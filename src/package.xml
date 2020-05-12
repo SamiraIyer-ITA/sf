@@ -34,6 +34,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>AutoResponseRules</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Community</name>
     </types>
     <types>
@@ -195,6 +199,10 @@
     <types>
         <members>*</members>
         <name>Role</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Settings</name>
     </types>
     <types>
         <members>*</members>

@@ -60,7 +60,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -3260,6 +3259,102 @@ $RecordType.DeveloperName = &quot;Remand&quot;,
   Final_Extension_of_days__c  &lt; 0
 ))</errorConditionFormula>
         <errorMessage>Final Extension cannot be less than zero.</errorMessage>
+    </validationRules>
+	    <validationRules>
+        <fullName>V01NoLitigationOnLockedInvestigation</fullName>
+        <active>true</active>
+        <description>Litigation is related to one of 3 objects: Investigations, Petitions, Segments.  This rule prevents creation of a litigation record if the related Investigation is locked.
+For &apos;International Litigation&apos; record type.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        RecordType.DeveloperName = &apos;International_Litigation&apos;, 
+        Investigation__r.Locked__c == true
+        )
+    )</errorConditionFormula>
+        <errorDisplayField>Investigation__c</errorDisplayField>
+        <errorMessage>Litigation may not be added to locked Investigations.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V01NoLitigationOnLockedPetition</fullName>
+        <active>true</active>
+        <description>Litigation is related to one of 3 objects: Investigations, Petitions, Segments.  This rule prevents creation of a litigation record if the related Petition is locked.
+For &apos;International Litigation&apos; record type.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        RecordType.DeveloperName = &apos;International_Litigation&apos;, 
+        Petition__r.Locked__c == true
+        )
+    )</errorConditionFormula>
+        <errorDisplayField>Petition__c</errorDisplayField>
+        <errorMessage>Litigation may not be added to locked Petitions.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V01NoLitigationOnLockedSegment</fullName>
+        <active>true</active>
+        <description>Litigation is related to one of 3 objects: Investigations, Petitions, Segments.  This rule prevents creation of a litigation record if the related Segment is locked.
+For &apos;International Litigation&apos; record type.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        RecordType.DeveloperName = &apos;International_Litigation&apos;, 
+        Segment__r.Locked__c == true
+        )
+    )</errorConditionFormula>
+        <errorDisplayField>Segment__c</errorDisplayField>
+        <errorMessage>Litigation may not be added to locked Segments.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V02NoLitigationOnLockedInvestigation</fullName>
+        <active>true</active>
+        <description>Litigation is related to one of 3 objects: Investigations, Petitions, Segments.  This rule prevents creation of a litigation record if the related Segment is locked.
+For &apos;Remand&apos; record type.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        RecordType.DeveloperName = &apos;Remand&apos;, 
+        Investigation__r.Locked__c == true
+        )
+    )</errorConditionFormula>
+        <errorDisplayField>Investigation__c</errorDisplayField>
+        <errorMessage>Litigation may not be added to locked Investigations.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V02NoLitigationOnLockedPetition</fullName>
+        <active>true</active>
+        <description>Litigation is related to one of 3 objects: Investigations, Petitions, Segments.  This rule prevents creation of a litigation record if the related Segment is locked.
+For &apos;Remand&apos; record type.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        RecordType.DeveloperName = &apos;Remand&apos;, 
+        Petition__r.Locked__c == true
+        )
+    )</errorConditionFormula>
+        <errorDisplayField>Petition__c</errorDisplayField>
+        <errorMessage>Litigation may not be added to locked Petitions.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V02NoLitigationOnLockedSegment</fullName>
+        <active>true</active>
+        <description>Litigation is related to one of 3 objects: Investigations, Petitions, Segments.  This rule prevents creation of a litigation record if the related Segment is locked.
+For &apos;Remand&apos; record type.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        RecordType.DeveloperName = &apos;Remand&apos;, 
+        Segment__r.Locked__c == true
+        )
+    )</errorConditionFormula>
+        <errorDisplayField>Segment__c</errorDisplayField>
+        <errorMessage>Litigation may not be added to locked Segments.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

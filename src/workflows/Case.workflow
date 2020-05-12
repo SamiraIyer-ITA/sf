@@ -1445,20 +1445,6 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Salesforce Support Case Assignment</fullName>
-        <actions>
-            <name>New_Salesforce_Support_Case_Alert</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Salesforce Support</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
         <fullName>Send Summary CA to contact</fullName>
         <actions>
             <name>Send_Summary_of_CA_to_Contact</name>
