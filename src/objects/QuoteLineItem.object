@@ -102,6 +102,18 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Client_Form_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Form Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Client_Form_Type</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
     </fields>
     <fields>
@@ -116,6 +128,15 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsPrimary__c</fullName>
+        <description>Helps distinguish between Services that are being sold versus add-ons.</description>
+        <externalId>false</externalId>
+        <formula>Product2.IsPrimary__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IsPrimary</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>ListPrice</fullName>
