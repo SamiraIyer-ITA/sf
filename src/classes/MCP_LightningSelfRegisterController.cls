@@ -44,7 +44,7 @@ global with sharing class MCP_LightningSelfRegisterController {
 				return Label.Site.lastname_is_required;
 			}
             if (firstName == null || String.isEmpty(firstName)) {
-				return Label.Site.lastname_is_required;
+				return Label.CP_First_Name_Not_Populated;
 			}
 
 			if (email == null || String.isEmpty(email)) {
@@ -121,7 +121,7 @@ global with sharing class MCP_LightningSelfRegisterController {
 				return Label.MCP_EmailDoNotMatch;
 			}
 			else
-			if (test.isRunningTest())
+			if (TEST.isRunningTest())
 			{
 				email = 'TestEmail934@ITATestMAiler.com';
 				extraFieldsMapByAPIName.put('Confirm_Email__c', email); // = 'TestEmail934@ITATestMAiler.com';
@@ -151,7 +151,7 @@ global with sharing class MCP_LightningSelfRegisterController {
 			}
 			//get current rule set for lead assignments.
 			List<AssignmentRule> rules = new List<AssignmentRule> ();
-			rules = [select id, name from AssignmentRule where name = :LABEL.CP_Lead_Assignment];
+			rules = [SELECT Id, Name FROM ASSIGNMENTRULE WHERE Name = :LABEL.CP_Lead_Assignment]; 
 
 			database.DMLOptions dml = new database.DMLOptions();
 			dml.AssignmentRuleHeader.assignmentRuleId = rules[0].id;
