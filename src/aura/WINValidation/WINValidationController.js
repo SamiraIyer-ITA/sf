@@ -12,7 +12,7 @@
 			validationMsg = validationMsg + '<br/><br/>'+ ++i + '. You must assign a Final Approver to the WIN in order to submit for approval';
 		}
 
-		if (cmp.get('v.WINRecord.Country_in_Win__c') || cmp.get('v.WINRecord.Sys_Region_in_WIN_Rollup__c') < 1) {
+		if ((cmp.get('v.WINRecord.Country_in_Win__c') || cmp.get('v.WINRecord.Sys_Region_in_WIN_Rollup__c')) < 1) {
 			validationMsg = validationMsg + '<br/><br/>'+ ++i + '. You must add a Country or Trade Region to the WIN in order to submit for approval.';
 		}
 
