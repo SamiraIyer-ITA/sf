@@ -1,20 +1,23 @@
 public without sharing class MCP_NonSharingUtilityClass {
     
     public static list<Recordtype> contactRecordTypes = new list<Recordtype>();
-
     
     public static id getContactRecordType(){
-       
         return (Schema.SObjectType.Contact.getRecordTypeInfosByName().get('ITA Contacts').getRecordTypeId()); 
-
     }
-    
+   
     public static void upsertLeadRecord(Lead newUserLead){
         if(newUserLead != null){
         database.upsert(newUserLead);
         }
-        
     }
+    
+    public static Boolean checkDuplicateEmails(string userEmailAddress){
+	   for(User cu : [SELECT Id FROM USER WHERE Email =: userEmailAddress]){
+	      return true;
+	   }
+	 return false;
+	}
     
     Public static Contact getNewContact(String email, ID accountId){
         list<Contact> ContactList = new list<Contact>();
@@ -41,10 +44,7 @@ public without sharing class MCP_NonSharingUtilityClass {
     public static boolean validateUserName(String userName){
         list<User> vaildateList = new list<User>();
         if(vaildateList.isempty()){
-            system.debug('run querry !! on '  + userName );
             vaildateList = [select id from user where email =: userName];
-                        system.debug('run querry !!' + vaildateList);
-
             if(vaildateList.isEmpty()){
                 return true;
             }
