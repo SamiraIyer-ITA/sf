@@ -29,16 +29,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Approve</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Approve</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>CancelEdit</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -155,20 +145,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>NewReduction</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>NewReduction</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>ReduceOrder</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>ReduceOrder</actionName>
         <formFactor>Large</formFactor>
         <type>Default</type>
@@ -199,11 +175,6 @@
     <actionOverrides>
         <actionName>Tab</actionName>
         <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -261,6 +232,15 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Activated__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( isNull(ActivatedDate) ,false,true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Activated</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>BillToContactId</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
@@ -268,17 +248,6 @@
     <fields>
         <fullName>BillingAddress</fullName>
         <trackHistory>true</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Collection_Org_Code__c</fullName>
-        <externalId>false</externalId>
-        <formula>Opportunity.Collection_Post__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Collection Org Code</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>CompanyAuthorizedById</fullName>
@@ -332,17 +301,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Fulfillment_Org_Code__c</fullName>
-        <externalId>false</externalId>
-        <formula>Opportunity.Fulfillment_Post__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Fulfillment  Org Code</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>IsReductionOrder</fullName>
     </fields>
     <fields>
@@ -356,23 +314,22 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>MileStone_Tracking__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Today() &lt;   Welcome_Kit__c , &quot;3. Welcome Kit&quot;,if(Today() &lt;  Mid_Term_Report__c, &quot;1. MidTerm&quot;, If (Today() &lt;  Final_Report__c , &quot;2. Final&quot;, &quot;4. Complete&quot;)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MileStone Tracking</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Name</fullName>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>OpportunityId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Opportunity_Org_Code__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Opportunity Org Code</label>
-        <referenceTo>Opportunity</referenceTo>
-        <relationshipLabel>Orders</relationshipLabel>
-        <relationshipName>Orders</relationshipName>
-        <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -444,20 +401,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Payment2__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>The successful payment for this order.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The successful payment for this order.</inlineHelpText>
-        <label>Payment 2</label>
-        <referenceTo>Payment2__c</referenceTo>
-        <relationshipLabel>Orders</relationshipLabel>
-        <relationshipName>Orders</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>PoDate</fullName>
         <trackHistory>true</trackHistory>
     </fields>
@@ -481,19 +424,6 @@
         <fullName>QuoteId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Refunded_Amount__c</fullName>
-        <defaultValue>0.00</defaultValue>
-        <description>The amount of an order that has been refunded.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The amount of an order that has been refunded.</inlineHelpText>
-        <label>Refunded Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <type>Currency</type>
     </fields>
     <fields>
         <fullName>ShipToContactId</fullName>
@@ -574,13 +504,6 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Privacy Shield</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Services</fullName>
@@ -599,13 +522,6 @@
             </values>
             <values>
                 <fullName>Paid</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Services</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
