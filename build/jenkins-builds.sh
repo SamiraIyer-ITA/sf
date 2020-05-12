@@ -45,6 +45,7 @@ types=" approvalProcess  \
         js \
         labels \
         layout \
+        lightingMessageChannel \
         liveChatButton \
         md \
         mdt \
