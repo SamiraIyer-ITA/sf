@@ -154,6 +154,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>LightningMessageChannel</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Network</name>
     </types>
     <types>

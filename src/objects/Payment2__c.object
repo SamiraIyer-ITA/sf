@@ -158,6 +158,32 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>Account_Holder_Name__c</fullName>
+        <description>The name on the credit card or checking account, as returned from pay.gov.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name on the credit card or checking account, as returned from pay.gov.</inlineHelpText>
+        <label>Account Holder Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Number__c</fullName>
+        <description>The masked credit card or ACH account number, as returned from pay.gov.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The masked credit card or ACH account number, as returned from pay.gov.</inlineHelpText>
+        <label>Account Number</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_Type__c</fullName>
         <description>The name of the product family to which this payment applies.</description>
         <externalId>false</externalId>
@@ -465,9 +491,6 @@
         <columns>CREATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-        <sharedTo>
-            <role>System_Admin</role>
-        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>P{000000000}</displayFormat>

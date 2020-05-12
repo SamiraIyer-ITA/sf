@@ -26,7 +26,7 @@ global without sharing class Flow_CreateRefundRecord {
 
 			String recordTypeName = 'NIST_Issued_Refund';
 			refund.Account_Type__c = accountType;
-			refund.RecordTypeId = Utils.getRecordTypeNameByDeveloperName(recordTypeName, 'Payment2__c');
+			refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
 			refund.Contract__c = contractId;
 			refund.Payment_Processor__c = '';
 			refund.Transaction_Status__c = 'Success';

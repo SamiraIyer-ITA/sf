@@ -11,7 +11,8 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 	public List<Order> selectWithReductionOrderDetails(Set<Id> idSet, Boolean normalOrders, Boolean reductionOrders, Boolean nonPaidOnly, Boolean paidOnly) {
 		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
 		ordersQueryFactory.selectFields(new Set<String>{'OriginalOrder.Payment2__r.Payment_Type__c',
-			'OriginalOrder.Payment2__r.Transaction_Status__c'});
+			'OriginalOrder.Payment2__r.Transaction_Status__c', 'OriginalOrder.Payment2__r.Name',
+			'OriginalOrder.Payment2__r.Remote_Tracking_Id__c' });
 		new OrdersSelector().configureQueryFactoryFields(ordersQueryFactory, 'OriginalOrder');
 		String condition = 'Id IN :idSet ';
 		if (reductionOrders && !normalOrders) {
@@ -80,7 +81,8 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 			Order.OriginalOrderId,
 			Order.Payment2__c,
 			Order.Order_Paid__c,
-			Order.Refunded_Amount__c
+			Order.Refunded_Amount__c,
+			Order.OrderNumber
 		};
 	}
 

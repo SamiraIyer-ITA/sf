@@ -29,8 +29,8 @@
         <description>Issue a credit card refund through Pay.gov.</description>
         <name>Issue_Credit_Card_Refund</name>
         <label>Issue Credit Card Refund</label>
-        <locationX>1210</locationX>
-        <locationY>199</locationY>
+        <locationX>1355</locationX>
+        <locationY>203</locationY>
         <actionName>Flow_IssueCreditCardRefund</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -95,6 +95,14 @@
         <outputParameters>
             <assignToReference>isValid</assignToReference>
             <name>isValid</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>NonCreditCardPayment</assignToReference>
+            <name>nonCreditCardPayment</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>SelectedOrderAsText</assignToReference>
+            <name>selectedOrdersAsText</name>
         </outputParameters>
         <outputParameters>
             <assignToReference>TotalAmount</assignToReference>
@@ -283,6 +291,21 @@
             </connector>
             <label>Has an Invalid Order</label>
         </rules>
+        <rules>
+            <name>Has_Non_Credit_Card_Payment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NonCreditCardPayment</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Non_Credit_Card_Payment</targetReference>
+            </connector>
+            <label>Has Non-Credit Card Payment</label>
+        </rules>
     </decisions>
     <decisions>
         <description>Determines what to do for various object types.</description>
@@ -437,10 +460,30 @@
         <showHeader>true</showHeader>
     </screens>
     <screens>
+        <description>Shown if an original order was not paid by credit card.  Will call another flow to create a case.</description>
+        <name>Non_Credit_Card_Payment</name>
+        <label>Non-Credit Card Payment</label>
+        <locationX>1205</locationX>
+        <locationY>559</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Create_Transaction_Management_Support_Case</targetReference>
+        </connector>
+        <fields>
+            <name>nonCreditCardPaymentDisplayText</name>
+            <fieldText>&lt;p&gt;A refund cannot be given through this system because the order was not paid by credit card.  Click &apos;Next&apos; to create a case for NIST, who will provide the refund.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
         <description>Confirm that this refund should be recorded.</description>
         <name>Record_Refund_Confirmation</name>
         <label>Record Refund Confirmation</label>
-        <locationX>1210</locationX>
+        <locationX>1355</locationX>
         <locationY>411</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -495,6 +538,26 @@
         </connector>
     </start>
     <status>Active</status>
+    <subflows>
+        <description>Create a Transaction Management Support Case for NIST to issue a refund.</description>
+        <name>Create_Transaction_Management_Support_Case</name>
+        <label>Create Transaction Management Support Case</label>
+        <locationX>1358</locationX>
+        <locationY>559</locationY>
+        <flowName>NIST_Support_Case</flowName>
+        <inputAssignments>
+            <name>caseDescription</name>
+            <value>
+                <stringValue>A refund of {!AbsoluteTotalAmount} is requested for {!SelectedOrderAsText}.</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>caseSubject</name>
+            <value>
+                <stringValue>Refund Request</stringValue>
+            </value>
+        </inputAssignments>
+    </subflows>
     <variables>
         <description>The account type for all orders.</description>
         <name>AccountType</name>
@@ -553,6 +616,14 @@
         </value>
     </variables>
     <variables>
+        <description>True if an original order was not paid by a credit card.</description>
+        <name>NonCreditCardPayment</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <description>The object name of the record id.</description>
         <name>objectName</name>
         <dataType>String</dataType>
@@ -595,6 +666,14 @@
     <variables>
         <description>The Id of the Payment 2 (Refund) record that was created.</description>
         <name>RefundId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Information about the selected orders, used in creating a case for NIST.</description>
+        <name>SelectedOrderAsText</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
