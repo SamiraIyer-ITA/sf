@@ -80,10 +80,6 @@
                 <behavior>Readonly</behavior>
                 <field>ContractName</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Refunded_Amount__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
