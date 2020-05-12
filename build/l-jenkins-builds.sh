@@ -54,6 +54,7 @@ types=" app \
 	notiftype \
         md \
         mdt \
+        messageChannel \
         namedCredential \
 	network \
         object \
