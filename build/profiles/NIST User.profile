@@ -16218,11 +16218,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Case.Salesforce_Support</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <recordType>Case.Smart_Grid_Toolkit_Application</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
