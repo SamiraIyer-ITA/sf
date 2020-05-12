@@ -21,13 +21,13 @@ public without sharing class MCP_NonSharingUtilityClass {
     
     Public static Contact getNewContact(String email, ID accountId){
         list<Contact> ContactList = new list<Contact>();
-        ContactList = [select id,AccountId from Contact where email =: email and AccountId =: accountId];
+        ContactList = [SELECT Id,AccountId FROM CONTACT WHERE Email =: email AND AccountId =: accountId];
         return ContactList[0];
     }
     
     public static List<account> getMCPExternalUserAccount(){
         list<account> accountList = new list<account>();
-        accountList = [select id from account where name =: label.MCP_ExternalUserAccount];
+        accountList = [SELECT Id FROM ACCOUNT WHERE Name =: label.MCP_ExternalUserAccount];
         if(accountList != null && accountList.size() > 0){
             return accountList;
         }
