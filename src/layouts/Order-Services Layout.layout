@@ -46,6 +46,8 @@
                 <behavior>Edit</behavior>
                 <field>Type</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Collection_Org_Code__c</field>
