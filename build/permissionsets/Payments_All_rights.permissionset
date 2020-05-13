@@ -5,7 +5,6 @@
 		<field>Order.System_Search_String__c</field>
 		<readable>false</readable>
 	</fieldPermissions>
-	<userPermissions>
 	<fieldPermissions>
 		<editable>true</editable>
 		<field>Payment2__c.Payment_2__c</field>
