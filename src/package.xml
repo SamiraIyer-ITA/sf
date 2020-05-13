@@ -190,8 +190,8 @@
     </types>
     <types>
         <members>TransactionManagement</members>
-        <members>NIST</members>
-        <members>NIST/Orders_without_Linked_Payments_H36.report</members>
+        <members>TransactionManagement/NIST</members>
+        <members>TransactionManagement/NIST/Orders_without_Linked_Payments_H36.report</members>
         <name>Report</name>
     </types>
     <types>
