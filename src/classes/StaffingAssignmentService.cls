@@ -40,6 +40,16 @@ public without sharing class StaffingAssignmentService {
      */
     public List<Staffing_Assignment__c> createStaffFromDefaults(List<SObject> soList, String sObjectName, Boolean doInsert) {
         List<Staffing_Assignment__c> returnList = new List<Staffing_Assignment__c>();
+        
+        set<Id> ADCVDCaseIds = new Set<Id>();
+        
+        for (SObject so : soList) {
+            Id caseId = (Id)so.get('ADCVD_Case__c');
+            ADCVDCaseIds.add(caseId);
+        }
+        
+        Map<Id,ADCVD_Case__c> ADCVDCaseMap = new Map<Id,ADCVD_Case__c>([SELECT Id,Program_Manager__c FROM ADCVD_Case__c WHERE Id IN:ADCVDCaseIds]);
+        
         Map<String,Integer> defaultUserRolesMap = new CustomMetadataSelector().getDefaultUserRolesMap(sObjectName);//Title__c field and how many to create from metadata records
         for (SObject so : soList) {//iterate through sObjects creating staffing for each
             for(String s: defaultUserRolesMap.keySet()) {//iterate through each staffing title for this sObjectType
@@ -48,6 +58,9 @@ public without sharing class StaffingAssignmentService {
                     sa.ADCVD_Case__c = (Id)so.get('ADCVD_Case__c');
                     sa.put(sObjectName, (Id)so.get('Id'));
                     sa.Title__c = s;
+                    if(sa.Title__c =='Program Manager' && ADCVDCaseMap.containsKey(sa.ADCVD_Case__c)){
+                        sa.User__c = ADCVDCaseMap.get(sa.ADCVD_Case__c).Program_Manager__c;
+                    }
                     returnList.add(sa);
                 }
             }
