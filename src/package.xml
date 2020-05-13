@@ -189,7 +189,9 @@
         <name>RemoteSiteSetting</name>
     </types>
     <types>
-        <members>*</members>
+        <members>TransactionManagement</members>
+        <members>NIST</members>
+        <members>NIST/Orders_without_Linked_Payments_H36.report</members>
         <name>Report</name>
     </types>
     <types>
