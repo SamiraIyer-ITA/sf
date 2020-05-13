@@ -84,21 +84,6 @@
         <template>Participation_App_Templates/Toolkit_Application_Submitted</template>
     </alerts>
     <alerts>
-        <fullName>New_Salesforce_Support_Case_Alert</fullName>
-        <description>New Salesforce Support Case Alert</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <recipients>
-            <recipient>sandip.menon@trade.gov</recipient>
-            <type>user</type>
-        </recipients>
-        <senderAddress>noreply@trade.gov</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
-        <template>Tier_3_Salesforce_Support/Salesforce_Support_Request_Alert</template>
-    </alerts>
-    <alerts>
         <fullName>NIST_Case_Alert_NIST_User_New_Case_From_ITA</fullName>
         <ccEmails>jeffrey.assibey@trade.gov</ccEmails>
         <description>NIST Case:Alert NIST User when new Case from ITA is created</description>
