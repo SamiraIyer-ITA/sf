@@ -195,7 +195,7 @@
             <sortOrder>4</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Order.Issue_Credit_Card_Refund</actionName>
+            <actionName>Order.Issue_Refund</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>5</sortOrder>
         </platformActionListItems>

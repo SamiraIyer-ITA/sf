@@ -12,6 +12,10 @@
     <label>Transaction Management</label>
     <navType>Standard</navType>
     <tabs>Transaction_Management</tabs>
+    <tabs>Action_Items</tabs>
+    <tabs>standard-Contract</tabs>
+    <tabs>standard-Order</tabs>
+    <tabs>Payment2__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Transaction_Management_UtilityBar</utilityBar>
 </CustomApplication>

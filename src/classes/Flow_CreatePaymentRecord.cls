@@ -29,18 +29,24 @@ global without sharing class Flow_CreatePaymentRecord {
 					payment.Bank_Name__c = bankName;
 					payment.Check_Number__c = checkNumber;
 					payment.Check_Date__c = checkDate;
+					payment.Payment_Type__c = 'Check';
 				}
 				when 'Cash' {
 					recordTypeName = 'Cash_Payment';
+					payment.Payment_Type__c = 'Cash';
 				}
 				when 'Bank Transfer' {
 					recordTypeName = 'Bank_Transfer_Payment';
+					payment.Payment_Type__c = 'Bank Transfer';
 					payment.Transaction_Date__c = bankTransferDatetime;
+				}
+				when else {
+					throw new CreatePaymentRecordActionException('Invalid Payment Type');
 				}
 			}
 
 			payment.Account_Type__c = accountType;
-			payment.RecordTypeId = Utils.getRecordTypeNameByDeveloperName(recordTypeName, 'Payment2__c');
+			payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
 			payment.Contract__c = contractId;
 			payment.Payment_Processor__c = '';
 			payment.Transaction_Status__c = 'Success';

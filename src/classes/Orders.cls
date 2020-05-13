@@ -27,10 +27,10 @@ public class Orders extends fflib_SObjectDomain implements IOrders {
 	private static Id legacyRecordTypeId = Schema.SObjectType.Order
 		.getRecordTypeInfosByDeveloperName().get('Legacy').getRecordTypeId();
 	/*
-     * SM-133: Order: Update Triggers by Record Type
-     *
-     * Legacy functionality. Triggers that use legacy functionality can pass this list.
-     */
+	 * SM-133: Order: Update Triggers by Record Type
+	 *
+	 * Legacy functionality. Triggers that use legacy functionality can pass this list.
+	 */
 	public List<Order> legacyOrders {
 		get {
 			if (legacyOrders == null) {
@@ -46,12 +46,29 @@ public class Orders extends fflib_SObjectDomain implements IOrders {
 		private set;
 	}
 
+	public List<Order> nonLegacyOrders {
+		get {
+			if (nonLegacyOrders == null) {
+				nonLegacyOrders = new List<Order>();
+				for (Order order: (List<Order>)Records) {
+					if (order.RecordTypeId != legacyRecordTypeId) {
+						nonLegacyOrders.add(order);
+					}
+				}
+			}
+			return nonLegacyOrders;
+		}
+		private set;
+	}
+
 	public override void onBeforeInsert() {
 		updateOrderContactAndOfficer(legacyOrders);
+		updateSystemSearchString(nonLegacyOrders);
 	}
 
 	public override void onBeforeUpdate(Map<Id, SObject> existingRecords) {
 		updateOrderContactAndOfficer(legacyOrders);
+		updateSystemSearchString(nonLegacyOrders);
 	}
 
 	public override void onAfterUpdate(Map<Id, SObject> existingRecords) {
@@ -71,6 +88,22 @@ public class Orders extends fflib_SObjectDomain implements IOrders {
 			OrdersService.updatePayments(newOrders);
 		} catch (OrdersService.OrdersServiceException e){
 			newOrders.get(0).addError(e.getMessage());
+		}
+	}
+
+	public void updateSystemSearchString(List<Order> ordersToUpdate){
+		Set<Id> accountIds = new Set<Id>();
+		for(Order obj : ordersToUpdate){
+			accountIds.add(obj.AccountId);
+		}
+
+		Map<Id,Account> accMap = new Map<Id,Account>([SELECT Id,Name FROM Account WHERE Id IN :accountIds]);
+		for(Order obj : ordersToUpdate){
+			String accountName = '';
+			if(accMap.containsKey(obj.AccountId)){
+				accountName = accMap.get(obj.AccountId).Name;
+			}
+			obj.System_Search_String__c = ''+ accountName+' | $'+obj.TotalAmount+' | $'+obj.Refunded_Amount__c;
 		}
 	}
 

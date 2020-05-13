@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This is used in the Transaction Management class to reference Batch Count</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>EventsACHBatchCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Events ACH Batch Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EventsCreditBatchCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Events Credit Batch Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EventsRefundBatchCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Events Refund Batch Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LastRecordedFiscalYear__c</fullName>
+        <externalId>false</externalId>
+        <label>LastRecordedFiscalYear</label>
+        <length>4</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrivacyShieldACHBatchCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Privacy Shield ACH Batch Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrivacyShieldCreditBatchCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Privacy Shield Credit Batch Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrivacyShieldRefundBatchCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Privacy Shield Refund Batch Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ServicesACHBatchCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Services ACH Batch Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ServicesCreditBatchCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Services Credit Batch Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ServicesRefundBatchCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Services Refund Batch Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>CBSBatchCount</label>
+    <visibility>Public</visibility>
+</CustomObject>
