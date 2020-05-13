@@ -190,9 +190,9 @@
     </types>
     <types>
         <members>TransactionManagement</members>
-        <members>TransactionManagement/Payment_Reconcilliation_m3f.report</members>
+        <members>TransactionManagement/Payment_Reconciliation_m3f</members>
         <members>TransactionManagement/NIST</members>
-        <members>TransactionManagement/NIST/Orders_without_Linked_Payments_H36.report</members>
+        <members>TransactionManagement/NIST/Orders_without_Linked_Payments_H36</members>
         <name>Report</name>
     </types>
     <types>
