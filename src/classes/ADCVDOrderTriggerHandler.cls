@@ -53,7 +53,7 @@
         if (isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
-            new StaffingAssignmentService().createStaffFromDefaults(newList, 'ADCVD_Order__c');
+            new StaffingAssignmentService().createStaffFromSObjectParent(newList, 'ADCVD_Order__c');
         }
         if (isAfter && isUpdate) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
