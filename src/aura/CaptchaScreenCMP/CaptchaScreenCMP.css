@@ -1,0 +1,7 @@
+.THIS .myBox {
+    
+    float:left; 
+    width:calc( 100% - 125px ); 
+    height:calc( 100% - 50px ); 
+
+}
