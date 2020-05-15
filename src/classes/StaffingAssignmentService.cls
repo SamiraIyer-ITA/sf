@@ -14,7 +14,8 @@ public without sharing class StaffingAssignmentService {
     * All methods are non-static so call from an instance of this class
     * i.e StaffingAssignmentService().method()
     ***********************************************************/
-
+    @TestVisible private static ADCVD_CaseMapper caseMapper;
+    
     /**
      * Override of method that assumes insert. Use other method to specify insert
      *
@@ -41,24 +42,7 @@ public without sharing class StaffingAssignmentService {
     public List<Staffing_Assignment__c> createStaffFromDefaults(List<SObject> soList, String sObjectName, Boolean doInsert) {
         List<Staffing_Assignment__c> returnList = new List<Staffing_Assignment__c>();
         
-        set<Id> ADCVDCaseIds = new Set<Id>();
-        
-        for (SObject so : soList) {
-            Id caseId = (Id)so.get('ADCVD_Case__c');
-            ADCVDCaseIds.add(caseId);
-        }
-        
-        List<ADCVD_Case__c> ADCVDCaseList = new List<ADCVD_Case__c>();
-        Map<Id,ADCVD_Case__c> ADCVDCaseMap = new Map<Id,ADCVD_Case__c>();
-        
-        if(!ADCVDCaseIds.isEmpty()){
-            ADCVD_CaseSelector objADCVD = new ADCVD_CaseSelector();
-            ADCVDCaseList = objADCVD.selectById(ADCVDCaseIds);
-            
-            for(ADCVD_Case__c obj : ADCVDCaseList ){
-                ADCVDCaseMap.put(obj.Id,obj);
-            }
-        }
+        caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
           
         Map<String,Integer> defaultUserRolesMap = new CustomMetadataSelector().getDefaultUserRolesMap(sObjectName);//Title__c field and how many to create from metadata records
         for (SObject so : soList) {//iterate through sObjects creating staffing for each
@@ -68,8 +52,8 @@ public without sharing class StaffingAssignmentService {
                     sa.ADCVD_Case__c = (Id)so.get('ADCVD_Case__c');
                     sa.put(sObjectName, (Id)so.get('Id'));
                     sa.Title__c = s;
-                    if(sa.Title__c =='Program Manager' && ADCVDCaseMap.containsKey(sa.ADCVD_Case__c)){
-                        sa.User__c = ADCVDCaseMap.get(sa.ADCVD_Case__c).Program_Manager__c;
+                    if (sa.Title__c == 'Program Manager') {
+                        sa.User__c = ((ADCVD_Case__c)caseMapper.getMap(false).get(sa.ADCVD_Case__c)).Program_Manager__c;
                     }
                     returnList.add(sa);
                 }
