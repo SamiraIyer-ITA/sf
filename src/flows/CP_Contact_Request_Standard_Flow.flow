@@ -516,21 +516,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
             </visibilityRule>
         </fields>
         <fields>
-            <name>URL2</name>
-            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Please see our directory of US Offices:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://trade.gov/commercial-services-offices-us&quot; target=&quot;_blank&quot;&gt;https://trade.gov/commercial-services-offices-us&lt;/a&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert in the USdwgewregfw</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
-        <fields>
             <name>First_Name</name>
             <dataType>String</dataType>
             <defaultValue>
