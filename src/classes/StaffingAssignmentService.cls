@@ -48,8 +48,18 @@ public without sharing class StaffingAssignmentService {
             ADCVDCaseIds.add(caseId);
         }
         
-        Map<Id,ADCVD_Case__c> ADCVDCaseMap = new Map<Id,ADCVD_Case__c>([SELECT Id,Program_Manager__c FROM ADCVD_Case__c WHERE Id IN:ADCVDCaseIds]);
+        List<ADCVD_Case__c> ADCVDCaseList = new List<ADCVD_Case__c>();
+        Map<Id,ADCVD_Case__c> ADCVDCaseMap = new Map<Id,ADCVD_Case__c>();
         
+        if(!ADCVDCaseIds.isEmpty()){
+            ADCVD_CaseSelector objADCVD = new ADCVD_CaseSelector();
+            ADCVDCaseList = objADCVD.selectById(ADCVDCaseIds);
+            
+            for(ADCVD_Case__c obj : ADCVDCaseList ){
+                ADCVDCaseMap.put(obj.Id,obj);
+            }
+        }
+          
         Map<String,Integer> defaultUserRolesMap = new CustomMetadataSelector().getDefaultUserRolesMap(sObjectName);//Title__c field and how many to create from metadata records
         for (SObject so : soList) {//iterate through sObjects creating staffing for each
             for(String s: defaultUserRolesMap.keySet()) {//iterate through each staffing title for this sObjectType
