@@ -10,9 +10,9 @@
         </chartSummaries>
         <chartType>Donut</chartType>
         <enableHoverLabels>false</enableHoverLabels>
-        <expandOthers>true</expandOthers>
-        <groupingColumn>Payment2__c.Transaction_Status__c</groupingColumn>
-        <legendPosition>Right</legendPosition>
+        <expandOthers>false</expandOthers>
+        <groupingColumn>Payment2__c.Payment_Type__c</groupingColumn>
+        <legendPosition>Bottom</legendPosition>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>true</showPercentage>
@@ -28,9 +28,6 @@
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>Payment2__c.Transmitted__c</field>
-    </columns>
-    <columns>
-        <field>Payment2__c.Payment_Type__c</field>
     </columns>
     <columns>
         <field>Payment2__c.Payment_Date__c</field>
@@ -56,6 +53,11 @@
     </columns>
     <description>View all payments grouped by payment type so I can reconcile whether cash, check, and bank transfer payments have actually been received.</description>
     <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Payment2__c.Payment_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>Payment2__c.Transaction_Status__c</field>
