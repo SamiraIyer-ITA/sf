@@ -97,8 +97,7 @@
         <name>DataCategoryGroup</name>
     </types>
     <types>
-        <members>New_NIST_Case_Alert</members>
-        <members>New_NIST_Case_Queue_Alert</members>
+        <members>*</members>
         <name>EmailTemplate</name>
     </types>
     <types>
