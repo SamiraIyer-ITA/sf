@@ -60,7 +60,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -894,9 +893,9 @@
     <fields>
         <fullName>Announcement_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE( Next_Announcement_Date__c , 
-Preliminary_Announcement_Date__c ,&apos;Preliminary&apos;, 
-Final_Announcement_Date__c ,&apos;Final&apos;, 
+        <formula>CASE( Next_Announcement_Date__c ,
+Preliminary_Announcement_Date__c ,&apos;Preliminary&apos;,
+Final_Announcement_Date__c ,&apos;Final&apos;,
 &apos;-&apos;)</formula>
         <label>Announcement Type</label>
         <required>false</required>
@@ -1164,8 +1163,8 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
     <fields>
         <fullName>Days_Remaining__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(NOT(ISBLANK(Actual_Final_Signature__c)) , &apos;Decision Signed&apos;, 
-CASE( Next_Announcement_Date__c , Preliminary_Announcement_Date__c , Text(Preliminary_Extension_Remaining__c) , 
+        <formula>IF(NOT(ISBLANK(Actual_Final_Signature__c)) , &apos;Decision Signed&apos;,
+CASE( Next_Announcement_Date__c , Preliminary_Announcement_Date__c , Text(Preliminary_Extension_Remaining__c) ,
 Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) )</formula>
         <label>Days Remaining</label>
         <required>false</required>
@@ -1353,16 +1352,16 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <fields>
         <fullName>Final_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE( RecordType.DeveloperName , 
-&apos;Administrative_Review&apos;, 
- IF( Prelim_Extension__c = 0 &amp;&amp;  ISNULL(Actual_Preliminary_Signature__c) , 
-     60 - Final_Extension_of_days__c, 
-     IF( Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
-         180 - Final_Extension_of_days__c, 
+        <formula>CASE( RecordType.DeveloperName ,
+&apos;Administrative_Review&apos;,
+ IF( Prelim_Extension__c = 0 &amp;&amp;  ISNULL(Actual_Preliminary_Signature__c) ,
+     60 - Final_Extension_of_days__c,
+     IF( Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) ,
+         180 - Final_Extension_of_days__c,
          60 - Final_Extension_of_days__c)) ,
-&apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c , 
-&apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c , 
-&apos;Sunset_Review&apos;, 90 - (Final_Extension_of_days__c),      
+&apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c ,
+&apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c ,
+&apos;Sunset_Review&apos;, 90 - (Final_Extension_of_days__c),
 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Final Extension Remaining</label>
@@ -1501,7 +1500,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <fields>
         <fullName>Initiation_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE( RecordType.DeveloperName , 
+        <formula>CASE( RecordType.DeveloperName ,
 &apos;Anti_Circumvention_Review&apos;, 0 ,
 &apos;Changed_Circumstances_Review&apos;, 0 ,
 0)</formula>
@@ -13716,12 +13715,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <active>true</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is populated</description>
         <errorConditionFormula>AND(
-				$Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+				$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
 				Locked__c == false,
 				$RecordType.DeveloperName = &quot;Administrative_Review&quot;,
-				AND( 
-        ISNULL( Calculated_Final_Signature__c ), 
-        NOT(ISNULL( Actual_Final_Signature__c )) 
+				AND(
+        ISNULL( Calculated_Final_Signature__c ),
+        NOT(ISNULL( Actual_Final_Signature__c ))
     )
 )</errorConditionFormula>
         <errorDisplayField>Calculated_Final_Signature__c</errorDisplayField>
@@ -13735,9 +13734,9 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
 				$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
 				Locked__c == false,
 				$RecordType.DeveloperName = &apos;Administrative_Review&apos;,
-				AND( 
-        ISNULL( Calculated_Initiation_Signature__c ), 
-        NOT( ISNULL( Actual_Initiation_Signature__c )) 
+				AND(
+        ISNULL( Calculated_Initiation_Signature__c ),
+        NOT( ISNULL( Actual_Initiation_Signature__c ))
     )
 )</errorConditionFormula>
         <errorDisplayField>Calculated_Initiation_Signature__c</errorDisplayField>
@@ -13850,7 +13849,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                     Final_Extension_of_days__c &lt; 0
                 )
             )
-        )     
+        )
     )
 )</errorConditionFormula>
         <errorDisplayField>Final_Extension_of_days__c</errorDisplayField>
@@ -13864,7 +13863,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
 				$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
     Locked__c == false,
 				NOT( ISNEW() ),
-				$RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+				$RecordType.DeveloperName = &quot;Administrative_Review&quot;,
 				OR(
 								ISCHANGED(ADCVD_Order__c ),
 								ISCHANGED(Suspension_Agreement__c),
@@ -13886,7 +13885,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         OR(
             Prelim_Extension__c &gt; 120,
             Prelim_Extension__c &lt; 0
-        )    
+        )
     )
 )</errorConditionFormula>
         <errorDisplayField>Prelim_Extension__c</errorDisplayField>
@@ -13899,13 +13898,29 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorConditionFormula>AND(
 				$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
 				Locked__c == false,
-				$RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+				$RecordType.DeveloperName = &quot;Administrative_Review&quot;,
 				AND (
 								ISBLANK(ADCVD_Order__c ),
         ISBLANK( Suspension_Agreement__c )
     )
 )</errorConditionFormula>
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1101SegmentOutcomeRequiredForAFS</fullName>
+        <active>true</active>
+        <description>Segment Outcome cannot be blank to enter Actual Final Signature</description>
+        <errorConditionFormula>AND(
+				$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+				Locked__c == false,
+				$RecordType.DeveloperName = &quot;Administrative_Review&quot;,
+				AND(
+        NOT(ISNULL( Actual_Final_Signature__c)),
+        ISPICKVAL( Segment_Outcome__c, &quot;&quot; ) 
+				)
+)</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome cannot be blank to enter Actual Final Signature</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>A1102ActualFinalSignatureNotBlank</fullName>
@@ -14876,12 +14891,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <fullName>A1106RequestFiledNotUpdateable</fullName>
         <active>true</active>
         <description>AD-1988 On scope inquiries, once a request filed date has been entered it shouldn&apos;t be editable except by an ADCVD Manager Profile and System Admin</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 $Setup.Master_Automation__c.Scope_Inquiry_Edit_Request_Filed__c == false,
 And(
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, 
+$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
 NOT(ISBLANK(Request_Filed__c)),
-ISCHANGED(Request_Filed__c) 
+ISCHANGED(Request_Filed__c)
 ))</errorConditionFormula>
         <errorDisplayField>Request_Filed__c</errorDisplayField>
         <errorMessage>The Request Filed cannot edited after it is set.</errorMessage>
@@ -15121,8 +15136,8 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
-AND($RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+AND($RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;,
 Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
         <errorMessage>Final Extension (# of days) cannot be less than zero.</errorMessage>
     </validationRules>
@@ -15138,7 +15153,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;,
  OR(Initiation_Extension_of_days__c &gt; 45,  Initiation_Extension_of_days__c  &lt; 0)
 ))</errorConditionFormula>
         <errorMessage>Initiation Extension can only range from 1-45 days.</errorMessage>
@@ -15155,7 +15170,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;,
  Prelim_Extension__c &lt; 0
 ))</errorConditionFormula>
         <errorMessage>Preliminary Extension cannot be less than zero days.</errorMessage>
@@ -15171,7 +15186,7 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;,
 NOT(ISBLANK( Prelim_Extension__c)), OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0)))</errorConditionFormula>
         <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 1-60 days.</errorMessage>
     </validationRules>
@@ -15186,7 +15201,7 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;,
 ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 180, Final_Extension_of_days__c &lt; 0)))</errorConditionFormula>
         <errorMessage>If there is no value in preliminary extension # of days, the bound of final extension is 1-180 days.</errorMessage>
     </validationRules>
@@ -15202,7 +15217,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;,
  OR(Prelim_Extension__c &gt; 120, Prelim_Extension__c &lt; 0)
 ))</errorConditionFormula>
         <errorMessage>Preliminary Extension can only range from 1-120 days.</errorMessage>
@@ -15219,7 +15234,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;,
  Prelim_Extension__c &lt; 0
 ))</errorConditionFormula>
         <errorMessage>Preliminary Extension must be greater than zero days.</errorMessage>
@@ -15238,7 +15253,7 @@ SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,
   OR(
     AND(
-      NOT(ISBLANK( Prelim_Extension__c)),  
+      NOT(ISBLANK( Prelim_Extension__c)),
       Final_Extension_of_days__c  &gt; 60
     ),
     AND(
@@ -15256,9 +15271,9 @@ SR = Sunset Review</description>
         <fullName>Actual_Amended_Final_Determ_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Amended Final Signature Date until the Calculate Amended Final Signature Date is not populated</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
-ISNULL( Calculated_Amended_Final_Signature__c ), 
-NOT( ISNULL( Actual_Amended_Final_Signature__c )) 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
+ISNULL( Calculated_Amended_Final_Signature__c ),
+NOT( ISNULL( Actual_Amended_Final_Signature__c ))
 ))</errorConditionFormula>
         <errorMessage>Calculated Amended Final Signature Date must be populated in order to enter Actual Amended Final Signature Date</errorMessage>
     </validationRules>
@@ -15266,9 +15281,9 @@ NOT( ISNULL( Actual_Amended_Final_Signature__c ))
         <fullName>Actual_Final_Signature_Not_Blank</fullName>
         <active>false</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
-ISNULL( Calculated_Final_Signature__c ), 
-NOT(ISNULL( Actual_Final_Signature__c )) 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
+ISNULL( Calculated_Final_Signature__c ),
+NOT(ISNULL( Actual_Final_Signature__c ))
 ))</errorConditionFormula>
         <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
     </validationRules>
@@ -15276,9 +15291,9 @@ NOT(ISNULL( Actual_Final_Signature__c ))
         <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
         <active>false</active>
         <description>You cannot enter an Actual Initiation Signature Date until the Calculate initiation Signature Date in not populated</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
-ISNULL( Calculated_Initiation_Signature__c ), 
-NOT( ISNULL( Actual_Initiation_Signature__c )) 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
+ISNULL( Calculated_Initiation_Signature__c ),
+NOT( ISNULL( Actual_Initiation_Signature__c ))
 ))</errorConditionFormula>
         <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
     </validationRules>
@@ -15286,23 +15301,23 @@ NOT( ISNULL( Actual_Initiation_Signature__c ))
         <fullName>Actual_Preliminary_Signature_Not_Blank</fullName>
         <active>false</active>
         <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date in not populated</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
-ISNULL( Calculated_Preliminary_Signature__c ), 
-NOT( ISNULL( Actual_Preliminary_Signature__c )) 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
+ISNULL( Calculated_Preliminary_Signature__c ),
+NOT( ISNULL( Actual_Preliminary_Signature__c ))
 ))</errorConditionFormula>
         <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Bound_If_Prelim_Extension_Exists</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;,
 NOT(ISBLANK( Prelim_Extension__c)), OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0)))</errorConditionFormula>
         <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 1-60 days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Bound_If_Prelim_Extension_Not_Exists</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;,
 ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 180, Final_Extension_of_days__c &lt; 0)))</errorConditionFormula>
         <errorMessage>If there is no value in preliminary extension # of days, the bound of final extension is 1-180 days.</errorMessage>
     </validationRules>
@@ -15318,7 +15333,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;,
   Final_Extension_of_days__c  &lt; 0
 ))</errorConditionFormula>
         <errorMessage>Final Extension cannot be less than zero days.</errorMessage>
@@ -15335,7 +15350,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;,
  OR( Initiation_Extension_of_days__c &gt; 45,  Initiation_Extension_of_days__c &lt; 0)
 ))</errorConditionFormula>
         <errorMessage>Initiation Extension can only range from 1-45 days.</errorMessage>
@@ -15352,7 +15367,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;,
  Prelim_Extension__c &lt; 0
 ))</errorConditionFormula>
         <errorMessage>Preliminary Extension cannot be less than zero days.</errorMessage>
@@ -15360,9 +15375,9 @@ SR = Sunset Review</description>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
-NOT(ISNEW()), 
-PRIORVALUE(Locked__c) == true 
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false,
+NOT(ISNEW()),
+PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
@@ -15389,11 +15404,11 @@ ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;&apos;)))</errorConditionFormula>
     <validationRules>
         <fullName>Deficient_Or_Withdrawn_Date_Required</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND ( 
-ISNULL(Deficient_or_Withdrawn_Date__c), 
-OR( 
-ISPICKVAL(Segment_Outcome__c, &apos;Deficient&apos;), 
-ISPICKVAL(Segment_Outcome__c, &apos;Withdrawn&apos;)) 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND (
+ISNULL(Deficient_or_Withdrawn_Date__c),
+OR(
+ISPICKVAL(Segment_Outcome__c, &apos;Deficient&apos;),
+ISPICKVAL(Segment_Outcome__c, &apos;Withdrawn&apos;))
 ))</errorConditionFormula>
         <errorDisplayField>Deficient_or_Withdrawn_Date__c</errorDisplayField>
         <errorMessage>The Deficient or Withdrawn date is required when Segment Outcome is &quot;Deficient&quot; or &quot;Withdrawn&quot;</errorMessage>
@@ -15410,7 +15425,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Expedited_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Expedited_Review&quot;,
  Final_Extension_of_days__c &gt; 60 || Final_Extension_of_days__c &lt; 0
 ))</errorConditionFormula>
         <errorMessage>Final Extension (# of days) cannot exceed more than 60 days</errorMessage>
@@ -15427,7 +15442,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Expedited_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Expedited_Review&quot;,
  Prelim_Extension__c &gt; 120 || Prelim_Extension__c &lt; 0
 ))</errorConditionFormula>
         <errorMessage>Cannot exceed more than 120 days</errorMessage>
@@ -15436,9 +15451,9 @@ SR = Sunset Review</description>
         <fullName>Litigation_Resolved_Required</fullName>
         <active>false</active>
         <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND ( 
-ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;), 
-ISBLANK( TEXT( Litigation_Resolved__c ) ) 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND (
+ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;),
+ISBLANK( TEXT( Litigation_Resolved__c ) )
 ))</errorConditionFormula>
         <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
     </validationRules>
@@ -15454,7 +15469,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;, 
+ $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
  Final_Extension_of_days__c &gt; 60 || Final_Extension_of_days__c &lt; 0
 ))</errorConditionFormula>
         <errorMessage>The bound for Final Extension # of Days is 1 to 60 days.</errorMessage>
@@ -15463,7 +15478,7 @@ SR = Sunset Review</description>
         <fullName>NSR_Prelim_Extension</fullName>
         <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;, 
+ $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
  Prelim_Extension__c &gt; 120 || Prelim_Extension__c &lt; 0
 ))</errorConditionFormula>
         <errorMessage>The bound for Preliminary Extension # of Days is 1 to 120 days.</errorMessage>
@@ -15472,12 +15487,12 @@ SR = Sunset Review</description>
         <fullName>Only_Admin_reparents_Segments</fullName>
         <active>false</active>
         <description>Segment records can only be reparented by a System Administrator.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-Locked__c == false, 
-NOT( ISNEW() ), 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+Locked__c == false,
+NOT( ISNEW() ),
 OR(ISCHANGED(ADCVD_Order__c ),ISCHANGED(Suspension_Agreement__c),ISCHANGED(ADCVD_Case__c),ISCHANGED(Investigation__c)),$Profile.Name
- &lt;&gt; 
-&quot;System Administrator&quot; 
+ &lt;&gt;
+&quot;System Administrator&quot;
 )</errorConditionFormula>
         <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Suspension Agreement or ADCVD Case for this record.</errorMessage>
     </validationRules>
@@ -15490,8 +15505,8 @@ Prelim AND/OR Final Extensions should be empty based on certain other field sele
 
 &quot;Scope_Inquiry&quot;,
 IF  (
-    AND (  
-          OR (     
+    AND (
+          OR (
               NOT(ISNULL(Prelim_Extension__c)),
               NOT(ISNULL(Final_Extension_of_days__c ))
              ),
@@ -15519,7 +15534,7 @@ IF (
         ISPICKVAL(Preliminary_Determination__c, &apos;No&apos;),
         NOT(ISNULL(Prelim_Extension__c))
         ),
-1, 0), 
+1, 0),
 0) =1)</errorConditionFormula>
         <errorMessage>&quot;Prelim Extension (# of days)&quot; AND / OR &quot;Final Extension (# of days)&quot; cannot contain values based on your current field selections. Please remove these values, or change your current selection of values from other fields, before saving the record.</errorMessage>
     </validationRules>
@@ -15527,7 +15542,7 @@ IF (
         <fullName>Prelim_Extension_for_Admin_Review_Bound</fullName>
         <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;,
  OR(Prelim_Extension__c &gt; 120, Prelim_Extension__c &lt; 0)
 ))</errorConditionFormula>
         <errorMessage>Preliminary Extension can only range from 1-120 days.</errorMessage>
@@ -15537,7 +15552,7 @@ IF (
         <active>false</active>
         <description>Preliminary Extension cannot exceed more than 120 days</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;,
  Prelim_Extension__c &gt; 120
 ))</errorConditionFormula>
         <errorMessage>Preliminary Extension cannot exceed more than 120 days</errorMessage>
@@ -15547,7 +15562,7 @@ IF (
         <active>false</active>
         <description>Preliminary Extension must be greater than zero days.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;,
  Prelim_Extension__c &lt; 0
 ))</errorConditionFormula>
         <errorMessage>Preliminary Extension must be greater than zero days.</errorMessage>
@@ -15580,7 +15595,7 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And(
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(Access_Barcode__c))
 ))</errorConditionFormula>
         <errorMessage>&quot;Access Barcode&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
@@ -15590,7 +15605,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <active>false</active>
         <description>If Segment Outcome field is not empty.,then Decision on How to Proceed field is required AND Actual date of Decision - How to Proceed field is required.</description>
         <errorConditionFormula>AND(
-  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
   Locked__c == false,
 
     CASE(RecordType.DeveloperName,
@@ -15619,14 +15634,14 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,Actual_Date_of_Decision_on_HoP__c &gt; Deadline_for_Decision_on_How_to_Proceed__c))</errorConditionFormula>
         <errorMessage>Actual Date of Decision on How to Proceed (HOP) cannot be later than Deadline for Decision on HOP</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Final_Signature</fullName>
         <active>false</active>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;),  Actual_Final_Signature__c &gt;  Calculated_Final_Signature__c))</errorConditionFormula>
         <errorMessage>&quot;Actual Final Signature&quot; cannot be after &quot;Calculated Final Signature&quot;.</errorMessage>
     </validationRules>
@@ -15641,8 +15656,8 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And ( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Actual_Final_Signature__c ))) 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
+$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Actual_Final_Signature__c )))
 ))</errorConditionFormula>
         <errorMessage>&quot;Actual Final Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
     </validationRules>
@@ -15657,7 +15672,7 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;),  Actual_Preliminary_Signature__c &gt;  Calculated_Preliminary_Signature__c))</errorConditionFormula>
         <errorMessage>&quot;Actual Preliminary Signature&quot; cannot be after &quot;Calculated Preliminary Signature&quot;.</errorMessage>
     </validationRules>
@@ -15683,14 +15698,14 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_o
         <description>Record Type: Scope Inquiry
 When Segment Outcome is  &quot;Rejected&quot;, require Decision on How to Proceed as &quot;Reject&quot;</description>
         <errorConditionFormula>AND(
-  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
   Locked__c == false,
     CASE(RecordType.DeveloperName,
       &quot;Scope_Inquiry&quot;,
         IF (
             AND(
-                ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;), 
-                NOT(ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;))     
+                ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;),
+                NOT(ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;))
                 ),
         1,0
         )
@@ -15729,7 +15744,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And(
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Prelim_Extension__c ))) 
+$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Prelim_Extension__c )))
 ))</errorConditionFormula>
         <errorMessage>&quot;Preliminary Extension (# of days)&quot;  is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
     </validationRules>
@@ -15744,7 +15759,7 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And(
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(TEXT(  Was_product_determined_to_be_in_scope__c )))
 ))</errorConditionFormula>
         <errorMessage>If Decision on How to Proceed is Reject, then Was Product Determined to be in Scope should be null.</errorMessage>
@@ -15760,7 +15775,7 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And(
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),OR(ISPICKVAL( Was_Product_Prelim_Determine_in_Scope__c, &quot;Yes&quot;),ISPICKVAL( Was_Product_Prelim_Determine_in_Scope__c, &quot;No&quot;))
 ))</errorConditionFormula>
         <errorMessage>&quot;Was the Product Preliminary Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
@@ -15776,7 +15791,7 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And(
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(HTS_Changes__c))
 ))</errorConditionFormula>
         <errorMessage>&quot;HTS Changes&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
@@ -15792,7 +15807,7 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And(
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(Scope_Language_Changes__c))
 ))</errorConditionFormula>
         <errorMessage>&quot;Scope Language Change(s)&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
@@ -15808,7 +15823,7 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And(
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(TEXT(  Was_product_determined_to_be_in_scope__c )))
 ))</errorConditionFormula>
         <errorMessage>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
@@ -15816,27 +15831,27 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     <validationRules>
         <fullName>SSR_240_Extension_Total</fullName>
         <active>false</active>
-        <errorConditionFormula>AND 
-( 
-$Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-Locked__c == false, 
-AND( 
-OR( 
-Prelim_Extension__c &gt; 90, Final_Extension_of_days__c &gt; 90, 
-Prelim_Extension__c + Final_Extension_of_days__c &gt; 90), 
-ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;)) 
+        <errorConditionFormula>AND
+(
+$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+Locked__c == false,
+AND(
+OR(
+Prelim_Extension__c &gt; 90, Final_Extension_of_days__c &gt; 90,
+Prelim_Extension__c + Final_Extension_of_days__c &gt; 90),
+ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
 )</errorConditionFormula>
         <errorMessage>The total extension of Prelim Extension # of days and Final Extension # of days cannot be more than 90.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_Outcome_Required</fullName>
         <active>false</active>
-        <description>Segment Outcome is required when: 
-1) Actual Final Signature is entered (Record Type: All Types) 
+        <description>Segment Outcome is required when:
+1) Actual Final Signature is entered (Record Type: All Types)
      OR
 2) Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot; (Record Type: Scope Inquiry)</description>
         <errorConditionFormula>AND(
-  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
   Locked__c == false,
   OR(
     AND(
@@ -15849,7 +15864,7 @@ ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
              OR
              (
              AND (ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Informal&apos;), ISPICKVAL(Segment_Outcome__c, &apos;&apos;)),
-             AND (ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;), NOT(ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;)))     
+             AND (ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;), NOT(ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;)))
              ),
         1,0
         )
@@ -15871,13 +15886,13 @@ ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
     <validationRules>
         <fullName>Type_of_Circumvention_Inquiry_Required</fullName>
         <active>false</active>
-        <description>Type of Circumvention Inquiry field value is required when Actual Initiation Signature is entered. 
+        <description>Type of Circumvention Inquiry field value is required when Actual Initiation Signature is entered.
 Record Type: Anti-Circumvention</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND
 (
 CASE
   (RecordType.DeveloperName, &quot;Anti_Circumvention_Review&quot;, 1, 0) = 1,
-   ISPICKVAL(Type_of_Circumvention_Inquiry__c , &apos;&apos;), 
+   ISPICKVAL(Type_of_Circumvention_Inquiry__c , &apos;&apos;),
    NOT(ISNULL( Actual_Initiation_Signature__c ))
 ))</errorConditionFormula>
         <errorMessage>Type of Circumvention Inquiry field value is required, when Actual Initiation Signature is populated.</errorMessage>
@@ -15887,7 +15902,7 @@ CASE
         <active>false</active>
         <description>Record Type: Scope Inquiry
 Type of Scope Ruling is required when value set for Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot;, but not when &quot;Reject&quot;</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,  
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 IF(
   OR(
     AND(
@@ -15899,7 +15914,7 @@ IF(
       )
       ,
      AND(
-         ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;), 
+         ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;),
          NOT(ISBLANK(TEXT(Type_of_Scope_Ruling__c)))
         )
       ),
