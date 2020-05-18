@@ -99,7 +99,7 @@ private class Flow_CreatePaymentRecordTest {
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
-			System.assertEquals('List has no rows for assignment to SObject', exceptionMessage);
+			System.assertEquals('Invalid Payment Type', exceptionMessage);
 		}
 	}
 

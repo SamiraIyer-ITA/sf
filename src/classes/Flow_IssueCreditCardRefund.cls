@@ -16,22 +16,14 @@ global without sharing class Flow_IssueCreditCardRefund {
 
 		try {
 			Decimal refundAmount = inputs[0].refundAmount;
-			List<Order> ordersWithoutParentOrders = inputs[0].orders;
+			List<Order> orders = inputs[0].orders;
 
-			//The passed-in reduction orders don't have information about their parent orders, so query them
-			Set<Id> orderIds = new Set<Id>();
-			for (Order order: ordersWithoutParentOrders) {
-				orderIds.add(order.Id);
-			}
-
-			List<Order> orders = OrdersSelector.newInstance().selectWithReductionOrderDetails(orderIds, false, true, true, false);
-
-			//Verify that all parent (original) orders have the same payment Id
-			Id paymentId = orders[0].OriginalOrder.Payment2__c;
+			//Verify that all orders have the same payment Id
+			Id paymentId = orders[0].Payment2__c;
 			for (Order order: orders) {
-				if (paymentId != order.OriginalOrder.Payment2__c) {
+				if (paymentId != order.Payment2__c) {
 					responseVariables.hasError = true;
-					responseVariables.errorReasons = '<li>All original orders weren\'t processed on the same payment.</li>';
+					responseVariables.errorReasons = '<li>All orders weren\'t processed on the same payment.</li>';
 					responseVariablesList.add(responseVariables);
 					return responseVariablesList;
 				}

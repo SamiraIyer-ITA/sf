@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Advocacy</fullName>
+        <default>false</default>
+        <label>Advocacy</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Commercial Diplomacy</fullName>
+        <default>false</default>
+        <label>Commercial Diplomacy</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Export Promotion</fullName>
+        <default>false</default>
+        <label>Export Promotion</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Investment Promotion</fullName>
+        <default>false</default>
+        <label>Investment Promotion</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>NA</fullName>
+        <default>false</default>
+        <label>NA</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>To NIST</fullName>
+        <default>false</default>
+        <label>To NIST</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>From NIST</fullName>
+        <default>false</default>
+        <label>From NIST</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+</StandardValueSet>

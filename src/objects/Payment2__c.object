@@ -158,6 +158,32 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>Account_Holder_Name__c</fullName>
+        <description>The name on the credit card or checking account, as returned from pay.gov.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name on the credit card or checking account, as returned from pay.gov.</inlineHelpText>
+        <label>Account Holder Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Number__c</fullName>
+        <description>The masked credit card or ACH account number, as returned from pay.gov.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The masked credit card or ACH account number, as returned from pay.gov.</inlineHelpText>
+        <label>Account Number</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_Type__c</fullName>
         <description>The name of the product family to which this payment applies.</description>
         <externalId>false</externalId>
@@ -241,6 +267,20 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Payment_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Field for refunds related to current payment</description>
+        <externalId>false</externalId>
+        <label>Parent Payment</label>
+        <referenceTo>Payment2__c</referenceTo>
+        <relationshipLabel>Refunds</relationshipLabel>
+        <relationshipName>Payments</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Payment_Date__c</fullName>
         <defaultValue>TODAY()</defaultValue>
         <description>The date of the payment, as returned by pay.gov or the current date for manual payments.</description>
@@ -305,9 +345,84 @@
                     <label>Bank Transfer</label>
                 </value>
                 <value>
-                    <fullName>NIST-Handled</fullName>
+                    <fullName>NIST-Handled Refund</fullName>
                     <default>false</default>
-                    <label>NIST-Handled</label>
+                    <label>NIST-Handled Refund</label>
+                </value>
+                <value>
+                    <fullName>Credit Card Refund</fullName>
+                    <default>false</default>
+                    <label>Credit Card Refund</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Refund_Explanation__c</fullName>
+        <description>If the Refund Reason is &quot;other&quot;, the explanation about why the refund is being given.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the Refund Reason is &quot;other&quot;, the explanation about why the refund is being given.</inlineHelpText>
+        <label>Refund Explanation</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Refund_Reason__c</fullName>
+        <description>The reason for the refund.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The reason for the refund.</inlineHelpText>
+        <label>Refund Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounting adjustment</fullName>
+                    <default>false</default>
+                    <label>Accounting adjustment</label>
+                </value>
+                <value>
+                    <fullName>Client cancelled participation (before fees incurred)</fullName>
+                    <default>false</default>
+                    <label>Client cancelled participation (before fees incurred)</label>
+                </value>
+                <value>
+                    <fullName>Political/economic conditions of market changed</fullName>
+                    <default>false</default>
+                    <label>Political/economic conditions of market changed</label>
+                </value>
+                <value>
+                    <fullName>Post unable to process due to competing demands</fullName>
+                    <default>false</default>
+                    <label>Post unable to process due to competing demands</label>
+                </value>
+                <value>
+                    <fullName>Product not provided when promised</fullName>
+                    <default>false</default>
+                    <label>Product not provided when promised</label>
+                </value>
+                <value>
+                    <fullName>Product provided was of poor quality</fullName>
+                    <default>false</default>
+                    <label>Product provided was of poor quality</label>
+                </value>
+                <value>
+                    <fullName>Service did not meet all requirements</fullName>
+                    <default>false</default>
+                    <label>Service did not meet all requirements</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -358,6 +473,18 @@
         <externalId>false</externalId>
         <inlineHelpText>The return detail  given by the payment processor during a refund.</inlineHelpText>
         <label>Return Detail</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>System_Search_String__c</fullName>
+        <description>Text field populated by trigger containing the following values: OrganizationName OrderAmount RefundedAmount. Created to meet global search requirements for NIST.</description>
+        <externalId>false</externalId>
+        <label>System-Search String</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -465,9 +592,6 @@
         <columns>CREATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-        <sharedTo>
-            <role>System_Admin</role>
-        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>P{000000000}</displayFormat>
@@ -502,6 +626,41 @@
             <values>
                 <fullName>Bank Transfer</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Refund_Reason__c</picklist>
+            <values>
+                <fullName>Accounting adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client cancelled participation %28before fees incurred%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Political%2Feconomic conditions of market changed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post unable to process due to competing demands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product not provided when promised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product provided was of poor quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service did not meet all requirements</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -564,6 +723,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Refund_Reason__c</picklist>
+            <values>
+                <fullName>Accounting adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client cancelled participation %28before fees incurred%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Political%2Feconomic conditions of market changed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post unable to process due to competing demands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product not provided when promised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product provided was of poor quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service did not meet all requirements</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Transaction_Status__c</picklist>
             <values>
                 <fullName>Cancelled</fullName>
@@ -623,6 +817,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Refund_Reason__c</picklist>
+            <values>
+                <fullName>Accounting adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client cancelled participation %28before fees incurred%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Political%2Feconomic conditions of market changed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post unable to process due to competing demands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product not provided when promised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product provided was of poor quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service did not meet all requirements</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Transaction_Status__c</picklist>
             <values>
                 <fullName>Cancelled</fullName>
@@ -677,8 +906,43 @@
         <picklistValues>
             <picklist>Payment_Type__c</picklist>
             <values>
-                <fullName>PLASTIC_CARD</fullName>
+                <fullName>Credit Card Refund</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Refund_Reason__c</picklist>
+            <values>
+                <fullName>Accounting adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client cancelled participation %28before fees incurred%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Political%2Feconomic conditions of market changed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post unable to process due to competing demands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product not provided when promised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product provided was of poor quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service did not meet all requirements</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -745,6 +1009,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Refund_Reason__c</picklist>
+            <values>
+                <fullName>Accounting adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client cancelled participation %28before fees incurred%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Political%2Feconomic conditions of market changed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post unable to process due to competing demands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product not provided when promised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product provided was of poor quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service did not meet all requirements</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Transaction_Status__c</picklist>
             <values>
                 <fullName>Cancelled</fullName>
@@ -799,11 +1098,46 @@
         <picklistValues>
             <picklist>Payment_Type__c</picklist>
             <values>
-                <fullName>NIST-Handled</fullName>
+                <fullName>NIST-Handled Refund</fullName>
                 <default>true</default>
             </values>
             <values>
                 <fullName>PLASTIC_CARD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Refund_Reason__c</picklist>
+            <values>
+                <fullName>Accounting adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client cancelled participation %28before fees incurred%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Political%2Feconomic conditions of market changed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post unable to process due to competing demands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product not provided when promised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product provided was of poor quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service did not meet all requirements</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -868,6 +1202,18 @@
 )</errorConditionFormula>
         <errorDisplayField>Check_Number__c</errorDisplayField>
         <errorMessage>The check number must be numeric.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V02RefundExplanationRequired</fullName>
+        <active>true</active>
+        <description>If the Refund Reason is &quot;Other&quot;, the Refund Explanation is required.</description>
+        <errorConditionFormula>AND(
+OR($RecordType.DeveloperName = &apos;Credit_Card_Refund&apos;,
+$RecordType.DeveloperName = &apos;NIST_Issued_Refund&apos;),
+ISPICKVAL(Refund_Reason__c, &apos;Other&apos;),
+ISBLANK( Refund_Explanation__c )
+)</errorConditionFormula>
+        <errorMessage>Refund Explanation is required if the Refund Reason is &quot;Other&quot;.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

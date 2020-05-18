@@ -207,7 +207,7 @@
             <sortOrder>8</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Contract.Issue_Credit_Card_Refund</actionName>
+            <actionName>Contract.Issue_Refund</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>9</sortOrder>
         </platformActionListItems>

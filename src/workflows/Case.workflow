@@ -84,6 +84,15 @@
         <template>Participation_App_Templates/Toolkit_Application_Submitted</template>
     </alerts>
     <alerts>
+        <fullName>NIST_Case_Alert_NIST_User_New_Case_From_ITA</fullName>
+        <ccEmails>jeffrey.assibey@trade.gov</ccEmails>
+        <description>NIST Case:Alert NIST User when new Case from ITA is created</description>
+        <protected>false</protected>
+        <senderAddress>noreply@trade.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/New_NIST_Case_Alert</template>
+    </alerts>
+    <alerts>
         <fullName>Notify_Case_Creator_of_Toolkit_Support_Case_Creation</fullName>
         <description>Notify Case Creator of Toolkit Support Case Creation</description>
         <protected>false</protected>
@@ -1194,6 +1203,26 @@
             <value>False</value>
         </criteriaItems>
         <description>Investment Promotion Case Closed - Successfully Closed</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>New NIST Case Alert</fullName>
+        <actions>
+            <name>NIST_Case_Alert_NIST_User_New_Case_From_ITA</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Reason</field>
+            <operation>equals</operation>
+            <value>To NIST</value>
+        </criteriaItems>
+        <description>Alert NIST user when new case is created</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
