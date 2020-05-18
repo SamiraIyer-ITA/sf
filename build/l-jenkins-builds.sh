@@ -36,6 +36,7 @@ types=" app \
         component \
         connectedApps \
         crt \
+        cspTrustedSite \
         css \
         customPermission \
 	dashboard \
@@ -121,17 +122,18 @@ function makePackage() {
         blacklisted=`cat "$blacklist" | grep "$srcfile"` || true
         if [ ! -z "$dofile" ] && [ -z "$blacklisted" ] ; then
                 isSrc=`echo $srcfile | grep src` || true
-                isAura=`echo $srcfile | grep aura` || true
-                if [ -f "$srcfile" ] && [ ! -z "$isSrc" ] && [ ! -z "$isAura" ] ; then
-                        auraPackage="src/aura/`echo $srcfile | cut -f 3 -d '/'`"
+                isAuraLWC=`echo $srcfile | grep 'aura\|lwc'` || true
+                if [ -f "$srcfile" ] && [ ! -z "$isSrc" ] && [ ! -z "$isAuraLWC" ] ; then
+			aol=`echo $isAuraLWC | cut -f 2 -d '/'`
+                        auraPackage="src/$aol/`echo $srcfile | cut -f 3 -d '/'`"
 			echo "Copying $auraPackage"
                         [ -d "$auraPackage" ] && cp -rp --parents $auraPackage/* $sandbox
                 else
                         echo Copying "$srcfile"
 		        [ -f "$srcfile" ] && [ ! -z "$isSrc" ] && cp -rp --parents "$srcfile" $sandbox
                         [ -f "${srcfile}-meta.xml" ] && cp -rp --parents "${srcfile}-meta.xml" $sandbox
-			[ -f "src/${folder}/${subfolder}-meta.xml" ] && cp -rp --parents "src/${folder}/${subfolder}-meta.xml" $sandbox
 
+			[ -f "src/${folder}/${subfolder}-meta.xml" ] && cp -rp --parents "src/${folder}/${subfolder}-meta.xml" $sandbox
                 fi
         fi
   done < $gitfiles
