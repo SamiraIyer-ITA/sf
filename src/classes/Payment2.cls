@@ -39,7 +39,7 @@ public with sharing class Payment2 {
 			} else if (transactionType == 'Refunds') {
 				recordTypeId = rtMap.get('Credit_Card_Refund');
 				transactionStatus = 'Success';
-				paymentType = 'PLASTIC_CARD';
+				paymentType = 'Credit Card Refund';
 			}
 
 			if (downloaded == 'All') {

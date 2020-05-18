@@ -124,6 +124,7 @@ public with sharing class RefundForPayGov implements IRefund {
 		refund.Payment_Processor__c = payment.Payment_Processor__c;
 		refund.Transaction_Status__c = status;
 		refund.Remote_Tracking_Id__c = payGovTrackingId;
+		refund.Payment_Type__c = 'Credit Card Refund';
 		refund.Payment_2__c = payment.Id;  //The parent payment of this refund
 		fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 		uow.registerNew(refund);
