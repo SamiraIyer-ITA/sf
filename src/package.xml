@@ -94,6 +94,8 @@
     </types>
     <types>
         <members>*</members>
+        <members>Approval_Processes</members>
+        <members>Approval_Processes/Market_Intelligence_Approved</members>
         <name>EmailTemplate</name>
     </types>
     <types>
