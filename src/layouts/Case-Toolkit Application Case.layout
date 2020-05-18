@@ -31,6 +31,14 @@
                 <behavior>Edit</behavior>
                 <field>Order__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sys_Client_Counseling_in_Case_Rollup__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sys_Trade_Issue_in_Case_Rollup__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
