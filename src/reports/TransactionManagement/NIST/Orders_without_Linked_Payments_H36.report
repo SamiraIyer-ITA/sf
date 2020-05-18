@@ -21,7 +21,7 @@
         <operation>without</operation>
         <primaryTableColumn>Order$Id</primaryTableColumn>
         <relatedTable>Payment2__c</relatedTable>
-        <relatedTableJoinColumn>Order__c</relatedTableJoinColumn>
+        <relatedTableJoinColumn>Order</relatedTableJoinColumn>
     </crossFilters>
     <description>Represents all orders processed which do not have a related payment record.</description>
     <format>Summary</format>
