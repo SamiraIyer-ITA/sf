@@ -1,0 +1,240 @@
+<template>
+
+	<article class="slds-card">
+		<div class="slds-card__body slds-card__body_inner slds-m-top--x-small">
+
+			<template if:false={detailsRetrieved}>
+				<div>Retrieving payment details...</div>
+				<lightning-spinner alternative-text='Retrieving payment details'></lightning-spinner>
+			</template>
+
+			<template if:true={detailsRetrieved}>
+				<template if:false={record}>
+					<div>No payment details are available.</div>
+				</template>
+
+				<template if:true={record}>
+					<div class="slds-p-around_none slds-panel__section">
+						<div class="slds-section slds-is-open">
+							<div class="slds-grid slds-grid slds-wrap slds-grid--pull-padded">
+
+								<div class="slds-p-horizontal--small slds-size--1-of-2">
+									<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+										<label class="slds-form-element__label"> Account Number</label>
+										<div class="slds-form-element__control" style="min-height: 18px;">
+											<lightning-formatted-text value={record.accountNumber}></lightning-formatted-text>
+										</div>
+									</div>
+								</div>
+
+								<div class="slds-p-horizontal--small slds-size--1-of-2">
+									<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+										<label class="slds-form-element__label"> Account Holder Name </label>
+										<div class="slds-form-element__control" style="min-height: 18px;">
+											<lightning-formatted-text value={record.accountHolderName}></lightning-formatted-text>
+										</div>
+									</div>
+								</div>
+
+								<div class="slds-p-horizontal--small slds-size--1-of-2">
+									<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+										<label class="slds-form-element__label"> Return Code</label>
+										<div class="slds-form-element__control" style="min-height: 18px;">
+											<lightning-formatted-text value={record.returnCode}></lightning-formatted-text>
+										</div>
+									</div>
+								</div>
+
+								<div class="slds-p-horizontal--small slds-size--1-of-2">
+									<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+										<label class="slds-form-element__label"> Return Detail</label>
+										<div class="slds-form-element__control" style="min-height: 18px;">
+											<lightning-formatted-text value={record.returnDetail}></lightning-formatted-text>
+										</div>
+									</div>
+								</div>
+
+								<template if:true={isCreditCard}>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Approval Code </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.approvalCode}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Billing Address 1</label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.billingAddress}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Auth Response Code </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.authResponseCode}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Billing Address 2 </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.billingAddress2}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Auth Response Text </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.authResponseText}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Billing City </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.billingCity}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> CSC Result </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.cscResult}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Billing State </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.billingState}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> AVS Response Code </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.avsResponseCode}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Billing Zip </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.billingZip}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Billing Country </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.billingCountry}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+								</template>
+
+								<template if:true={isAch}>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Account Type </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.accountType}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Effective Date </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-date-time value={record.effectiveDate} ></lightning-formatted-date-time>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Routing Transit Number </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.routingTransitNumber}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> SEC Code </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.secCode}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Return Reason Code </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.returnReasonCode}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Deposit Ticket Number </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.depositTicketNumber}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Debit Voucher Number </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<lightning-formatted-text value={record.debitVoucherNumber}></lightning-formatted-text>
+											</div>
+										</div>
+									</div>
+
+								</template>
+
+							</div>
+						</div>
+
+					</div>
+
+				</template>
+			</template>
+		</div>
+	</article>
+
+</template>

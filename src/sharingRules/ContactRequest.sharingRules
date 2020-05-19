@@ -97,18 +97,6 @@
         </sharedFrom>
     </sharingOwnerRules>
     <sharingOwnerRules>
-        <fullName>CP_Queue_9_Access</fullName>
-        <accessLevel>Edit</accessLevel>
-        <description>Gives access to CP_Contact_Request_9 to public group CP_Contact_US_9</description>
-        <label>CP Queue 9 Access</label>
-        <sharedTo>
-            <group>CP_Contact_Us_Group9</group>
-        </sharedTo>
-        <sharedFrom>
-            <queue>CP_Contact_US_9</queue>
-        </sharedFrom>
-    </sharingOwnerRules>
-    <sharingOwnerRules>
         <fullName>Public_Access_Queue_1</fullName>
         <accessLevel>Edit</accessLevel>
         <label>Public Access Queue 1</label>
