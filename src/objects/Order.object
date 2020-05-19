@@ -480,6 +480,20 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Payment2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The successful payment for this order.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The successful payment for this order.</inlineHelpText>
+        <label>Payment 2</label>
+        <referenceTo>Payment2__c</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>PoDate</fullName>
         <trackHistory>true</trackHistory>
     </fields>
