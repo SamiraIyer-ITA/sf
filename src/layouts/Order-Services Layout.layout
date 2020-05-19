@@ -39,10 +39,6 @@
                 <field>ContractId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Type</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Collection_Org_Code__c</field>
             </layoutItems>
