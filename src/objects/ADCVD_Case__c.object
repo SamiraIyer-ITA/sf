@@ -281,6 +281,29 @@ C-###-### for CVD</inlineHelpText>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Program_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program Manager</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Value does not match filter criteria. Please select Program Manager</errorMessage>
+            <filterItems>
+                <field>User.Staffing_Role__c</field>
+                <operation>equals</operation>
+                <value>Program Manager</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>ADCVD_Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <label>ADCVD Case</label>
     <listViews>
         <fullName>ADCVD_Case_Open</fullName>

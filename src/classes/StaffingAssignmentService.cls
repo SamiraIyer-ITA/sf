@@ -14,7 +14,8 @@ public without sharing class StaffingAssignmentService {
     * All methods are non-static so call from an instance of this class
     * i.e StaffingAssignmentService().method()
     ***********************************************************/
-
+    @TestVisible private static ADCVD_CaseMapper caseMapper;
+    
     /**
      * Override of method that assumes insert. Use other method to specify insert
      *
@@ -40,6 +41,9 @@ public without sharing class StaffingAssignmentService {
      */
     public List<Staffing_Assignment__c> createStaffFromDefaults(List<SObject> soList, String sObjectName, Boolean doInsert) {
         List<Staffing_Assignment__c> returnList = new List<Staffing_Assignment__c>();
+        
+        caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
+          
         Map<String,Integer> defaultUserRolesMap = new CustomMetadataSelector().getDefaultUserRolesMap(sObjectName);//Title__c field and how many to create from metadata records
         for (SObject so : soList) {//iterate through sObjects creating staffing for each
             for(String s: defaultUserRolesMap.keySet()) {//iterate through each staffing title for this sObjectType
@@ -48,6 +52,9 @@ public without sharing class StaffingAssignmentService {
                     sa.ADCVD_Case__c = (Id)so.get('ADCVD_Case__c');
                     sa.put(sObjectName, (Id)so.get('Id'));
                     sa.Title__c = s;
+                    if (sa.Title__c == 'Program Manager') {
+                        sa.User__c = ((ADCVD_Case__c)caseMapper.getMap(false).get(sa.ADCVD_Case__c)).Program_Manager__c;
+                    }
                     returnList.add(sa);
                 }
             }
