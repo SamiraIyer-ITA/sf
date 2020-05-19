@@ -4,10 +4,13 @@
         <application>Payment_Manager_2</application>
         <visible>true</visible>
     </applicationVisibilities>
+<<<<<<< HEAD
     <applicationVisibilities>
         <application>Transaction_Management</application>
         <visible>true</visible>
     </applicationVisibilities>
+=======
+>>>>>>> merge/edge/SM-5753
     <description>Rights to the Payment2 object. This should only be assigned to Admins.</description>
     <fieldPermissions>
         <editable>true</editable>
@@ -129,8 +132,11 @@
         <tab>Payment2__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+<<<<<<< HEAD
     <tabSettings>
         <tab>Transaction_Management</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+=======
+>>>>>>> merge/edge/SM-5753
 </PermissionSet>

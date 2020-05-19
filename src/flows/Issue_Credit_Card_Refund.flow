@@ -450,7 +450,7 @@
         </connector>
         <fields>
             <name>recordRefundConfirmationText</name>
-            <fieldText>&lt;p&gt;Are you sure you want to issue a refund?  Upon pressing the &apos;Next&apos; button, a refund of {!AbsoluteTotalAmount} will be issued.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Ensure that the refund was already processed by NIST.&amp;nbsp;Upon pressing the &apos;Next&apos; button, a refund of {!AbsoluteTotalAmount} will be recorded.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>

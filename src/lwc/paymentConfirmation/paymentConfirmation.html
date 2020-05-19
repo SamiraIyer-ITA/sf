@@ -1,0 +1,20 @@
+<template>
+	<lightning-card>
+		<template if:true={error}>
+			<div>{error}</div>
+			<div>Please try again.</div>
+			<div><lightning-button variant="success" label="Try payment again" onclick={handleClick}></lightning-button></div>
+		</template>
+
+		<template if:true={isConfirmed}>
+			<div>Thank you for your payment. A receipt has been sent to the email address on file.</div>
+			<div>In order to serve you better, please send any marketing materials to your Trade Specialist. If marketing materials are not received by the agreed upon start date of your service, there may be delays in completing the service. Please contact your Trade Specialist for details.</div>
+			<div><lightning-button variant="success" label="Return" onclick={handleClick}></lightning-button></div>
+		</template>
+
+		<template if:true={showSpinner}>
+			<div>Please wait while your payment is confirmed.</div>
+			<lightning-spinner alternative-text='Please wait while your payment is confirmed'></lightning-spinner>
+		</template>
+	</lightning-card>
+</template>

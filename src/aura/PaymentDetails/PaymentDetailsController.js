@@ -1,7 +1,7 @@
 ({
-    doInit : function(cmp, event, helper) {
+	doInit : function(cmp, event, helper) {
 
-        var recordId = cmp.get("v.recordId");
+		var recordId = cmp.get("v.recordId");
 
 		//Call the server
 		helper.callServer(
@@ -16,6 +16,6 @@
 			}
 		);
 
-    },
+	},
 
 })
