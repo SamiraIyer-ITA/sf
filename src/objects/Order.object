@@ -514,6 +514,19 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Refunded_Amount__c</fullName>
+        <defaultValue>0.00</defaultValue>
+        <description>The amount of an order that has been refunded.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The amount of an order that has been refunded.</inlineHelpText>
+        <label>Refunded Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>QuoteId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
