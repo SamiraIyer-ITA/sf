@@ -8264,6 +8264,20 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <operation>startsWith</operation>
             <value>4920,4922,4923,4924,4927,48103,48104,48105,48106,48107,48108,48109,48113,48115,48118,48130,48158,48175,48176,48189,48190,48191,48197,48198,49011,49014,49015,49016,49017,49018,49020,49028,49029,49033,49036,49051,49068,49069,49082,49089</value>
         </filters>
+        <label>Queue#7</label>
+        <queue>CP_Contact_US_8</queue>
+        <sharedTo>
+            <group>CP_Contact_Us_Group8</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Closed_Contact_Requests</fullName>
+        <columns>Name</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <columns>Country_1__c</columns>
+        <columns>Status</columns>
+        <filterScope>Queue</filterScope>
         <filters>
             <field>US_ZIP_CODE__c</field>
             <operation>startsWith</operation>
@@ -9263,10 +9277,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>Media inquiry  %28* media members only%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
                 <default>false</default>
             </values>
             <values>

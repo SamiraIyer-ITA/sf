@@ -7,6 +7,9 @@
 @IsTest
 private class RefundsTest {
 
+	static Id legacyRecordTypeId = Schema.SObjectType.Order
+		.getRecordTypeInfosByDeveloperName().get('Legacy').getRecordTypeId();
+
 	@IsTest
 	static void testNewInstanceOfRefundsDomain_PassListWithOneNonInsertedObject_ReturnsValidInterface() {
 		List<Refund__c> refundList  = new List<Refund__c>();
@@ -45,7 +48,7 @@ private class RefundsTest {
 		asset.AccountId = myAccount.Id;
 		insert asset;
 
-		Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+		Order myOrder = new Order(RecordTypeId = legacyRecordTypeId,Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
 		insert myOrder;
 
 		Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);
@@ -99,7 +102,7 @@ private class RefundsTest {
 		asset.AccountId = myAccount.Id;
 		insert asset;
 
-		Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+		Order myOrder = new Order(RecordTypeId = legacyRecordTypeId,Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
 		insert myOrder;
 
 		Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);
