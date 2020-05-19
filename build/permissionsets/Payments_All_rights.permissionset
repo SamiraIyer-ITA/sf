@@ -129,11 +129,8 @@
         <tab>Payment2__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
-<<<<<<< HEAD
     <tabSettings>
         <tab>Transaction_Management</tab>
         <visibility>Visible</visibility>
     </tabSettings>
-=======
->>>>>>> merge/edge/SM-5753
 </PermissionSet>
