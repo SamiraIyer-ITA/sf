@@ -35,10 +35,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Calendar_Year_of_Results__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Other_USG_Entities_Involved__c</field>
             </layoutItems>
             <layoutItems>

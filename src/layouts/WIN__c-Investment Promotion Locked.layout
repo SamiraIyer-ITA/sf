@@ -56,15 +56,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Calendar_Year_of_Results__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Specific_Product__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

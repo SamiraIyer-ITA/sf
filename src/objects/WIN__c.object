@@ -46,7 +46,6 @@
         <fullName>WIN_Compact_Layout</fullName>
         <fields>Name</fields>
         <fields>OwnerId</fields>
-        <fields>Calendar_Year_of_Results__c</fields>
         <fields>RecordTypeId</fields>
         <label>WIN Compact Layout</label>
     </compactLayouts>
@@ -181,6 +180,20 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Actual_Export_Dollar_Value__c</fullName>
+        <description>Actual export dollar value provided and verified by the client. These include actual sales, revenue, or other dollar value impact as a direct result of this WIN. This should not include any Advertising Equivalent Value (AEV). AEV can be recorded in the Impact/Results section instead.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>These include actual sales, revenue, or other dollar value impact as a direct result of this WIN. This should not include any Advertising Equivalent Value (AEV). AEV can be recorded in the Impact/Results section instead.</inlineHelpText>
+        <label>Actual Export Dollar Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Advocacy_Date_Contract_Signed__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Date foreign government signed the procurement contract.</inlineHelpText>
@@ -232,12 +245,27 @@
     </fields>
     <fields>
         <fullName>Advocacy_US_Export_Content_Services__c</fullName>
+        <description>Changed from &apos;AC US Export Content (Services)&apos;</description>
         <externalId>false</externalId>
         <inlineHelpText>The value of U.S. Export Content (Services) related to the contract award.</inlineHelpText>
-        <label>AC US Export Content (Services)</label>
+        <label>AC Total US Export Content - Confirmed</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Anticipated_Export_Dollar_Value__c</fullName>
+        <description>Anticipated export dollar value provided by the client. These include anticipated sales, revenue, or other dollar value impact as a direct result of this case.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Anticipated export dollar value provided by the client. These include anticipated sales, revenue, or other dollar value impact as a direct result of this case.</inlineHelpText>
+        <label>Anticipated Export Dollar Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -606,7 +634,7 @@
     <fields>
         <fullName>Estimated_Value__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>If client did not provide value, please provide an estimation of the dollar value of this WIN</inlineHelpText>
+        <inlineHelpText>Valuation calculated by ITA’s economists for all ITA-approved Trade Barrier WINs.</inlineHelpText>
         <label>Estimated Value</label>
         <precision>18</precision>
         <required>false</required>
@@ -868,6 +896,21 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>ITA_Estimated_Dollar_Value__c</fullName>
+        <description>Approved trade barrier WINs are analyzed by ITA economists to assess the WIN’s impact in terms of the dollar value of U.S. exports and jobs supported by GM’s (and ITA’s) CD efforts. To help in the valuation process, please make sure to list all HS codes affected by the barrier in the designated HS codes field. Valuation calculated by ITA’s economists for all ITA-approved Trade Barrier WINs. Information provided by ITA staff on the WIN will be used to calculate the annual impact of reducing, removing, or preventing that trade barrier.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If client did not provide value, please provide an estimation of the dollar value of this WIN</inlineHelpText>
+        <label>ITA Estimated Dollar Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Impact_of_Exporting__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Impact of Exporting on the ability of the company to grow, hire, and retain jobs.</inlineHelpText>
@@ -936,6 +979,36 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Number_of_Jobs_Created__c</fullName>
+        <description>The number of jobs created as a direct result of the assistance associated with the WIN, provided and verified by the client.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of jobs created as a direct result of the assistance associated with the WIN, provided and verified by the client.</inlineHelpText>
+        <label>Number of Jobs Created</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Jobs_Supported__c</fullName>
+        <description>The number of jobs supported as a direct result of the assistance associated with the WIN, provided and verified by the client.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of jobs supported as a direct result of the assistance associated with the WIN, provided and verified by the client.</inlineHelpText>
+        <label>Number of Jobs Supported</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>OPA_Ready__c</fullName>
@@ -4548,10 +4621,10 @@ Other Government entities that were involved with the WIN.</description>
         <active>true</active>
         <description>Once created, the record type can not be changed unless have the Modify Locked WINs.  Typically should not be done.</description>
         <errorConditionFormula>AND(
-(ISCHANGED( RecordTypeId ) &amp;&amp; PRIORVALUE(RecordTypeId) &lt;&gt; NULL),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;) 
+(ISCHANGED( RecordTypeId ) &amp;&amp; PRIORVALUE(RecordTypeId) &lt;&gt; NULL),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;)
 ||
 (ISCHANGED( WIN_Type__c ) &amp;&amp; PRIORVALUE(WIN_Type__c) &lt;&gt; NULL),
-( $User.Can_Modify_Locked_WINs__c = FALSE),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;) 
+( $User.Can_Modify_Locked_WINs__c = FALSE),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;)
 )</errorConditionFormula>
         <errorMessage>Can not change WIN record type.</errorMessage>
     </validationRules>
@@ -4560,16 +4633,16 @@ Other Government entities that were involved with the WIN.</description>
         <active>true</active>
         <description>Unless administrator, can not edit wins marked for removal.
 
-AND( 
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
-Request_WIN_Removal__c = TRUE 
+AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+Request_WIN_Removal__c = TRUE
 )</description>
         <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;System Administrator&quot;,
 $Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
 $Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;,
 $Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;,
-PRIORVALUE(Request_WIN_Removal__c) &lt;&gt; FALSE &amp;&amp; 
+PRIORVALUE(Request_WIN_Removal__c) &lt;&gt; FALSE &amp;&amp;
 ($Profile.Name &lt;&gt; &quot;System Administrator&quot;)
 )</errorConditionFormula>
         <errorMessage>This WIN is requested to be removed.  If you believe this is in error, please contact the help desk immediately.</errorMessage>
@@ -4596,7 +4669,7 @@ if({!WIN__c.Country_in_Win__c} &lt; 1)
   validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add a Country to the WIN in order to submit for approval.&apos;;
 
 if({!WIN__c.WIN_Contributors_Rollup__c} &lt; 1)
-  validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add a Contributors to the WIN in order to submit for approval.&apos;; 
+  validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add a Contributors to the WIN in order to submit for approval.&apos;;
 
 if({!WIN__c.Industry_Rollup__c} &lt; 1 )
   validationMsg=  validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add an Industry to the WIN in order to submit for approval.&apos;;
