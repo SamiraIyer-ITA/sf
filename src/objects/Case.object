@@ -3371,20 +3371,6 @@ Select if this is a Compliance Case</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Requesting_User__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>User requesting support</description>
-        <externalId>false</externalId>
-        <label>Requesting User</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Cases</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Running_User__c</fullName>
         <description>Running user name</description>
         <externalId>false</externalId>
