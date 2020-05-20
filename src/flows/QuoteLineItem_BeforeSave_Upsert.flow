@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <description>Update the Statement of Work field on this Quote Line Item with the information populated on the associated Product&apos;s Statement of Work field.</description>
+        <name>QuoteLineItem_SOW</name>
+        <label>QuoteLineItem SOW</label>
+        <locationX>424</locationX>
+        <locationY>667</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Statement_of_Work__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Product.Statement_of_Work__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>In some cases, a flow should not fire.  This element evaluates the returned value of the AllFlowsEnabled formula which checks if the running user has the runallflows custom setting.  If they do then user access to the flow is granted.</description>
+        <name>Does_User_Have_Access_To_This_Flow</name>
+        <label>Does User Have Access To This Flow?</label>
+        <locationX>286</locationX>
+        <locationY>124</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>User_Access_Granted</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AllFlowsEnabled</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_Record_New</targetReference>
+            </connector>
+            <label>User Access Granted</label>
+        </rules>
+        <rules>
+            <name>User_Access_Denied</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>AllFlowsEnabled</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>User Access Denied</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>To best meet the one before-save flow per object best practice, this decision determines which pathway to send the flow down based on whether or not the context record is new or existing.  New records should follow the &quot;new branch &quot; where all potential actions that should take place when a new Quote Line Item is created are grouped.  All Update records should follow the &quot;update branch&quot; where all potential actions that should take place when an existing Quote Line Item is updated are grouped.</description>
+        <name>Is_Record_New</name>
+        <label>Is Record New?</label>
+        <locationX>287</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>New_Record</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product</targetReference>
+            </connector>
+            <label>New Record</label>
+        </rules>
+        <rules>
+            <name>Existing_Record</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_QLI_SOW</targetReference>
+            </connector>
+            <label>Existing Record</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines if the flow should update the SOW.  For existing Quote Line Items, the SOW does not have to match the Product SOW.  Therefore, only when the Quote Line Item already exists and is altogether missing a SOW should the flow update the SOW field.</description>
+        <name>Update_QLI_SOW</name>
+        <label>Update QLI SOW?</label>
+        <locationX>50</locationX>
+        <locationY>483</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_SOW</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Statement_of_Work__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Product</targetReference>
+            </connector>
+            <label>Update SOW</label>
+        </rules>
+        <rules>
+            <name>Dont_Update_SOW</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Statement_of_Work__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Don&apos;t Update SOW</label>
+        </rules>
+    </decisions>
+    <description>When a Quote Line Item is created or an updated Quote Line Item is missing a SOW, retrieve the SOW from the associated Product and update the context Quote Line Item&apos;s SOW field.</description>
+    <formulas>
+        <description>This formula returns the Master Automation custom settings&apos; Flows Enabled value associated with the running user.  It is evaluated by the first decision element of the flow to determine if the running user has access or permission to run this flow.</description>
+        <name>AllFlowsEnabled</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Setup.Master_Automation__c.FlowsEnabled__c}</expression>
+    </formulas>
+    <interviewLabel>QuoteLineItem_BeforeSave_Upsert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>QuoteLineItem_BeforeSave_Upsert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Retrieves the Product associated to the Quote Line Item and stores its field values for use later in the flow.</description>
+        <name>Product</name>
+        <label>Product</label>
+        <locationX>524</locationX>
+        <locationY>489</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>QuoteLineItem_SOW</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Product2Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Product2</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>126</locationX>
+        <locationY>123</locationY>
+        <connector>
+            <targetReference>Does_User_Have_Access_To_This_Flow</targetReference>
+        </connector>
+        <object>QuoteLineItem</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

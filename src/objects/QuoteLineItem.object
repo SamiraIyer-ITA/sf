@@ -159,6 +159,14 @@
         <fullName>ServiceDate</fullName>
     </fields>
     <fields>
+        <fullName>Statement_of_Work__c</fullName>
+        <externalId>false</externalId>
+        <label>Statement of Work</label>
+        <length>15000</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
         <fullName>Subtotal</fullName>
     </fields>
     <fields>
