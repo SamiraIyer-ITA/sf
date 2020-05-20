@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>CP_CaptchaFlow_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CaptchaFlow_URL</shortDescription>
+        <value>https://trade.force.com/cp/CaptchaFlowPage</value>
+    </labels>
+    <labels>
         <fullName>CP_Lead_Assignment</fullName>
         <categories>CP</categories>
         <language>en_US</language>
@@ -15,6 +22,20 @@
         <protected>false</protected>
         <shortDescription>CP_NoReply_Alias</shortDescription>
         <value>iowne</value>
+    </labels>
+    <labels>
+        <fullName>CP_Redirect_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP Redirect URL</shortDescription>
+        <value>https://www.trade.gov/moLogin</value>
+    </labels>
+    <labels>
+        <fullName>CP_Transition_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP Transition URL</shortDescription>
+        <value>/</value>
     </labels>
     <labels>
         <fullName>CP_temp_password_sent</fullName>
@@ -96,14 +117,14 @@ folder. If you don’t receive an email in any of your folders, please alert us 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>cp_community_address</shortDescription>
-        <value>https://danieldev-trade.cs33.force.com/MCPCommunity</value>
+        <value>https://trade.force.com/cp</value>
     </labels>
     <labels>
         <fullName>export_gov</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Export.gov URL variable</shortDescription>
-        <value>http://www.export.gov</value>
+        <value>http://legacy.export.gov</value>
     </labels>
     <labels>
         <fullName>fflib_security_error_field_not_insertable</fullName>
