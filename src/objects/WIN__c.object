@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -4548,10 +4648,10 @@ Other Government entities that were involved with the WIN.</description>
         <active>true</active>
         <description>Once created, the record type can not be changed unless have the Modify Locked WINs.  Typically should not be done.</description>
         <errorConditionFormula>AND(
-(ISCHANGED( RecordTypeId ) &amp;&amp; PRIORVALUE(RecordTypeId) &lt;&gt; NULL),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;) 
+(ISCHANGED( RecordTypeId ) &amp;&amp; PRIORVALUE(RecordTypeId) &lt;&gt; NULL),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;)
 ||
 (ISCHANGED( WIN_Type__c ) &amp;&amp; PRIORVALUE(WIN_Type__c) &lt;&gt; NULL),
-( $User.Can_Modify_Locked_WINs__c = FALSE),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;) 
+( $User.Can_Modify_Locked_WINs__c = FALSE),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;)
 )</errorConditionFormula>
         <errorMessage>Can not change WIN record type.</errorMessage>
     </validationRules>
@@ -4560,16 +4660,16 @@ Other Government entities that were involved with the WIN.</description>
         <active>true</active>
         <description>Unless administrator, can not edit wins marked for removal.
 
-AND( 
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
-Request_WIN_Removal__c = TRUE 
+AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+Request_WIN_Removal__c = TRUE
 )</description>
         <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;System Administrator&quot;,
 $Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
 $Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;,
 $Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;,
-PRIORVALUE(Request_WIN_Removal__c) &lt;&gt; FALSE &amp;&amp; 
+PRIORVALUE(Request_WIN_Removal__c) &lt;&gt; FALSE &amp;&amp;
 ($Profile.Name &lt;&gt; &quot;System Administrator&quot;)
 )</errorConditionFormula>
         <errorMessage>This WIN is requested to be removed.  If you believe this is in error, please contact the help desk immediately.</errorMessage>
@@ -4596,7 +4696,7 @@ if({!WIN__c.Country_in_Win__c} &lt; 1)
   validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add a Country to the WIN in order to submit for approval.&apos;;
 
 if({!WIN__c.WIN_Contributors_Rollup__c} &lt; 1)
-  validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add a Contributors to the WIN in order to submit for approval.&apos;; 
+  validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add a Contributors to the WIN in order to submit for approval.&apos;;
 
 if({!WIN__c.Industry_Rollup__c} &lt; 1 )
   validationMsg=  validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add an Industry to the WIN in order to submit for approval.&apos;;
