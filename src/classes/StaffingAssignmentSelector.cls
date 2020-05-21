@@ -9,6 +9,13 @@ public class StaffingAssignmentSelector
     private Schema.sObjectType getSObjectType() {
         return Staffing_Assignment__c.SObjectType;
     }
+	public List<Staffing_Assignment__c> selectByParentId(String Id) {
+
+		fflib_QueryFactory staffingAssignmentQueryFactory = newQueryFactory();
+		staffingAssignmentQueryFactory.selectFields(new Set<String>{'Title__c', 'User__c', 'User__r.Name' });
+		String condition = 'Petition__c = :parentIdString';
+		return (List<Staffing_Assignment__c>) Database.query(staffingAssignmentQueryFactory.setCondition(condition).toSOQL());
+	}
 
     private List<Schema.SObjectField> getAdditionalSObjectFieldList() {
         return new List<Schema.SObjectField>{

@@ -1,0 +1,42 @@
+<!--
+ - Created by Skip Kleckner on 5/11/2020.
+ -->
+
+<!-- Staffing Assignment -->
+<template>
+	<template if:false={staffingAssignmentSelected}>
+		<lightning-card title="Staffing Assignments" icon-name="custom:custom18">
+			<div class="card">
+				<template if:false={gotData}>
+					<div class="slds-p-around--medium">
+						<div class="slds-text-heading--small">Determining available Staffing Assignments...</div>
+					</div>
+				</template>
+
+				<template if:true={hasNoStaffingAssignments}>
+					<div class="slds-p-around--medium slds-text-heading--small">No Staffing Assignments are available.</div>
+				</template>
+				<template if:true={hasStaffingAssignments}>
+					<lightning-datatable
+							data={datatableStaffingAssignments}
+							columns={staffingAssignmentColumns}
+							key-field="Id"
+							onrowselection={handleRowSelection}
+							selected-rows={selectedStaffingAssignmentIds}>
+					</lightning-datatable>
+				</template>
+			</div>
+		</lightning-card>
+	</template>
+	<template if:true={staffingAssignmentSelected}>
+		<lightning-card title="Update Staffing Assignment" icon-name="custom:custom18">
+			<lightning-record-edit-form record-id={staffingAssignmentId} object-api-name="Staffing_Assignment__c" onsuccess={handleSuccess}>
+				<lightning-input-field field-name="Title__c"></lightning-input-field>
+				<lightning-input-field field-name="User__c"></lightning-input-field>
+				<lightning-button label="Save" type="submit" name="Save" variant="brand"></lightning-button>&nbsp;
+				<lightning-button label="Cancel" type="cancel" name="Cancel" onclick={resetStaffingSelection} variant="brand"></lightning-button>
+			</lightning-record-edit-form>
+		</lightning-card>
+	</template>
+
+</template>
