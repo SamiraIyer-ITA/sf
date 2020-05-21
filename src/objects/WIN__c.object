@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -111,7 +211,7 @@
         <fullName>Actual_Follow_on_Value__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Add additional sales made within 12 months of the initial sales in this field</inlineHelpText>
-        <label>Actual Follow-on Value</label>
+        <label>Actual Export Follow-on $ Value</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -124,7 +224,7 @@
         <fullName>Actual_Initial_Value__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>If you have a client provided actual value, please include it here</inlineHelpText>
-        <label>Actual Initial Value</label>
+        <label>Actual Export $ Value - Verified</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -472,7 +572,7 @@
         <fullName>Client_Provided_Value__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>If provided, please note the dollar value of this WIN. Leave blank if not provided.</inlineHelpText>
-        <label>Client Provided Value</label>
+        <label>Actual CD Export $ Value - Verified</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -585,7 +685,7 @@
         <fullName>Description_of_Results__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>For example Sales Revenue, signed distributor/partner agreements or other significant positive outcomes.</inlineHelpText>
-        <label>Description of Results</label>
+        <label>Description of Results/Impact</label>
         <length>4000</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -623,7 +723,7 @@
         <fullName>Estimated_Value_Explanation__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Please explain how you calculated the estimated value above</inlineHelpText>
-        <label>Estimated Value Explanation</label>
+        <label>Explanation of Dollar Value</label>
         <length>32768</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -634,8 +734,8 @@
     <fields>
         <fullName>Estimated_Value__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>Valuation calculated by ITA’s economists for all ITA-approved Trade Barrier WINs.</inlineHelpText>
-        <label>Estimated Value</label>
+        <inlineHelpText>If client did not provide value, please provide an estimation of the dollar value of this WIN</inlineHelpText>
+        <label>ITA Economist Trade Barrier Valuation</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
