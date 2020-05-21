@@ -34,6 +34,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>AutoResponseRules</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Community</name>
     </types>
     <types>
@@ -162,6 +166,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>ProfilePasswordPolicy</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Queue</name>
     </types>
     <types>
@@ -183,6 +191,10 @@
     <types>
         <members>*</members>
         <name>Role</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Settings</name>
     </types>
     <types>
         <members>*</members>

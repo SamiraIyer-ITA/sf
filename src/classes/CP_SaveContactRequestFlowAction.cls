@@ -1,18 +1,34 @@
 global without sharing class CP_SaveContactRequestFlowAction {
     @InvocableMethod(label='Create Contact Request' description='Creates Contact Request Record.')
     global static void createRecord(List<RequestVariables> inputs) {
-        
+        list<lead> leadList = new list<lead>();
+        List<User> defaultUserList = new list<User>();
         ContactRequest newRecord = new ContactRequest();
         RequestVariables userInputs = inputs[0];
         String userType = '';
-        //Standare Fields  
-        newRecord.First_Name__c = userInputs.firstName; //mapedInputs.get('FirstName');
+        //Get User to set from in email
+        if(defaultUserList.isempty())  {
+            defaultUserList = [SELECT Id from User WHERE Alias =: Label.CP_NoReply_Alias];
+        }
+       	 if(!Test.isRunningTest()){
+       		 leadList= [select id from lead where email =: userInputs.email AND recordType.DeveloperName = 'New_Registrant' limit 1];
+         	 if(!leadList.isempty()){
+           		 userInputs.leadId = leadList[0].id;
+        	 }
+        	 else{
+           		 userInputs.leadId = 'NONE';
+      		 }
+       }
+        //Standard Fields  
+        newRecord.First_Name__c = userInputs.firstName; //mapedInputs.get('FirstName');b
         newRecord.Last_Name__c = userInputs.lastName; //mapedInputs.get('LastName');
         newRecord.Email__c = userInputs.email; //mapedInputs.get('Email');
+        newrecord.Company_Name__c = userInputs.companyName;
+        newRecord.RequestDescription =  userInputs.message;
         if(userInputs.country != 'NONE'){
             newRecord.Country_1__c = userInputs.country; //mapedInputs.get('Country');
         }
-        newRecord.RequestReason =  userInputs.requestReasson; //mapedInputs.get('Reason');
+        newRecord.RequestReason =  userInputs.requestReason; //mapedInputs.get('Reason');
         //System and static fields 
         newRecord.OwnerId = userInputs.ownerId; //mapedInputs.get('QueueId');
         newRecord.Status = 'New';
@@ -20,12 +36,17 @@ global without sharing class CP_SaveContactRequestFlowAction {
             newRecord.US_ZIP_CODE__c = userInputs.zipCode;
         }
         //using text as boolean since value is passed from flow  
+        system.debug('converted ? ' + userInputs.converted);
+                system.debug('lid ? ' + userInputs.leadId );
+                        system.debug('cid ? ' + userInputs.contactId );
+
+
         if(userInputs.converted == 'true'){
             newRecord.WhoId = userInputs.contactId;
             userType = 'verified';
         }
         else 
-            if(userInputs.leadId != 'NONE' && userInputs.contactId != ' NONE'){
+            if(userInputs.leadId != 'NONE' && userInputs.contactId != 'NONE'){
                 newRecord.WhoId = userInputs.leadId;
                 userType = 'unverified';
             }
@@ -36,20 +57,22 @@ global without sharing class CP_SaveContactRequestFlowAction {
         sendEmail(newRecord.Email__c,userType,userInputs.contactId,newRecord.Id);
     }
     
-    private static void sendEmail(String toAddress,String userType,String contactId,Id requestId){
-        list<USer> userList = new list <User>();
-        List<EmailTemplate> templatesList = [SELECT Id, Body, Subject from EmailTemplate where DeveloperName = 'Contact_Us_Requested'];
+    private static void sendEmail(String toAddress,String userType,String userId,Id requestId){
+        List<OrgWideEmailAddress> orgEmails = new list<OrgWideEmailAddress>();
+        orgEmails = [SELECT Id FROM OrgWideEmailAddress WHERE Address =: 'noreply@trade.gov' LIMIT 1];
+        List<EmailTemplate> templatesList = [SELECT Id, Body, Subject FROM EmailTemplate WHERE DeveloperName =: 'Contact_Us_Requested'];
         //find an active admin to statisfy email requirment when user is unregistered
-        userList = [select id from user where profile.name = 'System Admin' and isActive = true limit 1];
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.setTemplateId(templatesList[0].Id);
         mail.setSaveAsActivity(false);     
-        system.debug('user type = ' + userType);
         if(userType == 'verified' || userType == 'unverified'){
-            mail.setTargetObjectId(contactId);
+            mail.setTargetObjectId(userId);
         }
         else{
             mail.setTargetObjectId(UserInfo.getUserId());  
+        }
+        if(orgEmails != null && orgEmails.size() > 0){
+       	 mail.setOrgWideEmailAddressId(orgEmails[0].Id);
         }
         mail.setToAddresses(new list<string>{toAddress});
         Messaging.SendEmailResult[] resultMail = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
@@ -59,13 +82,13 @@ global without sharing class CP_SaveContactRequestFlowAction {
         @InvocableVariable(label='First Name' required=true)
         global String firstName;
         @InvocableVariable(label='Last Name' required=true)
-        global String lastNAme;
+        global String lastName;
         @InvocableVariable(label='Email' required=true)
         global String email;
         @InvocableVariable(label='Country Name' required=false)
         global String country;
-        @InvocableVariable(label='Request Reasson' required=false)
-        global String requestReasson;
+        @InvocableVariable(label='Request Reason' required=false)
+        global String requestReason;
         @InvocableVariable(label='Queue Id' required=false)
         global String ownerId;
         @InvocableVariable(label='Zip Code' required=false)
@@ -76,5 +99,9 @@ global without sharing class CP_SaveContactRequestFlowAction {
         global String leadId;
         @InvocableVariable(label='Contact Id' required=false)
         global String contactId;
+        @InvocableVariable(label='Message' required=false)
+        global String message;
+        @InvocableVariable(label='Company Name' required=false)
+        global String companyName;
     }
 }

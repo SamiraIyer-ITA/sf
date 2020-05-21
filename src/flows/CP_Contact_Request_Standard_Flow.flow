@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
+        <name>Get_Group_Id</name>
+        <label>Get Group Id</label>
+        <locationX>351</locationX>
+        <locationY>496</locationY>
+        <actionName>CP_Flow_Query_Groups</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Save_Contact_Request</targetReference>
+        </connector>
+        <inputParameters>
+            <name>groupName</name>
+            <value>
+                <elementReference>FormulaQueueSelector</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>QueueId</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
         <name>Save_Contact_Request</name>
         <label>Save Contact Request</label>
         <locationX>577</locationX>
-        <locationY>497</locationY>
+        <locationY>496</locationY>
         <actionName>CP_SaveContactRequestFlowAction</actionName>
         <actionType>apex</actionType>
         <connector>
             <targetReference>Success_Screen</targetReference>
         </connector>
-        <inputParameters>
-            <name>email</name>
-            <value>
-                <elementReference>EMAIL2</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>ownerId</name>
-            <value>
-                <elementReference>QueueId</elementReference>
-            </value>
-        </inputParameters>
         <inputParameters>
             <name>country</name>
             <value>
@@ -29,15 +38,21 @@
             </value>
         </inputParameters>
         <inputParameters>
-            <name>converted</name>
+            <name>email</name>
             <value>
-                <elementReference>Converted</elementReference>
+                <elementReference>EMAIL2</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>firstName</name>
+            <name>companyName</name>
             <value>
-                <elementReference>First_Name</elementReference>
+                <elementReference>Company_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>lastName</name>
+            <value>
+                <elementReference>Last_Name</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -47,9 +62,33 @@
             </value>
         </inputParameters>
         <inputParameters>
-            <name>lastNAme</name>
+            <name>requestReason</name>
             <value>
-                <elementReference>Last_Name</elementReference>
+                <elementReference>IssueBox</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>firstName</name>
+            <value>
+                <elementReference>First_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>zipCode</name>
+            <value>
+                <elementReference>zipCodeExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>converted</name>
+            <value>
+                <elementReference>Converted</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ownerId</name>
+            <value>
+                <elementReference>QueueId</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -59,63 +98,54 @@
             </value>
         </inputParameters>
         <inputParameters>
-            <name>requestReasson</name>
+            <name>message</name>
             <value>
-                <elementReference>IssueBox</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>zipCode</name>
-            <value>
-                <elementReference>zipCodeExt</elementReference>
+                <elementReference>Message</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
-    <choices>
-        <name>Contactarep</name>
-        <choiceText>Contacting a local trade or export assistance expert (*limited availability)</choiceText>
+    <assignments>
+        <name>Update_IssueBox_flag</name>
+        <label>Turn on validations</label>
+        <locationX>216</locationX>
+        <locationY>403</locationY>
+        <assignmentItems>
+            <assignToReference>DoValidationCheck</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Validate_Form</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <name>objectName</name>
         <dataType>String</dataType>
         <value>
-            <elementReference>contactSelect</elementReference>
+            <stringValue>Sys_Picklist_Values__c</stringValue>
         </value>
-    </choices>
-    <choices>
-        <name>Issuewiththewebsite</name>
-        <choiceText>Issue with the website</choiceText>
+    </constants>
+    <constants>
+        <name>PickListName</name>
         <dataType>String</dataType>
-    </choices>
-    <choices>
-        <name>Mediainquiry</name>
-        <choiceText>Media inquiry&amp;nbsp;(* media members only)</choiceText>
-        <dataType>String</dataType>
-    </choices>
-    <choices>
-        <name>Mytradegovaccount</name>
-        <choiceText>My trade gov account</choiceText>
-        <dataType>String</dataType>
-    </choices>
-    <choices>
-        <name>Other2</name>
-        <choiceText>Other</choiceText>
-        <dataType>String</dataType>
-    </choices>
-    <choices>
-        <name>Resolvingatradebarrier</name>
-        <choiceText>Resolving a trade barrier</choiceText>
-        <dataType>String</dataType>
-    </choices>
+        <value>
+            <stringValue>Country</stringValue>
+        </value>
+    </constants>
     <decisions>
         <name>Validate_Form</name>
         <label>Validate Form</label>
-        <locationX>71</locationX>
-        <locationY>497</locationY>
+        <locationX>83</locationX>
+        <locationY>612</locationY>
         <defaultConnector>
             <targetReference>get_contact</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>No selection / to many selectionss</defaultConnectorLabel>
+        <defaultConnectorLabel>validation Passed</defaultConnectorLabel>
         <rules>
             <name>No_Next_On_Trade_Barrier</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>IssueBox</leftValueReference>
                 <operator>EqualTo</operator>
@@ -123,10 +153,45 @@
                     <stringValue>Resolving a trade barrier</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>CountryErrorFlag2</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SelectErrorFlag2</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>EmailErrorFlag</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ZipCodeErrorFlag</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IssueBox</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Contact_us</targetReference>
             </connector>
-            <label>No Next On Trade Barrier</label>
+            <label>Error Flags go back to screen and display errors</label>
         </rules>
     </decisions>
     <dynamicChoiceSets>
@@ -162,7 +227,7 @@
         <picklistObject>ContactRequest</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
-        <name>Reqiest_Reason_2</name>
+        <name>Request_Reason_2</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
         <object xsi:nil="true"/>
@@ -172,29 +237,13 @@
     <formulas>
         <name>Asia_Region</name>
         <dataType>Boolean</dataType>
-        <expression>if( {!Global} == &apos;Asian Development Bank&apos; || {!Global} == &apos;Australia&apos; || {!Global} == &apos;Banglades&apos; || {!Global} == &apos;Brunei&apos; || {!Global} == &apos;Burma&apos; || {!Global} == &apos;Fiji&apos; || {!Global} == &apos;India&apos; || {!Global} == &apos;Indonesia&apos; || {!Global} == &apos;Japan&apos; || {!Global} == &apos;Korea&apos; || {!Global} == &apos;Laos&apos; || {!Global} == &apos;Malaysia&apos; || {!Global} == &apos;Nepa&apos; || {!Global} == &apos;New Zealand&apos; || 
-{!Global} == &apos;Pakistan&apos; || {!Global} == &apos;Philippines&apos; || {!Global} == &apos;Singapore&apos; || {!Global} == &apos;Sri Lanka&apos; || {!Global} == &apos;Taiwan&apos; || {!Global} == &apos;Thailand&apos; ,true,false)</expression>
-    </formulas>
-    <formulas>
-        <name>builderBox</name>
-        <dataType>String</dataType>
-        <expression>&apos;No longer in USE&apos;</expression>
-    </formulas>
-    <formulas>
-        <name>CheckBoxCount</name>
-        <dataType>Number</dataType>
-        <expression>1</expression>
-        <scale>0</scale>
+        <expression>if( {!flowCountry} == &apos;Asian Development Bank&apos; || {!flowCountry} == &apos;Australia&apos; || {!flowCountry} == &apos;Banglades&apos; || {!flowCountry} == &apos;Brunei&apos; || {!flowCountry} == &apos;Burma&apos; || {!flowCountry} == &apos;Fiji&apos; || {!flowCountry} == &apos;India&apos; || {!flowCountry} == &apos;Indonesia&apos; || {!flowCountry} == &apos;Japan&apos; || {!flowCountry} == &apos;Korea&apos; || {!flowCountry} == &apos;Laos&apos; || {!flowCountry} == &apos;Malaysia&apos; || {!flowCountry} == &apos;Nepa&apos; || {!flowCountry} == &apos;New Zealand&apos; || 
+{!flowCountry} == &apos;Pakistan&apos; || {!flowCountry} == &apos;Philippines&apos; || {!flowCountry} == &apos;Singapore&apos; || {!flowCountry} == &apos;Sri Lanka&apos; || {!flowCountry} == &apos;Taiwan&apos; || {!flowCountry} == &apos;Thailand&apos; ,true,false)</expression>
     </formulas>
     <formulas>
         <name>China_Region</name>
         <dataType>Boolean</dataType>
-        <expression>if({!Global} == &apos;China&apos; || {!Global} == &apos;Hong Kong&apos; ,true,false)</expression>
-    </formulas>
-    <formulas>
-        <name>conditionalerrormessage</name>
-        <dataType>String</dataType>
-        <expression>if({!CheckBoxCount} == 0,&apos;Please Select a reason for your request&apos;,if({!CheckBoxCount} &gt;1,&apos;Please select only one help request reason&apos;,null))</expression>
+        <expression>if({!flowCountry} == &apos;China&apos; || {!flowCountry} == &apos;Hong Kong&apos; ,true,false)</expression>
     </formulas>
     <formulas>
         <name>contactExt</name>
@@ -207,32 +256,41 @@
         <expression>if(IsNull({!conversionDate}),&apos;false&apos;,&apos;true&apos;)</expression>
     </formulas>
     <formulas>
+        <name>CountryErrorFlag2</name>
+        <dataType>Boolean</dataType>
+        <expression>if({!DoValidationCheck} == true &amp;&amp; ({!flowCountry} == &quot;--None--&quot; || {!flowCountry} == &quot;--Select--&quot;),true,false)</expression>
+    </formulas>
+    <formulas>
         <name>countryExt</name>
         <dataType>String</dataType>
-        <expression>if(isBlank({!Global}),&apos;NONE&apos;,{!Global})</expression>
+        <expression>if(isBlank({!flowCountry}),&apos;NONE&apos;,{!flowCountry})</expression>
+    </formulas>
+    <formulas>
+        <name>EmailErrorFlag</name>
+        <dataType>Boolean</dataType>
+        <expression>if({!DoValidationCheck} == true &amp;&amp; REGEX ( UPPER ( {!EMAIL2}) ,&quot;^[A-Z0-9._%+-/!#$%&amp;&apos;*=?^_`{|}~]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$&quot;),false,true)</expression>
     </formulas>
     <formulas>
         <name>Europe_Region1</name>
         <dataType>Boolean</dataType>
-        <expression>if({!Global} == &apos;Albania&apos; || {!Global} == &apos;Belgium&apos; || {!Global} == &apos;Austria&apos; || {!Global} == &apos;Croatia&apos; || {!Global} == &apos;Bosnia Herzegovina&apos; || {!Global} == &apos;Bulgaria&apos; || {!Global} == &apos;Czech Republic&apos; || 
-{!Global} == &apos;Denmark&apos; || {!Global} == &apos;Estonia&apos; || {!Global} == &apos;European Union&apos; ||  {!Global} == &apos;Finland&apos; || {!Global} == &apos;&apos; || {!Global} == &apos;France&apos; || 
-{!Global} == &apos;Germany&apos; || {!Global} == &apos;Greece&apos; || {!Global} == &apos;Hungary&apos; || {!Global} == &apos;Ireland&apos; || {!Global} == &apos;Italy&apos; || {!Global} == &apos;Kosovo&apos; || {!Global} == &apos;Latvia&apos; || 
-{!Global} == &apos;Lithuania&apos; || {!Global} == &apos;Moldova&apos; || {!Global} == &apos;Montenegro&apos; || {!Global} == &apos;Netherlands&apos; || {!Global} == &apos;North Macedonia &apos; || {!Global} == &apos;Norway&apos; || 
-{!Global} == &apos;Poland&apos; || {!Global} == &apos;Portugal&apos; || {!Global} == &apos;Romania&apos; || {!Global} == &apos;Russia&apos; || {!Global} == &apos;Serbia&apos; || {!Global} == &apos;Slovakia&apos; || {!Global} == &apos;Sweden&apos; || 
-{!Global} == &apos;Slovenia&apos; || {!Global} == &apos;Spain&apos; || {!Global} == &apos;Switzerland&apos; || {!Global} == &apos;United Kingdom&apos; ,true,false)</expression>
+        <expression>if({!flowCountry} == &apos;Albania&apos; || {!flowCountry} == &apos;Belgium&apos; || {!flowCountry} == &apos;Austria&apos; || {!flowCountry} == &apos;Croatia&apos; || {!flowCountry} == &apos;Bosnia Herzegovina&apos; || {!flowCountry} == &apos;Bulgaria&apos; || {!flowCountry} == &apos;Czech Republic&apos; || 
+{!flowCountry} == &apos;Denmark&apos; || {!flowCountry} == &apos;Estonia&apos; || {!flowCountry} == &apos;European Union&apos; ||  {!flowCountry} == &apos;Finland&apos; || {!flowCountry} == &apos;&apos; || {!flowCountry} == &apos;France&apos; || 
+{!flowCountry} == &apos;Germany&apos; || {!flowCountry} == &apos;Greece&apos; || {!flowCountry} == &apos;Hungary&apos; || {!flowCountry} == &apos;Ireland&apos; || {!flowCountry} == &apos;Italy&apos; || {!flowCountry} == &apos;Kosovo&apos; || {!flowCountry} == &apos;Latvia&apos; || 
+{!flowCountry} == &apos;Lithuania&apos; || {!flowCountry} == &apos;Moldova&apos; || {!flowCountry} == &apos;Montenegro&apos; || {!flowCountry} == &apos;Netherlands&apos; || {!flowCountry} == &apos;North Macedonia &apos; || {!flowCountry} == &apos;Norway&apos; || 
+{!flowCountry} == &apos;Poland&apos; || {!flowCountry} == &apos;Portugal&apos; || {!flowCountry} == &apos;Romania&apos; || {!flowCountry} == &apos;Russia&apos; || {!flowCountry} == &apos;Serbia&apos; || {!flowCountry} == &apos;Slovakia&apos; || {!flowCountry} == &apos;Sweden&apos; || 
+{!flowCountry} == &apos;Slovenia&apos; || {!flowCountry} == &apos;Spain&apos; || {!flowCountry} == &apos;Switzerland&apos; || {!flowCountry} == &apos;United Kingdom&apos; ,true,false)</expression>
     </formulas>
     <formulas>
         <name>FormulaQueueSelector</name>
         <dataType>String</dataType>
-        <expression>if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;
- {!U_S} != &apos;Enter U.S. Zip Code&apos; &amp;&amp; !isBlank({!U_S}),&apos;CP_Contact_US_1&apos;,
-if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp; 
-{!Asia_Region},&apos;CP_Contact_US_2&apos;,
-if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!China_Region},&apos;CP_Contact_US_3&apos;,
-if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!Europe_Region1},&apos;CP_Contact_US_4&apos;,
-if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!Middle_East_And_Africa_Region},&apos;CP_Contact_US_5&apos;,
-if(({!IssueBox}) == &apos;Contacting a local trade or export assistance expert (*limited availability)&apos; &amp;&amp;  {!Western_Hemisphere_And_Canada},&apos;CP_Contact_US_6&apos;,
-if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos;CP_Contact_US_8&apos;)))))))</expression>
+        <expression>if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;{!U_S} != &apos;Enter U.S. Zip Code&apos; &amp;&amp; !isBlank({!U_S}),&apos;CP_Contact_US_1&apos;,
+if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp; {!Asia_Region},&apos;CP_Contact_US_2&apos;,
+if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!China_Region},&apos;CP_Contact_US_3&apos;,
+if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Europe_Region1},&apos;CP_Contact_US_4&apos;,
+if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Middle_East_And_Africa_Region},&apos;CP_Contact_US_5&apos;,
+if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Western_Hemisphere_And_Canada},&apos;CP_Contact_US_6&apos;,
+if({!IssueBox} = &apos;Policy-Identifying Top Markets-Industry Trends&apos;, &apos;CP_Contact_US_9&apos;,
+if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apos;CP_Contact_US_8&apos;))))))))</expression>
     </formulas>
     <formulas>
         <name>LeadIdForExt</name>
@@ -242,34 +300,18 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <formulas>
         <name>Middle_East_And_Africa_Region</name>
         <dataType>Boolean</dataType>
-        <expression>if({!Global} == &apos;Afghanistan&apos; || {!Global} == &apos;African&apos; || {!Global} == &apos;Algeria&apos; || {!Global} == &apos;Angola&apos; || {!Global} == &apos;Armenia&apos; || {!Global} == &apos;Azerbaijan&apos; || {!Global} == &apos;Bahrain&apos; || 
-{!Global} == &apos;Benin&apos; || {!Global} == &apos;Botswana&apos; || {!Global} == &apos;Burkina&apos; || {!Global} == &apos;Cambodia&apos; || {!Global} == &apos;Cameroon&apos; || {!Global} == &apos;Chad&apos; ||
- {!Global} == &apos;Congo, the Democratic Republic of the&apos; || {!Global} == JSENCODE(&quot;Cote d&apos;Ivoire&quot;) || {!Global} == &apos;Cyprus&apos; || {!Global} == &apos;Egypt&apos; || {!Global} == &apos;Eswatini&apos; || {!Global} == &apos;Ethiopia&apos; || 
-{!Global} == &apos;Gabon&apos; || {!Global} == &apos;Gambia&apos; || {!Global} == &apos;Georgia&apos; || {!Global} == &apos;Ghana&apos; || {!Global} == &apos;Guinea&apos; || {!Global} == &apos;Guyana&apos; || {!Global} == &apos;Israel&apos; || {!Global} == &apos;Jordan&apos; || {!Global} == &apos;Kazakhstan&apos; || {!Global} == &apos;Kenya&apos; || {!Global} == &apos;Kuwait&apos; || {!Global} == &apos;Kyrgyz Republic&apos; || {!Global} == &apos;Lebanon&apos; || {!Global} == &apos;Liberia&apos; || {!Global} == &apos;Madagascar&apos; || {!Global} == &apos;Malawi&apos; || {!Global} == &apos;Mali&apos; || {!Global} == &apos;Mauritania&apos; || {!Global} == &apos;Mongolia&apos; || {!Global} == &apos;Morocco&apos; || {!Global} == &apos;Mozambique&apos; || {!Global} == &apos;Namibia&apos; || 
-{!Global} == &apos;Niger&apos; || {!Global} == &apos;Oman&apos; || {!Global} == &apos;Qatar&apos; || {!Global} == &apos;Rwanda&apos; || {!Global} == &apos;Saudi Arabia&apos; || {!Global} == &apos;South Africa&apos; || {!Global} == &apos;Tajikistan&apos; ||
- {!Global} == &apos;Tanzania&apos; || {!Global} == &apos;Trinidad and Tobago&apos; || {!Global} == &apos;Tunisia&apos; || {!Global} == &apos;Turkey&apos; || {!Global} == &apos;Turkmenistan&apos; || {!Global} == &apos;Uganda&apos; || {!Global} == &apos;Ukraine&apos; || 
-{!Global} == &apos;United Arab Emirates&apos; || {!Global} == &apos;Uzbekistan&apos; || {!Global} == &apos;West Bank&apos; || {!Global} == &apos;Zambia&apos; || {!Global} == &apos;Zimbabwe&apos; ,true,false)</expression>
+        <expression>if({!flowCountry} == &apos;Afghanistan&apos; || {!flowCountry} == &apos;African&apos; || {!flowCountry} == &apos;Algeria&apos; || {!flowCountry} == &apos;Angola&apos; || {!flowCountry} == &apos;Armenia&apos; || {!flowCountry} == &apos;Azerbaijan&apos; || {!flowCountry} == &apos;Bahrain&apos; || 
+{!flowCountry} == &apos;Benin&apos; || {!flowCountry} == &apos;Botswana&apos; || {!flowCountry} == &apos;Burkina&apos; || {!flowCountry} == &apos;Cambodia&apos; || {!flowCountry} == &apos;Cameroon&apos; || {!flowCountry} == &apos;Chad&apos; ||
+ {!flowCountry} == &apos;Congo, the Democratic Republic of the&apos; || {!flowCountry} == JSENCODE(&quot;Cote d&apos;Ivoire&quot;) || {!flowCountry} == &apos;Cyprus&apos; || {!flowCountry} == &apos;Egypt&apos; || {!flowCountry} == &apos;Eswatini&apos; || {!flowCountry} == &apos;Ethiopia&apos; || 
+{!flowCountry} == &apos;Gabon&apos; || {!flowCountry} == &apos;Gambia&apos; || {!flowCountry} == &apos;Georgia&apos; || {!flowCountry} == &apos;Ghana&apos; || {!flowCountry} == &apos;Guinea&apos; || {!flowCountry} == &apos;Guyana&apos; || {!flowCountry} == &apos;Israel&apos; || {!flowCountry} == &apos;Jordan&apos; || {!flowCountry} == &apos;Kazakhstan&apos; || {!flowCountry} == &apos;Kenya&apos; || {!flowCountry} == &apos;Kuwait&apos; || {!flowCountry} == &apos;Kyrgyz Republic&apos; || {!flowCountry} == &apos;Lebanon&apos; || {!flowCountry} == &apos;Liberia&apos; || {!flowCountry} == &apos;Madagascar&apos; || {!flowCountry} == &apos;Malawi&apos; || {!flowCountry} == &apos;Mali&apos; || {!flowCountry} == &apos;Mauritania&apos; || {!flowCountry} == &apos;Mongolia&apos; || {!flowCountry} == &apos;Morocco&apos; || {!flowCountry} == &apos;Mozambique&apos; || {!flowCountry} == &apos;Namibia&apos; || 
+{!flowCountry} == &apos;Niger&apos; || {!flowCountry} == &apos;Oman&apos; || {!flowCountry} == &apos;Qatar&apos; || {!flowCountry} == &apos;Rwanda&apos; || {!flowCountry} == &apos;Saudi Arabia&apos; || {!flowCountry} == &apos;South Africa&apos; || {!flowCountry} == &apos;Tajikistan&apos; ||
+ {!flowCountry} == &apos;Tanzania&apos; || {!flowCountry} == &apos;Trinidad and Tobago&apos; || {!flowCountry} == &apos;Tunisia&apos; || {!flowCountry} == &apos;Turkey&apos; || {!flowCountry} == &apos;Turkmenistan&apos; || {!flowCountry} == &apos;Uganda&apos; || {!flowCountry} == &apos;Ukraine&apos; || 
+{!flowCountry} == &apos;United Arab Emirates&apos; || {!flowCountry} == &apos;Uzbekistan&apos; || {!flowCountry} == &apos;West Bank&apos; || {!flowCountry} == &apos;Zambia&apos; || {!flowCountry} == &apos;Zimbabwe&apos; ,true,false)</expression>
     </formulas>
     <formulas>
-        <name>QueueSelection</name>
-        <dataType>Number</dataType>
-        <expression>0</expression>
-        <scale>2</scale>
-    </formulas>
-    <formulas>
-        <name>readPickValue2</name>
-        <dataType>String</dataType>
-        <expression>{!IssueBox}</expression>
-    </formulas>
-    <formulas>
-        <name>SelectedReason</name>
-        <dataType>String</dataType>
-        <expression>&apos;&apos;</expression>
-    </formulas>
-    <formulas>
-        <name>ShowLocalTrade</name>
+        <name>SelectErrorFlag2</name>
         <dataType>Boolean</dataType>
-        <expression>false</expression>
+        <expression>if({!DoValidationCheck} == true &amp;&amp; {!IssueBox} == &quot;Select&quot;, true,false)</expression>
     </formulas>
     <formulas>
         <name>TradeBArrierURL</name>
@@ -279,11 +321,16 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <formulas>
         <name>Western_Hemisphere_And_Canada</name>
         <dataType>Boolean</dataType>
-        <expression>if( {!Global} == &apos;Argentina&apos; || {!Global} == &apos;Bahamas&apos; || {!Global} == &apos;Barbados&apos; || {!Global} == &apos;Belize&apos; || {!Global} == &apos;Bermuda&apos; || {!Global} == &apos;Bolivia&apos; || {!Global} == &apos;Brazil&apos; || 
-{!Global} == &apos;Canada&apos; || {!Global} == &apos;Chile&apos; || {!Global} == &apos;Colombia&apos; || {!Global} == &apos;Costa Rica&apos; || {!Global} == &apos;Dominican Republic&apos; || {!Global} == &apos;Ecuador&apos; ||
-{!Global} == &apos;El Salvador&apos; || {!Global} == &apos;Guatemala&apos; || {!Global} == &apos;Haiti&apos; || {!Global} == &apos;Honduras&apos; || {!Global} == &apos;Iceland&apos; || {!Global} == &apos;Jamaica&apos; || {!Global} == &apos;Lesotho&apos; || 
-{!Global} == &apos;Mexico&apos; || {!Global} == &apos;Nicaragua&apos; || {!Global} == &apos;Panama&apos; || {!Global} == &apos;Paraguay&apos; || {!Global} == &apos;Peru&apos; || {!Global} == &apos;Suriname&apos; || {!Global} == &apos;Uruguay&apos; || 
-{!Global} == &apos;Venezuela&apos; ,true,false)</expression>
+        <expression>if( {!flowCountry} == &apos;Argentina&apos; || {!flowCountry} == &apos;Bahamas&apos; || {!flowCountry} == &apos;Barbados&apos; || {!flowCountry} == &apos;Belize&apos; || {!flowCountry} == &apos;Bermuda&apos; || {!flowCountry} == &apos;Bolivia&apos; || {!flowCountry} == &apos;Brazil&apos; || 
+{!flowCountry} == &apos;Canada&apos; || {!flowCountry} == &apos;Chile&apos; || {!flowCountry} == &apos;Colombia&apos; || {!flowCountry} == &apos;Costa Rica&apos; || {!flowCountry} == &apos;Dominican Republic&apos; || {!flowCountry} == &apos;Ecuador&apos; ||
+{!flowCountry} == &apos;El Salvador&apos; || {!flowCountry} == &apos;Guatemala&apos; || {!flowCountry} == &apos;Haiti&apos; || {!flowCountry} == &apos;Honduras&apos; || {!flowCountry} == &apos;Iceland&apos; || {!flowCountry} == &apos;Jamaica&apos; || {!flowCountry} == &apos;Lesotho&apos; || 
+{!flowCountry} == &apos;Mexico&apos; || {!flowCountry} == &apos;Nicaragua&apos; || {!flowCountry} == &apos;Panama&apos; || {!flowCountry} == &apos;Paraguay&apos; || {!flowCountry} == &apos;Peru&apos; || {!flowCountry} == &apos;Suriname&apos; || {!flowCountry} == &apos;Uruguay&apos; || 
+{!flowCountry} == &apos;Venezuela&apos; ,true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeErrorFlag</name>
+        <dataType>Boolean</dataType>
+        <expression>if({!flowCountry} == &quot;United States&quot; &amp;&amp; {!IssueBox} == &quot;Contacting a local trade or export assistance expert (*limited availability)&quot; &amp;&amp; NOT(REGEX({!U_S}, &quot;\\d{5}(-\\d{4})?&quot;)),true,false)</expression>
     </formulas>
     <formulas>
         <name>zipCodeExt</name>
@@ -308,11 +355,11 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
     <recordLookups>
         <name>get_contact</name>
         <label>get contact</label>
-        <locationX>371</locationX>
-        <locationY>118</locationY>
+        <locationX>343</locationX>
+        <locationY>68</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_QueueIDs</targetReference>
+            <targetReference>Get_Group_Id</targetReference>
         </connector>
         <filters>
             <field>Email</field>
@@ -336,62 +383,105 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         </outputAssignments>
     </recordLookups>
     <recordLookups>
-        <name>Get_Lead_Record</name>
-        <label>Get Lead Record</label>
-        <locationX>373</locationX>
-        <locationY>497</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <name>getrecordTypeId</name>
+        <label>getrecordTypeId</label>
+        <locationX>76</locationX>
+        <locationY>182</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Save_Contact_Request</targetReference>
-        </connector>
-        <filters>
-            <field>Email</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>EMAIL2</elementReference>
-            </value>
-        </filters>
-        <object>Lead</object>
-        <outputAssignments>
-            <assignToReference>LeadId</assignToReference>
-            <field>Id</field>
-        </outputAssignments>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_QueueIDs</name>
-        <label>Get QueueIDs</label>
-        <locationX>373</locationX>
-        <locationY>325</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Get_Lead_Record</targetReference>
+            <targetReference>Contact_us</targetReference>
         </connector>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>FormulaQueueSelector</elementReference>
+                <stringValue>ContactRequest</stringValue>
             </value>
         </filters>
-        <object>Group</object>
+        <object>RecordType</object>
         <outputAssignments>
-            <assignToReference>QueueId</assignToReference>
+            <assignToReference>sys_PcikList_RecordTypeId</assignToReference>
             <field>Id</field>
         </outputAssignments>
-        <sortField>Name</sortField>
-        <sortOrder>Desc</sortOrder>
     </recordLookups>
     <screens>
         <name>Contact_us</name>
         <label>Contact us</label>
-        <locationX>74</locationX>
-        <locationY>283</locationY>
+        <locationX>82</locationX>
+        <locationY>307</locationY>
         <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
+        <allowFinish>false</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Validate_Form</targetReference>
+            <targetReference>Update_IssueBox_flag</targetReference>
         </connector>
+        <fields>
+            <name>IssueSelectError</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;font-size: 16px; color: rgb(211, 25, 25);&quot;&gt;Please select an issue to continue.&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>SelectErrorFlag2</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>CountrySelectionError</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;color: rgb(182, 10, 10); font-size: 16px;&quot;&gt;Please select a Country to continue.&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>CountryErrorFlag2</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>EmailErrorMessage</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;font-size: 16px; color: rgb(199, 17, 17);&quot;&gt;Please enter a valid email address.&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>EmailErrorFlag</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>DoValidationCheck</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>ZipCodeErrorMessage</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;font-size: 16px; color: rgb(199, 20, 20);&quot;&gt;Please enter a valid zip code.&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>ZipCodeErrorFlag</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
         <fields>
             <name>help</name>
             <fieldText>&lt;p&gt;I need help with...&lt;/p&gt;</fieldText>
@@ -399,7 +489,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         </fields>
         <fields>
             <name>IssueBox</name>
-            <choiceReferences>Reqiest_Reason_2</choiceReferences>
+            <choiceReferences>Request_Reason_2</choiceReferences>
             <dataType>String</dataType>
             <fieldText>Select an Issue</fieldText>
             <fieldType>DropdownBox</fieldType>
@@ -407,7 +497,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         </fields>
         <fields>
             <name>URL</name>
-            <fieldText>&lt;p&gt;&lt;a href=&quot;https://tcc.export.gov/Report_a_Barrier/index.asp&quot; target=&quot;_blank&quot;&gt;https://tcc.export.gov/Report_a_Barrier/index.asp&lt;/a&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Please report a trade barrier here::&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://tcc.export.gov/Report_a_Barrier/index.asp&quot; target=&quot;_blank&quot;&gt;https://tcc.export.gov/Report_a_Barrier/index.asp&lt;/a&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -421,9 +511,27 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
             </visibilityRule>
         </fields>
         <fields>
+            <name>URL2</name>
+            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Please see our directory of US Offices:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://trade.gov/commercial-services-offices-us&quot; target=&quot;_blank&quot;&gt;https://trade.gov/commercial-services-offices-us&lt;/a&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
             <name>First_Name</name>
             <dataType>String</dataType>
-            <fieldText>First Name:</fieldText>
+            <defaultValue>
+                <elementReference>First_Name</elementReference>
+            </defaultValue>
+            <fieldText>First Name</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
             <visibilityRule>
@@ -435,11 +543,21 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
                         <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
+                    </rightValue>
+                </conditions>
             </visibilityRule>
         </fields>
         <fields>
             <name>Last_Name</name>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>Last_Name</elementReference>
+            </defaultValue>
             <fieldText>Last Name</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
@@ -452,11 +570,21 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
                         <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
+                    </rightValue>
+                </conditions>
             </visibilityRule>
         </fields>
         <fields>
             <name>Company_Name</name>
             <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>Company_Name</elementReference>
+            </defaultValue>
             <fieldText>Company Name</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
@@ -469,12 +597,22 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
                         <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
+                    </rightValue>
+                </conditions>
             </visibilityRule>
         </fields>
         <fields>
             <name>EMAIL2</name>
             <dataType>String</dataType>
-            <fieldText>EMAIL</fieldText>
+            <defaultValue>
+                <elementReference>EMAIL2</elementReference>
+            </defaultValue>
+            <fieldText>Email</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
             <visibilityRule>
@@ -486,15 +624,19 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
                         <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
+                    </rightValue>
+                </conditions>
             </visibilityRule>
         </fields>
         <fields>
             <name>U_S</name>
             <dataType>String</dataType>
-            <defaultValue>
-                <stringValue>Enter U.S. Zip Code</stringValue>
-            </defaultValue>
-            <fieldText>U.S.</fieldText>
+            <fieldText>Zip Code</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
             <visibilityRule>
@@ -503,31 +645,73 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
                     <leftValueReference>IssueBox</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
-                        <stringValue>Contacting a local trade or export assistance expert (*limited availability)</stringValue>
+                        <stringValue>Contact a local trade or export assistance expert</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
         </fields>
         <fields>
             <name>Global</name>
-            <choiceReferences>Country_2</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Country</fieldText>
-            <fieldType>DropdownBox</fieldType>
+            <extensionName>c:Flow_RecordTypePickListScreenCmp</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>selection</name>
+                <value>
+                    <elementReference>flowCountry</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>RecordTypeId</name>
+                <value>
+                    <elementReference>sys_PcikList_RecordTypeId</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>Object</name>
+                <value>
+                    <stringValue>Sys_Picklist_Values__c</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>fieldLabel</name>
+                <value>
+                    <stringValue>Country</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>fieldAPIName</name>
+                <value>
+                    <stringValue>Contact_Us_Country__c</stringValue>
+                </value>
+            </inputParameters>
             <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>flowCountry</assignToReference>
+                <name>selection</name>
+            </outputParameters>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
                     <leftValueReference>IssueBox</leftValueReference>
-                    <operator>EqualTo</operator>
+                    <operator>NotEqualTo</operator>
                     <rightValue>
-                        <stringValue>Contacting a local trade or export assistance expert (*limited availability)</stringValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
         </fields>
         <fields>
             <name>Message</name>
+            <defaultValue>
+                <stringValue>{!Message}</stringValue>
+            </defaultValue>
             <fieldText>Message</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>true</isRequired>
@@ -540,22 +724,59 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
                         <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
+                    </rightValue>
+                </conditions>
             </visibilityRule>
         </fields>
-        <showFooter>true</showFooter>
+        <fields>
+            <name>Captcha</name>
+            <extensionName>c:CaptchaScreenCMP</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>IssueBox</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Resolving a trade barrier</stringValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>issue</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Select</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <showFooter>false</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>Success_Screen</name>
         <label>Success Screen</label>
-        <locationX>757</locationX>
-        <locationY>497</locationY>
+        <locationX>761</locationX>
+        <locationY>496</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <fields>
             <name>Success_message</name>
-            <fieldText>&lt;p&gt;Your request has been submitted!&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Thanks for contacting the International Trade Administration. Your request has been routed to the appropriate staff who will respond back as soon as possible.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -565,7 +786,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <locationX>74</locationX>
         <locationY>67</locationY>
         <connector>
-            <targetReference>Contact_us</targetReference>
+            <targetReference>getrecordTypeId</targetReference>
         </connector>
     </start>
     <status>Active</status>
@@ -602,6 +823,46 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>CountryErrorFlag1</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>DoValidationCheck</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>flowCountry</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>--Select--</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>IssueBoxSelectionError</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
         <name>LeadId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -622,21 +883,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         </value>
     </variables>
     <variables>
-        <name>loopQueueIDS</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>QueueId</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>QueueNameAssignment</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -651,20 +898,20 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;,&apos
         <objectType>Group</objectType>
     </variables>
     <variables>
-        <name>ReadPciklistValue</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>IssueBox</elementReference>
-        </value>
-    </variables>
-    <variables>
         <name>SelectedQueue</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>sys_PcikList_RecordTypeId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>null</stringValue>
+        </value>
     </variables>
 </Flow>

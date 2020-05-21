@@ -2,6 +2,7 @@ public class captchaController {
     
     public String URL{get;set;}
     public String captchaSiteKey{get;set;}
+    public String flowURL{get;set;}
     
     public captchaController() {
         integer lastIndex;
@@ -14,6 +15,7 @@ public class captchaController {
             captchaSettingValues.put(c.name, c.value__c);
         }
         captchaSiteKey =  captchaSettingValues.get('SITE_KEY');
+        flowURL = captchaSettingValues.get('Contact_US_Ext_Site_URL');
         lastIndex = url.lastIndexOf('/');
         url = url.left(lastIndex);
         lastIndex = url.lastIndexOf('/');

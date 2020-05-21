@@ -346,12 +346,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Minority-Owned Indicator</displayNameOverride>
-            <field>Account.Minority_Owned_Indicator__c</field>
-            <table>Contact</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <displayNameOverride>Woman-Owned Indicator</displayNameOverride>
             <field>Account.Woman_Owned_Indicator__c</field>
             <table>Contact</table>
@@ -601,5 +595,18 @@
             <table>Contact.Activities</table>
         </columns>
         <masterLabel>Activities</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LD_USE_DnB_Contact__c</field>
+            <table>Contact</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>DNBoptimizer__DnBContactRecord__c</field>
+            <table>Contact</table>
+        </columns>
+        <masterLabel>DnB</masterLabel>
     </sections>
 </ReportType>

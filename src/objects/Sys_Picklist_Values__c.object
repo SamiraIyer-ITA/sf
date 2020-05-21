@@ -156,8 +156,9 @@
     <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Contact_Us_Country__c</fullName>
+        <defaultValue>&apos;--Select--&apos;</defaultValue>
         <externalId>false</externalId>
-        <label>Contact_Us_Country</label>
+        <label>Country</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -173,19 +174,34 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-        <valueSet>
+<valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
+                    <fullName>Select</fullName>
+                    <default>true</default>
+                    <label>--Select--</label>
+                </value>
+                <value>
+                    <fullName>Contact a local trade or export assistance expert in the US</fullName>
                     <default>false</default>
-                    <label>Contacting a local trade or export assistance expert (*limited availability)</label>
+                    <label>Contact a local trade or export assistance expert in the US</label>
+                </value>
+                <value>
+                    <fullName>Contact a local trade or export assistance expert outside the US</fullName>
+                    <default>false</default>
+                    <label>Contact a local trade or export assistance expert outside the US</label>
                 </value>
                 <value>
                     <fullName>Resolving a trade barrier</fullName>
                     <default>false</default>
                     <label>Resolving a trade barrier</label>
+                </value>
+                <value>
+                    <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
+                    <default>false</default>
+                    <label>Policy-Identifying Top Markets-Industry Trends</label>
                 </value>
                 <value>
                     <fullName>My trade gov account</fullName>
@@ -216,7 +232,365 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Sys-Picklist Values</pluralLabel>
-    <searchLayouts/>
+    <recordTypes>
+        <fullName>ContactRequest</fullName>
+        <active>true</active>
+        <label>ContactRequest</label>
+        <picklistValues>
+            <picklist>Contact_Us_Country__c</picklist>
+            <values>
+                <fullName>--Select--</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Algeria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Angola</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Argentina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Austria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brazil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bulgaria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colombia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Costa Rica</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Croatia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Czech Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Denmark</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dominican Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Egypt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>El Salvador</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethiopia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ghana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greece</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guatemala</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Honduras</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hong Kong</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hungary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>India</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Israel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jordan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kazakhstan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kenya</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea%2C Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kuwait</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lebanon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morocco</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mozambique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Myanmar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nigeria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norway</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pakistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Panama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Philippines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portugal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qatar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Romania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian Federation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saudi Arabia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Serbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovakia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sweden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tanzania%2C United Republic of</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ukraine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Arab Emirates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Kingdom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United States</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uruguay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contact_Us_Request_Reason__c</picklist>
+            <values>
+                <fullName>Contact a local trade or export assistance expert in the US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact a local trade or export assistance expert outside the US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolving a trade barrier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My trade gov account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media inquiry %28* media members only%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue with the website</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Select</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

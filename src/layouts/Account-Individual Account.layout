@@ -2,8 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
@@ -21,12 +19,16 @@
                 <behavior>Edit</behavior>
                 <field>Website</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Account_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Privacy_Shield_Disabled__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CleanStatus</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
@@ -36,20 +38,12 @@
                 <field>Owner_Office__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SME__c</field>
+                <behavior>Edit</behavior>
+                <field>NumberOfEmployees</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ignore__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Privacy_Shield_Disabled__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Account_Type__c</field>
+                <field>LD_USE_DnB_Optimize__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -90,6 +84,8 @@
                 <behavior>Edit</behavior>
                 <field>BillingAddress</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Congressional_District_formula__c</field>
@@ -99,18 +95,87 @@
                 <field>County_Name__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
-        <detailHeading>false</detailHeading>
-        <editHeading>false</editHeading>
-        <label>Data.com</label>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Dun &amp; Bradstreet Company Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>DNBoptimizer__DNB_D_U_N_S_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AnnualRevenue</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Importer_Exporter_Indicator__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Year_Started__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>NAICS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Sic</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>SicDesc</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Location_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Domestic_Ultimate_Business__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Global_Ultimate_Business__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Organization_Size_Formula__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>ParentId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>DNBoptimizer__DnBCompanyRecord__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>D_B_Company_Record_Link__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Traction Hierarchies</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>TracHier__Hierarchy</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -249,6 +314,8 @@
         <fields>Sub_Sector__c</fields>
         <fields>Category__c</fields>
         <fields>Trade_Issue__c</fields>
+        <fields>Type__c</fields>
+        <fields>Sub_Type__c</fields>
         <relatedList>Taxonomy_Tagging__c.Related_Organization__c</relatedList>
     </relatedLists>
     <relatedLists>
