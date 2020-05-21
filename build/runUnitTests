@@ -4,3 +4,4 @@ TEST_PayGovTCSOnlineCallout
 TEST_PayGovTCSSingleServiceCallout
 TEST_PayGovTCSSingleServiceCalloutTest
 TEST_PayGovTCSSingleServiceMockImpl
+di_InjectorCMPFlowProxyControllerTest
