@@ -14,17 +14,6 @@ public class ContactsSelector extends fflib_SObjectSelector implements IContacts
 		return (List<Contact>) selectSObjectsById(idSet);
 	}
 
-	public List<Contact> selectById(Set<Id> idSet, Schema.FieldSet fieldSet) {
-		return
-			(List<Contact>)
-				Database.query(
-					newQueryFactory()
-						.selectFieldSet(fieldSet)
-						.setCondition('Id IN :idSet')
-						.toSOQL()
-				);
-	}
-
 	private List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField>{
 			Contact.Id,
