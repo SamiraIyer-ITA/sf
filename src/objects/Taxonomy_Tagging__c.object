@@ -21354,9 +21354,11 @@ IF(ISBLANK( Related_Application__c),0,1)
         <fullName>Require_One_Taxonomy_Field</fullName>
         <active>true</active>
         <description>Depending on the Record Type, one top level record is required.  For Industry, the Industry field must be filled out; for Country, the Country field must be filled out, etc.</description>
-        <errorConditionFormula>OR(AND(ISPICKVAL(Industry__c,&quot;&quot; ), RecordType.Name = &quot;Industry&quot;),
-AND(ISPICKVAL(Country__c,&quot;&quot; ), RecordType.Name = &quot;Country&quot;),
-AND(ISPICKVAL(Trade_Region__c,&quot;&quot; ), RecordType.Name = &quot;Trade_Region&quot;), AND(ISPICKVAL(Category__c ,&quot;&quot; ), RecordType.Name = &quot;Trade_Issue&quot;)
+        <errorConditionFormula>OR(AND(ISPICKVAL(Industry__c,&quot;&quot; ), RecordType.DeveloperName= &quot;Industry&quot;),
+AND(ISPICKVAL(Country__c,&quot;&quot; ), RecordType.DeveloperName= &quot;Country&quot;),
+AND(ISPICKVAL(Trade_Region__c,&quot;&quot; ), RecordType.DeveloperName= &quot;Trade_Region&quot;),
+AND(ISPICKVAL(Category__c ,&quot;&quot; ), RecordType.DeveloperName= &quot;Trade_Issue&quot;),
+AND(ISPICKVAL(Type__c ,&quot;&quot; ), RecordType.DeveloperName= &quot;Client_Counseling&quot;)
 )</errorConditionFormula>
         <errorMessage>You are required to choose a value before you can save this record.</errorMessage>
     </validationRules>
