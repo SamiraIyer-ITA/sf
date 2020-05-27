@@ -7,15 +7,10 @@ public with sharing class StaffingAssignment {
 
 	@AuraEnabled(cacheable=false)
 	public static List<Staffing_Assignment__c> getStaffingAssignmentByParentId(String parentId) {
-		System.debug('parentId-------'+parentId);
 		pId = parentId;
 		try {
-			Set<Id> parentIds = new Set<Id>{parentId};
 			String wc = '(Petition__c = :parentIdString)';
-			//List<Staffing_Assignment__c> staffingAssignments = StaffingAssignmentSelector.newInstance().selectByParentId('a3U350000002AmbEAE');
 			List<Staffing_Assignment__c> staffingAssignments = StaffingAssignmentSelector.newInstance().selectByParentId(parentId);
-			//List<Staffing_Assignment__c> staffingAssignments = StaffingAssignmentSelector.newInstance().selectByWhereClause(wc);
-			//List<Staffing_Assignment__c> staffingAssignments = [SELECT Id, User__r.Name, User__c, Title__c FROM Staffing_Assignment__c WHERE Petition__c = :parentId];
 			return staffingAssignments;
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());
@@ -24,6 +19,12 @@ public with sharing class StaffingAssignment {
 
 	public static String getParentIdString() {
 		return pId;
+	}
+
+	@AuraEnabled(cacheable=true)
+	public static String getSObjectNameFromRecordId(Id recordId) {
+		System.debug('----------1-------------'+recordId);
+		return recordId.getSObjectType().getDescribe().getName();
 	}
 
 }

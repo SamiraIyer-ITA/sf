@@ -4,25 +4,28 @@
 
 import {LightningElement, wire, track, api} from 'lwc';
 import getStaffingAssignmentByParentId from '@salesforce/apex/StaffingAssignment.getStaffingAssignmentByParentId';
+import getSObjectNameFromRecordId from '@salesforce/apex/StaffingAssignment.getSObjectNameFromRecordId';
 import { refreshApex } from '@salesforce/apex';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 //import {reduceErrors} from 'c/ldsUtils';
 
 const staffingAssignmentColumns = [
     {label: 'Title', fieldName: 'Title__c', type: 'pickList'},
-    {label: 'User', fieldName: 'UserName', Id: 'User__c',type: 'text',}
+    {label: 'User', fieldName: 'UserName', Id: 'User__c',type: 'text'}
 ];
-
-//{label: 'UserId', fieldName: 'User__c', type: 'sObject'},
 
 export default class StaffingAssignment extends LightningElement {
     @api recordId;  //The Petition record Id.
+    @track createStaffing = false;
+    @track showTable = true;
     @track datatableStaffingAssignments;
     @track staffingAssignments = [];  //All available staffingAssignments
     @track staffingAssignmentColumns = staffingAssignmentColumns;
     @track error;
     @track selectedStaffingAssignmentIds = [];
     @track gotData = false;
+    caseId;
+    sObjectName;
 
     get hasNoStaffingAssignments() {
         if (this.gotData) {
@@ -32,12 +35,12 @@ export default class StaffingAssignment extends LightningElement {
         }
         return false;
     }
-    get handleSave() {
 
+    handleCreate() {
+        this.showTable = false;
+        this.createStaffing = true;
     }
-    get handleCancel() {
 
-    }
     get hasStaffingAssignments() {
         if (this.gotData) {
             if (this.datatableStaffingAssignments && this.datatableStaffingAssignments.length > 0) {
@@ -46,12 +49,18 @@ export default class StaffingAssignment extends LightningElement {
         }
         return false;
     }
-
     connectedCallback() {
+        this.getObjectName();
         this.fetchStaffingAssignments();
     }
-    //@wire(getStaffingAssignmentByParentId, {parentId: this.recordId}) staffingAssignmnentList;
 
+    getObjectName(){
+        getSObjectNameFromRecordId({recordId: this.recordId})
+            .then(result=> {
+                console.log(JSON.stringify(result));
+                this.sObjectName = result;
+            })
+    }
     fetchStaffingAssignments() {
         getStaffingAssignmentByParentId({parentId: this.recordId})
             .then(result => {
@@ -68,8 +77,12 @@ export default class StaffingAssignment extends LightningElement {
                             row = {...row, ...pair};
                         }
                     }
+                    if (row.Petition__r) {
+                        if (row.Petition__r.ADCVD_Case__c) {
+                            this.caseId = row.Petition__r.ADCVD_Case__c
+                        }
+                    }
                     rowBuilder.push(row);
-                    //this.datatableStaffingAssignments = [this.datatableStaffingAssignments[0], {Title: }]
                 }
 
                 this.datatableStaffingAssignments = rowBuilder;
@@ -81,26 +94,44 @@ export default class StaffingAssignment extends LightningElement {
                 this.record = undefined;
             });
     }
-
+    handleCancel() {
+        this.showTable = true;
+        this.createStaffing = false;
+        this.resetStaffingSelection();
+    }
     handleSuccess() {
+        this.showTable = true;
+        this.createStaffing = false;
         this.resetStaffingSelection();
         this.fetchStaffingAssignments();
-    }
-
-    resetStaffingSelection() {
         this.dispatchEvent(
             new ShowToastEvent({
                 title: 'Success',
-                message: 'Staffing Assignments updated',
+                message: 'Staffing Assignment updated',
                 variant: 'success'
             })
         );
+    }
+    handleError() {
+        this.resetStaffingSelection();
+        this.fetchStaffingAssignments();
+        this.dispatchEvent(
+            new ShowToastEvent({
+                title: 'Error',
+                message: 'Staffing Assignment Error',
+                variant: 'error'
+            })
+        );
+    }
+
+    resetStaffingSelection() {
         this.selectedStaffingAssignmentIds = [];
     }
 
     handleRowSelection(event) {
         const selectedRows = event.detail.selectedRows;
         this.selectedStaffingAssignmentIds = [];
+        this.showTable = false;
 
         for (let i = 0; i < selectedRows.length; i++) {
             this.selectedStaffingAssignmentIds.push(selectedRows[i].Id);
@@ -109,7 +140,9 @@ export default class StaffingAssignment extends LightningElement {
     get staffingAssignmentSelected() {
         if (this.selectedStaffingAssignmentIds != null && this.selectedStaffingAssignmentIds.length > 0) {
             return true;
+            //this.showTable = false;
         }
+        //this.showTable = true;
         return false;
     }
     get staffingAssignmentId () {

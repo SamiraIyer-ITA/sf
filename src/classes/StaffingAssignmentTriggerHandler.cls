@@ -192,10 +192,13 @@ public without sharing class StaffingAssignmentTriggerHandler {
         for (Id parentId : staffListByParentMap.keySet()) {
             Staffing_Assignment__c programManager = null;
             for (Staffing_Assignment__c sa : staffListByParentMap.get(parentId)) {
-                if (sa.Title__c != 'Program Manager') {continue;}
+                if (sa.Title__c != 'Program Manager')
+                    System.debug('111111111111111111111111');
                 //if we already have a PM and it is not an update
                 if (programManager != null && programManager.Id != sa.Id) {
-                    sa.User__c.addError('There must be only one Program Manager per parent record. Please remove additional Program Managers.');
+                    System.debug('programManager.Id---------'+programManager.Id);
+                    System.debug('sa.Id---------'+sa.Id);
+                    //sa.User__c.addError('There must be only one Program Manager per parent record. Please remove additional Program Managers!!!!!!!!!!!!!!S.');
                     break;
                 } else {
                     programManager = sa;
@@ -203,7 +206,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
             }
             if (programManager == null) {
                 System.debug('staffListByParentMap: ' + staffListByParentMap);
-                throw new DmlException('There is no Program Manager for this parent record. Please add one to continue.');
+                throw new DmlException('There is no Program Manager for this parent record. Please add one to continue!!!!!!!!!!!!!!!!!.');
             }
         }
     }
