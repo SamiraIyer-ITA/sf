@@ -55,7 +55,7 @@
         if (isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
-            new StaffingAssignmentService().createStaffFromDefaults(newList, 'Investigation__c');
+            new StaffingAssignmentService().createStaffFromSObjectParent(newList, 'Investigation__c');
         }
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
