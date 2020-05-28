@@ -16,7 +16,8 @@ public class EventProductCodeGenerator implements IProductCodeGenerator {
 		INDEX_ONE_VALUE = getIndexOneValue();
 		KEY = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZ';
 		LAST_KEY_INDEX = KEY.length() - 1;
-		EVENT_RECORD_TYPE_ID = Schema.SObjectType.Product2.getRecordTypeInfosByName().get('Events').getRecordTypeId();
+		EVENT_RECORD_TYPE_ID = Schema.SObjectType.Product2.getRecordTypeInfosByDeveloperName()
+            .get('Events').getRecordTypeId();
 	}
 
 	private AggregateResultProxy[] groupedMaxProductCodesByFamily {
