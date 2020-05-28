@@ -74,7 +74,7 @@
         <label>Validate Selected Orders</label>
         <locationX>980</locationX>
         <locationY>558</locationY>
-        <actionName>Flow_ValidateRefundableReductionOrders</actionName>
+        <actionName>Flow_ValidateRefundableOrders</actionName>
         <actionType>apex</actionType>
         <connector>
             <targetReference>Has_Invalid_Order</targetReference>
