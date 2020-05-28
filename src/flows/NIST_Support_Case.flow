@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionCalls>
+        <description>Update case reason field based on user profile.</description>
+        <name>Case_Reason</name>
+        <label>Update Case Reason</label>
+        <locationX>571</locationX>
+        <locationY>99</locationY>
+        <actionName>Flow_DetermineNISTCaseReason</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Create_NIST_Case</targetReference>
+        </connector>
+        <outputParameters>
+            <assignToReference>CaseReason</assignToReference>
+            <name>caseReason</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>RecordTypeId</assignToReference>
+            <name>recordTypeId</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>QueueId</assignToReference>
+            <name>queueId</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Minimizes the Utility Item.  Intended for use after a Flow finishes.</description>
+        <name>Minimize_Utility_Item</name>
+        <label>Minimize Utility Item</label>
+        <locationX>1008</locationX>
+        <locationY>99</locationY>
+        <actionName>c:MinimizeUtilityItem</actionName>
+        <actionType>component</actionType>
+    </actionCalls>
+    <choices>
+        <description>The High Priority for a Case.</description>
+        <name>PriorityHigh</name>
+        <choiceText>High</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>High</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <description>The Low Priority.</description>
+        <name>PriorityLow</name>
+        <choiceText>Low</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Low</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <description>Medium Priority for a Case.</description>
+        <name>PriorityMedium</name>
+        <choiceText>Medium</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Medium</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <description>Decision to bypass case input screen at start of flow</description>
+        <name>Bypass_Case_Input_Screen</name>
+        <label>Case Input Screen</label>
+        <locationX>186</locationX>
+        <locationY>221</locationY>
+        <defaultConnector>
+            <targetReference>Nist_Case_Input</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Send to Input Screen</defaultConnectorLabel>
+        <rules>
+            <name>Send_Admin_to_Input_Screen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>UserProfile</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Admin</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Nist_Case_Input</targetReference>
+            </connector>
+            <label>Send Admin to Input Screen</label>
+        </rules>
+        <rules>
+            <name>Bypass_Input_Screen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseSubject</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>caseDescription</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_Reason</targetReference>
+            </connector>
+            <label>Bypass Input Screen</label>
+        </rules>
+    </decisions>
+    <description>This flow allows users to create support cases related to the Transaction Management app.</description>
+    <dynamicChoiceSets>
+        <name>PriorityPKlist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Priority</picklistField>
+        <picklistObject>Case</picklistObject>
+        <sortOrder>Asc</sortOrder>
+    </dynamicChoiceSets>
+    <formulas>
+        <description>The Id of the Case Owner.</description>
+        <name>CaseOwner</name>
+        <dataType>String</dataType>
+        <expression>IF({!CaseReason} = &quot;From NIST&quot;, {!QueueId}, {!$User.Id})</expression>
+    </formulas>
+    <formulas>
+        <description>The message that will display on the final screen.</description>
+        <name>FinalScreenMessage</name>
+        <dataType>String</dataType>
+        <expression>IF({!CaseReason} = &quot;To NIST&quot;, &quot;Thank you for your submission.  NIST has been notified of your case.&quot;, &quot;Thank you for your submission.  A Payment Administrator will review your case shortly.&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>Return user profile name</description>
+        <name>UserProfile</name>
+        <dataType>String</dataType>
+        <expression>{!$Profile.Name}</expression>
+    </formulas>
+    <interviewLabel>NIST Support Case {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>NIST Support Case</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <description>Create NIST case record</description>
+        <name>Create_NIST_Case</name>
+        <label>Create NIST Case</label>
+        <locationX>703</locationX>
+        <locationY>99</locationY>
+        <assignRecordIdToReference>varCaseId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Confirmation</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>CaseOwner</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <elementReference>Priority</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Reason</field>
+            <value>
+                <elementReference>CaseReason</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>RecordTypeId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>Payment/Refund</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordCreates>
+    <screens>
+        <name>Confirmation</name>
+        <label>Confirmation</label>
+        <locationX>854</locationX>
+        <locationY>99</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Minimize_Utility_Item</targetReference>
+        </connector>
+        <fields>
+            <name>Thanks</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;{!FinalScreenMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <description>This screen is what users will be filling out to create transaction case</description>
+        <name>Nist_Case_Input</name>
+        <label>Nist Case Input Screen</label>
+        <locationX>422</locationX>
+        <locationY>317</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Case_Reason</targetReference>
+        </connector>
+        <fields>
+            <name>Initial</name>
+            <fieldText>&lt;p&gt;Complete the fields below to create your case.  Add enough information in the description for relevant Order or Payment records to be identifiable.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Priority</name>
+            <choiceReferences>PriorityLow</choiceReferences>
+            <choiceReferences>PriorityMedium</choiceReferences>
+            <choiceReferences>PriorityHigh</choiceReferences>
+            <dataType>String</dataType>
+            <defaultSelectedChoiceReference>PriorityMedium</defaultSelectedChoiceReference>
+            <fieldText>Priority</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Subject</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>caseSubject</elementReference>
+            </defaultValue>
+            <fieldText>Subject</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Description</name>
+            <defaultValue>
+                <stringValue>{!caseDescription}</stringValue>
+            </defaultValue>
+            <fieldText>Description</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>158</locationY>
+        <connector>
+            <targetReference>Bypass_Case_Input_Screen</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The passed-in description of a case.</description>
+        <name>caseDescription</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The Case Reason.  Will be &quot;To NIST&quot; or &quot;From NIST&quot;.</description>
+        <name>CaseReason</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The Case Reason.  Will be &quot;To NIST&quot; or &quot;From NIST&quot;.</description>
+        <name>CaseReasonPk</name>
+        <dataType>Picklist</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The passed-in subject of a case.</description>
+        <name>caseSubject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>curNISTcase</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <description>The Id of the Transaction Management Support Queue.</description>
+        <name>QueueId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The Transaction Management Record Type Id</description>
+        <name>RecordTypeId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varCaseId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
