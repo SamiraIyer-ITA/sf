@@ -67,39 +67,48 @@ private class Flow_IssueCreditCardRefundTest {
 	@IsTest
 	static void createRefundRecord_Positive() {
 		Flow_IssueCreditCardRefund.RequestVariables requestVariables = new Flow_IssueCreditCardRefund.RequestVariables();
-		requestVariables.refundAmount = 200;
 		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId, Refunded_Amount__c, TotalAmount FROM ORDER WHERE Name = 'Paid Order X'];
+		requestVariables.orders = orders;
+		List<String> orderRefundReasons          = new List<String>{'Other'};
+		requestVariables.orderRefundReasons      = orderRefundReasons;
+		List<String> orderRefundAmounts          = new List<String>{'200.00'};
+		requestVariables.orderRefundAmounts      = orderRefundAmounts;
+		List<String> orderRefundExplanations     = new List<String>{'An Explanation'};
+		requestVariables.orderRefundExplanations = orderRefundExplanations;
+		List<Flow_IssueCreditCardRefund.RequestVariables> requestVariablesList = new List<Flow_IssueCreditCardRefund.RequestVariables>();
+		requestVariablesList.add(requestVariables);
+		List<Flow_IssueCreditCardRefund.ResponseVariables> returnList = Flow_IssueCreditCardRefund.issueCreditCardRefund(requestVariablesList);
+		System.assertEquals(null, returnList[0].errorReasons);
+		System.assertEquals(false, returnList[0].hasError);
+	}
+
+	@IsTest
+	static void createRefundRecord_Negative() {
+		Flow_IssueCreditCardRefund.RequestVariables requestVariables = new Flow_IssueCreditCardRefund.RequestVariables();
+		List<String> orderRefundReasons          = new List<String>{'Other'};
+		requestVariables.orderRefundReasons      = orderRefundReasons;
+		List<String> orderRefundAmounts          = new List<String>{'2000.00'};
+		requestVariables.orderRefundAmounts      = orderRefundAmounts;
+		List<String> orderRefundExplanations     = new List<String>{'An Explanation'};
+		requestVariables.orderRefundExplanations = orderRefundExplanations;
+		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
 		requestVariables.orders = orders;
 		List<Flow_IssueCreditCardRefund.RequestVariables> requestVariablesList = new List<Flow_IssueCreditCardRefund.RequestVariables>();
 		requestVariablesList.add(requestVariables);
 		List<Flow_IssueCreditCardRefund.ResponseVariables> returnList = Flow_IssueCreditCardRefund.issueCreditCardRefund(requestVariablesList);
-		System.debug(returnList);
-		System.assertNotEquals(null, returnList[0].refundId);
+		System.assertNotEquals(null, returnList[0].errorReasons);
+		System.assert(returnList[0].hasError);
 	}
 
 	@IsTest
 	static void createRefundRecord_Exception() {
 		Flow_IssueCreditCardRefund.RequestVariables requestVariables = new Flow_IssueCreditCardRefund.RequestVariables();
-		requestVariables.refundAmount = 2000;
-		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
-		requestVariables.orders = orders;
-		List<Flow_IssueCreditCardRefund.RequestVariables> requestVariablesList = new List<Flow_IssueCreditCardRefund.RequestVariables>();
-		requestVariablesList.add(requestVariables);
-		String exceptionMessage;
-		try {
-			List<Flow_IssueCreditCardRefund.ResponseVariables> returnList = Flow_IssueCreditCardRefund.issueCreditCardRefund(requestVariablesList);
-		} catch (Exception e) {
-			exceptionMessage = e.getMessage();
-			System.debug(e.getMessage());
-		} finally {
-			System.assert(exceptionMessage.startsWith('List index out of bounds'));
-		}
-	}
-
-	@IsTest
-	static void createRefundRecord_Exception2() {
-		Flow_IssueCreditCardRefund.RequestVariables requestVariables = new Flow_IssueCreditCardRefund.RequestVariables();
-		requestVariables.refundAmount = 2000;
+		List<String> orderRefundReasons          = new List<String>{'Other'};
+		requestVariables.orderRefundReasons      = orderRefundReasons;
+		List<String> orderRefundAmounts          = new List<String>{'2000.00'};
+		requestVariables.orderRefundAmounts      = orderRefundAmounts;
+		List<String> orderRefundExplanations     = new List<String>{'An Explanation'};
+		requestVariables.orderRefundExplanations = orderRefundExplanations;
 		List<Flow_IssueCreditCardRefund.RequestVariables> requestVariablesList = new List<Flow_IssueCreditCardRefund.RequestVariables>();
 		requestVariablesList.add(requestVariables);
 		String exceptionMessage;
@@ -108,7 +117,6 @@ private class Flow_IssueCreditCardRefundTest {
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
-			System.debug('Exception Message: ' + exceptionMessage);
 			System.assertEquals('Attempt to de-reference a null object', exceptionMessage);
 		}
 	}
@@ -116,7 +124,12 @@ private class Flow_IssueCreditCardRefundTest {
 	@IsTest
 	static void createRefundRecord_Error() {
 		Flow_IssueCreditCardRefund.RequestVariables requestVariables = new Flow_IssueCreditCardRefund.RequestVariables();
-		requestVariables.refundAmount = 200;
+		List<String> orderRefundReasons          = new List<String>{'Other'};
+		requestVariables.orderRefundReasons      = orderRefundReasons;
+		List<String> orderRefundAmounts          = new List<String>{'2000.00'};
+		requestVariables.orderRefundAmounts      = orderRefundAmounts;
+		List<String> orderRefundExplanations     = new List<String>{'An Explanation'};
+		requestVariables.orderRefundExplanations = orderRefundExplanations;
 		List<Order> orders = [SELECT Id, Type, Payment2__c, Payment2__r.Payment_Type__c, Order_Paid__c, ContractId, Refunded_Amount__c, TotalAmount FROM ORDER WHERE Name = 'Paid Order X'];
 		orders[0].Payment2__r.Payment_Type__c = 'ACH';
 		update orders[0].Payment2__r;
@@ -124,20 +137,23 @@ private class Flow_IssueCreditCardRefundTest {
 		List<Flow_IssueCreditCardRefund.RequestVariables> requestVariablesList = new List<Flow_IssueCreditCardRefund.RequestVariables>();
 		requestVariablesList.add(requestVariables);
 		List<Flow_IssueCreditCardRefund.ResponseVariables> returnList = Flow_IssueCreditCardRefund.issueCreditCardRefund(requestVariablesList);
-		System.debug(returnList);
 		System.assert(returnList[0].hasError);
 	}
 
 	@IsTest
-	static void createRefundRecord_Error2() {
+	static void createRefundRecord_Negative2() {
 		Flow_IssueCreditCardRefund.RequestVariables requestVariables = new Flow_IssueCreditCardRefund.RequestVariables();
-		requestVariables.refundAmount = 200;
+		List<String> orderRefundReasons          = new List<String>{'Other'};
+		requestVariables.orderRefundReasons      = orderRefundReasons;
+		List<String> orderRefundAmounts          = new List<String>{'200.00'};
+		requestVariables.orderRefundAmounts      = orderRefundAmounts;
+		List<String> orderRefundExplanations     = new List<String>{'An Explanation'};
+		requestVariables.orderRefundExplanations = orderRefundExplanations;
 		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId, Refunded_Amount__c, TotalAmount FROM ORDER];
 		requestVariables.orders = orders;
 		List<Flow_IssueCreditCardRefund.RequestVariables> requestVariablesList = new List<Flow_IssueCreditCardRefund.RequestVariables>();
 		requestVariablesList.add(requestVariables);
 		List<Flow_IssueCreditCardRefund.ResponseVariables> returnList = Flow_IssueCreditCardRefund.issueCreditCardRefund(requestVariablesList);
-		System.debug(returnList);
 		System.assert(returnList[0].hasError);
 	}
 
@@ -145,7 +161,7 @@ private class Flow_IssueCreditCardRefundTest {
 	static void createRefundRecord_Null() {
 		List<Flow_IssueCreditCardRefund.RequestVariables> requestVariablesList = new List<Flow_IssueCreditCardRefund.RequestVariables>();
 		List<Flow_IssueCreditCardRefund.ResponseVariables> returnList = Flow_IssueCreditCardRefund.issueCreditCardRefund(requestVariablesList);
-		System.assertEquals(null, returnList[0].refundId);
+		System.assert(returnList[0].hasError);
 	}
 
 }
