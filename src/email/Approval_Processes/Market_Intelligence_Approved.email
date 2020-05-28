@@ -1,0 +1,4 @@
+This notification is to inform you that I have approved Article {!Market_Intelligence__kav.ArticleNumber} - {!Market_Intelligence__kav.Title}. You may now view it on Legacy.Export.gov, here: https://legacy.export.gov/article?id={!Market_Intelligence__kav.UrlName}.
+
+Thank you,  
+{!Market_Intelligence__kav.Approver__c}
