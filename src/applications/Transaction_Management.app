@@ -342,6 +342,7 @@
     <tabs>standard-Contract</tabs>
     <tabs>standard-Order</tabs>
     <tabs>Payment2__c</tabs>
+    <tabs>standard-report</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Transaction_Management_UtilityBar</utilityBar>
 </CustomApplication>
