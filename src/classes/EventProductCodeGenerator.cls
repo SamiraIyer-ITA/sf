@@ -4,7 +4,7 @@
  *
  * @author Andrew La Russa
  */
-public class EventProductCodeGenerator implements IProductCodeGenerator {
+public inherited sharing class EventProductCodeGenerator implements IProductCodeGenerator {
 
 	private static final String KEY;
 	private static final Integer LAST_KEY_INDEX;
