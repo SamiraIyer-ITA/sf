@@ -108,7 +108,6 @@
         <editHeading>true</editHeading>
         <label>Data.com</label>
         <layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>NumberOfEmployees</field>

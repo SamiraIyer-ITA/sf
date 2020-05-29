@@ -442,11 +442,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.Ultimate_Address_Line1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Client_Form__c.Ultimate_City__c</field>
         <readable>true</readable>
     </fieldPermissions>
