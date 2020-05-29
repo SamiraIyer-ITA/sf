@@ -7,6 +7,9 @@
 @IsTest
 private class OrdersTest {
 
+    static Id legacyRecordTypeId = Schema.SObjectType.Order
+        .getRecordTypeInfosByDeveloperName().get('Legacy').getRecordTypeId();
+
 	@IsTest
 	static void testNewInstanceOfOrdersDomain_PassListWithOneNonInsertedObject_ReturnsValidInterface() {
 		List<Order> orderList  = new List<Order>();
@@ -40,7 +43,7 @@ private class OrdersTest {
         asset.AccountId = myAccount.Id;
         insert asset;
 
-        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+        Order myOrder = new Order(RecordTypeId = legacyRecordTypeId, Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
         insert myOrder;
 
         Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);
@@ -88,7 +91,7 @@ private class OrdersTest {
         asset.AccountId = myAccount.Id;
         insert asset;
 
-        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+        Order myOrder = new Order(RecordTypeId = legacyRecordTypeId, Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
         insert myOrder;
 
         Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);
@@ -119,5 +122,29 @@ private class OrdersTest {
 	static void testOrdersTrigger_InsertOrderRecord_TriggerIsCovered() {
 		try { insert new Order(); } catch (Exception e) {}
 	}
+
+    @IsTest
+    static void testUpdateSystemSearchString_CallWithoutSetup_IssuesNoErrors(){
+        Order e = new Order();
+        List<Order> orderList = new List<Order> {e};
+
+        fflib_ApexMocks mocks = new fflib_ApexMocks();
+        fflibext_ISObjectUnitOfWork mock_uow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
+
+        // Default stub is acceptable; not expecting anything special.  Just don't want a real UOW called.
+        fflibext_Application.UnitOfWork.setMock(mock_uow);
+        try {
+            Orders.newInstance(orderList).updateSystemSearchString(orderList);
+            System.assert(true); // Should be the only assert in this test that actually executes
+        } catch (Exception ex){
+            System.assert(false, 'updateSystemSearchString caused an exception and should not have');
+            System.debug(ex.getStackTraceString());
+        }
+    }
+
+    @IsTest
+    static void testOrderTrigger_InsertOrderRecord_TriggerIsCovered() {
+        try { insert new Order(); } catch (Exception e) {}
+    }
 
 }
