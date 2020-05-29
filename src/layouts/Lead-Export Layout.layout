@@ -108,11 +108,6 @@
         <editHeading>true</editHeading>
         <label>Data.com</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CompanyDunsNumber</field>
-            </layoutItems>
-        </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
