@@ -352,11 +352,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.Target_Address_Line1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Client_Form__c.Target_City__c</field>
         <readable>true</readable>
     </fieldPermissions>
