@@ -110,10 +110,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>DandbCompanyId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>CompanyDunsNumber</field>
             </layoutItems>
         </layoutColumns>
