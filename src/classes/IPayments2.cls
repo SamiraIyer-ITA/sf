@@ -6,6 +6,6 @@
  */
 public interface IPayments2 extends fflib_ISObjectDomain {
 
-	void updateSystemSearchString();
+	void updateSystemSearchString(List<Payment2__c> payments2List);
 
 }

@@ -27,21 +27,19 @@ public class Payments2 extends fflib_SObjectDomain implements IPayments2 {
 	}
 
 	public override void onBeforeInsert() {
-		updateSystemSearchString();
+		updateSystemSearchString(Trigger.New);
 	}
 
 	public override void onBeforeUpdate(Map<Id, SObject> existingRecords) {
-		updateSystemSearchString();
+		updateSystemSearchString(Trigger.New);
 	}
 
-	public void updateSystemSearchString() {
-		List<Payment2__c> payments2ToUpdate = new List<Payment2__c>();
+	public void updateSystemSearchString(List<Payment2__c> payment2List) {
 		try {
-			payments2ToUpdate = Payments2Service.updateSystemSearchStringList(Records);
+			Payments2Service.updateSystemSearchStringList(payment2List);
 		} catch (Payments2Service.Payments2ServiceException e){
 			Records.get(0).addError(e.getMessage());
 		}
-		uow.commitWork();
 	}
 
 }

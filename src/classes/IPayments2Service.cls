@@ -6,6 +6,6 @@
  */
 public interface IPayments2Service {
 
-	List<Payment2__c> updateSystemSearchStringList(List<Payment2__c> payments2List);
+	void updateSystemSearchStringList(List<Payment2__c> payments2List);
 
 }

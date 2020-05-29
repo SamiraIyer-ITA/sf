@@ -232,7 +232,7 @@ private class Payment2Test {
 		// Default stub is acceptable; not expecting anything special.  Just don't want a real UOW called.
 		fflibext_Application.UnitOfWork.setMock(mock_uow);
 		try {
-			Payments2.newInstance(payment2List).updateSystemSearchString();
+			Payments2.newInstance(payment2List).updateSystemSearchString(payment2List);
 			System.assert(true); // Should be the only assert in this test that actually executes
 		} catch (Exception ex){
 			System.assert(false, 'updateSystemSearchString caused an exception and should not have');

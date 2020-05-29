@@ -13,8 +13,8 @@ public with sharing class Payments2Service {
 		return (IPayments2Service) fflibext_Application.Service.newInstance(IPayments2Service.class);
 	}
 
-	public static List<Payment2__c> updateSystemSearchStringList(List<Payment2__c> payments2List){
-		return service().updateSystemSearchStringList(payments2List);
+	public static void updateSystemSearchStringList(List<Payment2__c> payments2List){
+		service().updateSystemSearchStringList(payments2List);
 	}
 
 	public class Payments2ServiceException extends Exception {}

@@ -11,7 +11,7 @@ public class Payments2ServiceImpl implements IPayments2Service{
     /**Update SystemSearchString Field with Transaction Amount,Transaction Date,
     *  and Payment Date.
     */
-    public static List<Payment2__c> updateSystemSearchStringList(List<Payment2__c> paymentList){
+    public static void updateSystemSearchStringList(List<Payment2__c> paymentList){
         for(Payment2__c payment : paymentList){
             String systemSearchString = '$'+payment.Transaction_Amount__c;
             if (payment.Transaction_Date__c != null) {
@@ -23,6 +23,5 @@ public class Payments2ServiceImpl implements IPayments2Service{
             }
             payment.System_Search_String__c = systemSearchString;
         }
-        return paymentList;
     }
 }
