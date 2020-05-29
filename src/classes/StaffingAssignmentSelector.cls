@@ -61,12 +61,11 @@ public class StaffingAssignmentSelector
 				Database.query(newQueryFactory().setLimit(Limits.getLimitQueryRows()).toSOQL());
 	}
 
-	public List<Staffing_Assignment__c> selectByParentId(String Id) {
+	public List<Staffing_Assignment__c> selectByParentId(String Id, Set<String> selectFieldsSet, String condition) {
 
 		fflib_QueryFactory staffingAssignmentQueryFactory = newQueryFactory();
-		staffingAssignmentQueryFactory.selectFields(new Set<String>{'Title__c', 'User__c', 'User__r.Name', 'ADCVD_Case__c', 'Petition__r.ADCVD_Case__c' });
-		String condition = 'Petition__c = :parentIdString';
+		staffingAssignmentQueryFactory.selectFields( selectFieldsSet );
+
 		return (List<Staffing_Assignment__c>) Database.query(staffingAssignmentQueryFactory.setCondition(condition).toSOQL());
 	}
-
 }

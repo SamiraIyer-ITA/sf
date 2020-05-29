@@ -3,27 +3,47 @@
  */
 
 import {LightningElement, wire, track, api} from 'lwc';
+import deleteRecord from '@salesforce/apex/StaffingAssignment.deleteRecord';
 import getStaffingAssignmentByParentId from '@salesforce/apex/StaffingAssignment.getStaffingAssignmentByParentId';
 import getSObjectNameFromRecordId from '@salesforce/apex/StaffingAssignment.getSObjectNameFromRecordId';
+//import { deleteRecord } from 'lightning/uiRecordApi';
 import { refreshApex } from '@salesforce/apex';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 //import {reduceErrors} from 'c/ldsUtils';
 
 const staffingAssignmentColumns = [
+    {
+        type: 'button-icon',
+        fixedWidth: 40,
+        typeAttributes: {
+            iconName: 'utility:edit',
+            name: 'edit',
+            title: 'Edit',
+            variant: 'bare',
+            alternativeText: 'edit',
+            disabled: false
+        }
+    },
     {label: 'Title', fieldName: 'Title__c', type: 'pickList'},
     {label: 'User', fieldName: 'UserName', Id: 'User__c',type: 'text'}
 ];
 
 export default class StaffingAssignment extends LightningElement {
-    @api recordId;  //The Petition record Id.
-    @track createStaffing = false;
+    @api recordId;  //The parent record Id.
+
+    @track showCreate = false;
     @track showTable = true;
+    @track showUpdate = false;
+    @track staffingAssignmentId;
+
     @track datatableStaffingAssignments;
     @track staffingAssignments = [];  //All available staffingAssignments
     @track staffingAssignmentColumns = staffingAssignmentColumns;
     @track error;
-    @track selectedStaffingAssignmentIds = [];
     @track gotData = false;
+    @track spinner = false;
+    @track sortBy;
+    @track sortDirection;
     caseId;
     sObjectName;
 
@@ -38,7 +58,7 @@ export default class StaffingAssignment extends LightningElement {
 
     handleCreate() {
         this.showTable = false;
-        this.createStaffing = true;
+        this.showCreate = true;
     }
 
     get hasStaffingAssignments() {
@@ -82,6 +102,21 @@ export default class StaffingAssignment extends LightningElement {
                             this.caseId = row.Petition__r.ADCVD_Case__c
                         }
                     }
+                    if (row.Segment__r) {
+                        if (row.Segment__r.ADCVD_Case__c) {
+                            this.caseId = row.Segment__r.ADCVD_Case__c
+                        }
+                    }
+                    if (row.ADCVD_Order__r) {
+                        if (row.ADCVD_Order__r.ADCVD_Case__c) {
+                            this.caseId = row.ADCVD_Order__r.ADCVD_Case__c
+                        }
+                    }
+                    if (row.Investigation__r) {
+                        if (row.Investigation__r.ADCVD_Case__c) {
+                            this.caseId = row.Investigation__r.ADCVD_Case__c
+                        }
+                    }
                     rowBuilder.push(row);
                 }
 
@@ -90,19 +125,20 @@ export default class StaffingAssignment extends LightningElement {
                 this.error = undefined;
             })
             .catch(error => {
-                //this.error = reduceErrors(error).join(', ');
                 this.record = undefined;
             });
     }
+
     handleCancel() {
         this.showTable = true;
-        this.createStaffing = false;
-        this.resetStaffingSelection();
+        this.showCreate = false;
+        this.showUpdate = false;
     }
+
     handleSuccess() {
         this.showTable = true;
-        this.createStaffing = false;
-        this.resetStaffingSelection();
+        this.showCreate = false;
+        this.showUpdate = false;
         this.fetchStaffingAssignments();
         this.dispatchEvent(
             new ShowToastEvent({
@@ -113,7 +149,6 @@ export default class StaffingAssignment extends LightningElement {
         );
     }
     handleError() {
-        this.resetStaffingSelection();
         this.fetchStaffingAssignments();
         this.dispatchEvent(
             new ShowToastEvent({
@@ -124,30 +159,75 @@ export default class StaffingAssignment extends LightningElement {
         );
     }
 
-    resetStaffingSelection() {
-        this.selectedStaffingAssignmentIds = [];
+    handleRowAction(event) {
+        var action = event.detail.action;
+        var row = event.detail.row;
+
+        switch (action.name) {
+            case 'edit':
+                this.editRecord(row.Id); // implement this
+                break;
+            default:
+                break;
+        }
     }
 
-    handleRowSelection(event) {
-        const selectedRows = event.detail.selectedRows;
-        this.selectedStaffingAssignmentIds = [];
+    editRecord(id) {
+        this.showUpdate = true;
         this.showTable = false;
+        this.selectedStaffingAssignmentIds = [];
+        this.staffingAssignmentId = id;
+    }
 
-        for (let i = 0; i < selectedRows.length; i++) {
-            this.selectedStaffingAssignmentIds.push(selectedRows[i].Id);
-        }
+    handleDelete(event) {
+        deleteRecord({recordId: this.staffingAssignmentId})
+            .then(() => {
+                this.handleSuccess();
+            })
+            .catch(error => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Error deleting record',
+                        message: error.body.message,
+                        variant: 'error'
+                    })
+                );
+            });
     }
-    get staffingAssignmentSelected() {
-        if (this.selectedStaffingAssignmentIds != null && this.selectedStaffingAssignmentIds.length > 0) {
-            return true;
-            //this.showTable = false;
-        }
-        //this.showTable = true;
-        return false;
+
+    handleSortdata(event) {
+        // field name
+        this.sortBy = event.detail.fieldName;
+
+        // sort direction
+        this.sortDirection = event.detail.sortDirection;
+
+        // calling sortdata function to sort the data based on direction and selected field
+        this.sortData(event.detail.fieldName, event.detail.sortDirection);
     }
-    get staffingAssignmentId () {
-        if (this.selectedStaffingAssignmentIds) {
-            return this.selectedStaffingAssignmentIds[0];
-        }
+
+    sortData(fieldname, direction) {
+        // serialize the data before calling sort function
+        let parseData = JSON.parse(JSON.stringify(this.data));
+
+        // Return the value stored in the field
+        let keyValue = (a) => {
+            return a[fieldname];
+        };
+
+        // cheking reverse direction
+        let isReverse = direction === 'asc' ? 1: -1;
+
+        // sorting data
+        parseData.sort((x, y) => {
+            x = keyValue(x) ? keyValue(x) : ''; // handling null values
+            y = keyValue(y) ? keyValue(y) : '';
+
+            // sorting values based on direction
+            return isReverse * ((x > y) - (y > x));
+        });
+
+        // set the sorted data to data table data
+        this.data = parseData;
     }
 }
