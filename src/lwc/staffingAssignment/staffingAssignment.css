@@ -1,6 +1,7 @@
 /**
  * Created by Skip Kleckner on 5/11/2020.
  */
+
 .table-no-select-all .ui-chkbox-all {
     display: none !important;
 }

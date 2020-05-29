@@ -17,11 +17,11 @@ const staffingAssignmentColumns = [
     {label: 'Recusal Link',type: 'button-icon',
                     fixedWidth: 100,
                     typeAttributes: {
-                        iconName: 'action:preview',
+                        iconName: 'utility:preview',
                         name: 'Link', 
                         title: 'Link',
                         size:'large',
-                        variant: 'brand',
+                        variant: 'border-filled',
                         alternativeText: { fieldName: 'RecusalLink'},
                         disabled: { fieldName: 'RecusalLinkEnable'}
             }
@@ -110,8 +110,6 @@ export default class StaffingAssignment extends LightningElement {
 
                             //Add the User Name to the first level of the row
                             pair = {UserName: row.User__r.Name,RecusalLinkEnable:true};
-                            
-
                             this.mapkeyvaluestore.forEach((rec, idx) =>{
                                     console.log(rec.key); // Now each contact object will have a property called "number"
                                     console.log(rec.value);
