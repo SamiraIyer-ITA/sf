@@ -24,7 +24,6 @@ public with sharing class StaffingAssignment {
 
 	@AuraEnabled(cacheable=false)
 	public static void deleteRecord(Id recordId) {
-
 		try {
 			Set<Id> recordIdSet = new Set<Id> ();
 			recordIdSet.add(recordId);

@@ -6,29 +6,27 @@
 <template>
 	<template if:true={showTable}>
 		<lightning-card title="Staffing Assignments" icon-name="custom:custom18">
-			<div class="slds-text-align_right slds-align-top" style="height:3rem">
-				<lightning-button class="slds-button slds-button_icon" label="Create" type="button" name="Create" variant="neutral" onclick={handleCreate}></lightning-button>&nbsp;&nbsp;
-			</div>
+			<lightning-button slot="actions" label="Create" type="button" name="Create" variant="neutral" onclick={handleCreate}></lightning-button>
 			<div class="card">
-				<template if:false={gotData}>
+				<template if:true={spinner}>
 						<lightning-spinner alternative-text="Loading" variant="brand" size="large">
 						</lightning-spinner>
 				</template>
 
-				<template if:true={hasNoStaffingAssignments}>
+				<template if:false={gotData}>
 					<div class="slds-p-around--medium slds-text-heading--small">No Staffing Assignments are available.</div>
 				</template>
-				<template if:true={hasStaffingAssignments}>
+				<template if:true={gotData}>
 					<lightning-datatable
-							data={datatableStaffingAssignments}
+							data={data}
 							columns={staffingAssignmentColumns}
 							key-field="Id"
 							onrowaction={handleRowAction}
 							hide-checkbox-column="true"
-							sorted-by={sortBy}
+							default-sort-direction={defaultSortDirection}
 							sorted-direction={sortDirection}
-							onsort={handleSortdata}
-					>
+							sorted-by={sortedBy}
+							onsort={onHandleSort}>
 					</lightning-datatable>
 				</template>
 			</div>
@@ -45,7 +43,6 @@
 				<div class="slds-align_absolute-center" style="height:2rem">
 					<lightning-button label="Save" type="submit" name="Save" variant="brand" icon-name="utility:save"></lightning-button>&nbsp;
 					<lightning-button label="Cancel" type="button" name="Cancel" onclick={handleCancel} variant="neutral"></lightning-button>
-					<lightning-button label="Delete" type="button" name="Delete" onclick={handleDelete} variant="neutral" icon-name="utility:delete"></lightning-button>
 				</div>
 			</lightning-record-edit-form>
 		</lightning-card>
