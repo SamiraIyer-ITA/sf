@@ -4,38 +4,65 @@
 
 <!-- Staffing Assignment -->
 <template>
-	<template if:false={staffingAssignmentSelected}>
+	<template if:true={showTable}>
 		<lightning-card title="Staffing Assignments" icon-name="custom:custom18">
+			<lightning-button slot="actions" label="Create" type="button" name="Create" variant="neutral" onclick={handleCreate}></lightning-button>
 			<div class="card">
-				<template if:false={gotData}>
-					<div class="slds-p-around--medium">
-						<div class="slds-text-heading--small">Determining available Staffing Assignments...</div>
-					</div>
+				<template if:true={spinner}>
+						<lightning-spinner alternative-text="Loading" variant="brand" size="large">
+						</lightning-spinner>
 				</template>
 
-				<template if:true={hasNoStaffingAssignments}>
+				<template if:false={gotData}>
 					<div class="slds-p-around--medium slds-text-heading--small">No Staffing Assignments are available.</div>
 				</template>
-				<template if:true={hasStaffingAssignments}>
+				<template if:true={gotData}>
 					<lightning-datatable
-							data={datatableStaffingAssignments}
+							data={data}
 							columns={staffingAssignmentColumns}
 							key-field="Id"
-							onrowselection={handleRowSelection}
-							onrowaction={callRowAction} 
-							selected-rows={selectedStaffingAssignmentIds}>
+							onrowaction={handleRowAction}
+							hide-checkbox-column="true"
+							default-sort-direction={defaultSortDirection}
+							sorted-direction={sortDirection}
+							sorted-by={sortedBy}
+							onsort={onHandleSort}>
 					</lightning-datatable>
 				</template>
 			</div>
 		</lightning-card>
 	</template>
-	<template if:true={staffingAssignmentSelected}>
+	<template if:true={showUpdate}>
 		<lightning-card title="Update Staffing Assignment" icon-name="custom:custom18">
-			<lightning-record-edit-form record-id={staffingAssignmentId} object-api-name="Staffing_Assignment__c" onsuccess={handleSuccess}>
+			<lightning-record-edit-form
+					record-id={staffingAssignmentId}
+					object-api-name="Staffing_Assignment__c"
+					onsuccess={handleSuccess}>
 				<lightning-input-field field-name="Title__c"></lightning-input-field>
 				<lightning-input-field field-name="User__c"></lightning-input-field>
-				<lightning-button label="Save" type="submit" name="Save" variant="brand"></lightning-button>&nbsp;
-				<lightning-button label="Cancel" type="cancel" name="Cancel" onclick={resetStaffingSelection} variant="brand"></lightning-button>
+				<div class="slds-align_absolute-center" style="height:2rem">
+					<lightning-button label="Save" type="submit" name="Save" variant="brand" icon-name="utility:save"></lightning-button>&nbsp;
+					<lightning-button label="Cancel" type="button" name="Cancel" onclick={handleCancel} variant="neutral"></lightning-button>
+				</div>
+			</lightning-record-edit-form>
+		</lightning-card>
+	</template>
+	<template if:true={showCreate}>
+		<lightning-card title="Create Staffing Assignment" icon-name="custom:custom18">
+			<lightning-record-edit-form
+					object-api-name="Staffing_Assignment__c"
+					onsuccess={handleSuccess}
+					onerror={handleError}>
+				<lightning-messages></lightning-messages>
+				<lightning-input-field field-name="ADCVD_Case__c" value={caseId} class="slds-hide"></lightning-input-field>
+				<lightning-input-field field-name={sObjectName} value={recordId} class="slds-hide"></lightning-input-field>
+				<lightning-input-field field-name="Staff_Parent__c" value={sObjectName} class="slds-hide"></lightning-input-field>
+				<lightning-input-field field-name="Title__c"></lightning-input-field>
+				<lightning-input-field field-name="User__c"></lightning-input-field>
+				<div class="slds-align_absolute-center" style="height:2rem">
+					<lightning-button label="Save" type="submit" name="Save" variant="brand"></lightning-button>&nbsp;
+					<lightning-button label="Cancel" type="button" name="Cancel" onclick={handleCancel} variant="neutral"></lightning-button>
+				</div>
 			</lightning-record-edit-form>
 		</lightning-card>
 	</template>

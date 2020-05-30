@@ -5,25 +5,44 @@
 public with sharing class StaffingAssignment {
     private static String pId;
 
-    @AuraEnabled(cacheable=false)
-    public static List<Staffing_Assignment__c> getStaffingAssignmentByParentId(String parentId) {
-        System.debug('parentId-------'+parentId);
-        pId = parentId;
-        try {
-            Set<Id> parentIds = new Set<Id>{parentId};
-            String wc = '(Petition__c = :parentIdString)';
-            //List<Staffing_Assignment__c> staffingAssignments = StaffingAssignmentSelector.newInstance().selectByParentId('a3U350000002AmbEAE');
-            List<Staffing_Assignment__c> staffingAssignments = StaffingAssignmentSelector.newInstance().selectByParentId(parentId);
-            //List<Staffing_Assignment__c> staffingAssignments = StaffingAssignmentSelector.newInstance().selectByWhereClause(wc);
-            //List<Staffing_Assignment__c> staffingAssignments = [SELECT Id, User__r.Name, User__c, Title__c FROM Staffing_Assignment__c WHERE Petition__c = :parentId];
-            return staffingAssignments;
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
-    }
+	@AuraEnabled(cacheable=false)
+	public static List<Staffing_Assignment__c> getStaffingAssignmentByParentId(String parentId) {
+		pId = parentId;
+		try {
+			String sObjectName = getSObjectNameFromRecordId(parentId);
+			Set<String> selectFieldsSet = new Set<String>{'Title__c', 'User__c', 'User__r.Name', sObjectName.substring(0,sObjectName.length()-3)+'__r.ADCVD_Case__c'};
+			String condition = '('+sObjectName+' = :parentIdString)';
 
-    public static String getParentIdString() {
-        return pId;
-    }
+			List<Staffing_Assignment__c> staffingAssignments = StaffingAssignmentSelector.newInstance().selectByParentId(parentId, selectFieldsSet, condition);
+
+			return staffingAssignments;
+
+		} catch (Exception e) {
+			throw new AuraHandledException(e.getMessage());
+		}
+	}
+
+	@AuraEnabled(cacheable=false)
+	public static void deleteRecord(Id recordId) {
+		try {
+			Set<Id> recordIdSet = new Set<Id> ();
+			recordIdSet.add(recordId);
+			List<Staffing_Assignment__c> staffingAssignmentsForDelete = StaffingAssignmentSelector.newInstance().selectById(recordIdSet);
+
+			delete staffingAssignmentsForDelete;
+
+		} catch (Exception e) {
+			throw new AuraHandledException(e.getMessage());
+		}
+	}
+
+  public static String getParentIdString() {
+      return pId;
+  }
+
+	@AuraEnabled(cacheable=true)
+	public static String getSObjectNameFromRecordId(Id recordId) {
+		return recordId.getSObjectType().getDescribe().getName();
+	}
 
 }

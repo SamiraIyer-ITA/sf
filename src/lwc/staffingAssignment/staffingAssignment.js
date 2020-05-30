@@ -2,18 +2,29 @@
  * Created by Skip Kleckner on 5/11/2020.
  */
 
-import {LightningElement, wire, track, api} from 'lwc';
+import {LightningElement, track, api} from 'lwc';
+import deleteRecord from '@salesforce/apex/StaffingAssignment.deleteRecord';
 import getStaffingAssignmentByParentId from '@salesforce/apex/StaffingAssignment.getStaffingAssignmentByParentId';
 import getRecusalLinkMap from '@salesforce/apex/StaffingAssignment.getRecusalLinkMap';
 import { refreshApex } from '@salesforce/apex';
+import getSObjectNameFromRecordId from '@salesforce/apex/StaffingAssignment.getSObjectNameFromRecordId';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-//import {reduceErrors} from 'c/ldsUtils';
+
+const actions = [
+    { label: 'Edit', name: 'edit' },
+    { label: 'Delete', name: 'delete' },
+];
 
 const staffingAssignmentColumns = [
-    {label: 'Title', fieldName: 'Title__c', type: 'pickList'},
-    {label: 'User', fieldName: 'UserName', Id: 'User__c',type: 'text'},
-    /*{label: 'Recusal Link', fieldName: 'RecusalLink', type: 'url', 
-    typeAttributes: {label: { fieldName: 'RecusalLinkText'}, target: '_blank'}},*/
+    {label: 'Title', fieldName: 'Title__c', type: 'pickList', sortable: true},
+    {label: 'User', fieldName: 'UserName', Id: 'User__c', type: 'text', sortable: true},
+    {
+        type: 'action',
+        typeAttributes: {
+            rowActions: actions,
+            disabled: false
+        },
+    },
     {label: 'Recusal Link',type: 'button-icon',
                     fixedWidth: 100,
                     typeAttributes: {
@@ -28,48 +39,40 @@ const staffingAssignmentColumns = [
     }  
 ];
 
-//{label: 'UserId', fieldName: 'User__c', type: 'sObject'},
 
 export default class StaffingAssignment extends LightningElement {
-    @api recordId;  //The Petition record Id.
-    @track datatableStaffingAssignments;
+    @api recordId;  //The parent record Id.
+
+    @track showCreate = false;
+    @track showTable = true;
+    @track showUpdate = false;
+    @track staffingAssignmentId;
+
+    @track data;
     @track staffingAssignments = [];  //All available staffingAssignments
     @track staffingAssignmentColumns = staffingAssignmentColumns;
     @track error;
-    @track selectedStaffingAssignmentIds = [];
     @track gotData = false;
     @track recusalLinkWrap;
     @track mapkeyvaluestore=[];
+    @track spinner = true; //indicates loading
+    defaultSortDirection = 'asc';
+    sortDirection = 'asc';
+    sortedBy;
+    caseId;
+    sObjectName;
 
-    get hasNoStaffingAssignments() {
-        if (this.gotData) {
-            if (this.datatableStaffingAssignments && this.datatableStaffingAssignments.length ==  0) {
-                return true;
-            }
-        }
-        return false;
-    }
-    get handleSave() {
-
-    }
-    get handleCancel() {
-
-    }
-    get hasStaffingAssignments() {
-        if (this.gotData) {
-            if (this.datatableStaffingAssignments && this.datatableStaffingAssignments.length > 0) {
-                return true;
-            }
-        }
-        return false;
+    handleCreate() {
+        this.showTable = false;
+        this.showCreate = true;
     }
 
-    connectedCallback() {
-        
+    connectedCallback() {     
         this.fetchRecusalLinkMap();
-        
+        this.spinner = true;
+        this.getObjectName();
+        this.fetchStaffingAssignments();
     }
-    //@wire(getStaffingAssignmentByParentId, {parentId: this.recordId}) staffingAssignmnentList;
 
     fetchRecusalLinkMap() {
         getRecusalLinkMap({parentId: this.recordId})
@@ -93,9 +96,17 @@ export default class StaffingAssignment extends LightningElement {
             });
     }
 
+    getObjectName(){
+        getSObjectNameFromRecordId({recordId: this.recordId})
+            .then(result=> {
+                console.log(JSON.stringify(result));
+                this.sObjectName = result;
+            })
+    }
     fetchStaffingAssignments() {
         getStaffingAssignmentByParentId({parentId: this.recordId})
             .then(result => {
+                this.data = [];
                 console.log(JSON.stringify(result));
                 let rows = result;
                 let rowBuilder = [];
@@ -121,25 +132,37 @@ export default class StaffingAssignment extends LightningElement {
                                     }
                                         
                             });
-
-                            
-                        
-                        }        
-                         //console.log(this.recusalLinkWrap.recusalStatusMap[key]);
-                        
-
+                        }                                
                     }
-                    row = {...row, ...pair};
-                    rowBuilder.push(row);
-                    //this.datatableStaffingAssignments = [this.datatableStaffingAssignments[0], {Title: }]
-                }
 
-                this.datatableStaffingAssignments = rowBuilder;
+                    if (row.Petition__r) {
+                        if (row.Petition__r.ADCVD_Case__c) {
+                            this.caseId = row.Petition__r.ADCVD_Case__c;
+                        }
+                    }
+                    if (row.Segment__r) {
+                        if (row.Segment__r.ADCVD_Case__c) {
+                            this.caseId = row.Segment__r.ADCVD_Case__c;
+                        }
+                    }
+                    if (row.ADCVD_Order__r) {
+                        if (row.ADCVD_Order__r.ADCVD_Case__c) {
+                            this.caseId = row.ADCVD_Order__r.ADCVD_Case__c;
+                        }
+                    }
+                    if (row.Investigation__r) {
+                        if (row.Investigation__r.ADCVD_Case__c) {
+                            this.caseId = row.Investigation__r.ADCVD_Case__c;
+                        }
+                    }
+                    rowBuilder.push(row);
+                }
+                this.data = rowBuilder;
+                this.spinner = false;
                 this.gotData = true;
                 this.error = undefined;
             })
             .catch(error => {
-                //this.error = reduceErrors(error).join(', ');
                 this.record = undefined;
                 console.log('error'+error);
             });
@@ -161,39 +184,100 @@ export default class StaffingAssignment extends LightningElement {
         }
     }
         
-    handleSuccess() {
-        this.resetStaffingSelection();
-        this.fetchStaffingAssignments();
+    handleCancel() {
+        this.showTable = true;
+        this.showCreate = false;
+        this.showUpdate = false;
     }
 
-    resetStaffingSelection() {
+    handleSuccess() {
+        this.showTable = true;
+        this.showCreate = false;
+        this.showUpdate = false;
+        this.fetchStaffingAssignments();
         this.dispatchEvent(
             new ShowToastEvent({
                 title: 'Success',
-                message: 'Staffing Assignments updated',
+                message: 'Staffing Assignment updated',
                 variant: 'success'
             })
         );
-        this.selectedStaffingAssignmentIds = [];
+    }
+    handleError() {
+        this.fetchStaffingAssignments();
+        this.dispatchEvent(
+            new ShowToastEvent({
+                title: 'Error',
+                message: 'Staffing Assignment Error',
+                variant: 'error'
+            })
+        );
     }
 
-    handleRowSelection(event) {
-        const selectedRows = event.detail.selectedRows;
-        this.selectedStaffingAssignmentIds = [];
+    handleRowAction(event) {
+        var action = event.detail.action;
+        var row = event.detail.row;
+        switch (action.name) {
+            case 'edit':
+                this.editRecord(row.Id); // implement this
+                break;
+            case 'delete':
+                //this.recordId = row.Id;
+                this.handleDelete(row.Id);
+                break;
+            default:
+                break;
+        }
+    }
 
-        for (let i = 0; i < selectedRows.length; i++) {
-            this.selectedStaffingAssignmentIds.push(selectedRows[i].Id);
-        }
+    editRecord(id) {
+        this.showUpdate = true;
+        this.showTable = false;
+        //this.data = [];
+        this.staffingAssignmentId = id;
+        this.fetchStaffingAssignments();
+
     }
-    get staffingAssignmentSelected() {
-        if (this.selectedStaffingAssignmentIds != null && this.selectedStaffingAssignmentIds.length > 0) {
-            return true;
-        }
-        return false;
+
+    handleDelete(recordId) {
+        deleteRecord({recordId: recordId })
+            .then(() => {
+                this.handleSuccess();
+            })
+            .catch(error => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Error deleting record',
+                        message: error.body.message,
+                        variant: 'error'
+                    })
+                );
+            });
     }
-    get staffingAssignmentId () {
-        if (this.selectedStaffingAssignmentIds) {
-            return this.selectedStaffingAssignmentIds[0];
-        }
+
+    sortBy(field, reverse, primer) {
+        const key = primer
+            ? function(x) {
+                return primer(x[field]);
+            }
+            : function(x) {
+                return x[field];
+            };
+
+        return function(a, b) {
+            a = key(a);
+            b = key(b);
+            return reverse * ((a > b) - (b > a));
+        };
+    }
+
+    onHandleSort(event) {
+        const { fieldName: sortedBy, sortDirection } = event.detail;
+        const cloneData = [...this.data];
+
+        cloneData.sort(this.sortBy(sortedBy, sortDirection === 'asc' ? 1 : -1));
+        this.data = cloneData;
+        this.sortDirection = sortDirection;
+        this.sortedBy = sortedBy;
     }
 }
