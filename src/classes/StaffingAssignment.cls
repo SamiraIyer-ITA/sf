@@ -3,7 +3,7 @@
  */
 
 public with sharing class StaffingAssignment {
-	private static String pId;
+    private static String pId;
 
 	@AuraEnabled(cacheable=false)
 	public static List<Staffing_Assignment__c> getStaffingAssignmentByParentId(String parentId) {
@@ -36,9 +36,9 @@ public with sharing class StaffingAssignment {
 		}
 	}
 
-	public static String getParentIdString() {
-		return pId;
-	}
+  public static String getParentIdString() {
+      return pId;
+  }
 
 	@AuraEnabled(cacheable=true)
 	public static String getSObjectNameFromRecordId(Id recordId) {
