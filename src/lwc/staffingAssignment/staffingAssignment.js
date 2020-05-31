@@ -6,7 +6,6 @@ import {LightningElement, track, api} from 'lwc';
 import deleteRecord from '@salesforce/apex/StaffingAssignment.deleteRecord';
 import getStaffingAssignmentByParentId from '@salesforce/apex/StaffingAssignment.getStaffingAssignmentByParentId';
 import getRecusalLinkMap from '@salesforce/apex/StaffingAssignment.getRecusalLinkMap';
-import { refreshApex } from '@salesforce/apex';
 import getSObjectNameFromRecordId from '@salesforce/apex/StaffingAssignment.getSObjectNameFromRecordId';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
@@ -18,27 +17,27 @@ const actions = [
 const staffingAssignmentColumns = [
     {label: 'Title', fieldName: 'Title__c', type: 'pickList', sortable: true},
     {label: 'User', fieldName: 'UserName', Id: 'User__c', type: 'text', sortable: true},
+    {label: 'Recusal Link',
+        type: 'button-icon',
+        fixedWidth: 100,
+        typeAttributes: {
+            iconName: 'utility:preview',
+            name: 'Link',
+            title: 'Link',
+            size:'large',
+            variant: 'border-filled',
+            alternativeText: { fieldName: 'RecusalLink'},
+            disabled: { fieldName: 'RecusalLinkEnable'}
+        }
+    },
     {
         type: 'action',
         typeAttributes: {
             rowActions: actions,
             disabled: false
-        },
-    },
-    {label: 'Recusal Link',type: 'button-icon',
-                    fixedWidth: 100,
-                    typeAttributes: {
-                        iconName: 'utility:preview',
-                        name: 'Link', 
-                        title: 'Link',
-                        size:'large',
-                        variant: 'border-filled',
-                        alternativeText: { fieldName: 'RecusalLink'},
-                        disabled: { fieldName: 'RecusalLinkEnable'}
-            }
-    }  
+        }
+    }
 ];
-
 
 export default class StaffingAssignment extends LightningElement {
     @api recordId;  //The parent record Id.
@@ -88,7 +87,6 @@ export default class StaffingAssignment extends LightningElement {
                         this.mapkeyvaluestore.push({value:conts[key], key:key}); //Here we are creating the array to show on UI.
                     }
                 }
-                this.fetchStaffingAssignments();
             })
             .catch(error => {
                 
@@ -113,24 +111,24 @@ export default class StaffingAssignment extends LightningElement {
                 for (let i = 0; i < rows.length; i++) {
                     let row = rows[i];
                     //Datatable can't handle related fields, so flatten the data
-                    let pair = {RecusalLinkEnable:true};
+                    let pair = { RecusalLinkEnable: true };
 
                     if (row.User__r) {
                         
                         if (row.User__r.Name) {
 
                             //Add the User Name to the first level of the row
-                            pair = {UserName: row.User__r.Name,RecusalLinkEnable:true};
+                            pair = {UserName: row.User__r.Name, RecusalLinkEnable: true};
+                            row = {...row, ...pair};
                             this.mapkeyvaluestore.forEach((rec, idx) =>{
                                     console.log(rec.key); // Now each contact object will have a property called "number"
                                     console.log(rec.value);
                                     
-                                    if(row.User__c==rec.key){
+                                    if(row.User__c == rec.key){
                                         console.log('call done');
                                         pair = {UserName: row.User__r.Name,RecusalLink:rec.value,RecusalLinkText:'Review Recusals',RecusalLinkEnable:false};
                                         
                                     }
-                                        
                             });
                         }                                
                     }
@@ -224,6 +222,12 @@ export default class StaffingAssignment extends LightningElement {
             case 'delete':
                 //this.recordId = row.Id;
                 this.handleDelete(row.Id);
+                break;
+            case 'link':
+                const url = row.RecusalLink;
+                if(url != undefined){
+                    window.open(url, "_blank");
+                }
                 break;
             default:
                 break;

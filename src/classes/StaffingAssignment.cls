@@ -45,4 +45,62 @@ public with sharing class StaffingAssignment {
 		return recordId.getSObjectType().getDescribe().getName();
 	}
 
+	@AuraEnabled(cacheable=false)
+	public static recusalWrap getRecusalLinkMap(String parentId) {
+
+		Map<Id,User> adcvdUserMap = new Map<Id,User>();
+		for (User u : [SELECT Id, Name, Staffing_Role__c FROM User WHERE Staffing_Role__c != null ORDER BY Name Asc]) {
+			adcvdUserMap.put(u.Id, u);
+		}
+
+		set<Id> userIdSet = adcvdUserMap.keySet();
+
+		Id caseId = (Id) PetitionSelector.newInstance().selectById(new Set<Id>{parentId})[0].get('ADCVD_Case__c');
+		ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
+		caseMapper = caseMapper.getInstance(new Set<Id>{caseId});
+		RecusalMapper recMapper = (RecusalMapper) caseMapper.getMapper('Recusal__c');
+		Set<Id> usersWithActiveRecusals = recMapper.getInstance(adcvdUserMap.keySet()).getMapByUserIds().keySet();
+
+		Map<Id,String> recusalStatusMap = new Map<Id,String>();
+		Map<Id,String> recusalLinkMap = new Map<Id,String>();
+		Map<Id,String> recusalLinkTextMap = new Map<Id,String>();
+
+		for (Id userId : userIdSet) {
+			recusalStatusMap.put(userId, 'This user does not have any active recusals.');
+			recusalLinkMap.put(userId, '');
+			recusalLinkTextMap.put(userId, '');
+		}
+
+		system.debug('caseId '+caseId );
+
+		for (Id userId : usersWithActiveRecusals) {
+			system.debug(userId );
+			system.debug('usersWithActiveRecusals'+usersWithActiveRecusals);
+
+			recusalStatusMap.put(userId, 'This user has active recusals.' + '<br/>');
+			String recusalLinkText = recusalStatusMap.containsKey(userId) ? 'Review Recusals' : '';
+			String recusalLink = '/apex/ReviewRecusalPage?userId=' + userId + '&caseId=' + caseId;
+			recusalLinkMap.put(userId, recusalLink);
+			recusalLinkTextMap.put(userId, recusalLinkText);
+		}
+
+		recusalWrap objrescusalWrap = new recusalWrap(recusalStatusMap,recusalLinkMap,recusalLinkTextMap);
+
+		return objrescusalWrap;
+	}
+
+	public class recusalWrap{
+		@AuraEnabled
+		public Map<Id,String> recusalStatusMap{get;set;}
+		@AuraEnabled
+		public Map<Id,String> recusalLinkMap{get;set;}
+		@AuraEnabled
+		public Map<Id,String> recusalLinkTextMap{get;set;}
+
+		public recusalWrap(Map<Id,String> recusalStatusMap,Map<Id,String> recusalLinkMap,Map<Id,String> recusalLinkTextMap){
+			this.recusalStatusMap = recusalStatusMap;
+			this.recusalLinkMap = recusalLinkMap;
+			this.recusalLinkTextMap = recusalLinkTextMap;
+		}
+	}
 }
