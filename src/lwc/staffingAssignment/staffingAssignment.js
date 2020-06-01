@@ -70,7 +70,7 @@ export default class StaffingAssignment extends LightningElement {
         this.fetchRecusalLinkMap();
         this.spinner = true;
         this.getObjectName();
-        this.fetchStaffingAssignments();
+
     }
 
     fetchRecusalLinkMap() {
@@ -87,11 +87,15 @@ export default class StaffingAssignment extends LightningElement {
                         this.mapkeyvaluestore.push({value:conts[key], key:key}); //Here we are creating the array to show on UI.
                     }
                 }
+
+                this.fetchStaffingAssignments();
             })
             .catch(error => {
                 
                 console.log('error'+error);
             });
+
+
     }
 
     getObjectName(){
@@ -119,7 +123,7 @@ export default class StaffingAssignment extends LightningElement {
 
                             //Add the User Name to the first level of the row
                             pair = {UserName: row.User__r.Name, RecusalLinkEnable: true};
-                            row = {...row, ...pair};
+
                             this.mapkeyvaluestore.forEach((rec, idx) =>{
                                     console.log(rec.key); // Now each contact object will have a property called "number"
                                     console.log(rec.value);
@@ -132,6 +136,8 @@ export default class StaffingAssignment extends LightningElement {
                             });
                         }                                
                     }
+
+                    row = {...row, ...pair};
 
                     if (row.Petition__r) {
                         if (row.Petition__r.ADCVD_Case__c) {
@@ -223,7 +229,7 @@ export default class StaffingAssignment extends LightningElement {
                 //this.recordId = row.Id;
                 this.handleDelete(row.Id);
                 break;
-            case 'link':
+            case 'Link':
                 const url = row.RecusalLink;
                 if(url != undefined){
                     window.open(url, "_blank");
