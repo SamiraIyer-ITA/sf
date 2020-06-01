@@ -22,7 +22,7 @@ const staffingAssignmentColumns = [
         fixedWidth: 100,
         typeAttributes: {
             iconName: 'utility:preview',
-            name: 'Link',
+            name: 'link',
             title: 'Link',
             size:'large',
             variant: 'border-filled',
@@ -130,10 +130,11 @@ export default class StaffingAssignment extends LightningElement {
                                     
                                     if(row.User__c == rec.key){
                                         console.log('call done');
-                                        pair = {UserName: row.User__r.Name,RecusalLink:rec.value,RecusalLinkText:'Review Recusals',RecusalLinkEnable:false};
+                                        pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false};
                                         
                                     }
                             });
+                            row = {...row, ...pair};
                         }                                
                     }
 
