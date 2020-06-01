@@ -48,14 +48,6 @@
                 <behavior>Edit</behavior>
                 <field>Actual_Follow_on_Value__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Anticipated_Export_Dollar_Value__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_Export_Dollar_Value__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
