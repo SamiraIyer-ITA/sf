@@ -26,4 +26,16 @@
 
 @IsTest
 private class di_ModuleTest {
+    @isTest
+    static void exerciseMethods() {
+        di_Module mod = new di_Module();
+        mod.configure();
+        mod.lightningComponent();
+        mod.visualforceComponent();
+        mod.flow();
+        mod.module();
+        mod.sequence(1);
+        //Object myObject = (Object) 'myString';
+        //di_Module type = mod.type((di_Binding.BindingType)myObject);
+    }
 }
