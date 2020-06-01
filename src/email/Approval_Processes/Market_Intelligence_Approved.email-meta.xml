@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification a Market Intelligence Article was Approved</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Market Intelligence Approved</name>
+    <style>none</style>
+    <subject>Article has been Approved - {!Market_Intelligence__kav.Title}</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
