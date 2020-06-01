@@ -22,7 +22,7 @@ const staffingAssignmentColumns = [
         fixedWidth: 100,
         typeAttributes: {
             iconName: 'utility:preview',
-            name: 'Link',
+            name: 'link',
             title: 'Link',
             size:'large',
             variant: 'border-filled',
@@ -119,17 +119,18 @@ export default class StaffingAssignment extends LightningElement {
 
                             //Add the User Name to the first level of the row
                             pair = {UserName: row.User__r.Name, RecusalLinkEnable: true};
-                            row = {...row, ...pair};
+
                             this.mapkeyvaluestore.forEach((rec, idx) =>{
                                     console.log(rec.key); // Now each contact object will have a property called "number"
                                     console.log(rec.value);
                                     
                                     if(row.User__c == rec.key){
                                         console.log('call done');
-                                        pair = {UserName: row.User__r.Name,RecusalLink:rec.value,RecusalLinkText:'Review Recusals',RecusalLinkEnable:false};
+                                        pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false};
                                         
                                     }
                             });
+                            row = {...row, ...pair};
                         }                                
                     }
 
