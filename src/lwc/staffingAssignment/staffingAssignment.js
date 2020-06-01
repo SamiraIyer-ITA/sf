@@ -173,22 +173,7 @@ export default class StaffingAssignment extends LightningElement {
             });
     }
 
-    callRowAction( event ) {  
-          
-        const recId =  event.detail.row.Id;  
-        const actionName = event.detail.action.name;
-        
-        if(actionName == 'Link'){
-            const url = event.detail.row.RecusalLink;
-        
-            if(url != undefined){
 
-                window.open(url, "_blank");
-            }
-
-        }
-    }
-        
     handleCancel() {
         this.showTable = true;
         this.showCreate = false;
@@ -230,7 +215,7 @@ export default class StaffingAssignment extends LightningElement {
                 //this.recordId = row.Id;
                 this.handleDelete(row.Id);
                 break;
-            case 'Link':
+            case 'link':
                 const url = row.RecusalLink;
                 if(url != undefined){
                     window.open(url, "_blank");
