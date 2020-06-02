@@ -195,8 +195,10 @@ public without sharing class Utils {
 				query += ', ' + fieldName;
 			}
 		}
-		query += ' FROM '+ sObjectName +' WHERE Id IN: sObjectIdSet';
-		System.debug('****** '+query);
+		query += ' FROM '+ sObjectName;
+		if (sObjectIdSet != null && ! sObjectIdSet.isEmpty()) {
+			query += ' WHERE Id IN: sObjectIdSet';
+		}
 		return database.query(query);
 	}
 
@@ -498,4 +500,8 @@ public without sharing class Utils {
 		}
 	}
 
+	public static Boolean isSandbox() {
+		Organization organization = [SELECT IsSandbox FROM Organization LIMIT 1];
+		return organization.IsSandbox;
+	}
 }
