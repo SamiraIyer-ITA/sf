@@ -167,11 +167,10 @@ export default class StaffingAssignment extends LightningElement {
                 this.spinner = false;
                 this.gotData = true;
                 this.error = undefined;
-
                 if(this.checkfetchRecusalLinkMapCall){
-                    this.checkfetchRecusalLinkMapCall=false;
+                 this.checkfetchRecusalLinkMapCall=false;
                     this.fetchRecusalLinkMap();
-                }
+             }
             })
             .catch(error => {
                 this.record = undefined;
