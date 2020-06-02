@@ -64,7 +64,7 @@ public class StaffingAssignmentSelector
 	public List<Staffing_Assignment__c> selectByParentId(String Id, Set<String> selectFieldsSet, String condition) {
 
 		fflib_QueryFactory staffingAssignmentQueryFactory = newQueryFactory();
-		staffingAssignmentQueryFactory.selectFields( selectFieldsSet );
+		staffingAssignmentQueryFactory.selectFields(selectFieldsSet);
 
 		return (List<Staffing_Assignment__c>) Database.query(staffingAssignmentQueryFactory.setCondition(condition).toSOQL());
 	}

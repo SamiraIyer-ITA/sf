@@ -7,27 +7,28 @@ import deleteRecord from '@salesforce/apex/StaffingAssignment.deleteRecord';
 import getStaffingAssignmentByParentId from '@salesforce/apex/StaffingAssignment.getStaffingAssignmentByParentId';
 import getRecusalLinkMap from '@salesforce/apex/StaffingAssignment.getRecusalLinkMap';
 import getSObjectNameFromRecordId from '@salesforce/apex/StaffingAssignment.getSObjectNameFromRecordId';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import {ShowToastEvent} from 'lightning/platformShowToastEvent';
 
 const actions = [
-    { label: 'Edit', name: 'edit' },
-    { label: 'Delete', name: 'delete' },
+    {label: 'Edit', name: 'edit'},
+    {label: 'Delete', name: 'delete'},
 ];
 
 const staffingAssignmentColumns = [
     {label: 'Title', fieldName: 'Title__c', type: 'pickList', sortable: true},
     {label: 'User', fieldName: 'UserName', Id: 'User__c', type: 'text', sortable: true},
-    {label: 'Recusal Link',
+    {
+        label: 'Recusal Link',
         type: 'button-icon',
         fixedWidth: 100,
         typeAttributes: {
             iconName: 'utility:preview',
             name: 'link',
             title: 'Link',
-            size:'large',
+            size: 'large',
             variant: 'border-filled',
-            alternativeText: { fieldName: 'RecusalLink'},
-            disabled: { fieldName: 'RecusalLinkEnable'}
+            alternativeText: {fieldName: 'RecusalLink'},
+            disabled: {fieldName: 'RecusalLinkEnable'}
         }
     },
     {
