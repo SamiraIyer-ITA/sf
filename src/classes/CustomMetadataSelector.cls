@@ -185,4 +185,14 @@ public without sharing class CustomMetadataSelector {
 	public Set<String> getParentsForChildSObject(String childSObjectType) {
 		return childToParentsStringMap.get(childSObjectType);
 	}
+
+	public static Map<String, Object> getPaymentSettings(String paymentProcessor) {
+		if(Utils.isSandbox()){
+			paymentProcessor += '_QA';
+		}
+		String query = Utils.soqlBuilderAllFields('Payment_Mapping__mdt', true);
+		query += ' WHERE DeveloperName = :paymentProcessor LIMIT 1';
+		Payment_Mapping__mdt mdt = Database.query(query);
+		return mdt == null ? null: mdt.getPopulatedFieldsAsMap();
+	}
 }
