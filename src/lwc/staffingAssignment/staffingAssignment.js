@@ -60,21 +60,22 @@ export default class StaffingAssignment extends LightningElement {
     sortedBy;
     caseId;
     sObjectName;
+    @track checkfetchRecusalLinkMapCall= true;
 
     handleCreate() {
         this.showTable = false;
         this.showCreate = true;
     }
 
-    connectedCallback() {     
-        this.fetchRecusalLinkMap();
+    connectedCallback() {
+        this.fetchStaffingAssignments();
         this.spinner = true;
         this.getObjectName();
 
     }
 
     fetchRecusalLinkMap() {
-        getRecusalLinkMap({parentId: this.recordId})
+        getRecusalLinkMap({caseId: this.caseId})
             .then(result => {
                 //console.log(JSON.stringify(result));
                 this.recusalLinkWrap = result;
@@ -166,6 +167,11 @@ export default class StaffingAssignment extends LightningElement {
                 this.spinner = false;
                 this.gotData = true;
                 this.error = undefined;
+
+                if(this.checkfetchRecusalLinkMapCall){
+                    this.checkfetchRecusalLinkMapCall=false;
+                    this.fetchRecusalLinkMap();
+                }
             })
             .catch(error => {
                 this.record = undefined;

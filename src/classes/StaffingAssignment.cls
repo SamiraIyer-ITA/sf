@@ -46,7 +46,7 @@ public with sharing class StaffingAssignment {
 	}
 
 	@AuraEnabled(cacheable=false)
-	public static recusalWrap getRecusalLinkMap(String parentId) {
+	public static recusalWrap getRecusalLinkMap(String caseId) {
 
 		Map<Id,User> adcvdUserMap = new Map<Id,User>();
 		for (User u : [SELECT Id, Name, Staffing_Role__c FROM User WHERE Staffing_Role__c != null ORDER BY Name Asc]) {
@@ -55,7 +55,7 @@ public with sharing class StaffingAssignment {
 
 		set<Id> userIdSet = adcvdUserMap.keySet();
 
-		Id caseId = (Id) PetitionSelector.newInstance().selectById(new Set<Id>{parentId})[0].get('ADCVD_Case__c');
+		/*Id caseId = (Id) PetitionSelector.newInstance().selectById(new Set<Id>{parentId})[0].get('ADCVD_Case__c');*/
 		ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
 		caseMapper = caseMapper.getInstance(new Set<Id>{caseId});
 		RecusalMapper recMapper = (RecusalMapper) caseMapper.getMapper('Recusal__c');
