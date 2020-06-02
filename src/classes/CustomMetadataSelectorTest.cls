@@ -5,20 +5,20 @@ public class CustomMetadataSelectorTest {
 
 	@isTest static void allConstants() {
 		Test.startTest();
-		Test.stopTest();
 		System.assertNotEquals(0, CustomMetadataSelector.allConstants.size());
+		Test.stopTest();
 	}
 
 	@isTest static void allAdcvdObjects() {
 		Test.startTest();
-		Test.stopTest();
 		System.assertNotEquals(0, CustomMetadataSelector.allAdcvdObjects.size());
+		Test.stopTest();
 	}
 
 	@isTest static void allDateCalculations() {
 		Test.startTest();
-		Test.stopTest();
 		System.assertNotEquals(0, CustomMetadataSelector.allDateCalculations.size());
+		Test.stopTest();
 	}
 
 	@testSetup static void dataSetup() {
@@ -69,5 +69,32 @@ public class CustomMetadataSelectorTest {
 			frList.add(finalFR);
 		}
 		insert frList;
+		Test.stopTest();
+	}
+
+	@isTest static void childToParentsSObjectMap_Positive() {
+		Test.startTest();
+		System.assertNotEquals(0, CustomMetadataSelector.childToParentsSObjectMap.size());
+		Test.stopTest();
+	}
+
+	@isTest static void getConstantNameToConstantMap_Positive() {
+		Test.startTest();
+		System.assertNotEquals(0, CustomMetadataSelector.getConstantNameToConstantMap('adcvd_order_calculation_offset__c').size());
+		Test.stopTest();
+	}
+
+	@isTest static void getParentsForChildSObject_Positive() {
+		Test.startTest();
+		CustomMetadataSelector cms = new CustomMetadataSelector();
+		System.assertNotEquals(0, cms.getParentsForChildSObject('Segment__c').size());
+		Test.stopTest();
+	}
+
+
+	@isTest static void getPaymentSettings_Positive() {
+		Test.startTest();
+		System.assertNotEquals(0, CustomMetadataSelector.getPaymentSettings('Paygov').size());
+		Test.stopTest();
 	}
 }
