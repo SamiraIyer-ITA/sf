@@ -70,8 +70,8 @@ public with sharing class StaffingAssignment {
 
         for (Id userId : userIdSet) {
             recusalStatusMap.put(userId, 'This user does not have any active recusals.');
-            recusalLinkMap.put(userId, '');
-            recusalLinkTextMap.put(userId, '');
+            //recusalLinkMap.put(userId, '');
+            //recusalLinkTextMap.put(userId, '');
         }
 
         system.debug('caseId ' + caseId);
