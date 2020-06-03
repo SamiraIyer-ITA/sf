@@ -128,9 +128,11 @@ export default class StaffingAssignment extends LightningElement {
                             this.mapkeyvaluestore.forEach((rec, idx) =>{
                                     console.log(rec.key); // Now each contact object will have a property called "number"
                                     console.log(rec.value);
-                                    
+
                                     if(row.User__c == rec.key){
+
                                         console.log('call done');
+
                                         pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false};
                                         
                                     }
