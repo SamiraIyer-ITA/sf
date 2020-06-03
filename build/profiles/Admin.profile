@@ -59,9 +59,5 @@
         <editable>true</editable>
         <field>WIN__c.WIN_Contributors_Rollup__c</field>
         <readable>true</readable>
-    </fieldPermissions>    
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>RunFlow</name>
-    </userPermissions>
+    </fieldPermissions>
 </Profile>
