@@ -74,6 +74,7 @@ public with sharing class StaffingAssignment {
             //recusalLinkTextMap.put(userId, '');
         }
 
+
         system.debug('caseId ' + caseId);
 
         for (Id userId : usersWithActiveRecusals) {
