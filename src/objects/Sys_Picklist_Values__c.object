@@ -223,6 +223,12 @@
                     <default>false</default>
                     <label>Other</label>
                 </value>
+                <value>
+                    <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Contacting a local trade or export assistance expert (*limited availability)</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
