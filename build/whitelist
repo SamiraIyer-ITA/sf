@@ -5,3 +5,6 @@ src/queues/MCP_OTHER_TBD.queue
 src/queues/MCP_Exporter_Lead.queue
 src/contentassets/PaymentAppLogo.asset
 src/cspTrusted_Sites/pay_gov.cspTrustedSite
+src/package.xml
+src/objects/Sys_Picklist_Values__c.object
+src/standardValueSets/ContactRequestReason.standardValueSet
