@@ -10,7 +10,7 @@ private class UsersSelectorTest {
 
 	@IsTest
 	static void selectById_Positive() {
-		List<User> users = [SELECT Id FROM User];
+		List<User> users = [SELECT Id FROM User WHERE Email = 'commuser@trade.gov'];
 		Set<Id> userIds = new Set<Id>();
 		for (User user: users) {
 			userIds.add(user.Id);

@@ -26,6 +26,14 @@
 
 @IsTest
 private class di_InjectorComponentControllerTest {
+    
+    @isTest
+    static void exerciseMethod() {
+        di_InjectorComponentController componentInjector = new di_InjectorComponentController();
+        componentInjector.BindingNameValue = 'Return_Hello_World';
+        componentInjector.ParametersValue = (Object) 'myString';
+        componentInjector.getInject();
+    }
 
     @isTest
     static void givenWrongBindingNameValueWhenGetInjectThenThrowException(){
