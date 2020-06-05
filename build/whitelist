@@ -8,3 +8,5 @@ src/cspTrusted_Sites/pay_gov.cspTrustedSite
 src/package.xml
 src/objects/Sys_Picklist_Values__c.object
 src/standardValueSets/ContactRequestReason.standardValueSet
+src/objects/ContactRequest.object
+src/reportTypes/Contact_Requests.reportType
