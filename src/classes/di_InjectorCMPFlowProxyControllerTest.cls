@@ -1,5 +1,14 @@
- @isTest
+@isTest
 private with sharing class di_InjectorCMPFlowProxyControllerTest {
+    
+    @isTest
+    static void exerciseMethods() {
+        di_InjectorComponentFlowProxyController injector = new di_InjectorComponentFlowProxyController();
+        injector.FlowNameValue = 'Return_Hello_World';
+        Map<Object,Object> inputs = new Map<Object,Object>{(Object)'myKey'=>(Object)'myValue'};
+        injector.InputVariablesValue = inputs;
+        injector.getInject();
+    }
 
     @isTest
     private static void givenValueWhenGetInjectThenThrowException(){

@@ -26,6 +26,24 @@
 
 @IsTest
 private class di_BindingTest {
+    @isTest
+    static void exerciseMethods() {
+        di_Module mod = new di_Module();
+        Object params = (Object)'myString';
+        di_Binding binding = di_Binding.newInstance(
+            di_Binding.BindingType.Apex,
+            Bob.class.getName(), null, null, Bob.class.getName(), null);
+        di_Binding.Resolver r = new di_Binding.Resolver(new List<di_Module>{mod});
+        r.set(mod);
+        r.add(mod);
+        r.emptyBindingsAllowed();
+        di_Binding.VisualForceComponentBinding vfBind = new di_Binding.VisualForceComponentBinding();
+        vfBind.newInstance(params);
+        di_Binding.LightningComponentBinding lexBind = new di_Binding.LightningComponentBinding();
+        lexBind.newInstance(params);
+        di_Binding.FlowBinding flowBind = new di_Binding.FlowBinding();
+        flowBind.newInstance(params);
+    }
 
     @IsTest
     private static void givenApexBindingWhenGetInstanceThenInstance() {
