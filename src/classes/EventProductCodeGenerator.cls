@@ -4,7 +4,7 @@
  *
  * @author Andrew La Russa
  */
-public class EventProductCodeGenerator implements IProductCodeGenerator {
+public inherited sharing class EventProductCodeGenerator implements IProductCodeGenerator {
 
 	private static final String KEY;
 	private static final Integer LAST_KEY_INDEX;
@@ -16,7 +16,8 @@ public class EventProductCodeGenerator implements IProductCodeGenerator {
 		INDEX_ONE_VALUE = getIndexOneValue();
 		KEY = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZ';
 		LAST_KEY_INDEX = KEY.length() - 1;
-		EVENT_RECORD_TYPE_ID = Schema.SObjectType.Product2.getRecordTypeInfosByName().get('Events').getRecordTypeId();
+		EVENT_RECORD_TYPE_ID = Schema.SObjectType.Product2.getRecordTypeInfosByDeveloperName()
+            .get('Events').getRecordTypeId();
 	}
 
 	private AggregateResultProxy[] groupedMaxProductCodesByFamily {
