@@ -29,7 +29,7 @@
     <standardValue>
         <fullName>Issue with the website</fullName>
         <default>false</default>
-        <label>Issue with the website</label>
+        <label>Report a website issue</label>
     </standardValue>
     <standardValue>
         <fullName>Other</fullName>
