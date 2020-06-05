@@ -414,6 +414,7 @@ public abstract class di_Binding implements Comparable {
     /**
      * Bindings to VF Components via Provider interface (required)
      **/
+    @TestVisible
     private class VisualForceComponentBinding extends di_Binding 
     {
         public  override Object newInstance(Object params) 
@@ -445,6 +446,7 @@ public abstract class di_Binding implements Comparable {
     /**
      * Bindings to Lightning Components (Provider interface not currently supported)
      **/
+    @TestVisible
     private class LightningComponentBinding extends di_Binding 
     {
         public override Object newInstance(Object params) 
@@ -457,6 +459,7 @@ public abstract class di_Binding implements Comparable {
     /**
      * Bindings to Flows (Provider interface not currently supported)
      **/
+    @TestVisible
     private class FlowBinding extends di_Binding 
     {
         public  override Object newInstance(Object params) 

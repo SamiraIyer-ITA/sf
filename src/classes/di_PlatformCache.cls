@@ -13,7 +13,8 @@ public with sharing class di_PlatformCache
 
         return instance;
     }
-
+	
+    @TestVisible
     private static di_Configurations__c getConfig()
     {
         di_Configurations__c config = di_Configurations__c.getInstance();
@@ -32,17 +33,20 @@ public with sharing class di_PlatformCache
     {
         return getConfig().UsePlatformCacheToStoreBindings__c == null ? false : getConfig().UsePlatformCacheToStoreBindings__c;
     }
-
+/*
+    @TestVisible
     private static String getPartitionName()
     {
         return getConfig().OrgCachePartitionName__c;
     }
 
+    @TestVisible
     private Integer getPartitionTTL()
     {
         return 86400; // number of seconds for a 24 hour period
     }
-
+	
+    @TestVisible
     private static Cache.OrgPartition getPartition()
     {
         return Cache.Org.getPartition(getPartitionName());
@@ -67,7 +71,7 @@ public with sharing class di_PlatformCache
                 cacheKeyIndexMap = new Map<String, Map<Schema.SObjectType, Set<String>>>();
             }
             
-            /*
+            / *
             for(String key : cacheKeyIndexMap.keySet()) {
                 System.debug('Cache Key => ' + key);
                 for (SObjectType subkey : cacheKeyIndexMap.get(key).keySet()) {
@@ -77,17 +81,19 @@ public with sharing class di_PlatformCache
                     }
                 }
             }
-            */
+            * /
         }
 
         return cacheKeyIndexMap;
     }
-
+	
+    @TestVisible
     private void pushCacheKeyIndexMapToCache()
     {
         getPartition().put( getKeyIndexName(), this.cacheKeyIndexMap, getPartitionTTL(), Cache.Visibility.ALL, false);
     }
-
+	
+    @TestVisible
     private void addBindingToKeyIndex(di_Binding binding)
     {
         String workingDeveloperName = binding.developerName.toLowerCase().trim();
@@ -109,6 +115,7 @@ public with sharing class di_PlatformCache
 
     private static Map<String, String> generatedKeyNames = new Map<String, String>();
 
+    @TestVisible
     private String constructKeyName( Schema.SObjectType bindingSObjectType, String developerName )
     {
         String key = ( ( bindingSObjectType != null ) ? bindingSObjectType.getDescribe().getName().toLowerCase().replaceAll('__','') : '' ) 
@@ -124,32 +131,36 @@ public with sharing class di_PlatformCache
         return hash;
     }
 
+    @TestVisible
     private String getKeyName( String developerName, Schema.SObjectType bindingSObjectType)
     {
         return constructKeyName( bindingSObjectType, developerName);
     }
 
+    @TestVisible
     private String getKeyName( di_Binding binding )
     {
         return constructKeyName( binding.bindingObject, binding.developerName);
     }
 
+    @TestVisible
     private String getKeyIndexName()
     {
         return 'bindingKeyIndex';
     }
-
+*/
     public void addBindingToPlatformCache( di_Binding binding )
     {
         if ( isStoringBindingInPlatformCache() )
         {
-            String theKeyName = getKeyName(binding);
+/*            String theKeyName = getKeyName(binding);
             // add the binding to the platform cache directly
             getPartition().put(theKeyName, binding, getPartitionTTL(), Cache.Visibility.ALL, false);
             // add the binding's cache key name to the bindingKeyIndex
             addBindingToKeyIndex(binding);
             //System.debug('Adding binding for hash => ' + theKeyName + ' && developerName => ' + binding.developerName + ' && object => ' + binding.bindingObject);
-        }
+*/        }
+
     }
 
     public list<di_Binding> retrieveBindings(String developerName, Schema.SObjectType bindingSObjectType)
@@ -160,7 +171,7 @@ public with sharing class di_PlatformCache
         {
             //System.debug('Retrieving from Cache Key => ' + developerName + ' && Cache Key Index => ' + bindingSObjectType);
 
-            Map<Schema.SObjectType, Set<String>> keyIndexBySObjectTypeMap = getCacheKeyIndexMap().get(developerName.toLowerCase().trim());
+/*            Map<Schema.SObjectType, Set<String>> keyIndexBySObjectTypeMap = getCacheKeyIndexMap().get(developerName.toLowerCase().trim());
             if ( keyIndexBySObjectTypeMap != null )
             {
                 Set<String> cacheKeys = keyIndexBySObjectTypeMap.get(bindingSObjectType);
@@ -177,11 +188,12 @@ public with sharing class di_PlatformCache
                     }
                 }
             }
+*/
         }
            
         return bindings;
     }
-
+/*
     public static void clearCachedBindings() {
         String partitionKey = getPartitionName();
         Cache.OrgPartition partition = getPartition();
@@ -194,4 +206,5 @@ public with sharing class di_PlatformCache
             }
         }
     }
+*/
 }
