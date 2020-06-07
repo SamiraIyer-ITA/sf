@@ -1219,6 +1219,15 @@ OR(ISCHANGED(ADCVD_Case__c ),ISCHANGED(ADCVD_Order__c),ISCHANGED(Investigation__
         <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Investigation, Petition, Interested Organization, Segment or ADCVD Case for this record.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Program_Manager_Cannot_Be_Blank</fullName>
+        <active>true</active>
+        <description>Program Manager user cannot be blank or have &apos;Please Assign&apos; on the record</description>
+        <errorConditionFormula>AND(Text(Title__c)==&apos;Program Manager&apos;,
+			OR(ISBLANK(User__c),User__r.LastName ==&apos;Please Assign&apos;)
+			)</errorConditionFormula>
+        <errorMessage>At least one program manager must be assigned to a record.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Program_Manager_must_have_a_user</fullName>
         <active>true</active>
         <description>If the staffing assignment Title is &quot;Program Manager&quot;, the User must be populated. Populates on create to user with the last name &quot;Please Assign&quot; if that user exists.</description>
