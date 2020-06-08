@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Trade seminar/conference/event</fullName>
+        <default>false</default>
+        <label>Trade seminar/conference/event</label>
+    </customValue>
+    <customValue>
+        <fullName>Non-profit trade organization</fullName>
+        <default>false</default>
+        <label>Non-profit trade organization</label>
+    </customValue>
+    <customValue>
+        <fullName>Federal government agency</fullName>
+        <default>false</default>
+        <label>Federal government agency</label>
+    </customValue>
+    <customValue>
+        <fullName>Internet research</fullName>
+        <default>false</default>
+        <label>Internet research</label>
+    </customValue>
+    <customValue>
+        <fullName>Local government agency</fullName>
+        <default>false</default>
+        <label>Local government agency</label>
+    </customValue>
+    <customValue>
+        <fullName>Referred</fullName>
+        <default>false</default>
+        <label>Referred</label>
+    </customValue>
+    <customValue>
+        <fullName>Local school/university presentation</fullName>
+        <default>false</default>
+        <label>Local school/university presentation</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>How were you introduced to our BSP</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
