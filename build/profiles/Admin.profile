@@ -1,98 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-
-<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_Company_State__c</field>
+        <field>Client_Form__c.Point_of_Contact_Company_State__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_City__c</field>
+        <field>Client_Form__c.Point_of_Contact_City__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_Company_Street_Address__c</field>
+        <field>Client_Form__c.Point_of_Contact_Company_Street_Address__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_Company_Zip_Code__c</field>
+        <field>Client_Form__c.Point_of_Contact_Company_Zip_Code__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_eMail_Address__c</field>
+        <field>Client_Form__c.Point_of_Contact_eMail_Address__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_Fax__c</field>
+        <field>Client_Form__c.Point_of_Contact_Fax__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_First_Name__c</field>
+        <field>Client_Form__c.Point_of_Contact_First_Name__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_Last_Name__c</field>
+        <field>Client_Form__c.Point_of_Contact_Last_Name__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_Phone__c</field>
+        <field>Client_Form__c.Point_of_Contact_Phone__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Point_of_Contact_Title__c</field>
+        <field>Client_Form__c.Point_of_Contact_Title__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Short_BSP_Description__c</field>
+        <field>Client_Form__c.Short_BSP_Description__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Complete_BSP_Description__c</field>
+        <field>Client_Form__c.Complete_BSP_Description__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Business_Service_Provider_Category__c</field>
+        <field>Client_Form__c.Business_Service_Provider_Category__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Business_Service_Provider_Listings__c</field>
+        <field>Client_Form__c.Business_Service_Provider_Listings__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.Are_you_working_with_a_DOC_office__c</field>
+        <field>Client_Form__c.Are_you_working_with_a_DOC_office__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.If_yes_please_enter_name_and_office__c</field>
+        <field>Client_Form__c.If_yes_please_enter_name_and_office__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Client_Form__c.ADCVD_Case_Number__c.How_were_you_introduced_to_our_BSP__c	</field>
+        <field>Client_Form__c.How_were_you_introduced_to_our_BSP__c</field>
         <readable>true</readable>
-</fieldPermissions>
-<layoutAssignments>
+    </fieldPermissions>
+    <layoutAssignments>
         <layout>Client_Form__c-BSP FORM</layout>
         <recordType>Client_Form__c.BSP</recordType>
-</layoutAssignments>
-<recordTypeVisibilities>
+    </layoutAssignments>
+    <recordTypeVisibilities>
         <default>false</default>
         <recordType>Client_Form__c.BSP</recordType>
         <visible>true</visible>
-</recordTypeVisibilities>	
+    </recordTypeVisibilities>
 </Profile>
