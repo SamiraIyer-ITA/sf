@@ -56,6 +56,7 @@ export default class StaffingAssignment extends LightningElement {
     @track recusalLinkWrap;
     @track mapkeyvaluestore=[];
     @track spinner = true; //indicates loading
+    @track programManagerCount=0;
     @track programManagerId;
 
     defaultSortDirection = 'asc';
@@ -110,6 +111,9 @@ export default class StaffingAssignment extends LightningElement {
             })
     }
     fetchStaffingAssignments() {
+        
+        this.programManagerCount = 0;
+
         getStaffingAssignmentByParentId({parentId: this.recordId})
             .then(result => {
                 this.data = [];
@@ -123,6 +127,7 @@ export default class StaffingAssignment extends LightningElement {
 
                     if(row.Title__c == 'Program Manager'){
 
+                        this.programManagerCount = this.programManagerCount+1;
                         this.programManagerId = row.Id;
                     }
 
@@ -214,7 +219,7 @@ export default class StaffingAssignment extends LightningElement {
         let errorMessage = event.detail.detail;
         console.log("response",errorMessage);
         //do some stuff with message to make it more readable
-
+        
         this.dispatchEvent(
             new ShowToastEvent({
                 title: 'Error',
@@ -231,20 +236,11 @@ export default class StaffingAssignment extends LightningElement {
         // Here you can execute any logic before submit
         // and set or modify existing fields
         console.log(this.staffingAssignmentId);
+        console.log(this.programManagerCount);
         console.log(this.programManagerId);
         
-
-        if(fields.Title__c != 'Program Manager' && this.staffingAssignmentId == this.programManagerId){
+        if(fields.Title__c != 'Program Manager' && this.staffingAssignmentId == this.programManagerId && this.programManagerCount == 1){
             let errorMessage = 'At least one Program Manager needs to be assigned to a record.';
-            this.dispatchEvent(
-                new ShowToastEvent({
-                    title: 'Error',
-                    message: errorMessage,
-                    variant: 'error'
-                })
-            );
-        } else if(fields.Title__c == 'Program Manager' && this.staffingAssignmentId != this.programManagerId){
-            let errorMessage = 'There must be only one Program Manager per parent record.Program Manager already added.';
             this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'Error',
@@ -266,20 +262,11 @@ export default class StaffingAssignment extends LightningElement {
         // Here you can execute any logic before submit
         // and set or modify existing fields
         
-        if(fields.Title__c == 'Program Manager' && this.programManagerId != null){
-            let errorMessage = 'There must be only one Program Manager per parent record.Program Manager already added.';
-            this.dispatchEvent(
-                new ShowToastEvent({
-                    title: 'Error',
-                    message: errorMessage,
-                    variant: 'error'
-                })
-            );
-        } else {
+        
         // You need to submit the form after modifications
         this.template
             .querySelector('lightning-record-edit-form').submit(fields);
-        }    
+           
     }
 
     handleRowAction(event) {
@@ -315,7 +302,7 @@ export default class StaffingAssignment extends LightningElement {
 
     handleDelete(recordId) {
 
-        if(this.programManagerId == recordId){
+        if(this.programManagerId == recordId && this.programManagerCount==1){
             let errorMessage = 'At least one Program Manager needs to be assigned to a record';
             this.dispatchEvent(
                 new ShowToastEvent({
