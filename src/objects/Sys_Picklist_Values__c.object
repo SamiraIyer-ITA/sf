@@ -216,12 +216,18 @@
                 <value>
                     <fullName>Issue with the website</fullName>
                     <default>false</default>
-                    <label>Issue with the website</label>
+                    <label>Report a website issue</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
                     <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Contacting a local trade or export assistance expert (*limited availability)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
