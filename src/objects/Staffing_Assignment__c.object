@@ -1225,7 +1225,7 @@ OR(ISCHANGED(ADCVD_Case__c ),ISCHANGED(ADCVD_Order__c),ISCHANGED(Investigation__
         <errorConditionFormula>AND(Text(Title__c)==&apos;Program Manager&apos;,
 			OR(ISBLANK(User__c),User__r.LastName ==&apos;Please Assign&apos;)
 			)</errorConditionFormula>
-        <errorMessage>At least one program manager must be assigned to a record.</errorMessage>
+        <errorMessage>Please assign a user to the program manager.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Program_Manager_must_have_a_user</fullName>
