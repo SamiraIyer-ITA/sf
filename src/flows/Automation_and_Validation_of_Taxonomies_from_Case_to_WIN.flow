@@ -2671,6 +2671,9 @@
         <label>Is it an Industry record</label>
         <locationX>3514</locationX>
         <locationY>1696</locationY>
+        <defaultConnector>
+            <targetReference>Loop_through_Collection_of_Taxonomy_Tagging_Records</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes_it_is</name>
@@ -2811,8 +2814,11 @@
         <description>Decision element determining if it is an Industry Record Being handed in</description>
         <name>Is_this_an_Industry_record</name>
         <label>Is this an Industry record</label>
-        <locationX>1303</locationX>
-        <locationY>1400</locationY>
+        <locationX>1304</locationX>
+        <locationY>1381</locationY>
+        <defaultConnector>
+            <targetReference>Loop_through_Collection_of_Taxonomy_Tagging_Records_Additional_Case</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Industry</name>
@@ -3583,8 +3589,48 @@
             </connector>
             <label>Yes Specific Industries</label>
         </rules>
+    </decisions>
+    <decisions>
+        <description>This is a decision element to determine if &quot;relate a case with one taxonomy&quot; was selected without having any taxonomies</description>
+        <name>Was_Related_a_Case_With_One_Taxonomy_Selected_with_no_Taxonomies</name>
+        <label>Was Related a Case With One Taxonomy Selected with no Taxonomies</label>
+        <locationX>1380</locationX>
+        <locationY>1826</locationY>
+        <defaultConnector>
+            <targetReference>Related_Industry_Taxonomy_Taggings</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Select_was_the_choice_0_0_0</name>
+            <name>Yes_it_was</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RelateAnAdditionalCaseAndOneOfItsTaxonomies</leftValueReference>
+                <operator>WasSelected</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_additional_Case_Record_to_Relate.Country_in_Case_Rollup__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_additional_Case_Record_to_Relate.Sys_Region_in_Case_Rollup__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Relate_Case_only_or_with_Taxonomies</targetReference>
+            </connector>
+            <label>Yes it was</label>
+        </rules>
+        <rules>
+            <name>Select_was_the_choice0</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>Country_to_Relate</leftValueReference>
@@ -4895,7 +4941,7 @@
         <description>Get all taxonomy tagging records to compare against the users selections.</description>
         <name>Related_Industry_Taxonomy_Taggings</name>
         <label>Related Industry Taxonomy Taggings</label>
-        <locationX>1502</locationX>
+        <locationX>1494</locationX>
         <locationY>1569</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -5610,13 +5656,13 @@
         <description>User can relate only the Case or the Case with Taxonomies</description>
         <name>Relate_Case_only_or_with_Taxonomies</name>
         <label>Path 3.2</label>
-        <locationX>1502</locationX>
-        <locationY>1826</locationY>
+        <locationX>1510</locationX>
+        <locationY>1763</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Related_Industry_Taxonomy_Taggings</targetReference>
+            <targetReference>Was_Related_a_Case_With_One_Taxonomy_Selected_with_no_Taxonomies</targetReference>
         </connector>
         <fields>
             <name>What_would_you_like_to_do_0</name>
@@ -6719,7 +6765,7 @@
             <targetReference>Get_Taxonomy_Tagging_Record_Types</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <description>Client Counseling Middle Value</description>
         <name>ClientCounselingCreationOnWINMiddleValue</name>
