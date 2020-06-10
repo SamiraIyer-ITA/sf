@@ -1476,7 +1476,7 @@
         <fullName>Eswatini</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Eswatini</label>
+        <label>Eswatini (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Saudi</fullName>
