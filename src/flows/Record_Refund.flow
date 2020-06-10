@@ -711,7 +711,7 @@
             <targetReference>Can_Access_Flow</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <description>Display refund details to user during processing</description>
         <name>DisplayRefundTemplate</name>
