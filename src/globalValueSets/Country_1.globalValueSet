@@ -1287,12 +1287,6 @@
         <label>Cayman</label>
     </customValue>
     <customValue>
-        <fullName>Syria</fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-        <label>Syria</label>
-    </customValue>
-    <customValue>
         <fullName>Korea (South)</fullName>
         <default>false</default>
         <isActive>false</isActive>
