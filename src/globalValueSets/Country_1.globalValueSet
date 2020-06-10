@@ -1422,7 +1422,7 @@
         <fullName>Holy See</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Holy See</label>
+        <label>Holy See (inactive)</label>
     </customValue>
     <customValue>
         <fullName>North Korea</fullName>
