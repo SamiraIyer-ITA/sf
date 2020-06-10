@@ -238,9 +238,18 @@ export default class StaffingAssignment extends LightningElement {
         console.log(this.staffingAssignmentId);
         console.log(this.programManagerCount);
         console.log(this.programManagerId);
-        
+
         if(fields.Title__c != 'Program Manager' && this.staffingAssignmentId == this.programManagerId && this.programManagerCount == 1){
             let errorMessage = 'At least one Program Manager needs to be assigned to a record.';
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error',
+                    message: errorMessage,
+                    variant: 'error'
+                })
+            );
+        } else if(fields.Title__c == ''){
+            let errorMessage = 'Please select a title for this user.';
             this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'Error',
@@ -261,12 +270,22 @@ export default class StaffingAssignment extends LightningElement {
         const fields = event.detail.fields;
         // Here you can execute any logic before submit
         // and set or modify existing fields
-        
-        
-        // You need to submit the form after modifications
-        this.template
-            .querySelector('lightning-record-edit-form').submit(fields);
-           
+
+        if(fields.Title__c == ''){
+            let errorMessage = 'Please select a title for this user.';
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error',
+                    message: errorMessage,
+                    variant: 'error'
+                })
+            );
+        } else {
+
+            // You need to submit the form after modifications
+            this.template
+                .querySelector('lightning-record-edit-form').submit(fields);
+        }
     }
 
     handleRowAction(event) {
