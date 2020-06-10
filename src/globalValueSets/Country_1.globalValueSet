@@ -1191,12 +1191,6 @@
         <label>Zimbabwe</label>
     </customValue>
     <customValue>
-        <fullName>Laos</fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-        <label>Laos</label>
-    </customValue>
-    <customValue>
         <fullName>East</fullName>
         <default>false</default>
         <isActive>false</isActive>
