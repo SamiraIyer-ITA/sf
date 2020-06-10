@@ -1752,7 +1752,7 @@
         <fullName>Libya</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Libya</label>
+        <label>Libya (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Iran</fullName>
@@ -1800,7 +1800,7 @@
         <fullName>Brunei</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Brunei</label>
+        <label>Brunei (inactive)</label>
     </customValue>
     <description>The Countries taxonomy taken from the &quot;Thesaurus of International Trade Terms&quot; on trade.gov dev site.</description>
     <masterLabel>Country</masterLabel>
