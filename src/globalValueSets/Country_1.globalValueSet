@@ -1428,49 +1428,49 @@
         <fullName>North Korea</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>North Korea</label>
+        <label>North Korea  (inactive)</label>
     </customValue>
     <customValue>
         <fullName>South Korea</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>South Korea</label>
+        <label>South Korea  (inactive)</label>
     </customValue>
     <customValue>
         <fullName>North Macedonia</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>North Macedonia</label>
+        <label>North Macedonia  (inactive)</label>
     </customValue>
     <customValue>
         <fullName>West Bank and Gaza</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>West Bank and Gaza</label>
+        <label>West Bank and Gaza (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Pitcairn Islands</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Pitcairn Islands</label>
+        <label>Pitcairn Islands  (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Réunion</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Réunion</label>
+        <label>Réunion  (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Saint Martin</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Saint Martin</label>
+        <label>Saint Martin  (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Sint Maarten</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Sint Maarten</label>
+        <label>Sint Maarten  (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Eswatini</fullName>
