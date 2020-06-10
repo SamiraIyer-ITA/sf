@@ -1542,13 +1542,13 @@
         <fullName>Bolivia</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Bolivia</label>
+        <label>Bolivia (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Russia</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Russia</label>
+        <label>Russia (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Czech</fullName>
@@ -1710,7 +1710,7 @@
         <fullName>Venezuela</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Venezuela</label>
+        <label>Venezuela (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Burma</fullName>
@@ -1722,7 +1722,7 @@
         <fullName>Tanzania</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Tanzania</label>
+        <label>Tanzania (inactive)</label>
     </customValue>
     <customValue>
         <fullName>States</fullName>
@@ -1758,7 +1758,7 @@
         <fullName>Iran</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Iran</label>
+        <label>Iran (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Cote</fullName>
@@ -1776,7 +1776,7 @@
         <fullName>Moldova</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Moldova</label>
+        <label>Moldova (inactive)</label>
     </customValue>
     <customValue>
         <fullName>Sierra</fullName>
