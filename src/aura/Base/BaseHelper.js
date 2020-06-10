@@ -104,7 +104,7 @@
 					console.error("Errors", errors);
 					this.handleErrors(errors);
 				} else {
-					this.handleErors(new Error("Unknown Error"));
+					this.handleErrors(new Error("Unknown Error"));
 				}
 			}
 			var compEvent = component.getEvent("hideSpinner");

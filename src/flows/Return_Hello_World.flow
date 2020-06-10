@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>HelloWorld</name>
+        <label>HelloWorld</label>
+        <locationX>182</locationX>
+        <locationY>66</locationY>
+        <assignmentItems>
+            <assignToReference>Message_Hello_World</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Message_Hello_World</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>This Flow is used in Apex Unit Tests</description>
+    <interviewLabel>Return Hello World {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Return Hello World</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <runInMode>SystemModeWithSharing</runInMode>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>HelloWorld</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Message_Hello_World</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>Hello World</stringValue>
+        </value>
+    </variables>
+</Flow>
