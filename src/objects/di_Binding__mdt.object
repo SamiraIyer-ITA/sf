@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>BindingObjectAlternate__c</fullName>
+        <description>Use this field to specify the SObject API name to bind to when the &quot;Binding Object&quot; field does not list that particular SObject.  Only specify the &quot;Binding Object&quot; field or this one; not both.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Use this field to specify the SObject API name to bind to when the &quot;Binding Object&quot; field does not list that particular SObject.  Only specify the &quot;Binding Object&quot; field or this one; not both.</inlineHelpText>
+        <label>Binding Object Alternate</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BindingObject__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Binding Object</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>Bindings</relationshipLabel>
+        <relationshipName>Bindings</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BindingSequence__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Binding Sequence</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>To__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>To</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Type</label>
+        <required>true</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Apex</fullName>
+                    <default>true</default>
+                    <label>Apex</label>
+                </value>
+                <value>
+                    <fullName>LightningComponent</fullName>
+                    <default>false</default>
+                    <label>Lightning Component</label>
+                </value>
+                <value>
+                    <fullName>VisualforceComponent</fullName>
+                    <default>false</default>
+                    <label>Visualforce Component</label>
+                </value>
+                <value>
+                    <fullName>Flow</fullName>
+                    <default>false</default>
+                    <label>Flow</label>
+                </value>
+                <value>
+                    <fullName>Module</fullName>
+                    <default>false</default>
+                    <label>Module</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Binding</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>MasterLabel</columns>
+        <columns>BindingObject__c</columns>
+        <columns>BindingObjectAlternate__c</columns>
+        <columns>BindingSequence__c</columns>
+        <columns>To__c</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <pluralLabel>Bindings</pluralLabel>
+    <validationRules>
+        <fullName>BindObj_Or_BindObjAlt</fullName>
+        <active>true</active>
+        <description>This validation rule ensures that only the &quot;Binding Object&quot; or the &quot;Binding Object Alternate&quot; field is specified and not both.</description>
+        <errorConditionFormula>NOT( ISBLANK( BindingObject__c ) ) &amp;&amp; NOT( ISBLANK( BindingObjectAlternate__c ) )</errorConditionFormula>
+        <errorMessage>Only specify the &quot;Binding Object&quot; field or the &quot;Binding Object Alternate&quot; field; not both.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
