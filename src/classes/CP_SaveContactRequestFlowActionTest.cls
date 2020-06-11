@@ -1,23 +1,16 @@
 @isTest (SeeAllData = false)
 
- 
-
 public class CP_SaveContactRequestFlowActionTest {
-    
     @testSetup static void testSetup(){
-        
-        user superUSser = [select id from user where profile.name =: 'System Administrator' AND isActive = true limit 1];
+        user superUSser = [SELECT Id FROM USER WHERE profile.name =: 'System Administrator' AND ISACTIVE = TRUE LIMIT 1];
         datetime mydt = dateTime.now();
-        list<User> newUsers = new list<User>();
+        List<User> newUsers = new List<User>();
         UserRole r = new UserRole(DeveloperName = 'testingRole', Name = 'Test Role');
-        Profile adminProfile = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
- //avoid mix DML use for (System Objects)
+        Profile adminProfile = [SELECT Id FROM PROFILE WHERE Name='System Administrator']; 
+        //avoid mix DML use for (System Objects)
         System.runAs(superUSser){
            insert r; 
         }
-
- 
-
         User AdminUSer = new User(Alias = 'admUser', Email='standarduser@testorg.com', 
                           EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
                           LocaleSidKey='en_US', ProfileId = adminProfile.Id,UserRoleId = r.Id,
@@ -39,7 +32,7 @@ public class CP_SaveContactRequestFlowActionTest {
         }
         
         Account testAccount = new Account();
-         testAccount.Name='Test Account';
+        testAccount.Name='Test Account';
         testAccount.OwnerId = standardUser.id;
         //Avoid mix DML   
         system.runAs(standardUser)  {  
@@ -66,12 +59,15 @@ public class CP_SaveContactRequestFlowActionTest {
         System.runAs(AdminUSer) { 
                 insert u; 
         }
-        lead testLead = new lead();
+        LIST<RecordType> myRecords = new LIST<RecordType>();
+        myRecords = [SELECT Id FROM RecordType WHERE DeveloperName =: 'New_Registrant' LIMIT 1];
+        Lead testLead = new lead();
         testLead.FirstName = 'test';
         testLead.LastName = 'test';
         testLead.email = 'mycptest1@ztest.com';
         testLead.LeadSource = null;
         testLead.Company = 'Test Co';
+        testLead.RecordTypeId = myRecords[0].Id;
            //avoid mix dml     
         system.runAs(standardUser)  {  
                 insert(testLead);
@@ -80,26 +76,26 @@ public class CP_SaveContactRequestFlowActionTest {
     
     @IsTest
     static void testUnvverifedUser(){
-        list<user> userList = new list<user>();
-        list<group> groupList = new list<group>();
-        list<lead> leadList = new list<lead>();
-        list<Contact> contactList = new list<contact>();
+        List<User> userList = new List<User>();
+        List<Group> groupList = new List<Group>();
+        List<Lead> leadList = new List<lead>();
+        List<Contact> contactList = new List<Contact>();
         contactlist = [ SELECT Id FROM Contact];
         leadList = [SELECT Id from Lead];
         groupList = [SELECT Id, Name,DeveloperName FROM Group WHERE DeveloperName LIKE 'cp_contact_%'];
         userList = [SELECT Id FROM user WHERE UserName =: 'cpEXTTestUser2@cpDanDev.com'];
-        map<String,Id> queueList = new map<String,Id>();
+        Map<String,Id> queueList = new Map<String,Id>();
         
         for(group currentGroup :groupList){
             queueList.put(currentGroup.DeveloperName,currentGroup.Id);
         }
         
         CP_SaveContactRequestFlowAction.RequestVariables screenData = new CP_SaveContactRequestFlowAction.RequestVariables();
-        list< CP_SaveContactRequestFlowAction.RequestVariables> reqVars = new list< CP_SaveContactRequestFlowAction.RequestVariables>();
-        list<contactRequest> savedRecords = new list<ContactRequest>();
+        List< CP_SaveContactRequestFlowAction.RequestVariables> reqVars = new List<CP_SaveContactRequestFlowAction.RequestVariables>();
+        List<contactRequest> savedRecords = new List<ContactRequest>();
         
         screenData.ownerId = queueList.get('CP_Contact_US_3');
-        screenData.contactId = contactlist[0].id;
+        screenData.contactId = (String) contactlist[0].id;
         screenData.converted = 'false';
         screenData.country = 'China';
         screenData.email = 'mycptest1@ztest.com';
@@ -107,33 +103,31 @@ public class CP_SaveContactRequestFlowActionTest {
         screenData.requestReason = '';
         screenData.zipCode = '78250';
         screenData.lastName = 'test';
-        screenData.leadId = leadList[0].Id;
+        screenData.leadId =  leadList[0].Id;
+        screenData.queueName = 'CP_Contact_US_3';
         reqVars.add(screenData);
         CP_SaveContactRequestFlowAction.createRecord(reqVars);
-           savedRecords = [select id, whoId from contactRequest];
+        savedRecords = [select id, whoId from contactRequest];
         system.assert( savedRecords[0].whoId == leadList[0].id);
     }
     
     @istest
     static void testverifedUser(){
-        list<user> userList = new list<user>();
-        list<group> groupList = new list<group>();
-        list<lead> leadList = new list<lead>();
-        list<Contact> contactList = new list<contact>();
+        List<User> userList = new List<User>();
+        List<Group> groupList = new List<Group>();
+        List<Lead> leadList = new List<lead>();
+        List<Contact> contactList = new List<Contact>();
         contactlist = [SELECT Id FROM contact];
         leadList = [SELECT Id FROM Lead];
         groupList = [SELECT Id, Name, DeveloperName FROM group WHERE DeveloperName LIKE 'cp_contact_%'];
-        map<String,Id> queueList = new map<String,Id>();
+        Map<String,Id> queueList = new Map<String,Id>();
         for(group currentGroup :groupList){
             queueList.put(currentGroup.DeveloperName,currentGroup.Id);
         }
-       
-        
         CP_SaveContactRequestFlowAction.RequestVariables screenData = new CP_SaveContactRequestFlowAction.RequestVariables();
-        list< CP_SaveContactRequestFlowAction.RequestVariables> reqVars = new list< CP_SaveContactRequestFlowAction.RequestVariables>();
-        list<contactRequest> savedRecords = new list<ContactRequest>();
+        List<CP_SaveContactRequestFlowAction.RequestVariables> reqVars = new List<CP_SaveContactRequestFlowAction.RequestVariables>();
+        List<ContactRequest> savedRecords = new List<ContactRequest>();
         userList = [SELECT Id FROM user WHERE UserName =: 'cpEXTTestUser2@cpDanDev.com'];
- 
         screenData.ownerId =  queueList.get('CP_Contact_US_3');
         screenData.contactId = contactlist[0].id;
         screenData.converted = 'true';
@@ -144,6 +138,7 @@ public class CP_SaveContactRequestFlowActionTest {
         screenData.zipCode = '78250';
         screenData.lastName = 'test';
         screenData.leadId = leadList[0].Id;
+        screenData.queueName = 'CP_Contact_US_3';
         reqVars.add(screenData);
         CP_SaveContactRequestFlowAction.createRecord(reqVars);
         savedRecords = [SELECT Id, WhoId FROM ContactRequest];
@@ -152,37 +147,38 @@ public class CP_SaveContactRequestFlowActionTest {
     
      @IsTest
     static void testUnregisteredUser(){
-        list<user> userList = new list<user>();
-        list<group> groupList = new list<group>();
-        list<lead> leadList = new list<lead>();
-        list<Contact> contactList = new list<contact>();
+        List<User> userList = new List<User>();
+        List<Group> groupList = new List<Group>();
+        List<Lead> leadList = new List<lead>();
+        List<Contact> contactList = new List<Contact>();
         contactlist = [ select Id FROM Contact];
         leadList = [SELECT Id FROM Lead];
         groupList = [SELECT Id, Name, DeveloperName FROM Group WHERE DeveloperName like 'cp_contact_%'];
         userList = [SELECT Id FROM user where userName =: 'cpEXTTestUser2@cpDanDev.com'];
-        map<String,Id> queueList = new map<String,Id>();
+        Map<String,Id> queueList = new Map<String,Id>();
         
         for(group currentGroup :groupList){
             queueList.put(currentGroup.DeveloperName,currentGroup.Id);
         }
         
         CP_SaveContactRequestFlowAction.RequestVariables screenData = new CP_SaveContactRequestFlowAction.RequestVariables();
-        list< CP_SaveContactRequestFlowAction.RequestVariables> reqVars = new list< CP_SaveContactRequestFlowAction.RequestVariables>();
-        list<contactRequest> savedRecords = new list<ContactRequest>();
+        List<CP_SaveContactRequestFlowAction.RequestVariables> reqVars = new List<CP_SaveContactRequestFlowAction.RequestVariables>();
+        List<ContactRequest> savedRecords = new List<ContactRequest>();
         
         screenData.ownerId = queueList.get('CP_Contact_US_3');
         screenData.contactId = null;
         screenData.converted = 'false';
         screenData.country = 'China';
-        screenData.email = 'mycptest1@ztest.com';
+        screenData.email = 'mycptestNOLEAD@ztest.com';
         screenData.firstName = 'test';
         screenData.requestReason = '';
         screenData.zipCode = '78250';
         screenData.lastName = 'test';
         screenData.leadId = 'NONE';
+        screenData.queueName = 'CP_Contact_US_3';
         reqVars.add(screenData);
         CP_SaveContactRequestFlowAction.createRecord(reqVars);
-           savedRecords = [select id, whoId from contactRequest];
+           savedRecords = [Select Id, WhoId FROM CONTACTREQUEST];
         system.assert( savedRecords[0].whoId == null);
     }
 }
