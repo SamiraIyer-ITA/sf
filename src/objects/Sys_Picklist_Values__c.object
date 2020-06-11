@@ -174,7 +174,7 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-<valueSet>
+        <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -222,6 +222,12 @@
                     <fullName>Other</fullName>
                     <default>false</default>
                     <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Contacting a local trade or export assistance expert (*limited availability)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
