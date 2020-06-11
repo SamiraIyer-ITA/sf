@@ -1184,6 +1184,15 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A1200ProgramManagerCannotBeBlank</fullName>
+        <active>true</active>
+        <description>Program Manager user cannot be blank or have &apos;Please Assign&apos; on the record</description>
+        <errorConditionFormula>AND(Text(Title__c)==&apos;Program Manager&apos;,
+			OR(ISBLANK(User__c),User__r.LastName ==&apos;Please Assign&apos;)
+			)</errorConditionFormula>
+        <errorMessage>Please assign a user to the program manager.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A1201PermSetReparentsStaffing</fullName>
         <active>true</active>
         <description>Staffing records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
@@ -1217,15 +1226,6 @@ OR(ISCHANGED(ADCVD_Case__c ),ISCHANGED(ADCVD_Order__c),ISCHANGED(Investigation__
 &quot;System Administrator&quot; 
 )</errorConditionFormula>
         <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Investigation, Petition, Interested Organization, Segment or ADCVD Case for this record.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Program_Manager_Cannot_Be_Blank</fullName>
-        <active>true</active>
-        <description>Program Manager user cannot be blank or have &apos;Please Assign&apos; on the record</description>
-        <errorConditionFormula>AND(Text(Title__c)==&apos;Program Manager&apos;,
-			OR(ISBLANK(User__c),User__r.LastName ==&apos;Please Assign&apos;)
-			)</errorConditionFormula>
-        <errorMessage>Please assign a user to the program manager.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Program_Manager_must_have_a_user</fullName>
