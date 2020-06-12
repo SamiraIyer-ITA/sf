@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Boston</fullName>
+        <default>false</default>
+        <label>Boston</label>
+    </customValue>
+    <customValue>
+        <fullName>New York</fullName>
+        <default>false</default>
+        <label>New York</label>
+    </customValue>
+    <customValue>
+        <fullName>Pittsburgh</fullName>
+        <default>false</default>
+        <label>Pittsburgh</label>
+    </customValue>
+    <customValue>
+        <fullName>Chicago</fullName>
+        <default>false</default>
+        <label>Chicago</label>
+    </customValue>
+    <customValue>
+        <fullName>North Texas</fullName>
+        <default>false</default>
+        <label>North Texas</label>
+    </customValue>
+    <customValue>
+        <fullName>Sacramento</fullName>
+        <default>false</default>
+        <label>Sacramento</label>
+    </customValue>
+    <customValue>
+        <fullName>Cleveland</fullName>
+        <default>false</default>
+        <label>Cleveland</label>
+    </customValue>
+    <customValue>
+        <fullName>Northern New Jersey</fullName>
+        <default>false</default>
+        <label>Northern New Jersey</label>
+    </customValue>
+    <customValue>
+        <fullName>San Diego</fullName>
+        <default>false</default>
+        <label>San Diego</label>
+    </customValue>
+    <customValue>
+        <fullName>Harrisburg</fullName>
+        <default>false</default>
+        <label>Harrisburg</label>
+    </customValue>
+    <customValue>
+        <fullName>Northern VA</fullName>
+        <default>false</default>
+        <label>Northern VA</label>
+    </customValue>
+    <customValue>
+        <fullName>San Francisco</fullName>
+        <default>false</default>
+        <label>San Francisco</label>
+    </customValue>
+    <customValue>
+        <fullName>Houston</fullName>
+        <default>false</default>
+        <label>Houston</label>
+    </customValue>
+    <customValue>
+        <fullName>Orlando (Florida)</fullName>
+        <default>false</default>
+        <label>Orlando (Florida)</label>
+    </customValue>
+    <customValue>
+        <fullName>Seattle</fullName>
+        <default>false</default>
+        <label>Seattle</label>
+    </customValue>
+    <customValue>
+        <fullName>Indianapolis</fullName>
+        <default>false</default>
+        <label>Indianapolis</label>
+    </customValue>
+    <customValue>
+        <fullName>Philadelphia</fullName>
+        <default>false</default>
+        <label>Philadelphia</label>
+    </customValue>
+    <customValue>
+        <fullName>South Texas</fullName>
+        <default>false</default>
+        <label>South Texas</label>
+    </customValue>
+    <customValue>
+        <fullName>Irvine</fullName>
+        <default>false</default>
+        <label>Irvine</label>
+    </customValue>
+    <customValue>
+        <fullName>Phoenix</fullName>
+        <default>false</default>
+        <label>Phoenix</label>
+    </customValue>
+    <customValue>
+        <fullName>Westchester</fullName>
+        <default>false</default>
+        <label>Westchester</label>
+    </customValue>
+    <customValue>
+        <fullName>Memphis</fullName>
+        <default>false</default>
+        <label>Memphis</label>
+    </customValue>
+    <masterLabel>Business Service Provider Listings</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
