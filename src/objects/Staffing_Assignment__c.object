@@ -549,16 +549,17 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         <externalId>false</externalId>
         <label>User</label>
         <lookupFilter>
-            <active>false</active>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
             <filterItems>
-                <field>$Source.Title__c</field>
+                <field>User.UserRole.Name</field>
                 <operation>equals</operation>
-                <valueField>User.Staffing_Role__c</valueField>
+                <value>E&amp;C DAS/AS</value>
             </filterItems>
             <filterItems>
-                <field>User.Staffing_Role__c</field>
-                <operation>notEqual</operation>
-                <value></value>
+                <field>User.UserRole.Name</field>
+                <operation>equals</operation>
+                <value>E&amp;C TANC</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
