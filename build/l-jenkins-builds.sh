@@ -61,7 +61,7 @@ types=" app \
         page \
 	pathAssistant \
 	permissionset \
-	permissionsetGroup \
+	permissionsetgroup \
 	profilePasswordPolicy \
         queue \
         quickAction \
