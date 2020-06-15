@@ -105,7 +105,8 @@
                 <field>Opportunity_Created_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Project_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
