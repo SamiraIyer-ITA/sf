@@ -114,7 +114,7 @@ public with sharing class Payment2 {
 			}
 
 			//Create a payment record
-			Payment2__c payment = Payment2.createPayment(accountType, contractId, orderIds, userId);
+			Payment2__c payment = Payment2.createPayment(accountType, contractId, orderIds, null);
 
 			//Gather data to send to the payment processor
 			return getPaymentProcessorData(accountType, payment, orderIds, userId, paymentPage,
