@@ -1,17 +1,5 @@
 src/applications/Payment_Manager_2.app
 src/applications/Transaction_Management.app
-src/aura/Base
-src/aura/PaymentDetails
-src/aura/PaymentDetails
-src/aura/RecordLogViewer
-src/aura/RecordLogViewer
-src/aura/di_injector
-src/aura/di_injector
-src/aura/di_injectorAttribute
-src/aura/di_injectorFlowProxy
-src/aura/di_injectorFlowProxy
-src/aura/di_injectorFlowProxy
-src/aura/di_injectorFlowProxyStatusChanged
 src/classes/ContactsSelector.cls
 src/classes/ContactsSelectorTest.cls
 src/classes/ContractsSelector.cls
@@ -121,24 +109,6 @@ src/layouts/Payment2__c-Credit Card or ACH Payment.layout
 src/layouts/Payment2__c-NIST-Issued Refund.layout
 src/layouts/Payment_Mapping__mdt-Payment Mapping Layout.layout
 src/layouts/di_Binding__mdt-Binding Layout.layout
-src/lwc/getQueryParameters
-src/lwc/ldsUtils
-src/lwc/payment
-src/lwc/payment
-src/lwc/paymentConfirmation
-src/lwc/paymentConfirmation
-src/lwc/paymentDetails2
-src/lwc/paymentOrderList
-src/lwc/paymentOrderList
-src/lwc/pubsub
-src/lwc/transactionCriteria
-src/lwc/transactionCriteria
-src/lwc/transactionList
-src/lwc/transactionList
-src/lwc/unpaidOrdersForContract
-src/lwc/unpaidOrdersForContract
-src/lwc/unpaidReductionOrdersForContract
-src/lwc/unpaidReductionOrdersForContract
 src/objects/ContactRequest.object
 src/objects/Contract.object
 src/objects/Order.object
@@ -161,3 +131,21 @@ src/tabs/Payment2__c.tab
 src/tabs/Transaction_Management.tab
 src/triggers/Order_Events.trigger
 src/contentassets/PaymentAppLogo.asset
+src/aura/Base/Base.cmp
+src/aura/PaymentDetails/PaymentDetails.cmp
+src/aura/RecordLogViewer/RecordLogViewer.cmp
+src/aura/di_injector/di_injector.cmp
+src/aura/di_injectorAttribute/di_injectorAttribute.cmp
+src/aura/di_injectorFlowProxy/di_injectorFlowProxy.cmp
+src/aura/di_injectorFlowProxyStatusChanged/di_injectorFlowProxyStatusChanged.evt
+src/lwc/getQueryParameters/getQueryParameters.js
+src/lwc/ldsUtils/ldsUtils.js
+src/lwc/payment/payment.js
+src/lwc/paymentConfirmation/paymentConfirmation.js
+src/lwc/paymentDetails2/paymentDetails2.js
+src/lwc/paymentOrderList/paymentOrderList.js
+src/lwc/pubsub/pubsub.js
+src/lwc/transactionCriteria/transactionCriteria.js
+src/lwc/transactionList/transactionList.js
+src/lwc/unpaidOrdersForContract/unpaidOrdersForContract.js
+src/lwc/unpaidReductionOrdersForContract/unpaidReductionOrdersForContract.js
