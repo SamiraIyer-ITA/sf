@@ -14,7 +14,6 @@ private class AppFactoryServicesMetadataSelectorTest {
 		AppFactoryServicesMetadataSelector.ImplementationWrapper result
 		 = AppFactoryServicesMetadataSelector.newInstance()
 			.selectByServiceImplementationSObjectDeveloperName(null);
-		System.debug(result);
 		System.assert(result.appServices.isEmpty(), 'Selector returned empty list');
 		System.assertEquals(null, result.implementationField, 'Implementation field should be null for no result');
 	}
