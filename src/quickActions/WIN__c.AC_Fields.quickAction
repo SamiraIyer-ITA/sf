@@ -30,11 +30,6 @@
         <quickActionLayoutColumns>
             <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
-                <field>Advocacy_US_Export_Content_Goods__c</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
                 <field>Advocacy_US_Export_Content_Services__c</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>

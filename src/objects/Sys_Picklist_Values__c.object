@@ -174,7 +174,7 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-<valueSet>
+        <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -568,15 +568,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Resolving a trade barrier</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My trade gov account</fullName>
+                <fullName>Issue with the website</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -584,11 +576,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Issue with the website</fullName>
+                <fullName>My trade gov account</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy-Identifying Top Markets-Industry Trends</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolving a trade barrier</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -597,6 +597,7 @@
             </values>
         </picklistValues>
     </recordTypes>
+    <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
