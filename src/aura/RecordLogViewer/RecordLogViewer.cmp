@@ -4,51 +4,43 @@
                 controller="RecordLogViewerController"
                 access="global">
 
-    <aura:attribute name="recordId" type="Object"/>
-    <aura:attribute name="recordLogs" type="Record_Log__c[]"/>
-    <aura:attribute name="expanded" type="Boolean" default="true"/>
+	<aura:attribute name="recordId" type="Object"/>
+	<aura:attribute name="recordLogs" type="Record_Log__c[]"/>
+	<aura:attribute name="expanded" type="Boolean" default="true"/>
 
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
-    <aura:handler name="showSpinner" event="c:ShowSpinner" action="{!c.showSpinner}"/>
-    <aura:handler name="hideSpinner" event="c:HideSpinner" action="{!c.hideSpinner}"/>
+	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+	<aura:handler name="showSpinner" event="c:ShowSpinner" action="{!c.showSpinner}"/>
+	<aura:handler name="hideSpinner" event="c:HideSpinner" action="{!c.hideSpinner}"/>
 
-    <lightning:layout>
-        <lightning:layoutItem size="12">
+	<lightning:layout>
+		<lightning:layoutItem size="12">
 
-            <article class="slds-card">
-                <div class="slds-card__body slds-card__body_inner slds-m-top--x-small" >
+			<article class="slds-card">
+				<div class="slds-card__body slds-card__body_inner slds-m-top--x-small" >
 
-                    <div class="slds-tabs_default slds-m-bottom_none">
-                        <ul class="slds-tabs_default__nav" role="tablist">
-                            <li class="slds-tabs_default__item slds-is-active" title="Log Details" role="presentation" style="margin-top:0px;padding-top:0px;">
-                                <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Log Details</a>
-                            </li>
-                        </ul>
-                    </div>
+					<div aura:id="spinner" class="slds-align--absolute-center slds-hide">
+						<lightning:spinner variant="brand" size="large" alternativeText="Please wait.  Retrieving log details."/>
+					</div>
 
-                    <div aura:id="spinner" class="slds-align--absolute-center slds-hide">
-                        <lightning:spinner variant="brand" size="large" alternativeText="Please wait.  Retrieving log details."/>
-                    </div>
-
-                    <aura:if isTrue="{!v.recordLogs}">
-                        <br/>
-                        <div class="slds-p-horizontal--small">
-                            <aura:if isTrue="{!v.recordLogs.length}">
-                                <div style="float: right">
-                                    <lightning:buttonGroup>
-                                        <lightning:button label="Expand All" value="true" onclick="{!c.expanded}"/>
-                                        <lightning:button label="Collapse All" value="false" onclick="{!c.expanded}"/>
-                                    </lightning:buttonGroup>
-                                </div>
-                            </aura:if>
-                            <aura:iteration items="{!v.recordLogs}" var="recordLog">
-                                <c:RecordLog log="{!recordLog.Data__c}" expandAll="{!v.expanded}"/><br/>
-                            </aura:iteration>
-                        </div>
-                    </aura:if>
-                </div>
-            </article>
-        </lightning:layoutItem>
-    </lightning:layout>
+					<aura:if isTrue="{!v.recordLogs}">
+						<br/>
+						<div class="slds-p-horizontal--small">
+							<aura:if isTrue="{!v.recordLogs.length}">
+								<div style="float: right">
+									<lightning:buttonGroup>
+										<lightning:button label="Expand All" value="true" onclick="{!c.expanded}"/>
+										<lightning:button label="Collapse All" value="false" onclick="{!c.expanded}"/>
+									</lightning:buttonGroup>
+								</div>
+							</aura:if>
+							<aura:iteration items="{!v.recordLogs}" var="recordLog">
+								<c:RecordLog log="{!recordLog.Data__c}" expandAll="{!v.expanded}"/><br/>
+							</aura:iteration>
+						</div>
+					</aura:if>
+				</div>
+			</article>
+		</lightning:layoutItem>
+	</lightning:layout>
 
 </aura:component>
