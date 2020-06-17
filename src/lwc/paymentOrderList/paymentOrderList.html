@@ -1,0 +1,94 @@
+<template>
+	<div data-id="recordTypeDialog" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+		<!--<div class="slds-modal__container">
+		<div class="card">
+			<h3 class="cardTitle">
+				<span class="slds-text-title_bold slds-m-left_small">Available Orders</span>
+			</h3>
+
+			<template if:false={gotData}>
+				<div class="slds-p-around--medium">
+					<div class="slds-text-heading--small">Determining available orders...</div>
+				</div>
+			</template>
+
+			<template if:true={hasNoOrders}>
+				<div class="slds-p-around--medium slds-text-heading--small">No orders are available.</div>
+				<div class="cardFooter slds-p-top_small slds-p-bottom_small">
+					<lightning-button variant="neutral" label="Cancel" onclick={handleCancel} class="slds-p-right--small"></lightning-button>
+				</div>
+			</template>
+
+			<template if:true={hasOrders}>
+				<div class="overflow-unset slds-modal__content slds-p-around--medium slds-grid slds-wrap ">
+					<div class="slds-p-bottom--medium slds-text-title_bold">Pay for selected orders.</div>
+					<lightning-datatable
+							data={orders}
+							columns={orderColumns}
+							key-field="Id"
+							onrowselection={handleRowSelection}
+							selected-rows={selectedOrders}>
+					</lightning-datatable>
+				</div>
+
+				<div class="cardFooter slds-p-top_small slds-p-bottom_small">
+					<span class="slds-m-left_medium" style="float: left">Payment Total: <lightning-formatted-number value={paymentTotal} format-style="currency" currency-code="USD"></lightning-formatted-number></span>
+					<lightning-button variant="neutral" label="Cancel" onclick={handleCancel} class="slds-p-right--small"></lightning-button>
+					<template if:true={hasTotal}>
+						<lightning-button variant="success" label="Pay" onclick={handlePay}></lightning-button>
+					</template>
+				</div>
+			</template>
+		</div>
+		</div>
+	</div>-->
+
+
+		<div class="slds-modal__container">
+			<div class="slds-modal__header">
+				<h2 class="slds-text-heading--medium">Available Orders</h2>
+			</div>
+
+			<template if:false={gotData}>
+				<div class="slds-modal__content slds-p-around--medium">
+					<div class="slds-text-heading--small">Determining available orders...</div>
+				</div>
+				<div class="slds-modal__footer">
+					<lightning-button variant="neutral" label="Cancel" onclick={handleCancel} class="slds-p-right--small"></lightning-button>
+				</div>
+			</template>
+
+			<template if:true={hasNoOrders}>
+				<div class="slds-modal__content slds-p-around--medium slds-text-heading--small">No orders are available.</div>
+				<div class="slds-modal__footer">
+					<lightning-button variant="neutral" label="Cancel" onclick={handleCancel} class="slds-p-right--small"></lightning-button>
+				</div>
+			</template>
+
+			<template if:true={hasOrders}>
+				<div class="overflow-unset slds-modal__content slds-p-around--medium slds-grid slds-wrap ">
+
+					<div class="slds-p-bottom--medium slds-text-title_bold">Pay for selected orders.</div>
+					<lightning-datatable
+							data={orders}
+							columns={orderColumns}
+							key-field="Id"
+							onrowselection={handleRowSelection}
+							selected-rows={selectedOrders}>
+					</lightning-datatable>
+
+				</div>
+
+				<div class="slds-modal__footer">
+					<span class="slds-text-title_bold" style="float: left">Payment Total: <lightning-formatted-number value={paymentTotal} format-style="currency" currency-code="USD"></lightning-formatted-number></span>
+					<lightning-button variant="neutral" label="Cancel" onclick={handleCancel} class="slds-p-right--small"></lightning-button>
+					<template if:true={hasTotal}>
+						<lightning-button variant="success" label="Pay" onclick={handlePay}></lightning-button>
+					</template>
+				</div>
+			</template>
+		</div>
+	</div>
+
+	<div data-id="overlay" class="slds-backdrop slds-backdrop--open"></div>
+</template>

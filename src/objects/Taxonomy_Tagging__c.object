@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,11 +89,41 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -44,6 +134,15 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -51,6 +150,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -2457,6 +2557,7 @@
                 <value>
                     <fullName>eCommerce</fullName>
                     <default>false</default>
+                    <label>eCommerce</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -2699,6 +2800,7 @@
                 <value>
                     <fullName>Digital Strategy</fullName>
                     <default>false</default>
+                    <label>Digital Strategy</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -21252,9 +21354,11 @@ IF(ISBLANK( Related_Application__c),0,1)
         <fullName>Require_One_Taxonomy_Field</fullName>
         <active>true</active>
         <description>Depending on the Record Type, one top level record is required.  For Industry, the Industry field must be filled out; for Country, the Country field must be filled out, etc.</description>
-        <errorConditionFormula>OR(AND(ISPICKVAL(Industry__c,&quot;&quot; ), RecordType.Name = &quot;Industry&quot;),
-AND(ISPICKVAL(Country__c,&quot;&quot; ), RecordType.Name = &quot;Country&quot;),
-AND(ISPICKVAL(Trade_Region__c,&quot;&quot; ), RecordType.Name = &quot;Trade_Region&quot;), AND(ISPICKVAL(Category__c ,&quot;&quot; ), RecordType.Name = &quot;Trade_Issue&quot;)
+        <errorConditionFormula>OR(AND(ISPICKVAL(Industry__c,&quot;&quot; ), RecordType.DeveloperName= &quot;Industry&quot;),
+AND(ISPICKVAL(Country__c,&quot;&quot; ), RecordType.DeveloperName= &quot;Country&quot;),
+AND(ISPICKVAL(Trade_Region__c,&quot;&quot; ), RecordType.DeveloperName= &quot;Trade_Region&quot;),
+AND(ISPICKVAL(Category__c ,&quot;&quot; ), RecordType.DeveloperName= &quot;Trade_Issue&quot;),
+AND(ISPICKVAL(Type__c ,&quot;&quot; ), RecordType.DeveloperName= &quot;Client_Counseling&quot;)
 )</errorConditionFormula>
         <errorMessage>You are required to choose a value before you can save this record.</errorMessage>
     </validationRules>
