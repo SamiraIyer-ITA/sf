@@ -4,18 +4,16 @@
  * This class is used to build a map of service interface implementation to a list or map of SObjects as well as a
  * trigger service (which is called by the service class).
  *
- * Each class the extends must provide a Service Implementation SObject name which is used by the fflib Application
- * Factory Service custom metadata to build the implementation key to interface. This can be used to filter a list of
- * records to build the interface to list of records.
+ * This class uses the Service Implementation SObject custom metadata that stores a SObject Api name and implementation
+ * field. The implementation field is the Api field name on the SObject that will contain the value which is stored in
+ * the fflib Application Factory Service custom metadata to build the implementation key to interface. This can be used
+ * to filter a list of records to build the interface to list of records.
  *
  * @author Andrew La Russa
  */
 public abstract with sharing class SObjectsImplManager {
 
 	private ImplWrapper implWrapper;
-
-	// Service Implementation SObject developer name
-	public abstract String serviceImplementationSObjectName();
 
 	/**
 	 * Constructs SObjects Impl Manager with a custom implementation not based on custom metadata
@@ -32,7 +30,7 @@ public abstract with sharing class SObjectsImplManager {
 	 * @param records SObject list
 	 */
 	public SObjectsImplManager(List<SObject> records) {
-		this.implWrapper = new ImplWrapper(new ImplMapper(serviceImplementationSObjectName()), records, null);
+		this.implWrapper = new ImplWrapper(records, null);
 	}
 
 	/**
@@ -42,21 +40,21 @@ public abstract with sharing class SObjectsImplManager {
 	 * @param existingRecords Map of existing records (Trigger.oldMap)
 	 */
 	public SObjectsImplManager(List<SObject> records, Map<Id, SObject> existingRecords) {
-		this.implWrapper = new ImplWrapper(new ImplMapper(serviceImplementationSObjectName()), records, existingRecords);
+		this.implWrapper = new ImplWrapper(records, existingRecords);
 	}
 
 	/**
-	 * Getter used to create an instance of the TriggerImpl class to run implementation trigger servcies
+	 *  Used to create an instance of the ITriggerImpl class to run implementation trigger services
+	 *
+	 *  Uses force-di to get the trigger factory implementation class
+	 *
+	 * @return ITriggerImpl
 	 */
-	public TriggerImpl triggerService {
-		get {
-			if (triggerService == null) {
-				triggerService = new TriggerImpl(implWrapper.mapper.interfaceTypeByKey, implWrapper.recordsByInterfaceType,
-					implWrapper.existingRecordsByInterfaceType);
-			}
-			return triggerService;
-		}
-		private set;
+	public ITriggerImpl triggerService() {
+		ITriggerImplFactory triggerServiceFactory
+			= (ITriggerImplFactory) di_Injector.Org.getInstance('TriggerImplFactory');
+		return triggerServiceFactory.triggerService(implWrapper.mapper.interfaceTypeByKey,
+			implWrapper.recordsByInterfaceType, implWrapper.existingRecordsByInterfaceType);
 	}
 
 	public Map<String, System.Type> getInterfaceTypeByKey() {
@@ -116,12 +114,14 @@ public abstract with sharing class SObjectsImplManager {
 		/**
 		 * Constructs ImplWrapper with necessary mappings and data to build an implementation map
 		 *
-		 * @param mapper ImplMapper
+		 * We can get the value of the SObject implementation by getting the string value of SObject type from the list
+		 * of records using getSObjectType.
+		 *
 		 * @param records SObjects list
 		 * @param existingRecords Map of existing SObjects (Trigger.oldMap)
 		 */
-		public ImplWrapper(ImplMapper mapper, List<SObject> records, Map<Id, SObject> existingRecords) {
-			this.mapper = mapper;
+		public ImplWrapper(List<SObject> records, Map<Id, SObject> existingRecords) {
+			this.mapper = new ImplMapper(String.valueOf(records.getSObjectType()));
 			if (existingRecords == null) {
 				setRecordsByInterfaceType(records);
 			} else {
@@ -171,19 +171,22 @@ public abstract with sharing class SObjectsImplManager {
 		}
 	}
 
-	/**
-	 * Interface for TriggerImpl
-	 */
-	public interface ITriggerImpl {
+	public interface ITriggerImplFactory {
 
-		void handleBeforeInsert();
-		void handleBeforeUpdate();
-		void handleBeforeDelete();
-		void handleAfterInsert();
-		void handleAfterUpdate();
-		void handleAfterDelete();
-		void handleAfterUndelete();
+		ITriggerImpl triggerService(Map<String, System.Type> interfaceTypeByKey,
+			Map<System.Type, List<SObject>> recordsByInterfaceType,
+			Map<System.Type, Map<Id, SObject>> existingRecordsByInterfaceType);
+	}
 
+	public class TriggerImplFactory implements ITriggerImplFactory {
+
+		public TriggerImpl triggerService(
+			Map<String, System.Type> interfaceTypeByKey,
+			Map<System.Type, List<SObject>> recordsByInterfaceType,
+			Map<System.Type, Map<Id, SObject>> existingRecordsByInterfaceType
+		) {
+			return new TriggerImpl(interfaceTypeByKey, recordsByInterfaceType, existingRecordsByInterfaceType);
+		}
 	}
 
 	public class SObjectsImplManagerException extends Exception {}

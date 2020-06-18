@@ -4,7 +4,7 @@
  *
  * @author Andrew La Russa
  */
-public with sharing class TriggerImpl implements SObjectsImplManager.ITriggerImpl {
+public with sharing class TriggerImpl implements ITriggerImpl {
 
 	private Map<String, System.Type> interfaceTypeByKey;
 	private Map<System.Type, List<SObject>> recordsByInterfaceType;

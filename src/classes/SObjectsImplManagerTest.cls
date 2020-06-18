@@ -131,7 +131,7 @@ private class SObjectsImplManagerTest {
 
 		// When
 		MockSObjectsImplManager mockImplManager = new MockSObjectsImplManager(
-			new SObjectsImplManager.ImplWrapper(new SObjectsImplManager.ImplMapper('Account'), testSObjects, null));
+			new SObjectsImplManager.ImplWrapper(testSObjects, null));
 
 		// Then
 		((IAppFactoryServicesMetadataSelector)
@@ -187,7 +187,7 @@ private class SObjectsImplManagerTest {
 
 		// When
 		MockSObjectsImplManager mockImplManager = new MockSObjectsImplManager(testSObjects);
-		mockImplManager.triggerService.handleBeforeInsert();
+		mockImplManager.triggerService().handleBeforeInsert();
 
 		// Then
 		((IAppFactoryServicesMetadataSelector)
@@ -232,7 +232,7 @@ private class SObjectsImplManagerTest {
 
 		// When
 		MockSObjectsImplManager mockImplManager = new MockSObjectsImplManager(testSObjects );
-		mockImplManager.triggerService.handleBeforeDelete();
+		mockImplManager.triggerService().handleBeforeDelete();
 
 		// Then
 		((IAppFactoryServicesMetadataSelector)
@@ -278,7 +278,7 @@ private class SObjectsImplManagerTest {
 		// When
 		MockSObjectsImplManager mockImplManager
 			= new MockSObjectsImplManager(testSObjects , new Map<Id, SObject>(testSObjects ));
-		mockImplManager.triggerService.handleBeforeUpdate();
+		mockImplManager.triggerService().handleBeforeUpdate();
 
 		// Then
 		((IAppFactoryServicesMetadataSelector)
@@ -328,7 +328,7 @@ private class SObjectsImplManagerTest {
 
 		// When
 		MockSObjectsImplManager mockImplManager = new MockSObjectsImplManager(testSObjects);
-		mockImplManager.triggerService.handleAfterInsert();
+		mockImplManager.triggerService().handleAfterInsert();
 
 		// Then
 		((IAppFactoryServicesMetadataSelector)
@@ -393,7 +393,7 @@ private class SObjectsImplManagerTest {
 		// When
 		MockSObjectsImplManager mockImplManager
 			= new MockSObjectsImplManager(testSObjects , new Map<Id, SObject>(testSObjects ));
-		mockImplManager.triggerService.handleAfterUpdate();
+		mockImplManager.triggerService().handleAfterUpdate();
 
 		// Then
 		((IAppFactoryServicesMetadataSelector)
@@ -450,7 +450,7 @@ private class SObjectsImplManagerTest {
 
 		// When
 		MockSObjectsImplManager mockImplManager = new MockSObjectsImplManager(testSObjects);
-		mockImplManager.triggerService.handleAfterDelete();
+		mockImplManager.triggerService().handleAfterDelete();
 
 		// Then
 		((IAppFactoryServicesMetadataSelector)
@@ -495,7 +495,7 @@ private class SObjectsImplManagerTest {
 
 		// When
 		MockSObjectsImplManager mockImplManager = new MockSObjectsImplManager(testSObjects);
-		mockImplManager.triggerService.handleAfterUndelete();
+		mockImplManager.triggerService().handleAfterUndelete();
 
 		// Then
 		((IAppFactoryServicesMetadataSelector)
@@ -520,11 +520,6 @@ private class SObjectsImplManagerTest {
 
 		public MockSObjectsImplManager(List<SObject> records, Map<Id, SObject> existingRecords) {
 			super(records, existingRecords);
-		}
-
-		// Using a standard object as test
-		public override String serviceImplementationSObjectName() {
-			return 'Account';
 		}
 	}
 
