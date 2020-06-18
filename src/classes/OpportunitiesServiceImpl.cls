@@ -4,6 +4,6 @@
  *
  * @author Andrew La Russa
  */
-public virtual with sharing class OpportunitiesServiceImpl implements IOpportunitiesService {
+public with sharing class OpportunitiesServiceImpl implements IOpportunitiesService {
 
 }
