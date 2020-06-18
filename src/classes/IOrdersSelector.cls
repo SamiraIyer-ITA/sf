@@ -8,10 +8,11 @@
 		Only a single query need be defined in the implementation and only need be changed if fields are added,
 		subtracted, or changed.
  */
-public interface IOrdersSelector extends fflib_ISObjectSelector{
+public interface IOrdersSelector extends fflib_ISObjectSelector {
 
 	List<Order> selectById(Set<Id> idSet);
 	List<Order> selectByContractId(Set<Id> contractIds, Boolean normalOrders, Boolean reductionOrders, Boolean nonPaidOnly, Boolean paidOnly);
 	List<Order> selectWithReductionOrderDetails(Set<Id> idSet, Boolean normalOrders, Boolean reductionOrders, Boolean nonPaidOnly, Boolean paidOnly);
 	List<Order> selectReductionOrdersByContractId(Set<Id> idSet, Boolean onlyCreditCardPayments, Boolean nonPaidOnly, Boolean paidOnly);
+    List<Order> selectOrdersByOpportunities(Set<Id> opportunityIds);
 }
