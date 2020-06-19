@@ -51,4 +51,8 @@ public with sharing class OpportunitiesService {
 	public static void handleBeforeUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
 		triggerService(records, existingRecords).handleBeforeUpdate();
 	}
+
+	public static void handleAfterInsert(List<SObject> records) {
+		triggerService(records).handleAfterInsert();
+	}
 }

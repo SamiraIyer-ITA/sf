@@ -1805,4 +1805,12 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Organization_Required</fullName>
+        <active>false</active>
+        <description>Organization is required on all Opportunities.</description>
+        <errorConditionFormula>ISBLANK(AccountId)</errorConditionFormula>
+        <errorDisplayField>AccountId</errorDisplayField>
+        <errorMessage>Organization is required.</errorMessage>
+    </validationRules>
 </CustomObject>

@@ -587,4 +587,23 @@ public without sharing class Utils {
 	public static Id getRecordTypeNameByDeveloperName(String developerName, String objectName) {
 		return [SELECT Id FROM RecordType WHERE DeveloperName = :developerName AND sObjectType = :objectName LIMIT 1].Id;
 	}
+
+	/**
+	 * Gets a list of parents Ids based on list of related records
+	 *
+	 * @param relatedRecords Records related to opportunity
+	 * @param parentField The opportunity field on the related record
+	 *
+	 * @return Set of related opportunity Ids
+	 */
+	public static Set<Id> getParentIdsByRelatedObjectRecords(
+		List<SObject> relatedRecords,
+		Schema.SObjectField parentField
+	) {
+		Set<Id> parentIds = new Set<Id>();
+		for (SObject record: relatedRecords) {
+			parentIds.add((Id)record.get(parentField));
+		}
+		return parentIds;
+	}
 }

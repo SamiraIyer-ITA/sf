@@ -9,7 +9,15 @@ public with sharing class OpportunitiesSvcEvents extends SObjectsTriggerService 
 		createContractsAndOrdersWhensNeedsAnalysis(records, existingRecords);
 	}
 
+	public override void onAfterInsert(List<SObject> records) {
+		createContractsAndOrdersWhensNeedsAnalysis(records);
+	}
+
 	public void createContractsAndOrdersWhensNeedsAnalysis(List<SObject> records, Map<Id, SObject> existingRecords) {
 		OpportunitiesSvcLibrary.createContractsAndOrdersWhensNeedsAnalysis(records, existingRecords);
+	}
+
+	public void createContractsAndOrdersWhensNeedsAnalysis(List<SObject> records) {
+		OpportunitiesSvcLibrary.createContractsAndOrdersWhensNeedsAnalysis(records);
 	}
 }

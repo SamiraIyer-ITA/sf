@@ -6,23 +6,42 @@ public with sharing class OpportunitiesSvcLibrary {
 	public static Id orderServicesRecordTypeId
 		= Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
 
-	/**
-	 * Gets a list of opportunity Ids based on list of related records
-	 *
-	 * @param relatedRecords Records related to opportunity
-	 * @param opportunityField The opportunity field on the related record
-	 *
-	 * @return Set of related opportunity Ids
-	 */
-	public static Set<Id> getOpportunityIdsByRelatedObjectRecords(
-		List<SObject> relatedRecords,
-		Schema.SObjectField opportunityField
-	) {
-		Set<Id> opportunityIds = new Set<Id>();
-		for (SObject record: relatedRecords) {
-			opportunityIds.add((Id)record.get(opportunityField));
+	public static Id contractParticipationAgreementRecordTypeId
+		= Schema.SObjectType.Contract.getRecordTypeInfosByDeveloperName()
+			.get('Participation_Agreement').getRecordTypeId();
+
+	private static Contract getNeedsAnalysisContract(Opportunity opp) {
+		return new Contract(
+			AccountId = opp.AccountId,
+			RecordTypeId = contractParticipationAgreementRecordTypeId,
+			StartDate = opp.CloseDate,
+			ContractTerm = 12
+		);
+	}
+
+	private static Order getNeedsAnalysisOrder(Opportunity opp) {
+		return new Order(
+			OpportunityId = opp.Id,
+			AccountId = opp.AccountId,
+			Status = 'Draft',
+			EffectiveDate = opp.CloseDate,
+			RecordTypeId = orderServicesRecordTypeId
+		);
+	}
+
+	public static void createContractsAndOrdersWhensNeedsAnalysis(List<SObject> records) {
+		fflib_ISObjectUnitOfWork uow = fflibext_Application.UnitOfWork.newInstance();
+		for (Opportunity opp : (List<Opportunity>) records.deepClone()) {
+			if (opp.StageName == 'Needs Analysis') {
+				Contract oppContract = getNeedsAnalysisContract(opp);
+				Order oppOrder = getNeedsAnalysisOrder(opp);
+				// Using a list so we verify in our mock test
+				uow.registerNew(new List<SObject>{oppContract, oppOrder });
+				uow.registerRelationship(oppOrder, Order.ContractId, oppContract);
+				uow.registerDirty(opp, Opportunity.ContractId, oppContract);
+			}
 		}
-		return opportunityIds;
+		uow.commitWork();
 	}
 
 	public static void createContractsAndOrdersWhensNeedsAnalysis(
@@ -31,24 +50,16 @@ public with sharing class OpportunitiesSvcLibrary {
 	) {
 		fflib_ISObjectUnitOfWork uow = fflibext_Application.UnitOfWork.newInstance();
 		List<Order> ordersByOpportunities
-				= OrdersSelector.newInstance().selectOrdersByOpportunities(new Map<Id, SObject>(records).keySet());
+			= OrdersSelector.newInstance().selectOrdersByOpportunities(new Map<Id, SObject>(records).keySet());
 		Set<Id> opportunityIdsWithOrders
-				= getOpportunityIdsByRelatedObjectRecords((List<SObject>) ordersByOpportunities, Order.OpportunityId);
+			= Utils.getParentIdsByRelatedObjectRecords((List<SObject>) ordersByOpportunities, Order.OpportunityId);
 		for (Opportunity opp: (List<Opportunity>) records) {
 			Opportunity existingOpp = (Opportunity) existingRecords.get(opp.Id);
 			if (opp.StageName != existingOpp.StageName && opp.StageName == 'Needs Analysis') {
-				// Create a order if one does not already exist for this opportunity
+				// Create a order/contract if one does not already exist for this opportunity
 				if (!opportunityIdsWithOrders.contains(opp.Id) && opp.ContractId == null) {
-					Contract oppContract = new Contract(
-						AccountId = opp.AccountId
-					);
-					Order oppOrder = new Order(
-						OpportunityId = opp.Id,
-						AccountId = opp.AccountId,
-						Status = 'Draft',
-						EffectiveDate = opp.CloseDate,
-						RecordTypeId = orderServicesRecordTypeId
-					);
+					Contract oppContract = getNeedsAnalysisContract(opp);
+					Order oppOrder = getNeedsAnalysisOrder(opp);
 					// Using a list so we verify in our mock test
 					uow.registerNew(new List<SObject>{ oppContract, oppOrder });
 					uow.registerRelationship(oppOrder, Order.ContractId, oppContract);
