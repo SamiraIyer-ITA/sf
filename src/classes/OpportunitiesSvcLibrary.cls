@@ -31,14 +31,14 @@ public with sharing class OpportunitiesSvcLibrary {
 
 	public static void createContractsAndOrdersWhensNeedsAnalysis(List<SObject> records) {
 		fflib_ISObjectUnitOfWork uow = fflibext_Application.UnitOfWork.newInstance();
-		for (Opportunity opp : (List<Opportunity>) records.deepClone()) {
+		for (Opportunity opp : (List<Opportunity>) records) {
 			if (opp.StageName == 'Needs Analysis') {
 				Contract oppContract = getNeedsAnalysisContract(opp);
 				Order oppOrder = getNeedsAnalysisOrder(opp);
 				// Using a list so we verify in our mock test
 				uow.registerNew(new List<SObject>{oppContract, oppOrder });
 				uow.registerRelationship(oppOrder, Order.ContractId, oppContract);
-				uow.registerDirty(opp, Opportunity.ContractId, oppContract);
+				uow.registerDirty(opp.clone(true, true, true, true), Opportunity.ContractId, oppContract);
 			}
 		}
 		uow.commitWork();
