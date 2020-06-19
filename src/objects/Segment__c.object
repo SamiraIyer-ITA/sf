@@ -12019,6 +12019,10 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
