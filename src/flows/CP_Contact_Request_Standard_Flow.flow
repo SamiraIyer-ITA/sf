@@ -722,7 +722,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
         </fields>
         <fields>
             <name>PleaseVistOfficeLisst</name>
-            <fieldText>&lt;p&gt;&lt;a href=&quot;https://2016.export.gov/usoffices/index.asp&quot; target=&quot;_blank&quot;&gt;Find the U.S. office closest to your location&lt;/a&gt;.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;a href=&quot;https://trade.gov/commercial-services-offices-us&quot; target=&quot;_blank&quot;&gt;Find the U.S. office closest to your location&lt;/a&gt;.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
