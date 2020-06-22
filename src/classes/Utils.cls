@@ -589,21 +589,24 @@ public without sharing class Utils {
 	}
 
 	/**
-	 * Gets a list of parents Ids based on list of related records
+	 * Gets a list of records Ids based on list of related records
+	 *
+	 * For instance passing in a list of contacts specifying Contact.AccountId as the related field will return a set
+	 * accounts Ids related to those contacts.
 	 *
 	 * @param relatedRecords Records related to opportunity
-	 * @param parentField The opportunity field on the related record
+	 * @param relatedField The field on the related record
 	 *
-	 * @return Set of related opportunity Ids
+	 * @return Set of related record Ids
 	 */
-	public static Set<Id> getParentIdsByRelatedObjectRecords(
+	public static Set<Id> getRecordsIdsByRelatedObjectRecords(
 		List<SObject> relatedRecords,
-		Schema.SObjectField parentField
+		Schema.SObjectField relatedField
 	) {
-		Set<Id> parentIds = new Set<Id>();
+		Set<Id> recordIds = new Set<Id>();
 		for (SObject record: relatedRecords) {
-			parentIds.add((Id)record.get(parentField));
+			recordIds.add((Id)record.get(relatedField));
 		}
-		return parentIds;
+		return recordIds;
 	}
 }

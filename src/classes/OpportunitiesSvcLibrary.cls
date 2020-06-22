@@ -52,7 +52,7 @@ public with sharing class OpportunitiesSvcLibrary {
 		List<Order> ordersByOpportunities
 			= OrdersSelector.newInstance().selectOrdersByOpportunities(new Map<Id, SObject>(records).keySet());
 		Set<Id> opportunityIdsWithOrders
-			= Utils.getParentIdsByRelatedObjectRecords((List<SObject>) ordersByOpportunities, Order.OpportunityId);
+			= Utils.getRecordsIdsByRelatedObjectRecords((List<SObject>) ordersByOpportunities, Order.OpportunityId);
 		for (Opportunity opp: (List<Opportunity>) records) {
 			Opportunity existingOpp = (Opportunity) existingRecords.get(opp.Id);
 			if (opp.StageName != existingOpp.StageName && opp.StageName == 'Needs Analysis') {
