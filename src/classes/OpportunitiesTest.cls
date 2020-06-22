@@ -169,7 +169,10 @@ private class OpportunitiesTest {
 			.registerNew(fflib_Match.sObjectsWith(
 				new List<Map<SObjectField, Object>> {
 					new Map<SObjectField, Object> {
-						Contract.AccountId => accountId
+						Contract.AccountId => accountId,
+						Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
+						Contract.StartDate => Date.today(),
+						Contract.ContractTerm => 12
 					},
 					new Map<SObjectField,Object> {
 						Order.OpportunityId => opportunityId,
@@ -222,7 +225,10 @@ private class OpportunitiesTest {
 			.registerNew(fflib_Match.sObjectsWith(
 				new List<Map<SObjectField, Object>> {
 					new Map<SObjectField, Object> {
-						Contract.AccountId => accountId
+						Contract.AccountId => accountId,
+						Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
+						Contract.StartDate => Date.today(),
+						Contract.ContractTerm => 12
 					},
 					new Map<SObjectField,Object> {
 						Order.OpportunityId => opportunityId,
