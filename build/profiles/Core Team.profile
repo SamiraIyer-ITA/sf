@@ -4,9 +4,18 @@
         <layout>Opportunity-Events</layout>
         <recordType>Opportunity.Events</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Services</layout>
+        <recordType>Opportunity.Services</recordType>
+    </layoutAssignments>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Opportunity.Events</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Opportunity.Services</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
 </Profile>
