@@ -218,6 +218,8 @@ export default class StaffingAssignment extends LightningElement {
         );
     }
     handleError(event) {
+        this.saveButtonLabel = 'Save';
+        this.saveSpinner = false;
         this.fetchStaffingAssignments();
 
         let errorMessage = event.detail.detail;
