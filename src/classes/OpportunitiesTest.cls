@@ -61,7 +61,7 @@ private class OpportunitiesTest {
 
 		// Then - Verify our unit of work
 		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(1)
-			.description('Verify a contract and order were created iwth correct values')))
+			.description('Verify a contract and order were created with correct values')))
 			.registerNew(fflib_Match.sObjectsWith(
 				new List<Map<SObjectField, Object>> {
 					new Map<SObjectField, Object> {
@@ -109,7 +109,7 @@ private class OpportunitiesTest {
 
 		// Then - Verify our unit of work
 		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(1)
-			.description('Verify a contract and order were created iwth correct values')))
+			.description('Verify a contract and order were created with correct values')))
 			.registerNew(fflib_Match.sObjectsWith(
 			new List<Map<SObjectField, Object>> {
 				new Map<SObjectField, Object> {
@@ -165,7 +165,7 @@ private class OpportunitiesTest {
 
 		// Then - Verify our unit of work
 		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(1)
-			.description('Verify a contract and order were created iwth correct values')))
+			.description('Verify a contract and order were created with correct values')))
 			.registerNew(fflib_Match.sObjectsWith(
 				new List<Map<SObjectField, Object>> {
 					new Map<SObjectField, Object> {
