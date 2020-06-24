@@ -133,13 +133,6 @@
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>ORDERS.ORDER_NUMBER</fields>
-        <fields>SALES.ACCOUNT.NAME</fields>
-        <fields>ORDERS.STATUS</fields>
-        <fields>ORDERS.TOTAL_AMOUNT</fields>
-        <relatedList>Order.Opportunity_Org_Code__c</relatedList>
-    </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
