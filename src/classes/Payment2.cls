@@ -335,9 +335,6 @@ public with sharing class Payment2 {
 		Map<String, Object> paymentSettingsMap = CustomMetadataSelector.getPaymentSettings('PayGov');
 		return (String) paymentSettingsMap.get(accountMetaDataName);
 	}
-	public  static List<Payment2__c> populateOpportunityonPayment_2(List<Payment2__c> payments){
-		return payments;
-	}
 
 	public class PaymentAuthenticationDetails {
 		public Id paymentId;
