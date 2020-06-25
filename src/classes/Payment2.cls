@@ -121,7 +121,6 @@ public with sharing class Payment2 {
 				paymentConfirmationPage, objectApiName, recordId);
 
 		} catch(Exception e) {
-			System.debug(e.getStackTraceString());
 			throw new AuraHandledException(e.getMessage());
 		}
 	}
@@ -174,7 +173,6 @@ public with sharing class Payment2 {
 			// create Project code as a CSV
 			for(Integer i = 0; i < ordersWithData.size() ; i++ ) {
 				if(ordersWithData.size() < 12) {
-					system.debug('*** ordersWithData[i].OrderItems.size() ==> ' + ordersWithData[i].OrderItems.size());
 					if (ordersWithData[i].OrderItems.size() != 0) {
 						if (String.isNotBlank(ordersWithData[i].OrderItems[0].ITA_Product_Code__c)) {
 							if (i == 0) {
@@ -186,7 +184,6 @@ public with sharing class Payment2 {
 						}
 					}
 				} else {
-					system.debug('*** Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
 					RecordLog.message('Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
 					RecordLog.emit('No Payment Id');
 					throw new PaymentLimitException('Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
