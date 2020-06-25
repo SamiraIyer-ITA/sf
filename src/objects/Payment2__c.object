@@ -718,7 +718,7 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <displayFormat>D{000000000}</displayFormat>
+        <displayFormat>P{000000000}</displayFormat>
         <label>Payment ID</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
