@@ -232,7 +232,7 @@
         <fullName>Deactivate in 12 months %2B 30</fullName>
         <active>true</active>
         <description>Sets the Asset Status to Expired after 1 year and 31 days, and notifies related Contact.</description>
-        <formula>OR(AND(NOT(ISBLANK(UsageEndDate)),ISPICKVAL(Status, &apos;active&apos;), Product2.Name = &apos;EU-US Certification&apos;),AND(NOT(ISBLANK(UsageEndDate)),ISPICKVAL(Status, &apos;active&apos;), Product2.Name = &apos;SW-US Certification&apos;));</formula>
+        <formula>OR(AND(NOT(ISBLANK(UsageEndDate)),ISPICKVAL(Status, &apos;active&apos;), Product2.Name = &apos;EU-US Certification&apos;),AND(NOT(ISBLANK(UsageEndDate)),ISPICKVAL(Status, &apos;active&apos;), Product2.Name = &apos;SW-US Certification&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
