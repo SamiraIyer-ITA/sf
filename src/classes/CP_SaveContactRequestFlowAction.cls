@@ -6,7 +6,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
         Boolean emailsTurnedOn = false;
         List<String> managerEmailList = getQueueManagerEmails(userInputs.queueDeveloperName);
         List<lead> leadList = new List<lead>();
-        Map<String,EmailTemplate> emailTemplateMap = getEmailTemplates();
+        Map<String,EmailTemplate> emailTemplateMap = getEmailTempletes();
         Map<String,String> fromEmailMap = new Map<String,String>();
         User defaultUser = getDefaultUser();
         OrgWideEmailAddress noReplyEmail = getOrgWideEmail();
@@ -50,7 +50,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
 		} 
         catch(System.NoAccessException e){
         }
-       if (emailsTurnedOn && ! TEST.isRunningTest()) {
+        if (emailsTurnedOn ){ //&& ! TEST.isRunningTest()) {
         sendEmailToRequester(newRecord.Email__c,userType,userInputs.contactId,newRecord.Id,noReplyEmail,
                              emailTemplateMap.get('Contact_Us_Requested'));
    		SendEmailToManagers(noReplyEmail,userInputs.queueName,newRecord.Id,managerEmailList);
@@ -71,8 +71,10 @@ global without sharing class CP_SaveContactRequestFlowAction {
        	 mail.setOrgWideEmailAddressId(orgEmail.Id);
         }
         mail.setToAddresses(new list<string>{toAddress});
-        Messaging.SendEmailResult[] resultMail = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
-    }
+        if(! TEST.isRunningTest()){ 
+        	Messaging.SendEmailResult[] resultMail = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+        }
+     }
 
     private static void SendEmailToManagers(OrgWideEmailAddress orgEmail,String queueName,Id recordId,List<String> managerEmailList){
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
@@ -83,7 +85,9 @@ global without sharing class CP_SaveContactRequestFlowAction {
        	   mail.setOrgWideEmailAddressId(orgEmail.Id);
         }
         mail.setToAddresses(managerEmailList);
-        Messaging.SendEmailResult[] resultMail = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+        if(! TEST.isRunningTest()){
+       		 Messaging.SendEmailResult[] resultMail = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+    	}
     }
     
     private static String getSubjectEmail(String queueName){
@@ -100,7 +104,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
         return body;
     }
         
-     private static map<String,EmailTemplate> getEmailTemplates(){
+     private static map<String,EmailTemplate> getEmailTempletes(){
        List<String> templateNameList = new list <String>();
        List<EmailTemplate> templeateList = new list <EmailTemplate>(); 
        map<String,emailTemplate> templateMap = new map<String,EmailTemplate>();
@@ -177,7 +181,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
                        Id IN (SELECT UserOrGroupId FROM GROUPMEMBER WHERE Group.DeveloperName =: publicgroup)]){
             emailList.add(cu.Id);    
          }
-        return emailList; 
+        return emailList;
     }
     
     global class RequestVariables {
