@@ -151,32 +151,32 @@ public with sharing class Payment2 {
 		if(orderIds != null && !orderIds.isEmpty()) {
 			//Convert orderIds String array to set of Id
 			Set<Id> orderIdSet = (Set<Id>) JSON.deserialize(JSON.serialize(orderIds), Set<Id>.class);
-			List<Order> orders = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIdSet);
+			List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIdSet);
 
 			//All Orders must be for the same Opportunity, so only look at the Opportunity values for the 1st Order
-			payment.Organization_Name__c = orders[0].Opportunity.Account.Name;
-			payment.Opportunity_Owner__c = orders[0].Opportunity.Owner.Name;
-			payment.Opportunity_Created_Date__c = orders[0].Opportunity.CreatedDate;
-			payment.Collection_Post_Name__c = orders[0].Opportunity.Collection_Post__r.Name;
-			payment.Collection_Post_Org_Code__c = orders[0].Opportunity.Collection_Post__r.Org_Code__c;
-			payment.Fulfillment_Post_Name__c = orders[0].Opportunity.Fulfillment_Post__r.Name;
-			payment.Fulfillment_Post_Org_Code__c = orders[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
+			payment.Organization_Name__c = orderListWithDetails[0].Opportunity.Account.Name;
+			payment.Opportunity_Owner__c = orderListWithDetails[0].Opportunity.Owner.Name;
+			payment.Opportunity_Created_Date__c = orderListWithDetails[0].Opportunity.CreatedDate;
+			payment.Collection_Post_Name__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Name;
+			payment.Collection_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
+			payment.Fulfillment_Post_Name__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
+			payment.Fulfillment_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
 
 			// Determine the Project Code value and Total Amount value
 			Decimal totalAmount = 0.00;
-			for(Integer i = 0; i < orders.size() ; i++ ) {
-				if(orders.size() <= 12) {
-					if (orders[i].OrderItems.size() != 0) {
-						if (String.isNotBlank(orders[i].OrderItems[0].ITA_Product_Code__c)) {
+			for(Integer i = 0; i < orderListWithDetails.size() ; i++ ) {
+				if(orderListWithDetails.size() <= 12) {
+					if (orderListWithDetails[i].OrderItems.size() != 0) {
+						if (String.isNotBlank(orderListWithDetails[i].OrderItems[0].ITA_Product_Code__c)) {
 							if (i == 0) {
-								payment.Project_Code__c = orders[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+								payment.Project_Code__c = orderListWithDetails[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
 							} else{
-								payment.Project_Code__c += ', ' + orders[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+								payment.Project_Code__c += ', ' + orderListWithDetails[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
 							}
 
 						}
 					}
-					totalAmount += orders[i].TotalAmount;
+					totalAmount += orderListWithDetails[i].TotalAmount;
 				} else {
 					system.debug('*** Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
 					RecordLog.message('Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
