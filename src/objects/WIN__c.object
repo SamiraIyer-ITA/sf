@@ -295,20 +295,6 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Actual_Export_Dollar_Value__c</fullName>
-        <description>Actual export dollar value provided and verified by the client. These include actual sales, revenue, or other dollar value impact as a direct result of this WIN. This should not include any Advertising Equivalent Value (AEV). AEV can be recorded in the Impact/Results section instead.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>These include actual sales, revenue, or other dollar value impact as a direct result of this WIN. This should not include any Advertising Equivalent Value (AEV). AEV can be recorded in the Impact/Results section instead.</inlineHelpText>
-        <label>Actual Export Dollar Value</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Advocacy_Date_Contract_Signed__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Date foreign government signed the procurement contract.</inlineHelpText>
