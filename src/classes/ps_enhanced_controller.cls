@@ -414,7 +414,7 @@ public without sharing class ps_enhanced_controller {
     ableToRecertify = false;
     for(asset asset : this.participation.assets__r){
       output.put(asset.framework__r.name, asset);
-      if(asset.status == 'Active' || (asset.status == 'Inactive')) {
+            if(asset.status == 'Active' || (asset.status == 'Inactive')) {
           ableToRecertify = true;
       }
     }
