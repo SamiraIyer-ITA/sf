@@ -226,10 +226,6 @@
                 <behavior>Readonly</behavior>
                 <field>Advocacy_US_Export_Content_Services__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>AC_Total_US_Export_Content__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
