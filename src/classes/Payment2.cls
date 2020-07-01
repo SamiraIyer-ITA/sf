@@ -202,7 +202,7 @@ public with sharing class Payment2 {
 		RecordLog.message('Contract Id: ' + payment.Contract__c);
 
 		payment.Account_Type__c = orderListWithDetails[0].Type;
-System.debug('CARY: ' + orderListWithDetails[0].OrderItems[0].Accounting_Code__c);
+
 		if (orderListWithDetails[0].OrderItems != null
 			&& orderListWithDetails[0].OrderItems.size() > 0
 			&& String.isNotBlank(orderListWithDetails[0].OrderItems[0].Accounting_Code__c)) {
