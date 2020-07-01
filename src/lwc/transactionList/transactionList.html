@@ -1,0 +1,43 @@
+<template>
+	<lightning-card>
+		<div class="header">Transaction List</div>
+
+		<template if:true={retrievingData}>
+			<div>Retrieving data...</div>
+			<lightning-spinner alternative-text="Please wait while transaction are being retrieved."></lightning-spinner>
+		</template>
+
+		<template if:false={dataReceived}>
+			<div>No transactions found.</div>
+		</template>
+
+		<template if:true={hasData}>
+			<div class="componentBorder">
+				<div class="slds-m-around--small">
+					<lightning-datatable
+							data={records}
+							columns={recordColumns}
+							key-field="Id"
+							onrowselection={handleRowSelection}
+							selected-rows={selectedRows}>
+					</lightning-datatable>
+				</div>
+			</div>
+
+			<div class="slds-text-title_bold totalStyle">Selected Total: <lightning-formatted-number value={selectedTotal} format-style="currency" currency-code="USD"></lightning-formatted-number>
+				<span class="buttonStyle">
+					<lightning-button variant="brand" label="Download" onclick={handleDownload}></lightning-button>
+				</span>
+			</div>
+		</template>
+
+		<template if:true={error}>
+			<div class="slds-notify slds-notify_toast slds-theme_error">
+				<span class="slds-assistive-text">Error</span>
+				<div class="slds-notify__content">
+					<p class="slds-align_absolute-center">{error}</p>
+				</div>
+			</div>
+		</template>
+	</lightning-card>
+</template>
