@@ -51,6 +51,9 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		} else {
 			//Only Privacy Shield uses custom fields, but the first one must be filled in for NIST's system.
 
+			if (String.isBlank(payments[0].Project_Code__c)) {
+				throw new Payment2.PaymentException('Project Code is missing.');
+			}
 			List<String> projectCodesForPayment = payments[0].Project_Code__c.split(',');
 			for (String projectCodeForPayment : projectCodesForPayment) {
 				// MGK increment custom_field_X so that each value in the list is a custom field

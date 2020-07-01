@@ -121,13 +121,16 @@ public with sharing class Payment2 {
 
 		//Begin to create the payment record
 		Payment2__c payment = new Payment2__c();
-		payment.Account_Type__c = params.accountType;
-		RecordLog.message('Account Type: ' + params.accountType);
+
 		payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		RecordLog.message('Record Type Id: ' + payment.RecordTypeId);
 
 		if (String.isNotBlank(params.projectCode)) {
 			payment.Project_Code__c = params.projectCode;
+		}
+
+		if (String.isNotBlank(params.accountType)) {
+			payment.Account_Type__c = params.accountType;
 		}
 
 		if (String.isNotBlank(params.transactionAmount)) {
@@ -158,6 +161,7 @@ public with sharing class Payment2 {
 			payment = populatePaymentDetailsFromOrder(params, payment);
 		}
 
+		RecordLog.message('Account Type: ' + payment.Account_Type__c);
 		RecordLog.message('Organization Name: ' + payment.Organization_Name__c);
 		RecordLog.message('Project Code: ' + payment.Project_Code__c);
 		RecordLog.message('Transaction Amount: ' + payment.Transaction_Amount__c);
@@ -197,8 +201,14 @@ public with sharing class Payment2 {
 		payment.Contract__c = orderListWithDetails[0].ContractId;
 		RecordLog.message('Contract Id: ' + payment.Contract__c);
 
-		if (String.isNotBlank(orderListWithDetails[0].OrderItems[0].Accounting_Code__c)) {
+		payment.Account_Type__c = orderListWithDetails[0].Type;
+System.debug('CARY: ' + orderListWithDetails[0].OrderItems[0].Accounting_Code__c);
+		if (orderListWithDetails[0].OrderItems != null
+			&& orderListWithDetails[0].OrderItems.size() > 0
+			&& String.isNotBlank(orderListWithDetails[0].OrderItems[0].Accounting_Code__c)) {
 			payment.Project_Code__c = orderListWithDetails[0].OrderItems[0].Accounting_Code__c.Left(4) + '231';
+		} else {
+			throw new Payment2.PaymentException('Project Code is missing.');
 		}
 
 		payment.Transaction_Amount__c = orderListWithDetails[0].TotalAmount;
@@ -257,10 +267,10 @@ public with sharing class Payment2 {
 		if (String.isNotBlank(params.orderId)) {
 			details.successUrl += '&orderId=' + params.orderId;
 		}
-		RecordLog.message('Success Url = ' + details.successUrl);
+		RecordLog.message('Success Url: ' + details.successUrl);
 
 		details.cancelUrl = baseUrl + '/' + params.failurePage + '?cancel=true';
-		RecordLog.message('Cancel Url' + details.cancelUrl);
+		RecordLog.message('Cancel Url: ' + details.cancelUrl);
 
 		if (String.isNotBlank(params.accountHolderName)) {
 			details.accountHolderName = params.accountHolderName;
@@ -353,6 +363,9 @@ public with sharing class Payment2 {
 		//Handle exceptions in the calling method
 		IPayment payment = (IPayment) di_Injector.Org.getInstance('PaymentProcessor');
 		String remoteAccountName = getRemoteAccountName(accountType);
+		if (String.isBlank(remoteAccountName)) {
+			throw new PaymentException('Unknown remote account name.');
+		}
 		return payment.confirmPayment(remoteAccountName, paymentId, token, accountType, orderId);
 	}
 
@@ -431,6 +444,6 @@ public with sharing class Payment2 {
 		public String accountType;
 	}
 
-	public class PaymentLimitException extends Exception {}
+	public class PaymentException extends Exception {}
 
 }
