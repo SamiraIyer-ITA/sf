@@ -4,21 +4,15 @@ public class CustomMetadataSelectorTest {
 	private static FINAL Integer COUNT = 1;
 
 	@isTest static void allConstants() {
-		Test.startTest();
 		System.assertNotEquals(0, CustomMetadataSelector.allConstants.size());
-		Test.stopTest();
 	}
 
 	@isTest static void allAdcvdObjects() {
-		Test.startTest();
 		System.assertNotEquals(0, CustomMetadataSelector.allAdcvdObjects.size());
-		Test.stopTest();
 	}
 
 	@isTest static void allDateCalculations() {
-		Test.startTest();
 		System.assertNotEquals(0, CustomMetadataSelector.allDateCalculations.size());
-		Test.stopTest();
 	}
 
 	@testSetup static void dataSetup() {
@@ -69,32 +63,36 @@ public class CustomMetadataSelectorTest {
 			frList.add(finalFR);
 		}
 		insert frList;
+		//Select newly inserted data
+		List<ADCVD_Case__c> adcvdCaseList = [SELECT Id FROM ADCVD_Case__c];
+		List<Petition__c> petitionList = [SELECT Id FROM Petition__c];
+		List<Investigation__c> investigationList = [SELECT Id FROM Investigation__c];
+		List<Federal_Register__c> federalRegisterList = [SELECT Id FROM Federal_Register__c];
 		Test.stopTest();
+		//Assert that records were inserted
+		System.assert(adcvdCaseList.size() > 0);
+		System.assert(petitionList.size() > 0);
+		System.assert(investigationList.size() > 0);
+		System.assert(federalRegisterList.size() > 0);
 	}
 
 	@isTest static void childToParentsSObjectMap_Positive() {
-		Test.startTest();
 		System.assertNotEquals(0, CustomMetadataSelector.childToParentsSObjectMap.size());
-		Test.stopTest();
 	}
 
 	@isTest static void getConstantNameToConstantMap_Positive() {
-		Test.startTest();
 		System.assertNotEquals(0, CustomMetadataSelector.getConstantNameToConstantMap('adcvd_order_calculation_offset__c').size());
-		Test.stopTest();
 	}
 
 	@isTest static void getParentsForChildSObject_Positive() {
 		Test.startTest();
 		CustomMetadataSelector cms = new CustomMetadataSelector();
-		System.assertNotEquals(0, cms.getParentsForChildSObject('Segment__c').size());
 		Test.stopTest();
+		System.assertNotEquals(0, cms.getParentsForChildSObject('Segment__c').size());
 	}
 
 
 	@isTest static void getPaymentSettings_Positive() {
-		Test.startTest();
 		System.assertNotEquals(0, CustomMetadataSelector.getPaymentSettings('Paygov').size());
-		Test.stopTest();
 	}
 }
