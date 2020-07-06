@@ -52,6 +52,10 @@ public class StaffingAssignment_Test{
         Staffing_Assignment__c testNewSA = StaffingAssignmentExtension.createNewStaffingAssignment(p.Id, 'Office Director');
         StaffingAssignment.deleteRecord(testNewSA.Id);
         
+        List<Staffing_Assignment__c> checkSAList = [SELECT Id FROM Staffing_Assignment__c WHERE Id =: testNewSA.Id];
+        
+        System.assertEquals(checkSAList.isEmpty(),true);
+        
         Test.stopTest();
     }
 
