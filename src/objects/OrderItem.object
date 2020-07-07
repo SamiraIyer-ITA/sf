@@ -103,7 +103,7 @@
     <fields>
         <fullName>Accounting_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>Product2.Accounting_Code__c</formula>
+        <formula>PricebookEntry.Product2.Accounting_Code__c</formula>
         <label>Accounting Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
