@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <description>Success Toast after Update Tolling has run.</description>
-        <name>Success_Toast</name>
-        <label>Success Toast</label>
-        <locationX>613</locationX>
-        <locationY>223</locationY>
-        <actionName>c:showToast</actionName>
-        <actionType>component</actionType>
-        <connector>
-            <targetReference>Finish_Screen</targetReference>
-        </connector>
-        <inputParameters>
-            <name>mode</name>
-            <value>
-                <stringValue>dismissible</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>duration</name>
-            <value>
-                <stringValue>35</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>message</name>
-            <value>
-                <stringValue>Add Tolling Day Batch Class has successfully ran!</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>title</name>
-            <value>
-                <stringValue>Success!</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>type</name>
-            <value>
-                <stringValue>success</stringValue>
-            </value>
-        </inputParameters>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </actionCalls>
-    <actionCalls>
         <description>Calling this Invocable Method (callBatch) will fire the AddTollingDayBatchClass and update records accordingly.</description>
         <name>Update_Tolling</name>
         <label>Update Tolling</label>
@@ -52,7 +9,7 @@
         <actionName>CallAddTollingDayBatch</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Success_Toast</targetReference>
+            <targetReference>Finish_Screen</targetReference>
         </connector>
     </actionCalls>
     <description>This Flow is initialized from a quick action on the Tolling Page layout called &quot;Update Tolling&quot;. This will call to an Invocable Method (callBatch) that will in turn fire Add Tolling Day Batch and will update records accordingly.</description>
@@ -75,7 +32,7 @@
         <description>Screen to let end user know what is happening at this point.</description>
         <name>Finish_Screen</name>
         <label>Finish Screen</label>
-        <locationX>740</locationX>
+        <locationX>610</locationX>
         <locationY>223</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
