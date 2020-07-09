@@ -14098,6 +14098,20 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>A1102SegmentOutRequiredActFinalSigBlank</fullName>
+        <active>true</active>
+        <description>Segment Outcome cannot be blank to enter Actual Final Signature</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == TRUE,
+            Locked__c == FALSE,
+            RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;,
+            AND(
+            NOT( ISNULL( Actual_Final_Signature__c ) ),
+            ISPICKVAL(  Segment_Outcome__c , &quot;&quot; ) ) )</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome is required because a value is provided in the Actual Final Signature field.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A1102TypeOfCircumventionInquiryRequired</fullName>
         <active>true</active>
         <description>Type of Circumvention Inquiry field value is required when Actual Initiation Signature is entered. Record Type: Anti-Circumvention</description>
@@ -14280,6 +14294,19 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>A1103SegmentOutRequiredActFinalSigBlank</fullName>
+        <active>true</active>
+        <description>Segment Outcome cannot be blank to enter Actual Final Signature</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == TRUE,
+            Locked__c == FALSE,
+            RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;,
+            AND(
+            NOT( ISNULL( Actual_Final_Signature__c ) ),
+            ISPICKVAL( Segment_Outcome__c , &quot;&quot;) ) )</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome is required because a value is provided in the Actual Final Signature field.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A1104ActualFinalSignatureNotBlank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is populated</description>
@@ -14404,6 +14431,20 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             ISBLANK( Suspension_Agreement__c )
             )</errorConditionFormula>
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104SegmentOutRequiredActFinalSigBlank</fullName>
+        <active>true</active>
+        <description>Segment Outcome cannot be blank to enter Actual Final Signature</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == TRUE,
+            Locked__c == FALSE,
+            RecordType.DeveloperName = &quot;Expedited_Review&quot;,
+            AND(
+            NOT( ISNULL( Actual_Final_Signature__c ) ),
+            ISPICKVAL( Segment_Outcome__c , &quot;&quot;) ) )</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome is required because a value is provided in the Actual Final Signature field.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>A1105ActualFinalSignatureNotBlank</fullName>
@@ -14539,6 +14580,17 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             )
             )</errorConditionFormula>
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105SegmentOutRequiredActFinalSigBlank</fullName>
+        <active>true</active>
+        <description>Segment Outcome cannot be blank to enter Actual Final Signature</description>
+        <errorConditionFormula>AND( $Setup.Master_Automation__c.ValidationRulesEnabled__c  == TRUE,  Locked__c == FALSE,
+            RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            AND( NOT( ISNULL( Actual_Final_Signature__c ) ),
+            ISPICKVAL( Segment_Outcome__c , &quot;&quot;) ) )</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome is required because a value is provided in the Actual Final Signature field.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>A1106AccessBarcode</fullName>
@@ -15124,6 +15176,19 @@ ISCHANGED(Request_Filed__c)
             ISBLANK( Suspension_Agreement__c )
             )</errorConditionFormula>
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107SegmentOutRequiredActFinalSigBlank</fullName>
+        <active>true</active>
+        <description>Segment Outcome cannot be blank to enter Actual Final Signature.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == TRUE,
+            Locked__c == FALSE,
+            RecordType.DeveloperName = &quot;Sunset_Review&quot;,
+            AND( NOT( ISNULL( Actual_Final_Signature__c ) ),
+            ISPICKVAL( Segment_Outcome__c , &quot;&quot;) ) )</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome is required because a value is provided in the Actual Final Signature field.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>ACR_Final_Extension</fullName>
