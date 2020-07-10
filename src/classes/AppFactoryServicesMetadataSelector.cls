@@ -33,13 +33,13 @@ public class AppFactoryServicesMetadataSelector
 	 *
 	 * @return ImplementationWrapper for the Service SObject selected
 	 */
-	public ImplementationWrapper selectByServiceImplementationSObjectDeveloperName(String developerName) {
+	public ImplementationWrapper selectByServiceImplementationSObjectDeveloperName(String sObjectApiName) {
 		List<ImplementationWrapper> wrapper = new List<ImplementationWrapper>();
 		List<ApplicationFactory_Service__mdt> appServices = Database.query(
 			newQueryFactory()
 				.selectField('Service_Implementation_SObject__r.Implementation_Field__c')
-				.selectField('Service_Implementation_SObject__r.DeveloperName')
-				.setCondition('Service_Implementation_SObject__r.DeveloperName = :developerName')
+				.selectField('Service_Implementation_SObject__r.SObject_Type__c')
+				.setCondition('Service_Implementation_SObject__r.SObject_Type__c = :sObjectApiName')
 				.toSOQL()
 		);
 		return new ImplementationWrapper(
