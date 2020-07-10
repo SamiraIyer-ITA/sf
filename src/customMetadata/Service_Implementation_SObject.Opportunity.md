@@ -6,4 +6,8 @@
         <field>Implementation_Field__c</field>
         <value xsi:type="xsd:string">Record_Type_Developer_Name__c</value>
     </values>
+    <values>
+        <field>SObject_Type__c</field>
+        <value xsi:type="xsd:string">Opportunity</value>
+    </values>
 </CustomMetadata>
