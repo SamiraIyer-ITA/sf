@@ -19,6 +19,7 @@
         <description>The full Api name (including __c) for the implementation SObject</description>
         <externalId>false</externalId>
         <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>The full Api name (including __c) for the implementation SObject</inlineHelpText>
         <label>SObject Type</label>
         <length>100</length>
         <required>true</required>

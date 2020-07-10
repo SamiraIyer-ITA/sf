@@ -68,12 +68,6 @@
         <fields>MasterLabel</fields>
         <fields>DeveloperName</fields>
         <fields>NamespacePrefix</fields>
-        <relatedList>Service_Implementation__mdt.Service_Implementation_SObject__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>MasterLabel</fields>
-        <fields>DeveloperName</fields>
-        <fields>NamespacePrefix</fields>
         <relatedList>ApplicationFactory_Service__mdt.Service_Implementation_SObject__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
