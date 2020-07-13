@@ -239,6 +239,90 @@ private class Payment2Test {
 	}
 
 	@IsTest
+	static void authorizePayment_Positive_MoreParams() {
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
+		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
+
+		Collection_Fulfillment__c cp = new Collection_Fulfillment__c(Post__c='56789',Org_Code__c='12345');
+		Collection_Fulfillment__c fp = new Collection_Fulfillment__c(Post__c='67890',Org_Code__c='23456');
+		List<Collection_Fulfillment__c> cfList = new List<Collection_Fulfillment__c>{cp,fp};
+		insert cfList;
+		params.projectCode = '9999ABC';
+		params.accountType = 'Services';
+		params.accountHolderName = 'Jeff';
+		params.transactionAmount = '100.00';
+		params.collectionPost = cp.Id;
+		params.fulfillmentPost = fp.Id;
+		params.organizationName = 'Jorg Industries';
+		params.userId = UserInfo.getUserId();
+		params.billingAddress = '311 Jorg Street';
+		params.billingCity = 'Beverly Hills';
+		params.billingStateCode = 'CA';
+		params.billingZip = '90210';
+		params.billingCountryCode = 'USA';
+
+
+		params.failurePage = 'https://www.test.com/failure';
+		params.confirmationPage = 'https://www.test.com/confirmation';
+		params.orderId = orders[0].Id;
+		Payment2__c payment = Payment2.createPayment(params);
+		String serializedDetails = Payment2.getPaymentProcessorData(payment.Id, params);
+		String paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+		System.assertNotEquals(null, paymentRedirectUrl);
+	}
+
+	@IsTest
+	static void authorizePayment_Positive_NoOrderId() {
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
+		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
+
+		Collection_Fulfillment__c cp = new Collection_Fulfillment__c(Post__c='56789',Org_Code__c='12345');
+		Collection_Fulfillment__c fp = new Collection_Fulfillment__c(Post__c='67890',Org_Code__c='23456');
+		List<Collection_Fulfillment__c> cfList = new List<Collection_Fulfillment__c>{cp,fp};
+		insert cfList;
+		params.projectCode = '9999ABC';
+		params.accountType = 'Services';
+		params.accountHolderName = 'Jeff';
+		params.transactionAmount = '100.00';
+		params.collectionPost = cp.Id;
+		params.fulfillmentPost = fp.Id;
+
+		params.failurePage = 'https://www.test.com/failure';
+		params.confirmationPage = 'https://www.test.com/confirmation';
+
+		String exceptionMessage;
+		try {
+			Payment2__c payment = Payment2.createPayment(params);
+			String serializedDetails = Payment2.getPaymentProcessorData(payment.Id, params);
+			String paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+		} catch(Exception e) {
+			exceptionMessage = e.getMessage();
+		} finally {
+			System.assertEquals('Either orderId or these values are required: accountType, transactionAmount, projectCode, collectionPost,  fulfillmentPost, organizationName', exceptionMessage);
+		}
+	}
+
+	@IsTest
+	static void authorizePayment_Negative_NoFailurePage() {
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
+		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
+		params.failurePage = null;
+		params.confirmationPage = 'https://www.test.com/confirmation';
+		params.orderId = orders[0].Id;
+
+		String exceptionMessage;
+		try {
+			Payment2__c payment = Payment2.createPayment(params);
+			String serializedDetails = Payment2.getPaymentProcessorData(payment.Id, params);
+			String paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+		} catch(Exception e) {
+			exceptionMessage = e.getMessage();
+		} finally {
+			System.assertEquals('paymentId, params.confirmationPage, and params.failurePage are required parameters.', exceptionMessage);
+		}
+	}
+
+	@IsTest
 	static void confirmPayment_Positive() {
 		List<Order> orders = [SELECT Id, ContractId, Payment2__c FROM ORDER WHERE Name = 'Paid Order X'];
 		String confirmPayment = Payment2.confirmPayment('Services', (String) orders[0].Payment2__c, 'myToken', orders[0].Id);

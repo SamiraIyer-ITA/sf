@@ -139,18 +139,23 @@ public with sharing class Payment2 {
 
 		if (String.isNotBlank(params.collectionPost)) {
 			//Replace this with a selector.  Add Acronym__c later when it's available.
-			Collection_Fulfillment__c cf = [SELECT Org_Code__c, Post__c FROM Collection_Fulfillment__c WHERE Name = :params.collectionPost];
-			payment.Collection_Post_Name__c = cf.Post__c;
-			payment.Collection_Post_Org_Code__c = cf.Org_Code__c;
-			//payment.Collection_Post_Acronym__c = cf.Acronym__c;
+			//Collection_Fulfillment__c cf = [SELECT Org_Code__c, Post__c FROM Collection_Fulfillment__c WHERE Name = :params.collectionPost];
+			List<Collection_Fulfillment__c> cf = CollectionFulfillmentsSelector.newInstance().selectById(new Set<Id>{params.collectionPost});
+			if(cf != null && !cf.isEmpty()) {
+				payment.Collection_Post_Name__c = cf[0].Post__c;
+				payment.Collection_Post_Org_Code__c = cf[0].Org_Code__c;
+				//payment.Collection_Post_Acronym__c = cf[0].Acronym__c;
+			}
 		}
 
 		if (String.isNotBlank(params.fulfillmentPost)) {
 			//Replace this with a selector.  Add Acronym__c later when it's available.
-			Collection_Fulfillment__c cf = [SELECT Org_Code__c, Post__c FROM Collection_Fulfillment__c WHERE Name = :params.fulfillmentPost];
-			payment.Fulfillment_Post_Name__c = cf.Post__c;
-			payment.Fulfillment_Post_Org_Code__c = cf.Org_Code__c;
-			//payment.Fulfillment_Post_Acronym__c = cf.Acronym__c;
+			List<Collection_Fulfillment__c> cf = CollectionFulfillmentsSelector.newInstance().selectById(new Set<Id>{params.fulfillmentPost});
+			if(cf != null && !cf.isEmpty()) {
+				payment.Fulfillment_Post_Name__c = cf[0].Post__c;
+				payment.Fulfillment_Post_Org_Code__c = cf[0].Org_Code__c;
+				//payment.Fulfillment_Post_Acronym__c = cf[0].Acronym__c;
+			}
 		}
 
 		if (String.isNotBlank(params.organizationName)) {
@@ -182,7 +187,7 @@ public with sharing class Payment2 {
 	}
 
 	private static Payment2__c populatePaymentDetailsFromOrder(REST_BeginPaymentParams params, Payment2__c payment) {
-		List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(new Set<Id>{params.orderId});
+		List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(new Set<Id>{params.orderId}, true);
 
 		payment.Organization_Name__c = orderListWithDetails[0].Opportunity.Account.Name;
 		RecordLog.message('Opportunity Owner: ' + payment.Opportunity_Owner__c);
