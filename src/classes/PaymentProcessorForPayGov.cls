@@ -160,7 +160,8 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			payments[0].Transaction_Status__c = completeOnlineCollectionWithDetailsResponse.transaction_status;
 			RecordLog.message('Transaction Status: ' + payments[0].Transaction_Status__c);
 			payments[0].Payment_Type__c = completeOnlineCollectionWithDetailsResponse.payment_type;
-			RecordLog.message('Payment Type: ' + payments[0].Payment_Type__c);
+			payments[0].Receipt_Ready__c = true;
+			RecordLog.message('Receipt Ready: ' + payments[0].Receipt_Ready__c);
 
 			if(String.isNotBlank(orderId)) {
 				//Also update each Order to add the lookup for this payment
