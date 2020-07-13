@@ -72,7 +72,6 @@
         <br/>
         
         <div>Items:</div>
-        <c:PaymentReceiptOrderItems emailPaymentId="{!relatedTo.Id}"/>
                
         <!--Conditional diplay of text for bank statement note//Displayed if payment type = plastic card OR ACH-->      
         <apex:outputPanel layout="none" rendered="{!IF(relatedTo.Payment_Type__c ='PLASTIC_CARD' || relatedTo.Payment_Type__c ='ACH' ,true,false)}">
