@@ -51,9 +51,6 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		} else {
 			//Only Privacy Shield uses custom fields, but the first one must be filled in for NIST's system.
 
-			if (String.isBlank(payments[0].Project_Code__c)) {
-				throw new Payment2.PaymentException('Project Code is missing.');
-			}
 			List<String> projectCodesForPayment = payments[0].Project_Code__c.split(',');
 			for (String projectCodeForPayment : projectCodesForPayment) {
 				// MGK increment custom_field_X so that each value in the list is a custom field
@@ -92,10 +89,10 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		}
 	}
 
-	public String confirmPayment(String remoteAccountName, String paymentId, String token, String acctType, String orderId) {
+	public String confirmPayment(String remoteAccountName, String paymentId, String token, String acctType, String[] orderIds) {
 		RecordLog.push('Payment.confirmPayment');
 		RecordLog.message('Payment Id: ' + paymentId);
-		RecordLog.message('OrderId:' + orderId);
+		RecordLog.message('OrderIds:' + orderIds);
 		RecordLog.message('Account Type:' + acctType);
 		RecordLog.message('Remote Account Name:' + remoteAccountName);
 		PayGovTCSOnline.CompleteOnlineCollectionWithDetailsRequest completeOnlineCollectionWithDetailsRequest = new PayGovTCSOnline.CompleteOnlineCollectionWithDetailsRequest();
@@ -160,16 +157,16 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			payments[0].Transaction_Status__c = completeOnlineCollectionWithDetailsResponse.transaction_status;
 			RecordLog.message('Transaction Status: ' + payments[0].Transaction_Status__c);
 			payments[0].Payment_Type__c = completeOnlineCollectionWithDetailsResponse.payment_type;
+			RecordLog.message('Payment Type: ' + payments[0].Payment_Type__c);
 			payments[0].Receipt_Ready__c = true;
 			RecordLog.message('Receipt Ready: ' + payments[0].Receipt_Ready__c);
 
-			if(String.isNotBlank(orderId)) {
-				//Also update each Order to add the lookup for this payment
-				orders = OrdersSelector.newInstance().selectById(new Set<Id>{orderId});
-				for (Order order : orders) {
-					order.Payment2__c = paymentId;
-					order.Order_Paid__c = true;
-				}
+			//Also update each Order to add the lookup for this payment
+			Set<Id> orderIdSet = (Set<Id>)JSON.deserialize(JSON.serialize(orderIds), Set<Id>.class);
+			orders = OrdersSelector.newInstance().selectById(orderIdSet);
+			for (Order order: orders) {
+				order.Payment2__c = paymentId;
+				order.Order_Paid__c = true;
 			}
 		}
 
@@ -178,12 +175,11 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		try {
 			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 			uow.registerDirty(payments);
-			if(String.isNotBlank(orderId)) {
-				uow.registerDirty(orders);
-			}
+			uow.registerDirty(orders);
 			uow.commitWork();
 		} catch (Exception e) {
 			RecordLog.message('Exception: ' + e.getMessage());
+			System.debug('CARY: ' + e.getMessage());
 			error = true;
 			errorMessage += 'Unable to update payment and/or order record.';
 		} finally {
@@ -199,11 +195,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			throw auraHandledException;
 		}
 
-		PaymentProcessorForPayGov.confirmationMessage confirm = new PaymentProcessorForPayGov.confirmationMessage();
-		confirm.paymentConfirmed = !error;
-		confirm.errorMessage = errorMessage;
-
-		return JSON.serialize(confirm);
+		return paymentId;
 	}
 
 	/**
@@ -227,11 +219,6 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			RecordLog.message(e.getMessage());
 			RecordLog.emit(paymentId);
 		}
-	}
-
-	public class confirmationMessage {
-		public Boolean paymentConfirmed {get;set;}
-		public String errorMessage {get;set;}
 	}
 
 }
