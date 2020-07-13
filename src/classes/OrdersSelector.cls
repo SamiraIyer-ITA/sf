@@ -67,6 +67,15 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 			ordersQueryFactory.setCondition(condition).toSOQL());
 	}
 
+	public List<Order> selectOrdersByOpportunities(Set<Id> opportunityIds) {
+		return (List<Order>)
+				Database.query(
+					newQueryFactory()
+						.setCondition('OpportunityId in :opportunityIds')
+						.toSOQL()
+				);
+	}
+
 	private List<Schema.SObjectField> getSObjectFieldList() {
 		//add more fields as appropriate
 		return new List<Schema.SObjectField>{
@@ -80,7 +89,8 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 			Order.OriginalOrderId,
 			Order.Payment2__c,
 			Order.Order_Paid__c,
-			Order.Refunded_Amount__c
+			Order.Refunded_Amount__c,
+            Order.OpportunityId
 		};
 	}
 

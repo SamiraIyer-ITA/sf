@@ -89,6 +89,22 @@ public class fflib_ApexMocksUtils
 	}
 
 	/**
+	 * Gives the ability to set test values on formula
+	 * and other read-only fields of mock SObjects
+	 */
+	public static Object setReadOnlyFields(SObject objInstance, Type deserializeType, Map<SObjectField, Object> properties) {
+
+		Map<String, Object> mergedMap = new Map<String, Object>(objInstance.getPopulatedFieldsAsMap());
+		for (SObjectField field : properties.keySet()) {
+			// Merge the values from the properties map into the fields already set on the object
+			mergedMap.put(field.getDescribe().getName(), properties.get(field));
+		}
+		// Serialize the merged map, and then deserialize it as the desired object type.
+		String jsonString = JSON.serializePretty(mergedMap);
+		return (SObject) JSON.deserialize(jsonString, deserializeType);
+	}
+
+	/**
 	 * Monitors stream events for end of object for each SObject contained in the parent list
 	 *   then injects the respective childs record list into the stream
 	 **/

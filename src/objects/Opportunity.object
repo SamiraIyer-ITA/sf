@@ -565,6 +565,17 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Record_Type_Developer_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>RecordType.DeveloperName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record Type Developer Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Site__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
@@ -1794,4 +1805,12 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Organization_Required</fullName>
+        <active>false</active>
+        <description>Organization is required on all Opportunities.</description>
+        <errorConditionFormula>ISBLANK(AccountId)</errorConditionFormula>
+        <errorDisplayField>AccountId</errorDisplayField>
+        <errorMessage>Organization is required.</errorMessage>
+    </validationRules>
 </CustomObject>
