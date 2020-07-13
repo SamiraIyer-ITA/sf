@@ -46,11 +46,12 @@ public virtual class ChatterPostWriter implements IChatterPostWriter {
     public ChatterPostWriter (String sObjectName, Map<Id,SObject> newMap, Map<Id,SObject> oldMap) {
         if (!chatterWriterMap.containsKey(sObjectName)) throw new ChatterPostWriterNameException(sObjectName);
         iWriter = chatterWriterMap.get(sObjectName);
-        newMap = removeBatchedRecords(newMap, oldMap);
+        Map<Id,SObject> tempMap = newMap.clone();
+        tempMap = removeBatchedRecords(tempMap, oldMap);
         //make the posts
-        if (!newMap.isEmpty()) {
-            initialize(newMap, sObjectName);
-            iWriter.getChatterPosts(newMap, oldMap);
+        if (!tempMap.isEmpty()) {
+            initialize(tempMap, sObjectName);
+            iWriter.getChatterPosts(tempMap, oldMap);
             separatePostCall();
         }
     }
