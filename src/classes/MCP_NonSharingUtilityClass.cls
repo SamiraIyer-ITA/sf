@@ -1,30 +1,33 @@
 public without sharing class MCP_NonSharingUtilityClass {
     
     public static list<Recordtype> contactRecordTypes = new list<Recordtype>();
-
     
     public static id getContactRecordType(){
-       
         return (Schema.SObjectType.Contact.getRecordTypeInfosByName().get('ITA Contacts').getRecordTypeId()); 
-
     }
-    
+   
     public static void upsertLeadRecord(Lead newUserLead){
         if(newUserLead != null){
         database.upsert(newUserLead);
         }
-        
     }
+    
+    public static Boolean checkDuplicateEmails(string userEmailAddress){
+	   for(User cu : [SELECT Id FROM USER WHERE Email =: userEmailAddress]){
+	      return true;
+	   }
+	 return false;
+	}
     
     Public static Contact getNewContact(String email, ID accountId){
         list<Contact> ContactList = new list<Contact>();
-        ContactList = [select id,AccountId from Contact where email =: email and AccountId =: accountId];
+        ContactList = [SELECT Id,AccountId FROM CONTACT WHERE Email =: email AND AccountId =: accountId];
         return ContactList[0];
     }
     
     public static List<account> getMCPExternalUserAccount(){
         list<account> accountList = new list<account>();
-        accountList = [select id from account where name =: label.MCP_ExternalUserAccount];
+        accountList = [SELECT Id FROM ACCOUNT WHERE Name =: label.MCP_ExternalUserAccount];
         if(accountList != null && accountList.size() > 0){
             return accountList;
         }
@@ -41,10 +44,7 @@ public without sharing class MCP_NonSharingUtilityClass {
     public static boolean validateUserName(String userName){
         list<User> vaildateList = new list<User>();
         if(vaildateList.isempty()){
-            system.debug('run querry !! on '  + userName );
             vaildateList = [select id from user where email =: userName];
-                        system.debug('run querry !!' + vaildateList);
-
             if(vaildateList.isEmpty()){
                 return true;
             }
