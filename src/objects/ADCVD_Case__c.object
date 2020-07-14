@@ -132,7 +132,7 @@ C-###-### for CVD</inlineHelpText>
         <caseSensitive>true</caseSensitive>
         <externalId>false</externalId>
         <label>CBP Case Number</label>
-        <length>28</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
