@@ -135,6 +135,16 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>Accounting_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Accounting Code</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Block__c</fullName>
         <externalId>false</externalId>
         <label>Block</label>
@@ -4219,6 +4229,7 @@
         <filterScope>Everything</filterScope>
         <label>All Products</label>
     </listViews>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Events</fullName>
         <active>true</active>

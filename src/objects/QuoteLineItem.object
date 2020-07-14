@@ -102,11 +102,20 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Accounting_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product2.Accounting_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Accounting Code</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Client_Form_Type__c</fullName>
         <externalId>false</externalId>
         <label>Client Form Type</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -118,16 +127,6 @@
     </fields>
     <fields>
         <fullName>Discount</fullName>
-    </fields>
-    <fields>
-        <fullName>ITA_Product_Code__c</fullName>
-        <externalId>false</externalId>
-        <formula>Product2.ProductCode</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>ITA Product Code</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>IsPrimary__c</fullName>
