@@ -15,10 +15,6 @@
         <layout>Product2-Product Layout</layout>
         <recordType>Product2.Legacy</recordType>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>Product2-Services</layout>
-        <recordType>Product2.Services</recordType>
-    </layoutAssignments>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Product2.Events</recordType>
