@@ -19,4 +19,3 @@
         <value xsi:type="xsd:string">Lead</value>
     </values>
 </CustomMetadata>
-
