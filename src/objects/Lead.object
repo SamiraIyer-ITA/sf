@@ -1247,6 +1247,7 @@
     </fields>
     <fields>
         <fullName>Record_Type_Developer_Name__c</fullName>
+        <description>Record Type Developer Name formula field.</description>
         <externalId>false</externalId>
         <formula>RecordType.DeveloperName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
