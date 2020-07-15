@@ -94,7 +94,7 @@ function Build-ServiceImplMetadata {
         # Create package.xml
         $packageXmlTemplate = "$templateDir\packageXml.template"
         $packageXmlDestination = "$($destinationRoot)\package.xml"
-        (Get-Content $packageXmlTemplate -Raw) -f $apiVersion | Set-Content $packageXmlDestination
+        (Get-Content $packageXmlTemplate -Raw) -f $apiVersion | Set-Content $packageXmlDestination -NoNewline
 
         # Class xml file template
         $classXmlTemplate = "$($sourceDir)\templates\classXml.template"
@@ -302,14 +302,16 @@ function Build-ServiceImplMetadata {
                     $xmlDestination = "$($classesDir)\$($_.baseFileName).cls-meta.xml"
                     $classDestination = "$($classesDir)\$($_.baseFileName).cls"
                     Write-Host "`t`tBuilding class, $($_.baseFileName)" -BackgroundColor DarkBlue -ForegroundColor White
-                    (Get-Content $_.template -Raw) -f $_.formats | Set-Content $classDestination
-                    (Get-Content $classXmlTemplate -Raw) -f $apiVersion | Set-Content $xmlDestination
+                    (Get-Content $_.template -Raw) -f $_.formats | Set-Content $classDestination -NoNewline
+                    (Get-Content $classXmlTemplate -Raw) -f $apiVersion | Set-Content $xmlDestination -NoNewline
+                    # Remove added lines
+                    # Get-Content $xmlDestination |  ? {$_.trim() -ne "" } > $xmlDestination
                 }
                 if ($_.type -eq "customMetadata") {
                     $destination = "$($customMetadataDir)\$($_.baseFileName).md"
                     Write-Host "`t`tBuilding custom metadata, $($_.baseFileName)" -BackgroundColor DarkBlue `
                     -ForegroundColor White
-                    (Get-Content $_.template -Raw) -f $_.formats | Set-Content $destination
+                    (Get-Content $_.template -Raw) -f $_.formats | Set-Content $destination -NoNewline
                 }
             } catch {
                 Write-Host `n -BackgroundColor DarkRed -ForegroundColor White
