@@ -304,8 +304,6 @@ function Build-ServiceImplMetadata {
                     Write-Host "`t`tBuilding class, $($_.baseFileName)" -BackgroundColor DarkBlue -ForegroundColor White
                     (Get-Content $_.template -Raw) -f $_.formats | Set-Content $classDestination -NoNewline
                     (Get-Content $classXmlTemplate -Raw) -f $apiVersion | Set-Content $xmlDestination -NoNewline
-                    # Remove added lines
-                    # Get-Content $xmlDestination |  ? {$_.trim() -ne "" } > $xmlDestination
                 }
                 if ($_.type -eq "customMetadata") {
                     $destination = "$($customMetadataDir)\$($_.baseFileName).md"
