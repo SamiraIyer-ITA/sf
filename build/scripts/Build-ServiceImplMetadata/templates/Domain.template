@@ -1,7 +1,7 @@
 /**
  * Implementation of I{1} interface that will be used as an fflib domain object.
  *
- * @author Andrew La Russa
+ * @author {0}
  */
 public class {1} extends fflib_SObjectDomain implements I{1} {{
 
