@@ -6201,10 +6201,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade Fair Certification %28Show Organizer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Trade Mission</fullName>
                 <default>false</default>
             </values>
