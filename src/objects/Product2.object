@@ -6201,10 +6201,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Trade Mission</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Trade Show Representation</fullName>
                 <default>false</default>
             </values>
