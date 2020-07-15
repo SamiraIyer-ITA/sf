@@ -6189,10 +6189,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>International Buyer Program %28Show Organizer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other Event</fullName>
                 <default>false</default>
             </values>
@@ -8190,10 +8186,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Family</picklist>
-            <values>
-                <fullName>Certification</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
