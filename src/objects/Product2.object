@@ -8237,7 +8237,7 @@
             </values>
         </picklistValues>
     </recordTypes>
-	   <recordTypes>
+    <recordTypes>
         <fullName>Services</fullName>
         <active>true</active>
         <description>Services Record Type</description>
