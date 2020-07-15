@@ -122,13 +122,13 @@ global without sharing class REST_EmailTransactionReceipt {
 			paymentId = recordId;
 		} else {
 			//objectName == 'Order'
-			List<Order> orders = OrdersSelector.newInstance().selectByPaymentId(new Set<Id>{recordId});
+			List<Order> orders = OrdersSelector.newInstance().selectById(new Set<Id>{recordId});
 			if (orders.size() > 0) {
 				paymentId = orders[0].Payment2__c;
 			}
 		}
 
-		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id>{recordId});
+		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id>{paymentId});
 		return payments[0];
 
 	}
@@ -213,8 +213,7 @@ global without sharing class REST_EmailTransactionReceipt {
 	}
 
 	public class EmailResult {
-		Boolean receiptSent = false;  //Whether the receipt was successfully sent
-		String errorMessage = '';  //A message about why the email wasn't sent
+		public Boolean receiptSent = false;  //Whether the receipt was successfully sent
+		public String errorMessage = '';  //A message about why the email wasn't sent
 	}
-
 }
