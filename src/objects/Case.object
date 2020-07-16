@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CloneAsChild</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CloneAsChild</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CloseCase</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CloseCase</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CloseCase</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>MassClose</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MassClose</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MassClose</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -45,7 +145,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>NewCase</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewCase</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -53,7 +173,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
@@ -338,12 +478,12 @@
                 <value>
                     <fullName>National</fullName>
                     <default>false</default>
-                    <label>National</label>
+                    <label>More than One U.S. Interest</label>
                 </value>
                 <value>
                     <fullName>Exclusive</fullName>
                     <default>false</default>
-                    <label>Exclusive</label>
+                    <label>One U.S. Interest</label>
                 </value>
                 <value>
                     <fullName>Pending</fullName>
@@ -1251,7 +1391,7 @@ Select if this is a Compliance Case</description>
     <fields>
         <fullName>Control_Number__c</fullName>
         <externalId>false</externalId>
-        <label>Control Number</label>
+        <label>USG Military Branch</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1336,9 +1476,10 @@ Select if this is a Compliance Case</description>
     </fields>
     <fields>
         <fullName>Expected_Value__c</fullName>
+        <description>Changed from original field label of &apos;Expected Value&apos;</description>
         <externalId>false</externalId>
         <inlineHelpText>Estimate potential dollar value if we successfully meet the client’s objectives. For example, ensuring a $50,000 sale goes through; signing an agreement worth $300,000, a trade lead for $3,000 worth of goods, $40,000  in tuition etc. Leave blank if unsure</inlineHelpText>
-        <label>Expected Value</label>
+        <label>Anticipated/Actual Export Dollar Value</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -3396,6 +3537,20 @@ Select if this is a Compliance Case</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Sys_Client_Counseling_in_Case_Rollup__c</fullName>
+        <description>This field is used for a rollup summary</description>
+        <externalId>false</externalId>
+        <label>Sys Client Counseling in Case Rollup</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sys_Owner_Added_as_Case_Contributor__c</fullName>
         <defaultValue>false</defaultValue>
         <description>This box will be checked by automation when the case contributor is added to the case. The case contributor is now added when all required taxonomies have been added.</description>
@@ -3411,6 +3566,20 @@ Select if this is a Compliance Case</description>
         <defaultValue>0</defaultValue>
         <externalId>false</externalId>
         <label>Sys Region in Case Rollup</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sys_Trade_Issue_in_Case_Rollup__c</fullName>
+        <description>This field is being used in a roll up summary</description>
+        <externalId>false</externalId>
+        <label>Sys Trade Issue in Case Rollup</label>
         <precision>3</precision>
         <required>false</required>
         <scale>0</scale>
@@ -3787,7 +3956,7 @@ Select if this is a Compliance Case</description>
         <columns>OWNER_NAME</columns>
         <columns>Actual_Create_Date__c</columns>
         <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
-        <filterScope>Everything</filterScope>
+        <filterScope>Mine</filterScope>
         <filters>
             <field>Request_Case_Removal__c</field>
             <operation>equals</operation>
@@ -4138,7 +4307,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work undertaken by the Advocacy Center in support of U.S. companies pursuing foreign government procurement.</description>
+        <description>Case work approved and coordinated by the Advocacy Center in support of U.S. companies pursuing foreign government procurement.</description>
         <label>Advocacy</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
@@ -37569,7 +37738,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work with a U.S. Economic Development Organization (EDO), investment partner, or foreign investor to increase investment to the U.S.</description>
+        <description>Work with a U.S. economic development organizations (EDOs), international or domestic company, or investment partner to increase business investment in the United States.</description>
         <label>Investment Promotion</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
@@ -98108,7 +98277,9 @@ ISBLANK(Subject)
                      Country_in_Case_Rollup__c = 0)),
     NOT(ISCHANGED(Industry_Rollup_Sum__c)),
     NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)),
-    NOT(ISCHANGED(Country_in_Case_Rollup__c))
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)),
+    NOT(ISCHANGED(Sys_Trade_Issue_in_Case_Rollup__c)),
+    NOT(ISCHANGED(Sys_Client_Counseling_in_Case_Rollup__c))
     )</errorConditionFormula>
         <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
     </validationRules>
@@ -98126,7 +98297,9 @@ ISBLANK(Subject)
            Country_in_Case_Rollup__c = 0)),
     NOT(ISCHANGED(Industry_Rollup_Sum__c)),
     NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)),
-    NOT(ISCHANGED(Country_in_Case_Rollup__c))
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)),
+    NOT(ISCHANGED(Sys_Trade_Issue_in_Case_Rollup__c)),
+    NOT(ISCHANGED(Sys_Client_Counseling_in_Case_Rollup__c))
     )</errorConditionFormula>
         <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
     </validationRules>
@@ -98157,7 +98330,9 @@ ISBLANK(Subject)
            Country_in_Case_Rollup__c = 0)),
     NOT(ISCHANGED(Industry_Rollup_Sum__c)),
     NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)),
-    NOT(ISCHANGED(Country_in_Case_Rollup__c))
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)),
+    NOT(ISCHANGED(Sys_Trade_Issue_in_Case_Rollup__c)),
+    NOT(ISCHANGED(Sys_Client_Counseling_in_Case_Rollup__c))
     )</errorConditionFormula>
         <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
     </validationRules>
@@ -98188,7 +98363,9 @@ ISBLANK(Subject)
            Country_in_Case_Rollup__c = 0)),
     NOT(ISCHANGED(Industry_Rollup_Sum__c)),
     NOT(ISCHANGED(Sys_Region_in_Case_Rollup__c)),
-    NOT(ISCHANGED(Country_in_Case_Rollup__c))
+    NOT(ISCHANGED(Country_in_Case_Rollup__c)),
+    NOT(ISCHANGED(Sys_Trade_Issue_in_Case_Rollup__c)),
+    NOT(ISCHANGED(Sys_Client_Counseling_in_Case_Rollup__c))
     )</errorConditionFormula>
         <errorMessage>Please note that the Case record will be locked (un-editable) until a Country/Region AND Industry Taxonomy Tag is added.</errorMessage>
     </validationRules>
