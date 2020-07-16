@@ -1,258 +1,249 @@
 <aura:component description="Displays payment details on the payment page. Note that this component uses SLDS classes rather than lightning base components so it can match the Salesforce Page Layout."
-                implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,flexipage:availableForRecordHome"
-                extends="c:Base"
-                controller="PaymentDetailsLightningController"
-                access="global">
+				implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,flexipage:availableForRecordHome"
+				extends="c:Base"
+				controller="PaymentDetailsLightningController"
+				access="global">
 
-    <aura:attribute name="paymentDetailsController" type="PaymentDetailsLightningController" access="private" description="The PaymentDetailsController, populated on init."/>
+	<aura:attribute name="paymentDetailsController" type="PaymentDetailsLightningController" access="private" description="The PaymentDetailsController, populated on init."/>
 
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
-    <lightning:layout>
-        <lightning:layoutItem size="12">
+	<lightning:layout>
+		<lightning:layoutItem size="12">
 
-            <article class="slds-card">
-                <div class="slds-card__body slds-card__body_inner slds-m-top--x-small">
+			<article class="slds-card">
+				<div class="slds-card__body slds-card__body_inner slds-m-top--x-small">
 
+					<div aura:id="spinner" class="slds-align--absolute-center slds-hide">
+						<lightning:spinner variant="brand" size="large" alternativeText="Please wait.  Retrieving payment details."/>
+					</div>
 
-                    <div class="slds-tabs_default slds-m-bottom_none">
-                        <ul class="slds-tabs_default__nav" role="tablist">
-                            <li class="slds-tabs_default__item slds-is-active" title="Payment Details" role="presentation" style="margin-top:0px;padding-top:0px;">
-                                <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Payment Details</a>
-                            </li>
-                        </ul>
-                    </div>
+					<aura:if isTrue="{!v.paymentDetailsController}">
 
-                    <div aura:id="spinner" class="slds-align--absolute-center slds-hide">
-                        <lightning:spinner variant="brand" size="large" alternativeText="Please wait.  Retrieving payment details."/>
-                    </div>
+						<div class="slds-p-around_none slds-panel__section">
 
-                    <aura:if isTrue="{!v.paymentDetailsController}">
+							<div class="slds-section slds-is-open">
 
-                        <div class="slds-p-around_none slds-panel__section">
+								<div class="slds-grid slds-grid slds-wrap slds-grid--pull-padded">
 
-                            <div class="slds-section slds-is-open">
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Account Number</label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<ui:outputText class="slds-output" value="{!v.paymentDetailsController.accountNumber}" />
+											</div>
+										</div>
+									</div>
 
-                                <div class="slds-grid slds-grid slds-wrap slds-grid--pull-padded">
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Account Holder Name </label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<ui:outputText class="slds-output" value="{!v.paymentDetailsController.accountHolderName}" />
+											</div>
+										</div>
+									</div>
 
-                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                            <label class="slds-form-element__label"> Account Number</label>
-                                            <div class="slds-form-element__control" style="min-height: 18px;">
-                                                <ui:outputText class="slds-output" value="{!v.paymentDetailsController.accountNumber}" />
-                                            </div>
-                                        </div>
-                                    </div>
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Return Code</label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<ui:outputText class="slds-output" value="{!v.paymentDetailsController.returnCode}" />
+											</div>
+										</div>
+									</div>
 
-                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                            <label class="slds-form-element__label"> Account Holder Name </label>
-                                            <div class="slds-form-element__control" style="min-height: 18px;">
-                                                <ui:outputText class="slds-output" value="{!v.paymentDetailsController.accountHolderName}" />
-                                            </div>
-                                        </div>
-                                    </div>
+									<div class="slds-p-horizontal--small slds-size--1-of-2">
+										<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+											<label class="slds-form-element__label"> Return Detail</label>
+											<div class="slds-form-element__control" style="min-height: 18px;">
+												<ui:outputText class="slds-output" value="{!v.paymentDetailsController.returnDetail}" />
+											</div>
+										</div>
+									</div>
 
-                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                            <label class="slds-form-element__label"> Return Code</label>
-                                            <div class="slds-form-element__control" style="min-height: 18px;">
-                                                <ui:outputText class="slds-output" value="{!v.paymentDetailsController.returnCode}" />
-                                            </div>
-                                        </div>
-                                    </div>
+									<aura:if isTrue="{!v.paymentDetailsController.isCreditCard}">
 
-                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                            <label class="slds-form-element__label"> Return Detail</label>
-                                            <div class="slds-form-element__control" style="min-height: 18px;">
-                                                <ui:outputText class="slds-output" value="{!v.paymentDetailsController.returnDetail}" />
-                                            </div>
-                                        </div>
-                                    </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Approval Code </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.approvalCode}" />
+												</div>
+											</div>
+										</div>
 
-                                    <aura:if isTrue="{!v.paymentDetailsController.isCreditCard}">
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Billing Address 1</label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingAddress}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Approval Code </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.approvalCode}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Auth Response Code </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.authResponseCode}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Billing Address 1</label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingAddress}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Billing Address 2 </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingAddress2}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Auth Response Code </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.authResponseCode}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Auth Response Text </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.authResponseText}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Billing Address 2 </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingAddress2}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Billing City </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingCity}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Auth Response Text </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.authResponseText}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> CSC Result </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.cscResult}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Billing City </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingCity}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Billing State </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingState}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> CSC Result </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.cscResult}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> AVS Response Code </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.avsResponseCode}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Billing State </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingState}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Billing Zip </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingZip}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> AVS Response Code </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.avsResponseCode}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Billing Zip </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingZip}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Billing Country </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingCountry}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                        </div>
+									</aura:if>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Billing Country </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.billingCountry}" />
-                                                </div>
-                                            </div>
-                                        </div>
+									<aura:if isTrue="{!v.paymentDetailsController.isAch}">
 
-                                    </aura:if>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Account Type </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.accountType}" />
+												</div>
+											</div>
+										</div>
 
-                                    <aura:if isTrue="{!v.paymentDetailsController.isAch}">
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Effective Date </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputDate class="slds-output" value="{!v.paymentDetailsController.effectiveDate}" format="M/D/yyyy"/>
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Account Type </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.accountType}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Routing Transit Number </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.routingTransitNumber}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Effective Date </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputDate class="slds-output" value="{!v.paymentDetailsController.effectiveDate}" format="M/D/yyyy"/>
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> SEC Code </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.secCode}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Routing Transit Number </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.routingTransitNumber}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Return Reason Code </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.returnReasonCode}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> SEC Code </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.secCode}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Deposit Ticket Number </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.depositTicketNumber}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Return Reason Code </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.returnReasonCode}" />
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="slds-p-horizontal--small slds-size--1-of-2">
+											<div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
+												<label class="slds-form-element__label"> Debit Voucher Number </label>
+												<div class="slds-form-element__control" style="min-height: 18px;">
+													<ui:outputText class="slds-output" value="{!v.paymentDetailsController.debitVoucherNumber}" />
+												</div>
+											</div>
+										</div>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Deposit Ticket Number </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.depositTicketNumber}" />
-                                                </div>
-                                            </div>
-                                        </div>
+									</aura:if>
 
-                                        <div class="slds-p-horizontal--small slds-size--1-of-2">
-                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom slds-p-top--x-small">
-                                                <label class="slds-form-element__label"> Debit Voucher Number </label>
-                                                <div class="slds-form-element__control" style="min-height: 18px;">
-                                                    <ui:outputText class="slds-output" value="{!v.paymentDetailsController.debitVoucherNumber}" />
-                                                </div>
-                                            </div>
-                                        </div>
+								</div>
+							</div>
 
-                                    </aura:if>
+						</div>
+					</aura:if>
+				</div>
+			</article>
 
-                                </div>
-                            </div>
-
-                        </div>
-                    </aura:if>
-                </div>
-            </article>
-
-        </lightning:layoutItem>
-    </lightning:layout>
+		</lightning:layoutItem>
+	</lightning:layout>
 
 </aura:component>

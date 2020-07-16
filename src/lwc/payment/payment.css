@@ -1,0 +1,23 @@
+div {
+	margin: 15px 20px 15px 20px;
+	font-size: larger;
+}
+
+h1 {
+	font-size: x-large;
+	font-weight: bold;
+	margin: 15px 20px 15px 20px;
+}
+
+img {
+	margin-left: 11px;
+}
+
+.errorStyle {
+	background-color: rgb(194, 57, 52);
+	border-radius: 0.25rem;
+	color: whitesmoke;
+	margin: 0.5rem;
+	padding: 0.75rem 3rem 0.75rem 1.5rem;
+	margin: 15px 20px 15px 20px;
+}
