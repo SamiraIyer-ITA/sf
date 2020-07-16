@@ -1,0 +1,20 @@
+div {
+	margin: 15px 20px 15px 20px;
+}
+
+.buttonStyle {
+	text-align: right;
+	margin-top: 0px;
+	font-size: 0.875rem;
+	font-weight: 700;
+}
+
+.header {
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: large;
+}
+
+.dateStyle {
+	margin-right: 10px;
+}

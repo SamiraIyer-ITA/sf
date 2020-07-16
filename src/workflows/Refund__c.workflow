@@ -26,12 +26,8 @@
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Refund__c.Status__c</field>
-            <operation>equals</operation>
-            <value>Completed</value>
-        </criteriaItems>
         <description>Sends email notification when a Privacy Shield Refund has been completed.</description>
+        <formula>AND(ISPICKVAL(Status__c,&apos;Completed&apos;), ISPICKVAL( Payment__r.Application__c, &apos;Privacy Shield&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
