@@ -15,6 +15,7 @@ private with sharing class Flow_SendEmailTest {
 		insert contract;
 
 		Payment2__c payment1 = new Payment2__c();
+		payment1 = TestUtils.CreatePayment2(true);
 		payment1.Account_Type__c = 'Services';
 		payment1.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		payment1.Payment_Processor__c = 'Paygov';
@@ -23,7 +24,7 @@ private with sharing class Flow_SendEmailTest {
 		payment1.Payment_Type__c = 'PLASTIC_CARD';
 		payment1.Receipt_Ready__c = true;
 		payment1.Contract__c = contract.Id;
-		insert payment1;
+		update payment1;
 
 		List<Order> orders = new List<Order>();
 		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
@@ -62,20 +63,6 @@ private with sharing class Flow_SendEmailTest {
 	static void send_Email_NoData() {
 		List<Flow_SendEmail.RequestVariables> rv = new List<Flow_SendEmail.RequestVariables>();
 		Flow_SendEmail.RequestVariables rv1 = new Flow_SendEmail.RequestVariables();
-		List<Flow_SendEmail.ResponseVariables> backFromApex = Flow_SendEmail.createEMailReceipt(rv);
-		System.assertEquals(false, backFromApex[0].VarEmailReceiptSent);
-	}
-
-	@IsTest
-	static void send_Email_ThrowError() {
-		List<Flow_SendEmail.RequestVariables> rv = new List<Flow_SendEmail.RequestVariables>();
-		Flow_SendEmail.RequestVariables rv1 = new Flow_SendEmail.RequestVariables();
-		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId, OwnerId FROM ORDER WHERE Name = 'Test Order X'];
-		Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
-		rv1.emailList = 'test@test.com';
-		rv1.recordID = servicesRecordTypeId;
-		rv1.userId = servicesRecordTypeId;
-		rv.add(rv1);
 		List<Flow_SendEmail.ResponseVariables> backFromApex = Flow_SendEmail.createEMailReceipt(rv);
 		System.assertEquals(false, backFromApex[0].VarEmailReceiptSent);
 	}
