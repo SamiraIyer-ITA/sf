@@ -14,14 +14,39 @@ public with sharing class StaffingAssignment {
 					'Title__c', 'User__c', 'User__r.Name', sObjectName.substring(0, sObjectName.length() - 3) + '__r.ADCVD_Case__c'
 			};
 			String condition = '(' + sObjectName + ' = :parentIdString)';
-
 			List<Staffing_Assignment__c> staffingAssignments = StaffingAssignmentSelector.newInstance().selectByParentId(parentId, selectFieldsSet, condition);
-
+			staffingAssignments = sortStaffingAssignments(staffingAssignments);
 			return staffingAssignments;
-
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());
 		}
+	}
+
+	private static List<Staffing_Assignment__c> sortStaffingAssignments(List<Staffing_Assignment__c> saList) {
+		Map<String, List<Staffing_Assignment__c>> sortMap = new Map<String, List<Staffing_Assignment__c>>();
+		sortMap.put('Analyst', new List<Staffing_Assignment__c>());
+		sortMap.put('Program Manager', new List<Staffing_Assignment__c>());
+		sortMap.put('Office Director', new List<Staffing_Assignment__c>());
+		sortMap.put('Staff Policy', new List<Staffing_Assignment__c>());
+		sortMap.put('Senior Policy', new List<Staffing_Assignment__c>());
+		sortMap.put('Staff Legal', new List<Staffing_Assignment__c>());
+		sortMap.put('Senior Legal', new List<Staffing_Assignment__c>());
+		sortMap.put('Staff Accountant', new List<Staffing_Assignment__c>());
+		sortMap.put('Accounting PM', new List<Staffing_Assignment__c>());
+		sortMap.put('Accounting Director', new List<Staffing_Assignment__c>());
+		sortMap.put('DAS Assistant', new List<Staffing_Assignment__c>());
+		sortMap.put('Associate DAS', new List<Staffing_Assignment__c>());
+		sortMap.put('DAS', new List<Staffing_Assignment__c>());
+		sortMap.put('AS Assistant', new List<Staffing_Assignment__c>());
+		sortMap.put('Assistant Secretary', new List<Staffing_Assignment__c>());
+		for (Staffing_Assignment__c sa : saList) {
+			sortMap.get(sa.Title__c).add(sa);
+		}
+		List<Staffing_Assignment__c> sortedList = new List<Staffing_Assignment__c> ();
+		for (String s : sortMap.keySet()) {
+			sortedList.addAll(sortMap.get(s));
+		}
+		return sortedList;
 	}
 
 	@AuraEnabled(cacheable=false)
