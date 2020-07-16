@@ -56,8 +56,6 @@ export default class StaffingAssignment extends LightningElement {
     @track recusalLinkWrap;
     @track mapkeyvaluestore=[];
     @track spinner = true; //indicates loading
-    @track saveSpinner = false;
-    @track saveButtonLabel = 'Save';
     @track programManagerCount=0;
     @track programManagerId;
 
@@ -69,7 +67,6 @@ export default class StaffingAssignment extends LightningElement {
     @track checkfetchRecusalLinkMapCall= true;
 
     handleCreate() {
-        this.saveButtonLabel = 'Save';
         this.showTable = false;
         this.showCreate = true;
     }
@@ -87,7 +84,7 @@ export default class StaffingAssignment extends LightningElement {
                 //console.log(JSON.stringify(result));
                 this.recusalLinkWrap = result;
                 if (result.recusalLinkMap) {
-                   
+
                     var conts = result.recusalLinkMap;
                     for(var key in conts){
                         //console.log(conts[key]);
@@ -99,7 +96,7 @@ export default class StaffingAssignment extends LightningElement {
                 this.fetchStaffingAssignments();
             })
             .catch(error => {
-                
+
                 console.log('error'+error);
             });
 
@@ -114,7 +111,7 @@ export default class StaffingAssignment extends LightningElement {
             })
     }
     fetchStaffingAssignments() {
-        
+
         this.programManagerCount = 0;
 
         getStaffingAssignmentByParentId({parentId: this.recordId})
@@ -135,7 +132,7 @@ export default class StaffingAssignment extends LightningElement {
                     }
 
                     if (row.User__r) {
-                        
+
                         if (row.User__r.Name) {
 
                             //Add the User Name to the first level of the row
@@ -150,11 +147,11 @@ export default class StaffingAssignment extends LightningElement {
                                         console.log('call done');
 
                                         pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false};
-                                        
+
                                     }
                             });
                             row = {...row, ...pair};
-                        }                                
+                        }
                     }
 
                     row = {...row, ...pair};
@@ -204,7 +201,6 @@ export default class StaffingAssignment extends LightningElement {
     }
 
     handleSuccess() {
-        this.saveSpinner = false;
         this.showTable = true;
         this.showCreate = false;
         this.showUpdate = false;
@@ -218,14 +214,12 @@ export default class StaffingAssignment extends LightningElement {
         );
     }
     handleError(event) {
-        this.saveButtonLabel = 'Save';
-        this.saveSpinner = false;
         this.fetchStaffingAssignments();
 
         let errorMessage = event.detail.detail;
         console.log("response",errorMessage);
         //do some stuff with message to make it more readable
-        
+
         this.dispatchEvent(
             new ShowToastEvent({
                 title: 'Error',
@@ -233,11 +227,6 @@ export default class StaffingAssignment extends LightningElement {
                 variant: 'error'
             })
         );
-    }
-
-    disableButton() {
-        this.saveButtonLabel = 'Saving . . .';
-        this.saveSpinner = true;
     }
 
     handleOnSubmitUpdate(event) {
@@ -272,11 +261,10 @@ export default class StaffingAssignment extends LightningElement {
         // You need to submit the form after modifications
         this.template
             .querySelector('lightning-record-edit-form').submit(fields);
-        }    
+        }
     }
 
     handleOnSubmitCreate(event) {
-        this.saveSpinner = true;
         event.preventDefault();
         // Get data from submitted form
         const fields = event.detail.fields;
@@ -323,7 +311,6 @@ export default class StaffingAssignment extends LightningElement {
     }
 
     editRecord(id) {
-        this.saveButtonLabel = 'Save';
         this.showUpdate = true;
         this.showTable = false;
         //this.data = [];
