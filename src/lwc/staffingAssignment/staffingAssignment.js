@@ -56,6 +56,8 @@ export default class StaffingAssignment extends LightningElement {
     @track recusalLinkWrap;
     @track mapkeyvaluestore=[];
     @track spinner = true; //indicates loading
+    @track saveSpinner = false;
+    @track saveButtonLabel = 'Save';
     @track programManagerCount=0;
     @track programManagerId;
 
@@ -67,6 +69,7 @@ export default class StaffingAssignment extends LightningElement {
     @track checkfetchRecusalLinkMapCall= true;
 
     handleCreate() {
+        this.saveButtonLabel = 'Save';
         this.showTable = false;
         this.showCreate = true;
     }
@@ -201,6 +204,7 @@ export default class StaffingAssignment extends LightningElement {
     }
 
     handleSuccess() {
+        this.saveSpinner = false;
         this.showTable = true;
         this.showCreate = false;
         this.showUpdate = false;
@@ -214,6 +218,8 @@ export default class StaffingAssignment extends LightningElement {
         );
     }
     handleError(event) {
+        this.saveButtonLabel = 'Save';
+        this.saveSpinner = false;
         this.fetchStaffingAssignments();
 
         let errorMessage = event.detail.detail;
@@ -227,6 +233,11 @@ export default class StaffingAssignment extends LightningElement {
                 variant: 'error'
             })
         );
+    }
+
+    disableButton() {
+        this.saveButtonLabel = 'Saving . . .';
+        this.saveSpinner = true;
     }
 
     handleOnSubmitUpdate(event) {
@@ -265,6 +276,7 @@ export default class StaffingAssignment extends LightningElement {
     }
 
     handleOnSubmitCreate(event) {
+        this.saveSpinner = true;
         event.preventDefault();
         // Get data from submitted form
         const fields = event.detail.fields;
@@ -311,6 +323,7 @@ export default class StaffingAssignment extends LightningElement {
     }
 
     editRecord(id) {
+        this.saveButtonLabel = 'Save';
         this.showUpdate = true;
         this.showTable = false;
         //this.data = [];
