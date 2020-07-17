@@ -185,7 +185,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override updated by Lightning App Builder during activation.</comment>
-        <content>Order_Services_LPL</content>
+        <content>Order_Legacy_LPL</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -193,7 +193,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override updated by Lightning App Builder during activation.</comment>
-        <content>Order_Services_LPL</content>
+        <content>Order_Legacy_LPL</content>
         <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -232,6 +232,15 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Activated__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( isNull(ActivatedDate) ,false,true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Activated</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>BillToContactId</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
@@ -239,6 +248,17 @@
     <fields>
         <fullName>BillingAddress</fullName>
         <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Collection_Org_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity.Collection_Post__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Collection Org Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>CompanyAuthorizedById</fullName>
@@ -292,6 +312,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Fulfillment_Org_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity.Fulfillment_Post__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fulfillment  Org Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>IsReductionOrder</fullName>
     </fields>
     <fields>
@@ -303,6 +334,17 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MileStone_Tracking__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Today() &lt;   Welcome_Kit__c , &quot;3. Welcome Kit&quot;,if(Today() &lt;  Mid_Term_Report__c, &quot;1. MidTerm&quot;, If (Today() &lt;  Final_Report__c , &quot;2. Final&quot;, &quot;4. Complete&quot;)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MileStone Tracking</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Name</fullName>
@@ -403,6 +445,11 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Pricebook2Id</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Program__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -411,6 +458,11 @@
         <relationshipLabel>Orders</relationshipLabel>
         <relationshipName>Orders</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>QuoteId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -490,6 +542,34 @@
         <label>All Orders</label>
     </listViews>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Events</fullName>
+        <active>true</active>
+        <description>Events order record type</description>
+        <label>Events</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <recordTypes>
         <fullName>Legacy</fullName>
         <active>true</active>
