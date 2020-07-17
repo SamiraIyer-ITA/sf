@@ -74,7 +74,17 @@ function Build-ServiceImplMetadata {
 
         # SObject Names
         $sObject = $sObjectApiName -replace "__c", ""
-        $sObjectLower = $sObject.ToLower()
+        $sObjectLower = $sObject.ToLower() -replace "_", " "
+
+        $sObjectVar = $sObjectLower
+        if ($sObjectLower.Contains(" ")) {
+            $sections = $sObjectLower -split " "
+            $sObjectVar = $sections[0]
+            for ($i = 1; $i -lt $sections.Count; $i++) {
+                $sObjectVar += (Get-Culture).TextInfo.ToTitleCase($sections[$i])
+            }
+        }
+        $sObjectPluralName = $sObjectPluralName -replace "_", ""
 
         # Metadata directories (create if they don't exist)
         $destinationRoot = "$($sourceDir)\metadata\$($sObject)\"
@@ -129,8 +139,8 @@ function Build-ServiceImplMetadata {
         }
         $domainTest = [Metadata]@{
             template="$($templateDir)\DomainTest.template";
-            formats=@($sObjectPluralName, $sObjectApiName,
-            $sObjectLower); type="class";
+            formats=@($sObjectPluralName, $sObjectApiName, $sObjectVar);
+            type="class";
             baseFileName="$($sObjectPluralName)Test"
         }
 
