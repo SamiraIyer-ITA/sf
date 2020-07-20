@@ -3,11 +3,11 @@
     <label>Contract</label>
     <protected>false</protected>
     <values>
-        <field>SObjectType__c</field>
-        <value xsi:type="xsd:string">Contract</value>
+        <field>Implementation_Field__c</field>
+        <value xsi:type="xsd:string">Record_Type_Developer_Name__c</value>
     </values>
     <values>
-        <field>SelectorClass__c</field>
-        <value xsi:type="xsd:string">ContractsSelector</value>
+        <field>SObject_Type__c</field>
+        <value xsi:type="xsd:string">Contract</value>
     </values>
 </CustomMetadata>
