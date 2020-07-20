@@ -52,5 +52,4 @@ global class REST_BeginPaymentParams {
     global Boolean receiptAllowed = true;
     global String invoiceDate;
     global String invoiceId;
-
 }
