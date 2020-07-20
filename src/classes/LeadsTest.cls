@@ -5,8 +5,8 @@ private class LeadsTest {
 
 	@IsTest
 	static void testNewInstanceOfLeadsDomain_PassListWithOneNonInsertedObject_ReturnsValidInterface() {
-		List<Lead> oppList  = new List<Lead>{ new Lead() };
-		ILeads iLeads = (ILeads) Leads.newInstance(oppList);
+		List<Lead> leadList  = new List<Lead>{ new Lead() };
+		ILeads iLeads = (ILeads) Leads.newInstance(leadList);
 		System.assertNotEquals(iLeads, null, 'Interface returned as null and should not have');
 	}
 
