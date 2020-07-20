@@ -32,12 +32,15 @@ global without sharing class REST_BeginPayment {
 	 * billingCountryCode Optional.  Defaults the Country field at pay.gov.
 	 */
 	@HttpPost
-	global static void doPost(REST_BeginPaymentParams params) {
+	global static String doPost(REST_BeginPaymentParams params) {
+
+		String jsonReturnValue;  //Return value for calls made internally to this method
 
 		RequiredFields requiredFields = checkRequiredFields(params);
 		if (! requiredFields.hasRequiredFields) {
-			setResponse(requiredFields.serializedError);
-			return;
+			jsonReturnValue = requiredFields.serializedError;
+			setResponse(jsonReturnValue);
+			return jsonReturnValue;
 		}
 
 		//Call the CreatePayment Rest Service.
@@ -46,14 +49,16 @@ global without sharing class REST_BeginPayment {
 		try {
 			paymentDetails = createPaymentCallout(params);
 		} catch (Exception e) {
-			setResponse(e.getMessage());
-			return;
+			jsonReturnValue = '{"error": "' + e.getMessage() + '"}';
+			setResponse(jsonReturnValue);
+			return jsonReturnValue;
 		}
 
 		//Get the redirectUrl.  This includes SOAP callout to Pay.gov.
 		String redirectUrl = Payment2.authorizePayment(paymentDetails);
-		setResponse('{"redirectUrl": "' + redirectUrl + '"}');
-		return;
+		jsonReturnValue = '{"redirectUrl": "' + redirectUrl + '"}';
+		setResponse(jsonReturnValue);
+		return jsonReturnValue;
 	}
 
 	/**
@@ -61,9 +66,10 @@ global without sharing class REST_BeginPayment {
 	 * @param responseString The string to set as the response.
 	 */
 	private static void setResponse(String responseString) {
-		RestContext.response.addHeader('Content-Type', 'application/json');
-		String returnValue = responseString;
-		RestContext.response.responseBody = Blob.valueOf(returnValue);
+		if (RestContext.response != null) {
+			RestContext.response.addHeader('Content-Type', 'application/json');
+			RestContext.response.responseBody = Blob.valueOf(responseString);
+		}
 	}
 
 	/**
@@ -97,7 +103,7 @@ global without sharing class REST_BeginPayment {
 		if (String.isBlank(params.confirmationPage) || String.isBlank(params.failurePage)) {
 			//Throw error.  confirmationPage and failurePage are required.
 			requiredFields.hasRequiredFields = false;
-			requiredFields.serializedError = '{"error": "Required field is missing: confirmationPage or failurePage"}';
+			requiredFields.serializedError = '{"error": "Required field is missing: confirmationPage or failurePage."}';
 			return requiredFields;
 		}
 
@@ -114,15 +120,24 @@ global without sharing class REST_BeginPayment {
 			)) {
 			//Required fields are missing
 			requiredFields.hasRequiredFields = false;
-			requiredFields.serializedError = '{"error": "Either orderId or these fields are required: accountType, transactionAmount, projectCode, organizationName,taskCode, objectClass, objectClass,originatingOffice"}';
+			requiredFields.serializedError = '{"error": "Either orderId or these fields are required: accountType, transactionAmount, projectCode, organizationName, taskCode, objectClass, objectClass, originatingOffice."}';
 			return requiredFields;
 		}
 
-		if(params.receiptAllowed && String.isBlank(params.receiptEmailAddresses)){
-			//Required email is missing
-			requiredFields.hasRequiredFields = false;
-			requiredFields.serializedError = '{"error": "receiptAllowed is true yet receiptEmailAddresses is blank"}';
-			return requiredFields;
+		if (String.isNotBlank(params.orderId)) {
+			List<Order> orderList = OrdersSelector.newInstance().selectById(new Set<Id>{params.orderId});
+			if (orderList.size() > 0) {
+				Order order = orderList[0];
+				if (order.Order_Paid__c == true) {
+					requiredFields.hasRequiredFields = false;
+					requiredFields.serializedError = '{"error": "This order has already been paid for."}';
+					return requiredFields;
+				}
+			} else {
+				requiredFields.hasRequiredFields = false;
+				requiredFields.serializedError = '{"error": "Invalid Order Id."}';
+				return requiredFields;
+			}
 		}
 
 		return requiredFields;
