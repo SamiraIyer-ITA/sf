@@ -42,7 +42,6 @@ public without sharing class TransactionManagement {
 				batchNumber += incrementAppropriateBatchNumbers(accountType, payment2Type, currentActiveObj);
 			}
 
-			//String body = 'UCL00,ITACOLL,' +datetoday + ',' + getNumberLeftChar(paymentMap.size(),8) + ',' + getDecimal17Char(totalAmt) + ',N\n';
 			String body = 'UCL00~ITACOLL~' + datetoday + '~' + getNumberLeftChar(paymentMap.size(),8) + '~' + getDecimal17Char(totalAmt) + '~N\n';
 
 			Integer i = 1;
@@ -66,7 +65,6 @@ public without sharing class TransactionManagement {
 				List<Order> ordersForPayment = new List<Order>();
 				ordersForPayment = paymentOrderMap.get(objPay.Id);
 				Decimal amt = objpay.Transaction_Amount__c.SetScale(2);
-				//body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+getDecimal17Char(amt) + '~' + datetoday + '~' + paymentType + '~1~' + objpay.Account_Holder_Name__c + '~' + businessName + '~15397~1~MELLON~ITA~~~~~~~~~~~~~~XXXXXX~71744~~~\n';
 				body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+ getDecimal16Char(amt) + '~' + datetoday + '~' + paymentType + '~1~' + objpay.Account_Holder_Name__c + '~' + businessName + '~15397~1~PAYGOV~ITA~~~~~~~~~~~~~~' + objpay.Fulfillment_Post_Acronym__c + '~71744~~ITADEP~~~\n';
 				body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
 				// Project_code__c can be up to 12 comma separated strings - Loop through those and create one line for each of the items in that list
@@ -75,7 +73,6 @@ public without sharing class TransactionManagement {
 				for(string  aProjectCode : projectCodesForPayment) {
 					String fulfillmentCodeTilde = objpay.Fulfillment_Post_Org_Code__c.replace('-', '~'); /// need method for objpay.Fulfillment_Post_Org_Code__c and objpay.Object_Class__c
 					String objectClassTilde = objpay.Object_Class__c .replace('-', '~');
-					//body += 'UCL03~55~' + batchNumber + '~' + getNumberLeftChar(i, 8) + '~00000001~00000001~' + aProjectCode + '~000~~~~~~~' + objpay.Fulfillment_Post_Org_Code__c + '~05~20~00~00~0
 					body += 'UCL03~55~' + batchNumber + '~' + getNumberLeftChar(i, 8) + '~00000001~00000001~' + aProjectCode + '~' + objpay.Task_Code__c + '~~' + currentFiscalYear + '~~~~~' + fulfillmentCodeTilde + '~' + objectClassTilde + '~000000~' + getDecimal16Char(amt) + '\n';
 				}
 				i = i+1;
