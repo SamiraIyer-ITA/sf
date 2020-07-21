@@ -90,8 +90,9 @@ function Build-ServiceImplMetadata {
         $destinationRoot = "$($sourceDir)\metadata\$($sObject)\"
         $classesDir = "$($sourceDir)\metadata\$($sObject)\classes"
         $customMetadataDir = "$($sourceDir)\metadata\$($sObject)\customMetadata\"
+        $triggerDir = "$($sourceDir)\metadata\$($sObject)\triggers\"
 
-        $paths = @($classesDir, $customMetadataDir)
+        $paths = @($classesDir, $customMetadataDir, $triggerDir)
 
         foreach ($path in $paths) {
             if (!(Test-Path $path)) {
@@ -252,6 +253,14 @@ function Build-ServiceImplMetadata {
             baseFileName="Service_Implementation_SObject.$($sObject)"
         }
 
+        # Trigger
+        $trigger = [Metadata]@{
+           template="$($templateDir)\Trigger.template";
+           formats=@($sObjectPluralName, $sObjectApiName);
+           type="trigger";
+           baseFileName="$($sObjectPluralName)Trigger"
+       }
+
         $metadata = @(
             $iDomain,
             $domain,
@@ -271,7 +280,8 @@ function Build-ServiceImplMetadata {
             $cmService,
             $cmSelector,
             $cmUnitOfWork,
-            $cmSObjectImpl
+            $cmSObjectImpl,
+            $trigger
         )
 
         # Create metadata specific service implementations for the SObject
@@ -319,6 +329,12 @@ function Build-ServiceImplMetadata {
                     $destination = "$($customMetadataDir)\$($_.baseFileName).md"
                     Write-Host "`t`tBuilding custom metadata, $($_.baseFileName)" -BackgroundColor DarkBlue `
                     -ForegroundColor White
+                    (Get-Content $_.template -Raw) -f $_.formats | Set-Content $destination -NoNewline
+                }
+                if ($_.type -eq "trigger") {
+                    $destination = "$($triggerDir)\$($_.baseFileName).trigger"
+                    Write-Host "`t`tBuilding trigger, $($_.baseFileName)" -BackgroundColor DarkBlue `
+                     -ForegroundColor White
                     (Get-Content $_.template -Raw) -f $_.formats | Set-Content $destination -NoNewline
                 }
             } catch {
