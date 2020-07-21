@@ -18,7 +18,6 @@ public with sharing class PaymentDetailsForPayGov implements IPaymentDetails {
 				queryResult = singleQueryPort.processTCSSingleQuery(agencyId, remoteAccountName, paymentIdentifier, remoteTrackingId, '');
 				break;
 			} catch (Exception e) {
-				System.debug('Current Attempt ' + currentAttempt + ' failed');
 				currentAttempt += 1;
 			}
 		}
@@ -49,7 +48,7 @@ public with sharing class PaymentDetailsForPayGov implements IPaymentDetails {
 				returnValue.billingState = pcSaleQueryResponse[0].billing_info.billing_state;
 				returnValue.billingZip = pcSaleQueryResponse[0].billing_info.billing_zip;
 				returnValue.billingCountry = pcSaleQueryResponse[0].billing_info.billing_country;
-			} else {
+			} else if (achResults!= null) {
 				//ACH Payment Details
 				returnValue.isAch = true;
 				PayGovTCSSingleQueryService.ACHDebitQueryResponse[] achDebitQueryResponse = achResults.ach_debit_query_response;
@@ -67,6 +66,9 @@ public with sharing class PaymentDetailsForPayGov implements IPaymentDetails {
 				returnValue.returnReasonCode = achDebitQueryResponse[0].return_reason_code;
 				returnValue.depositTicketNumber = achDebitQueryResponse[0].deposit_ticket_number;
 				returnValue.debitVoucherNumber = achDebitQueryResponse[0].debit_voucher_number;
+			} else{
+				// This payment is not at Pay.gov
+				return '';
 			}
 		return JSON.serialize(returnValue);
 	}
