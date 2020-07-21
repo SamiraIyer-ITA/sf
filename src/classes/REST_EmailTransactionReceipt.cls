@@ -25,11 +25,10 @@ global without sharing class REST_EmailTransactionReceipt {
 			}
 
 			RequiredFields requiredFields = checkRequiredFields(recipientEmails, recordId, objectName, payment);
-			if (! requiredFields.hasRequiredFields) {
+			if (requiredFields != null) {
 				emailResult.errorMessage = requiredFields.errorMessage;
 				jsonReturnValue = JSON.serialize(emailResult);
 				setResponse(jsonReturnValue);
-				System.debug(jsonReturnValue);
 				return jsonReturnValue;
 			}
 
@@ -45,7 +44,6 @@ global without sharing class REST_EmailTransactionReceipt {
 			jsonReturnValue = JSON.serialize(emailResult);
 			setResponse(jsonReturnValue);
 		}
-		System.debug(jsonReturnValue);
 		return jsonReturnValue;
 	}
 
@@ -77,19 +75,23 @@ global without sharing class REST_EmailTransactionReceipt {
 	 * @return The RequiredFields class.
 	 */
 	private static RequiredFields checkRequiredFields(String recipientEmails, String recordId, String objectName, Payment2__c payment) {
-		RequiredFields requiredFields = new RequiredFields();
 
-		//Check for required fields
-		if (String.isBlank(recipientEmails) || String.isBlank(recordId)) {
-			//Throw error.  recipientEmails and recordId are required.
-			requiredFields.hasRequiredFields = false;
-			requiredFields.errorMessage = 'Required field is missing: recipientEmails or recordId.';
+		//Creat a list of fields that are required
+		Map<String, Object> requiredFieldMap = new Map<String, Object>();  //Map of field name and field value
+		requiredFieldMap.put('recipientEmails', recipientEmails);
+		requiredFieldMap.put('recordId', recordId);
+
+		//Check that each required field is populated
+		RequiredFields requiredFields = checkIndividuallyRequiredFields(requiredFieldMap);
+		if (requiredFields != null) {
+			//A required field is missing
 			return requiredFields;
 		}
 
 		//Check that recordId is an Id for a Payment2 or Order object
 		if (objectName != 'Payment2__c' && objectName != 'Order') {
 			//Throw error.  recordId must be for a Payment2 or Order object
+			requiredFields = new RequiredFields();
 			requiredFields.hasRequiredFields = false;
 			requiredFields.errorMessage = 'Invalid recordId: it must be for a Payment or Order record.';
 			return requiredFields;
@@ -98,6 +100,7 @@ global without sharing class REST_EmailTransactionReceipt {
 		//Check that the payment is ready to have its receipt sent
 		if (payment.Receipt_Ready__c != true) {
 			//Throw error.  Payment record doesn't yet have all the information it needs for the receipt
+			requiredFields = new RequiredFields();
 			requiredFields.hasRequiredFields = false;
 			requiredFields.errorMessage = 'Receipt cannot be sent.  The payment record doesn\'t yet have all the information it needs for the receipt.';
 			return requiredFields;
@@ -105,7 +108,28 @@ global without sharing class REST_EmailTransactionReceipt {
 
 		//Whether the email addresses are valid will be checked when the email is sent
 
-		return requiredFields;
+		return null;
+	}
+
+	/**
+	 * Check that each required field is populated
+	 * @param requiredFieldList An Object list of fields that are required.
+	 *
+	 * @return RequiredFields.
+	 */
+	private static RequiredFields checkIndividuallyRequiredFields(Map<String, Object> requiredFieldMap) {
+
+		for (String fieldName : requiredFieldMap.keySet()) {
+			Object fieldValue = requiredFieldMap.get(fieldName);
+			if (String.isBlank(fieldValue.toString())) {
+				RequiredFields requiredFields = new RequiredFields();
+				requiredFields.hasRequiredFields = false;
+				requiredFields.errorMessage = 'Required field is missing: ' + fieldName + '.';
+				return requiredFields;
+			}
+		}
+
+		return null;
 	}
 
 	/**
