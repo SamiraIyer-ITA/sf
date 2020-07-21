@@ -6,6 +6,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>CustomMetadata</name>
     </types>
     <version>{0}</version>
