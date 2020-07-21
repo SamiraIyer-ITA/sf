@@ -124,12 +124,13 @@ public with sharing class Payment2 {
 		//Begin to create the payment record
 		Payment2__c payment = new Payment2__c();
 
-		//payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
+		String recordTypeName;
 		if (String.isNotBlank(params.orderId)) {
-			payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
+			recordTypeName = 'Credit_Card_or_ACH_Payment';
 		} else {
-			payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('External_Credit_Card_or_ACH_Payment');
+			recordTypeName = 'External_Credit_Card_or_ACH_Payment';
 		}
+		payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
 
 		RecordLog.message('Record Type Id: ' + payment.RecordTypeId);
 
@@ -169,6 +170,10 @@ public with sharing class Payment2 {
 			payment.Organization_Name__c = params.organizationCode ;
 		}
 
+		if (String.isNotBlank(params.originatingOffice )) {
+			payment.Collection_Post_Acronym__c = params.originatingOffice;
+		}
+
 		if (String.isNotBlank(params.orderId)) {
 			payment = populatePaymentDetailsFromOrder(params, payment);
 		}
@@ -177,11 +182,11 @@ public with sharing class Payment2 {
 		RecordLog.message('Organization Name: ' + 	payment.Organization_Name__c);
 		RecordLog.message('Project Code: ' + 		payment.Project_Code__c);
 		RecordLog.message('Transaction Amount: ' + 	payment.Transaction_Amount__c);
-		RecordLog.message('Organization Name: ' + 	payment.Organization_Name__c);
 		RecordLog.message('Task Code: ' + 			payment.Task_Code__c);
 		RecordLog.message('Object Class: ' + 		payment.Object_Class__c);
 		RecordLog.message('Invoice Date: ' + 		payment.Invoice_Date__c);
 		RecordLog.message('Invoice Id: ' + 			payment.Invoice_Id__c);
+		RecordLog.message('Originating Office: ' +  payment.Collection_Post_Acronym__c);
 
 		RecordLog.message('Inserting Payment');
 		try {
