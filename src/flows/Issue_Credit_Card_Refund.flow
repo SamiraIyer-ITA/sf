@@ -40,15 +40,27 @@
             <targetReference>DML_Error</targetReference>
         </faultConnector>
         <inputParameters>
-            <name>orders</name>
+            <name>orderRefundAmounts</name>
             <value>
-                <elementReference>SelectedOrders</elementReference>
+                <elementReference>Refund_Amounts</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>refundAmount</name>
+            <name>orderRefundExplanations</name>
             <value>
-                <elementReference>AbsoluteTotalAmount</elementReference>
+                <elementReference>Refund_Explanations</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>orderRefundReasons</name>
+            <value>
+                <elementReference>Refund_Reasons</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>orders</name>
+            <value>
+                <elementReference>SelectedOrders</elementReference>
             </value>
         </inputParameters>
         <outputParameters>
@@ -58,10 +70,6 @@
         <outputParameters>
             <assignToReference>HasError</assignToReference>
             <name>hasError</name>
-        </outputParameters>
-        <outputParameters>
-            <assignToReference>RefundId</assignToReference>
-            <name>refundId</name>
         </outputParameters>
     </actionCalls>
     <actionCalls>
