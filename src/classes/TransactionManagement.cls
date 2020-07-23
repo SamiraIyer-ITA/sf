@@ -3,7 +3,6 @@ public without sharing class TransactionManagement {
 	static String batchNumber;
 	static String currentFiscalYear;
 	static Map<Id,Payment2__c> paymentMap;
-	static Map<Id,List<Order>> paymentOrderMap;
 	static Decimal totalAmt;
 	static String dateToday;
 	static String body;
@@ -51,7 +50,6 @@ public without sharing class TransactionManagement {
 	private static void initializeStaticVariables(List<String> paymentIds) {
 		currentFiscalYear = Payment2.getCurrentFiscalYear();
 		paymentMap = new Map<Id,Payment2__c>();
-		paymentOrderMap = new Map<Id,List<Order>>();
 		totalAmt = populatePaymentOrderMaps(paymentIds);
 		dateToday = getDtFormat(Datetime.now());
 
@@ -68,20 +66,14 @@ public without sharing class TransactionManagement {
 
 	private static void writePaymentBody(Payment2__c paymentRecord, Integer i) {
 
-		String businessName = determineBusinessName(paymentRecord);
-
 		String paymentType= 'CCARD';  //Default value.  Will be either 'CCARD' or 'ACH';
 
 		if (paymentRecord.Payment_Type__c == 'ACH') {
 			paymentType = 'ACH';
 		}
 
-		// Get the list of orders associated with this Payment2
-		List<Order> ordersForPayment = new List<Order>();
-		ordersForPayment = paymentOrderMap.get(paymentRecord.Id);
 		Decimal amt = paymentRecord.Transaction_Amount__c.SetScale(2);
-		System.debug('Amt: ' + amt);
-		body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+ getDecimal16Char(amt) + '~' + dateToday + '~' + paymentType + '~1~' + paymentRecord.Account_Holder_Name__c + '~' + businessName + '~15397~1~PAYGOV~ITA~~~~~~~~~~~~~~' + paymentRecord.Fulfillment_Post_Acronym__c + '~71744~~ITADEP~~~\n';
+		body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+ getDecimal16Char(amt) + '~' + dateToday + '~' + paymentType + '~1~' + paymentRecord.Account_Holder_Name__c + '~' + paymentRecord.Organization_Name__c + '~15397~1~PAYGOV~ITA~~~~~~~~~~~~~~' + paymentRecord.Fulfillment_Post_Acronym__c + '~71744~~ITADEP~~~\n';
 		body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
 		// Project_code__c can be up to 12 comma separated strings - Loop through those and create one line for each of the items in that list
 		List<String> projectCodesForPayment = paymentRecord.Project_Code__c.split(',');
@@ -90,21 +82,6 @@ public without sharing class TransactionManagement {
 			String objectClassTilde = paymentRecord.Object_Class__c .replace('-', '~');
 			body += 'UCL03~55~' + batchNumber + '~' + getNumberLeftChar(i, 8) + '~00000001~00000001~' + aProjectCode + '~' + paymentRecord.Task_Code__c + '~~' + currentFiscalYear + '~~~~~' + fulfillmentCodeTilde + '~' + objectClassTilde + '~000000~' + getDecimal16Char(amt) + '\n';
 		}
-		String temp;
-		temp = '';
-	}
-
-	private static String determineBusinessName(Payment2__c paymentRecord) {
-		String businessName='';
-		if (paymentOrderMap.containsKey(paymentRecord.Id)) {
-			for (Order ordObj: paymentOrderMap.get(paymentRecord.Id)) {
-				if (ordObj.AccountId != null && ordObj.Account.Name != null && businessName == '') {
-					businessName = ordObj.Account.Name;
-					break;
-				}
-			}
-		}
-		return businessName;
 	}
 
 	private static String determineBatchNumber() {
@@ -166,19 +143,7 @@ public without sharing class TransactionManagement {
 			paymentMap.put(payment.Id,payment);
 			totalAmt += payment.Transaction_Amount__c;
 		}
-		List<Order> orders = OrdersSelector.newInstance().selectByPaymentId(paymentMap.keySet());
-		for (Order order: orders) {
-			if(paymentOrderMap.containsKey(order.Payment2__c)){
-				List<Order> ordList = new List<Order>();
-				ordList = paymentOrderMap.get(order.Payment2__c);
-				ordList.add(order);
-				paymentOrderMap.put(order.Payment2__c,ordList);
-			} else {
-				List<Order> ordList = new List<Order>();
-				ordList.add(order);
-				paymentOrderMap.put(order.Payment2__c,ordList);
-			}
-		}
+
 		return totalAmt;
 	}
 
