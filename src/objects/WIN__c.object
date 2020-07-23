@@ -349,7 +349,7 @@
         <description>Changed from &apos;AC US Export Content (Services)&apos;</description>
         <externalId>false</externalId>
         <inlineHelpText>The value of U.S. Export Content related to the contract award.</inlineHelpText>
-        <label>AC Total US Export Content - Confirmed</label>
+        <label>AC Total US Export Content</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
