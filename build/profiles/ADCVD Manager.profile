@@ -5,4 +5,9 @@
         <field>Segment__c.ADCVD_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Staffing_Assignment__c.ADCVD_Case__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 </Profile>
