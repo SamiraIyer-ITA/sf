@@ -23,4 +23,9 @@
         <recordType>Quote.Services</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Quote.Services</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
 </Profile>
