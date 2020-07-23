@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>CP_First_Name_Not_Populated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_First_Name_Not_Populated</shortDescription>
+        <value>Please enter your first name.</value>
+    </labels>
+</CustomLabels>
