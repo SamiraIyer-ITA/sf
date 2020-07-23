@@ -1,81 +1,36 @@
 public without sharing class TransactionManagement {
 
+	static String batchNumber;
+	static String currentFiscalYear;
+	static Map<Id,Payment2__c> paymentMap;
+	static Map<Id,List<Order>> paymentOrderMap;
+	static Decimal totalAmt;
+	static String dateToday;
+	static String body;
+	static CBSBatchCount__c currentActiveObj;
+
 	/**
 	* Get the transaction (payment/refund) data that will be saved as a file and imported into CBS by NIST.
 	*
-	* @param paymentIds An array of Payment.Ids.
+	* @param paymentIds A String list of Payment Ids.
 	*
-	* @return A CBSData object containing the batch number and String for the file.
+	* @return A CBSData object containing the file string.
 	*/
 	@AuraEnabled(cacheable=false)
-	public static CBSData getCBSdata(String[] paymentIds) {
+	public static CBSData getCBSdata(List<String> paymentIds) {
 
-		CBSData objCBSData = new CBSData();
+		CBSData objCBSData = new CBSData();  //The return value
 
 		try {
-			String currentFiscalYear = Payment2.getCurrentFiscalYear();
-			Map<Id,Payment2__c> paymentMap = new Map<Id,Payment2__c>();
-			Map<Id,List<Order>> paymentOrderMap = new Map<Id,List<Order>>();
+			initializeStaticVariables(paymentIds);
 
-			Set<Id> paymentIdSet = (Set<Id>) JSON.deserialize(JSON.serialize(paymentIds), Set<Id>.class);
-			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentIdSet);
-
-			Decimal totalAmt = populatePaymentOrderMaps(payments, paymentMap, paymentOrderMap);
-
-			String datetoday = getDtFormat(Datetime.now());
-
-			List<CBSBatchCount__c> listCodes = CBSBatchCount__c.getAll().values();
-			CBSBatchCount__c currentActiveObj = new CBSBatchCount__c();
-
-			for(CBSBatchCount__c obj:listCodes){
-				currentActiveObj=obj;
-			}
-
-			checkBatchCountersForReset(currentActiveObj);
-
-			String batchNumber = '';
-			if(!paymentMap.values().isEmpty()) {
-				Payment2__c firstPayment = paymentMap.values()[0];
-				String accountType = getAccountTypeInfo(firstPayment);
-				String payment2Type = getPayment2TypeInfo(firstPayment);
-				batchNumber = accountType + getYearDigit(currentFiscalYear) + payment2Type;
-				batchNumber += incrementAppropriateBatchNumbers(accountType, payment2Type, currentActiveObj);
-			}
-
-			String body = 'UCL00~ITACOLL~' + datetoday + '~' + getNumberLeftChar(paymentMap.size(),8) + '~' + getDecimal17Char(totalAmt) + '~N\n';
+			//Write the first line of the body
+			writeBodyHeader();
 
 			Integer i = 1;
-			for (Payment2__c objpay : paymentMap.values()) {
-				String businessName='';
-				if (paymentOrderMap.containsKey(objpay.Id)) {
-					for (Order ordObj: paymentOrderMap.get(objpay.Id)) {
-						if (ordObj.AccountId != null && ordObj.Account.Name != null && businessName == '') {
-							businessName = ordObj.Account.Name;
-							break;
-						}
-					}
-				}
-
-				String paymentType= 'CCARD';  //Default value.  Will be either CCARD or ACH/
-
-				if (objpay.Payment_Type__c == 'ACH') {
-					paymentType = 'ACH';
-				}
-				// Get the list of orders associated with this Payment2
-				List<Order> ordersForPayment = new List<Order>();
-				ordersForPayment = paymentOrderMap.get(objPay.Id);
-				Decimal amt = objpay.Transaction_Amount__c.SetScale(2);
-				body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+ getDecimal16Char(amt) + '~' + datetoday + '~' + paymentType + '~1~' + objpay.Account_Holder_Name__c + '~' + businessName + '~15397~1~PAYGOV~ITA~~~~~~~~~~~~~~' + objpay.Fulfillment_Post_Acronym__c + '~71744~~ITADEP~~~\n';
-				body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
-				// Project_code__c can be up to 12 comma separated strings - Loop through those and create one line for each of the items in that list
-				List<String> projectCodesForPayment = objpay.Project_Code__c.split(',');
-				system.debug('***' + projectCodesForPayment.size());
-				for(string  aProjectCode : projectCodesForPayment) {
-					String fulfillmentCodeTilde = objpay.Fulfillment_Post_Org_Code__c.replace('-', '~'); /// need method for objpay.Fulfillment_Post_Org_Code__c and objpay.Object_Class__c
-					String objectClassTilde = objpay.Object_Class__c .replace('-', '~');
-					body += 'UCL03~55~' + batchNumber + '~' + getNumberLeftChar(i, 8) + '~00000001~00000001~' + aProjectCode + '~' + objpay.Task_Code__c + '~~' + currentFiscalYear + '~~~~~' + fulfillmentCodeTilde + '~' + objectClassTilde + '~000000~' + getDecimal16Char(amt) + '\n';
-				}
-				i = i+1;
+			for (Payment2__c paymentRecord : paymentMap.values()) {
+				writePaymentBody(paymentRecord, i);
+				i += 1;
 			}
 
 			if (!paymentMap.isEmpty()) {
@@ -87,15 +42,88 @@ public without sharing class TransactionManagement {
 			return objCBSData;
 
 		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
+			AuraHandledException auraHandledException = new AuraHandledException(e.getMessage());
+			auraHandledException.setMessage(e.getMessage());
+			throw auraHandledException;
 		}
 	}
 
-	public static String getYearDigit(String x) {
+	private static void initializeStaticVariables(List<String> paymentIds) {
+		currentFiscalYear = Payment2.getCurrentFiscalYear();
+		paymentMap = new Map<Id,Payment2__c>();
+		paymentOrderMap = new Map<Id,List<Order>>();
+		totalAmt = populatePaymentOrderMaps(paymentIds);
+		dateToday = getDtFormat(Datetime.now());
+
+		List<CBSBatchCount__c> listCodes = CBSBatchCount__c.getAll().values();
+		currentActiveObj = listCodes[0];  //There should be only 1 metadata record
+
+		checkBatchCountersForReset();
+		batchNumber = determineBatchNumber();
+	}
+
+	private static void writeBodyHeader() {
+		body = 'UCL00~ITACOLL~' + dateToday + '~' + getNumberLeftChar(paymentMap.size(),8) + '~' + getDecimal17Char(totalAmt) + '~N\n';
+	}
+
+	private static void writePaymentBody(Payment2__c paymentRecord, Integer i) {
+
+		String businessName = determineBusinessName(paymentRecord);
+
+		String paymentType= 'CCARD';  //Default value.  Will be either 'CCARD' or 'ACH';
+
+		if (paymentRecord.Payment_Type__c == 'ACH') {
+			paymentType = 'ACH';
+		}
+
+		// Get the list of orders associated with this Payment2
+		List<Order> ordersForPayment = new List<Order>();
+		ordersForPayment = paymentOrderMap.get(paymentRecord.Id);
+		Decimal amt = paymentRecord.Transaction_Amount__c.SetScale(2);
+		System.debug('Amt: ' + amt);
+		body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+ getDecimal16Char(amt) + '~' + dateToday + '~' + paymentType + '~1~' + paymentRecord.Account_Holder_Name__c + '~' + businessName + '~15397~1~PAYGOV~ITA~~~~~~~~~~~~~~' + paymentRecord.Fulfillment_Post_Acronym__c + '~71744~~ITADEP~~~\n';
+		body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
+		// Project_code__c can be up to 12 comma separated strings - Loop through those and create one line for each of the items in that list
+		List<String> projectCodesForPayment = paymentRecord.Project_Code__c.split(',');
+		for(String aProjectCode : projectCodesForPayment) {
+			String fulfillmentCodeTilde = paymentRecord.Fulfillment_Post_Org_Code__c.replace('-', '~'); /// need method for objpay.Fulfillment_Post_Org_Code__c and objpay.Object_Class__c
+			String objectClassTilde = paymentRecord.Object_Class__c .replace('-', '~');
+			body += 'UCL03~55~' + batchNumber + '~' + getNumberLeftChar(i, 8) + '~00000001~00000001~' + aProjectCode + '~' + paymentRecord.Task_Code__c + '~~' + currentFiscalYear + '~~~~~' + fulfillmentCodeTilde + '~' + objectClassTilde + '~000000~' + getDecimal16Char(amt) + '\n';
+		}
+		String temp;
+		temp = '';
+	}
+
+	private static String determineBusinessName(Payment2__c paymentRecord) {
+		String businessName='';
+		if (paymentOrderMap.containsKey(paymentRecord.Id)) {
+			for (Order ordObj: paymentOrderMap.get(paymentRecord.Id)) {
+				if (ordObj.AccountId != null && ordObj.Account.Name != null && businessName == '') {
+					businessName = ordObj.Account.Name;
+					break;
+				}
+			}
+		}
+		return businessName;
+	}
+
+	private static String determineBatchNumber() {
+		String batchNumber = '';
+		if(!paymentMap.values().isEmpty()) {
+			Payment2__c firstPayment = paymentMap.values()[0];
+			String accountType = getAccountTypeInfo(firstPayment);
+			String payment2Type = getPayment2TypeInfo(firstPayment);
+			batchNumber = accountType + getYearDigit(currentFiscalYear) + payment2Type;
+			batchNumber += incrementAppropriateBatchNumbers(accountType, payment2Type, currentActiveObj);
+		}
+		return batchNumber;
+	}
+
+	private static String getYearDigit(String x) {
 		return x.Substring(x.length()-1,x.length());
 	}
 
-	public static String getDtFormat(DateTime dt) {
+	private static String getDtFormat(DateTime dt) {
 		Map<Integer,String> monthMap = new Map<Integer,String>();
 		monthMap.put(1,'JAN');
 		monthMap.put(2,'FEB');
@@ -113,14 +141,14 @@ public without sharing class TransactionManagement {
 		return dd + '-' + monthMap.get(dt.month()) + '-' + dt.year();
 	}
 
-	public static String getNumberLeftChar(Integer i,Integer val) {
+	private static String getNumberLeftChar(Integer i,Integer val) {
 		return String.valueOf(i).leftPad(val, '0');
 	}
 
-	public static String getDecimal16Char(Decimal val) {
+	private static String getDecimal16Char(Decimal val) {
 		return String.valueOf(val).leftPad(16, '0');
 	}
-	public static String getDecimal17Char(Decimal val) {
+	private static String getDecimal17Char(Decimal val) {
 		return String.valueOf(val).leftPad(17, '0');
 	}
 
@@ -128,14 +156,17 @@ public without sharing class TransactionManagement {
 		@AuraEnabled public String csvString;
 	}
 
-	private static Decimal populatePaymentOrderMaps(List<Payment2__c> payments, Map<Id,Payment2__c> paymentMap, Map<Id,List<Order>> paymentOrderMap) {
+	private static Decimal populatePaymentOrderMaps(List<String> paymentIds) {
+		Set<Id> paymentIdSet = (Set<Id>) JSON.deserialize(JSON.serialize(paymentIds), Set<Id>.class);
+		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentIdSet);
+
 		Decimal totalAmt = 0;
 		for(Payment2__c payment : payments) {
 			payment.Transmitted__c = true;
-			paymentMap.put(payment.id,payment);
+			paymentMap.put(payment.Id,payment);
 			totalAmt += payment.Transaction_Amount__c;
 		}
-		List<Order> orders = OrdersSelector.newInstance().selectById(paymentMap.keySet());
+		List<Order> orders = OrdersSelector.newInstance().selectByPaymentId(paymentMap.keySet());
 		for (Order order: orders) {
 			if(paymentOrderMap.containsKey(order.Payment2__c)){
 				List<Order> ordList = new List<Order>();
@@ -151,7 +182,7 @@ public without sharing class TransactionManagement {
 		return totalAmt;
 	}
 
-	private static void checkBatchCountersForReset(CBSBatchCount__c currentActiveObj) {
+	private static void checkBatchCountersForReset() {
 		//TRANS#6052 - JJW
 		//Reset fiscal year & batch counters if last recorded fiscal year is different from current
 		String currentFiscalYear = Payment2.getCurrentFiscalYear();
