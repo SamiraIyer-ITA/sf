@@ -48,15 +48,6 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Quote_LPL</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>Quote</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>Quote_Line_Item_LPL</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
@@ -83,6 +74,42 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+    <profileActionOverrides>
+	    <actionName>View</actionName>
+	    <content>Quote_Services_LPL</content>
+	    <formFactor>Large</formFactor>
+	    <pageOrSobjectType>Quote</pageOrSobjectType>
+	    <recordType>Quote.Services</recordType>
+	    <type>Flexipage</type>
+	    <profile>Core Team</profile>
+	</profileActionOverrides>
+	<profileActionOverrides>
+	    <actionName>View</actionName>
+	    <content>Quote_Services_LPL</content>
+	    <formFactor>Large</formFactor>
+	    <pageOrSobjectType>Quote</pageOrSobjectType>
+	    <recordType>Quote.Services</recordType>
+	    <type>Flexipage</type>
+	    <profile>Admin</profile>
+	</profileActionOverrides>
+	<profileActionOverrides>
+	    <actionName>View</actionName>
+	    <content>Quote_Events_LPL</content>
+	    <formFactor>Large</formFactor>
+	    <pageOrSobjectType>Quote</pageOrSobjectType>
+	    <recordType>Quote.Events</recordType>
+	    <type>Flexipage</type>
+	    <profile>Core Team</profile>
+	</profileActionOverrides>
+	<profileActionOverrides>
+	    <actionName>View</actionName>
+	    <content>Quote_Events_LPL</content>
+	    <formFactor>Large</formFactor>
+	    <pageOrSobjectType>Quote</pageOrSobjectType>
+	    <recordType>Quote.Events</recordType>
+	    <type>Flexipage</type>
+	    <profile>Admin</profile>
+	</profileActionOverrides>
     <description>App for consulting w/ ITA clients</description>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
