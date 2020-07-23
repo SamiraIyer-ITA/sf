@@ -132,7 +132,7 @@ C-###-### for CVD</inlineHelpText>
         <caseSensitive>true</caseSensitive>
         <externalId>false</externalId>
         <label>CBP Case Number</label>
-        <length>28</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -3462,8 +3462,8 @@ C-###-### for CVD</inlineHelpText>
     <startsWith>Vowel</startsWith>
     <validationRules>
         <fullName>CBP_Case_number_for_AD_and_CVD_Format</fullName>
-        <active>true</active>
-        <description>CBP Case Number must be formatted specifically this way.</description>
+        <active>false</active>
+        <description>CBP Case Number must be formatted specifically this way. (Deactivated for story 8251 in DevOps)</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;,
 (NOT(OR(ISBLANK( CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))),
 (NOT(OR(ISBLANK(CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
