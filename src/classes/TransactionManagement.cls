@@ -50,7 +50,7 @@ public without sharing class TransactionManagement {
 	private static void initializeStaticVariables(List<String> paymentIds) {
 		currentFiscalYear = Payment2.getCurrentFiscalYear();
 		paymentMap = new Map<Id,Payment2__c>();
-		totalAmt = populatePaymentOrderMaps(paymentIds);
+		totalAmt = populatePaymentMap(paymentIds);
 		dateToday = getDtFormat(Datetime.now());
 
 		List<CBSBatchCount__c> listCodes = CBSBatchCount__c.getAll().values();
@@ -133,7 +133,7 @@ public without sharing class TransactionManagement {
 		@AuraEnabled public String csvString;
 	}
 
-	private static Decimal populatePaymentOrderMaps(List<String> paymentIds) {
+	private static Decimal populatePaymentMap(List<String> paymentIds) {
 		Set<Id> paymentIdSet = (Set<Id>) JSON.deserialize(JSON.serialize(paymentIds), Set<Id>.class);
 		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentIdSet);
 
