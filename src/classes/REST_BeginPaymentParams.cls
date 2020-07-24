@@ -8,6 +8,8 @@
  * accountType Required if orderId is null.  The account that a payment is attributed to.  'Services', 'Events', or 'Privacy Shield'.
  * transactionAmount Required if orderId is null.  The payment amount.
  * projectCode Required if orderId is null.  The Project Code to which to attribute a payment.  eg '1GKY231'.
+ * collectionPost Required if orderId is null.  The name of the collection office to which to attribute a payment.
+ * fulfillmentPost Required if orderId is null.  The name of the fulfillment office to which to attribute a payment.
  * organizationName Required if orderId is null.  The name of the company to which to attribute the payment.
  * accountHolderName Optional.  Defaults the Name field at pay.gov.
  * billingAddress Optional.  Defaults the Address field at pay.gov.
@@ -34,6 +36,8 @@ global class REST_BeginPaymentParams {
 	global String accountType;
 	global String transactionAmount;
 	global String projectCode;
+	global String collectionPost;
+	global String fulfillmentPost;
 	global String organizationName;
 	global String accountHolderName;
 	global String billingAddress;
