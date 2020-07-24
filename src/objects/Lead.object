@@ -1267,6 +1267,18 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Record_Type_Developer_Name__c</fullName>
+        <description>Record Type Developer Name formula field.</description>
+        <externalId>false</externalId>
+        <formula>RecordType.DeveloperName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record Type Developer Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Registrant__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
