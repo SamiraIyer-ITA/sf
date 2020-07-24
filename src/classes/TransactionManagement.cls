@@ -1,12 +1,12 @@
 public without sharing class TransactionManagement {
 
-	static String batchNumber;
-	static String currentFiscalYear;
-	static Map<Id,Payment2__c> paymentMap;
-	static Decimal totalAmt;
-	static String dateToday;
-	static String body;
-	static CBSBatchCount__c currentActiveObj;
+	private static  String batchNumber;
+	private static  String currentFiscalYear;
+	private static  Map<Id,Payment2__c> paymentMap;
+	private static  Decimal totalAmt;
+	private static  String dateToday;
+	private static  String body;
+	private static  CBSBatchCount__c currentActiveObj;
 
 	/**
 	* Get the transaction (payment/refund) data that will be saved as a file and imported into CBS by NIST.
@@ -65,7 +65,7 @@ public without sharing class TransactionManagement {
 	}
 
 	private static void writePaymentBody(Payment2__c paymentRecord, Integer i) {
-
+		system.debug('PaymentRecord ==> ' + paymentRecord);
 		String paymentType= 'CCARD';  //Default value.  Will be either 'CCARD' or 'ACH';
 
 		if (paymentRecord.Payment_Type__c == 'ACH') {
@@ -76,11 +76,14 @@ public without sharing class TransactionManagement {
 		body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+ getDecimal16Char(amt) + '~' + dateToday + '~' + paymentType + '~1~' + paymentRecord.Account_Holder_Name__c + '~' + paymentRecord.Organization_Name__c + '~15397~1~PAYGOV~ITA~~~~~~~~~~~~~~' + paymentRecord.Fulfillment_Post_Acronym__c + '~71744~~ITADEP~~~\n';
 		body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
 		// Project_code__c can be up to 12 comma separated strings - Loop through those and create one line for each of the items in that list
-		List<String> projectCodesForPayment = paymentRecord.Project_Code__c.split(',');
-		for(String aProjectCode : projectCodesForPayment) {
-			String fulfillmentCodeTilde = paymentRecord.Fulfillment_Post_Org_Code__c.replace('-', '~'); /// need method for objpay.Fulfillment_Post_Org_Code__c and objpay.Object_Class__c
-			String objectClassTilde = paymentRecord.Object_Class__c .replace('-', '~');
-			body += 'UCL03~55~' + batchNumber + '~' + getNumberLeftChar(i, 8) + '~00000001~00000001~' + aProjectCode + '~' + paymentRecord.Task_Code__c + '~~' + currentFiscalYear + '~~~~~' + fulfillmentCodeTilde + '~' + objectClassTilde + '~000000~' + getDecimal16Char(amt) + '\n';
+
+		if(paymentRecord.Project_Code__c != null && paymentRecord.Object_Class__c != null){
+			List<String> projectCodesForPayment = paymentRecord.Project_Code__c.split(',');
+			for(String aProjectCode : projectCodesForPayment) {
+				String fulfillmentCodeTilde = paymentRecord.Fulfillment_Post_Org_Code__c.replace('-', '~'); /// need method for objpay.Fulfillment_Post_Org_Code__c and objpay.Object_Class__c
+				String objectClassTilde = paymentRecord.Object_Class__c .replace('-', '~');
+				body += 'UCL03~55~' + batchNumber + '~' + getNumberLeftChar(i, 8) + '~00000001~00000001~' + aProjectCode + '~' + paymentRecord.Task_Code__c + '~~' + currentFiscalYear + '~~~~~' + fulfillmentCodeTilde + '~' + objectClassTilde + '~000000~' + getDecimal16Char(amt) + '\n';
+			}
 		}
 	}
 
