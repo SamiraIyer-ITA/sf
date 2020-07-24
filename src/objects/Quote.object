@@ -252,6 +252,15 @@
         <fullName>Phone</fullName>
     </fields>
     <fields>
+        <fullName>PrimaryProductFamily__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Product Family</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>QuoteToName</fullName>
     </fields>
     <fields>
