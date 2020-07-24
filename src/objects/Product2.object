@@ -132,10 +132,15 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
         <fullName>Accounting_Code__c</fullName>
+        <caseSensitive>false</caseSensitive>
         <externalId>false</externalId>
         <label>Accounting Code</label>
         <length>4</length>
@@ -4229,6 +4234,20 @@
         <filterScope>Everything</filterScope>
         <label>All Products</label>
     </listViews>
+    <listViews>
+        <fullName>test_view_1</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>Accounting_Code__c</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <columns>PRODUCT2.FAMILY</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Accounting_Code__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>test view 1</label>
+    </listViews>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Events</fullName>
@@ -6174,10 +6193,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>International Buyer Program %28Show Organizer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other Event</fullName>
                 <default>false</default>
             </values>
@@ -6187,14 +6202,6 @@
             </values>
             <values>
                 <fullName>Trade Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade Fair Certification %28Show Organizer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade Mission</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8176,10 +8183,6 @@
         <picklistValues>
             <picklist>Family</picklist>
             <values>
-                <fullName>Certification</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -8200,6 +8203,164 @@
             </values>
             <values>
                 <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>QuantityUnitOfMeasure</picklist>
+            <values>
+                <fullName>Each</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Shore__c</picklist>
+            <values>
+                <fullName>Offshore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onshore</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Services</fullName>
+        <active>true</active>
+        <description>Services Record Type</description>
+        <label>Services</label>
+        <picklistValues>
+            <picklist>Block__c</picklist>
+            <values>
+                <fullName>0</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Abatement Systems</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Class__c</picklist>
+            <values>
+                <fullName>Advanced Meteorological Information</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Client_Form_Type__c</picklist>
+            <values>
+                <fullName>Business_Service_Provider</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International_Company_Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single_Company_Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single_Location_Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Family</picklist>
+            <values>
+                <fullName>Business Service Provider</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Certified Trade Mission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Faciliated Investment Mission %28SelectUSA%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Buyer Delegation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold Key Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Market Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Company Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Partner Search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Official Trade Mission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Optional %3A direct cost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar-Webinar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show Representation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Fair</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ProductOffering__c</picklist>
+            <values>
+                <fullName>Equipment</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
