@@ -106,9 +106,4 @@
         <default>false</default>
         <label>Optional : direct cost</label>
     </standardValue>
-    <standardValue>
-        <fullName>Faciliated Investment Mission (SelectUSA)</fullName>
-        <default>false</default>
-        <label>Faciliated Investment Mission (SelectUSA)</label>
-    </standardValue>
 </StandardValueSet>
