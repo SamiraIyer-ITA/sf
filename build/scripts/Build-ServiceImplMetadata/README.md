@@ -73,7 +73,7 @@ Build-ServiceImplMetadata -sourceDir "D:\buildServiceImplementation" -sObjectApI
 Build-ServiceImplMetadata
 ```
 
-The metadata is saved to source directory originally provided for the templates under metatdata/[SObject].
+The metadata is saved to the source directory originally provided for the templates under metatdata/[SObject].
 
 **Note:** This also creates all the fflib classes and custom metadata as well, so please verify you are not deploying over
 existing metadata. If you do not need those classes or metadata they can be removed from the classes and customMetadata
