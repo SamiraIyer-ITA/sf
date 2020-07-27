@@ -332,10 +332,12 @@ function Build-ServiceImplMetadata {
                     (Get-Content $_.template -Raw) -f $_.formats | Set-Content $destination -NoNewline
                 }
                 if ($_.type -eq "trigger") {
+                    $xmlDestination = "$($triggerDir)\$($_.baseFileName).trigger-meta.xml"
                     $destination = "$($triggerDir)\$($_.baseFileName).trigger"
                     Write-Host "`t`tBuilding trigger, $($_.baseFileName)" -BackgroundColor DarkBlue `
                      -ForegroundColor White
                     (Get-Content $_.template -Raw) -f $_.formats | Set-Content $destination -NoNewline
+                    (Get-Content $classXmlTemplate -Raw) -f $apiVersion | Set-Content $xmlDestination -NoNewline
                 }
             } catch {
                 Write-Host `n -BackgroundColor DarkRed -ForegroundColor White
