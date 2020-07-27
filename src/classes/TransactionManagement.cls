@@ -1,12 +1,12 @@
 public without sharing class TransactionManagement {
 
-	private static  String batchNumber;
-	private static  String currentFiscalYear;
-	private static  Map<Id,Payment2__c> paymentMap;
-	private static  Decimal totalAmt;
-	private static  String dateToday;
-	private static  String body;
-	private static  CBSBatchCount__c currentActiveObj;
+	private static String batchNumber;
+	private static String currentFiscalYear;
+	private static Map<Id,Payment2__c> paymentMap;
+	private static Decimal totalAmt;
+	private static String dateToday;
+	private static String body;
+	private static CBSBatchCount__c currentActiveObj;
 
 	/**
 	* Get the transaction (payment/refund) data that will be saved as a file and imported into CBS by NIST.
