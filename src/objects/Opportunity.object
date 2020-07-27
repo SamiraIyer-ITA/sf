@@ -218,6 +218,96 @@
             <default>false</default>
         </values>
     </businessProcesses>
+    <businessProcesses>
+        <fullName>Events Process</fullName>
+        <description>Events Process</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed Won</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Id%2E Decision Makers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Needs Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negotiation%2FReview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perception Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proposal%2FPrice Quote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Value Proposition</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
+        <fullName>Services Process</fullName>
+        <description>Services Process</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed Won</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Id%2E Decision Makers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Needs Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negotiation%2FReview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perception Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proposal%2FPrice Quote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Value Proposition</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -576,6 +666,21 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Export_Ready__c</fullName>
+        <description>Field data to be mapped from Lead upon conversion. Necessary for early stage nurturing.</description>
+        <externalId>false</externalId>
+        <label>Export Ready</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Exported_in_the_past_12_months__c</fullName>
@@ -1250,6 +1355,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Export_Ready__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Exported_in_the_past_12_months__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1653,6 +1769,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Export_Ready__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Exported_in_the_past_12_months__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1904,7 +2031,7 @@
     <recordTypes>
         <fullName>Events</fullName>
         <active>true</active>
-        <businessProcess>Data Customer Opportunity Process</businessProcess>
+        <businessProcess>Events Process</businessProcess>
         <description>Record type for events-related opportunities</description>
         <label>Events</label>
         <picklistValues>
@@ -2046,6 +2173,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Dedicated_resources_staff_budget__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Export_Ready__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2307,7 +2445,7 @@
     <recordTypes>
         <fullName>Services</fullName>
         <active>true</active>
-        <businessProcess>Data Customer Opportunity Process</businessProcess>
+        <businessProcess>Services Process</businessProcess>
         <description>Record type for services-related opportunities</description>
         <label>Services</label>
         <picklistValues>
@@ -2449,6 +2587,17 @@
         </picklistValues>
         <picklistValues>
             <picklist>Dedicated_resources_staff_budget__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Export_Ready__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
