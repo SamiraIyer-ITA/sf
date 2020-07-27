@@ -231,10 +231,6 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Id%2E Decision Makers</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Needs Analysis</fullName>
             <default>false</default>
         </values>
@@ -243,15 +239,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Perception Analysis</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Proposal%2FPrice Quote</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Prospecting</fullName>
             <default>false</default>
         </values>
         <values>
@@ -276,10 +264,6 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Id%2E Decision Makers</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Needs Analysis</fullName>
             <default>false</default>
         </values>
@@ -288,15 +272,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Perception Analysis</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Proposal%2FPrice Quote</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Prospecting</fullName>
             <default>false</default>
         </values>
         <values>
