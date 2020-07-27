@@ -293,7 +293,7 @@
             <default>false</default>
         </values>
     </businessProcesses>
-   <businessProcesses>
+    <businessProcesses>
         <fullName>Export Lead</fullName>
         <description>Export</description>
         <isActive>true</isActive>
@@ -320,27 +320,6 @@
         <values>
             <fullName>Verified</fullName>
             <default>false</default>
-        </values>
-    </businessProcesses>
-    <businessProcesses>
-        <fullName>Services Export</fullName>
-        <description>Services Export Support Process</description>
-        <isActive>true</isActive>
-        <values>
-            <fullName>Contacted</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Qualified</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Unqualified</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Unverified</fullName>
-            <default>true</default>
         </values>
     </businessProcesses>
     <businessProcesses>
@@ -1296,18 +1275,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Record_Type_Developer_Name__c</fullName>
-        <description>Record Type Developer Name formula field.</description>
-        <externalId>false</externalId>
-        <formula>RecordType.DeveloperName</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Record Type Developer Name</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Registrant__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1571,7 +1538,7 @@
         <label>Today&apos;s Leads</label>
     </listViews>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
-    <recordTypes>
+	 <recordTypes>
         <fullName>Export</fullName>
         <active>true</active>
         <businessProcess>Services Export</businessProcess>
@@ -3315,14 +3282,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bosnia and Herzegovina</fullName>
                 <default>false</default>
             </values>
@@ -3336,10 +3295,6 @@
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3587,10 +3542,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -3612,10 +3563,6 @@
             </values>
             <values>
                 <fullName>Indonesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3667,14 +3614,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -3684,10 +3623,6 @@
             </values>
             <values>
                 <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3707,10 +3642,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
@@ -3724,10 +3655,6 @@
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3772,10 +3699,6 @@
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3863,10 +3786,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Panama</fullName>
                 <default>false</default>
             </values>
@@ -3887,10 +3806,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pitcairn</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -3903,15 +3818,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian Federation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3932,10 +3839,6 @@
             </values>
             <values>
                 <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3983,10 +3886,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
                 <default>false</default>
             </values>
@@ -4031,10 +3930,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -4043,19 +3938,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4132,10 +4019,6 @@
             </values>
             <values>
                 <fullName>Vanuatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4831,14 +4714,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bosnia and Herzegovina</fullName>
                 <default>false</default>
             </values>
@@ -4852,10 +4727,6 @@
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5103,10 +4974,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -5128,10 +4995,6 @@
             </values>
             <values>
                 <fullName>Indonesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5183,14 +5046,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -5200,10 +5055,6 @@
             </values>
             <values>
                 <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5223,10 +5074,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
@@ -5240,10 +5087,6 @@
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5288,10 +5131,6 @@
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5379,10 +5218,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Panama</fullName>
                 <default>false</default>
             </values>
@@ -5403,10 +5238,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pitcairn</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -5419,15 +5250,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian Federation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5448,10 +5271,6 @@
             </values>
             <values>
                 <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5499,10 +5318,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
                 <default>false</default>
             </values>
@@ -5547,10 +5362,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -5559,19 +5370,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5648,10 +5451,6 @@
             </values>
             <values>
                 <fullName>Vanuatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6216,14 +6015,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bosnia and Herzegovina</fullName>
                 <default>false</default>
             </values>
@@ -6237,10 +6028,6 @@
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6488,10 +6275,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -6513,10 +6296,6 @@
             </values>
             <values>
                 <fullName>Indonesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6568,14 +6347,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -6585,10 +6356,6 @@
             </values>
             <values>
                 <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6608,10 +6375,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
@@ -6625,10 +6388,6 @@
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6673,10 +6432,6 @@
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6764,10 +6519,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Panama</fullName>
                 <default>false</default>
             </values>
@@ -6788,10 +6539,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pitcairn</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -6804,15 +6551,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian Federation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6833,10 +6572,6 @@
             </values>
             <values>
                 <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6884,10 +6619,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
                 <default>false</default>
             </values>
@@ -6932,10 +6663,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -6944,19 +6671,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7033,10 +6752,6 @@
             </values>
             <values>
                 <fullName>Vanuatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
