@@ -27,12 +27,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Staffing_Assignment__c.Investigation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Staffing_Assignment__c.Locked__c</field>
         <readable>true</readable>
     </fieldPermissions>
