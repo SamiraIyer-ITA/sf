@@ -100,7 +100,7 @@ public class ADCVD_OrderDetailController {
         si.productShortName = segment.Product_Short_Name_Text__c;
         si.country = segment.Country_Text__c;
         si.caseNumber = segment.ADCVD_Case_Number_Text__c;
-        si.announcementDate = segment.Next_Announcement_Date__c.format();
+        si.announcementDate = segment.Next_Announcement_Date__c != null ? segment.Next_Announcement_Date__c.format() :'' ;
         si.announcementType = segment.Announcement_Type__c;
         si.daysRemaining = segment.Days_Remaining__c;
         si.PeriodCoveredStartDate = segment.Period_Covered_Start_Date__c != null ? segment.Period_Covered_Start_Date__c.format() :'' ;
@@ -120,7 +120,7 @@ public class ADCVD_OrderDetailController {
         si.productShortName = investigation.Product_Short_Name_Text__c;
         si.country = investigation.Country_Text__c;
         si.caseNumber = investigation.ADCVD_Case_Number_Text__c;
-        si.announcementDate = investigation.Next_Announcement_Date__c.format();
+        si.announcementDate = investigation.Next_Announcement_Date__c != null ? investigation.Next_Announcement_Date__c.format() : '';
         si.announcementType = investigation.Announcement_Type__c;
         si.daysRemaining = investigation.Days_Remaining__c;
         si.PeriodCoveredStartDate = investigation.Period_Covered_Start_Date__c != null ? investigation.Period_Covered_Start_Date__c.format() : '';
