@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>CP_DuplicateEmailAddress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_DuplicateEmailAddress</shortDescription>
+        <value>Email address is already registered, select a different email or login using existing account.</value>
+    </labels>
+</CustomLabels>
