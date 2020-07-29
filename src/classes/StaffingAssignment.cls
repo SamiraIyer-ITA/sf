@@ -59,7 +59,7 @@ public with sharing class StaffingAssignment {
 			delete staffingAssignmentsForDelete;
 
 		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
+			throw new AuraHandledException('You do not have permission to perform this action.');
 		}
 	}
 
