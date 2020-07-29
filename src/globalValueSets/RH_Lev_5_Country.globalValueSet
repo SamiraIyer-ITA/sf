@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>GM CS-Asia-Field ANZ Australia</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ANZ Australia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ANZ New Zealand</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ANZ New Zealand</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Bangkok</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ASEAN Bangkok</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Jakarta</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ASEAN Jakarta</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Kaula Lumpur</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ASEAN Kaula Lumpur</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Manila</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ASEAN Manila</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Rangoon</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ASEAN Rangoon</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Singapore</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ASEAN Singapore</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Vietnam</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ASEAN Vietnam</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field India</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field India</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field Japan</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field Japan</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field Pakistan</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field Pakistan</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field Taiwan</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field Taiwan</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-China-Field China</fullName>
+        <default>false</default>
+        <label>GM CS-China-Field China</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Africa South Africa</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Africa South Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field EURASIA Russia</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field EURASIA Russia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field GEAUS Germany</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field GEAUS Germany</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Gulf UAE</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Gulf UAE</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Iraq</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Iraq</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Israel</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Israel</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Italy</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Italy</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Saudi Arabia</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Saudi Arabia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Turkey</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Turkey</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field Brazil</fullName>
+        <default>false</default>
+        <label>GM CS-WH-Field Brazil</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field Canada</fullName>
+        <default>false</default>
+        <label>GM CS-WH-Field Canada</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field Mexico</fullName>
+        <default>false</default>
+        <label>GM CS-WH-Field Mexico</label>
+    </customValue>
+    <masterLabel>User Country</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
