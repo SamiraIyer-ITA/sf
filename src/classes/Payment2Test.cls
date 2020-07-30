@@ -143,14 +143,14 @@ private class Payment2Test {
 	@IsTest
 	static void getTransactions_Positive_Payment() {
 		String today = Date.today().format();
-		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payment', today, today);
+		List<Payment2__c> payments = Payment2Utils.getTransactions('Services', 'Credit Card', 'Payment', today, today);
 		System.assertNotEquals(null, payments[0].Id);
 	}
 
 	@IsTest
 	static void getTransactions_Negative() {
 		String today = Date.today().format();
-		List<Payment2__c> payments = Payment2.getTransactions('Blah', 'Credit Card', 'Payment', today, today);
+		List<Payment2__c> payments = Payment2Utils.getTransactions('Blah', 'Credit Card', 'Payment', today, today);
 		System.assert(payments.isEmpty());
 	}
 
@@ -159,7 +159,7 @@ private class Payment2Test {
 		String today = 'Blah';
 		String exceptionMessage;
 		try {
-			List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payment', today, today);
+			List<Payment2__c> payments = Payment2Utils.getTransactions('Services', 'Credit Card', 'Payment', today, today);
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
@@ -170,14 +170,14 @@ private class Payment2Test {
 	@IsTest
 	static void getOrder_Positive() {
 		List<Order> orders = [SELECT Id FROM ORDER WHERE Name = 'Test Order X'];
-		Order order = Payment2.getOrder(orders[0].Id);
+		Order order = Payment2Utils.getOrder(orders[0].Id);
 		System.assertEquals(orders[0].Id, order.Id);
 	}
 
 	@IsTest
 	static void getOrder_Null() {
 		List<Payment2__c> payments = [Select Id FROM Payment2__c];
-		Order order = Payment2.getOrder(payments[0].Id);
+		Order order = Payment2Utils.getOrder(payments[0].Id);
 		System.assertEquals(null, order);
 	}
 
@@ -185,7 +185,7 @@ private class Payment2Test {
 	static void getOrder_Exception() {
 		String exceptionMessage;
 		try {
-			Order order = Payment2.getOrder('Not an Id');
+			Order order = Payment2Utils.getOrder('Not an Id');
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
@@ -196,14 +196,14 @@ private class Payment2Test {
 	@IsTest
 	static void getOrderWithReductionOrderDetails_Positive() {
 		List<Order> orders = [SELECT Id FROM ORDER WHERE Name = 'Reduction Order X'];
-		Order order = Payment2.getOrderWithReductionOrderDetails(orders[0].Id, false, true, false, false);
+		Order order = Payment2Utils.getOrderWithReductionOrderDetails(orders[0].Id, false, true, false, false);
 		System.assertEquals(orders[0].Id, order.Id);
 	}
 
 	@IsTest
 	static void getOrderWithReductionOrderDetails_Null() {
 		List<Payment2__c> payments = [Select Id FROM Payment2__c];
-		Order order = Payment2.getOrderWithReductionOrderDetails(payments[0].Id, false, false, false, true);
+		Order order = Payment2Utils.getOrderWithReductionOrderDetails(payments[0].Id, false, false, false, true);
 		System.assertEquals(null, order);
 	}
 
@@ -211,7 +211,7 @@ private class Payment2Test {
 	static void getOrderWithReductionOrderDetails_Exception() {
 		String exceptionMessage;
 		try {
-			Order order = Payment2.getOrderWithReductionOrderDetails('Not an Id', false, false, false, true);
+			Order order = Payment2Utils.getOrderWithReductionOrderDetails('Not an Id', false, false, false, true);
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
@@ -222,21 +222,21 @@ private class Payment2Test {
 	@IsTest
 	static void getOrdersByContractId_Positive() {
 		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Test Order X'];
-		List<Order> orderList = Payment2.getOrdersByContractId(orders[0].ContractId, true, false, false, false);
+		List<Order> orderList = Payment2Utils.getOrdersByContractId(orders[0].ContractId, true, false, false, false);
 		System.assertEquals(orders[0].Id, orderList[0].Id);
 	}
 
 	@IsTest
 	static void getOrdersByContractId_Positive2() {
 		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Reduction Order X'];
-		List<Order> orderList = Payment2.getOrdersByContractId(orders[0].ContractId, false, true, true, false);
+		List<Order> orderList = Payment2Utils.getOrdersByContractId(orders[0].ContractId, false, true, true, false);
 		System.assertEquals(orders[0].Id, orderList[0].Id);
 	}
 
 	@IsTest
 	static void getOrdersByContractId_Empty() {
 		List<Payment2__c> payments = [Select Id FROM Payment2__c];
-		List<Order> orderList = Payment2.getOrdersByContractId(payments[0].Id, false, false, false, true);
+		List<Order> orderList = Payment2Utils.getOrdersByContractId(payments[0].Id, false, false, false, true);
 		System.assertEquals(true, orderList.isEmpty());
 	}
 
@@ -244,7 +244,7 @@ private class Payment2Test {
 	static void getOrdersByContractId_Exception() {
 		String exceptionMessage;
 		try {
-			List<Order> orderList = Payment2.getOrdersByContractId('Not an Id', false, false, false, true);
+			List<Order> orderList = Payment2Utils.getOrdersByContractId('Not an Id', false, false, false, true);
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
@@ -259,8 +259,8 @@ private class Payment2Test {
 		for (Order order: orders) {
 			orderIds.add(order.Id);
 		}
-		String serializedDetails = Payment2.startElectronicPayment('Services', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
-		Payment2.PaymentAuthenticationDetails paymentAuthenticationDetails = (Payment2.PaymentAuthenticationDetails)JSON.deserialize(serializedDetails, Payment2.PaymentAuthenticationDetails.class);
+		String serializedDetails = Payment2Utils.startElectronicPayment('Services', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
+		Payment2Utils.PaymentAuthenticationDetails paymentAuthenticationDetails = (Payment2Utils.PaymentAuthenticationDetails)JSON.deserialize(serializedDetails, Payment2Utils.PaymentAuthenticationDetails.class);
 		System.assertEquals('4800.00', paymentAuthenticationDetails.transactionAmount);
 	}
 
@@ -270,7 +270,7 @@ private class Payment2Test {
 		String[] orderIds = new String[]{};
 		String exceptionMessage;
 		try {
-			String serializedDetails = Payment2.startElectronicPayment('Blah', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
+			String serializedDetails = Payment2Utils.startElectronicPayment('Blah', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
@@ -285,8 +285,8 @@ private class Payment2Test {
 		for (Order order: orders) {
 			orderIds.add(order.Id);
 		}
-		String serializedDetails = Payment2.startElectronicPayment('Services', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
-		String paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+		String serializedDetails = Payment2Utils.startElectronicPayment('Services', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
+		String paymentRedirectUrl = Payment2Utils.authorizePayment(serializedDetails);
 		System.assertNotEquals(null, paymentRedirectUrl);
 	}
 
@@ -297,7 +297,7 @@ private class Payment2Test {
 		for (Order order: orders) {
 			orderIds.add(order.Id);
 		}
-		String paymentId = Payment2.confirmPayment('Services', (String) orders[0].Payment2__c, 'myToken', orderIds);
+		String paymentId = Payment2Utils.confirmPayment('Services', (String) orders[0].Payment2__c, 'myToken', orderIds);
 		System.assertEquals((String) orders[0].Payment2__c, paymentId);
 	}
 
@@ -306,7 +306,7 @@ private class Payment2Test {
 		String[] orderIds = new String[]{};
 		String exceptionMessage;
 		try {
-			String paymentId = Payment2.confirmPayment('Services', null, 'myToken', orderIds);
+			String paymentId = Payment2Utils.confirmPayment('Services', null, 'myToken', orderIds);
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {

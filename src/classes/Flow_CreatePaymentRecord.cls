@@ -7,62 +7,108 @@ global without sharing class Flow_CreatePaymentRecord {
 			return null;
 		}
 
+		RequestVariables requestVariables = inputs[0];
+
 		try {
-			String contractId = inputs[0].contractId;
-			String paymentType = inputs[0].paymentType;
-			Decimal amount = inputs[0].amount;
-			List<Order> orders = inputs[0].orders;
-			String bankName = inputs[0].bankName;
-			String checkNumber = inputs[0].checkNumber;
-			Date checkDate = inputs[0].checkDate;
-			Datetime bankTransferDatetime = inputs[0].bankTransferDatetime;
-			String accountType = inputs[0].accountType;
+			String contractId = requestVariables.contractId;
+			String paymentType = requestVariables.paymentType;
+			Decimal amount = requestVariables.amount;
+			List<Order> orders = requestVariables.orders;
+			String bankName = requestVariables.bankName;
+			String checkNumber = requestVariables.checkNumber;
+			Date checkDate = requestVariables.checkDate;
+			Datetime bankTransferDatetime = requestVariables.bankTransferDatetime;
+			String accountType = requestVariables.accountType;
 
 			//Create the payment record
 			Payment2__c payment = new Payment2__c();
 
 			//Determine the record type id
-			String recordTypeName;
-			switch on paymentType {
-				when 'Check' {
-					recordTypeName = 'Check_Payment';
-					payment.Bank_Name__c = bankName;
-					payment.Check_Number__c = checkNumber;
-					payment.Check_Date__c = checkDate;
-				}
-				when 'Cash' {
-					recordTypeName = 'Cash_Payment';
-				}
-				when 'Bank Transfer' {
-					recordTypeName = 'Bank_Transfer_Payment';
-					payment.Transaction_Date__c = bankTransferDatetime;
-				}
-			}
+			String recordTypeName = getRecordTypeNameForPaymentType(payment, paymentType, bankName, checkNumber, checkDate, bankTransferDatetime);
 
-			payment.Account_Type__c = accountType;
-			payment.RecordTypeId = Utils.getRecordTypeNameByDeveloperName(recordTypeName, 'Payment2__c');
-			payment.Contract__c = contractId;
-			payment.Payment_Processor__c = '';
-			payment.Transaction_Status__c = 'Success';
-			payment.Transaction_Amount__c = amount;
-			try {
-				fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
-				uow.registerNew(payment);
-				for (Order eachOrder: orders) {
-					eachOrder.Payment2__c = payment.Id;
-					eachOrder.Order_Paid__c = true;
-					uow.registerDirty(eachOrder, Order.Payment2__c, payment);
-				}
-				uow.commitWork();
-			} catch (Exception e) {
-				String errorMessage = 'Unable to insert payment or update order records.';
-				throw new CreatePaymentRecordActionException(errorMessage + '  ' + e.getMessage());
-			}
+			//Populate Payment Details
+			populatePaymentDetails(payment, orders[0].Id, contractId, amount, accountType, recordTypeName);
+
+			//Create Payment DML
+			attemptCreatePaymentDML(payment, orders);
 
 			return new List<String>{(String) payment.Id};
 
 		} catch(Exception e) {
 			throw new CreatePaymentRecordActionException(e.getMessage());
+		}
+	}
+
+	private static String getRecordTypeNameForPaymentType(Payment2__c payment, String paymentType, String bankName, String checkNumber, Date checkDate, Datetime bankTransferDatetime) {
+		String recordTypeName;
+		switch on paymentType {
+			when 'Check' {
+
+				payment.Bank_Name__c = bankName;
+				payment.Check_Number__c = checkNumber;
+				payment.Check_Date__c = checkDate;
+				payment.Payment_Type__c = 'Check';
+				recordTypeName = 'Check_Payment';
+			}
+			when 'Cash' {
+				recordTypeName = 'Cash_Payment';
+				payment.Payment_Type__c = 'Cash';
+			}
+			when 'Bank Transfer' {
+				recordTypeName = 'Bank_Transfer_Payment';
+				payment.Payment_Type__c = 'Bank Transfer';
+				payment.Transaction_Date__c = bankTransferDatetime;
+			}
+			when else {
+				throw new CreatePaymentRecordActionException('Invalid Payment Type');
+			}
+		}
+		return recordTypeName;
+	}
+
+	private static void populatePaymentDetails(Payment2__c payment, Id ordersId, Id contractId, Decimal amount, String accountType, String recordTypeName) {
+		payment.Account_Type__c = accountType;
+		payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
+		payment.Contract__c = contractId;
+		payment.Payment_Processor__c = '';
+		payment.Transaction_Status__c = 'Success';
+		payment.Transaction_Amount__c = amount;
+
+		//Look at the first Order to get data from the associated Opportunity
+		Set<Id> orderIds = new Set<Id>();
+		orderIds.add(ordersId); //ordersid
+		//The OrdersSelector will only return order items that are marked as primary
+		List<Order> orders = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds, true);
+		Order order = orders[0];
+
+		payment.Organization_Name__c 			= order.Opportunity.Account.Name;
+		payment.Opportunity_Owner__c 			= order.Opportunity.Owner.Name;
+		payment.Opportunity_Created_Date__c 	= order.Opportunity.CreatedDate;
+		payment.Collection_Post_Name__c 		= order.Opportunity.Collection_Post__r.Name;
+		payment.Collection_Post_Org_Code__c 	= order.Opportunity.Collection_Post__r.Org_Code__c;
+		payment.Fulfillment_Post_Name__c 		= order.Opportunity.Fulfillment_Post__r.Name;
+		payment.Fulfillment_Post_Org_Code__c 	= order.Opportunity.Fulfillment_Post__r.Org_Code__c;
+		if (order.OrderItems.size() != 0) {
+			if (String.isNotBlank(order.OrderItems[0].Accounting_code__c)) {
+				payment.Project_Code__c = order.OrderItems[0].Accounting_code__c.Left(4) + '231';
+			}
+		}
+	}
+
+	private static void attemptCreatePaymentDML(Payment2__c payment, List<Order> orders) {
+		try {
+			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
+			uow.registerNew(payment);
+			for (Order eachOrder: orders) {
+				eachOrder.Payment2__c = payment.Id;
+				eachOrder.Order_Paid__c = true;
+				payment.Receipt_Ready__c = true;
+				uow.registerDirty(eachOrder, Order.Payment2__c, payment);
+			}
+			uow.commitWork();
+		} catch (Exception e) {
+			String errorMessage = 'Unable to insert payment or update order records.';
+			throw new CreatePaymentRecordActionException(errorMessage + '  ' + e.getMessage());
 		}
 	}
 

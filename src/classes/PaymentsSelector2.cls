@@ -9,14 +9,16 @@ public class PaymentsSelector2 extends fflib_SObjectSelector implements IPayment
 	}
 
 	public List<Payment2__c> selectByTransactionDetails(String accountType, String paymentType, String recordTypeId,
-		String transactionStatus, Datetime fromDatetime, Datetime toDatetime) {
+		String transactionStatus, Datetime fromDatetime, Datetime toDatetime, Boolean nonTransmittedOnly) {
 		String condition = 'Account_Type__c = :accountType ';
 		condition += 'AND Payment_Type__c = :paymentType ';
 		condition += 'AND RecordTypeId = :recordTypeId ';
 		condition += 'AND Transaction_Status__c = :transactionStatus ';
 		condition += 'AND Transaction_Date__c >= :fromDatetime ';
 		condition += 'AND Transaction_Date__c <= :toDatetime ';
-		condition += 'AND Transmitted__c = false';
+		if (nonTransmittedOnly) {
+			condition += 'AND Transmitted__c = false';
+		}
 		return (List<Payment2__c>) Database.query(newQueryFactory()
 			.setCondition(condition).toSOQL());
 	}
@@ -33,7 +35,26 @@ public class PaymentsSelector2 extends fflib_SObjectSelector implements IPayment
 			Payment2__c.Payment_Type__c,
 			Payment2__c.Transaction_Date__c,
 			Payment2__c.Transaction_Status__c,
-			Payment2__c.RecordTypeId
+			Payment2__c.RecordTypeId,
+			Payment2__c.Account_Holder_Name__c,
+			Payment2__c.Account_Number__c,
+			Payment2__c.Project_Code__c,
+			Payment2__c.Organization_Name__c,
+			Payment2__c.Opportunity_Owner__c,
+			Payment2__c.Opportunity_Created_Date__c,
+			Payment2__c.Collection_Post_Name__c,
+			Payment2__c.Collection_Post_Org_Code__c,
+			Payment2__c.Collection_Post_Acronym__c,
+			Payment2__c.Fulfillment_Post_Name__c,
+			Payment2__c.Fulfillment_Post_Org_Code__c,
+			Payment2__c.Fulfillment_Post_Acronym__c,
+			Payment2__c.Receipt_Ready__c,
+			Payment2__c.Receipt_Sent_To__c,
+			Payment2__c.Object_Class__c,
+			Payment2__c.Task_Code__c,
+			Payment2__c.Invoice_Date__c,
+			Payment2__c.Invoice_Id__c,
+			Payment2__c.Receipt_Allowed__c
 		};
 	}
 
