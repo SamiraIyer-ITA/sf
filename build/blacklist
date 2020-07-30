@@ -1,1 +1,3 @@
 src/classes/di_FlowTest.cls
+src/quickActions/Client_Form__c.Update_Company_Questionnaire_Logistical_Information.quickAction
+src/objectTranslations/Client_Form__c-en_US.objectTranslation
