@@ -150,7 +150,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			DateTime transDate = completeOnlineCollectionWithDetailsResponse.transaction_date;
 			RecordLog.message('Original Transaction Date: ' + String.valueOf(transDate));
 			RecordLog.message('Original Transaction Date as GMT: ' + String.valueOfGmt(transDate));
-			DateTime transDateGMT = transDate.addSeconds(Payment2.getTimeZoneOffset());
+			DateTime transDateGMT = transDate.addSeconds(Payment2Utils.getTimeZoneOffset());
 			payments[0].Transaction_Date__c = transDateGMT;  //Datetimes need to be either GMT or have a timezone specified
 			RecordLog.message('Adjusted Transaction Date: ' + String.valueOf(transDateGMT));
 
