@@ -1,23 +1,7 @@
 <!--
  - Created by Mark Keckeis - Mil Corporation on 7/28/2020.
  -->
-<!--
-<apex:page controller="Payment2ConfirmationController" action="{!restDoPost}" sidebar="true" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
-    <apex:composition template="Site_Template">
-        <apex:define name="page">
-            <apex:outputText value = "  orderId ==> {!orderId}"/><br/>
-            <apex:outputText value = "  paymentId ==> {!paymentId}"/><br/>
-            <apex:outputText value = "  acctType ==> {!acctType}"/><br/>
-            <apex:outputText value = "  token ==> {!token}"/><br/>
-            <apex:outputText value = "  response ==> {!response}"/><br/>
-            <apex:outputText value = "  cancel ==> {!paymentCancelled}"/><br/>
-            <apex:outputText value = "  paymentError ==> {!paymentError}"/><br/>
-            <apex:outputText value = "  completionMessage ==> {!completionMessage}"/><br/>
 
-        </apex:define>
-    </apex:composition>
-</apex:page>
--->
 <apex:page controller="Payment2ConfirmationController" action="{!restDoPost}" sidebar="true" standardStylesheets="true" applyBodyTag="false" applyHtmlTag="true">
     <apex:includeLightning />
     <apex:slds />
