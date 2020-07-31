@@ -1,0 +1,62 @@
+<!--
+ - Created by Mark Keckeis - Mil Corporation on 7/28/2020.
+ -->
+<!--
+<apex:page controller="Payment2ConfirmationController" action="{!restDoPost}" sidebar="true" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+    <apex:composition template="Site_Template">
+        <apex:define name="page">
+            <apex:outputText value = "  orderId ==> {!orderId}"/><br/>
+            <apex:outputText value = "  paymentId ==> {!paymentId}"/><br/>
+            <apex:outputText value = "  acctType ==> {!acctType}"/><br/>
+            <apex:outputText value = "  token ==> {!token}"/><br/>
+            <apex:outputText value = "  response ==> {!response}"/><br/>
+            <apex:outputText value = "  cancel ==> {!paymentCancelled}"/><br/>
+            <apex:outputText value = "  paymentError ==> {!paymentError}"/><br/>
+            <apex:outputText value = "  completionMessage ==> {!completionMessage}"/><br/>
+
+        </apex:define>
+    </apex:composition>
+</apex:page>
+-->
+<apex:page controller="Payment2ConfirmationController" action="{!restDoPost}" sidebar="true" standardStylesheets="true" applyBodyTag="false" applyHtmlTag="true">
+    <apex:includeLightning />
+    <apex:slds />
+        <apex:define name="page">
+            <div>
+                <div class="section clearfix">
+                    <div class="row content">
+                        <div class="containerInternal">
+                            <div class="col-md-12">
+                                <div class="col-md-3"></div>
+                                <div id="main_wrapper" class="col-md-12 itaCaseBox itaFormBox">
+                                    <apex:form >
+                                        <apex:pagemessages />
+                                        <div class="col-md-12">
+                                            <div class="col-md-3"/>
+                                            <apex:outputPanel layout="block">
+                                                <apex:outputPanel id="opThankYou">
+                                                    <apex:outputPanel layout="block">
+                                                        <h4>
+                                                            <article class="slds-card">
+                                                                <div class="slds-card__header slds-grid">
+                                                                        <div class="slds-card__body">
+                                                                            <p>{!completionMessage}</p>
+                                                                        </div>
+                                                                </div>
+                                                            </article>
+                                                        </h4>
+                                                    </apex:outputPanel>
+                                                </apex:outputPanel>
+                                            </apex:outputPanel>
+                                            <div class="col-md-3"/>
+                                        </div>
+                                    </apex:form>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:define>
+</apex:page>
