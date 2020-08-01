@@ -1,46 +1,45 @@
 <!--
  - Created by Mark Keckeis - Mil Corporation on 7/28/2020.
  -->
+<apex:page controller="Payment2ConfirmationController" action="{!restDoPost}" lightningStyleSheets="true" applyBodyTag="false">
+	<html>
+		<head>
+			<title>Payment Confirmation</title>
+			<apex:slds />
+		</head>
 
-<apex:page controller="Payment2ConfirmationController" action="{!restDoPost}" sidebar="true" standardStylesheets="true" applyBodyTag="false" applyHtmlTag="true">
-    <apex:includeLightning />
-    <apex:slds />
-        <apex:define name="page">
-            <div>
-                <div class="section clearfix">
-                    <div class="row content">
-                        <div class="containerInternal">
-                            <div class="col-md-12">
-                                <div class="col-md-3"></div>
-                                <div id="main_wrapper" class="col-md-12 itaCaseBox itaFormBox">
-                                    <apex:form >
-                                        <apex:pagemessages />
-                                        <div class="col-md-12">
-                                            <div class="col-md-3"/>
-                                            <apex:outputPanel layout="block">
-                                                <apex:outputPanel id="opThankYou">
-                                                    <apex:outputPanel layout="block">
-                                                        <h4>
-                                                            <article class="slds-card">
-                                                                <div class="slds-card__header slds-grid">
-                                                                        <div class="slds-card__body">
-                                                                            <p>{!completionMessage}</p>
-                                                                        </div>
-                                                                </div>
-                                                            </article>
-                                                        </h4>
-                                                    </apex:outputPanel>
-                                                </apex:outputPanel>
-                                            </apex:outputPanel>
-                                            <div class="col-md-3"/>
-                                        </div>
-                                    </apex:form>
-                                </div>
-                                <div class="col-md-3"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </apex:define>
+		<body class="slds-scope" style="background-color: rgba(176, 196, 223, 1);" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+			<article style="background-color: white" class="slds-card slds-m-around_small">
+				<div class="slds-card__header slds-grid">
+					<header class="slds-media slds-media--center slds-has-flexi-truncate">
+						<div class="slds-media__figure">
+							<span class="slds-icon_container slds-icon-standard-apex" title="Payment Confirmation Icon">
+							  <svg aria-hidden="true" class="slds-icon">
+							    <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#currency')}"></use>
+							  </svg>
+							   <span class="slds-assistive-text">Payment Confirmation Icon</span>
+							</span>
+						</div>
+						<div class="slds-media__body slds-truncate">
+							<h2>
+								<a href="javascript:void(0);" class="slds-text-link--reset">
+									<span class="slds-text-heading--small">Payment Confirmation</span>
+								</a>
+							</h2>
+						</div>
+					</header>
+				</div>
+				<div class="slds-card__body slds-text-align_center slds-text-body_regular">
+					<apex:outputPanel rendered="{!If(completionMessage == null, false, true)}">
+						<span>{!completionMessage}</span>
+					</apex:outputPanel>
+					<apex:outputPanel rendered="{!If(completionMessage == null, true, false)}">
+						<span>Payment processing. Please wait…</span>
+					</apex:outputPanel>
+				</div>
+			</article>
+		</body>
+
+	</html>
 </apex:page>

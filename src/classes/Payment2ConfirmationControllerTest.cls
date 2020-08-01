@@ -39,7 +39,26 @@ private class Payment2ConfirmationControllerTest {
 		update payment1;
 
 		TestUtils.createPaymentSettings();
+	}
 
+	@IsTest
+	static void missingParameter() {
+		PageReference pageRef = Page.Payment2Confirmation;
+		pageRef.getParameters().put('token', 'token');
+		Test.setCurrentPageReference(pageRef);
+		Payment2ConfirmationController p2ConfirmationController = new Payment2ConfirmationController();
+		p2ConfirmationController.restDoPost();
+		System.assertEquals(p2ConfirmationController.completionMessage, 'Missing URL parameter.');
+	}
+
+	@IsTest
+	static void cancelPayment() {
+		PageReference pageRef = Page.Payment2Confirmation;
+		pageRef.getParameters().put('cancel', 'true');
+		Test.setCurrentPageReference(pageRef);
+		Payment2ConfirmationController p2ConfirmationController = new Payment2ConfirmationController();
+		p2ConfirmationController.restDoPost();
+		System.assertEquals(p2ConfirmationController.completionMessage, 'The payment was canceled.');
 	}
 
 	@IsTest
@@ -56,18 +75,7 @@ private class Payment2ConfirmationControllerTest {
 		Payment2ConfirmationController p2ConfirmationController = new Payment2ConfirmationController();
 
 		p2ConfirmationController.restDoPost();
-		system.assert(p2ConfirmationController.completionMessage == 'The payment has been successfully processed.');
-
+		System.assertEquals(p2ConfirmationController.completionMessage, 'The payment has processed successfully.');
 	}
 
-	@IsTest
-	static void cancelPayment() {
-		PageReference pageRef = Page.Payment2Confirmation;
-		pageRef.getParameters().put('cancel', 'true');
-		Test.setCurrentPageReference(pageRef);
-		Payment2ConfirmationController p2ConfirmationController = new Payment2ConfirmationController();
-		p2ConfirmationController.restDoPost();
-		system.assert(p2ConfirmationController.completionMessage == 'The payment was canceled by the user before submitting to Paygov.');
-
-	}
 }
