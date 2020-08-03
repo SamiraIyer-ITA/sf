@@ -19,7 +19,7 @@
                 <field>Lead_Attorney__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Type__c</field>
             </layoutItems>
         </layoutColumns>
@@ -35,6 +35,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Exporter__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Status__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
