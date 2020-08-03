@@ -34,6 +34,13 @@
                 <behavior>Edit</behavior>
                 <field>Statement_of_Work__c</field>
             </layoutItems>
+<<<<<<< HEAD
+=======
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ServiceProvider__c</field>
+            </layoutItems>
+>>>>>>> SM-11096-Add-Service-Provider-Field
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -52,6 +59,13 @@
                 <behavior>Edit</behavior>
                 <field>Description</field>
             </layoutItems>
+<<<<<<< HEAD
+=======
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>IsPrimary__c</field>
+            </layoutItems>
+>>>>>>> SM-11096-Add-Service-Provider-Field
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -95,4 +109,13 @@
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
+<<<<<<< HEAD
+=======
+    <summaryLayout>
+        <masterLabel>00ht0000002LpeA</masterLabel>
+        <sizeX>4</sizeX>
+        <sizeY>0</sizeY>
+        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    </summaryLayout>
+>>>>>>> SM-11096-Add-Service-Provider-Field
 </Layout>
