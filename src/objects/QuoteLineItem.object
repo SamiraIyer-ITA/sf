@@ -119,16 +119,6 @@
         <fullName>Discount</fullName>
     </fields>
     <fields>
-        <fullName>ITA_Product_Code__c</fullName>
-        <externalId>false</externalId>
-        <formula>Product2.ProductCode</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>ITA Product Code</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>IsPrimary__c</fullName>
         <description>Helps distinguish between Services that are being sold versus add-ons.</description>
         <externalId>false</externalId>
