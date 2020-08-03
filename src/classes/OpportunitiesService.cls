@@ -48,6 +48,10 @@ public with sharing class OpportunitiesService {
 		return new OpportunitiesImplManager(records, existingRecords).triggerService();
 	}
 
+	public static void handleBeforeInsert(List<SObject> records) {
+		triggerService(records).handleBeforeInsert();
+	}
+
 	public static void handleBeforeUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
 		triggerService(records, existingRecords).handleBeforeUpdate();
 	}
