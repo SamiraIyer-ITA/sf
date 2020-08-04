@@ -82,7 +82,7 @@ global without sharing class REST_EmailTransactionReceipt {
 	 */
 	private static RequiredFields checkRequiredFields(String recipientEmails, String recordId, String objectName, Payment2__c payment) {
 
-		//Creat a list of fields that are required
+		//Create a list of fields that are required
 		Map<String, Object> requiredFieldMap = new Map<String, Object>();  //Map of field name and field value
 		requiredFieldMap.put('recipientEmails', recipientEmails);
 		requiredFieldMap.put('recordId', recordId);
@@ -159,7 +159,7 @@ global without sharing class REST_EmailTransactionReceipt {
 			if (String.isBlank(fieldValue.toString())) {
 				RequiredFields requiredFields = new RequiredFields();
 				requiredFields.hasRequiredFields = false;
-				requiredFields.errorMessage = 'Required field is missing: ' + fieldName + '.';
+				requiredFields.errorMessage = '{"error": "Required field is missing: ' + fieldName + '."}';
 				return requiredFields;
 			}
 		}

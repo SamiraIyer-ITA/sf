@@ -130,13 +130,16 @@ global without sharing class REST_BeginPayment {
 	}
 
 	private static RequiredFields checkRequiredFields(REST_BeginPaymentParams params) {
-		RequiredFields requiredFields = new RequiredFields();
 
-		//Check for required fields
-		if (String.isBlank(params.confirmationPage) || String.isBlank(params.failurePage)) {
-			//Throw error.  confirmationPage and failurePage are required.
-			requiredFields.hasRequiredFields = false;
-			requiredFields.serializedError = '{"error": "Required field is missing: confirmationPage or failurePage."}';
+		//Create a list of fields that are required
+		Map<String, Object> requiredFieldMap = new Map<String, Object>();  //Map of field name and field value
+		requiredFieldMap.put('confirmationPage', params.confirmationPage);
+		requiredFieldMap.put('failurePage', params.failurePage);
+
+		//Check that each required field is populated
+		RequiredFields requiredFields = checkIndividuallyRequiredFields(requiredFieldMap);
+		if (requiredFields != null) {
+			//A required field is missing
 			return requiredFields;
 		}
 
@@ -152,6 +155,7 @@ global without sharing class REST_BeginPayment {
 				String.isBlank(params.originatingOffice)
 			)) {
 			//Required fields are missing
+			requiredFields = new RequiredFields();
 			requiredFields.hasRequiredFields = false;
 			requiredFields.serializedError = '{"error": "Either orderId or these fields are required: accountType, transactionAmount, projectCode, organizationName, taskCode, objectClass, objectClass, originatingOffice."}';
 			return requiredFields;
@@ -162,11 +166,13 @@ global without sharing class REST_BeginPayment {
 			if (orderList.size() > 0) {
 				Order order = orderList[0];
 				if (order.Order_Paid__c == true) {
+					requiredFields = new RequiredFields();
 					requiredFields.hasRequiredFields = false;
 					requiredFields.serializedError = '{"error": "This order has already been paid for."}';
 					return requiredFields;
 				}
 			} else {
+				requiredFields = new RequiredFields();
 				requiredFields.hasRequiredFields = false;
 				requiredFields.serializedError = '{"error": "Invalid Order Id."}';
 				return requiredFields;
@@ -174,6 +180,27 @@ global without sharing class REST_BeginPayment {
 		}
 
 		return requiredFields;
+	}
+
+	/**
+ * Check that each required field is populated
+ * @param requiredFieldList An Object list of fields that are required.
+ *
+ * @return RequiredFields.
+ */
+	private static RequiredFields checkIndividuallyRequiredFields(Map<String, Object> requiredFieldMap) {
+
+		for (String fieldName : requiredFieldMap.keySet()) {
+			Object fieldValue = requiredFieldMap.get(fieldName);
+			if (String.isBlank(fieldValue.toString())) {
+				RequiredFields requiredFields = new RequiredFields();
+				requiredFields.hasRequiredFields = false;
+				requiredFields.serializedError = '{"error": "Required field is missing: ' + fieldName + '."}';
+				return requiredFields;
+			}
+		}
+
+		return null;
 	}
 
 }

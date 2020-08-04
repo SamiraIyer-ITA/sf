@@ -1,5 +1,17 @@
 global without sharing class Flow_CreateRefundRecord {
 
+	private static String contractId;
+	private static String accountType;
+	private static List<String> refundAmounts;
+	private static List<String> refundReasons;
+	private static List<String> refundExplanations;
+	private static List<Order> orders;
+	private static Map<Id, List<Order>> paymentOrderMap = new Map<Id, List<Order>>();  //Id = Payment Id
+	private static Map<Id, Decimal> paymentRefundMap = new Map<Id, Decimal>();   //Id = Payment Id, Decimal is total refund for that payment
+	private static Map<Id, Decimal> orderRefundMap = new Map<Id, Decimal>();	  // Id = order.id, Decimal is the refund for that order
+	private static Map<Id, Order> orderListWithDetails;  //Id = Order Id.  A map of the Orders, but will each order having more related details
+	private static List<Payment2__c> payments = new List<Payment2__c>();
+
 	@InvocableMethod(label='Create Refund Record' description='Inserts a Refund record and updates the order(s)' category='Payments')
 	global static List<ResponseVariables> createRefundRecord(List<RequestVariables> inputs){
 
@@ -14,55 +26,13 @@ global without sharing class Flow_CreateRefundRecord {
 		RequestVariables requestVariables = inputs[0];
 
 		try {
-			String contractId = requestVariables.contractId;
-			String accountType = requestVariables.accountType;
-			List<String> refundAmounts = requestVariables.refundAmounts;
-			List<String> refundReasons = requestVariables.refundReasons;
-			List<String> refundExplanations = requestVariables.refundExplanations;
-			List<Order> orders = requestVariables.orders;
-
-			Order myOrder;
-			String refundAmountString;
-
-			Map<Id, List<Order>> paymentOrderMap = new Map<Id, List<Order>>();  //Id = Payment Id
-			Map<Id, Decimal> paymentRefundMap = new Map<Id, Decimal>();   //Id = Payment Id, Decimal is total refund for that payment
-			Map<Id, Decimal> orderRefundMap = new Map<Id, Decimal>();	  // Id = order.id, Decimal is the refund for that order
-
-			for (Integer x=0; x<orders.size(); x++) {
-				myOrder = orders[x];
-				//Check to make sure that each order is paid
-				if (myOrder.Order_Paid__c != true) {
-					return errorMessageResponse('<li>All orders must be paid before issuing refunds.</li>', responseVariables, responseVariablesList);
-				}
-				refundAmountString = refundAmounts[x];
-				populatePaymentOrderMap(myOrder, orderRefundMap, refundAmountString, paymentOrderMap);
-				populateRefundOrderMap(paymentRefundMap, myOrder, refundAmountString);
+			//Populate Variables
+			if (! populateVariables(requestVariables)) {
+				return errorMessageResponse('<li>All orders must be paid before issuing refunds.</li>', responseVariables, responseVariablesList);
 			}
 
-			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
-			Map<Id, Payment2__c> paymentIdMap =new Map<Id, Payment2__c>(payments);
-
-			for(Payment2__c payment :payments) {
-				//For each Payment, issue the refund
-
-				//Look at the first Order to get data from the associated Opportunity
-				List<Order> orderList = paymentOrderMap.get(payment.Id);
-				Set<Id> orderIds = new Set<Id>();
-				orderIds.add(orderList[0].Id);
-				List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds, true);
-				Order order = orderListWithDetails[0];
-
-				//Create the refund record
-				Payment2__c refund = createPayment2(accountType, contractId, paymentRefundMap, refundReasons, refundExplanations, order, payment);
-
-				if (order.OrderItems.size() != 0) {
-					if (String.isNotBlank(order.OrderItems[0].Accounting_code__c)) {
-						refund.Project_Code__c = order.OrderItems[0].Accounting_code__c.Left(4) + '231';
-					}
-				}
-
-				attemptRefundDML(refund, paymentOrderMap, orderRefundMap, payment);
-			}//End loop
+			//For each Payment, create the refund record
+			createRefundRecords();
 
 			if (! errorList.isEmpty()) {
 				responseVariables.hasError = true;
@@ -76,8 +46,65 @@ global without sharing class Flow_CreateRefundRecord {
 		}
 	}
 
-	private static Payment2__c createPayment2(String accountType, String contractId, Map<Id,Decimal> paymentRefundMap,
-												List<String> refundReasons, List<String> refundExplanations, Order order, Payment2__c payment) {
+	private static void createRefundRecords() {
+		for(Payment2__c payment :payments) {
+			//Look at the first Order to get data from the associated Opportunity (all Orders are for the same Opportunity)
+			List<Order> orderList = paymentOrderMap.get(payment.Id);
+			Order order = orderListWithDetails.get(orderList[0].Id);
+
+			//Create the refund record
+			Payment2__c refund = createRefundRecord(payment, order);
+
+			//Get the Project Code
+			if (order.OrderItems.size() != 0) {
+				if (String.isNotBlank(order.OrderItems[0].Accounting_code__c)) {
+					refund.Project_Code__c = order.OrderItems[0].Accounting_code__c.Left(4) + '231';
+				}
+			}
+
+			//Save the refund record
+			saveRefundRecord(refund, payment);
+		}
+	}
+
+	private static Boolean populateVariables(RequestVariables requestVariables) {
+
+		contractId = requestVariables.contractId;
+		accountType = requestVariables.accountType;
+		refundAmounts = requestVariables.refundAmounts;
+		refundReasons = requestVariables.refundReasons;
+		refundExplanations = requestVariables.refundExplanations;
+		orders = requestVariables.orders;
+
+		//Get all the orders.  Orders are passed in, but not with related item details.
+		orderListWithDetails = populateOrderMap();  //Id = Order Id
+
+		for (Integer x=0; x<orders.size(); x++) {
+			Order order = orders[x];
+			//Check to make sure that each order is paid
+			if (order.Order_Paid__c != true) {
+				return false;
+			}
+			String refundAmountString = refundAmounts[x];
+			populatePaymentOrderMap(order, refundAmountString);
+			populatePaymentRefundMap(order, refundAmountString);
+		}
+
+		payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
+		return true;
+	}
+
+	private static Map<Id, Order> populateOrderMap() {
+		//Get a list of the Order Ids
+		Set<Id> orderIds = new Set<Id>();
+		for (Order order: orders) {
+			orderIds.add(order.Id);
+		}
+
+		return new Map<Id, Order>(OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds, true));
+	}
+
+	private static Payment2__c createRefundRecord(Payment2__c payment, Order order) {
 		//Create the refund record
 		Payment2__c refund = new Payment2__c();
 
@@ -103,30 +130,30 @@ global without sharing class Flow_CreateRefundRecord {
 		return refund;
 	}
 
-	private static void populatePaymentOrderMap(Order myOrder, Map<Id,Decimal> orderRefundMap, String refundAmountString, Map<Id,List<Order>> paymentOrderMap) {
+	private static void populatePaymentOrderMap(Order order, String refundAmountString) {
 		List<order> o = new List<order>();
-		orderRefundMap.put(myOrder.Id, Decimal.valueOf(refundAmountString));
-		if (paymentOrderMap.containsKey(myOrder.Payment2__c)) {
-			o = paymentOrderMap.get(myOrder.Payment2__c);
-			o.add(myOrder);
-			paymentOrderMap.put(myOrder.Payment2__c, o);
+		orderRefundMap.put(order.Id, Decimal.valueOf(refundAmountString));
+		if (paymentOrderMap.containsKey(order.Payment2__c)) {
+			o = paymentOrderMap.get(order.Payment2__c);
+			o.add(order);
+			paymentOrderMap.put(order.Payment2__c, o);
 		} else {
-			o.add(myOrder);
-			paymentOrderMap.put(myOrder.Payment2__c, o);
+			o.add(order);
+			paymentOrderMap.put(order.Payment2__c, o);
 		}
 	}
 
-	private static void populateRefundOrderMap(Map<Id,Decimal> paymentRefundMap, Order myOrder, String refundAmountsString) {
-		if (paymentRefundMap.containsKey(myOrder.Payment2__c)) {
-			Decimal d = paymentRefundMap.get(myOrder.Payment2__c);
-			d += Decimal.ValueOf(refundAmountsString);
-			paymentRefundMap.put(myOrder.Payment2__c, d);
+	private static void populatePaymentRefundMap(Order order, String refundAmountString) {
+		if (paymentRefundMap.containsKey(order.Payment2__c)) {
+			Decimal d = paymentRefundMap.get(order.Payment2__c);
+			d += Decimal.ValueOf(refundAmountString);
+			paymentRefundMap.put(order.Payment2__c, d);
 		} else {
-			paymentRefundMap.put(myOrder.Payment2__c, Decimal.ValueOf(refundAmountsString));
+			paymentRefundMap.put(order.Payment2__c, Decimal.ValueOf(refundAmountString));
 		}
 	}
 
-	private static void attemptRefundDML(Payment2__c refund, Map<Id,List<Order>> paymentOrderMap, Map<Id,Decimal> orderRefundMap, Payment2__c payment) {
+	private static void saveRefundRecord(Payment2__c refund, Payment2__c payment) {
 		try {
 			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 			uow.registerNew(refund);
@@ -136,7 +163,6 @@ global without sharing class Flow_CreateRefundRecord {
 				Order eachOrder = ordersByPayment.get(x);
 				eachOrder.Payment2__c = payment.Id;
 				eachOrder.Refunded_Amount__c += orderRefundMap.get(eachOrder.Id);
-				system.debug('Order.Payment2__c ==> ' + Order.Payment2__c);
 				uow.registerDirty(eachOrder, Order.Payment2__c, payment);
 			}
 			uow.commitWork();
