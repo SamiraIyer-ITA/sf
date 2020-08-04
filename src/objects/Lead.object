@@ -732,7 +732,7 @@
         <fullName>Assigned_to_Me__c</fullName>
         <description>Assigned to Me</description>
         <externalId>false</externalId>
-        <formula>$User.IsActive</formula>
+        <formula>$User.Id = Assigned_User__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Assigned to Me</label>
         <trackHistory>false</trackHistory>
@@ -1001,14 +1001,13 @@
         <fullName>Export_Readiness_Assessment_Score__c</fullName>
         <description>Export Readiness Assessment Score</description>
         <externalId>false</externalId>
-        <formula>NumberOfEmployees</formula>
+        <formula>Assigned_User__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Export Readiness Assessment Score</label>
-        <precision>18</precision>
         <required>false</required>
-        <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <type>Percent</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Export_Readiness_Verified__c</fullName>
@@ -1740,9 +1739,59 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>All primary product family values</fullName>
+                    <fullName>Business Service Providers</fullName>
                     <default>false</default>
-                    <label>All primary product family values</label>
+                    <label>Business Service Providers</label>
+                </value>
+                <value>
+                    <fullName>Customized Market Research</fullName>
+                    <default>false</default>
+                    <label>Customized Market Research</label>
+                </value>
+                <value>
+                    <fullName>Featured U.S. Exporters</fullName>
+                    <default>false</default>
+                    <label>Featured U.S. Exporters</label>
+                </value>
+                <value>
+                    <fullName>Gold Key Service</fullName>
+                    <default>false</default>
+                    <label>Gold Key Service</label>
+                </value>
+                <value>
+                    <fullName>Initial Market Check</fullName>
+                    <default>false</default>
+                    <label>Initial Market Check</label>
+                </value>
+                <value>
+                    <fullName>International Company Profile</fullName>
+                    <default>false</default>
+                    <label>International Company Profile</label>
+                </value>
+                <value>
+                    <fullName>International Partner Search</fullName>
+                    <default>false</default>
+                    <label>International Partner Search</label>
+                </value>
+                <value>
+                    <fullName>Single Company or Location Promotion</fullName>
+                    <default>false</default>
+                    <label>Single Company or Location Promotion</label>
+                </value>
+                <value>
+                    <fullName>Trade Show Representation</fullName>
+                    <default>false</default>
+                    <label>Trade Show Representation</label>
+                </value>
+                <value>
+                    <fullName>Virtual Fairs</fullName>
+                    <default>false</default>
+                    <label>Virtual Fairs</label>
+                </value>
+                <value>
+                    <fullName>Virtual Introductions</fullName>
+                    <default>false</default>
+                    <label>Virtual Introductions</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -3994,7 +4043,47 @@
         <picklistValues>
             <picklist>Product_Family_Interest__c</picklist>
             <values>
-                <fullName>All primary product family values</fullName>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customized Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Featured U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold Key Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Market Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Company Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Partner Search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company or Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show Representation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Introductions</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5786,7 +5875,47 @@
         <picklistValues>
             <picklist>Product_Family_Interest__c</picklist>
             <values>
-                <fullName>All primary product family values</fullName>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customized Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Featured U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold Key Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Market Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Company Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Partner Search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company or Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show Representation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Introductions</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7573,7 +7702,47 @@
         <picklistValues>
             <picklist>Product_Family_Interest__c</picklist>
             <values>
-                <fullName>All primary product family values</fullName>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customized Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Featured U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold Key Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Market Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Company Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Partner Search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company or Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show Representation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Introductions</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9222,7 +9391,47 @@
         <picklistValues>
             <picklist>Product_Family_Interest__c</picklist>
             <values>
-                <fullName>All primary product family values</fullName>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customized Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Featured U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold Key Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Market Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Company Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Partner Search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company or Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show Representation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Introductions</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
