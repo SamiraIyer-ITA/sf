@@ -30,7 +30,6 @@ global without sharing class Flow_IssueCreditCardRefund {
 			}
 
 			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
-			Map<Id, Payment2__c> paymentIdMap =new Map<Id, Payment2__c>(payments);
 
 			for(Payment2__c payment :payments) {
 				if (payment.Payment_Type__c != 'PLASTIC_CARD') {
