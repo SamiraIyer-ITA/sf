@@ -1,5 +1,15 @@
 global without sharing class Flow_CreatePaymentRecord {
 
+	private static String contractId;
+	private static String paymentType;
+	private static Decimal amount;
+	private static List<Order> orders;
+	private static String bankName;
+	private static String checkNumber;
+	private static Date checkDate;
+	private static Datetime bankTransferDatetime;
+	private static String accountType;
+
 	@InvocableMethod(label='Create Payment Record' description='Inserts a Payment record and updates the order(s)' category='Payments')
 	global static List<String> createPaymentRecord(List<RequestVariables> inputs){
 
@@ -10,27 +20,19 @@ global without sharing class Flow_CreatePaymentRecord {
 		RequestVariables requestVariables = inputs[0];
 
 		try {
-			String contractId = requestVariables.contractId;
-			String paymentType = requestVariables.paymentType;
-			Decimal amount = requestVariables.amount;
-			List<Order> orders = requestVariables.orders;
-			String bankName = requestVariables.bankName;
-			String checkNumber = requestVariables.checkNumber;
-			Date checkDate = requestVariables.checkDate;
-			Datetime bankTransferDatetime = requestVariables.bankTransferDatetime;
-			String accountType = requestVariables.accountType;
+			populateVariables(requestVariables);
 
 			//Create the payment record
 			Payment2__c payment = new Payment2__c();
 
 			//Determine the record type id
-			String recordTypeName = getRecordTypeNameForPaymentType(payment, paymentType, bankName, checkNumber, checkDate, bankTransferDatetime);
+			String recordTypeName = getRecordTypeNameForPaymentType(payment);
 
 			//Populate Payment Details
-			populatePaymentDetails(payment, orders[0].Id, contractId, amount, accountType, recordTypeName);
+			populatePaymentDetails(payment, recordTypeName);
 
 			//Create Payment DML
-			attemptCreatePaymentDML(payment, orders);
+			savePaymentRecord(payment);
 
 			return new List<String>{(String) payment.Id};
 
@@ -39,7 +41,19 @@ global without sharing class Flow_CreatePaymentRecord {
 		}
 	}
 
-	private static String getRecordTypeNameForPaymentType(Payment2__c payment, String paymentType, String bankName, String checkNumber, Date checkDate, Datetime bankTransferDatetime) {
+	private static void populateVariables(RequestVariables requestVariables) {
+		contractId = requestVariables.contractId;
+		paymentType = requestVariables.paymentType;
+		amount = requestVariables.amount;
+		orders = requestVariables.orders;
+		bankName = requestVariables.bankName;
+		checkNumber = requestVariables.checkNumber;
+		checkDate = requestVariables.checkDate;
+		bankTransferDatetime = requestVariables.bankTransferDatetime;
+		accountType = requestVariables.accountType;
+	}
+
+	private static String getRecordTypeNameForPaymentType(Payment2__c payment) {
 		String recordTypeName;
 		switch on paymentType {
 			when 'Check' {
@@ -66,7 +80,8 @@ global without sharing class Flow_CreatePaymentRecord {
 		return recordTypeName;
 	}
 
-	private static void populatePaymentDetails(Payment2__c payment, Id ordersId, Id contractId, Decimal amount, String accountType, String recordTypeName) {
+	private static void populatePaymentDetails(Payment2__c payment, String recordTypeName) {
+		Id ordersId = orders[0].Id;
 		payment.Account_Type__c = accountType;
 		payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
 		payment.Contract__c = contractId;
@@ -76,7 +91,7 @@ global without sharing class Flow_CreatePaymentRecord {
 
 		//Look at the first Order to get data from the associated Opportunity
 		Set<Id> orderIds = new Set<Id>();
-		orderIds.add(ordersId); //ordersid
+		orderIds.add(ordersId);
 		//The OrdersSelector will only return order items that are marked as primary
 		List<Order> orders = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds, true);
 		Order order = orders[0];
@@ -95,7 +110,7 @@ global without sharing class Flow_CreatePaymentRecord {
 		}
 	}
 
-	private static void attemptCreatePaymentDML(Payment2__c payment, List<Order> orders) {
+	private static void savePaymentRecord(Payment2__c payment) {
 		try {
 			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 			uow.registerNew(payment);
