@@ -85,6 +85,7 @@ public class TestUtils {
         u.LanguageLocaleKey='en_US';
         u.LastName = 'LastName' + i;
         u.FirstName = 'FirstName' + i;
+        u.Staffing_Role__c = 'Program Manager';
         u.EmailEncodingKey = 'ISO-8859-1';
         u.Email = email + i;
         u.TimeZoneSidKey = 'America/New_York';
