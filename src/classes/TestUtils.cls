@@ -86,6 +86,7 @@ public class TestUtils {
         u.LastName = 'LastName' + i;
         u.FirstName = 'FirstName' + i;
         u.Staffing_Role__c = 'Program Manager';
+        u.UserRoleId = '2F00Et0000000VmLU';
         u.EmailEncodingKey = 'ISO-8859-1';
         u.Email = email + i;
         u.TimeZoneSidKey = 'America/New_York';
