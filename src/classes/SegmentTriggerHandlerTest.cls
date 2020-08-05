@@ -5179,7 +5179,7 @@ public class SegmentTriggerHandlerTest {
         pleaseAssignUser.LastName = 'Please Assign';
         pleaseAssignUser.Staffing_Role__c = 'Program Manager';
         insert pleaseAssignUser;
-        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser, true);
         Petition__c testADPetition = TestUtils.createPetition(testADCase, segmentDate.addDays(-350), true);
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
         ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
