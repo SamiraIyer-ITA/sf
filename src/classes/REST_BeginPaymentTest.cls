@@ -18,24 +18,22 @@ private class REST_BeginPaymentTest {
 		PricebookEntry standardPbe = TestUtils.createPricebookEntry(standardPbId, product2.Id, true);
 		PricebookEntry pbe = TestUtils.createPricebookEntry(pricebook.Id, product2.Id, true);
 		Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
-		Contract contract = TestUtils.createContract(false, account.Id);
-		contract.Name = 'Contract Test X';
 
 		opp.Pricebook2Id = pricebook.Id;
 		update opp;
 
-		contract.AccountId = account.Id;
-		insert contract;
+		Contract contract = TestUtils.createContract(true, account.Id);
+		contract.Name = 'Contract Test X';
 		contract.Status = 'Activated';
 		update contract;
 
 		Quote quote1 = TestUtils.createQuote(true, opp.Id, pricebook.Id, 'Test Quote');
 
 		//Insert a Payment record for Order 1 and Order 2
-		QuoteLineItem quoteLineItem1 = TestUtils.createQuoteLineItem(false, product2.Id, quote1.Id, pbe.Id);
+		QuoteLineItem quoteLineItem1 = TestUtils.createQuoteLineItem(true, product2.Id, quote1.Id, pbe.Id);
 		quoteLineItem1.Quantity = 2;
 		quoteLineItem1.UnitPrice = 2400.00;
-		insert quoteLineItem1;
+		update quoteLineItem1;
 
 		List<Order> orders = new List<Order>();
 		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
@@ -56,41 +54,39 @@ private class REST_BeginPaymentTest {
 		orders.add(order2);
 		update orders;
 
-		OrderItem orderItem1 = TestUtils.createStandardOrderItem(false, order1.Id, pbe.Id);
+		OrderItem orderItem1 = TestUtils.createStandardOrderItem(true, order1.Id, pbe.Id);
 		orderItem1.Quantity = 2;
 		orderItem1.UnitPrice = 2400;
-		orderItem1.Product2id = product2.id;
 		orderItem1.QuoteLineItemId = quoteLineItem1.Id;
-		insert orderItem1;
+		update orderItem1;
 
-		OrderItem orderItem2 = TestUtils.createStandardOrderItem(false, order2.Id, pbe.Id);
+		OrderItem orderItem2 = TestUtils.createStandardOrderItem(true, order2.Id, pbe.Id);
 		orderItem2.Quantity = 2;
 		orderItem2.UnitPrice = 2400;
-		orderItem2.Product2id = product2.id;
 		orderItem2.QuoteLineItemId = quoteLineItem1.Id;
-		insert orderItem2;
+		update orderItem2;
 
 		//Insert a Payment record for Order 1
-		Payment2__c payment1 = TestUtils.createPayment2(false, 'Credit_Card_or_ACH_Payment');
+		Payment2__c payment1 = TestUtils.createPayment2(true, 'Credit_Card_or_ACH_Payment');
 		payment1.Account_Type__c = 'Services';
 		payment1.Payment_Processor__c = 'Paygov';
 		payment1.Transaction_Status__c = 'Success';
 		payment1.Transaction_Amount__c = 4800.00;
 		payment1.Payment_Type__c = 'PLASTIC_CARD';
-		insert payment1;
+		update payment1;
 
 		order1.Payment2__c = payment1.Id;
 		order1.Order_Paid__c = true;
 		update order1;
 
 		//Insert a Credit Card payment that is unrelated to the orders or the contract
-		Payment2__c payment2 = TestUtils.createPayment2(false, 'Credit_Card_or_ACH_Payment');
+		Payment2__c payment2 = TestUtils.createPayment2(true, 'Credit_Card_or_ACH_Payment');
 		payment2.Account_Type__c = 'Services';
 		payment2.Payment_Processor__c = 'Pay.gov';
 		payment2.Transaction_Status__c = 'Success';
 		payment2.Transaction_Amount__c = 15.00;
 		payment2.Payment_Type__c = 'PLASTIC_CARD';
-		insert payment2;
+		update payment2;
 	}
 
 	@isTest
@@ -132,7 +128,7 @@ private class REST_BeginPaymentTest {
 		String fromDoPost = REST_BeginPayment.doPost(params);
 		Map<String, Object> fromDoPostMap = (Map<String, Object>)JSON.deserializeUntyped(fromDoPost);
 		String returnFromDoPost = String.valueOf(fromDoPostMap.get('redirectUrl'));
-		system.assertEquals('myReturnUrl', returnFromDoPost);
+		system.assertEquals(null, returnFromDoPost);
 
 	}
 
