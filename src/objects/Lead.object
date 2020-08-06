@@ -273,6 +273,35 @@
         </values>
     </businessProcesses>
     <businessProcesses>
+        <fullName>Services Export</fullName>
+        <description>Services Export Support Process</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Contact Attempted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contacted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Not Converted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verification</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>Partner Lead Process</fullName>
         <description>Process for Leads of Partner Contacts and Accounts.</description>
         <isActive>true</isActive>
