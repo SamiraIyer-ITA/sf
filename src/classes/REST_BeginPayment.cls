@@ -189,7 +189,6 @@ global without sharing class REST_BeginPayment {
  * @return RequiredFields.
  */
 	private static RequiredFields checkIndividuallyRequiredFields(Map<String, Object> requiredFieldMap) {
-		// If Cary approves of this - it will need to be cleaned up
 		for (String fieldName : requiredFieldMap.keySet()) {
 			Object fieldValue = requiredFieldMap.get(fieldName);
 			if (fieldValue == null || String.isBlank(fieldValue.toString())) {
