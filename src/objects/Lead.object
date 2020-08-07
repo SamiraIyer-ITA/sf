@@ -1001,7 +1001,20 @@
         <fullName>Export_Readiness_Assessment_Score__c</fullName>
         <description>Export Readiness Assessment Score</description>
         <externalId>false</externalId>
-        <formula>Assigned_User__c</formula>
+        <formula>TEXT(IF(TEXT(Able_to_translate_marketing_materials__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Dedicated_resources_staff_budget__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Exported_in_the_past_12_months__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Globalized_your_website__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(International_marketing_plan__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Know_financing_payment_options__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Know_foreign_legal_regulatory_reqs__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Know_how_to_ship_product_overseas__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Know_U_S_Export_Control_requirements__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Process_to_protect_IP_internationally__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Process_to_respond_to_int_l_inquiries__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Prod_of_US_origin_or_has_51_materials__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Production_capacity_to_meet_orders__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &quot;/14&quot;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Export Readiness Assessment Score</label>
         <required>false</required>
@@ -1638,11 +1651,6 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>BLANK</fullName>
-                    <default>true</default>
-                    <label>BLANK</label>
-                </value>
-                <value>
                     <fullName>Abandoned</fullName>
                     <default>false</default>
                     <label>Abandoned</label>
@@ -1880,8 +1888,19 @@
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unqualified</fullName>
+                    <default>false</default>
+                    <label>Unqualified</label>
+                </value>
+                <value>
+                    <fullName>Product Not Helpful</fullName>
+                    <default>false</default>
+                    <label>Product Not Helpful</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
@@ -1907,11 +1926,6 @@
         <valueSet>
             <valueSetDefinition>
                 <sorted>false</sorted>
-                <value>
-                    <fullName>BLANK</fullName>
-                    <default>true</default>
-                    <label>BLANK</label>
-                </value>
                 <value>
                     <fullName>Email</fullName>
                     <default>false</default>
@@ -1940,11 +1954,6 @@
         <valueSet>
             <valueSetDefinition>
                 <sorted>false</sorted>
-                <value>
-                    <fullName>BLANK</fullName>
-                    <default>true</default>
-                    <label>BLANK</label>
-                </value>
                 <value>
                     <fullName>SBA</fullName>
                     <default>false</default>
