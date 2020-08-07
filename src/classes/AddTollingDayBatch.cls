@@ -56,12 +56,12 @@ public integer emailAllowed;
         queryString4 = queryStr4A + latestDate + queryStr4B + latestDate + queryStr4C + latestDate + queryStr4D + latestDate 
                 + queryStr4E + latestDate + queryStr4F + latestDate + queryStr4G + latestDate + queryStr4H;
         system.debug('queryString1 = '+ queryString1);
-        system.debug('queryString2 = '+ queryString2);
-        system.debug('queryString3 = '+ queryString3);
-        system.debug('queryString4 = '+ queryString4);
+        system.debug('queryString2 = '+ queryString1);
+        system.debug('queryString3 = '+ queryString1);
+        system.debug('queryString4 = '+ queryString1);
 
         getNumToObject();
-        checkLimits();
+        checkLimits();        
     }
 
 
