@@ -128,7 +128,7 @@ private class REST_BeginPaymentTest {
 		String fromDoPost = REST_BeginPayment.doPost(params);
 		Map<String, Object> fromDoPostMap = (Map<String, Object>)JSON.deserializeUntyped(fromDoPost);
 		String returnFromDoPost = String.valueOf(fromDoPostMap.get('redirectUrl'));
-		system.assertEquals(null, returnFromDoPost);
+		System.assertEquals('myReturnUrl', returnFromDoPost);
 
 	}
 
@@ -156,7 +156,7 @@ private class REST_BeginPaymentTest {
 		String fromDoPost = REST_BeginPayment.doPost(params);
 		Map<String, Object> fromDoPostMap = (Map<String, Object>)JSON.deserializeUntyped(fromDoPost);
 		String returnFromDoPost = String.valueOf(fromDoPostMap.get('redirectUrl'));
-		system.assertEquals(null, returnFromDoPost);
+		System.assertEquals(null, returnFromDoPost);
 
 	}
 
@@ -202,7 +202,7 @@ private class REST_BeginPaymentTest {
 		String fromDoPost = REST_BeginPayment.doPost(params);
 		Map<String, Object> fromDoPostMap = (Map<String, Object>)JSON.deserializeUntyped(fromDoPost);
 		String returnFromDoPost = String.valueOf(fromDoPostMap.get('redirectUrl'));
-		system.assertEquals(null, returnFromDoPost);
+		System.assertEquals(null, returnFromDoPost);
 
 	}
 
@@ -230,7 +230,7 @@ private class REST_BeginPaymentTest {
 		String fromDoPost = REST_BeginPayment.doPost(params);
 		Map<String, Object> fromDoPostMap = (Map<String, Object>)JSON.deserializeUntyped(fromDoPost);
 		String returnFromDoPost = String.valueOf(fromDoPostMap.get('redirectUrl'));
-		system.assertEquals(null, returnFromDoPost);
+		System.assertEquals(null, returnFromDoPost);
 
 	}
 	@IsTest
@@ -256,7 +256,7 @@ private class REST_BeginPaymentTest {
 		String fromDoPost = REST_BeginPayment.doPost(params);
 		Map<String, Object> fromDoPostMap = (Map<String, Object>)JSON.deserializeUntyped(fromDoPost);
 		String returnFromDoPost = String.valueOf(fromDoPostMap.get('redirectUrl'));
-		system.assertEquals(null, returnFromDoPost);
+		System.assertEquals(null, returnFromDoPost);
 
 	}
 
