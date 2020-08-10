@@ -177,5 +177,8 @@ public class AddTollingDayBatch implements Database.Batchable<sObject>{
             }
                 if(null != batchId) bid1 = batchId;
         }
+    public class RequestVariables {
+
+    }
 
 }

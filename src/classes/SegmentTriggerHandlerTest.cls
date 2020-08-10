@@ -5174,12 +5174,12 @@ public class SegmentTriggerHandlerTest {
         insert ma;
         AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
         //create test data
-        User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+        User testUser = TestUtils.createAdminUser(false, 'myemail@email.com.testita', 1);
         User pleaseAssignUser = TestUtils.createAdminUser(false, 'myemail2@email.com.testita', 2);
         pleaseAssignUser.LastName = 'Please Assign';
-        pleaseAssignUser.Staffing_Role__c = 'Program Manager';
-        insert pleaseAssignUser;
-        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser, true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', false);
+        testADCase.Program_Manager__c = pleaseAssignUser.Id;
+        insert testADCase;
         Petition__c testADPetition = TestUtils.createPetition(testADCase, segmentDate.addDays(-350), true);
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
         ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
