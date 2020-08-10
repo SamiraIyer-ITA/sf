@@ -16,7 +16,7 @@ public with sharing class CallAddTollingDayBatch {
 
     @InvocableMethod (Label = 'Add Tolling Day Batch Invocable Method')
     public static void callBatch(){
-        batchProcessId = Database.executeBatch(new AddTollingDayBatch(initialState, queryObject, setLastDate()));
+        batchProcessId = Database.executeBatch(new AddTollingDayBatch(initialState, queryObject, setLastDate()),10);
         System.debug('Returned batch process ID: ' + batchProcessId);
     }
 
