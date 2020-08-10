@@ -4134,17 +4134,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -5954,17 +5943,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -7769,17 +7747,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -9442,17 +9409,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
             <values>
                 <fullName>Warm</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
