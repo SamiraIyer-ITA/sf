@@ -4000,10 +4000,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
-            <values>
                 <fullName>Converted</fullName>
                 <default>false</default>
             </values>
@@ -4151,20 +4147,12 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Referred_To__c</picklist>
-            <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
             <values>
                 <fullName>SBA</fullName>
                 <default>false</default>
@@ -5832,10 +5820,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
-            <values>
                 <fullName>Converted</fullName>
                 <default>false</default>
             </values>
@@ -5983,20 +5967,12 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Referred_To__c</picklist>
-            <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
             <values>
                 <fullName>SBA</fullName>
                 <default>false</default>
@@ -7659,10 +7635,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
-            <values>
                 <fullName>Converted</fullName>
                 <default>false</default>
             </values>
@@ -7810,20 +7782,12 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Referred_To__c</picklist>
-            <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
             <values>
                 <fullName>SBA</fullName>
                 <default>false</default>
@@ -9348,10 +9312,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
-            <values>
                 <fullName>Converted</fullName>
                 <default>false</default>
             </values>
@@ -9499,20 +9459,12 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Referred_To__c</picklist>
-            <values>
-                <fullName>BLANK</fullName>
-                <default>true</default>
-            </values>
             <values>
                 <fullName>SBA</fullName>
                 <default>false</default>
