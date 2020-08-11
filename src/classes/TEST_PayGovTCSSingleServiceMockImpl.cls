@@ -34,32 +34,22 @@ global class TEST_PayGovTCSSingleServiceMockImpl implements WebServiceMock {
 				pcRefundResponse.PCRefund = pcRefund;
 				response.put('response_x', pcRefundResponse);
 
-			} /* else if (responseName.equals('processPCSale')) {
-				PayGovTCSSingleService.PCSaleResponse_element pcSaleResponse = new PayGovTCSSingleService.PCSaleResponse_element();
-				pcSaleResponse.agency_id = 'agencyId';
-				pcSaleResponse.tcs_app_id = 'tcsAppId';
+			} else if (responseName.equals('PCCancelResponse')) {
+				PayGovTCSSingleService.PCCancelResponse_element pcCancelResponse = new PayGovTCSSingleService.PCCancelResponse_element();
+				pcCancelResponse.agency_id = 'agencyId';
+				pcCancelResponse.tcs_app_id = 'tcsAppId';
 
-				PayGovTCSSingleService.PCSaleResponseType pcSale = new PayGovTCSSingleService.PCSaleResponseType();
-				pcSale.paygov_tracking_id = 'payGovTrackingId';
-				pcSale.agency_tracking_id = 'agencyTrackingId';
-				pcSale.transaction_amount = 'transactionAmount';
-				pcSale.masked_account_number = 'maskedAccountNumber';
-				pcSale.return_code = 'returnCode';
-				pcSale.return_detail = 'returnDetail';
-				pcSale.transaction_status = 'transactionStatus';
-				pcSale.transaction_date = 'transactionDate';
-				pcSale.approval_code = 'approvalCode';
-				pcSale.auth_response_code = 'authResponseCode';
-				pcSale.auth_response_text = 'authResponseText';
-				pcSale.avs_response_code = 'avsResponseCode';
-				pcSale.csc_result = 'cscResult';
-				pcSale.authorized_amount = 'authorizedAmount';
-				pcSale.remaining_balance = 'remainingBalance';
-
-				pcSaleResponse.PCSale = pcSale;
-				response.put('response_x', pcSaleResponse);
-
-			}*/
-
+				PayGovTCSSingleService.PCCancelResponseType pcCancel = new PayGovTCSSingleService.PCCancelResponseType();
+				pcCancel.orig_paygov_tracking_id = 'origPayGovTrackingId';
+				pcCancel.agency_tracking_id = 'origAgencyTrackingId';
+				pcCancel.transaction_amount = '5.00';
+				pcCancel.masked_account_number = 'maskedAccountNumber';
+				pcCancel.return_code = 'ABCD';
+				pcCancel.return_detail = 'returnDetail';
+				pcCancel.transaction_status = 'Success';
+				pcCancel.transaction_date = String.valueOf(System.now());
+				pcCancelResponse.PCCancel = pcCancel;
+				response.put('response_x', pcCancelResponse);
+			}
    }
 }

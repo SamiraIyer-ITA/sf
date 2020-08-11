@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Create the Refund Record and Update the Orders.</description>
+        <name>Create_Refund_Record_and_Update_Orders</name>
+        <label>Create Refund Record and Update Orders</label>
+        <locationX>981</locationX>
+        <locationY>56</locationY>
+        <actionName>Flow_CreateRefundRecord</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Done_Screen</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>DML_Error</targetReference>
+        </faultConnector>
+        <inputParameters>
+            <name>accountType</name>
+            <value>
+                <elementReference>AccountType</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>contractId</name>
+            <value>
+                <elementReference>ContractId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>orders</name>
+            <value>
+                <elementReference>SelectedOrders</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>refundAmount</name>
+            <value>
+                <elementReference>TotalAmount</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>RefundId</assignToReference>
+            <name>refundId</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Get the object name of the calling record.</description>
+        <name>Get_Object_Name</name>
+        <label>Get Object Name</label>
+        <locationX>50</locationX>
+        <locationY>378</locationY>
+        <actionName>Flow_ObjectNamesFromIds</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Object_Type</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>DML_Error</targetReference>
+        </faultConnector>
+        <inputParameters>
+            <name>ids</name>
+            <value>
+                <elementReference>RecordIds</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>objectName</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Validate that the reduction orders are refundable.</description>
+        <name>Validate_Selected_Orders</name>
+        <label>Validate Selected Orders</label>
+        <locationX>980</locationX>
+        <locationY>558</locationY>
+        <actionName>Flow_ValidateRefundableReductionOrders</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Has_Invalid_Order</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>DML_Error</targetReference>
+        </faultConnector>
+        <inputParameters>
+            <name>orders</name>
+            <value>
+                <elementReference>SelectedOrders</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>AccountType</assignToReference>
+            <name>accountType</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>errorMessage</assignToReference>
+            <name>invalidReasons</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>isValid</assignToReference>
+            <name>isValid</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>TotalAmount</assignToReference>
+            <name>totalAmount</name>
+        </outputParameters>
+    </actionCalls>
+    <assignments>
+        <description>Assign Contract Id to a separate variable.</description>
+        <name>Assign_Contract_Id</name>
+        <label>Assign Contract Id</label>
+        <locationX>483</locationX>
+        <locationY>436</locationY>
+        <assignmentItems>
+            <assignToReference>ContractId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Select_Orders_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the DML Error to a variable.</description>
+        <name>DML_Error</name>
+        <label>DML Error</label>
+        <locationX>398</locationX>
+        <locationY>60</locationY>
+        <assignmentItems>
+            <assignToReference>errorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>&lt;li&gt;{!$Flow.FaultMessage}&lt;/li&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Error_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the error message if the flow wasn&apos;t run from an Order or a Contract.</description>
+        <name>Invalid_Object_Error</name>
+        <label>Invalid Object Error</label>
+        <locationX>444</locationX>
+        <locationY>304</locationY>
+        <assignmentItems>
+            <assignToReference>errorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>&lt;li&gt;This flow was run from an invalid object.&lt;/li&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Error_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the record Id to a List.</description>
+        <name>Record_Id_to_List</name>
+        <label>Record Id to List</label>
+        <locationX>50</locationX>
+        <locationY>195</locationY>
+        <assignmentItems>
+            <assignToReference>RecordIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Object_Name</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Set the Contract Id from the Order.</description>
+        <name>Set_Contract_and_Order_Details</name>
+        <label>Set Contract and Order Details</label>
+        <locationX>550</locationX>
+        <locationY>570</locationY>
+        <assignmentItems>
+            <assignToReference>ContractId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Order.ContractId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SelectedOrders</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Get_Order</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Validate_Selected_Orders</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <description>The &apos;bank transfer&apos; payment type choice.</description>
+        <name>BankTransferChoice</name>
+        <choiceText>{!BANKTRANSFER}</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>BANKTRANSFER</elementReference>
+        </value>
+    </choices>
+    <choices>
+        <description>The &apos;cash&apos; payment type choice.</description>
+        <name>CashChoice</name>
+        <choiceText>{!CASH}</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>CASH</elementReference>
+        </value>
+    </choices>
+    <choices>
+        <description>The &apos;check&apos; payment type choice.</description>
+        <name>CheckChoice</name>
+        <choiceText>{!CHECK}</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>CHECK</elementReference>
+        </value>
+    </choices>
+    <constants>
+        <description>The Bank Transfer payment type.</description>
+        <name>BANKTRANSFER</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Bank Transfer</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>The Cash payment type.</description>
+        <name>CASH</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Cash</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>The check payment type.</description>
+        <name>CHECK</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Check</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>CONTRACT</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Contract</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>ORDER</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Order</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Whether the selected orders has a order that is not refundable.</description>
+        <name>Has_Invalid_Order</name>
+        <label>Has Invalid Order</label>
+        <locationX>972</locationX>
+        <locationY>414</locationY>
+        <defaultConnector>
+            <targetReference>Record_Refund_Confirmation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Has Refundable Orders</defaultConnectorLabel>
+        <rules>
+            <name>Has_an_Invalid_Order</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isValid</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error_Screen</targetReference>
+            </connector>
+            <label>Has an Invalid Order</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines what to do for various object types.</description>
+        <name>Object_Type</name>
+        <label>Object Type</label>
+        <locationX>42</locationX>
+        <locationY>560</locationY>
+        <defaultConnector>
+            <targetReference>Invalid_Object_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is Error</defaultConnectorLabel>
+        <rules>
+            <name>Is_Contract</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>objectName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>CONTRACT</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Contract_Id</targetReference>
+            </connector>
+            <label>Is Contract</label>
+        </rules>
+        <rules>
+            <name>Is_Order</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>objectName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ORDER</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Order</targetReference>
+            </connector>
+            <label>Is Order</label>
+        </rules>
+    </decisions>
+    <description>Record a NIST-issued refund.</description>
+    <formulas>
+        <description>The absolute value of the total amount.</description>
+        <name>AbsoluteTotalAmount</name>
+        <dataType>Currency</dataType>
+        <expression>ABS({!TotalAmount})</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Record Refund {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Refund</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Gets the order record</description>
+        <name>Get_Order</name>
+        <label>Get Order</label>
+        <locationX>382</locationX>
+        <locationY>570</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Contract_and_Order_Details</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Order</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Type</queriedFields>
+        <queriedFields>Payment2__c</queriedFields>
+        <queriedFields>Order_Paid__c</queriedFields>
+        <queriedFields>ContractId</queriedFields>
+        <queriedFields>TotalAmount</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Done_Screen</name>
+        <label>Done Screen</label>
+        <locationX>1175</locationX>
+        <locationY>56</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>DoneScreenDiplayText</name>
+            <fieldText>&lt;p&gt;A refund of {!AbsoluteTotalAmount} has been recorded.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Displays when an error occurs.</description>
+        <name>Error_Screen</name>
+        <label>Error Screen</label>
+        <locationX>601</locationX>
+        <locationY>304</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>displayTextErrorScreen</name>
+            <fieldText>&lt;p&gt;Errors:&lt;/p&gt;&lt;p class=&quot;ql-indent-1&quot;&gt;{!errorMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Confirm that this refund should be recorded.</description>
+        <name>Record_Refund_Confirmation</name>
+        <label>Record Refund Confirmation</label>
+        <locationX>982</locationX>
+        <locationY>251</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Create_Refund_Record_and_Update_Orders</targetReference>
+        </connector>
+        <fields>
+            <name>recordRefundConfirmationText</name>
+            <fieldText>&lt;p&gt;Ensure that the refund was already processed by NIST.&amp;nbsp;Upon pressing the &apos;Next&apos; button, a refund of {!AbsoluteTotalAmount} will be recorded.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Select the orders for which you want to record a payment.</description>
+        <name>Select_Orders_Screen</name>
+        <label>Select Orders Screen</label>
+        <locationX>617</locationX>
+        <locationY>436</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Validate_Selected_Orders</targetReference>
+        </connector>
+        <fields>
+            <name>unpaidReductionOrdersLWC</name>
+            <extensionName>c:unpaidReductionOrdersForContract</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>ContractId</elementReference>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>SelectedOrders</assignToReference>
+                <name>selectedOrders</name>
+            </outputParameters>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Record_Id_to_List</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The account type for all orders.</description>
+        <name>AccountType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The cash payment type option.</description>
+        <name>CashPaymentType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Cash</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <description>The Contract Id.</description>
+        <name>ContractId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Error message text.</description>
+        <name>errorMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Whether there is an error.</description>
+        <name>isValid</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>The object name of the record id.</description>
+        <name>objectName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>An individual Order Id in the list of selected Order Ids.</description>
+        <name>OrderId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The selected payment type.</description>
+        <name>PaymentType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The current record&apos;s Id.  This will be the Contract Id or the Order Id.</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>A collection of record Ids.</description>
+        <name>RecordIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The Id of the Payment 2 (Refund) record that was created.</description>
+        <name>RefundId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The selected orders.</description>
+        <name>SelectedOrders</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Order</objectType>
+    </variables>
+    <variables>
+        <description>The total amount of the refund.</description>
+        <name>TotalAmount</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <description>The string value of the total amount of the refund.</description>
+        <name>TotalAmountString</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

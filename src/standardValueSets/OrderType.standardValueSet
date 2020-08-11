@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Services</fullName>
+        <default>false</default>
+        <label>Services</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Privacy Shield</fullName>
+        <default>true</default>
+        <label>Privacy Shield</label>
+    </standardValue>
+</StandardValueSet>
