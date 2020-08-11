@@ -1221,9 +1221,13 @@ public class InvestigationTriggerHandlerTest {
     AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
     //create test data
     User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+      testUser.Staffing_Role__c = 'Program Manager';
+      testUser.UserRoleId = '00Et0000000VmLU';
     ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', false);
+      testADCase.Program_Manager__c = testUser.Id;
     caseList.add(testADCase);
     ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', false);
+      testCVDCase.Program_Manager__c = testUser.Id;
     caseList.add(testCVDCase);
     insert caseList;
     Petition__c testADPetition = TestUtils.createPetition(testADCase, petitionDate, false);
