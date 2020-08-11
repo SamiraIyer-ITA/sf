@@ -1330,9 +1330,9 @@ public class AddTollingDayBatchTest {
 
         System.runAs(testUser) {
 
-        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser, false);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', false);
         caseList.add(testADCase);
-        ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', testUser, false);
+        ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', false);
         caseList.add(testCVDCase);
         insert caseList;
         Petition__c testADPetition = TestUtils.createPetition(testADCase, petitionDate, false);
