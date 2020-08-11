@@ -12,7 +12,7 @@ import Test from '@salesforce/resourceUrl/Test';
 
 const actions = [
     { label: 'Edit', name: 'edit' },
-    { label: 'Delete', name: 'delete' },
+    /*{ label: 'Delete', name: 'delete' },*/
 ];
 
 const staffingAssignmentColumns = [
@@ -87,7 +87,7 @@ export default class StaffingAssignment extends LightningElement {
                 //console.log(JSON.stringify(result));
                 this.recusalLinkWrap = result;
                 if (result.recusalLinkMap) {
-                   
+
                     var conts = result.recusalLinkMap;
                     for(var key in conts){
                         //console.log(conts[key]);
@@ -99,7 +99,7 @@ export default class StaffingAssignment extends LightningElement {
                 this.fetchStaffingAssignments();
             })
             .catch(error => {
-                
+
                 console.log('error'+error);
             });
 
@@ -114,7 +114,7 @@ export default class StaffingAssignment extends LightningElement {
             })
     }
     fetchStaffingAssignments() {
-        
+
         this.programManagerCount = 0;
 
         getStaffingAssignmentByParentId({parentId: this.recordId})
@@ -135,7 +135,7 @@ export default class StaffingAssignment extends LightningElement {
                     }
 
                     if (row.User__r) {
-                        
+
                         if (row.User__r.Name) {
 
                             //Add the User Name to the first level of the row
@@ -150,11 +150,11 @@ export default class StaffingAssignment extends LightningElement {
                                         console.log('call done');
 
                                         pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false};
-                                        
+
                                     }
                             });
                             row = {...row, ...pair};
-                        }                                
+                        }
                     }
 
                     row = {...row, ...pair};
@@ -225,7 +225,7 @@ export default class StaffingAssignment extends LightningElement {
         let errorMessage = event.detail.detail;
         console.log("response",errorMessage);
         //do some stuff with message to make it more readable
-        
+
         this.dispatchEvent(
             new ShowToastEvent({
                 title: 'Error',
@@ -272,7 +272,7 @@ export default class StaffingAssignment extends LightningElement {
         // You need to submit the form after modifications
         this.template
             .querySelector('lightning-record-edit-form').submit(fields);
-        }    
+        }
     }
 
     handleOnSubmitCreate(event) {
