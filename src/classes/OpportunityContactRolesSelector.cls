@@ -4,8 +4,8 @@
 
 public class OpportunityContactRolesSelector extends fflib_SObjectSelector implements IOpportunityContactRolesSelector {
 
-	public IOpportunityContactRolesSelector newInstance(){
-		return (IOpportunityContactRolesSelector) fflibext_Application.Selector.newInstance(Order.SObjectType);
+	public static IOpportunityContactRolesSelector newInstance(){
+		return (IOpportunityContactRolesSelector) fflibext_Application.Selector.newInstance(OpportunityContactRole.SObjectType);
 	}
 
 	public List<OpportunityContactRole> selectById(Set<Id> idSet) {
