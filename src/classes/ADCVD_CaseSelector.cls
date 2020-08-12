@@ -27,7 +27,8 @@ public with sharing class ADCVD_CaseSelector
             ADCVD_Case__c.Country_Text__c,
             ADCVD_Case__c.Product__c,
             ADCVD_Case__c.Product_Short_Name__c,
-            ADCVD_Case__c.Locked__c
+            ADCVD_Case__c.Locked__c,
+            ADCVD_Case__c.Program_Manager__c
         };
     }
 
