@@ -1307,28 +1307,16 @@ public class AddTollingDayBatchTest {
         List<Investigation__c> investigationList = new List<Investigation__c>();
         List<Federal_Register__c> frList = new List<Federal_Register__c>();
         List<ADCVD_Order__c> orderList = new List<ADCVD_Order__c>();
-        Id adminProfileId = [SELECT Id FROM Profile WHERE Name=: 'System Administrator' LIMIT 1].Id;
-        Integer i = 1;
-        String email = 'myemail@email.com.testita';
+
 
         //create test data
-        User testUser = new User();
-        testUser.ProfileId = adminProfileId;
-        testUser.isActive = true;
-        testUser.Alias = 'Alias' + i;
-        testUser.LocaleSidKey = 'en_US';
-        testUser.LanguageLocaleKey='en_US';
-        testUser.LastName = 'LastName' + i;
-        testUser.FirstName = 'FirstName' + i;
+
+            User testUser = TestUtils.createAdminUser(false, 'myemail@email.com.testita', 1);
         testUser.Staffing_Role__c = 'Program Manager';
         testUser.UserRoleId = '00Et0000000VmLU';
-        testUser.EmailEncodingKey = 'ISO-8859-1';
-        testUser.Email = email + i;
-        testUser.TimeZoneSidKey = 'America/New_York';
-        testUser.CommunityNickname = 'Ltest' + i;
-        testUser.UserName = email + '.test' + i;
 
         System.runAs(testUser) {
+
 
         ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', false);
         caseList.add(testADCase);

@@ -1220,7 +1220,7 @@ public class InvestigationTriggerHandlerTest {
     Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
     AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
     //create test data
-    User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+    User testUser = TestUtils.createAdminUser(false, 'myemail@email.com.testita', 1);
       testUser.Staffing_Role__c = 'Program Manager';
       testUser.UserRoleId = '00Et0000000VmLU';
     ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', false);
