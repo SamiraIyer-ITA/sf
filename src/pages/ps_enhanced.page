@@ -45,7 +45,7 @@
 					<p><strong> OMB control number:</strong> &nbsp;  <span style="color:#2167a6;">0625-0276</span></p>
 				</apex:outputpanel>
 				<apex:outputpanel styleClass="col-md-6 pad-right-zero">
-					<p><strong> Expiration date:  </strong> &nbsp;  <span style="color:#2167a6;">05/31/2020</span></p>
+					<p><strong> Expiration date:  </strong> &nbsp;  <span style="color:#2167a6;">05/31/2023</span></p>
 				</apex:outputpanel>
 				<p>Public reporting for this collection is estimated to be 40 minutes per response, including the time to review the instructions, complete, and submit the collection of information, but not including the time to review and implement the requirements of the program. Send comments regarding the burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to the Reports Clearance Officer, International Trade Administration, Department of Commerce, Room 4001, 14th and Constitution Avenue, N.W., Washington, D.C. 20230. Respondents should be aware that notwithstanding any other provision of law, no person shall be subject to any penalty for failing to comply with a collection of information if it does not display a currently valid OMB control number.</p>
 				<p>The OMB control number and expiration date cited above relate to the form itself rather than your organization's self-certification to the Privacy Shield Framework.</p>

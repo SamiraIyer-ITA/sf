@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>false</doesSendEmailToMembers>
-    <name>Queue#2</name>
+    <name>Contact Asia</name>
     <queueMembers>
         <publicGroups>
             <publicGroup>CP_Contact_Us_Group2</publicGroup>

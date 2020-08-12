@@ -88,7 +88,9 @@ public without sharing class Utils {
 	public static Map<String,Id> getRecordTypeIdMap(String sObjectName){
 		Map<String,Id> returnMap = new Map<String,Id>();
 		for(RecordType rt : recordTypeIdToRecordTypeMap.values()){
-			returnMap.put(rt.DeveloperName, rt.Id);
+			if (rt.SObjectType == sObjectName) {
+				returnMap.put(rt.DeveloperName, rt.Id);
+			}
 		}
 		return returnMap;
 	}
@@ -497,5 +499,92 @@ public without sharing class Utils {
 			}
 		}
 	}
+	/**
+	 * Creates an SObject query based on a fieldset and set of additional fields
+	 *
+	 * This method contains logic to ignore the Id field if present in the fieldset or additional fields as the Id field
+	 * is added to most queries and usually left out of fieldsets.
+	 *
+	 * @param fs SObject field set
+	 * @param additionalFields Optional String set of additional fields to add to query
+	 *
+	 * @return
+	 */
+	public static String getFieldSetQuery(Schema.FieldSet fs, Set<String> additionalFields) {
+		// Create a list of fields from the field set and optional additional fields
+		List<String> fields = new List<String>();
+		// Add additional fields
+		if (additionalFields != null && !additionalFields.isEmpty()) {
+			for (String additionalField: additionalFields) {
+				// Omit the Id field
+				if (!additionalField.equalsIgnoreCase('Id')) {
+					fields.add(additionalField.toLowerCase());
+				}
+			}
+		}
+		// Add fieldset fields
+		List<String> fieldSetFields = new List<String>();
+		for(Schema.FieldSetMember f: fs.getFields()) {
+			String fld = f.getFieldPath().toLowerCase();
+			// Omit the id field and check if field has already been added
+			if (!fld.equalsIgnoreCase('Id') && !fields.contains(fld)) {
+				fieldSetFields.add(fld);
+			}
+		}
+		fields.addAll(fieldSetFields);
+		// Get SObject name and return query
+		String soName = fs.getSObjectType().getDescribe().getName();
+		return 'SELECT ' + String.join(fields, ', ') + ', Id FROM ' + soName;
+	}
+	/**
+	 * Gets the value of a record type field by related SObject query using that SObject's Id
+	 *
+	 * @param recordId SObject Id to query
+	 * @param recordTypeField RecordType field
+	 *
+	 * @return RecordType field value
+	 */
+	private static Object getRecordTypeFieldByRecordId(Id recordId, String recordTypeField) {
+		String soName = recordId.getSobjectType().getDescribe().getName();
+		String relationshipQueryField = 'RecordType.' + recordTypeField;
+		String query = 'SELECT ' + relationshipQueryField  + ' FROM ' + soName + ' WHERE Id = :recordId';
+		SObject[] records = Database.query(query);
+		return !records.isEmpty()
+				? records[0].getSObject('RecordType').get(recordTypeField)
+				: null;
+	}
+	/**
+	 * Gets the RecordType Id based on a related SObject record Id query
+	 *
+	 * @param recordId SObject Id
+	 *
+	 * @return SObject Id
+	 */
+	public static Id getRecordTypeIdByRecordId(Id recordId) {
+		return (Id)getRecordTypeFieldByRecordId(recordId, 'Id');
+	}
+	/**
+	 * Gets the RecordType Name  based on a related SObject record Id query
+	 *
+	 * @param recordId SObject Id
+	 *
+	 * @return SObject Id
+	 */
+	public static String getRecordTypeNameByRecordId(Id recordId) {
+		return (String)getRecordTypeFieldByRecordId(recordId, 'Name');
+	}
+	/**
+	 * Gets the RecordType DeveloperName based on a related SObject record Id query
+	 *
+	 * @param recordId SObject Id
+	 *
+	 * @return SObject Id
+	 */
+	public static String getRecordTypeDeveloperNameByRecordId(Id recordId) {
+		return (String)getRecordTypeFieldByRecordId(recordId, 'DeveloperName');
+	}
 
+	public static Id getRecordTypeNameByDeveloperName(String developerName, String objectName) {
+		return [SELECT Id FROM RecordType WHERE DeveloperName = :developerName AND sObjectType = :objectName LIMIT 1].Id;
+	}
 }

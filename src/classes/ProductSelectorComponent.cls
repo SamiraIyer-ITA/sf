@@ -192,6 +192,7 @@ public with sharing class ProductSelectorComponent {
 				this.Tier1DuplicateTracker.add(productClass);
 				this.Tier1Selected.add(productClass);
 			}
+			this.Tier1DuplicateTracker.addAll(this.Tier1Selected);
 			if(!tier1VisibleDupeCheckSet.contains(productClass)){
 				this.Tier1VisibleSelectOptions.add(new SelectOption(productClass, value));
 				tier1VisibleDupeCheckSet.add(productClass);

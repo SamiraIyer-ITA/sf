@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>EnableCustomerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableCustomerPortalUser</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableCustomerPortalUser</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -45,11 +145,41 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SmsHighlightAction</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -61,11 +191,40 @@
         <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>ViewCustomerPortalUser</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>ViewCustomerPortalUser</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewCustomerPortalUser</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>WebsiteHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>WebsiteHighlightAction</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>WebsiteHighlightAction</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -298,11 +457,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>CleanStatus</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Congressional_District__c</fullName>
         <externalId>false</externalId>
         <label>Congressional District</label>
@@ -319,7 +473,7 @@
         <formula>IF(State_Code__c &lt;&gt; NULL &amp;&amp;  Congressional_District__c &lt;&gt; NULL , State_Code__c +&apos;-&apos;+ Congressional_District__c , &quot;&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>This field is auto populated for US Organizations based on zip code</inlineHelpText>
-        <label>Congressional District</label>
+        <label>Congressional District (US Only)</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -336,6 +490,36 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DNBoptimizer__DNB_D_U_N_S_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Upon successful match, Optimizer populates this field and references it for future refreshes. The Dun &amp; Bradstreet D-U-N-S® Number is an identification number assigned by Dun &amp; Bradstreet that uniquely identifies the entity in accordance with the Data Universal Numbering System (D-U-N-S).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Upon successful match, Optimizer populates this field and references it for future refreshes. It is an identification number assigned by Dun &amp; Bradstreet that uniquely identifies the entity based on the Data Universal Numbering System (D-U-N-S).</inlineHelpText>
+        <label>D&amp;B DUNS Number</label>
+        <length>9</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DNBoptimizer__DnBCompanyRecord__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Upon a successful match, Optimizer populates this field that links the Account record to a specific D-U-N-S Number for display of the correct custom object with D&amp;B data.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Upon a successful match, Optimizer populates this field that links the Account record to a specific D-U-N-S Number for display of the correct custom object with D&amp;B data.</inlineHelpText>
+        <label>AccountToDnB</label>
+        <referenceTo>DNBoptimizer__DnBCompanyRecord__c</referenceTo>
+        <relationshipLabel>AccountToDnB</relationshipLabel>
+        <relationshipName>AccountToDnB</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>DUNS_field__c</fullName>
@@ -360,12 +544,6 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>DandbCompanyId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>DataPartnerType__c</fullName>
@@ -398,9 +576,17 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>DunsNumber</fullName>
+        <fullName>Domestic_Ultimate_Business__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Domestic Ultimate Business</label>
+        <length>255</length>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>DupeBlocker_Insert_Action__c</fullName>
@@ -443,6 +629,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Global_Ultimate_Business__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Global Ultimate Business</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Has_Exported_To__c</fullName>
         <description>list of contries visited</description>
         <externalId>false</externalId>
@@ -473,6 +672,19 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Importer_Exporter_Indicator__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Importer Exporter Indicator</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Industries__c</fullName>
@@ -1165,6 +1377,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Location_Type__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
+        <label>Location Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Merged_Organization__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>displays the organization it will be merged with.</description>
@@ -1205,7 +1430,7 @@
         <fullName>Minority_Owned_Indicator__c</fullName>
         <description>Minority-Owned Indicator from D&amp;B</description>
         <externalId>false</externalId>
-        <formula>TEXT(DandbCompany.MinorityOwned)</formula>
+        <formula>ENCODED:[treatNullAsNull]TEXT({!ID:DandbCompany.MinorityOwned})</formula>
         <label>Minority-Owned Indicator</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1217,7 +1442,7 @@
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
         <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
-        <label>aaaNAICS Code</label>
+        <label>NAICS Code</label>
         <length>8</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1230,7 +1455,7 @@
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
         <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
-        <label>aaaNAICS Description</label>
+        <label>NAICS Description</label>
         <length>120</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1253,16 +1478,6 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>NaicsCode</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>NaicsDesc</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Name</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -1277,12 +1492,6 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <inlineHelpText>The highest number of employees from the Data.com employee count fields.</inlineHelpText>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
-    </fields>
-    <fields>
-        <fullName>OperatingHoursId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Organization_18_ID__c</fullName>
@@ -1337,16 +1546,62 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Organization_Size__c</fullName>
-        <description>Decision on organization size is based on number of employees. If employees’ field is entered by TS, formula is based on that field, otherwise, use D&amp;B employee fields. 1-499 = Small, 500-999 = Medium, &gt;999 = Large</description>
+        <fullName>Organization_Size_Formula__c</fullName>
+        <description>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</description>
         <externalId>false</externalId>
+        <formula>IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 1,&apos;No Data&apos;,
+IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 500, &apos;Small&apos;,
+IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &lt; 1000, &apos;Medium&apos;,
+IF(
+MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeCountTotal__c, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeesHere__c) &gt; 999, &apos;Large&apos;,&apos;No Data&apos;))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Returns the largest number of the following: Number of Employees on Organization, Employee Count Total, and Employee Count Here on related D&amp;B Company Record.</inlineHelpText>
         <label>Organization Size</label>
-        <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Size__c</fullName>
+        <description>Decision on organization size is based on number of employees. If employees’ field is entered by TS, formula is based on that field, otherwise, use D&amp;B employee fields. 1-499 = Small, 500-999 = Medium, &gt;999 = Large</description>
+        <externalId>false</externalId>
+        <inlineHelpText>1-499=Small;
+500-999=Medium;
+&gt;999=Large.</inlineHelpText>
+        <label>zzzOrganization Size</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Data</fullName>
+                    <default>false</default>
+                    <label>No Data</label>
+                </value>
+                <value>
+                    <fullName>Small</fullName>
+                    <default>false</default>
+                    <label>Small</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Large</fullName>
+                    <default>false</default>
+                    <label>Large</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Organization_Type__c</fullName>
@@ -1587,12 +1842,17 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
-    <fields>                                                                                                                         <fullName>Primary_Trade_Style__c</fullName>
+    <fields>
+        <fullName>Primary_Trade_Style__c</fullName>
         <description>Primary Trade Style from D&amp;B Optimizer</description>
         <externalId>false</externalId>
         <formula>DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__TradestyleName1__c</formula>
-        <label>Primary Trade Style</label>                                                                                           <required>false</required>                                                                                                   <trackHistory>false</trackHistory>
-        <type>Text</type>                                                                                                            <unique>false</unique>                                                                                                   </fields>
+        <label>Primary Trade Style</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Privacy_Shield_Disabled__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1622,7 +1882,7 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <fullName>SME__c</fullName>
         <description>Checkbox is checked when # of employees on record is &gt;1 and &lt;500 Old Formula: IF(MAX(DandbCompany.GlobalUltimateTotalEmployees, NumberOfEmployees, DandbCompany.EmployeesHere, DandbCompany.EmployeesTotal)&lt;501, TRUE, FALSE)</description>
         <externalId>false</externalId>
-        <formula>IF(MAX(DandbCompany.GlobalUltimateTotalEmployees, NumberOfEmployees, DandbCompany.EmployeesHere, DandbCompany.EmployeesTotal)&lt;501 &amp;&amp; BillingCountry = &apos;United States&apos;, TRUE, FALSE)</formula>
+        <formula>ENCODED:IF(MAX({!ID:DandbCompany.GlobalUltimateTotalEmployees}, {!ID:NumberOfEmployees}, {!ID:DandbCompany.EmployeesHere}, {!ID:DandbCompany.EmployeesTotal})&lt;501 &amp;&amp; {!ID:BillingCountry} = &apos;United States&apos;, TRUE, FALSE)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>Populated based on Data.com, where there are less than 501 employees &amp; country = US, includes null values.</inlineHelpText>
         <label>SME (U.S. Only)</label>
@@ -1788,6 +2048,35 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>TracHier__Global_Ultimate_Grouping_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field used by Traction Hierarchies for grouping by Global Ultimate Parent account in reports</description>
+        <externalId>false</externalId>
+        <formula>ENCODED:[treatNullAsNull]if(!ISBLANK( {!ID:00Nt0000000ZTTp}),
+	    {!ID:00Nt0000000ZTTp.TextName} &amp; &quot; (&quot; &amp; {!ID:00Nt0000000ZTTp.DunsNumber} &amp; &quot;)&quot;
+	    ,
+	    {!ID:TextName} &amp; &quot; (&quot; &amp; BLANKVALUE({!ID:DunsNumber}, &quot;No D&amp;B Data Available&quot;) &amp; &quot;)&quot;
+	    )</formula>
+        <inlineHelpText>Use this field to group records by Global Ultimate Parent account in reports</inlineHelpText>
+        <label>Global Ultimate Grouping Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TracHier__Hierarchy_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Hierarchy ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>TracHier__Owner__c</fullName>
         <deprecated>false</deprecated>
         <description>The name of the Sales rep who owns the Account.</description>
@@ -1815,16 +2104,21 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Tradestyle</fullName>
+        <fullName>TracHier__Re_Run_Traction_Hierarchies__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Re-run Traction Hierarchies</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Tradestyle__c</fullName>
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
         <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
-        <label>aaaTradestyle</label>
+        <label>Tradestyle</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1899,25 +2193,19 @@ IF(NOT(ISBLANK(DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__NAICSCode2__c)), 
         <fullName>Woman_Owned_Indicator__c</fullName>
         <description>Woman-Owned Indicator from Data.com</description>
         <externalId>false</externalId>
-        <formula>TEXT(DandbCompany.WomenOwned)</formula>
-        <label>Woman-Owned Indicator</label>
+        <formula>ENCODED:[treatNullAsNull]TEXT({!ID:DandbCompany.WomenOwned})</formula>
+        <label>zzzWoman-Owned Indicator</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>YearStarted</fullName>
-        <inlineHelpText>The year the entity commenced operations in its current form. If the entity was acquired by another company, the start date may reflect the date it was acquired.</inlineHelpText>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Year_Started__c</fullName>
         <description>This field automatically populates from the D&amp;B Optimizer</description>
         <externalId>false</externalId>
         <inlineHelpText>This field automatically populates from the D&amp;B Optimizer</inlineHelpText>
-        <label>aaaYear Started</label>
+        <label>Year Started</label>
         <length>4</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1996,9 +2284,9 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         <columns>Industries__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
+            <field>TracHier__Owner__c</field>
             <operation>equals</operation>
-            <value>Account.Partner_Account</value>
+            <value>Malih Kabbani</value>
         </filters>
         <label>All API Partner Organizations</label>
         <sharedTo>
@@ -2012,12 +2300,7 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         <columns>ACCOUNT.PHONE1</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>ACCOUNT.ADDRESS1_CITY</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.NAME</field>
-            <operation>contains</operation>
-            <value>Tarte</value>
-        </filters>
+        <filterScope>Mine</filterScope>
         <label>All</label>
     </listViews>
     <listViews>
@@ -2041,28 +2324,19 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
         <label>My Organizations Not Cleaned</label>
     </listViews>
     <listViews>
-        <fullName>MyAccounts_with_Clean_Status</fullName>
+        <fullName>My_Organizations1</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.ADDRESS1_STREET</columns>
         <columns>ACCOUNT.ADDRESS1_CITY</columns>
         <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
         <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
-        <columns>CLEAN_STATUS</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>Request_Organization_Removal__c</field>
             <operation>equals</operation>
             <value>0</value>
         </filters>
-        <label>My Organizations with Clean Status</label>
-    </listViews>
-    <listViews>                                                                                                                      <fullName>My_Organizations1</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.ADDRESS1_STREET</columns>                                                                                   <columns>ACCOUNT.ADDRESS1_CITY</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
-        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
-        <filterScope>Mine</filterScope>                                                                                              <filters>                                                                                                                        <field>Request_Organization_Removal__c</field>
-            <operation>equals</operation>                                                                                                <value>0</value>                                                                                                         </filters>                                                                                                                   <label>My Organizations</label>
+        <label>My Organizations</label>
     </listViews>
     <listViews>
         <fullName>Organization_Hierarchy</fullName>
@@ -2084,8 +2358,11 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     </listViews>
     <listViews>
         <fullName>Request_For_Removal</fullName>
-        <columns>ACCOUNT.NAME</columns>                                                                                              <columns>ACCOUNT.LAST_ACTIVITY</columns>                                                                                     <columns>TracHier__Owner__c</columns>
-        <columns>Owner_Office__c</columns>                                                                                           <columns>Request_Organization_Removal__c</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.LAST_ACTIVITY</columns>
+        <columns>TracHier__Owner__c</columns>
+        <columns>Owner_Office__c</columns>
+        <columns>Request_Organization_Removal__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Request_Organization_Removal__c</field>
@@ -2102,7 +2379,7 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
     <recordTypes>
         <fullName>ITA_CRM_Law_Firm</fullName>
         <active>true</active>
-	<compactLayoutAssignment>CRM_Organization_Compact_Layout</compactLayoutAssignment>
+        <compactLayoutAssignment>CRM_Organization_Compact_Layout</compactLayoutAssignment>
         <label>ITA CRM Law Firm</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
@@ -2850,6 +3127,25 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Size__c</picklist>
+            <values>
+                <fullName>Large</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3817,6 +4113,25 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Organization_Size__c</picklist>
+            <values>
+                <fullName>Large</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Organization_Type__c</picklist>
             <values>
                 <fullName>Advanced Manufacturing</fullName>
@@ -4705,6 +5020,25 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
             <values>
                 <fullName>Located outside US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Organization_Size__c</picklist>
+            <values>
+                <fullName>Large</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5692,6 +6026,25 @@ LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Organization_Size__c</picklist>
+            <values>
+                <fullName>Large</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Organization_Type__c</picklist>
             <values>
                 <fullName>Advanced Manufacturing</fullName>
@@ -6032,13 +6385,13 @@ ISBLANK( Merged_Organization__c )</errorConditionFormula>
         <fullName>Verify_Country_Exists</fullName>
         <active>true</active>
         <description>Verify Country has value populated.</description>
-        <errorConditionFormula>AND( 
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
-$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
-$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;, 
-$User.Id &lt;&gt; &quot;005r0000000EZ0K&quot;, 
-$User.Alias &lt;&gt; &quot;autocln&quot;, 
-ISBLANK(BillingCountry) 
+        <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;,
+$User.Id &lt;&gt; &quot;005r0000000EZ0K&quot;,
+$User.Alias &lt;&gt; &quot;autocln&quot;,
+ISBLANK(BillingCountry)
 )</errorConditionFormula>
         <errorMessage>You must enter a value for Country.</errorMessage>
     </validationRules>
@@ -6047,11 +6400,11 @@ ISBLANK(BillingCountry)
         <active>true</active>
         <description>Unless administrator, can not edit wins marked for removal.
 
-AND( 
-$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
 $Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
-$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;, 
-Request_Organization_Removal__c = TRUE 
+$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;,
+Request_Organization_Removal__c = TRUE
 )</description>
         <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;System Administrator&quot;,
 $Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,

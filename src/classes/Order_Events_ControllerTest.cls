@@ -2,6 +2,8 @@
 public class Order_Events_ControllerTest {
 
 	static Integer recordsToAdd = 10;
+	static Id legacyRecordTypeId = Schema.SObjectType.Order
+		.getRecordTypeInfosByDeveloperName().get('Legacy').getRecordTypeId();
 
 	@TestSetup
 	static void setup() {
@@ -73,6 +75,7 @@ public class Order_Events_ControllerTest {
 		for (Participation__c application: applications) {
 			orders.add(
 				new Order(
+					RecordTypeId = legacyRecordTypeId,
 					Participant__c = application.Id,
 					AccountId = application.Organization__c,
 					Status = 'In Progress',
