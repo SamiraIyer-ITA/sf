@@ -5176,7 +5176,7 @@ public class SegmentTriggerHandlerTest {
         //create test data
         User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
         testUser.Staffing_Role__c = 'Program Manager';
-        testUser.UserRoleId = '00Et0000000VmLU';
+        testUser.UserRoleId = [SELECT Id FROM UserRole WHERE DeveloperName = 'E_C_TANC'].Id;
         ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', false);
         testADCase.Program_Manager__c = testUser.Id;
         insert testADCase;
