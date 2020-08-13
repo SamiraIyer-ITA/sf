@@ -26,7 +26,18 @@ public class Payments2ServiceImpl implements IPayments2Service{
 	}
 
 	public static void sendEmailReceipt(Map<Id,Payment2__c> existingRecords, List<Payment2__c> newRecords) {
-
+		// There is a fair amount of complexity required in order to get the email associated with a Payment2 record
+		// that is passed to this method.
+		// It looks roughly like this:
+		// Payment2 =>Order => OpportunityContactRole(viaOpportunityId)
+		//
+		// For each Payment2 record we have to do the following:
+		//		1. Determine if the Payment2 is a Payment or a refund
+		//		2. If a refund - get the parent Payment which is the actual payment for the Payment2 that is passed in
+		//		3. Get the Order associated with the Payment2
+		//		4. Get the OpportunityContactRole associated with the Order Opportunity. The email that the receipt
+		//		will be sent to is 'owned' by the Contact.email on the OpportunityContactRole
+		//
 		//Create a Set for all of the PaymentIds in newRecords and existingRecords
 		Set<Id> paymentRecordIds = existingRecords.keySet();
 		for(Payment2__c p2 : newRecords){
@@ -38,47 +49,53 @@ public class Payments2ServiceImpl implements IPayments2Service{
 
 		// getOrdersPaymentIds Contains the payment Ids that have orders associated with them
 		Set<Id> getOrdersPaymentIds = new Set<Id>();
+
 		// refundPaymentParentIds are the payment ids whose child is a refund
+		// Since a refund does not have an associated order, we have to get the parent Payment of the refund
+		// The Id of the parent is stored in this set and used in a select to get the order associated with the refund
 		Set<Id> refundPaymentParentIds = new Set<Id>();
 		Boolean addResult = getOrdersPaymentIds.addAll(paymentRecordIds);
+		// paymentToRefundMap maps refunds to payments
 		Map<Id, Id> paymentToRefundMap = new Map<Id, Id>();
 		for(Payment2__c p2 : payments){
 			if(p2.Payment_Type__c == 'NIST-Handled Refund' || p2.Payment_Type__c == 'Credit Card Refund'){
+				// This payment is a refund
 				paymentToRefundMap.put(p2.Id, p2.Payment_2__c);
+				// Add the actual Payment Id to the set that is used to Select
 				refundPaymentParentIds.add(p2.Payment_2__c);
+				// Add the actual payment to the set that will be used to Select Orders
 				getOrdersPaymentIds.add(p2.Payment_2__c);
+				// Take out the Payment2.Id associated with a refund
 				getOrdersPaymentIds.remove(p2.Id);
-
 			}
 		}
 
 		List<Payment2__c> refundParentPayment2 = PaymentsSelector2.newInstance().selectById(refundPaymentParentIds);
+
 		// Add the orders associated with Parent Payments to the set of orderIds that we will select
 		for(Payment2__c p2 : refundParentPayment2){
 			getOrdersPaymentIds.add(p2.Id);
 		}
 		// Get the Orders.OpportunityId for orders associated with getOrdersPaymentIds
-		OrdersSelector orderSelect = new OrdersSelector();
 		Map<Id, Id> orderToOppMap = new Map<Id, Id>();
 		Map<Id, Id> paymentToOrderMap = new Map<Id, Id>();
-		List<Order> getOpportunitiesFromTheseOrders = orderSelect.selectByPaymentId(getOrdersPaymentIds);
-
+		List<Order> getOpportunitiesFromTheseOrders = OrdersSelector.newInstance().selectByPaymentId(getOrdersPaymentIds);
+		// getOpportunityContactRoles
 		Set<Id> getOpportunityContactRoles = new Set<Id>();
 		for(Order o : getOpportunitiesFromTheseOrders){
+			// getOpportunityContactRoles is used to select OpportunityContactRoles
 			getOpportunityContactRoles.add(o.OpportunityId);
 			orderToOppMap.put(o.Id, o.OpportunityId);
 			paymentToOrderMap.put(o.Payment2__c, o.Id);
 		}
 		// Create a list of all OpportunityContactRole where the Contact isPrimary from the Opportunities
-		OpportunityContactRolesSelector oppCRS = new OpportunityContactRolesSelector();
-		List<OpportunityContactRole> emailsToSend = oppCRS.selectByOpportunityId(getOpportunityContactRoles, true);
+		List<OpportunityContactRole> emailsToSend = OpportunityContactRolesSelector.newInstance().selectByOpportunityId(getOpportunityContactRoles, true);
 		// Tie everything together creating the Payment to email map
 		Map<Id, String> oppToEmailMap = new Map<Id, String>();
 		for(OpportunityContactRole ocr : emailsToSend){
 			oppToEmailMap.put(ocr.OpportunityId, ocr.Contact.Email);
 		}
 
-		Map<Id, Id> paymentEmailMap = new Map<Id, Id>();
 		// Create a CSV containing all of the emails in the OpportunityContactRole isPrimary list
 		// Create an Id, String Map before the following loop
 
@@ -87,10 +104,13 @@ public class Payments2ServiceImpl implements IPayments2Service{
 			String thisEmail;
 			if(payment2.Receipt_Ready__c == true && existingRecords.get(payment2.Id).Receipt_Ready__c == false && payment2.Receipt_Allowed__c == true) {
 				//receipt ready flag was just checked
-				// Get the email associated with this payment
+				// If the Payment2 is a refund - use it's parent
 				if(!refundPaymentParentIds.contains(payment2.Id)){ thisPaymentId = payment2.Id;}
 				else {thisPaymentId = paymentToRefundMap.get(payment2.Id);}
-
+				// This nested get works like this
+				// paymentToOrderMap.get(thisPaymentId) gives us the Order associated with the Payment2
+				// orderToOppMap.get gives us the Opportunity for the Payment2
+				// oppToEmailMap.get gives us the email associated with the Payment2
 				thisEmail = oppToEmailMap.get(orderToOppMap.get(paymentToOrderMap.get(thisPaymentId)));
 				REST_EmailTransactionReceipt.doPost(thisEmail, payment2.Id);
 			}
