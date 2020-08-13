@@ -8,19 +8,14 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 		return (List<Order>) selectSObjectsById(idSet);
 	}
 
-	public List<Order> selectWithReductionOrderDetails(Set<Id> idSet, Boolean normalOrders, Boolean reductionOrders, Boolean nonPaidOnly, Boolean paidOnly) {
+	public List<Order> selectByPaidNonPaidOnly(Set<Id> idSet, Boolean nonPaidOnly, Boolean paidOnly) {
 		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
-		ordersQueryFactory.selectFields(new Set<String>{'OriginalOrder.Payment2__r.Payment_Type__c',
-			'OriginalOrder.Payment2__r.Transaction_Status__c'});
-		new OrdersSelector().configureQueryFactoryFields(ordersQueryFactory, 'OriginalOrder');
+		ordersQueryFactory.selectFields(new Set<String>{'Payment2__r.Payment_Type__c',
+			'Payment2__r.Transaction_Status__c', 'Payment2__r.Name',
+			'Payment2__r.Remote_Tracking_Id__c' });
 		String condition = 'Id IN :idSet ';
-		if (reductionOrders && !normalOrders) {
-			condition += 'AND IsReductionOrder = true';
-		} else if (normalOrders && !reductionOrders) {
-			condition += 'AND IsReductionOrder = false';
-		}
 		if (nonPaidOnly) {
-			condition += ' AND Order_Paid__c = false';
+			condition += ' AND Order_Paid__c = false AND Payment2__c = null';
 		}
 		if (paidOnly) {
 			condition += ' AND Order_Paid__c = true';
@@ -29,42 +24,48 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 		return (List<Order>) Database.query(ordersQueryFactory.setCondition(condition).toSOQL());
 	}
 
-	public List<Order> selectReductionOrdersByContractId(Set<Id> idSet, Boolean onlyCreditCardPayments, Boolean nonPaidOnly, Boolean paidOnly) {
+	public List<Order> selectByContractId(Set<Id> idSet, Boolean onlyCreditCardPayments, Boolean nonPaidOnly, Boolean paidOnly) {
 		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
-		ordersQueryFactory.selectFields(new Set<String>{'OriginalOrder.Payment2__r.Payment_Type__c',
-		'OriginalOrder.Payment2__r.Transaction_Status__c'});
-		new OrdersSelector().configureQueryFactoryFields(ordersQueryFactory, 'OriginalOrder');
-		String condition = 'ContractId IN :idSet AND IsReductionOrder = true AND OriginalOrder.Order_Paid__c = true';
+		ordersQueryFactory.selectFields(new Set<String>{'Payment2__r.Payment_Type__c',
+		'Payment2__r.Transaction_Status__c', 'Payment2__r.Name', 'Payment2__r.Remote_Tracking_Id__c',
+		'Contract.Name', 'Contract.ContractNumber' });
+		String condition = 'ContractId IN :idSet  AND TotalAmount > 0';
 		if (nonPaidOnly) {
-			condition += ' AND Order_Paid__c = false';
-		}
-		if (nonPaidOnly) {
-			condition += ' AND Order_Paid__c = true';
-		}
-		if (onlyCreditCardPayments) {
-			condition += ' AND OriginalOrder.Payment2__r.Payment_Type__c = \'PLASTIC_CARD\'';
-		}
-		return (List<Order>) Database.query(ordersQueryFactory.setCondition(condition).toSOQL());
-	}
-
-	public List<Order> selectByContractId(Set<Id> contractIds, Boolean normalOrders, Boolean reductionOrders, Boolean nonPaidOnly, Boolean paidOnly) {
-		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
-		new ContractsSelector().
-			configureQueryFactoryFields(ordersQueryFactory, 'Contract');
-		String condition = 'ContractId IN :contractIds ';
-		if (reductionOrders && !normalOrders) {
-			condition += 'AND IsReductionOrder = true';
-		} else if (normalOrders && !reductionOrders) {
-			condition += 'AND IsReductionOrder = false';
-		}
-		if (nonPaidOnly) {
-			condition += ' AND Order_Paid__c = false';
+			condition += ' AND Order_Paid__c = false AND Payment2__c = null';
 		}
 		if (paidOnly) {
 			condition += ' AND Order_Paid__c = true';
 		}
-		return (List<Order>) Database.query(
-			ordersQueryFactory.setCondition(condition).toSOQL());
+		if (onlyCreditCardPayments) {
+			condition += ' AND Payment2__r.Payment_Type__c = \'PLASTIC_CARD\'';
+		}
+		return (List<Order>) Database.query(ordersQueryFactory.setCondition(condition).toSOQL());
+	}
+
+	public List<Order> selectWithOrderItemDetails(Set<Id> idSet, Boolean primaryItemOnly) {
+		if (idSet.isEmpty()) return new List<Order>();  //Avoid unnecessary SOQL
+		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
+		ordersQueryFactory.selectFields(new Set<String>{'Opportunity.Account.Name',
+			'Opportunity.Owner.Name', 'Opportunity.CreatedDate', 'Opportunity.Collection_Post__r.Name',
+			'Opportunity.Collection_Post__r.Org_Code__c', 'Opportunity.Fulfillment_Post__r.Name',
+			'Opportunity.Fulfillment_Post__r.Org_Code__c', 'Opportunity.Collection_Post__r.Acronym__c', 'Opportunity.Fulfillment_Post__r.Acronym__c'});
+		ordersQueryFactory.setCondition('Id IN :idSet');
+		fflib_QueryFactory orderItemsQueryFactory = ordersQueryFactory.subselectQuery('OrderItems');
+		if (primaryItemOnly) {
+			orderItemsQueryFactory.setCondition('IsPrimary__c = true');
+		}
+		orderItemsQueryFactory.selectFields(new OrderItemsSelector().getSObjectFieldList());
+		return Database.query(ordersQueryFactory.toSOQL());
+	}
+
+	public List<Order> selectByPaymentId(Set<Id> idSet) {
+		if (idSet.isEmpty()) return new List<Order>();  //Avoid unnecessary SOQL
+		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
+		ordersQueryFactory.selectFields(new Set<String>{'Account.Name'});
+		ordersQueryFactory.setCondition('Payment2__c IN :idSet');
+		fflib_QueryFactory orderItemsQueryFactory = ordersQueryFactory.subselectQuery('OrderItems');
+		orderItemsQueryFactory.selectFields(new OrderItemsSelector().getSObjectFieldList());
+		return Database.query(ordersQueryFactory.toSOQL());
 	}
 
 	private List<Schema.SObjectField> getSObjectFieldList() {
@@ -76,11 +77,12 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 			Order.Type,
 			Order.Status,
 			Order.ContractId,
-			Order.IsReductionOrder,
-			Order.OriginalOrderId,
 			Order.Payment2__c,
+			Order.OpportunityId,
 			Order.Order_Paid__c,
-			Order.Refunded_Amount__c
+			Order.Refunded_Amount__c,
+			Order.OrderNumber,
+			Order.AccountId
 		};
 	}
 
