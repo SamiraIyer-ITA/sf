@@ -40,19 +40,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AssignedUser__c</field>
+                <field>Assigned_User__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PriorAssignedUser__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>assignmentDate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Record_Type_Developer_Name_c__c</field>
+                <field>Assigned_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
