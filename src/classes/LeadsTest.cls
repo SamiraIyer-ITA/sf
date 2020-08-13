@@ -36,7 +36,7 @@ private class LeadsTest {
 			Status = 'New',
 			Company = 'test co 1',
             Source_Detail__c = 'test source 1',
-            AssignmentDate__c = null,
+            Assigned_Date__c = null,
             email = 'daniel.haro@trade.gov',
             LastName = 'tester1'
 		);
@@ -53,8 +53,8 @@ private class LeadsTest {
 			Id = leadId,
 			RecordTypeId = recordTypeMap.get('Export').getRecordTypeId(),
 			Status = 'New',
-            AssignedUser__c = null,
-            assignmentDate__c = null,
+            Assigned_User__c = null,
+            Assigned_Date__c = null,
             Email = 'daniel.haro@trade.gov'
 
 		);
@@ -69,7 +69,7 @@ private class LeadsTest {
         };
 		
         // Given - Set criteria to check next stage
-		testLead.AssignedUser__c = system.UserInfo.getUserId();
+		testLead.Assigned_User__c = system.UserInfo.getUserId();
         
         mocks.startStubbing();
 		mocks.when(mockSelector.sObjectType()).thenReturn(CollaborationGroup.SObjectType);
@@ -86,7 +86,7 @@ private class LeadsTest {
 			new Map<Id, Lead>( new List<Lead>{ existingTestLead })
 		);
     	fflib_SObjectDomain.triggerHandler(Leads.class);
-        system.assertNotEquals(null, testLead.assignmentDate__c);
+        system.assertNotEquals(null, testLead.Assigned_Date__c);
 	}
     
 	@IsTest
@@ -100,8 +100,8 @@ private class LeadsTest {
 			Id = leadId,
 			RecordTypeId = recordTypeMap.get('Export').getRecordTypeId(),
 			Status = 'New',
-            AssignedUser__c = null,
-            assignmentDate__c = null,
+            Assigned_User__c = null,
+            Assigned_Date__c = null,
             Email = 'daniel.haro@trade.gov'
 		);
 		existingTestLead = getLeadWithRecordTypeNameFormulaField(existingTestLead, 'Export');
@@ -115,7 +115,7 @@ private class LeadsTest {
 		
         // Given - Set lead criteria
 		Lead testLead = existingTestLead.clone(true, true, false, false);
-		testLead.AssignedUser__c = System.UserInfo.getUserId();
+		testLead.Assigned_User__c = System.UserInfo.getUserId();
         
         mocks.startStubbing();
 		mocks.when(mockSelector.sObjectType()).thenReturn(CollaborationGroup.SObjectType);
@@ -156,7 +156,7 @@ private class LeadsTest {
 			Id = leadId,
 			RecordTypeId = recordTypeMap.get('Export').getRecordTypeId(),
 			Status = 'New',
-            AssignedUser__c = null,
+            Assigned_User__c = null,
             Email = 'daniel.haro@trade.gov',
             LastName = 'Haro',
             Company = 'Test Co.',
@@ -173,7 +173,7 @@ private class LeadsTest {
         };
         
        	// Given - Set lead criteria
-		testLead.AssignedUser__c = system.UserInfo.getUserId();
+		testLead.Assigned_User__c = system.UserInfo.getUserId();
              
         mocks.startStubbing();
 		mocks.when(mockSelector.sObjectType()).thenReturn(CollaborationGroup.SObjectType);
@@ -191,7 +191,7 @@ private class LeadsTest {
 				new List<Lead>{	testLead})
 		);
 		fflib_SObjectDomain.triggerHandler(Leads.class);
-		system.assertNotEquals(null, existingTestLead.assignmentDate__c);
+		system.assertNotEquals(null, existingTestLead.Assigned_Date__c);
 	}
 
 	/*

@@ -13,9 +13,9 @@ public with sharing class LeadsSvcLibrary {
     ) {
         for(Lead currentRecord :(List<Lead>) records){
             Lead oldRecord = (Lead) existingrecords.get(currentRecord.Id);
-            if((oldRecord.AssignedUser__c == null && currentRecord.AssignedUser__c != null || 
-               (oldRecord.AssignedUser__c != null && oldRecord.AssignedUser__c != currentRecord.AssignedUser__c))) {
-                   currentRecord.assignmentDate__c = System.now();
+            if((oldRecord.Assigned_User__c == null && currentRecord.Assigned_User__c != null || 
+               (oldRecord.Assigned_User__c != null && oldRecord.Assigned_User__c != currentRecord.Assigned_User__c))) {
+                   currentRecord.Assigned_Date__c = System.now();
                }
         }
     }
@@ -48,8 +48,8 @@ public with sharing class LeadsSvcLibrary {
         List<Lead> assignedLeads = new List<Lead>();
         for (Lead currentRecord : (List<Lead>) records) {
             Lead oldRecord = (Lead) existingrecords.get(currentRecord.Id);
-            if ((oldRecord.AssignedUser__c == null && currentRecord.AssignedUser__c != null
-                 	|| (oldRecord.AssignedUser__c != null && oldRecord.AssignedUser__c != currentRecord.AssignedUser__c))) {
+            if ((oldRecord.Assigned_User__c == null && currentRecord.Assigned_User__c != null
+                 	|| (oldRecord.Assigned_User__c != null && oldRecord.Assigned_User__c != currentRecord.Assigned_User__c))) {
               	assignedLeads.add(currentRecord);
            	}
         }
@@ -57,7 +57,7 @@ public with sharing class LeadsSvcLibrary {
             exportChattergroupId = getChatterGroupId('Export Lead');
             for (Lead lead : (List<Lead>) assignedLeads) {
 				String textWithMentions 
-                    = '{' + lead.AssignedUser__c + '} - {' + exportChattergroupId + '}: You have been assigned a new lead to process.';
+                    = '{' + lead.Assigned_User__c + '} - {' + exportChattergroupId + '}: You have been assigned a new lead to process.';
                 if (!Test.isRunningTest()) {
                 	ConnectApi.FeedItem fi 
     					= (ConnectApi.FeedItem) ConnectApiHelper.postFeedItemWithMentions(null, lead.Id, textWithMentions);
