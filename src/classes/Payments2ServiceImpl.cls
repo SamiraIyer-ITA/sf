@@ -39,7 +39,11 @@ public class Payments2ServiceImpl implements IPayments2Service{
 		//		will be sent to is 'owned' by the Contact.email on the OpportunityContactRole
 		//
 		//Create a Set for all of the PaymentIds in newRecords and existingRecords
-		Set<Id> paymentRecordIds = existingRecords.keySet();
+
+		Set<Id> paymentRecordIds = new Set<id>();
+		if (existingRecords != null && existingRecords.size() > 0) {
+			paymentRecordIds.addAll(existingRecords.keySet());
+		}
 		for(Payment2__c p2 : newRecords){
 			paymentRecordIds.add(p2.Id);
 		}
@@ -102,17 +106,25 @@ public class Payments2ServiceImpl implements IPayments2Service{
 		for(Payment2__c payment2 : newRecords) {
 			Id thisPaymentId;
 			String thisEmail;
-			if(payment2.Receipt_Ready__c == true && existingRecords.get(payment2.Id).Receipt_Ready__c == false && payment2.Receipt_Allowed__c == true) {
+			system.debug('payment2.Receipt_Ready__c ==> ' + payment2.Receipt_Ready__c + ' payment2.Receipt_Allowed__c ==> ' + payment2.Receipt_Allowed__c);
+			//if(payment2.Receipt_Ready__c == true && existingRecords.get(payment2.Id).Receipt_Ready__c == false && payment2.Receipt_Allowed__c == true) {
+			if(payment2.Receipt_Ready__c == true && payment2.Receipt_Allowed__c == true) {
 				//receipt ready flag was just checked
 				// If the Payment2 is a refund - use it's parent
-				if(!refundPaymentParentIds.contains(payment2.Id)){ thisPaymentId = payment2.Id;}
-				else {thisPaymentId = paymentToRefundMap.get(payment2.Id);}
+				if(!refundPaymentParentIds.contains(payment2.Id)){
+					thisPaymentId = payment2.Id;
+				} else {
+					thisPaymentId = paymentToRefundMap.get(payment2.Id);
+				}
 				// This nested get works like this
 				// paymentToOrderMap.get(thisPaymentId) gives us the Order associated with the Payment2
 				// orderToOppMap.get gives us the Opportunity for the Payment2
 				// oppToEmailMap.get gives us the email associated with the Payment2
 				thisEmail = oppToEmailMap.get(orderToOppMap.get(paymentToOrderMap.get(thisPaymentId)));
-				REST_EmailTransactionReceipt.doPost(thisEmail, payment2.Id);
+				system.debug('thisEmail ==> ' + thisEmail + ' payment2.Id ==> ' + payment2.Id);
+				String returnMessage = REST_EmailTransactionReceipt.doPost(thisEmail, payment2.Id);
+				system.debug('Return message ==> ' + returnMessage);
+				system.debug('Nothing');
 			}
 		}
 	}
