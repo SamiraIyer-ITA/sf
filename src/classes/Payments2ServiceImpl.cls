@@ -134,7 +134,7 @@ public class Payments2ServiceImpl implements IPayments2Service{
 				// paymentToOrderMap.get(thisPaymentId) gives us the Order associated with the Payment2
 				// orderToOppMap.get gives us the Opportunity for the Payment2
 				// oppToEmailMap.get gives us the email associated with the Payment2
-				thisEmail = oppToEmailMap.get(orderToOppMap.get(paymentToOrderMap.get(thisPaymentId)));``
+				thisEmail = oppToEmailMap.get(orderToOppMap.get(paymentToOrderMap.get(thisPaymentId)));
 				String returnMessage = REST_EmailTransactionReceipt.doPost(thisEmail, payment2.Id);
 			}
 		}
