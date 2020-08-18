@@ -1,15 +1,17 @@
 @isTest
 public class TestUtils {
-    private static Id adminProfileId = [SELECT Id FROM Profile WHERE Name=: 'System Administrator' LIMIT 1].Id;
+    private static Id adminProfileId = [SELECT Id FROM Profile WHERE Name = :'System Administrator' LIMIT 1].Id;
+    private static Id managerProfileId = [SELECT Id FROM Profile WHERE Name = :'ADCVD Manager' LIMIT 1].Id;
+    private static Id ecRoleId = [SELECT Id FROM UserRole WHERE Name = 'E&C TANC'].Id;
 
     public static Boolean messageFound(ApexPages.Severity severity, String msg) {
         List<ApexPages.Message> pageMessages = ApexPages.getMessages();
         // Check that the error message you are expecting is in pageMessages
         Boolean messageFound = false;
-        for(ApexPages.Message message : pageMessages) {
-            if(message.getDetail() == msg
-                && message.getSeverity() == severity) {
-                messageFound = true;        
+        for (ApexPages.Message message : pageMessages) {
+            if (message.getDetail() == msg
+                    && message.getSeverity() == severity) {
+                messageFound = true;
             }
         }
 
@@ -18,7 +20,7 @@ public class TestUtils {
 
     public static Page__c createPage(Boolean doInsert) {
         Page__c pg = new Page__c(name = 'Test Home Page');
-        if(doInsert) {
+        if (doInsert) {
             insert pg;
         }
         return pg;
@@ -26,10 +28,10 @@ public class TestUtils {
 
     public static Row__c createRow(Boolean doInsert, Page__c pg) {
         Row__c r = new Row__c(
-            Name= 'Test Row',
-            Page__c = pg.id
-            );
-        if(doInsert) {
+                Name = 'Test Row',
+                Page__c = pg.id
+        );
+        if (doInsert) {
             insert r;
         }
         return r;
@@ -37,23 +39,23 @@ public class TestUtils {
 
     public static Template_Page__c createTemplatePage(Boolean doInsert) {
         Template_Page__c tp = new Template_Page__c(
-            Name = 'My Test Template',
-            Description__c = 'My Test Description',
-            Image__c = 'MyTestImage.png',
-            IsActive__c = true
-            );
-        if(doInsert) {
+                Name = 'My Test Template',
+                Description__c = 'My Test Description',
+                Image__c = 'MyTestImage.png',
+                IsActive__c = true
+        );
+        if (doInsert) {
             insert tp;
         }
         return tp;
-    } 
-    
+    }
+
     public static Template_Row__c createTemplateRow(Boolean doInsert, Template_Page__c pg) {
         Template_Row__c r = new Template_Row__c(
-            Name= 'Test Row',
-            Page__c = pg.id
-            );
-        if(doInsert) {
+                Name = 'Test Row',
+                Page__c = pg.id
+        );
+        if (doInsert) {
             insert r;
         }
         return r;
@@ -62,16 +64,16 @@ public class TestUtils {
     public static Template_Page_Content__c createTemplatePageContent(Boolean doInsert, Template_Page__c pg, Template_Row__c tr) {
         //TODO implement schema utils
         Map<String, Id> recordTypeMap = new Map<String, Id>();
-        for(RecordType rt : [select id, developername from RecordType where sObjectType = 'Template_Page_Content__c']){
+        for (RecordType rt : [select id, developername from RecordType where sObjectType = 'Template_Page_Content__c']) {
             recordTypeMap.put(rt.developername, rt.id);
         }
         Template_Page_Content__c tpc = new Template_Page_Content__c(
-            Name= 'Test Page Content',
-            RecordTypeId = recordTypeMap.get('Generic_Content'),
-            Row__c = tr.Id,
-            Page__c = pg.Id
-            );
-        if(doInsert) {
+                Name = 'Test Page Content',
+                RecordTypeId = recordTypeMap.get('Generic_Content'),
+                Row__c = tr.Id,
+                Page__c = pg.Id
+        );
+        if (doInsert) {
             insert tpc;
         }
         return tpc;
@@ -82,7 +84,7 @@ public class TestUtils {
         u.isActive = true;
         u.Alias = 'Alias' + i;
         u.LocaleSidKey = 'en_US';
-        u.LanguageLocaleKey='en_US';
+        u.LanguageLocaleKey = 'en_US';
         u.LastName = 'LastName' + i;
         u.FirstName = 'FirstName' + i;
         u.EmailEncodingKey = 'ISO-8859-1';
@@ -90,31 +92,56 @@ public class TestUtils {
         u.TimeZoneSidKey = 'America/New_York';
         u.CommunityNickname = 'Ltest' + i;
         u.UserName = email + '.test' + i;
-        if(doInsert) {
+        if (doInsert) {
+            insert u;
+        }
+        return u;
+    }
+    public static User createStaffingUser(Boolean doInsert, String email, Integer i) {
+        User u = new User();
+        u.Staffing_Role__c = 'Program Manager';
+        u.UserRoleId = ecRoleId;
+        u.ProfileId = managerProfileId;
+        u.isActive = true;
+        u.Alias = 'Alias' + i;
+        u.LocaleSidKey = 'en_US';
+        u.LanguageLocaleKey = 'en_US';
+        u.LastName = 'LastName' + i;
+        u.FirstName = 'FirstName' + i;
+        u.EmailEncodingKey = 'ISO-8859-1';
+        u.Email = email + i;
+        u.TimeZoneSidKey = 'America/New_York';
+        u.CommunityNickname = 'Ltest' + i;
+        u.UserName = email + '.test' + i;
+        if (doInsert) {
             insert u;
         }
         return u;
     }
     public static Account createAccount(Boolean doInsert) {
         Account newRecord = new Account(
-            Name='Acme', 
-            BillingStreet = '101 binary way', 
-            BillingCity = 'New York', 
-            BillingStateCode='NY',
-            BillingPostalCode='10101'
-            );
-        if(doInsert) {insert newRecord;}
-        return newRecord; 
+                Name = 'Acme',
+                BillingStreet = '101 binary way',
+                BillingCity = 'New York',
+                BillingStateCode = 'NY',
+                BillingPostalCode = '10101'
+        );
+        if (doInsert) {
+            insert newRecord;
+        }
+        return newRecord;
     }
-    
-    public static Account createAccount(string name, string url, Boolean doInsert){
+
+    public static Account createAccount(string name, string url, Boolean doInsert) {
         Account a = new Account();
         a.name = name;
         a.website = url;
-        if(doInsert) {insert a;}
+        if (doInsert) {
+            insert a;
+        }
         return a;
     }
-    
+
 /*     public static Issue__c createIssue(string name, string description, string url, Boolean doInsert){
         Issue__c issue = new Issue__c();
         issue.name = name;
@@ -123,7 +150,7 @@ public class TestUtils {
          if(doInsert) {insert issue;}
         return issue;
     }
-    
+
      public static Regulation__c createRegulation(string name, string url, Boolean doInsert){
         Regulation__c regulation = new Regulation__c();
         regulation.name = name;
@@ -131,114 +158,145 @@ public class TestUtils {
          if(doInsert) {insert regulation;}
         return regulation;
     }
-*/    
+*/
     public static Product2 createProduct(Boolean doInsert) {
         Product2 newRecord = new product2(
-            Name='MyTestProduct', 
-            IsActive = true
-            );
-        if(doInsert) {insert newRecord;}
-        return newRecord; 
+                Name = 'MyTestProduct',
+                IsActive = true
+        );
+        if (doInsert) {
+            insert newRecord;
+        }
+        return newRecord;
     }
 
-    public static Product2 createProduct(string name, string description, string url, Boolean doInsert){
+    public static Product2 createProduct(string name, string description, string url, Boolean doInsert) {
         Product2 product = new Product2();
         product.name = name;
         product.description = description;
         product.displayUrl = url;
         product.isActive = true;
-        if(doInsert) {insert product;}
+        if (doInsert) {
+            insert product;
+        }
         return product;
     }
-    
-    public static Pricebook2 createPricebook(string name, boolean isActive, Boolean doInsert){
-        Pricebook2 pb= new Pricebook2();
+
+    public static Pricebook2 createPricebook(string name, boolean isActive, Boolean doInsert) {
+        Pricebook2 pb = new Pricebook2();
         pb.name = name;
-        pb.isActive= isActive;
-        if(doInsert) {insert pb;}
+        pb.isActive = isActive;
+        if (doInsert) {
+            insert pb;
+        }
         return pb;
     }
-    
-    public static PricebookEntry createPricebookEntry(String pricebookId, String productId, Boolean doInsert){
+
+    public static PricebookEntry createPricebookEntry(String pricebookId, String productId, Boolean doInsert) {
         PricebookEntry pbe = new PricebookEntry();
         pbe.isActive = true;
         pbe.unitPrice = 4.99;
         pbe.Pricebook2Id = pricebookId;
         pbe.Product2Id = productId;
-        if(doInsert) {insert pbe;}
+        if (doInsert) {
+            insert pbe;
+        }
         return pbe;
     }
-        
-    public static Asset createAsset(Account account, Product2 product, Boolean doInsert){
+
+    public static Asset createAsset(Account account, Product2 product, Boolean doInsert) {
         return createAsset('Installed', account, product, doInsert);
     }
-    
-    public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert){
+
+    public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert) {
         return createAsset(status, account, product, doInsert, true, true, null, null);
     }
-    
-    public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert, Boolean hasHrData, Boolean hasNonHrData, Framework__c framework, Participation__c app){
+
+    public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert, Boolean hasHrData, Boolean hasNonHrData, Framework__c framework, Participation__c app) {
         Asset newRecord = new Asset(
-            Name = Product.Name, 
-            AccountId = account.Id, 
-            Product2id = Product.Id, 
-            Status=status,
-            HR_Data__c = hasHrData,
-            Non_HR_Data__c = hasNonHrData
-            );
+                Name = Product.Name,
+                AccountId = account.Id,
+                Product2id = Product.Id,
+                Status = status,
+                HR_Data__c = hasHrData,
+                Non_HR_Data__c = hasNonHrData
+        );
         if (framework != null) {
             newRecord.framework__c = framework.Id;
         }
         if (app != null) {
             newRecord.Participant__c = app.Id;
         }
-        if(doInsert) {insert newRecord;}
+        if (doInsert) {
+            insert newRecord;
+        }
         return newRecord;
     }
 
     public static Attachment createAttachment(Id parentId, Boolean doInsert) {
         Attachment newRecord = new Attachment(
-            ParentId = parentId,
-            Name = 'mytestname',
-            Body = Blob.valueOf('mystring')
-            );
-        if(doInsert) {insert newRecord;}
+                ParentId = parentId,
+                Name = 'mytestname',
+                Body = Blob.valueOf('mystring')
+        );
+        if (doInsert) {
+            insert newRecord;
+        }
         return newRecord;
     }
     //create test Contact
-    public static Contact createContact(String name, String accId , Boolean isInsert){
+    public static Contact createContact(String name, String accId, Boolean isInsert) {
         Contact con = new Contact(LastName = name, accountId = accId, ownerId = UserInfo.getUserId());
-        if(isInsert){
+        if (isInsert) {
             insert con;
         }
         return con;
     }
-    
+
     // create Case
-    public static Case createCase(String sub, boolean isInsert){
+    public static Case createCase(String sub, boolean isInsert) {
         Case cs = new Case();
         cs.Subject = sub;
-        if(isInsert) {
+        if (isInsert) {
             insert cs;
-        }  
+        }
         return cs;
     }
 
     // create ADCVD Case
-    public static ADCVD_Case__c createADCVDCase(String caseName, String caseType, boolean doInsert){
+
+    public static ADCVD_Case__c createADCVDCase(String caseName, String caseType, User u, Boolean doInsert) {
         ADCVD_Case__c testCase = new ADCVD_Case__c(
-            Name = caseName,
-            ADCVD_Case_Number__c = caseName,
-            ADCVD_Case_Type__c = caseType,
-            CBP_Case_Number__c = caseName,
-            Commodity__c = 'Foodstuffs',
-            Country__c = 'Argentina',
-            Product__c = 'Tacos - Full',
-            Product_Short_Name__c = 'Tacos'
+                Name = caseName,
+                ADCVD_Case_Number__c = caseName,
+                ADCVD_Case_Type__c = caseType,
+                CBP_Case_Number__c = caseName,
+                Commodity__c = 'Foodstuffs',
+                Country__c = 'Argentina',
+                Product__c = 'Tacos - Full',
+                Product_Short_Name__c = 'Tacos',
+                Program_Manager__c = u.Id
         );
-        if(doInsert) {
+        if (doInsert) {
             insert testCase;
-        }  
+        }
+        return testCase;
+    }
+
+    public static ADCVD_Case__c createADCVDCase(String caseName, String caseType, Boolean doInsert) {
+        ADCVD_Case__c testCase = new ADCVD_Case__c(
+                Name = caseName,
+                ADCVD_Case_Number__c = caseName,
+                ADCVD_Case_Type__c = caseType,
+                CBP_Case_Number__c = caseName,
+                Commodity__c = 'Foodstuffs',
+                Country__c = 'Argentina',
+                Product__c = 'Tacos - Full',
+                Product_Short_Name__c = 'Tacos'
+        );
+        if (doInsert) {
+            insert testCase;
+        }
         return testCase;
     }
 
@@ -254,13 +312,13 @@ public class TestUtils {
         app.Go_Live_Date__c = Date.newInstance(2018, 2, 15);
         app.ChronExp_LitigationSegement__c = ' 0 ' + string.valueOf((system.now().addMinutes(30)).minute()) + ' ' + string.valueOf((system.now().addMinutes(30)).hour()) + ' ' + string.valueOf(system.today().day()) + ' ' + string.valueOf(system.today().Month()) + ' ?';
         system.debug('app.ChronExp_LitigationSegement__c = ' + app.ChronExp_LitigationSegement__c);
-        app.ChronExpr_PetitionInvestigation__c = '0 0 1 ' +  string.valueOf((system.today().addDays(1)).day()) + ' ' + string.valueOf(system.today().addDays(1).month()) + ' ?';
+        app.ChronExpr_PetitionInvestigation__c = '0 0 1 ' + string.valueOf((system.today().addDays(1)).day()) + ' ' + string.valueOf(system.today().addDays(1).month()) + ' ?';
         system.debug('ChronExpr_PetitionInvestigation__c = ' + app.ChronExpr_PetitionInvestigation__c);
         if (doInsert) {
             insert app;
         }
         return app;
-    }   
+    }
 
     //create Federal Register
     public static Federal_Register__c createFR(Id parentId, String parentLookupField, Date publishedDate, String frType, Boolean doInsert) {
@@ -268,7 +326,7 @@ public class TestUtils {
         fr.put(parentLookupField, parentId);
         fr.Type__c = frType;
         fr.Published_Date__c = publishedDate;
-        if(doInsert) {
+        if (doInsert) {
             insert fr;
         }
         return fr;
@@ -283,14 +341,14 @@ public class TestUtils {
         }
         return i;
     }
-    
+
     // create Lead
-    public static Lead createLead(String firstName, String LastName,boolean isInsert){
+    public static Lead createLead(String firstName, String LastName, boolean isInsert) {
         Lead lead = new Lead ();
         lead.firstName = firstName;
         lead.LastName = LastName;
         lead.Company = 'Test';
-        if(isInsert) {
+        if (isInsert) {
             insert lead;
         }
         return lead;
@@ -303,9 +361,9 @@ public class TestUtils {
         if (recordTypeName == 'Remand') {
             lit.Expected_Final_Signature_Before_Ext__c = requestFiled;
         } else {
-        lit.Request_Filed__c = requestFiled;
+            lit.Request_Filed__c = requestFiled;
         }
-        if(doInsert) {
+        if (doInsert) {
             insert lit;
         }
         return lit;
@@ -321,7 +379,7 @@ public class TestUtils {
         } else {
             lit.Request_Filed__c = requestFiled;
         }
-        if(doInsert) {
+        if (doInsert) {
             insert lit;
         }
         return lit;
@@ -339,13 +397,13 @@ public class TestUtils {
     }
 
     // create test Opportunity
-    public static Opportunity createOpportunity(String accId, String conId, boolean isInsert){
+    public static Opportunity createOpportunity(String accId, String conId, boolean isInsert) {
         Opportunity opp = new Opportunity();
         opp.Name = 'opportunity';
         opp.AccountId = accId;
         opp.CloseDate = Date.Today();
         opp.stageName = 'Open';
-        if(isInsert) {
+        if (isInsert) {
             insert opp;
         }
         return opp;
@@ -357,20 +415,20 @@ public class TestUtils {
         o.Investigation__c = i.Id;
         Datetime tempDatetime = System.now();
         o.Anniversary_Month__c = tempDatetime.format('MMMMM');
-        if(doInsert) {
+        if (doInsert) {
             insert o;
         }
         return o;
     }
 
     // create test Petition
-    public static Petition__c createPetition(ADCVD_Case__c c, Date petitionDate, Boolean doInsert){
+    public static Petition__c createPetition(ADCVD_Case__c c, Date petitionDate, Boolean doInsert) {
         Petition__c petition = new Petition__c();
         petition.ADCVD_Case__c = c.Id;
         petition.Petition_Filed__c = petitionDate;
         //added for testing purposes
         petition.Initiation_Extension_of_days__c = 3;
-        if(doInsert){
+        if (doInsert) {
             insert petition;
         }
         return petition;
@@ -389,31 +447,31 @@ public class TestUtils {
         return r;
     }
     //create test Harmonized Tarrif Schedule with ADCVD Order
-    public static List<Harmonized_Tariff_Schedule__c> createHTS(ADCVD_Order__c order, Integer count, Boolean doInsert){
+    public static List<Harmonized_Tariff_Schedule__c> createHTS(ADCVD_Order__c order, Integer count, Boolean doInsert) {
         List<Harmonized_Tariff_Schedule__c> htsList = new List<Harmonized_Tariff_Schedule__c>();
         Integer htsNumber = 1111111111;
-        for(Integer i = 0; i < count; i++){
+        for (Integer i = 0; i < count; i++) {
             Harmonized_Tariff_Schedule__c hts = new Harmonized_Tariff_Schedule__c(
-                ADCVD_Order__c = order.Id,
-                HTS_Number__c = String.valueOf(htsNumber+i)
+                    ADCVD_Order__c = order.Id,
+                    HTS_Number__c = String.valueOf(htsNumber + i)
             );
             htsList.add(hts);
         }
-        if(doInsert) insert htsList;
+        if (doInsert) insert htsList;
         return htsList;
     }
     //create test Harmonized Tarrif Schedule with Suspension Agreement
-    public static List<Harmonized_Tariff_Schedule__c> createHTS(Suspension_Agreement__c SA, Integer count, Boolean doInsert){
+    public static List<Harmonized_Tariff_Schedule__c> createHTS(Suspension_Agreement__c SA, Integer count, Boolean doInsert) {
         List<Harmonized_Tariff_Schedule__c> htsList = new List<Harmonized_Tariff_Schedule__c>();
         Integer htsNumber = 1111111111;
-        for(Integer i = 0; i < count; i++){
+        for (Integer i = 0; i < count; i++) {
             Harmonized_Tariff_Schedule__c hts = new Harmonized_Tariff_Schedule__c(
-                Suspension_Agreement__c = SA.Id,
-                HTS_Number__c = String.valueOf(htsNumber+i)
+                    Suspension_Agreement__c = SA.Id,
+                    HTS_Number__c = String.valueOf(htsNumber + i)
             );
             htsList.add(hts);
         }
-        if(doInsert) insert htsList;
+        if (doInsert) insert htsList;
         return htsList;
     }
     //create test Related Recusal
@@ -432,13 +490,13 @@ public class TestUtils {
     public static Segment__c createSegment(ADCVD_Order__c ord, String recordTypeName, Boolean doInsert) {
         Segment__c seg = new Segment__c();
         seg.RecordTypeId = utils.getRecordTypeIdMap('Segment__c').get(recordTypeName);
-        if(ord != null && ord.Id != null) {
+        if (ord != null && ord.Id != null) {
             seg.ADCVD_Order__c = ord.Id;
         }
         //added for testing purposes
         Date tempDate = System.today();
         seg.Final_Date_of_Anniversary_Month__c = tempDate.toStartOfMonth().addDays(Date.daysInMonth(tempDate.year(), tempDate.month()) - 1);
-        if(doInsert) {
+        if (doInsert) {
             insert seg;
         }
         return seg;
@@ -448,13 +506,13 @@ public class TestUtils {
     public static Segment__c createSegment(Suspension_Agreement__c sa, String recordTypeName, Boolean doInsert) {
         Segment__c seg = new Segment__c();
         seg.RecordTypeId = utils.getRecordTypeIdMap('Segment__c').get(recordTypeName);
-        if(sa != null && sa.Id != null) {
+        if (sa != null && sa.Id != null) {
             seg.Suspension_Agreement__c = sa.Id;
         }
         //added for testing purposes
         Date tempDate = System.today();
         seg.Final_Date_of_Anniversary_Month__c = tempDate.toStartOfMonth().addDays(Date.daysInMonth(tempDate.year(), tempDate.month()) - 1);
-        if(doInsert) {
+        if (doInsert) {
             insert seg;
         }
         return seg;
@@ -474,100 +532,100 @@ public class TestUtils {
 
     // create test suspension agreement
     public static Suspension_Agreement__c createSuspensionAgreement(Investigation__c i, Date suspensionDate, Boolean doInsert) {
-        Suspension_Agreement__c sa = new Suspension_Agreement__c(); 
+        Suspension_Agreement__c sa = new Suspension_Agreement__c();
         sa.Suspension_Date__c = suspensionDate;
-        sa.Investigation__c = i.id; 
-        if(doInsert) {
+        sa.Investigation__c = i.id;
+        if (doInsert) {
             insert sa;
         }
         return sa;
     }
 
     //create test Tolling Day
-    public static Tolling_Day__c createTollingDay(Date startDate, Date endDate, User u, Boolean doInsert){
+    public static Tolling_Day__c createTollingDay(Date startDate, Date endDate, User u, Boolean doInsert) {
         Tolling_Day__c td = new Tolling_Day__c();
         td.Start_Date__c = startDate;
         td.End_Date__c = endDate;
         td.Reason__c = 'Snow Day';
-        if(doInsert){
-            System.runAs(u){
+        if (doInsert) {
+            System.runAs(u) {
                 insert td;
             }
         }
         return td;
     }
     //create test Related_Organization__c with ADCVD Order parent
-    public static Related_Organization__c createRelatedOrg(ADCVD_Order__c order, Boolean doInsert){
+    public static Related_Organization__c createRelatedOrg(ADCVD_Order__c order, Boolean doInsert) {
         Related_Organization__c relatedOrg = new Related_Organization__c(ADCVD_Order__c = order.Id);
-        if(doInsert) insert relatedOrg;
+        if (doInsert) insert relatedOrg;
         return relatedOrg;
     }
     //create test Related_Organization__c with Customs Instructions parent
-    public static Related_Organization__c createRelatedOrg(Custom_Instruction__c customInstruction, Boolean doInsert){
+    public static Related_Organization__c createRelatedOrg(Custom_Instruction__c customInstruction, Boolean doInsert) {
         Related_Organization__c relatedOrg = new Related_Organization__c(Custom_Instruction__c = customInstruction.Id);
-        if(doInsert) insert relatedOrg;
+        if (doInsert) insert relatedOrg;
         return relatedOrg;
     }
     //create test Related_Organization__c with Investigation parent
-    public static Related_Organization__c createRelatedOrg(Investigation__c investigation, Boolean doInsert){
+    public static Related_Organization__c createRelatedOrg(Investigation__c investigation, Boolean doInsert) {
         Related_Organization__c relatedOrg = new Related_Organization__c(Investigation__c = investigation.Id);
-        if(doInsert) insert relatedOrg;
+        if (doInsert) insert relatedOrg;
         return relatedOrg;
     }
     //create test Related_Organization__c with Litigation parent
-    public static Related_Organization__c createRelatedOrg(Litigation__c litigation, Boolean doInsert){
+    public static Related_Organization__c createRelatedOrg(Litigation__c litigation, Boolean doInsert) {
         Related_Organization__c relatedOrg = new Related_Organization__c(Litigation__c = litigation.Id);
-        if(doInsert) insert relatedOrg;
+        if (doInsert) insert relatedOrg;
         return relatedOrg;
     }
     //create test Related_Organization__c with Petition parent
-    public static Related_Organization__c createRelatedOrg(Petition__c petition, Boolean doInsert){
+    public static Related_Organization__c createRelatedOrg(Petition__c petition, Boolean doInsert) {
         Related_Organization__c relatedOrg = new Related_Organization__c(Petition__c = petition.Id);
-        if(doInsert) insert relatedOrg;
+        if (doInsert) insert relatedOrg;
         return relatedOrg;
     }
     //create test Related_Organization__c with Segment parent
-    public static Related_Organization__c createRelatedOrg(Segment__c segment, Boolean doInsert){
+    public static Related_Organization__c createRelatedOrg(Segment__c segment, Boolean doInsert) {
         Related_Organization__c relatedOrg = new Related_Organization__c(Segment__c = segment.Id);
-        if(doInsert) insert relatedOrg;
+        if (doInsert) insert relatedOrg;
         return relatedOrg;
     }
 
-     public static Custom_Instruction__c createCustomInstruction(String parentObjectName, Id parentId, Boolean doInsert){
+    public static Custom_Instruction__c createCustomInstruction(String parentObjectName, Id parentId, Boolean doInsert) {
         Custom_Instruction__c customInstruction = new Custom_Instruction__c();
         customInstruction.put(parentObjectName, parentId);
-        if(doInsert){
+        if (doInsert) {
             insert customInstruction;
         }
         return customInstruction;
-     }
-    
+    }
+
     public static User createGenericUser(string username, string email, String profileId) {
         User user = new User();
         user.ProfileId = profileId;
         user.isActive = true;
         user.Alias = 'Alias1';
         user.LocaleSidKey = 'en_US';
-        user.LanguageLocaleKey='en_US';
+        user.LanguageLocaleKey = 'en_US';
         user.LastName = 'LastName1';
         user.FirstName = 'FirstName1';
         user.EmailEncodingKey = 'ISO-8859-1';
         user.Email = email;
         user.TimeZoneSidKey = 'America/New_York';
-        user.CommunityNickname = username+ 'nick87Test';
+        user.CommunityNickname = username + 'nick87Test';
         user.UserName = username + '.test';
-        //user.CallCenterId  = [select Id from CallCenter limit 1].Id;       
+        //user.CallCenterId  = [select Id from CallCenter limit 1].Id;
         //user.ContactId = conId;
         return user;
-    }  
-    
-    public static User createCommunityUser(string email, Id contactId){
+    }
+
+    public static User createCommunityUser(string email, Id contactId) {
         User user = new User();
         user.ProfileId = [select id from profile where name = 'Customer Trade Community User' limit 1].id;
         user.isActive = true;
         user.Alias = 'Alias1';
         user.LocaleSidKey = 'en_US';
-        user.LanguageLocaleKey='en_US';
+        user.LanguageLocaleKey = 'en_US';
         user.LastName = 'LastName1';
         user.FirstName = 'FirstName1';
         user.EmailEncodingKey = 'ISO-8859-1';
@@ -579,141 +637,142 @@ public class TestUtils {
         insert user;
         return user;
     }
-    
-    public static Program__c createProgram(string name, boolean active){   
-        Program__c program = new Program__c(name=name, isActive__c = active);
+
+    public static Program__c createProgram(string name, boolean active) {
+        Program__c program = new Program__c(name = name, isActive__c = active);
         insert program;
         return program;
     }
-    
-    public static Product2 createProduct(string name, boolean active){
-        Product2 product = new product2(name=name, isActive = active);
+
+    public static Product2 createProduct(string name, boolean active) {
+        Product2 product = new product2(name = name, isActive = active);
         insert product;
-        return product; 
+        return product;
     }
-    
-    public static Pricebook2 createPricebook(id ProgramId){
-        pricebook2 pb = new pricebook2(name='Test PB', program__c = ProgramId, isActive = true); 
+
+    public static Pricebook2 createPricebook(id ProgramId) {
+        pricebook2 pb = new pricebook2(name = 'Test PB', program__c = ProgramId, isActive = true);
         insert pb;
         return pb;
     }
-    
-    public static List<PricebookEntry> createPricebookEntries(List<product2> products, list<id> PricebookIds){
-        list<PricebookEntry> pbes = new PricebookEntry[]{};
-            for(id pb : PricebookIds){
-                for(Product2 product : products){
-                    pbes.add(new PricebookEntry(
+
+    public static List<PricebookEntry> createPricebookEntries(List<product2> products, list<id> PricebookIds) {
+        list<PricebookEntry> pbes = new PricebookEntry[]{
+        };
+        for (id pb : PricebookIds) {
+            for (Product2 product : products) {
+                pbes.add(new PricebookEntry(
                         Pricebook2Id = pb,
-                        Product2Id = product.id, 
+                        Product2Id = product.id,
                         unitPrice = 5.00,
                         isActive = true
-                    ));
-                }
+                ));
             }
+        }
         insert pbes;
         return pbes;
     }
 
-    public static List<PaymentSettings__c> createPaymentSettings(){
+    public static List<PaymentSettings__c> createPaymentSettings() {
         PaymentSettings__c[] settings = new PaymentSettings__c[]{
-            new PaymentSettings__c(name='PRIVACY_SHIELD_APP_ID', value__c = 'dummy'),
-            new PaymentSettings__c(name='PRIVACY_SHIELD_APP', value__c = 'ps'),
-            new PaymentSettings__c(name='EVENTS_SERVICES_APP_ID', value__c = 'dummy'),
-            new PaymentSettings__c(name='EVENTS_SERVICES_APP', value__c = 'es'),
-            new PaymentSettings__c(name='PAY_GOV_TCS_ONLINE_URL', value__c = 'http://pay.gov'),
-            new PaymentSettings__c(name='PAY_GOV_TCS_ONLINE_ENDPOINT', value__c = 'http://pay.gov/TCS')
+                new PaymentSettings__c(name = 'PRIVACY_SHIELD_APP_ID', value__c = 'dummy'),
+                new PaymentSettings__c(name = 'PRIVACY_SHIELD_APP', value__c = 'ps'),
+                new PaymentSettings__c(name = 'EVENTS_SERVICES_APP_ID', value__c = 'dummy'),
+                new PaymentSettings__c(name = 'EVENTS_SERVICES_APP', value__c = 'es'),
+                new PaymentSettings__c(name = 'PAY_GOV_TCS_ONLINE_URL', value__c = 'http://pay.gov'),
+                new PaymentSettings__c(name = 'PAY_GOV_TCS_ONLINE_ENDPOINT', value__c = 'http://pay.gov/TCS')
         };
-        insert settings; 
+        insert settings;
         return settings;
-     }
-     
-     public static List<Third_Party_Master_List__c> createTPMLs(List<id> FrameworkIds){
-         List<Third_Party_Master_List__c> TPML = new List<Third_Party_Master_List__c>();
-            
-         for(Id framework : FrameworkIds){
-            TPML.add(new Third_Party_Master_List__c(name = 'DRP HR', framework__c=framework, type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = false, hr_data__c = true));
-            TPML.add(new Third_Party_Master_List__c(name = 'DRP NonHR', framework__c=framework, type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = true, hr_data__c = false));
-         }
-         TPML.add(new Third_Party_Master_List__c(name = 'DRP', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = true, hr_data__c = false));
-         TPML.add(new Third_Party_Master_List__c(name = 'Verifier 1', type__c = 'Verification Provider', website__c = 'http://my.site'));
-         TPML.add(new Third_Party_Master_List__c(name = 'Verifier 2', type__c = 'Verification Provider', website__c = 'http://my.site'));
-         TPML.add(new Third_Party_Master_List__c(name = 'Statutory Body', type__c = 'U.S. Statutory Body', website__c = 'http://my.site'));
-        
+    }
+
+    public static List<Third_Party_Master_List__c> createTPMLs(List<id> FrameworkIds) {
+        List<Third_Party_Master_List__c> TPML = new List<Third_Party_Master_List__c>();
+
+        for (Id framework : FrameworkIds) {
+            TPML.add(new Third_Party_Master_List__c(name = 'DRP HR', framework__c = framework, type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = false, hr_data__c = true));
+            TPML.add(new Third_Party_Master_List__c(name = 'DRP NonHR', framework__c = framework, type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = true, hr_data__c = false));
+        }
+        TPML.add(new Third_Party_Master_List__c(name = 'DRP', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = true, hr_data__c = false));
+        TPML.add(new Third_Party_Master_List__c(name = 'Verifier 1', type__c = 'Verification Provider', website__c = 'http://my.site'));
+        TPML.add(new Third_Party_Master_List__c(name = 'Verifier 2', type__c = 'Verification Provider', website__c = 'http://my.site'));
+        TPML.add(new Third_Party_Master_List__c(name = 'Statutory Body', type__c = 'U.S. Statutory Body', website__c = 'http://my.site'));
+
         insert TPML;
         return null;
-     }
-     
-     public static Order createOrder(id accountId, id participationId, id programId, id pricebookId) {
-         Order order = new Order();
-         order.accountId = accountId;
-         //order.participation__c = participationId;  //No longer used
-         order.participant__c = participationId;
-         order.program__c = programId;
-         order.pricebook2Id = pricebookId;
-         order.effectiveDate = Date.today();
-         order.status = 'Draft';
-         insert order;
-         return order;
     }
-    
+
+    public static Order createOrder(id accountId, id participationId, id programId, id pricebookId) {
+        Order order = new Order();
+        order.accountId = accountId;
+        //order.participation__c = participationId;  //No longer used
+        order.participant__c = participationId;
+        order.program__c = programId;
+        order.pricebook2Id = pricebookId;
+        order.effectiveDate = Date.today();
+        order.status = 'Draft';
+        insert order;
+        return order;
+    }
+
     public static Participation__c createApplication(id accountId) {
         return createApplication(accountId, null);
     }
-    
+
     public static Participation__c createApplication(id accountId, id programId) {
-       Participation__c application = new Participation__c(organization__c = accountId, name='Application Name', postal_code__c = '99999');
-       if (programId != null) {
-           application.program__c = programId;
-       }
-       insert application;
-       return application;
+        Participation__c application = new Participation__c(organization__c = accountId, name = 'Application Name', postal_code__c = '99999');
+        if (programId != null) {
+            application.program__c = programId;
+        }
+        insert application;
+        return application;
     }
-    
+
     public static Framework__c createFramework(String frameworkName, id productId, id programId, boolean isActive) {
-        Framework__c framework = new Framework__c( name = frameworkName, product__c = productId, program__c = programId, isActive__c = isActive);
+        Framework__c framework = new Framework__c(name = frameworkName, product__c = productId, program__c = programId, isActive__c = isActive);
         insert framework;
         return framework;
     }
-    
+
     public static Payment__c createPayment(Id orderId, String application) {
         Payment__c payment = new Payment__c(Order__c = orderId, Application__c = application,
-                                            Pay_Gov_Tracking_Id__c = 'trackingId', Payment_Date__c = Date.today().addDays(-2),
-                                            Payment_Type__c = 'PLASTIC_CARD', Transaction_Status__c = 'Success',
-                                           Transaction_Amount__c = 5.00, Transaction_Date__c = Datetime.now().addDays(-2));
+                Pay_Gov_Tracking_Id__c = 'trackingId', Payment_Date__c = Date.today().addDays(-2),
+                Payment_Type__c = 'PLASTIC_CARD', Transaction_Status__c = 'Success',
+                Transaction_Amount__c = 5.00, Transaction_Date__c = Datetime.now().addDays(-2));
         insert payment;
         return payment;
     }
-    
+
     public static Covered_Entity__c createCoveredEntity(String entityName, Id applicationId) {
-       Covered_Entity__c ce = new Covered_Entity__c(Name = entityName, Participant__c = applicationId);
-       insert ce;
-       return ce;
+        Covered_Entity__c ce = new Covered_Entity__c(Name = entityName, Participant__c = applicationId);
+        insert ce;
+        return ce;
     }
-    
-        public static Language__c createLanguage(String languageName, String direction, String iso) {
+
+    public static Language__c createLanguage(String languageName, String direction, String iso) {
         Language__c l = new Language__c(Name = languageName, Direction__c = direction, ISO_639_1__c = iso);
         insert l;
         return l;
     }
-    
+
     public static Translation__c createTranslation(String transName, Id productId, Id languageId) {
         Translation__c t = new Translation__c(Name = transName, Product__c = productId, Language__c = languageId);
         insert t;
         return t;
     }
-    
+
     public static Content__c createContent(String contentName, String displayTitle, String typeName, Id recordTypeIdValue) {
-        Content__c c = new Content__c(name=contentName, display_title__c = displayTitle, type__c = typeName, RecordTypeId = recordTypeIdValue);
+        Content__c c = new Content__c(name = contentName, display_title__c = displayTitle, type__c = typeName, RecordTypeId = recordTypeIdValue);
         insert c;
         return c;
     }
-    
+
     public static Web_Resource_Link__c createWebResourceLink(String displayName, String url, String status, String webResourceId) {
         Web_Resource_Link__c wrl = new Web_Resource_Link__c(DisplayName__c = displayName, url__c = url, status__c = status, Web_Resource__c = webResourceId);
         insert wrl;
         return wrl;
-    }  
-    
+    }
+
     public static Related_Resource__c createRelatedResource(Id primaryWebResourceId, Id relatedWebResourceId, Id productId) {
         Related_Resource__c rr = new Related_Resource__c();
         rr.Primary_Web_Resource__c = primaryWebResourceId;
@@ -721,5 +780,5 @@ public class TestUtils {
         rr.Product__c = productId;
         insert rr;
         return rr;
-    }    
+    }
 }
