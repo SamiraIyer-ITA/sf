@@ -350,6 +350,18 @@ public class TestUtils {
         }
         return opp;
     }
+    // create test OpportunityContactRole
+    public static OpportunityContactRole createOpportunityContactRole(Id oppId, Id conId, Boolean isPrimary, Id leadId,
+            String role, boolean isInsert){
+        OpportunityContactRole ocr = new OpportunityContactRole();
+        ocr.OpportunityId = oppId;
+        ocr.ContactId  = conId;
+        ocr.Role = 'Business User';
+        if(isInsert) {
+            insert ocr;
+        }
+        return ocr;
+    }
 
     // create test order
     public static ADCVD_Order__c createOrder(Investigation__c i, Boolean doInsert) {
