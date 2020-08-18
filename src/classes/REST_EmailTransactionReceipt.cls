@@ -140,7 +140,6 @@ global without sharing class REST_EmailTransactionReceipt {
 	 */
 	private static Boolean receiptCanBeSent(Payment2__c payment) {
 		//Check that the receipt should be sent to the client
-		system.debug('Payment is ==> ' + payment);
 		if (! payment.Receipt_Allowed__c) {
 			return false;
 		}
