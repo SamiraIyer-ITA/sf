@@ -77,12 +77,20 @@ public class StaffingAssignmentTriggerHandlerTest {
     }
 
     private static void dataSetup(){
+        User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
+
+        System.runAs(testUser) {
+            //create custom setting configuration to activate triggers, workflow rules, and validation rules
+            Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+            AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+
         // Create ADCVD_Case record
         adcvdCaseList = new List<ADCVD_Case__c>();
         adcvdCaseList.add(
                 new ADCVD_Case__c(
                         Id = fflib_IdGenerator.generate(ADCVD_Case__c.SObjectType),
                         Locked__c = false,
+                            Program_Manager__c = testUser.Id,
                         Country__c = 'Mexico'
                 )
         );
