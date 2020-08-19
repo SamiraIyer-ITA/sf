@@ -303,10 +303,13 @@ public class StaffingAssignmentTriggerHandlerTest {
                     segmentList,
                     Staffing_Assignment__c.Segment__c,
                     new List<List<Staffing_Assignment__c>>{
-                        new List<Staffing_Assignment__c> {staffList[3]}
+                            new List<Staffing_Assignment__c>{
+                                    staffList[3]
+                            }
                     }
             );
         }
+    }
 
     private static void selectorSetup() {
         fflib_ApexMocks mocks = new fflib_ApexMocks();
