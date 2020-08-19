@@ -76,97 +76,101 @@ public class StaffingAssignmentTriggerHandlerTest {
         //insert new Staffing_Assignment__c(ADCVD_Case_Number_Text__c = '--This is a test--');
     }
 
-    private static void dataSetup(){
-        // Create ADCVD_Case record
-        adcvdCaseList = new List<ADCVD_Case__c>();
-        adcvdCaseList.add(
-                new ADCVD_Case__c(
-                        Id = fflib_IdGenerator.generate(ADCVD_Case__c.SObjectType),
-                        Locked__c = false,
-                        Country__c = 'Mexico'
-                )
-        );
-        //Create Petition record
-        petitionList = new List<Petition__c>();
-        petitionList.add(
-                new Petition__c(
-                        Id = fflib_IDGenerator.generate(Petition__c.SObjectType),
-                        Locked__c = false,
-                        ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Country_Text__c = 'Mexico'
-                )
-        );
-        //Create Investigation record
-        investigationList = new List<Investigation__c>();
-        investigationList.add(
-                new Investigation__c(
-                        Id = fflib_IDGenerator.generate(Investigation__c.SObjectType),
-                        Locked__c = false,
-                        ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Petition__c = petitionList[0].Id,
-                        Country_Text__c = 'Mexico'
-                )
-        );
-        //Create ADCVD Order record
-        orderList = new List<ADCVD_Order__c>();
-        orderList.add(
-                new ADCVD_Order__c(
-                        Id = fflib_IDGenerator.generate(ADCVD_Order__c.SObjectType),
-                        Locked__c = false,
-                        ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Investigation__c = investigationList[0].Id,
-                        Country_Text__c = 'Mexico'
-                )
-        );
-        //Create Related Organization record
-        relOrgList = new List<Related_Organization__c>();
-        relOrgList.add(
-                new Related_Organization__c(
-                        Id = fflib_IDGenerator.generate(Related_Organization__c.SObjectType),
-                        Locked__c = false,
-                        ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Investigation__c = investigationList[0].Id,
-                        Country_Text__c = 'Mexico'
-                )
-        );
-        //Create Segment record
-        segmentList = new List<Segment__c>();
-        segmentList.add(
-                new Segment__c(
-                        Id = fflib_IDGenerator.generate(Segment__c.SObjectType),
-                        Locked__c = false,
-                        ADCVD_Case__c = adcvdCaseList[0].Id,
-                        ADCVD_Order__c = orderList[0].Id,
-                        Country_Text__c = 'Mexico'
-                )
-        );
-        //Create Staffing Assignment records
-        staffList = new List<Staffing_Assignment__c>();
-        staffList.add(
-                new Staffing_Assignment__c(
-                        Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
-                        Locked__c = false,
-                        ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Petition__c = petitionList[0].Id
-                )
-        );
-        staffList.add(
-                new Staffing_Assignment__c(
-                        Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
-                        Locked__c = false,
-                        ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Investigation__c = investigationList[0].Id
-                )
-        );
-        staffList.add(
-                new Staffing_Assignment__c(
-                        Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
-                        Locked__c = false,
-                        ADCVD_Case__c = adcvdCaseList[0].Id,
-                        ADCVD_Order__c = orderList[0].Id
-                )
-        );
-        /*
+    private static void dataSetup() {
+
+        User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
+        System.runAs(testUser) {
+            // Create ADCVD_Case record
+            adcvdCaseList = new List<ADCVD_Case__c>();
+            adcvdCaseList.add(
+                    new ADCVD_Case__c(
+                            Id = fflib_IdGenerator.generate(ADCVD_Case__c.SObjectType),
+                            Locked__c = false,
+                            Program_Manager__c = testUser.Id,
+                            Country__c = 'Mexico'
+                    )
+            );
+            //Create Petition record
+            petitionList = new List<Petition__c>();
+            petitionList.add(
+                    new Petition__c(
+                            Id = fflib_IDGenerator.generate(Petition__c.SObjectType),
+                            Locked__c = false,
+                            ADCVD_Case__c = adcvdCaseList[0].Id,
+                            Country_Text__c = 'Mexico'
+                    )
+            );
+            //Create Investigation record
+            investigationList = new List<Investigation__c>();
+            investigationList.add(
+                    new Investigation__c(
+                            Id = fflib_IDGenerator.generate(Investigation__c.SObjectType),
+                            Locked__c = false,
+                            ADCVD_Case__c = adcvdCaseList[0].Id,
+                            Petition__c = petitionList[0].Id,
+                            Country_Text__c = 'Mexico'
+                    )
+            );
+            //Create ADCVD Order record
+            orderList = new List<ADCVD_Order__c>();
+            orderList.add(
+                    new ADCVD_Order__c(
+                            Id = fflib_IDGenerator.generate(ADCVD_Order__c.SObjectType),
+                            Locked__c = false,
+                            ADCVD_Case__c = adcvdCaseList[0].Id,
+                            Investigation__c = investigationList[0].Id,
+                            Country_Text__c = 'Mexico'
+                    )
+            );
+            //Create Related Organization record
+            relOrgList = new List<Related_Organization__c>();
+            relOrgList.add(
+                    new Related_Organization__c(
+                            Id = fflib_IDGenerator.generate(Related_Organization__c.SObjectType),
+                            Locked__c = false,
+                            ADCVD_Case__c = adcvdCaseList[0].Id,
+                            Investigation__c = investigationList[0].Id,
+                            Country_Text__c = 'Mexico'
+                    )
+            );
+            //Create Segment record
+            segmentList = new List<Segment__c>();
+            segmentList.add(
+                    new Segment__c(
+                            Id = fflib_IDGenerator.generate(Segment__c.SObjectType),
+                            Locked__c = false,
+                            ADCVD_Case__c = adcvdCaseList[0].Id,
+                            ADCVD_Order__c = orderList[0].Id,
+                            Country_Text__c = 'Mexico'
+                    )
+            );
+            //Create Staffing Assignment records
+            staffList = new List<Staffing_Assignment__c>();
+            staffList.add(
+                    new Staffing_Assignment__c(
+                            Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
+                            Locked__c = false,
+                            ADCVD_Case__c = adcvdCaseList[0].Id,
+                            Petition__c = petitionList[0].Id
+                    )
+            );
+            staffList.add(
+                    new Staffing_Assignment__c(
+                            Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
+                            Locked__c = false,
+                            ADCVD_Case__c = adcvdCaseList[0].Id,
+                            Investigation__c = investigationList[0].Id
+                    )
+            );
+            staffList.add(
+                    new Staffing_Assignment__c(
+                            Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
+                            Locked__c = false,
+                            ADCVD_Case__c = adcvdCaseList[0].Id,
+                            ADCVD_Order__c = orderList[0].Id
+                    )
+            );
+            /*
         staffList.add(
                 new Staffing_Assignment__c(
                         Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
@@ -176,114 +180,114 @@ public class StaffingAssignmentTriggerHandlerTest {
                 )
         );
         */
-        staffList.add(
-                new Staffing_Assignment__c(
-                        Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
-                        Locked__c = false,
-                        ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Segment__c = segmentList[0].Id
-                )
-        );
+            staffList.add(
+                    new Staffing_Assignment__c(
+                            Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
+                            Locked__c = false,
+                            ADCVD_Case__c = adcvdCaseList[0].Id,
+                            Segment__c = segmentList[0].Id
+                    )
+            );
 
-        //Create relationship between ADCVD_Case and Petition
-        adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<ADCVD_Case__c>.class,
-                adcvdCaseList,
-                Petition__c.ADCVD_Case__c,
+            //Create relationship between ADCVD_Case and Petition
+            adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<ADCVD_Case__c>.class,
+                    adcvdCaseList,
+                    Petition__c.ADCVD_Case__c,
                 new List<List<Petition__c>>{petitionList}
-        );
-        //Create relationship between ADCVD_Case and Investigation
-        adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<ADCVD_Case__c>.class,
-                adcvdCaseList,
-                Investigation__c.ADCVD_Case__c,
+            );
+            //Create relationship between ADCVD_Case and Investigation
+            adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<ADCVD_Case__c>.class,
+                    adcvdCaseList,
+                    Investigation__c.ADCVD_Case__c,
                 new List<List<Investigation__c>>{investigationList}
-        );
-        //Create relationship between ADCVD_Case and ADCVD Order
-        adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<ADCVD_Case__c>.class,
-                adcvdCaseList,
-                ADCVD_Order__c.ADCVD_Case__c,
+            );
+            //Create relationship between ADCVD_Case and ADCVD Order
+            adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<ADCVD_Case__c>.class,
+                    adcvdCaseList,
+                    ADCVD_Order__c.ADCVD_Case__c,
                 new List<List<ADCVD_Order__c>>{orderList}
-        );
-        //Create relationship between ADCVD_Case and Related Organiztion
-        adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<ADCVD_Case__c>.class,
-                adcvdCaseList,
-                Related_Organization__c.ADCVD_Case__c,
+            );
+            //Create relationship between ADCVD_Case and Related Organiztion
+            adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<ADCVD_Case__c>.class,
+                    adcvdCaseList,
+                    Related_Organization__c.ADCVD_Case__c,
                 new List<List<Related_Organization__c>>{relOrgList}
-        );
-        //Create relationship between ADCVD_Case and Segment
-        adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<ADCVD_Case__c>.class,
-                adcvdCaseList,
-                Segment__c.ADCVD_Case__c,
+            );
+            //Create relationship between ADCVD_Case and Segment
+            adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<ADCVD_Case__c>.class,
+                    adcvdCaseList,
+                    Segment__c.ADCVD_Case__c,
                 new List<List<Segment__c>>{segmentList}
-        );
-        //Create relationship between ADCVD Case and Staffing Assignments
-        adcvdCaseList = (List<ADCVD_Case__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<ADCVD_Case__c>.class,
-                adcvdCaseList,
-                Staffing_Assignment__c.ADCVD_Case__c,
+            );
+            //Create relationship between ADCVD Case and Staffing Assignments
+            adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<ADCVD_Case__c>.class,
+                    adcvdCaseList,
+                    Staffing_Assignment__c.ADCVD_Case__c,
                 new List<List<Staffing_Assignment__c>>{staffList}
-        );
-        //Create relationship between Petition and Investigation
-        petitionList = (List<Petition__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<Petition__c>.class,
-                petitionList,
-                Investigation__c.Petition__c,
+            );
+            //Create relationship between Petition and Investigation
+            petitionList = (List<Petition__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<Petition__c>.class,
+                    petitionList,
+                    Investigation__c.Petition__c,
                 new List<List<Investigation__c>>{investigationList}
-        );
-        //Create relationship between Investigation and ADCVD Order
-        investigationList = (List<Investigation__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<Investigation__c>.class,
-                investigationList,
-                ADCVD_Order__c.Investigation__c,
+            );
+            //Create relationship between Investigation and ADCVD Order
+            investigationList = (List<Investigation__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<Investigation__c>.class,
+                    investigationList,
+                    ADCVD_Order__c.Investigation__c,
                 new List<List<ADCVD_Order__c>>{orderList}
-        );
-        //Create relationship between Investigation and Related Organization
-        investigationList = (List<Investigation__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<Investigation__c>.class,
-                investigationList,
-                Related_Organization__c.Investigation__c,
+            );
+            //Create relationship between Investigation and Related Organization
+            investigationList = (List<Investigation__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<Investigation__c>.class,
+                    investigationList,
+                    Related_Organization__c.Investigation__c,
                 new List<List<Related_Organization__c>>{relOrgList}
-        );
-        //Create relationship between ADCVD Order and Segment
-        orderList = (List<ADCVD_Order__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<ADCVD_Order__c>.class,
-                orderList,
-                Segment__c.ADCVD_Order__c,
+            );
+            //Create relationship between ADCVD Order and Segment
+            orderList = (List<ADCVD_Order__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<ADCVD_Order__c>.class,
+                    orderList,
+                    Segment__c.ADCVD_Order__c,
                 new List<List<Segment__c>>{segmentList}
-        );
-        //Create relationship between Petition and Staffing Assignments
-        petitionList = (List<Petition__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<Petition__c>.class,
-                petitionList,
-                Staffing_Assignment__c.Petition__c,
-                new List<List<Staffing_Assignment__c>>{
+            );
+            //Create relationship between Petition and Staffing Assignments
+            petitionList = (List<Petition__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<Petition__c>.class,
+                    petitionList,
+                    Staffing_Assignment__c.Petition__c,
+                    new List<List<Staffing_Assignment__c>>{
                         new List<Staffing_Assignment__c> {staffList[0]}
-                }
-        );
-        //Create relationship between Investigation and Staffing Assignments
-        investigationList = (List<Investigation__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<Investigation__c>.class,
-                investigationList,
-                Staffing_Assignment__c.Investigation__c,
-                new List<List<Staffing_Assignment__c>>{
+                    }
+            );
+            //Create relationship between Investigation and Staffing Assignments
+            investigationList = (List<Investigation__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<Investigation__c>.class,
+                    investigationList,
+                    Staffing_Assignment__c.Investigation__c,
+                    new List<List<Staffing_Assignment__c>>{
                         new List<Staffing_Assignment__c> {staffList[1]}
-                }
-        );
-        //Create relationship between ADCVD Order and Staffing Assignments
-        orderList = (List<ADCVD_Order__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<ADCVD_Order__c>.class,
-                orderList,
-                Staffing_Assignment__c.ADCVD_Order__c,
-                new List<List<Staffing_Assignment__c>>{
+                    }
+            );
+            //Create relationship between ADCVD Order and Staffing Assignments
+            orderList = (List<ADCVD_Order__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<ADCVD_Order__c>.class,
+                    orderList,
+                    Staffing_Assignment__c.ADCVD_Order__c,
+                    new List<List<Staffing_Assignment__c>>{
                         new List<Staffing_Assignment__c> {staffList[2]}
-                }
-        );
-        //Create relationship between Related Organization and Staffing Assignments
-        /*relOrgList = (List<Related_Organization__c>)fflib_ApexMocksUtils.makeRelationship(
+                    }
+            );
+            //Create relationship between Related Organization and Staffing Assignments
+            /*relOrgList = (List<Related_Organization__c>)fflib_ApexMocksUtils.makeRelationship(
                 List<Related_Organization__c>.class,
                 relOrgList,
                 Staffing_Assignment__c.Related_Organization__c,
@@ -293,16 +297,16 @@ public class StaffingAssignmentTriggerHandlerTest {
         );
         */
 
-        //Create relationship between Segment and Staffing Assignments
-        segmentList = (List<Segment__c>)fflib_ApexMocksUtils.makeRelationship(
-                List<Segment__c>.class,
-                segmentList,
-                Staffing_Assignment__c.Segment__c,
-                new List<List<Staffing_Assignment__c>>{
+            //Create relationship between Segment and Staffing Assignments
+            segmentList = (List<Segment__c>) fflib_ApexMocksUtils.makeRelationship(
+                    List<Segment__c>.class,
+                    segmentList,
+                    Staffing_Assignment__c.Segment__c,
+                    new List<List<Staffing_Assignment__c>>{
                         new List<Staffing_Assignment__c> {staffList[3]}
-                }
-        );
-    }
+                    }
+            );
+        }
 
     private static void selectorSetup() {
         fflib_ApexMocks mocks = new fflib_ApexMocks();
