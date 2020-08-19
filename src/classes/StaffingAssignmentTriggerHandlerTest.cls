@@ -2,7 +2,7 @@
  * Created by skip on 1/18/19.
  */
 
-@isTest
+@IsTest
 public class StaffingAssignmentTriggerHandlerTest {
     private static List<ADCVD_Case__c> adcvdCaseList { get; set;}
     private static List<Petition__c> petitionList {get; set;}
@@ -13,7 +13,7 @@ public class StaffingAssignmentTriggerHandlerTest {
     private static List<Staffing_Assignment__c> staffList {get; set;}
     private static Map<Id,Staffing_Assignment__c> staffMap {get; set;}
 
-    @isTest static void testInitialize(){
+    @IsTest static void testInitialize(){
         dataSetup();
         selectorSetup();
 
@@ -27,7 +27,7 @@ public class StaffingAssignmentTriggerHandlerTest {
 
     }
 
-    @isTest static void testSetCaseValues(){
+    @IsTest static void testSetCaseValues(){
         dataSetup();
         selectorSetup();
 
@@ -39,7 +39,7 @@ public class StaffingAssignmentTriggerHandlerTest {
         System.assertEquals(adcvdCaseList[0].Country__c, staffList[0].Country_Text__c);
     }
 
-    @isTest static void testAddNewStaffToMapper(){
+    @IsTest static void testAddNewStaffToMapper(){
         dataSetup();
         selectorSetup();
         staffMap = new Map<Id, Staffing_Assignment__c>();
@@ -80,11 +80,15 @@ public class StaffingAssignmentTriggerHandlerTest {
 
         User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
         System.runAs(testUser) {
+            //create custom setting configuration to activate triggers, workflow rules, and validation rules
+            Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+            AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+
             // Create ADCVD_Case record
             adcvdCaseList = new List<ADCVD_Case__c>();
             adcvdCaseList.add(
                     new ADCVD_Case__c(
-                            Id = fflib_IdGenerator.generate(ADCVD_Case__c.SObjectType),
+                            Id = fflib_IDGenerator.generate(ADCVD_Case__c.SObjectType),
                             Locked__c = false,
                             Program_Manager__c = testUser.Id,
                             Country__c = 'Mexico'
