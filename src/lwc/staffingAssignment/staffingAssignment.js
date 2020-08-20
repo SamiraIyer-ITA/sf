@@ -259,7 +259,7 @@ export default class StaffingAssignment extends LightningElement {
                     variant: 'error'
                 })
             );
-        } else if(fields.Title__c == ''){
+        } else if(fields.Title__c == null || fields.Title__c == ''){
             let errorMessage = 'Please select a title for this user.';
             this.dispatchEvent(
                 new ShowToastEvent({
@@ -268,6 +268,8 @@ export default class StaffingAssignment extends LightningElement {
                     variant: 'error'
                 })
             );
+            this.saveButtonLabel = 'Save';
+            this.saveSpinner = false;
         } else {
         // You need to submit the form after modifications
         this.template
@@ -283,7 +285,7 @@ export default class StaffingAssignment extends LightningElement {
         // Here you can execute any logic before submit
         // and set or modify existing fields
 
-        if(fields.Title__c == ''){
+        if(fields.Title__c == null || fields.Title__c == '' ){
             let errorMessage = 'Please select a title for this user.';
             this.dispatchEvent(
                 new ShowToastEvent({
@@ -292,6 +294,8 @@ export default class StaffingAssignment extends LightningElement {
                     variant: 'error'
                 })
             );
+            this.saveButtonLabel = 'Save';
+            this.saveSpinner = false;
         } else {
 
             // You need to submit the form after modifications
