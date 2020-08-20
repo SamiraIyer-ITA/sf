@@ -2,7 +2,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 
 	public static final String METADATA_SETTINGS_NAME = 'PayGov';
 
-	public String authorizePayment(Payment2.PaymentAuthenticationDetails authenticationDetails) {
+	public String authorizePayment(PaymentAuthenticationDetails authenticationDetails) {
 		RecordLog.push('Payment.authorizePayment');
 		RecordLog.message('Remote Account Name: ' + authenticationDetails.remoteAccountName);
 
@@ -23,31 +23,43 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		//POPULATE OPTIONAL ELEMENTS
 
 		//80 char limit
-		startOnlineCollectionRequest.account_holder_name = Payment2.userElementFormat(authenticationDetails.accountHolderName, 80);
+		startOnlineCollectionRequest.account_holder_name = Payment2Utils.userElementFormat(authenticationDetails.accountHolderName, 80);
 		//80 char limit
-		startOnlineCollectionRequest.billing_address = Payment2.userElementFormat(authenticationDetails.billingAddress, 80);
+		startOnlineCollectionRequest.billing_address = Payment2Utils.userElementFormat(authenticationDetails.billingAddress, 80);
 		//80 char limit
-		startOnlineCollectionRequest.billing_address2 = Payment2.userElementFormat(authenticationDetails.billingAddress2, 80);
+		startOnlineCollectionRequest.billing_address2 = Payment2Utils.userElementFormat(authenticationDetails.billingAddress2, 80);
 		//40 char limit
-		startOnlineCollectionRequest.billing_city = Payment2.userElementFormat(authenticationDetails.billingCity, 40);
+		startOnlineCollectionRequest.billing_city = Payment2Utils.userElementFormat(authenticationDetails.billingCity, 40);
 		//2 char limit
-		startOnlineCollectionRequest.billing_state = Payment2.userElementFormat(authenticationDetails.billingStateCode, 2);
+		startOnlineCollectionRequest.billing_state = Payment2Utils.userElementFormat(authenticationDetails.billingStateCode, 2);
 		//20 char limit
-		startOnlineCollectionRequest.billing_zip = Payment2.userElementFormat(authenticationDetails.billingZip, 20);
+		startOnlineCollectionRequest.billing_zip = Payment2Utils.userElementFormat(authenticationDetails.billingZip, 20);
 		//3 digit ISO code
-		startOnlineCollectionRequest.billing_country = Payment2.userElementFormat(authenticationDetails.billingCountryCode, 3);
+		startOnlineCollectionRequest.billing_country = Payment2Utils.userElementFormat(authenticationDetails.billingCountryCode, 3);
 		//80 char limit
-		startOnlineCollectionRequest.email_address = Payment2.userElementFormat(authenticationDetails.email, 80);
+		startOnlineCollectionRequest.email_address = Payment2Utils.userElementFormat(authenticationDetails.email, 80);
 
 		//END OPTIONAL ELEMENTS
+
+		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id> {authenticationDetails.paymentId});
+		//
 
 		PayGovTCSOnline.CustomCollectionFields customFields = new PayGovTCSOnline.CustomCollectionFields();
 		if (authenticationDetails.accountType.equals('Privacy Shield')) {
 			//Privacy Shield
-			customFields.custom_field_1 = '55:0023:' + Payment2.getCurrentFiscalYear() + ':SAFH232-000:35-05-0001-01-00-00-00:05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
+			customFields.custom_field_1 = '55:0023:' + Payment2Utils.getCurrentFiscalYear() + ':SAFH232-000:35-05-0001-01-00-00-00:05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
 		} else {
 			//Only Privacy Shield uses custom fields, but the first one must be filled in for NIST's system.
-			customFields.custom_field_1 = '::::::::::::::';
+
+			if (String.isBlank(payments[0].Project_Code__c)) {
+				throw new Payment2Utils.PaymentException('Project Code is missing.');
+			}
+			List<String> projectCodesForPayment = payments[0].Project_Code__c.split(',');
+			for (String projectCodeForPayment : projectCodesForPayment) {
+				// MGK increment custom_field_X so that each value in the list is a custom field
+				// MGK use int = 1 loop
+				customFields.custom_field_1 = '55:0023:' + Payment2Utils.getCurrentFiscalYear() + ':' + projectCodeForPayment + '-000:' + payments[0].Fulfillment_Post_Org_Code__c + ':05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
+			}
 		}
 
 		startOnlineCollectionRequest.custom_fields= customFields;
@@ -80,10 +92,10 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		}
 	}
 
-	public String confirmPayment(String remoteAccountName, String paymentId, String token, String acctType, String[] orderIds) {
+	public String confirmPayment(String remoteAccountName, String paymentId, String token, String acctType, String orderId) {
 		RecordLog.push('Payment.confirmPayment');
 		RecordLog.message('Payment Id: ' + paymentId);
-		RecordLog.message('OrderIds:' + orderIds);
+		RecordLog.message('OrderId:' + orderId);
 		RecordLog.message('Account Type:' + acctType);
 		RecordLog.message('Remote Account Name:' + remoteAccountName);
 		PayGovTCSOnline.CompleteOnlineCollectionWithDetailsRequest completeOnlineCollectionWithDetailsRequest = new PayGovTCSOnline.CompleteOnlineCollectionWithDetailsRequest();
@@ -94,6 +106,8 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		//RecordLog.emit() will be called in payGovOnline.completeOnlineCollectionWithDetails
 		Boolean error = false;
 		String errorMessage = null;
+		String accountHolderName = null;
+		String accountNumber = null;
 		try {
 			if (Test.isRunningTest()) {
 				completeOnlineCollectionWithDetailsResponse = new PayGovTCSOnline.CompleteOnlineCollectionWithDetailsResponse();
@@ -112,7 +126,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			RecordLog.push('Payment.completeTransaction Exception');
 			RecordLog.message(e.getMessage());
 			RecordLog.emit(paymentId);
-			errorMessage = 'Unable to complete payment.  ';
+			errorMessage = 'Unable to complete payment.  ' + e.getMessage();
 			error = true;
 		}
 
@@ -136,7 +150,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			DateTime transDate = completeOnlineCollectionWithDetailsResponse.transaction_date;
 			RecordLog.message('Original Transaction Date: ' + String.valueOf(transDate));
 			RecordLog.message('Original Transaction Date as GMT: ' + String.valueOfGmt(transDate));
-			DateTime transDateGMT = transDate.addSeconds(Payment2.getTimeZoneOffset());
+			DateTime transDateGMT = transDate.addSeconds(Payment2Utils.getTimeZoneOffset());
 			payments[0].Transaction_Date__c = transDateGMT;  //Datetimes need to be either GMT or have a timezone specified
 			RecordLog.message('Adjusted Transaction Date: ' + String.valueOf(transDateGMT));
 
@@ -146,14 +160,16 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			payments[0].Transaction_Status__c = completeOnlineCollectionWithDetailsResponse.transaction_status;
 			RecordLog.message('Transaction Status: ' + payments[0].Transaction_Status__c);
 			payments[0].Payment_Type__c = completeOnlineCollectionWithDetailsResponse.payment_type;
-			RecordLog.message('Payment Type: ' + payments[0].Payment_Type__c);
+			payments[0].Receipt_Ready__c = true;
+			RecordLog.message('Receipt Ready: ' + payments[0].Receipt_Ready__c);
 
-			//Also update each Order to add the lookup for this payment
-			Set<Id> orderIdSet = (Set<Id>)JSON.deserialize(JSON.serialize(orderIds), Set<Id>.class);
-			orders = OrdersSelector.newInstance().selectById(orderIdSet);
-			for (Order order: orders) {
-				order.Payment2__c = paymentId;
-				order.Order_Paid__c = true;
+			if(String.isNotBlank(orderId)) {
+				//Also update each Order to add the lookup for this payment
+				orders = OrdersSelector.newInstance().selectById(new Set<Id>{orderId});
+				for (Order order : orders) {
+					order.Payment2__c = paymentId;
+					order.Order_Paid__c = true;
+				}
 			}
 		}
 
@@ -162,15 +178,21 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		try {
 			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 			uow.registerDirty(payments);
-			uow.registerDirty(orders);
+			if(String.isNotBlank(orderId)) {
+				uow.registerDirty(orders);
+			}
 			uow.commitWork();
 		} catch (Exception e) {
 			RecordLog.message('Exception: ' + e.getMessage());
-			System.debug('CARY: ' + e.getMessage());
 			error = true;
 			errorMessage += 'Unable to update payment and/or order record.';
 		} finally {
 			RecordLog.emit(paymentId);
+
+			//Future callout to Pay.gov again to get and update the Account Holder Name and Masked Account Number
+			if (! error) {
+				PaymentProcessorForPayGov.futureGetPaymentDetails(paymentId);
+			}
 		}
 
 		if (error) {
@@ -179,7 +201,39 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			throw auraHandledException;
 		}
 
-		return paymentId;
+		PaymentProcessorForPayGov.confirmationMessage confirm = new PaymentProcessorForPayGov.confirmationMessage();
+		confirm.paymentConfirmed = !error;
+		confirm.errorMessage = errorMessage;
+
+		return JSON.serialize(confirm);
+	}
+
+	/**
+	* Populate the Account Holder Name and Account Number using a pay.gov future callout
+	*
+	* @param paymentId
+	*/
+	@future(callout=true)
+	public static void futureGetPaymentDetails(Id paymentId) {
+		try {
+			String paymentDetails = PaymentDetailsLightningController2.getPaymentDetails(paymentId);
+			PaymentDetailsForPayGov.ReturnValue returnValue = (PaymentDetailsForPayGov.ReturnValue) JSON.deserialize(paymentDetails, PaymentDetailsForPayGov.ReturnValue.class);
+			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id> {paymentId});
+			payments[0].Account_Holder_Name__c = returnValue.accountHolderName;
+			payments[0].Account_Number__c = returnValue.accountNumber;
+			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType});
+			uow.registerDirty(payments);
+			uow.commitWork();
+		} catch (Exception e) {
+			RecordLog.push('futureGetPaymentDetails Exception');
+			RecordLog.message(e.getMessage());
+			RecordLog.emit(paymentId);
+		}
+	}
+
+	public class confirmationMessage {
+		public Boolean paymentConfirmed {get;set;}
+		public String errorMessage {get;set;}
 	}
 
 }
