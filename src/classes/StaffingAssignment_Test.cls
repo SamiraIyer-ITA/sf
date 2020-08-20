@@ -6,8 +6,8 @@
 *
 **/
 
-@isTest
-public class StaffingAssignment_Test{
+@IsTest
+public class StaffingAssignment_Test {
 
     static Petition__c p {
         get {
@@ -19,10 +19,10 @@ public class StaffingAssignment_Test{
         set;
     }
 
-    @testSetup static void dataSetup() {
+    @TestSetup static void dataSetup() {
         User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
 
-        System.runAS(testUser) {
+        System.runAs(testUser) {
             Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
             AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
             //create test data
@@ -35,7 +35,7 @@ public class StaffingAssignment_Test{
         }
     }
 
-    @isTest static void unittest() {
+    @IsTest static void unittest() {
 
         Test.startTest();
 
