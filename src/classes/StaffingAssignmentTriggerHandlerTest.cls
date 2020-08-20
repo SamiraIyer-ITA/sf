@@ -5,6 +5,7 @@
 @IsTest
 public class StaffingAssignmentTriggerHandlerTest {
     private static List<ADCVD_Case__c> adcvdCaseList { get; set;}
+    private static List<User> adcvdUserList { get; set;}
     private static List<Petition__c> petitionList {get; set;}
     private static List<Investigation__c> investigationList {get; set;}
     private static List<ADCVD_Order__c> orderList {get; set;}
@@ -38,8 +39,40 @@ public class StaffingAssignmentTriggerHandlerTest {
         //Assert adcvd case records
         System.assertEquals(adcvdCaseList[0].Country__c, staffList[0].Country_Text__c);
     }
+/*
+    @isTest static void testBuildStaffListByParentInsertUpdate() {
+        dataSetup();
+        selectorSetup();
 
+        Test.startTest();
+        StaffingAssignmentTriggerHandler.buildStaffListByParentInsertUpdate(staffList);
+        Test.stopTest();
+
+        //Assert adcvd case records
+        //System.assertEquals(adcvdCaseList[0].Country__c, staffList[0].Country_Text__c);
+    }
+*/
     @IsTest static void testAddNewStaffToMapper(){
+        dataSetup();
+        selectorSetup();
+        staffMap = new Map<Id, Staffing_Assignment__c>();
+        for (Staffing_Assignment__c sa : staffList) {
+            staffMap.put(sa.Id, sa);
+        }
+
+        Test.startTest();
+        StaffingAssignmentTriggerHandler.mainEntry(staffList, staffList, staffMap, null, true, false, false, false, false, true);
+        Test.stopTest();
+
+        //Assert adcvd case records
+        for (Staffing_Assignment__c sa : staffList) {
+            StaffingAssignmentMapper sam = (StaffingAssignmentMapper) ADCVD_CaseMapper.mapperMap.get('Staffing_Assignment__c');
+            System.assert(sam.getMap().containsKey(sa.Id));
+        }
+
+    }
+
+/*    @isTest static void testwwwwAddNewStaffToMapper(){
         dataSetup();
         selectorSetup();
         staffMap = new Map<Id, Staffing_Assignment__c>();
@@ -68,30 +101,54 @@ public class StaffingAssignmentTriggerHandlerTest {
             System.assert(staffMapper.getMap().containsKey(staff.Id));
         }
 
-    }
+    }*/
 
     @IsTest
-    static void exerciseTrigger()
-    {
-        //insert new Staffing_Assignment__c(ADCVD_Case_Number_Text__c = '--This is a test--');
-    }
-
-    private static void dataSetup() {
+    static void exerciseTrigger() {
 
         User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
-        System.runAs(testUser) {
-            //create custom setting configuration to activate triggers, workflow rules, and validation rules
-            Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
-            AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
 
+        System.runAs(testUser) {
+//            Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+//            AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+
+            ADCVD_Case__c c = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser, true);
+
+            ADCVD_Case__c testCase = [SELECT Id, Program_Manager__c, Program_Manager__r.UserRole.Id, Program_Manager__r.UserRole.Name FROM ADCVD_Case__c LIMIT 1];
+
+            Petition__c p = TestUtils.createPetition(testCase, System.today(), true);
+
+            Staffing_Assignment__c sa = new Staffing_Assignment__c(
+                    //Locked__c = false,
+                    ADCVD_Case__c = c.Id,
+                    Petition__c = p.Id,
+                    Staff_Parent__c = 'Petition__c',
+                    User__c = testUser.Id
+            );
+            insert sa;
+            sa.Title__c = 'Analyst';
+            update sa;
+            delete sa;
+        }
+        //insert new Staffing_Assignment__c(ADCVD_Case_Number_Text__c = '--This is a test--');
+    }
+    private static void dataSetup(){
+        // Create User record
+        adcvdUserList = new List<User>();
+        adcvdUserList.add(
+                new User(
+                        Id = fflib_IDGenerator.generate(User.SObjectType),
+                        Staffing_Role__c = 'Program Manager'
+                )
+        );
             // Create ADCVD_Case record
             adcvdCaseList = new List<ADCVD_Case__c>();
             adcvdCaseList.add(
                     new ADCVD_Case__c(
                             Id = fflib_IDGenerator.generate(ADCVD_Case__c.SObjectType),
                             Locked__c = false,
-                            Program_Manager__c = testUser.Id,
-                            Country__c = 'Mexico'
+                        Country__c = 'Mexico',
+                        Program_Manager__c = adcvdUserList[0].Id
                     )
             );
             //Create Petition record
@@ -155,7 +212,8 @@ public class StaffingAssignmentTriggerHandlerTest {
                             Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
                             Locked__c = false,
                             ADCVD_Case__c = adcvdCaseList[0].Id,
-                            Petition__c = petitionList[0].Id
+                        Petition__c = petitionList[0].Id,
+                        Staff_Parent__c = 'Petition__c'
                     )
             );
             staffList.add(
@@ -163,7 +221,9 @@ public class StaffingAssignmentTriggerHandlerTest {
                             Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
                             Locked__c = false,
                             ADCVD_Case__c = adcvdCaseList[0].Id,
-                            Investigation__c = investigationList[0].Id
+                        Investigation__c = investigationList[0].Id,
+                        Staff_Parent__c = 'Investigation__c'
+
                     )
             );
             staffList.add(
@@ -171,7 +231,9 @@ public class StaffingAssignmentTriggerHandlerTest {
                             Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
                             Locked__c = false,
                             ADCVD_Case__c = adcvdCaseList[0].Id,
-                            ADCVD_Order__c = orderList[0].Id
+                        ADCVD_Order__c = orderList[0].Id,
+                        Staff_Parent__c = 'ADCVD_Order__c'
+
                     )
             );
             /*
@@ -189,7 +251,9 @@ public class StaffingAssignmentTriggerHandlerTest {
                             Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
                             Locked__c = false,
                             ADCVD_Case__c = adcvdCaseList[0].Id,
-                            Segment__c = segmentList[0].Id
+                        Segment__c = segmentList[0].Id,
+                        Staff_Parent__c = 'Segment__c'
+
                     )
             );
 
@@ -307,13 +371,10 @@ public class StaffingAssignmentTriggerHandlerTest {
                     segmentList,
                     Staffing_Assignment__c.Segment__c,
                     new List<List<Staffing_Assignment__c>>{
-                            new List<Staffing_Assignment__c>{
-                                    staffList[3]
-                            }
+                        new List<Staffing_Assignment__c> {staffList[3]}
                     }
             );
         }
-    }
 
     private static void selectorSetup() {
         fflib_ApexMocks mocks = new fflib_ApexMocks();
