@@ -1,0 +1,10 @@
+@IsTest
+private class {0}SelectorTest {{
+
+	@IsTest
+	static void testSelectById() {{
+		List<{1}> result = {0}Selector.newInstance().selectById(new Set<Id> {{}});
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertEquals(0, result.size(), 'List not empty');
+	}}
+}}
