@@ -79,7 +79,7 @@ public without sharing class DateCalculationService {
             if (conditionalResults.containsKey('Align') && conditionalResults.get('Align')) {
                 continue;
             } else if ((!conditionalResults.containsKey('Skip') || !conditionalResults.get('Skip')) 
-                && !skipCalculation) {
+                && !skipCalculation){
                 for (Integer i = 1; i <= numberOfBaseDates; i++) {
                     baseDate = baseDate == null ? getBaseDate(record, soType, dc, i) : baseDate;
                     System.debug(LoggingLevel.Debug, '*** baseDate: ' + baseDate);
@@ -89,13 +89,10 @@ public without sharing class DateCalculationService {
                 }
                 if (baseDate != null && tollingService == 'Get Calculated Date') {
                     tempDate = baseDate.addDays(offset).addDays(extension);
-                    tempDate = ADCVD_TollingDayUtility.getCalculatedDate(baseDate, tempDate, true, (Id) record.get('Id'));
-                } else if (baseDate != null && tollingService == 'Get Calculated Date No Tolling') {
-                    tempDate = baseDate.addDays(offset).addDays(extension);
-                    tempDate = ADCVD_TollingDayUtility.getCalculatedDateNoTolling(baseDate, tempDate, (Id) record.get('Id'));
+                    tempDate = ADCVD_TollingDayUtility.getCalculatedDate(baseDate, tempDate, true, (Id)record.get('Id'));
                 } else if (baseDate != null && tollingService == 'Count Back Business Days') {
                     tempDate = ADCVD_TollingDayUtility.countBackBusinessDays(baseDate, offset);
-                } else if (baseDate != null && String.isBlank(tollingService)) {
+                   } else if (baseDate != null && String.isBlank(tollingService)) {
                         tempDate = baseDate.addDays(offset).addDays(extension);
                 }
                 record.put(calculatedDateName, tempDate);
