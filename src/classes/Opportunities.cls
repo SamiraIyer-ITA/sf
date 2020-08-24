@@ -17,6 +17,10 @@ public class Opportunities extends fflib_SObjectDomain implements IOpportunities
 		super(sObjectList);
 	}
 
+	public override void onBeforeInsert() {
+		OpportunitiesService.handleBeforeInsert(Records);
+	}
+
 	public override void onBeforeUpdate(Map<Id,SObject> existingRecords) {
 		OpportunitiesService.handleBeforeUpdate(Records, existingRecords);
 	}
