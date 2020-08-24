@@ -120,4 +120,43 @@ private class REST_CreatePaymentTest {
 		System.assertEquals(false, hasException);
 	}
 
+	@IsTest
+	static void testCreatePaymentCallout_Fail() {
+		// Set mock callout class
+		Test.setMock(HttpCalloutMock.class, new REST_PaymentMock());
+
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
+		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
+
+		Collection_Fulfillment__c cp = new Collection_Fulfillment__c(Post__c='56789',Org_Code__c='12345');
+		Collection_Fulfillment__c fp = new Collection_Fulfillment__c(Post__c='67890',Org_Code__c='23456');
+		List<Collection_Fulfillment__c> cfList = new List<Collection_Fulfillment__c>{cp,fp};
+		insert cfList;
+		params.projectCode = '9999ABC';
+		params.accountType = 'Services';
+		params.accountHolderName = 'Jeff';
+		params.transactionAmount = '100.00';
+		params.organizationName = 'Jorg Industries';
+		params.billingAddress = '311 Jorg Street';
+		params.billingCity = 'Beverly Hills';
+		params.billingStateCode = 'CA';
+		params.billingZip = '90210';
+		params.billingCountryCode = 'USA';
+		params.confirmationPage = 'https://www.test.com/confirmation';
+		params.orderId = orders[0].Id;
+
+		Test.startTest();
+
+		RestRequest req = new RestRequest();
+		RestResponse res = new RestResponse();
+		req.requestURI = '/services/apexrest/CreatePayment';
+		req.httpMethod = 'POST';
+		req.requestBody = Blob.valueOf(JSON.serialize(params));
+		RestContext.request = req;
+		RestContext.response= res;
+		REST_CreatePayment.doPost(params);
+		Test.stopTest();
+
+	}
+
 }
