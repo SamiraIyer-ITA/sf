@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>Transaction_Management</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <description>Assigned Apps - Access to the Transaction Management App. Related to the management of Payments.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Transaction Management App</label>
+</PermissionSet>
