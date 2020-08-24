@@ -155,6 +155,19 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>Acronym__c</fullName>
+        <description>Cost and Fulfillment Acronym code</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Cost and Fulfillment Acronym code</inlineHelpText>
+        <label>Acronym</label>
+        <length>7</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Active__c</fullName>
         <defaultValue>true</defaultValue>
         <description>Shows status of Org Code</description>
@@ -1756,6 +1769,18 @@
         <inlineHelpText>Post location for services</inlineHelpText>
         <label>Post</label>
         <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Queue__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:Queue.QueueName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Queue</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
