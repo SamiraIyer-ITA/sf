@@ -628,6 +628,103 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A0400LimitFRTypesInvestigationAD</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Investigation object&apos;s &quot;AD&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Investigation__r.RecordType.DeveloperName = &apos;AD&apos;,
+CASE(Type__c, 
+&apos;Preliminary&apos;, 0,
+&apos;Amended Preliminary&apos;, 0,
+&apos;Final&apos;, 0,
+&apos;Amended Final&apos;, 0,
+&apos;ITC Preliminary&apos;, 0,
+&apos;ITC Final&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+&apos;Critical Circumstances&apos;, 0,
+1) = 1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with an Investigation record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0400LimitFRTypesInvestigationCVD</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Investigation object&apos;s &quot;CVD&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Investigation__r.RecordType.DeveloperName = &apos;CVD&apos;,
+CASE(Type__c, 
+&apos;Preliminary&apos;, 0,
+&apos;Amended Preliminary&apos;, 0,
+&apos;Final&apos;, 0,
+&apos;Amended Final&apos;, 0,
+&apos;ITC Preliminary&apos;, 0,
+&apos;ITC Final&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+&apos;Critical Circumstances&apos;, 0,
+1) = 1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with an Investigation record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0400LimitFRTypesPetitionFiled</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Petition object&apos;s &quot;Filed&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Petition__r.RecordType.DeveloperName = &apos;Filed&apos;,
+CASE(Type__c, 
+&apos;Initiation&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+1)=1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with a Petition record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0400LimitFRTypesPetitionPrivate</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Petition object&apos;s &quot;Private&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Petition__r.RecordType.DeveloperName = &apos;Private&apos;,
+CASE(Type__c, 
+&apos;Initiation&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+1)=1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with a Petition record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0400LimitFRTypesPetitionSelfInitiated</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Petition object&apos;s &quot;Self_Initiated&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Petition__r.RecordType.DeveloperName = &apos;Self_Initiated&apos;,
+CASE(Type__c, 
+&apos;Initiation&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+1)=1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with a Petition record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A0401PermSetReparentsFR</fullName>
         <active>true</active>
         <description>FR records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
