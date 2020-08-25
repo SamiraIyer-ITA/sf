@@ -4,8 +4,8 @@
         <editable>true</editable>
         <field>ADCVD_Case__c.Program_Manager__c</field>
         <readable>true</readable>
-    <fieldPermissions>
     </fieldPermissions>
+    <fieldPermissions>
         <field>Segment__c.ADCVD_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
