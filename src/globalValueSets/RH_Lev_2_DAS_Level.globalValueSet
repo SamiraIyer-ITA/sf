@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>GM Advocacy Everywhere</fullName>
+        <default>false</default>
+        <label>GM Advocacy Everywhere</label>
+    </customValue>
+    <customValue>
+        <fullName>EC Policy &amp; Negotiations DAS Office</fullName>
+        <default>false</default>
+        <label>EC Policy &amp; Negotiations DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-HQ DAS Office</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-HQ DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-China-HQ DAS Office</fullName>
+        <default>false</default>
+        <label>GM CS-China-HQ DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-HQ DAS Office</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-HQ DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-HQ DAS Office</fullName>
+        <default>false</default>
+        <label>GM CS-USA-HQ DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-HQ DAS Office</fullName>
+        <default>false</default>
+        <label>GM CS-WH-HQ DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>GM SelectUSA Everywhere</fullName>
+        <default>false</default>
+        <label>GM SelectUSA Everywhere</label>
+    </customValue>
+    <customValue>
+        <fullName>IA MFG DAS Office</fullName>
+        <default>false</default>
+        <label>IA MFG DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>IA NTTO</fullName>
+        <default>false</default>
+        <label>IA NTTO</label>
+    </customValue>
+    <customValue>
+        <fullName>IA OACIO</fullName>
+        <default>false</default>
+        <label>IA OACIO</label>
+    </customValue>
+    <customValue>
+        <fullName>IA OPCM</fullName>
+        <default>false</default>
+        <label>IA OPCM</label>
+    </customValue>
+    <customValue>
+        <fullName>IA SVCS DAS Office</fullName>
+        <default>false</default>
+        <label>IA SVCS DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TAS</fullName>
+        <default>false</default>
+        <label>IA TAS</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TCGM DAS Office</fullName>
+        <default>false</default>
+        <label>IA TCGM DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TPA DAS Office</fullName>
+        <default>false</default>
+        <label>IA TPA DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TPPSP</fullName>
+        <default>false</default>
+        <label>IA TPPSP</label>
+    </customValue>
+    <masterLabel>User DAS</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

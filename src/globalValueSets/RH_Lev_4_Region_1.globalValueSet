@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>GM Advocacy Field</fullName>
+        <default>false</default>
+        <label>GM Advocacy Field</label>
+    </customValue>
+    <customValue>
+        <fullName>GM Advocacy HQ</fullName>
+        <default>false</default>
+        <label>GM Advocacy HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ANZ</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ANZ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field ASEAN</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Africa</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Balkans</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Balkans</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Benelux</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Benelux</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field EURASIA</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field EURASIA</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field GEAUS</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field GEAUS</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Gulf</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Gulf</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Nordics</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Nordics</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field North Africa</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field North Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field PoCz</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field PoCz</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field SPG</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field SPG</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field UK</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field UK</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field ANDPAN</fullName>
+        <default>false</default>
+        <label>GM CS-WH-Field ANDPAN</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field ARGUR</fullName>
+        <default>false</default>
+        <label>GM CS-WH-Field ARGUR</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field CAFTA</fullName>
+        <default>false</default>
+        <label>GM CS-WH-Field CAFTA</label>
+    </customValue>
+    <customValue>
+        <fullName>GM SelectUSA HQ</fullName>
+        <default>false</default>
+        <label>GM SelectUSA HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM SelectUSA-Field</fullName>
+        <default>false</default>
+        <label>GM SelectUSA-Field</label>
+    </customValue>
+    <customValue>
+        <fullName>IA MFG OEEI</fullName>
+        <default>false</default>
+        <label>IA MFG OEEI</label>
+    </customValue>
+    <customValue>
+        <fullName>IA MFG OHIT</fullName>
+        <default>false</default>
+        <label>IA MFG OHIT</label>
+    </customValue>
+    <customValue>
+        <fullName>IA MFG OTM</fullName>
+        <default>false</default>
+        <label>IA MFG OTM</label>
+    </customValue>
+    <customValue>
+        <fullName>IA SVCS ODSI</fullName>
+        <default>false</default>
+        <label>IA SVCS ODSI</label>
+    </customValue>
+    <customValue>
+        <fullName>IA SVCS OFI</fullName>
+        <default>false</default>
+        <label>IA SVCS OFI</label>
+    </customValue>
+    <customValue>
+        <fullName>IA SVCS OSCPBS</fullName>
+        <default>false</default>
+        <label>IA SVCS OSCPBS</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TCGM OCG</fullName>
+        <default>false</default>
+        <label>IA TCGM OCG</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TCGM OM</fullName>
+        <default>false</default>
+        <label>IA TCGM OM</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TCGM OTEXA</fullName>
+        <default>false</default>
+        <label>IA TCGM OTEXA</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TPA OIPR</fullName>
+        <default>false</default>
+        <label>IA TPA OIPR</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TPA OSIP</fullName>
+        <default>false</default>
+        <label>IA TPA OSIP</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TPA OTEA</fullName>
+        <default>false</default>
+        <label>IA TPA OTEA</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TPA OTNA</fullName>
+        <default>false</default>
+        <label>IA TPA OTNA</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TPPSP SP</fullName>
+        <default>false</default>
+        <label>IA TPPSP SP</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TPPSP TMP</fullName>
+        <default>false</default>
+        <label>IA TPPSP TMP</label>
+    </customValue>
+    <customValue>
+        <fullName>IA TPPSP TSM</fullName>
+        <default>false</default>
+        <label>IA TPPSP TSM</label>
+    </customValue>
+    <masterLabel>User Sub-region</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
