@@ -5,4 +5,8 @@
         <field>ADCVD_Case__c.Program_Manager__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <field>Custom_Instruction__c.ADCVD_Order__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 </Profile>

@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,17 +33,55 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Edit</actionName>
-        <content>StaffingAssignment</content>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -62,7 +120,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -549,16 +606,17 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         <externalId>false</externalId>
         <label>User</label>
         <lookupFilter>
-            <active>false</active>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
             <filterItems>
-                <field>$Source.Title__c</field>
+                <field>User.UserRole.Name</field>
                 <operation>equals</operation>
-                <valueField>User.Staffing_Role__c</valueField>
+                <value>E&amp;C DAS/AS</value>
             </filterItems>
             <filterItems>
-                <field>User.Staffing_Role__c</field>
-                <operation>notEqual</operation>
-                <value></value>
+                <field>User.UserRole.Name</field>
+                <operation>equals</operation>
+                <value>E&amp;C TANC</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -1183,6 +1241,15 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         <searchResultsAdditionalFields>User__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>A1200ProgramManagerCannotBeBlank</fullName>
+        <active>true</active>
+        <description>Program Manager user cannot be blank or have &apos;Please Assign&apos; on the record</description>
+        <errorConditionFormula>AND(Text(Title__c)==&apos;Program Manager&apos;,
+			OR(ISBLANK(User__c),User__r.LastName ==&apos;Please Assign&apos;)
+			)</errorConditionFormula>
+        <errorMessage>Please assign a user to the program manager.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>A1201PermSetReparentsStaffing</fullName>
         <active>true</active>
