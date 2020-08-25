@@ -1,0 +1,8 @@
+/**
+ * {1} interface that will be used as a fflib domain object.
+ *
+ * @author {0}
+ */
+public interface I{1} {{
+
+}}
