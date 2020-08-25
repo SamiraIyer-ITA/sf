@@ -52,7 +52,7 @@
             <label>Is Primary Product?</label>
         </rules>
     </decisions>
-    <interviewLabel>Quote_Line_Item_Create_Edit-2_InterviewLabel</interviewLabel>
+    <interviewLabel>Quote_Line_Item_Create_Edit-5_InterviewLabel</interviewLabel>
     <label>Quote Line Item Create Edit</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -274,6 +274,9 @@
         <label>Update Contract SOW</label>
         <locationX>100</locationX>
         <locationY>400</locationY>
+        <connector>
+            <targetReference>myRule_1_A4</targetReference>
+        </connector>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
@@ -324,6 +327,86 @@
             </value>
         </inputAssignments>
         <object>Contract</object>
+    </recordUpdates>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>extraTypeInfo</name>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[QuoteLineItem].Quote ID</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>referenceTargetField</name>
+        </processMetadataValues>
+        <name>myRule_1_A4</name>
+        <label>Update Primary Product Family</label>
+        <locationX>100</locationX>
+        <locationY>500</locationY>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.QuoteId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Primary Product Family</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Reference</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>PrimaryProductFamily__c</field>
+            <value>
+                <elementReference>myVariable_current.Product2.Family</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Quote</object>
     </recordUpdates>
     <startElementReference>myDecision</startElementReference>
     <status>Active</status>
