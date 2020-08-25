@@ -5661,14 +5661,6 @@
         <errorMessage>When selecting &quot;Other&quot; for lead source, you must enter an alternative lead source in the Source Detail field.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Require_value_if_not_converted</fullName>
-        <active>true</active>
-        <description>Require value for reason not converted if criteria applies</description>
-        <errorConditionFormula>AND(ISPICKVAL(Outcome__c,&apos;Not Converted&apos;),ISPICKVAL( Reason_Not_Converted__c,&apos;&apos;))</errorConditionFormula>
-        <errorDisplayField>Reason_Not_Converted__c</errorDisplayField>
-        <errorMessage>You must state a reason for not converting this lead</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>V01Explanation_Required_if_Source_Other</fullName>
         <active>true</active>
         <description>If Other is selected for lead source, user must enter something in the source detail field.</description>
