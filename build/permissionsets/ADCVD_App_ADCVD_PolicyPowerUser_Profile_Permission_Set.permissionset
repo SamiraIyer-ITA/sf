@@ -2912,7 +2912,6 @@
         <field>Tolling_Day__c.Locked__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <label>ADCVD App: ADCVD PolicyPowerUser Profile Permission Set</label>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>

@@ -261,7 +261,6 @@
         <field>Petition__c.Total_Imports_Domestic_Consumption__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <label>ADCVD App: Create/Edit Case and Petition</label>
     <license>Salesforce</license>
     <objectPermissions>
         <allowCreate>true</allowCreate>
