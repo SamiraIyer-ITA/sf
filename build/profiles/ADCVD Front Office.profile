@@ -6,6 +6,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
         <field>Custom_Instruction__c.ADCVD_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>

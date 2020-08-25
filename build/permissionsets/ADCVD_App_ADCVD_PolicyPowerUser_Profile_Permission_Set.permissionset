@@ -3418,4 +3418,5 @@
         <enabled>true</enabled>
         <name>ViewRoles</name>
     </userPermissions>
+    <label>ADCVD App: ADCVD PolicyPowerUser Profile Permission Set</label>
 </PermissionSet>

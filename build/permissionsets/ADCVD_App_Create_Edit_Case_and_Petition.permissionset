@@ -305,4 +305,5 @@
         <tab>Petition__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <label>ADCVD App: Create/Edit Case and Petition</label>
 </PermissionSet>
