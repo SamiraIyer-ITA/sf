@@ -3,6 +3,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>ADCVD_Case__c.Program_Manager__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
 </Profile>
