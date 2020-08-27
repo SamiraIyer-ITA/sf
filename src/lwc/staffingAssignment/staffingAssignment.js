@@ -259,6 +259,8 @@ export default class StaffingAssignment extends LightningElement {
                     variant: 'error'
                 })
             );
+            this.saveButtonLabel = 'Save';
+            this.saveSpinner = false;
         } else if(fields.Title__c == null || fields.Title__c == ''){
             let errorMessage = 'Please select a title for this user.';
             this.dispatchEvent(
@@ -347,6 +349,8 @@ export default class StaffingAssignment extends LightningElement {
                     variant: 'error'
                 })
             );
+            this.saveButtonLabel = 'Save';
+            this.saveSpinner = false;
         } else {
 
 
