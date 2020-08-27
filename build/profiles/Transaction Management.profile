@@ -11524,6 +11524,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>QuoteLineItem.Accounting_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>QuoteLineItem.Client_Form_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -11535,11 +11540,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>QuoteLineItem.Discount</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>QuoteLineItem.ITA_Product_Code__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
