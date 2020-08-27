@@ -9969,11 +9969,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Order.Opportunity_Org_Code__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Order.OrderReferenceNumber</field>
         <readable>false</readable>
     </fieldPermissions>
