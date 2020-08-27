@@ -15,14 +15,6 @@
         <field>Staffing_Assignment__c.ADCVD_Case__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <classAccesses>
-        <apexClass>CallAddTollingDayBatch</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CallAddTollingDayBatchTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <userPermissions>
         <enabled>true</enabled>
         <name>RunFlow</name>
