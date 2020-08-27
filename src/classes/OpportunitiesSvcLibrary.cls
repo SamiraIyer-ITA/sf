@@ -71,8 +71,7 @@ public with sharing class OpportunitiesSvcLibrary {
 
 		public override Map<String, String> targetFieldsBySourceFields() {
 			return new Map<String, String>{
-				'AccountId' => 'AccountId',
-				'CloseDate' => 'StartDate'
+				'AccountId' => 'AccountId'
 			};
 		}
 
@@ -80,6 +79,16 @@ public with sharing class OpportunitiesSvcLibrary {
 			targetRecord.put('RecordTypeId', recordTypeIdsByNames.get('Participation_Agreement'));
 			targetRecord.put('ContractTerm', 12);
 		}
+
+        public override void setValuesBySourceRecordCriteria(SObject sourceRecord, SObject targetRecord) {
+            // If the requested service start date is null use the close date
+            targetRecord.put(
+                'StartDate',
+                sourceRecord.get('Requested_Service_Start_Date__c') == null
+                	? sourceRecord.get('CloseDate')
+                	: sourceRecord.get('Requested_Service_Start_Date__c')
+            );
+        }
 	}
 
 	public class OpportunityNeedsAnalysisNewOrder extends SObjectsFieldMapper {
@@ -92,7 +101,6 @@ public with sharing class OpportunitiesSvcLibrary {
 			return new Map<String, String>{
 				'Id'								=> 'OpportunityId',
 				'AccountId'							=> 'AccountId',
-				'Requested_Service_Start_Date__c' 	=> 'EffectiveDate',
 				'Requested_Service_End_Date__c'		=> 'EndDate'
 			};
 		}
@@ -109,6 +117,13 @@ public with sharing class OpportunitiesSvcLibrary {
 				targetRecord.put('Type', 'Services');
 				targetRecord.put('RecordTypeId', recordTypeIdsByNames.get('Services'));
 			}
+            // If the requested service start date is null use the close date
+            targetRecord.put(
+                'EffectiveDate',
+                sourceRecord.get('Requested_Service_Start_Date__c') == null
+                	? sourceRecord.get('CloseDate')
+                	: sourceRecord.get('Requested_Service_Start_Date__c')
+            );
 		}
 	}
 }
