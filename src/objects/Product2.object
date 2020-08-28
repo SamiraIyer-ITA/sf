@@ -114,10 +114,6 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>Product_Legacy_LPL</content>
         <formFactor>Large</formFactor>
@@ -4094,7 +4090,7 @@
     <fields>
         <fullName>Event_Type_Smart_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(RecordType.DeveloperName  = &quot;Events&quot;,
+        <formula>IF(RecordType.DeveloperName = &quot;Events&quot;,
             CASE(Family,
             &quot;Certified Trade Mission&quot;, &quot;N&quot;,
             &quot;Faciliated Investment Mission (SelectUSA)&quot;, &quot;W&quot;,
@@ -4106,6 +4102,8 @@
             &quot;Trade Fair Certification (Show Organizer)&quot;, &quot;F&quot;,
             &quot;Trade Mission&quot;, &quot;R&quot;,
             &quot;Trade Show Representation&quot;, &quot;K&quot;,
+            &quot;Trade Event Partnership Program (TEPP)&quot;, &quot;P&quot;,
+            &quot;Trade Events Menu of Services (TEMS)&quot;, &quot;M&quot;,
             &quot;Virtual Fair&quot;, &quot;Z&quot;,
             null
             ),
@@ -6193,6 +6191,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>International Buyer Program %28Show Organizer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other Event</fullName>
                 <default>false</default>
             </values>
@@ -6202,6 +6204,22 @@
             </values>
             <values>
                 <fullName>Trade Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Event Partnership Program %28TEPP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Events Menu of Services %28TEMS%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Fair Certification %28Show Organizer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Mission</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8183,6 +8201,10 @@
         <picklistValues>
             <picklist>Family</picklist>
             <values>
+                <fullName>Certification</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -8289,6 +8311,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Featured US Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Foreign Buyer Delegation</fullName>
                 <default>false</default>
             </values>
@@ -8313,6 +8339,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Official Letters</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Official Trade Mission</fullName>
                 <default>false</default>
             </values>
@@ -8333,15 +8363,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>TEMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TEPP</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Trade Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Event Partnership Program %28TEPP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Events Menu of Services %28TEMS%29</fullName>
                 <default>false</default>
             </values>
             <values>
