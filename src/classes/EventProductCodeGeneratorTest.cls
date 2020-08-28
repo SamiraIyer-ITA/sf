@@ -7,15 +7,18 @@ private class EventProductCodeGeneratorTest {
 
 	// We need to serialize a Map into a Product to set the formula field so it can be read
 	static Product2 getMockProduct(String family, String fxEventTypeSmartCode) {
-		Map<String, Object> data = new Map<String, Object> {
-			'Product2' => new Map<String, Object>{
-				'Name' 						=> 'Test ' + family,
-				'Family' 					=> family,
-				'Event_Type_Smart_Code__c'	=> fxEventTypeSmartCode,
-                'RecordTypeId'				=> EventProductCodeGenerator.EVENT_RECORD_TYPE_ID
-			 }
-		};
-		return (Product2)JSON.deserialize(JSON.serialize(data), Product2.class);
+		Product2 testProduct = new Product2(
+			Name = 'Test ' + family,
+			Family = family,
+			IsPrimary__c = true,
+			RecordTypeId = EventProductCodeGenerator.EVENT_RECORD_TYPE_ID
+		);
+		testProduct = (Product2)fflib_ApexMocksUtils.setReadOnlyFields(
+			testProduct,
+			Product2.class,
+			new Map<SObjectField, Object> {Product2.Event_Type_Smart_Code__c => fxEventTypeSmartCode}
+		);
+		return testProduct;
 	}
 
 	@IsTest
@@ -24,25 +27,25 @@ private class EventProductCodeGeneratorTest {
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		IProductsSelector mocksSelector = (IProductsSelector) mocks.mock(IProductsSelector.class);
 		AggregateResultProxy[] mockedGroupedResults = new List<AggregateResultProxy> {
-		   new AggregateResultProxy()
-			 .withAliasAndValue('Family','Certified Trade Mission')
-			 .withAliasAndValue('maxSmartCode', null)
+			new AggregateResultProxy()
+				.withAliasAndValue('Family','Certified Trade Mission')
+				.withAliasAndValue('maxSmartCode', null)
 		};
-        // Given
+		// Given
 		mocks.startStubbing();
 		List<Product2> testProducts = new List<Product2>{ getMockProduct('Certified Trade Mission', 'N') };
 		mocks.when(mocksSelector.sObjectType()).thenReturn(Product2.SObjectType);
 		mocks.when(mocksSelector.selectMaxProductCodesByFamily(filters)).thenReturn(mockedGroupedResults);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mocksSelector);
-        // When
+		// When
 		IProductCodeGenerator codeGenerator
 			= (IProductCodeGenerator) di_Injector.Org.getInstance(EventProductCodeGenerator.class);
 		codeGenerator.setProductCodes(testProducts);
-        // Then
-        ((IProductsSelector)
-        	mocks.verify(mocksSelector)).selectMaxProductCodesByFamily(filters);
-		System.assertEquals(expectedNextProductCode, testProducts[0].ProductCode,
+		// Then
+		((IProductsSelector)
+			mocks.verify(mocksSelector)).selectMaxProductCodesByFamily(filters);
+		System.assertEquals(expectedNextProductCode, testProducts[0].Accounting_Code__c,
 			'Verify product code is first instance.');
 	}
 
@@ -53,25 +56,25 @@ private class EventProductCodeGeneratorTest {
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		IProductsSelector mocksSelector = (IProductsSelector) mocks.mock(IProductsSelector.class);
 		AggregateResultProxy[] mockedGroupedResults = new List<AggregateResultProxy> {
-		   new AggregateResultProxy()
-			 .withAliasAndValue('Family','Certified Trade Mission')
-			 .withAliasAndValue('maxSmartCode', maxSmartCode)
+			new AggregateResultProxy()
+				.withAliasAndValue('Family','Certified Trade Mission')
+				.withAliasAndValue('maxSmartCode', maxSmartCode)
 		};
-        // Given
+		// Given
 		mocks.startStubbing();
 		List<Product2> testProducts = new List<Product2>{ getMockProduct('Certified Trade Mission', 'N') };
 		mocks.when(mocksSelector.sObjectType()).thenReturn(Product2.SObjectType);
 		mocks.when(mocksSelector.selectMaxProductCodesByFamily(filters)).thenReturn(mockedGroupedResults);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mocksSelector);
-        // When
+		// When
 		IProductCodeGenerator codeGenerator
 			= (IProductCodeGenerator) di_Injector.Org.getInstance(EventProductCodeGenerator.class);
 		codeGenerator.setProductCodes(testProducts);
-        // Then
-        ((IProductsSelector)
-        	mocks.verify(mocksSelector)).selectMaxProductCodesByFamily(filters);
-		System.assertEquals(expectedNextProductCode, testProducts[0].ProductCode,
+		// Then
+		((IProductsSelector)
+			mocks.verify(mocksSelector)).selectMaxProductCodesByFamily(filters);
+		System.assertEquals(expectedNextProductCode, testProducts[0].Accounting_Code__c,
 			'Verify product code is next in order.');
 	}
 
@@ -82,25 +85,25 @@ private class EventProductCodeGeneratorTest {
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		IProductsSelector mocksSelector = (IProductsSelector) mocks.mock(IProductsSelector.class);
 		AggregateResultProxy[] mockedGroupedResults = new List<AggregateResultProxy> {
-		   new AggregateResultProxy()
-			 .withAliasAndValue('Family','Certified Trade Mission')
-			 .withAliasAndValue('maxSmartCode', maxSmartCode)
+			new AggregateResultProxy()
+				.withAliasAndValue('Family','Certified Trade Mission')
+				.withAliasAndValue('maxSmartCode', maxSmartCode)
 		};
-        // Given
+		// Given
 		mocks.startStubbing();
 		List<Product2> testProducts = new List<Product2>{ getMockProduct('Certified Trade Mission', 'N') };
 		mocks.when(mocksSelector.sObjectType()).thenReturn(Product2.SObjectType);
 		mocks.when(mocksSelector.selectMaxProductCodesByFamily(filters)).thenReturn(mockedGroupedResults);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mocksSelector);
-        // When
+		// When
 		IProductCodeGenerator codeGenerator
 			= (IProductCodeGenerator) di_Injector.Org.getInstance(EventProductCodeGenerator.class);
 		codeGenerator.setProductCodes(testProducts);
-        // Then
-        ((IProductsSelector)
-        	mocks.verify(mocksSelector)).selectMaxProductCodesByFamily(filters);
-		System.assertEquals(expectedNextProductCode, testProducts[0].ProductCode,
+		// Then
+		((IProductsSelector)
+			mocks.verify(mocksSelector)).selectMaxProductCodesByFamily(filters);
+		System.assertEquals(expectedNextProductCode, testProducts[0].Accounting_Code__c,
 			'Verify the third index of the product code was incremented.');
 	}
 
@@ -108,30 +111,48 @@ private class EventProductCodeGeneratorTest {
 	static void testSetProductCodes_MaxSmartCodeIndex() {
 		String maxSmartCode = indexOneValue + 'NZZ';
 		String expectedExceptionMessage
-			= EventProductCodeGenerator.getMaxSmartCodeIndexErrorMessage(indexOneValue + 'NZZ', indexOneValue + 'N');
+			= String.format(Label.Product_Code_Generator_Max_Smart_Code, new List<String>{ indexOneValue + 'NZZ', indexOneValue + 'N' });
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		IProductsSelector mocksSelector = (IProductsSelector) mocks.mock(IProductsSelector.class);
 		AggregateResultProxy[] mockedGroupedResults = new List<AggregateResultProxy> {
-		   new AggregateResultProxy()
-			 .withAliasAndValue('Family','Certified Trade Mission')
-			 .withAliasAndValue('maxSmartCode', maxSmartCode)
+			new AggregateResultProxy()
+				.withAliasAndValue('Family','Certified Trade Mission')
+				.withAliasAndValue('maxSmartCode', maxSmartCode)
 		};
-        // Given
+		// Given
 		mocks.startStubbing();
 		List<Product2> testProducts = new List<Product2>{ getMockProduct('Certified Trade Mission', 'N') };
 		mocks.when(mocksSelector.sObjectType()).thenReturn(Product2.SObjectType);
 		mocks.when(mocksSelector.selectMaxProductCodesByFamily(filters)).thenReturn(mockedGroupedResults);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mocksSelector);
-        // When
+		// When
 		IProductCodeGenerator codeGenerator
 			= (IProductCodeGenerator) di_Injector.Org.getInstance(EventProductCodeGenerator.class);
 		try {
-		   codeGenerator.setProductCodes(testProducts);
-		   // Then
+			codeGenerator.setProductCodes(testProducts);
+			// Then
 		} catch (Exception e) {
 			System.assertEquals(expectedExceptionMessage, e.getMessage(),
 				'Verify exception was thrown due to max product code.');
+		}
+	}
+
+	@IsTest
+	static void testSetProductCodes_NoEventSmartCode() {
+		String expectedExceptionMessage
+			= String.format(Label.Product_Code_Generator_No_Smart_Code, new List<String>{ 'No Family Smart Code' });
+		// Given
+		List<Product2> testProducts = new List<Product2>{ getMockProduct('No Family Smart Code', null) };
+		// When
+		IProductCodeGenerator codeGenerator
+			= (IProductCodeGenerator) di_Injector.Org.getInstance(EventProductCodeGenerator.class);
+		try {
+			codeGenerator.setProductCodes(testProducts);
+			// Then
+		} catch (Exception e) {
+			System.assertEquals(expectedExceptionMessage, e.getMessage(),
+				'Verify exception was thrown due family without event type smart code.');
 		}
 	}
 
