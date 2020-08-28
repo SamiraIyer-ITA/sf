@@ -1,3 +1,13 @@
 <apex:page standardController="ADCVD_Case__c" extensions="ADCVDBatchExtension" action="{!callBatch}">
-  
+<apex:form >
+<br/>
+  <apex:outputPanel >
+      <center>
+      <H1 style="text-align:center;font-size:30px;" >Processing child records updates</H1>
+      <br/><br/>
+      
+       <apex:commandButton style="font-size:15px;" action="{!goBack}" value=" Click here to Continue"/>
+      </center> 
+  </apex:outputPanel>
+  </apex:form>
 </apex:page>
