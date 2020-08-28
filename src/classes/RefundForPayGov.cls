@@ -140,7 +140,8 @@ public with sharing class RefundForPayGov implements IRefund {
 		refund.Fulfillment_Post_Name__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
 		refund.Fulfillment_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
 		refund.Fulfillment_Post_Acronym__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Acronym__c;
-		refund.Receipt_Ready__c = true;
+		refund.Receipt_Ready__c = false;
+		refund.Receipt_Allowed__c = true;
 
 		if (orderListWithDetails[0].OrderItems.size() != 0) {
 			if (String.isNotBlank(orderListWithDetails[0].OrderItems[0].Accounting_Code__c)) {
