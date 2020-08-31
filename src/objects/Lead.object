@@ -302,6 +302,35 @@
         </values>
     </businessProcesses>
     <businessProcesses>
+        <fullName>Services Export</fullName>
+        <description>Services Export Support Process</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Contact Attempted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contacted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Not Converted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verification</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>Partner Lead Process</fullName>
         <description>Process for Leads of Partner Contacts and Accounts.</description>
         <isActive>true</isActive>
@@ -320,27 +349,6 @@
         <values>
             <fullName>Unqualified</fullName>
             <default>false</default>
-        </values>
-    </businessProcesses>
-    <businessProcesses>
-        <fullName>Services Export</fullName>
-        <description>Services Export Support Process</description>
-        <isActive>true</isActive>
-        <values>
-            <fullName>Contacted</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Qualified</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Unqualified</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Unverified</fullName>
-            <default>true</default>
         </values>
     </businessProcesses>
     <businessProcesses>
@@ -1853,6 +1861,47 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         </valueSet>
     </fields>
     <fields>
+        <fullName>Queue_Routing_Past_Due__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Queue Routing Past Due</description>
+        <externalId>false</externalId>
+        <label>Queue Routing Past Due</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Queued_Date__c</fullName>
+        <description>Queued Date</description>
+        <externalId>false</externalId>
+        <label>Queued Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+	 <fields>
+        <fullName>Queue_Routing_Past_Due_Formula__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(TODAY() &gt; Queue_Routing_Due_Date__c ,ISBLANK( Assigned_User__c ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Queue Routing Past Due Formula</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Rating</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Re_routed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Re-routed</description>
+        <externalId>false</externalId>
+        <label>Re-routed</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
         <fullName>Queue_Routing_Due_Date__c</fullName>
         <externalId>false</externalId>
         <formula>DATEVALUE( Queued_Date__c ) +
@@ -1873,47 +1922,6 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Queue_Routing_Past_Due_Formula__c</fullName>
-        <externalId>false</externalId>
-        <formula>AND(TODAY() &gt; Queue_Routing_Due_Date__c ,ISBLANK( Assigned_User__c ))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Queue Routing Past Due Formula</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Queue_Routing_Past_Due__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Queue Routing Past Due</description>
-        <externalId>false</externalId>
-        <label>Queue Routing Past Due</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Queued_Date__c</fullName>
-        <description>Queued Date</description>
-        <externalId>false</externalId>
-        <label>Queued Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Rating</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Re_routed__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Re-routed</description>
-        <externalId>false</externalId>
-        <label>Re-routed</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Reason_Not_Converted__c</fullName>
         <description>Reason Not Converted</description>
         <externalId>false</externalId>
@@ -1922,7 +1930,6 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -2304,27 +2311,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-    <fields>
-        <fullName>X1st_Contact_Attempt_Due_Date__c</fullName>
-        <externalId>false</externalId>
-        <formula>DATEVALUE( Assigned_Date__c ) +
-CASE(
-WEEKDAY(DATEVALUE(Assigned_Date__c ) ),
-1, 1,
-2, 1,
-3, 1,
-4, 1,
-5, 1,
-6, 3,
-7, 2,
-0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>1st Contact Attempt Due Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Date</type>
-    </fields>
-    <fields>
+	 <fields>
         <fullName>X1st_Contact_Attempt_Past_Due_Formula__c</fullName>
         <externalId>false</externalId>
         <formula>AND(TODAY() &gt; X1st_Contact_Attempt_Due_Date__c ,ISBLANK(X1st_Contact_Attempt_Date__c),NOT(ISBLANK( Assigned_User__c )),NOT(ISBLANK( Assigned_Date__c )))</formula>
@@ -2342,7 +2329,7 @@ WEEKDAY(DATEVALUE(Assigned_Date__c ) ),
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>X2nd_Contact_Attempt_Due_Date__c</fullName>
         <description>Returns a due date of 5 weekdays after the 1st contact attempt date and is the date which a second contact attempt is due.</description>
         <externalId>false</externalId>
@@ -2363,7 +2350,7 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>X2nd_Contact_Attempt_Past_Due_Formula__c</fullName>
         <externalId>false</externalId>
         <formula>AND(TODAY() &gt; X2nd_Contact_Attempt_Due_Date__c ,ISBLANK(X2nd_Contact_Attempt_Date__c),NOT(ISBLANK( Assigned_User__c )),NOT(ISBLANK( Assigned_Date__c )),NOT(ISBLANK( X1st_Contact_Attempt_Date__c )))</formula>
@@ -4102,11 +4089,11 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Not Converted</fullName>
+                <fullName>Referred</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Referred</fullName>
+                <fullName>Not Converted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4228,17 +4215,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>Warm</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>Product Not Helpful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unqualified</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6052,17 +6028,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>Product Not Helpful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unqualified</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -7867,17 +7832,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>Product Not Helpful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unqualified</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -9544,17 +9498,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>Product Not Helpful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unqualified</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -9678,14 +9621,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
         <errorConditionFormula>ISPICKVAL( LeadSource , &quot;Other&quot;) &amp;&amp; ISBLANK( Source_Detail__c )</errorConditionFormula>
         <errorDisplayField>Source_Detail__c</errorDisplayField>
         <errorMessage>When selecting &quot;Other&quot; for lead source, you must enter an alternative lead source in the Source Detail field.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Require_value_if_not_converted</fullName>
-        <active>true</active>
-        <description>Require value for reason not converted if criteria applies</description>
-        <errorConditionFormula>AND(ISPICKVAL(Outcome__c,&apos;Not Converted&apos;),ISPICKVAL( Reason_Not_Converted__c,&apos;&apos;))</errorConditionFormula>
-        <errorDisplayField>Reason_Not_Converted__c</errorDisplayField>
-        <errorMessage>You must state a reason for not converting this lead</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>V01Explanation_Required_if_Source_Other</fullName>
