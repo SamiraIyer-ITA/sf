@@ -2,6 +2,7 @@
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
         <fullName>Product_Code_Generator_No_Smart_Code</fullName>
+        <categories>error, product code generator</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Product Code Generator No Smart Code	</shortDescription>
