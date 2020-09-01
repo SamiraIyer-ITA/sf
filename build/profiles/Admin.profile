@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+ <fieldPermissions>
+        <editable>false</editable>
+        <field>Collection_Fulfillment__c.Queue__c</field>
+        <readable>true</readable>
+ </fieldPermissions>
  <layoutAssignments>
         <layout>Lead-Export</layout>
         <recordType>Lead.Export</recordType>
-    </layoutAssignments>
+ </layoutAssignments>
 </Profile>
