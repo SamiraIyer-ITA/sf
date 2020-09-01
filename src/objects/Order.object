@@ -555,11 +555,6 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>QuoteId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>ShipToContactId</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
