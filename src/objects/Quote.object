@@ -142,16 +142,22 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Quote_LPL</content>
         <formFactor>Large</formFactor>
-        <type>Default</type>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Quote_LPL</content>
         <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -258,6 +264,17 @@
         <fullName>QuoteToName</fullName>
     </fields>
     <fields>
+        <fullName>Record_Type_Developer_Name__c</fullName>
+        <description>Record Type Developer Name formula field.</description>
+        <externalId>false</externalId>
+        <formula>RecordType.DeveloperName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record Type Developer Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ShippingHandling</fullName>
     </fields>
     <fields>
@@ -287,6 +304,126 @@
         <filterScope>Mine</filterScope>
         <label>My Quotes</label>
     </listViews>
+    <recordTypes>
+        <fullName>Events</fullName>
+        <active>true</active>
+        <description>Events</description>
+        <label>Events</label>
+        <picklistValues>
+            <picklist>Client_Form_Type__c</picklist>
+            <values>
+                <fullName>Business_Service_Provider</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International_Company_Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single_Company_Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single_Location_Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Denied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Services</fullName>
+        <active>true</active>
+        <description>Services record type.</description>
+        <label>Services</label>
+        <picklistValues>
+            <picklist>Client_Form_Type__c</picklist>
+            <values>
+                <fullName>Business_Service_Provider</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International_Company_Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single_Company_Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single_Location_Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Denied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Needs Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <recordTypes>
         <fullName>Standard</fullName>
         <active>true</active>
