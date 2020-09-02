@@ -9,7 +9,7 @@ public inherited sharing class EventProductCodeGenerator implements IProductCode
 	private static final String KEY;
 	private static final Integer LAST_KEY_INDEX;
 	@TestVisible private static final Id EVENT_RECORD_TYPE_ID;
-	private static final String INDEX_ONE_VALUE;	
+	private static final String INDEX_ONE_VALUE;
 	private Set<String> baseSmartCodeFilters = new Set<String>();
 
 	static {
@@ -17,7 +17,7 @@ public inherited sharing class EventProductCodeGenerator implements IProductCode
 		KEY = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZ';
 		LAST_KEY_INDEX = KEY.length() - 1;
 		EVENT_RECORD_TYPE_ID = Schema.SObjectType.Product2.getRecordTypeInfosByDeveloperName()
-            .get('Events').getRecordTypeId();
+			.get('Events').getRecordTypeId();
 	}
 
 	private AggregateResultProxy[] groupedMaxProductCodesByFamily {
@@ -36,8 +36,8 @@ public inherited sharing class EventProductCodeGenerator implements IProductCode
 			if (fiscalYear == null) {
 				Period[] records = [
 					SELECT	FiscalYearSettings.Name
-					FROM   	Period
-					WHERE  	Type = 'Year'
+					FROM	Period
+					WHERE	Type = 'Year'
 							AND StartDate <= TODAY
 							AND EndDate >= TODAY
 				];
@@ -73,26 +73,11 @@ public inherited sharing class EventProductCodeGenerator implements IProductCode
 	@TestVisible private static String getIndexOneValue() {
 		String indexOneValue = fiscalYear.substring(fiscalYear.length() -1);
 		if (fiscalMonth > 9) {
-			indexOneValue  = indexOneValue  == '9' 
+			indexOneValue  = indexOneValue  == '9'
 				? '0'
 				: String.valueOf(Integer.valueOf(indexOneValue) + 1);
 		}
 		return indexOneValue;
-	}
-
-	/**
-	 * Gets the exception message when a smart code has reached it max limit for the base code.
-	 *
-	 * @param maxSmartCode 	The current max smart code
-	 * @param baseSmartCode The base smart code
-	 *
-	 * @return Max smart code exception message
-	 */
-	@TestVisible private static String getMaxSmartCodeIndexErrorMessage(String maxSmartCode, String baseSmartCode) {
-		return String.format(
-			'Event has reached the maximum Product Code ({0}) for this index: {1}.',
-			new String[]{ maxSmartCode, baseSmartCode}
-		);
 	}
 
 	/**
@@ -115,7 +100,8 @@ public inherited sharing class EventProductCodeGenerator implements IProductCode
 		if (indexFour == LAST_KEY_INDEX) {
 			if (indexThree == LAST_KEY_INDEX) {
 				throw new EventProductCodeGeneratorException(
-					getMaxSmartCodeIndexErrorMessage(maxSmartCode, baseSmartCode));
+					String.format(
+						Label.Product_Code_Generator_Max_Smart_Code, new List<String>{ maxSmartCode, baseSmartCode }));
 			}
 			indexThree = indexThree + 1;
 			indexFour = 0;
@@ -123,6 +109,19 @@ public inherited sharing class EventProductCodeGenerator implements IProductCode
 			indexFour = indexFour + 1;
 		}
 		return baseSmartCode + KEY.substring(indexThree, indexThree  + 1) + KEY.substring(indexFour, indexFour + 1);
+	}
+
+	/**
+	 * Checks if a product meets the criteria to set an accounting code
+	 *
+	 * @param product Product to process
+	 *
+	 * @return Product criteria met
+	 */
+	private static Boolean meetsProductCodeCriteria(Product2 product) {
+		return (
+			product.Accounting_Code__c == null && product.RecordTypeId == EVENT_RECORD_TYPE_ID && product.IsPrimary__c
+		);
 	}
 
 	/**
@@ -134,7 +133,7 @@ public inherited sharing class EventProductCodeGenerator implements IProductCode
 	public void setProductCodes(List<Product2> products) {
 		Map<String, List<Product2>> productsByFamily = new Map<String, List<Product2>>();
 		for (Product2 product: products) {
-			if (product.RecordTypeId == EVENT_RECORD_TYPE_ID) {
+			if (meetsProductCodeCriteria(product)) {
 				this.baseSmartCodeFilters.add('%' + INDEX_ONE_VALUE + product.Event_Type_Smart_Code__c + '__');
 				if (!productsByFamily.containsKey(product.Family)) {
 					productsByFamily.put(product.Family, new List<Product2>());
@@ -165,10 +164,12 @@ public inherited sharing class EventProductCodeGenerator implements IProductCode
 					indexFour = KEY.indexOfChar(maxSmartCode.substring(3,4).charAt(0));
 				}
 				for (Product2 familyProduct: familyProducts) {
-					familyProduct.ProductCode = getNextProductCode(indexThree, indexFour, maxSmartCode, baseSmartCode);
+					//Edited by Daniel Haro 6/26/20 per story SM-9763 switching from product code to Account Code
+					familyProduct.Accounting_Code__c
+						= getNextProductCode(indexThree, indexFour, maxSmartCode, baseSmartCode);
 				}
 			}
-		}		
+		}
 	}
 
 	public class EventProductCodeGeneratorException extends Exception {}
