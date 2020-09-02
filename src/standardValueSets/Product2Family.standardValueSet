@@ -67,14 +67,14 @@
         <label>Single Company Promotion</label>
     </standardValue>
     <standardValue>
-        <fullName>TEMS</fullName>
+        <fullName>Trade Events Menu of Services (TEMS)</fullName>
         <default>false</default>
-        <label>TEMS</label>
+        <label>Trade Events Menu of Services (TEMS)</label>
     </standardValue>
     <standardValue>
-        <fullName>TEPP</fullName>
+        <fullName>Trade Event Partnership Program (TEPP)</fullName>
         <default>false</default>
-        <label>TEPP</label>
+        <label>Trade Event Partnership Program (TEPP)</label>
     </standardValue>
     <standardValue>
         <fullName>Trade Event</fullName>
@@ -105,5 +105,35 @@
         <fullName>Optional : direct cost</fullName>
         <default>false</default>
         <label>Optional : direct cost</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trade Fair Certification (Show Organizer)</fullName>
+        <default>false</default>
+        <label>Trade Fair Certification (Show Organizer)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>International Buyer Program (Show Organizer)</fullName>
+        <default>false</default>
+        <label>International Buyer Program (Show Organizer)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Trade Mission</fullName>
+        <default>false</default>
+        <label>Trade Mission</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Certification</fullName>
+        <default>false</default>
+        <label>Certification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Official Letters</fullName>
+        <default>false</default>
+        <label>Official Letters</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Featured US Exporters</fullName>
+        <default>false</default>
+        <label>Featured US Exporters</label>
     </standardValue>
 </StandardValueSet>
