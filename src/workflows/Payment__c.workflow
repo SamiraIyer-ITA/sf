@@ -64,12 +64,8 @@
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Payment__c.Transaction_Status__c</field>
-            <operation>equals</operation>
-            <value>Success</value>
-        </criteriaItems>
         <description>Sends receipt of successful Privacy Shield application/payment success to Payment Owner (Community User).</description>
+        <formula>AND(ISPICKVAL(Transaction_Status__c, &apos;Success&apos;), ISPICKVAL(Application__c, &apos;Privacy Shield&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -79,12 +75,8 @@
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Payment__c.Transaction_Status__c</field>
-            <operation>equals</operation>
-            <value>Failed</value>
-        </criteriaItems>
         <description>Sends receipt of failed Privacy Shield Payment to Payment Owner (Community User).</description>
+        <formula>AND(ISPICKVAL(Transaction_Status__c,&apos;Failed&apos;),  ISPICKVAL(Application__c, &apos;Privacy Shield&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -94,12 +86,8 @@
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Payment__c.Transaction_Status__c</field>
-            <operation>equals</operation>
-            <value>Received</value>
-        </criteriaItems>
         <description>Sends email notification when Payment has been successfully received, not when it has been processed/accepted.</description>
+        <formula>AND(ISPICKVAL(Transaction_Status__c,&apos;Received&apos;), ISPICKVAL( Application__c, &apos;Privacy Shield&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

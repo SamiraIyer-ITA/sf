@@ -1,0 +1,74 @@
+<!--
+ - Created by Skip Kleckner on 5/11/2020.
+ -->
+
+<!-- Staffing Assignment -->
+<template>
+	<template if:true={showTable}>
+		<lightning-card title="Staffing Assignments" icon-name="custom:custom18">
+			<lightning-button slot="actions" label="Create" type="button" name="Create" variant="neutral" onclick={handleCreate}></lightning-button>
+			<div class="card">
+				<template if:true={spinner}>
+						<lightning-spinner alternative-text="Loading" variant="brand" size="large">
+						</lightning-spinner>
+				</template>
+
+				<template if:false={gotData}>
+					<div class="slds-p-around--medium slds-text-heading--small">No Staffing Assignments are available.</div>
+				</template>
+				<template if:true={gotData}>
+					<lightning-datatable
+							data={data}
+							columns={staffingAssignmentColumns}
+							key-field="Id"
+							onrowaction={handleRowAction}
+							hide-checkbox-column="true"
+							default-sort-direction={defaultSortDirection}
+							sorted-direction={sortDirection}
+							sorted-by={sortedBy}
+							onsort={onHandleSort}>
+					</lightning-datatable>
+				</template>
+			</div>
+		</lightning-card>
+	</template>
+	<template if:true={showUpdate}>
+		<lightning-card title="Update Staffing Assignment" icon-name="custom:custom18">
+			<lightning-record-edit-form
+					record-id={staffingAssignmentId}
+					object-api-name="Staffing_Assignment__c"
+					onsubmit={handleOnSubmitUpdate}
+					onsuccess={handleSuccess}
+					onerror={handleError}>
+				<!--<lightning-messages></lightning-messages>-->
+				<lightning-input-field field-name="Title__c"></lightning-input-field>
+				<lightning-input-field field-name="User__c"></lightning-input-field>
+				<div class="slds-align_absolute-center" style="height:2rem">
+					<lightning-button label={saveButtonLabel} disabled={saveSpinner} onclick={disableButton} type="submit" name="Save" variant="brand" icon-name="utility:save"></lightning-button>&nbsp;
+					<lightning-button label="Cancel" type="button" name="Cancel" onclick={handleCancel} variant="neutral"></lightning-button>
+				</div>
+			</lightning-record-edit-form>
+		</lightning-card>
+	</template>
+	<template if:true={showCreate}>
+		<lightning-card title="Create Staffing Assignment" icon-name="custom:custom18">
+			<lightning-record-edit-form
+					object-api-name="Staffing_Assignment__c"
+					onsubmit={handleOnSubmitCreate}
+					onsuccess={handleSuccess}
+					onerror={handleError}>
+				<!--<lightning-messages></lightning-messages>-->
+				<lightning-input-field field-name="ADCVD_Case__c" value={caseId} class="slds-hide"></lightning-input-field>
+				<lightning-input-field field-name={sObjectName} value={recordId} class="slds-hide"></lightning-input-field>
+				<lightning-input-field field-name="Staff_Parent__c" value={sObjectName} class="slds-hide"></lightning-input-field>
+				<lightning-input-field field-name="Title__c"></lightning-input-field>
+				<lightning-input-field field-name="User__c"></lightning-input-field>
+				<div class="slds-align_absolute-center" style="height:2rem">
+					<lightning-button label={saveButtonLabel} type="submit" name="Save" variant="brand" disabled={saveSpinner} onclick={disableButton}></lightning-button>&nbsp;
+					<lightning-button label="Cancel" type="button" name="Cancel" onclick={handleCancel} variant="neutral"></lightning-button>
+				</div>
+			</lightning-record-edit-form>
+		</lightning-card>
+	</template>
+
+</template>

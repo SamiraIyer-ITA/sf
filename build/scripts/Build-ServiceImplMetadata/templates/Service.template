@@ -1,0 +1,50 @@
+/**
+ * Used primarily as dispatcher for generic or implementation specific methods
+ *
+ * @author {0}
+ */
+public with sharing class {1}Service {{
+
+	/**
+	 * Call this for standard fflib functionality
+	 *
+	 * @return fflib standard {2} service
+	 */
+	public static I{1}Service service() {{
+		return (I{1}Service) fflibext_Application.Service.newInstance(I{1}Service.class);
+	}}
+
+	/**
+	 * Call this when you require functionality on specific or all service implementations
+	 *
+	 * @param records SObjects list
+	 *
+	 * @return Implementation specific service(s).
+	 */
+	public static {1}ImplManager service(List<SObject> records) {{
+		return new {1}ImplManager(records);
+	}}
+
+	/**
+	 * Calls the trigger service for a list of SObjects. Performs logic on all {2} service implementations.
+	 *
+	 * @param records SObjects list
+	 *
+	 * @return ITriggerImpl service
+	 */
+	@TestVisible private static ITriggerImpl triggerService(List<SObject> records) {{
+		return new {1}ImplManager(records).triggerService();
+	}}
+
+	/**
+	 * Calls the trigger service for a list of SObjects. Performs logic on all {2} service implementations.
+	 *
+	 * @param records SObjects list
+	 * @param existingRecords Map of existing records (Trigger.oldMap)
+	 *
+	 * @return ITriggerImpl service
+	 */
+	@TestVisible private static ITriggerImpl triggerService(List<SObject> records, Map<Id, SObject> existingRecords) {{
+		return new {1}ImplManager(records, existingRecords).triggerService();
+	}}
+}}
