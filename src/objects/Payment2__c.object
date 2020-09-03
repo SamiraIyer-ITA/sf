@@ -253,6 +253,42 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Collection_Post_Acronym__c</fullName>
+        <description>Populated from Opportunity.Collection_Post__r.Acronym__c</description>
+        <externalId>false</externalId>
+        <label>Collection Post Acronym</label>
+        <length>6</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Collection_Post_Name__c</fullName>
+        <description>Populated from Opportunity.Collection_Post__r.Name</description>
+        <externalId>false</externalId>
+        <label>Collection Post Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Collection_Post_Org_Code__c</fullName>
+        <description>Populated from Opportunity.Collection_Post__r.Org_Code__c</description>
+        <externalId>false</externalId>
+        <label>Collection Post Org Code</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contract__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>The contract to which this payment applies.</description>
@@ -265,6 +301,113 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fulfillment_Post_Acronym__c</fullName>
+        <description>Populated from Opportunity.Fulfillment_Post__r.Acronym__c</description>
+        <externalId>false</externalId>
+        <label>Fulfillment Post Acronym</label>
+        <length>6</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fulfillment_Post_Name__c</fullName>
+        <description>Populated from Opportunity.Fulfillment_Post__r.Name</description>
+        <externalId>false</externalId>
+        <label>Fulfillment Post Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fulfillment_Post_Org_Code__c</fullName>
+        <description>Populated from Opportunity.Fulfillment_Post__r.Org_Code__c</description>
+        <externalId>false</externalId>
+        <label>Fulfillment Post Org Code</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_Date__c</fullName>
+        <description>Invoice date</description>
+        <externalId>false</externalId>
+        <label>Invoice Date</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_Id__c</fullName>
+        <description>Invoice Id</description>
+        <externalId>false</externalId>
+        <label>Invoice Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Object_Class__c</fullName>
+        <defaultValue>&quot;05-20-00-00&quot;</defaultValue>
+        <description>Reflects object class with 05-20-00-00 as the default</description>
+        <externalId>false</externalId>
+        <label>Object Class</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Created_Date__c</fullName>
+        <description>Populated from Opportunity.CreatedDate</description>
+        <externalId>false</externalId>
+        <label>Opportunity Created Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Owner__c</fullName>
+        <description>Populated from Opportunity.Owner.Name</description>
+        <externalId>false</externalId>
+        <label>Opportunity Owner</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Name__c</fullName>
+        <description>Populated from Opportunity.Account.Name</description>
+        <externalId>false</externalId>
+        <label>Organization Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Payment_2__c</fullName>
@@ -354,8 +497,71 @@
                     <default>false</default>
                     <label>Credit Card Refund</label>
                 </value>
+                <value>
+                    <fullName>NIST-Handled</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>NIST-Handled</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Project_Code__c</fullName>
+        <description>Populated when payment record is created. First four characters come from the order line item. Last 3 characters are static.</description>
+        <externalId>false</externalId>
+        <label>Project Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Receipt_Allowed__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Receipt allowed</description>
+        <externalId>false</externalId>
+        <label>Receipt Allowed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Receipt_Email_Address__c</fullName>
+        <description>Email address for receipt</description>
+        <externalId>false</externalId>
+        <label>Receipt Email Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Receipt_Ready__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>TBD</description>
+        <externalId>false</externalId>
+        <inlineHelpText>TBD</inlineHelpText>
+        <label>Receipt Ready</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Receipt_Sent_To__c</fullName>
+        <description>Track info of all recipients who have received applicable email receipt</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Track info of all recipients who have received applicable email receipt</inlineHelpText>
+        <label>Receipt Sent To</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Refund_Explanation__c</fullName>
@@ -493,6 +699,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Task_Code__c</fullName>
+        <defaultValue>&quot;000&quot;</defaultValue>
+        <description>Task code</description>
+        <externalId>false</externalId>
+        <label>Task Code</label>
+        <length>3</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Transaction_Amount__c</fullName>
         <description>The transaction amount</description>
         <externalId>false</externalId>
@@ -579,19 +798,39 @@
     </fields>
     <label>Payment 2</label>
     <listViews>
-        <fullName>All</fullName>
+        <fullName>All_Payments</fullName>
         <columns>NAME</columns>
-        <columns>Remote_Tracking_Id__c</columns>
+        <columns>Organization_Name__c</columns>
+        <columns>Contract__c</columns>
+        <columns>Invoice_Id__c</columns>
         <columns>Payment_Date__c</columns>
+        <columns>Payment_Type__c</columns>
+        <columns>Remote_Tracking_Id__c</columns>
         <columns>Transaction_Amount__c</columns>
         <columns>Transaction_Date__c</columns>
-        <columns>Payment_Type__c</columns>
         <columns>Transaction_Status__c</columns>
-        <columns>Refund_Total__c</columns>
-        <columns>Contract__c</columns>
-        <columns>CREATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
-        <label>All</label>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Payment2__c.Bank_Transfer_Payment,Payment2__c.Cash_Payment,Payment2__c.Check_Payment,Payment2__c.Credit_Card_or_ACH_Payment,Payment2__c.External_Credit_Card_or_ACH_Payment</value>
+        </filters>
+        <label>All Payments</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Refunds</fullName>
+        <columns>NAME</columns>
+        <columns>Transaction_Date__c</columns>
+        <columns>Transaction_Amount__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Transaction_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Payment2__c.Credit_Card_Refund,Payment2__c.NIST_Issued_Refund</value>
+        </filters>
+        <label>All Refunds</label>
     </listViews>
     <nameField>
         <displayFormat>P{000000000}</displayFormat>
@@ -982,6 +1221,104 @@
         <active>true</active>
         <description>Record type for credit card and ACH payments.</description>
         <label>Credit Card or ACH Payment</label>
+        <picklistValues>
+            <picklist>Account_Type__c</picklist>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Privacy Shield</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Type__c</picklist>
+            <values>
+                <fullName>ACH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PLASTIC_CARD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Refund_Reason__c</picklist>
+            <values>
+                <fullName>Accounting adjustment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client cancelled participation %28before fees incurred%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Political%2Feconomic conditions of market changed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post unable to process due to competing demands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product not provided when promised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product provided was of poor quality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service did not meet all requirements</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Transaction_Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initiated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Settled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>External_Credit_Card_or_ACH_Payment</fullName>
+        <active>true</active>
+        <description>Record type for credit card and ACH payments made by non-Salesforce applications.</description>
+        <label>External Credit Card or ACH Payment</label>
         <picklistValues>
             <picklist>Account_Type__c</picklist>
             <values>
