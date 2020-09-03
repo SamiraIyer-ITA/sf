@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
-    <description>Alert NIST users about new Tickets</description>
+    <description>Alert Transaction Management Support users about new Tickets</description>
     <encodingKey>UTF-8</encodingKey>
     <letterhead>ITA_Logo</letterhead>
-    <name>New NIST Case Alert</name>
+    <name>New NIST Case Queue Alert</name>
     <style>freeForm</style>
     <subject>Case transferred to you</subject>
-    <textOnly>{!Case.CaseNumber} has been assigned to you.Please clink on the link below to view the record.
+    <textOnly>Case{!Case.CaseNumber}has been assigned to you.Please clink the link below to view the record.
 
 https://trade.my.salesforce.com/{!Case.Id}</textOnly>
     <type>html</type>

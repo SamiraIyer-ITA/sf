@@ -13,25 +13,19 @@ public without sharing class TransactionManagement {
 		CBSData objCBSData = new CBSData();
 
 		try {
-			Set<String> paymentIdsSet = new Set<String>();
-
-			for(string payId : paymentIds){
-				paymentIdsSet.add(payId);
-			}
-
 			Decimal totalAmt = 0;
 			Map<Id,Payment2__c> paymentMap = new Map<Id,Payment2__c>();
 			Map<Id,List<Order>> paymentOrderMap = new Map<Id,List<Order>>();
 
-			for(Payment2__c pay : [SELECT Id, Transaction_Amount__c, Payment_Type__c, Account_Holder_Name__c
-				FROM Payment2__c WHERE Id IN : paymentIdsSet]) {
+			for(Payment2__c pay : [SELECT Id, Transaction_Amount__c, Account_Type__c, Payment_Type__c, Account_Holder_Name__c
+			FROM Payment2__c WHERE Id IN : paymentIds]) {
 				pay.Transmitted__c = true;
 				paymentMap.put(pay.id,pay);
 				totalAmt += pay.Transaction_Amount__c;
 			}
 
 			for(Order ord: [SELECT Id, Payment2__c, AccountId, Account.Name, OpportunityId, Opportunity.AccountId,
-				Opportunity.Account.Name FROM Order WHERE Payment2__c IN: paymentMap.keySet()]) {
+					Opportunity.Account.Name FROM Order WHERE Payment2__c IN: paymentMap.keySet()]) {
 				if(paymentOrderMap.containsKey(ord.Payment2__c)){
 					List<Order> ordList = new List<Order>();
 					ordList = paymentOrderMap.get(ord.Payment2__c);
@@ -45,7 +39,7 @@ public without sharing class TransactionManagement {
 			}
 
 			String body = '';
-			String datetoday = getDtFormat(Datetime.now()); //Need to change date format
+			String datetoday = getDtFormat(Datetime.now());
 
 			List<CBSBatchCount__c> listCodes = CBSBatchCount__c.getAll().values();
 			CBSBatchCount__c currentActiveObj = new CBSBatchCount__c();
@@ -54,9 +48,90 @@ public without sharing class TransactionManagement {
 				currentActiveObj=obj;
 			}
 
-			currentActiveObj.BatchFileCount__c += 1;
-			objCBSData.batchNumber = Integer.valueOf(currentActiveObj.BatchFileCount__c);
-			String currentFY =  Payment2.getCurrentFiscalYear() + getNumberLeftChar(Integer.valueOf(currentActiveObj.BatchFileCount__c),4);
+			//TRANS#6052 - JJW
+			//Reset fiscal year & batch counters if last recorded fiscal year is different from current
+			String currentFiscalYear = Payment2.getCurrentFiscalYear();
+			if(currentActiveObj.LastRecordedFiscalYear__c != currentFiscalYear) {
+				currentActiveObj.EventsACHBatchCount__c = 0;
+				currentActiveObj.EventsCreditBatchCount__c = 0;
+				currentActiveObj.EventsRefundBatchCount__c = 0;
+				currentActiveObj.PrivacyShieldACHBatchCount__c = 0;
+				currentActiveObj.PrivacyShieldCreditBatchCount__c = 0;
+				currentActiveObj.PrivacyShieldRefundBatchCount__c = 0;
+				currentActiveObj.ServicesACHBatchCount__c = 0;
+				currentActiveObj.ServicesCreditBatchCount__c = 0;
+				currentActiveObj.ServicesRefundBatchCount__c = 0;
+				currentActiveObj.LastRecordedFiscalYear__c = currentFiscalYear;
+			}
+			String batchNumber = '';
+			if(!paymentMap.values().isEmpty()) {
+				String accountType = '';
+				String payment2Type = '';
+				Payment2__c firstPayment = paymentMap.values()[0];
+				//Get account type info & year & add to batch number
+				if(firstPayment.Account_Type__c == 'Privacy Shield') {
+					accountType = '9';
+				} else if(firstPayment.Account_Type__c == 'Events') {
+					accountType = 'V';
+				} else {
+					accountType = 'S';
+				}
+				batchNumber = accountType + getYearDigit(currentFiscalYear);
+				//Get payment type info & add to batch number
+				switch on firstPayment.Payment_Type__c {
+					when 'PLASTIC_CARD' {
+						payment2Type = 'C';
+					}
+					when 'ACH' {
+						payment2Type = 'A';
+					}
+					when 'Credit Card Refund' {
+						payment2Type = 'R';
+					}
+				}
+
+				batchNumber += payment2Type;
+				//Get actual number counter for each type by fiscal year & add to batch number
+				if(accountType == 'V') {
+					//Events
+					if(payment2Type == 'A') {
+						currentActiveObj.EventsACHBatchCount__c += 1;
+						batchNumber += getNumberLeftChar((Integer)currentActiveObj.EventsACHBatchCount__c, 3);
+					} else if(payment2Type == 'C') {
+						currentActiveObj.EventsCreditBatchCount__c += 1;
+						batchNumber += getNumberLeftChar((Integer)currentActiveObj.EventsCreditBatchCount__c, 3);
+					} else if(payment2Type == 'R') {
+						currentActiveObj.EventsRefundBatchCount__c += 1;
+						batchNumber += getNumberLeftChar((Integer)currentActiveObj.EventsRefundBatchCount__c, 3);
+					}
+				} else if(accountType == '9') {
+					//Privacy Shield
+					if(payment2Type == 'A') {
+						currentActiveObj.PrivacyShieldACHBatchCount__c += 1;
+						batchNumber += getNumberLeftChar((Integer)currentActiveObj.PrivacyShieldACHBatchCount__c, 3);
+					} else if(payment2Type == 'C') {
+						currentActiveObj.PrivacyShieldCreditBatchCount__c += 1;
+						batchNumber += getNumberLeftChar((Integer)currentActiveObj.PrivacyShieldCreditBatchCount__c, 3);
+					} else if(payment2Type == 'R') {
+						currentActiveObj.PrivacyShieldRefundBatchCount__c += 1;
+						batchNumber += getNumberLeftChar((Integer)currentActiveObj.PrivacyShieldRefundBatchCount__c, 3);
+					}
+				} else if(accountType == 'S') {
+					//Services
+					if(payment2Type == 'A') {
+						currentActiveObj.ServicesACHBatchCount__c += 1;
+						batchNumber += getNumberLeftChar((Integer)currentActiveObj.ServicesACHBatchCount__c, 3);
+					} else if(payment2Type == 'C') {
+						currentActiveObj.ServicesCreditBatchCount__c += 1;
+						batchNumber += getNumberLeftChar((Integer)currentActiveObj.ServicesCreditBatchCount__c, 3);
+					} else if(payment2Type == 'R') {
+						currentActiveObj.ServicesRefundBatchCount__c += 1;
+						batchNumber += getNumberLeftChar((Integer)currentActiveObj.ServicesRefundBatchCount__c, 3);
+					}
+				}
+			}
+			//END TRANS#6052
+
 			body += 'UCL00,ITACOLL,' +datetoday + ',' + getNumberLeftChar(paymentMap.size(),8) + ',' + getDecimal17Char(totalAmt) + ',N\n';
 			Integer i = 1;
 			for (Payment2__c objpay : paymentMap.values()) {
@@ -77,9 +152,9 @@ public without sharing class TransactionManagement {
 				}
 
 				Decimal amt = objpay.Transaction_Amount__c.SetScale(2);
-				body += 'UCL01~55~' + currentFY+'~' + getNumberLeftChar(i,8) + '~~'+getDecimal17Char(amt) + '~' + datetoday + '~' + paymentType + '~1~' + objpay.Account_Holder_Name__c + '~' + businessName + '~15397~1~MELLON~ITA~~~~~~~~~~~~~~XXXXXX~71744~~~\n';
-				body += 'UCL02~55~' + currentFY+'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
-				body += 'UCL03~55~' + currentFY+'~' + getNumberLeftChar(i,8) + '~00000001~00000001~1BFS231~000~~~~~~~50~07~0003~04~00~00~00~05~20~00~00~000000~' + getDecimal17Char(amt) + '\n';
+				body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+getDecimal17Char(amt) + '~' + datetoday + '~' + paymentType + '~1~' + objpay.Account_Holder_Name__c + '~' + businessName + '~15397~1~MELLON~ITA~~~~~~~~~~~~~~XXXXXX~71744~~~\n';
+				body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
+				body += 'UCL03~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~00000001~1BFS231~000~~~~~~~50~07~0003~04~00~00~00~05~20~00~00~000000~' + getDecimal17Char(amt) + '\n';
 
 				i = i+1;
 			}
@@ -95,6 +170,10 @@ public without sharing class TransactionManagement {
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());
 		}
+	}
+
+	public static String getYearDigit(String x) {
+		return x.Substring(x.length()-1,x.length());
 	}
 
 	public static String getDtFormat(DateTime dt) {
@@ -125,7 +204,6 @@ public without sharing class TransactionManagement {
 
 	public class CBSData {
 		@AuraEnabled public String csvString;
-		@AuraEnabled public Integer batchNumber;
 	}
 
 }

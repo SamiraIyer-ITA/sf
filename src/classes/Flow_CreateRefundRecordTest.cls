@@ -19,13 +19,14 @@ private class Flow_CreateRefundRecordTest {
 		List<Order> orders = new List<Order>();
 		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
 		order1.Type = 'Services';
-		order1.Name = 'Test Order X';
+		order1.Name = 'Paid Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
 		orders.add(order1);
 		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
 		order2.Type = 'Services';
-		order2.Name = 'Test Order X';
+		order2.Name = 'Unpaid Order X';
+		order2.Order_Paid__c = false;
 		order2.ContractId = contract.Id;
 		order2.RecordTypeId = servicesRecordTypeId;
 		orders.add(order2);
@@ -51,15 +52,13 @@ private class Flow_CreateRefundRecordTest {
 		orderItem2.PricebookEntryId=pbe.id;
 		insert orderItem2;
 
-		order2.Status = 'Paid';
-		order2.Order_Paid__c = true;
-		update order2;
-
 		//Insert a Payment record
 		Flow_CreatePaymentRecord.RequestVariables requestVariables = new Flow_CreatePaymentRecord.RequestVariables();
 		requestVariables.paymentType = 'Check';
 		requestVariables.amount = 4800;
-		requestVariables.orders = orders;
+		List<Order> paidOrders = new List<Order>();
+		paidOrders.add(order1);
+		requestVariables.orders = paidOrders;
 		requestVariables.contractId = order1.ContractId;
 		requestVariables.bankName = 'Bank One';
 		requestVariables.checkNumber = '1001';
@@ -67,62 +66,23 @@ private class Flow_CreateRefundRecordTest {
 		List<Flow_CreatePaymentRecord.RequestVariables> requestVariablesList = new List<Flow_CreatePaymentRecord.RequestVariables>();
 		requestVariablesList.add(requestVariables);
 		List<String> returnList = Flow_CreatePaymentRecord.createPaymentRecord(requestVariablesList);
-
-		//Reduction Order 1
-		Order reductionOrder1 = new Order(
-			IsReductionOrder = true,
-			OriginalOrderId = order1.Id,
-			Pricebook2Id = order1.Pricebook2Id,
-			EffectiveDate = order1.EffectiveDate,
-			Status = 'Draft',
-			Type = 'Services',
-			RecordTypeId = servicesRecordTypeId,
-			ContractId = order1.ContractId,
-			AccountId = order1.AccountId,
-			Name = 'Reduction Order X');
-
-		insert reductionOrder1;
-
-		OrderItem reductionOrderItem1 = new OrderItem();
-		reductionOrderItem1.OriginalOrderItemId = orderItem1.Id;
-		reductionOrderItem1.OrderId = reductionOrder1.id;
-		reductionOrderItem1.Quantity = -2;
-		reductionOrderItem1.UnitPrice = 2400;
-		reductionOrderItem1.Product2id = product2.id;
-		reductionOrderItem1.PricebookEntryId=pbe.id;
-		insert reductionOrderItem1;
-
-		//Reduction Order 2
-		Order reductionOrder2 = new Order(
-			IsReductionOrder = true,
-			OriginalOrderId = order2.Id,
-			Pricebook2Id = order2.Pricebook2Id,
-			EffectiveDate = order2.EffectiveDate,
-			Status = 'Draft',
-			Type = 'Services',
-			RecordTypeId = servicesRecordTypeId,
-			ContractId = order1.ContractId,
-			AccountId = order2.AccountId,
-			Name = 'Reduction Order X');
-
-		insert reductionOrder2;
-
-		OrderItem reductionOrderItem2 = new OrderItem();
-		reductionOrderItem2.OriginalOrderItemId = orderItem2.Id;
-		reductionOrderItem2.OrderId = reductionOrder2.id;
-		reductionOrderItem2.Quantity = -2;
-		reductionOrderItem2.UnitPrice = 2400;
-		reductionOrderItem2.Product2id = product2.id;
-		reductionOrderItem2.PricebookEntryId=pbe.id;
-		insert reductionOrderItem2;
 	}
 
 	@IsTest
 	static void createRefundRecord_Positive_Check() {
 		Flow_CreateRefundRecord.RequestVariables requestVariables = new Flow_CreateRefundRecord.RequestVariables();
 		requestVariables.accountType = 'Services';
-		requestVariables.refundAmount = 200;
-		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM ORDER WHERE Name = 'Reduction Order X'];
+		requestVariables.refundtotal = 200;
+		List<String> refundAmounts = new List<String>();
+		refundAmounts.add('200.00');
+		requestVariables.refundAmounts = refundAmounts;
+		List<String> refundReasons = new List<String>();
+		refundReasons.add('Other');
+		requestVariables.refundReasons = refundReasons;
+		List<String> refundExplanations = new List<String>();
+		refundExplanations.add('Some other reason');
+		requestVariables.refundExplanations = refundExplanations;
+		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId, Refunded_Amount__c, TotalAmount FROM ORDER WHERE Name = 'Paid Order X'];
 		requestVariables.orders = orders;
 		if (! orders.isEmpty()) {
 			requestVariables.contractId = orders[0].ContractId;
@@ -137,8 +97,17 @@ private class Flow_CreateRefundRecordTest {
 	static void createRefundRecord_Positive_Cash() {
 		Flow_CreateRefundRecord.RequestVariables requestVariables = new Flow_CreateRefundRecord.RequestVariables();
 		requestVariables.accountType = 'Services';
-		requestVariables.refundAmount = 200;
-		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM ORDER WHERE Name = 'Reduction Order X'];
+		requestVariables.refundTotal = 200;
+		List<String> refundAmounts = new List<String>();
+		refundAmounts.add('200.00');
+		requestVariables.refundAmounts = refundAmounts;
+		List<String> refundReasons = new List<String>();
+		refundReasons.add('Other');
+		requestVariables.refundReasons = refundReasons;
+		List<String> refundExplanations = new List<String>();
+		refundExplanations.add('Some other reason');
+		requestVariables.refundExplanations = refundExplanations;
+		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId, Refunded_Amount__c, TotalAmount FROM ORDER WHERE Name = 'Paid Order X'];
 		requestVariables.orders = orders;
 		if (! orders.isEmpty()) {
 			requestVariables.contractId = orders[0].ContractId;
@@ -153,8 +122,17 @@ private class Flow_CreateRefundRecordTest {
 	static void createRefundRecord_Positive_BankTransfer() {
 		Flow_CreateRefundRecord.RequestVariables requestVariables = new Flow_CreateRefundRecord.RequestVariables();
 		requestVariables.accountType = 'Services';
-		requestVariables.refundAmount = 200;
-		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM ORDER WHERE Name = 'Reduction Order X'];
+		requestVariables.refundTotal = 200;
+		List<String> refundAmounts = new List<String>();
+		refundAmounts.add('200.00');
+		requestVariables.refundAmounts = refundAmounts;
+		List<String> refundReasons = new List<String>();
+		refundReasons.add('Other');
+		requestVariables.refundReasons = refundReasons;
+		List<String> refundExplanations = new List<String>();
+		refundExplanations.add('Some other reason');
+		requestVariables.refundExplanations = refundExplanations;
+		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId, Refunded_Amount__c, TotalAmount FROM ORDER WHERE Name = 'Paid Order X'];
 		requestVariables.orders = orders;
 		if (! orders.isEmpty()) {
 			requestVariables.contractId = orders[0].ContractId;
@@ -169,8 +147,17 @@ private class Flow_CreateRefundRecordTest {
 	static void createRefundRecord_Exception() {
 		Flow_CreateRefundRecord.RequestVariables requestVariables = new Flow_CreateRefundRecord.RequestVariables();
 		requestVariables.accountType = 'Blah';
-		requestVariables.refundAmount = 2000;
-		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId FROM ORDER WHERE Name = 'Reduction Order X'];
+		requestVariables.refundTotal = 2000;
+		List<String> refundAmounts = new List<String>();
+		refundAmounts.add('2000.00');
+		requestVariables.refundAmounts = refundAmounts;
+		List<String> refundReasons = new List<String>();
+		refundReasons.add('Other');
+		requestVariables.refundReasons = refundReasons;
+		List<String> refundExplanations = new List<String>();
+		refundExplanations.add('Some other reason');
+		requestVariables.refundExplanations = refundExplanations;
+		List<Order> orders = [SELECT Id, Type, Payment2__c, Order_Paid__c, ContractId, Refunded_Amount__c, TotalAmount FROM ORDER WHERE Name = 'Unpaid Order X'];
 		requestVariables.orders = orders;
 		if (! orders.isEmpty()) {
 			requestVariables.contractId = orders[0].ContractId;
@@ -183,7 +170,7 @@ private class Flow_CreateRefundRecordTest {
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
-			System.assert(exceptionMessage.startsWith('Insert failed.'));
+			System.assert(exceptionMessage.startsWith('List index out of bounds'));
 		}
 	}
 
@@ -192,7 +179,16 @@ private class Flow_CreateRefundRecordTest {
 	static void createRefundRecord_Exception2() {
 		Flow_CreateRefundRecord.RequestVariables requestVariables = new Flow_CreateRefundRecord.RequestVariables();
 		requestVariables.accountType = 'Services';
-		requestVariables.refundAmount = 2000;
+		requestVariables.refundTotal = 2000;
+		List<String> refundAmounts = new List<String>();
+		refundAmounts.add('2000.00');
+		requestVariables.refundAmounts = refundAmounts;
+		List<String> refundReasons = new List<String>();
+		refundReasons.add('Other');
+		requestVariables.refundReasons = refundReasons;
+		List<String> refundExplanations = new List<String>();
+		refundExplanations.add('Some other reason');
+		requestVariables.refundExplanations = refundExplanations;
 		List<Flow_CreateRefundRecord.RequestVariables> requestVariablesList = new List<Flow_CreateRefundRecord.RequestVariables>();
 		requestVariablesList.add(requestVariables);
 		String exceptionMessage;
@@ -207,10 +203,10 @@ private class Flow_CreateRefundRecordTest {
 	}
 
 	@IsTest
-	static void createRefundRecord_Null() {
+	static void createRefundRecord_Error() {
 		List<Flow_CreateRefundRecord.RequestVariables> requestVariablesList = new List<Flow_CreateRefundRecord.RequestVariables>();
 		List<Flow_CreateRefundRecord.ResponseVariables> returnList = Flow_CreateRefundRecord.createRefundRecord(requestVariablesList);
-		System.assertEquals(null, returnList);
+		System.assert(returnList[0].hasError);
 	}
 
 }

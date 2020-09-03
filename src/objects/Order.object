@@ -442,6 +442,17 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>System_Search_String__c</fullName>
+        <description>Text field populated by trigger containing the following values: TransactionAmount TransactionDate PaymentDate. Created to meet global search requirements for NIST.</description>
+        <externalId>false</externalId>
+        <label>System-Search String</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>TotalAmount</fullName>
     </fields>
     <fields>
@@ -488,6 +499,21 @@
         <fullName>AllOrders</fullName>
         <filterScope>Everything</filterScope>
         <label>All Orders</label>
+    </listViews>
+    <listViews>
+        <fullName>Orders_without_Linked_Payments</fullName>
+        <columns>ORDERS.ORDER_NUMBER</columns>
+        <columns>CONTRACT.CONTRACT_NUMBER</columns>
+        <columns>SALES.ACCOUNT.NAME</columns>
+        <columns>ORDERS.EFFECTIVE_DATE</columns>
+        <columns>ORDERS.TOTAL_AMOUNT</columns>
+        <columns>ORDERS.STATUS</columns>
+        <filterScope>Mine</filterScope>
+        <label>Orders without Linked Payments</label>
+        <sharedTo>
+            <role>Data_Team_Admins</role>
+            <role>NIST</role>
+        </sharedTo>
     </listViews>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>

@@ -4,7 +4,7 @@ import {reduceErrors} from 'c/ldsUtils';
 import {getQueryParameters} from 'c/getQueryParameters';
 import startElectronicPayment from '@salesforce/apex/Payment2.startElectronicPayment';
 import authorizePayment from '@salesforce/apex/Payment2.authorizePayment';
-import getOrder from '@salesforce/apex/Payment2.getOrder';
+import getOrderByPaidNonPaidOnly from '@salesforce/apex/Payment2.getOrderByPaidNonPaidOnly';
 import {NavigationMixin} from 'lightning/navigation';
 
 export default class Payment extends NavigationMixin(LightningElement) {
@@ -36,7 +36,7 @@ export default class Payment extends NavigationMixin(LightningElement) {
 		}
 
 		if (this.objectApiName == "Order") {
-			getOrder({orderId: this.recordId})
+			getOrderByPaidNonPaidOnly({orderId: this.recordId, nonPaidOnly: true, paidOnly: false})
 				.then(result => {
 					this.record = result;
 					this.error = undefined;

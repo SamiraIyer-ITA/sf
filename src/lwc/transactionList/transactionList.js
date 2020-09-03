@@ -1,4 +1,4 @@
-import {LightningElement, wire, track} from 'lwc';
+import {LightningElement, track} from 'lwc';
 import {reduceErrors} from 'c/ldsUtils';
 import getTransactions from '@salesforce/apex/Payment2.getTransactions';
 import LWCStyles from '@salesforce/resourceUrl/LWCStyles';
@@ -24,7 +24,7 @@ export default class TransactionList extends LightningElement {
 	@track selectedTotal = 0;
 	@track recordColumns = columns;
 	@track tableTitle;
-	obj;  //Object populated from the transactionCriteria LWC
+	searchCriteriaObject;  //Object populated from the transactionCriteria LWC
 	baseUrl;  //The base Url serving up the page
 	subscription = null;
 	context = createMessageContext();
@@ -67,12 +67,12 @@ export default class TransactionList extends LightningElement {
 	handleTransactionListUpdate(searchCriteria) {
 		this.records = undefined;
 		this.searchCriteria = searchCriteria;  //Save searchCriteria for refresh after the Download button is pressed
-		this.obj = JSON.parse(searchCriteria.messageBody);
+		this.searchCriteriaObject = JSON.parse(searchCriteria.messageBody);
 		this.retrievingData = true;
 
-		getTransactions({accountType: this.obj.accountType, paymentMethod: this.obj.paymentMethod,
-			transactionType: this.obj.transactionType, fromDateString: this.obj.fromDate, toDateString: this.obj.toDate,
-			downloaded: this.obj.downloaded})
+		getTransactions({accountType: this.searchCriteriaObject.accountType, paymentMethod: this.searchCriteriaObject.paymentMethod,
+			transactionType: this.searchCriteriaObject.transactionType, fromDateString: this.searchCriteriaObject.fromDate, toDateString: this.searchCriteriaObject.toDate,
+			downloaded: this.searchCriteriaObject.downloaded})
 			.then(result => {
 				if (! this.isEmpty(result)) {
 					//Go through the returned data
@@ -85,7 +85,7 @@ export default class TransactionList extends LightningElement {
 					for (let i = 0; i < rows.length; i++) {
 						let row = rows[i];
 						//Populate the pair/value needed for showing the amount in red or green
-						if (this.obj.transactionType == "Payments") {
+						if (this.searchCriteriaObject.transactionType == "Payments") {
 							pair = {"Amount-Color": "color-green"};
 						} else {
 							//Refunds
@@ -102,8 +102,8 @@ export default class TransactionList extends LightningElement {
 						this.selectedRows.push(row.Id);  //Select all Rows by default
 						this.selectedTotal += row.Transaction_Amount__c;  //Add up the total amount
 					}
-					this.tableTitle = this.obj.downloaded + " " + this.obj.accountType + " " + this.obj.paymentMethod + " "
-						+ this.obj.transactionType + " for " + this.obj.fromDate + " - " + this.obj.toDate;
+					this.tableTitle = this.searchCriteriaObject.downloaded + " " + this.searchCriteriaObject.accountType + " " + this.searchCriteriaObject.paymentMethod + " "
+						+ this.searchCriteriaObject.transactionType + " for " + this.searchCriteriaObject.fromDate + " - " + this.searchCriteriaObject.toDate;
 					this.records = rowBuilder;
 				}
 				this.retrievingData = false;
@@ -136,18 +136,48 @@ export default class TransactionList extends LightningElement {
 	}
 
 	getFormattedDate() {
-		let date = new Date().toJSON().slice(0, 10);
-		let formattedDate = date.slice(5, 7) + '-'
-			+ date.slice(8, 10) + '-'
-			+ date.slice(0, 4);
+		let date = new Date().toJSON().slice(0, 16);
+
+		let formattedDate = date.slice(0, 4) +
+							date.slice(5, 7) +
+							date.slice(8, 10) +
+							date.slice(11,13) +
+							date.slice(14,16);
 		return formattedDate;
 	}
 
 	handleToCBS() {
 		getCBSdata({paymentIds: this.selectedRows})
 			.then(result => {
-				if ((! this.isEmpty(result)) && result.csvString && result.batchNumber) {
-					let fileName = this.getFormattedDate() + "_Batch_" + result.batchNumber + ".txt";
+				if ((! this.isEmpty(result)) && result.csvString) {
+					let accountCategory = "";
+					let paymentCategory = "";
+
+					switch (this.searchCriteriaObject.accountType) {
+						case "Services":
+							accountCategory = "SVCS";
+							break;
+						case "Events":
+							accountCategory = "EVNTS";
+							break;
+						case "Privacy Shield":
+							accountCategory = "PS";
+							break;
+					}
+
+					if (this.searchCriteriaObject.transactionType === "Payments") {
+						if (this.searchCriteriaObject.paymentMethod === "Credit Card") {
+							paymentCategory = "CC";
+						} else {
+							//ACH
+							paymentCategory = "ACH";
+						}
+					} else {
+						//Refunds
+						paymentCategory = "CCR";
+					}
+
+					let fileName = "ITA"+accountCategory+"_"+paymentCategory+"_"+this.getFormattedDate()+".txt";
 					this.createFile(fileName, result.csvString);
 
 					//Refresh the list
@@ -193,7 +223,7 @@ export default class TransactionList extends LightningElement {
 					//Change the PLASTIC_CARD value to Credit Card
 					if (dataKey === 'Payment_Type__c' && jsonRecordsData[i][dataKey] === 'PLASTIC_CARD') {
 						csvIterativeData += '"Credit Card"';
-					} else if (this.obj.transactionType === "Refunds" && dataKey === 'Transaction_Amount__c') {
+					} else if (this.searchCriteriaObject.transactionType === "Refunds" && dataKey === 'Transaction_Amount__c') {
 						//Make the amount negative if it's a refund
 						csvIterativeData += '"-' + jsonRecordsData[i][dataKey] + '"';
 					} else {

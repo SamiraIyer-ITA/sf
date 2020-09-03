@@ -50,7 +50,7 @@ private class Flow_ValidatePayableOrdersTest {
 	@IsTest
 	static void validatePayableOrders_Positive() {
 		Flow_ValidatePayableOrders.RequestVariables requestVariables = new Flow_ValidatePayableOrders.RequestVariables();
-		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c, IsReductionOrder FROM ORDER WHERE Name = 'Test Order X'];
+		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c FROM ORDER WHERE Name = 'Test Order X'];
 		requestVariables.orders = orders;
 		List<Flow_ValidatePayableOrders.RequestVariables> requestVariablesList = new List<Flow_ValidatePayableOrders.RequestVariables>();
 		requestVariablesList.add(requestVariables);
@@ -61,7 +61,7 @@ private class Flow_ValidatePayableOrdersTest {
 	@IsTest
 	static void validatePayableOrders_Negative() {
 		Flow_ValidatePayableOrders.RequestVariables requestVariables = new Flow_ValidatePayableOrders.RequestVariables();
-		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c, IsReductionOrder FROM ORDER WHERE Name = 'Test Order X'];
+		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c FROM ORDER WHERE Name = 'Test Order X'];
 		for (Order order: orders) {
 			order.Order_Paid__c = true;
 		}
@@ -71,23 +71,6 @@ private class Flow_ValidatePayableOrdersTest {
 		requestVariablesList.add(requestVariables);
 		List<Flow_ValidatePayableOrders.ResponseVariables> returnList = Flow_ValidatePayableOrders.validatePayableOrders(requestVariablesList);
 		System.assertEquals(false, returnList[0].isValid);
-	}
-
-	@IsTest
-	static void validatePayableOrders_Exception() {
-		Flow_ValidatePayableOrders.RequestVariables requestVariables = new Flow_ValidatePayableOrders.RequestVariables();
-		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c FROM ORDER WHERE Name = 'Test Order X'];
-		requestVariables.orders = orders;
-		List<Flow_ValidatePayableOrders.RequestVariables> requestVariablesList = new List<Flow_ValidatePayableOrders.RequestVariables>();
-		requestVariablesList.add(requestVariables);
-		String exceptionMessage;
-		try {
-			List<Flow_ValidatePayableOrders.ResponseVariables> returnList = Flow_ValidatePayableOrders.validatePayableOrders(requestVariablesList);
-		} catch (Exception e) {
-			exceptionMessage = e.getMessage();
-		} finally {
-			System.assertEquals('SObject row was retrieved via SOQL without querying the requested field: Order.IsReductionOrder', exceptionMessage);
-		}
 	}
 
 	@IsTest

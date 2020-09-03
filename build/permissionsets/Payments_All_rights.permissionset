@@ -11,4 +11,19 @@
         <field>Payment2__c.Account_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>false</editable>
+		<field>Order.System_Search_String__c</field>
+		<readable>false</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Payment2__c.Payment_2__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>false</editable>
+		<field>Payment2__c.System_Search_String__c</field>
+		<readable>false</readable>
+	</fieldPermissions>
 </PermissionSet>

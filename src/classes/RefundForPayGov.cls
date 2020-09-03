@@ -2,7 +2,7 @@ public with sharing class RefundForPayGov implements IRefund {
 
 	public static final String METADATA_SETTINGS_NAME = 'PayGov';
 
-	public Payment2__c issueRefund(Payment2__c payment, List<Order> reductionOrders, Decimal refundAmount) {
+	public Payment2__c issueRefund(Payment2__c payment, List<Order> orders, Decimal refundAmount) {
 
 		String transactionStatus;
 		String returnCode;
@@ -61,7 +61,7 @@ public with sharing class RefundForPayGov implements IRefund {
 		}
 
 		//Create the Refund record
-		Payment2__c refund = RefundForPayGov.createRefundRecord(payment, reductionOrders, refundAmount,
+		Payment2__c refund = RefundForPayGov.createRefundRecord(payment, orders, refundAmount,
 			transactionDate, returnCode, returnDetail, payGovTrackingId, status);
 		return refund;
 	}
@@ -106,7 +106,7 @@ public with sharing class RefundForPayGov implements IRefund {
 		return pcCancelResponse;
 	}
 
-	private static Payment2__c createRefundRecord(Payment2__c payment, List<Order> reductionOrders,
+	private static Payment2__c createRefundRecord(Payment2__c payment, List<Order> orders,
 		Decimal refundAmount, String transactionDate, String returnCode, String returnDetail, String payGovTrackingId,
 		String status) {
 		DateTime transactionDateGMT = null;
@@ -124,22 +124,17 @@ public with sharing class RefundForPayGov implements IRefund {
 		refund.Payment_Processor__c = payment.Payment_Processor__c;
 		refund.Transaction_Status__c = status;
 		refund.Remote_Tracking_Id__c = payGovTrackingId;
+		refund.Payment_Type__c = 'Credit Card Refund';
+		refund.Payment_2__c = payment.Id;  //The parent payment of this refund
 		fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 		uow.registerNew(refund);
 
 		//Only update Orders if the refund was successful
-		List<Order> originalOrders = new List<Order>();
 		if (status == 'Success') {
-			for (Order eachOrder : reductionOrders) {
-				eachOrder.Payment2__c = refund.Id;
-				eachOrder.Status = 'Paid';
-				eachOrder.Order_Paid__c = true;
+			for (Order eachOrder : orders) {
+				eachOrder.Refunded_Amount__c = eachOrder.Refunded_Amount__c + Math.abs(eachOrder.TotalAmount);
 				uow.registerDirty(eachOrder, Order.Payment2__c, refund);
-				//Update the original order to keep track of the refunded amount
-				eachOrder.OriginalOrder.Refunded_Amount__c = eachOrder.OriginalOrder.Refunded_Amount__c + Math.abs(eachOrder.TotalAmount);
-				originalOrders.add(eachOrder.OriginalOrder);
 			}
-			uow.registerDirty(originalOrders);
 		}
 
 		try {

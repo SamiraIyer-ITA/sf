@@ -40,7 +40,7 @@ export default class PaymentOrderList extends LightningElement {
 	}
 
 	connectedCallback() {
-		getOrdersByContractId({contractId: this.recordId, normalOrders: true, reductionOrders: false, nonPaidOnly: true, paidOnly: false})
+		getOrdersByContractId({contractId: this.recordId, onlyCreditCardPayments: false, nonPaidOnly: true, paidOnly: false})
 			.then(result => {
 				let rows = result;
 				let rowBuilder = [];

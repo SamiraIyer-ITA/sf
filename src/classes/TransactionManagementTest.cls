@@ -9,7 +9,7 @@
   */
 
 @IsTest
-private class TransactionManagement_Test {
+private class TransactionManagementTest {
 
 	@testSetup
 	static void testSetup() {
@@ -62,7 +62,7 @@ private class TransactionManagement_Test {
 
 		CBSBatchCount__c settings = new CBSBatchCount__c();
 		settings.Name = 'test';
-		settings.BatchFileCount__c = 1;
+		//settings.BatchFileCount__c = 1;
 		insert settings;
 	}
 
@@ -73,7 +73,6 @@ private class TransactionManagement_Test {
 		String[] paymentIds = new String[]{payments[0].Id};
 		TransactionManagement.CBSData cbsData = TransactionManagement.getCBSdata(paymentIds);
 		System.assertNotEquals(null, cbsData.csvString);
-		System.assertNotEquals(null, cbsData.batchNumber);
 	}
 
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
         <description>Create the Refund Record and Update the Orders.</description>
         <name>Create_Refund_Record_and_Update_Orders</name>
         <label>Create Refund Record and Update Orders</label>
-        <locationX>981</locationX>
-        <locationY>56</locationY>
+        <locationX>1007</locationX>
+        <locationY>55</locationY>
         <actionName>Flow_CreateRefundRecord</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -33,14 +33,36 @@
             </value>
         </inputParameters>
         <inputParameters>
-            <name>refundAmount</name>
+            <name>refundAmounts</name>
+            <value>
+                <elementReference>Refund_Amounts</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>refundExplanations</name>
+            <value>
+                <elementReference>Refund_Explanations</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>refundReasons</name>
+            <value>
+                <elementReference>Refund_Reasons</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>refundTotal</name>
             <value>
                 <elementReference>TotalAmount</elementReference>
             </value>
         </inputParameters>
         <outputParameters>
-            <assignToReference>RefundId</assignToReference>
-            <name>refundId</name>
+            <assignToReference>errorMessage</assignToReference>
+            <name>errorReasons</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>HasError</assignToReference>
+            <name>hasError</name>
         </outputParameters>
     </actionCalls>
     <actionCalls>
@@ -72,9 +94,9 @@
         <description>Validate that the reduction orders are refundable.</description>
         <name>Validate_Selected_Orders</name>
         <label>Validate Selected Orders</label>
-        <locationX>980</locationX>
-        <locationY>558</locationY>
-        <actionName>Flow_ValidateRefundableReductionOrders</actionName>
+        <locationX>787</locationX>
+        <locationY>392</locationY>
+        <actionName>Flow_ValidateRefundableOrders</actionName>
         <actionType>apex</actionType>
         <connector>
             <targetReference>Has_Invalid_Order</targetReference>
@@ -88,9 +110,31 @@
                 <elementReference>SelectedOrders</elementReference>
             </value>
         </inputParameters>
+        <inputParameters>
+            <name>refundAmounts</name>
+            <value>
+                <elementReference>Refund_Amounts</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>refundExplanations</name>
+            <value>
+                <elementReference>Refund_Explanations</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>refundReasons</name>
+            <value>
+                <elementReference>Refund_Reasons</elementReference>
+            </value>
+        </inputParameters>
         <outputParameters>
             <assignToReference>AccountType</assignToReference>
             <name>accountType</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>Case_Description</assignToReference>
+            <name>caseDescription</name>
         </outputParameters>
         <outputParameters>
             <assignToReference>errorMessage</assignToReference>
@@ -99,6 +143,10 @@
         <outputParameters>
             <assignToReference>isValid</assignToReference>
             <name>isValid</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>NonCreditCardPayment</assignToReference>
+            <name>nonCreditCardPayment</name>
         </outputParameters>
         <outputParameters>
             <assignToReference>TotalAmount</assignToReference>
@@ -143,8 +191,8 @@
         <description>Assign the error message if the flow wasn&apos;t run from an Order or a Contract.</description>
         <name>Invalid_Object_Error</name>
         <label>Invalid Object Error</label>
-        <locationX>444</locationX>
-        <locationY>304</locationY>
+        <locationX>447</locationX>
+        <locationY>276</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -194,7 +242,38 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Validate_Selected_Orders</targetReference>
+            <targetReference>Order_Loop</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Save the refund details into collections.</description>
+        <name>Set_Refund_Details</name>
+        <label>Set Refund Details</label>
+        <locationX>1012</locationX>
+        <locationY>420</locationY>
+        <assignmentItems>
+            <assignToReference>Refund_Reasons</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Refund_Reason</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Refund_Explanations</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Refund_Explanation</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Refund_Amounts</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Refund_Amount_As_Text</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Order_Loop</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -266,8 +345,8 @@
         <description>Whether the selected orders has a order that is not refundable.</description>
         <name>Has_Invalid_Order</name>
         <label>Has Invalid Order</label>
-        <locationX>972</locationX>
-        <locationY>414</locationY>
+        <locationX>782</locationX>
+        <locationY>278</locationY>
         <defaultConnector>
             <targetReference>Record_Refund_Confirmation</targetReference>
         </defaultConnector>
@@ -330,6 +409,15 @@
         </rules>
     </decisions>
     <description>Record a NIST-issued refund.</description>
+    <dynamicChoiceSets>
+        <description>The reason the refund is being given.</description>
+        <name>RefundReason</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Refund_Reason__c</picklistField>
+        <picklistObject>Payment2__c</picklistObject>
+    </dynamicChoiceSets>
     <formulas>
         <description>The absolute value of the total amount.</description>
         <name>AbsoluteTotalAmount</name>
@@ -337,8 +425,37 @@
         <expression>ABS({!TotalAmount})</expression>
         <scale>2</scale>
     </formulas>
+    <formulas>
+        <description>Convert the refund amount from currency to text.  Invocable methods don&apos;t allow currency/decimal values so it must be converted to text.</description>
+        <name>Refund_Amount_As_Text</name>
+        <dataType>String</dataType>
+        <expression>TEXT({!Refund_Amount})</expression>
+    </formulas>
+    <formulas>
+        <description>The amount that is available to be refunded, inside the Order Loop.</description>
+        <name>RefundAmountAvailableInLoop</name>
+        <dataType>Currency</dataType>
+        <expression>{!Order_Record_In_Loop.TotalAmount} - {!Order_Record_In_Loop.Refunded_Amount__c}</expression>
+        <scale>2</scale>
+    </formulas>
     <interviewLabel>Record Refund {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Record Refund</label>
+    <loops>
+        <description>Loop through each other to get the refund amount and reason for the refund.</description>
+        <name>Order_Loop</name>
+        <label>Order Loop</label>
+        <locationX>787</locationX>
+        <locationY>562</locationY>
+        <assignNextValueToReference>Order_Record_In_Loop</assignNextValueToReference>
+        <collectionReference>SelectedOrders</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Refund_Details</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Validate_Selected_Orders</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -378,19 +495,20 @@
         <queriedFields>ContractId</queriedFields>
         <queriedFields>TotalAmount</queriedFields>
         <queriedFields>Name</queriedFields>
+        <queriedFields>Refunded_Amount__c</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
         <name>Done_Screen</name>
         <label>Done Screen</label>
-        <locationX>1175</locationX>
-        <locationY>56</locationY>
+        <locationX>787</locationX>
+        <locationY>131</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <fields>
             <name>DoneScreenDiplayText</name>
-            <fieldText>&lt;p&gt;A refund of {!AbsoluteTotalAmount} has been recorded.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Your refund(s) has been recorded.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -400,8 +518,8 @@
         <description>Displays when an error occurs.</description>
         <name>Error_Screen</name>
         <label>Error Screen</label>
-        <locationX>601</locationX>
-        <locationY>304</locationY>
+        <locationX>597</locationX>
+        <locationY>276</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -417,8 +535,8 @@
         <description>Confirm that this refund should be recorded.</description>
         <name>Record_Refund_Confirmation</name>
         <label>Record Refund Confirmation</label>
-        <locationX>982</locationX>
-        <locationY>251</locationY>
+        <locationX>1007</locationX>
+        <locationY>269</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -427,8 +545,68 @@
         </connector>
         <fields>
             <name>recordRefundConfirmationText</name>
-            <fieldText>&lt;p&gt;Ensure that the refund was already processed by NIST.&amp;nbsp;Upon pressing the &apos;Next&apos; button, a refund of {!AbsoluteTotalAmount} will be recorded.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Ensure that the refund was already processed by NIST.&amp;nbsp;Upon pressing the &apos;Next&apos; button, your refund(s) will be recorded.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Receive details about each order; the refund amount and the reason for the refund.</description>
+        <name>Refund_Details</name>
+        <label>Refund Details</label>
+        <locationX>1012</locationX>
+        <locationY>554</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Set_Refund_Details</targetReference>
+        </connector>
+        <fields>
+            <name>OrderDetailsDisplayText</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Enter refund details for Order &quot;{!Order_Record_In_Loop.Name}&quot;, for which {!RefundAmountAvailableInLoop} is refundable.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Refund_Amount</name>
+            <dataType>Currency</dataType>
+            <fieldText>Refund Amount</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>2</scale>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(194, 57, 52);&quot;&gt;Refund Amount must be greater than zero and less than or equal to {!RefundAmountAvailableInLoop}.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>AND (
+{!Refund_Amount} &gt; 0,
+{!Refund_Amount}&lt;={!RefundAmountAvailableInLoop}
+)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Refund_Reason</name>
+            <choiceReferences>RefundReason</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Refund Reason</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Refund_Explanation</name>
+            <dataType>String</dataType>
+            <fieldText>Refund Explanation</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Refund_Reason</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Other</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -443,12 +621,18 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Validate_Selected_Orders</targetReference>
+            <targetReference>Order_Loop</targetReference>
         </connector>
         <fields>
-            <name>unpaidReductionOrdersLWC</name>
-            <extensionName>c:unpaidReductionOrdersForContract</extensionName>
+            <name>ordersForContractLWC</name>
+            <extensionName>c:ordersForContract</extensionName>
             <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>actionType</name>
+                <value>
+                    <stringValue>Refund</stringValue>
+                </value>
+            </inputParameters>
             <inputParameters>
                 <name>recordId</name>
                 <value>
@@ -475,6 +659,14 @@
     <variables>
         <description>The account type for all orders.</description>
         <name>AccountType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>A description of the case created for NIST.</description>
+        <name>Case_Description</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -508,6 +700,17 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <description>Whether an action resulted in an error.</description>
+        <name>HasError</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
         <description>Whether there is an error.</description>
         <name>isValid</name>
         <dataType>Boolean</dataType>
@@ -519,12 +722,29 @@
         </value>
     </variables>
     <variables>
+        <description>True if an original order was not paid by a credit card.</description>
+        <name>NonCreditCardPayment</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <description>The object name of the record id.</description>
         <name>objectName</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>An order record, in the Order Loop.</description>
+        <name>Order_Record_In_Loop</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Order</objectType>
     </variables>
     <variables>
         <description>An individual Order Id in the list of selected Order Ids.</description>
@@ -557,6 +777,30 @@
         <isCollection>true</isCollection>
         <isInput>true</isInput>
         <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>A collection of Refund Amounts</description>
+        <name>Refund_Amounts</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>A collection of refund explanations.</description>
+        <name>Refund_Explanations</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>A collection of refund reasons.</description>
+        <name>Refund_Reasons</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <description>The Id of the Payment 2 (Refund) record that was created.</description>

@@ -1,4 +1,4 @@
-import {LightningElement, track, wire} from 'lwc';
+import {LightningElement, track} from 'lwc';
 import {publish,createMessageContext,releaseMessageContext} from 'lightning/messageService';
 import messageChannel from "@salesforce/messageChannel/TransactionManagement__c";
 

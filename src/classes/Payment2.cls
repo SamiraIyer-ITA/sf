@@ -39,7 +39,7 @@ public with sharing class Payment2 {
 			} else if (transactionType == 'Refunds') {
 				recordTypeId = rtMap.get('Credit_Card_Refund');
 				transactionStatus = 'Success';
-				paymentType = 'PLASTIC_CARD';
+				paymentType = 'Credit Card Refund';
 			}
 
 			if (downloaded == 'All') {
@@ -53,38 +53,17 @@ public with sharing class Payment2 {
 	}
 
 	/**
-	 * Get an Order record, given an Order Id.
+	 * Get an Order record, given an Order Id.  Filtering can return only paid orders or only non-paid orders.
 	 *
 	 * @param orderId An order Id.
-	 */
-	@AuraEnabled(cacheable=true)
-	public static Order getOrder(String orderId) {
-		try {
-			Set<Id> orderIds = new Set<Id>{orderId};
-			List<Order> orders = OrdersSelector.newInstance().selectById(orderIds);
-			if (orders.size() > 0) {
-				return orders[0];
-			}
-			return null;
-		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
-	}
-
-	/**
-	 * Get an Order record, given an Order Id.  This method is typically used for Reduction Orders because it returns details about the Original Order.
-	 *
-	 * @param orderId An order Id.
-	 * @param normalOrders Whether normal (non-reduction) orders should be returned.
-	 * @param reductionOrders Whether Reduction Orders should be returned.
 	 * @param nonPaidOnly Whether only non-paid orders should be returned.  If true, do not make paidOnly true.
 	 * @param paidOnly Whether only paid orders should be returned.  If true, do not make nonPaidOnly true.
 	 */
 	@AuraEnabled(cacheable=true)
-	public static Order getOrderWithReductionOrderDetails(String orderId, Boolean normalOrders, Boolean reductionOrders, Boolean nonPaidOnly, Boolean paidOnly) {
+	public static Order getOrderByPaidNonPaidOnly(String orderId, Boolean nonPaidOnly, Boolean paidOnly) {
 		try {
-			Set<Id> orderIds = new Set<Id>{orderId};
-			List<Order> orders = OrdersSelector.newInstance().selectWithReductionOrderDetails(orderIds, normalOrders, reductionOrders, nonPaidOnly, paidOnly);
+			Set<Id> orderIds = new Set<Id>{orderId};//
+			List<Order> orders = OrdersSelector.newInstance().selectByPaidNonPaidOnly(orderIds, nonPaidOnly, paidOnly);
 			if (orders.size() > 0) {
 				return orders[0];
 			}
@@ -95,19 +74,17 @@ public with sharing class Payment2 {
 	}
 
 	/**
-	 * Get Order records, given a Contract Id.
+	 * Get Order records, given a Contract Id.  Filtering can return only paid orders or only non-paid orders.
 	 *
 	 * @param contractId A Contract Id.
-	 * @param normalOrders Whether normal (non-reduction) orders should be returned.
-	 * @param reductionOrders Whether Reduction Orders should be returned.
 	 * @param nonPaidOnly Whether only non-paid orders should be returned.  If true, do not make paidOnly true.
 	 * @param paidOnly Whether only paid orders should be returned.  If true, do not make nonPaidOnly true.
 	 */
 	@AuraEnabled(cacheable=true)
-	public static List<Order> getOrdersByContractId(String contractId, Boolean normalOrders, Boolean reductionOrders, Boolean nonPaidOnly, Boolean paidOnly) {
+	public static List<Order> getOrdersByContractId(String contractId, Boolean onlyCreditCardPayments, Boolean nonPaidOnly, Boolean paidOnly) {
 		try {
 			Set<Id> contractIds = new Set<Id>{contractId};
-			List<Order> orders = OrdersSelector.newInstance().selectByContractId(contractIds, normalOrders, reductionOrders, nonPaidOnly, paidOnly);
+			List<Order> orders = OrdersSelector.newInstance().selectByContractId(contractIds, onlyCreditCardPayments, nonPaidOnly, paidOnly);
 			return orders;
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());

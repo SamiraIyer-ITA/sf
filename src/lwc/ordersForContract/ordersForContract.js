@@ -5,20 +5,22 @@ import {reduceErrors} from 'c/ldsUtils';
 
 const orderColumns = [
 	{label: 'Order Name', fieldName: 'Name', type: 'text'},
-	{label: 'Amount', fieldName: 'TotalAmount', type: 'currency', typeAttributes: { currencyCode: 'USD'}},
+	{label: 'Payment Amount', fieldName: 'TotalAmount', type: 'currency', typeAttributes: { currencyCode: 'USD'}, cellAttributes: {alignment: "left"}},
+	{label: 'Refunded Amount', fieldName: 'Refunded_Amount__c', type: 'currency', typeAttributes: { currencyCode: 'USD'}, cellAttributes: {alignment: "left"}},
 	{label: 'Product', fieldName: 'Type', type: 'text'},
 	{label: 'Contract Number', fieldName: 'ContractNumber', type: 'text'},
 	{label: 'Contract Name', fieldName: 'ContractName', type: 'text'}
 ];
-export default class UnpaidOrdersForContract extends LightningElement {
+export default class OrdersForContract extends LightningElement {
 
 	@api recordId;  //The Contract record Id.
+	@api actionType;  //Payment or Refund.  Filters orders by whether should have already been paid.
 	@track datatableOrders;
 	@track orders = [];  //All available orders
 	@api selectedOrders = [];
 	@track orderColumns = orderColumns;
 	@track error;
-	@track refundTotal = 0;
+	@track paymentTotal = 0;
 	@track selectedOrderIds = [];
 	productType;
 	@track gotData = false;
@@ -55,8 +57,22 @@ export default class UnpaidOrdersForContract extends LightningElement {
 		return false;
 	}
 
+	get totalTitle() {
+		if (this.actionType == 'Refund') {
+			return "Refundable Total";
+		}
+		return "Payment Total";
+	}
+
 	connectedCallback() {
-		getOrdersByContractId({contractId: this.recordId, normalOrders: false, reductionOrders: true, nonPaidOnly: true, paidOnly: false})
+		//Assume that the action if for a Payment
+		let paidOnly = false;
+		let unpaidOnly = true;
+		if (this.actionType == 'Refund') {
+			paidOnly = true;
+			unpaidOnly = false;
+		}
+		getOrdersByContractId({contractId: this.recordId, onlyCreditCardPayments: false, nonPaidOnly: unpaidOnly, paidOnly: paidOnly})
 			.then(result => {
 				let rows = result;
 				let rowBuilder = [];
@@ -88,10 +104,15 @@ export default class UnpaidOrdersForContract extends LightningElement {
 				this.gotData = true;
 				this.error = undefined;
 
-				//Flow can't handle Contract info being in an Order record, so remove it
+				//Flow can't handle Contract or Payment info being in an Order record, so remove it
 				this.orders = JSON.parse(JSON.stringify(result));  //This is a workaround because the delete method won't work otherwise
 				for (let i=0; i < this.orders.length; i++) {
-					delete this.orders[i].Contract;
+					if (this.orders[i].Contract) {
+						delete this.orders[i].Contract;
+					}
+					if (this.orders[i].Payment2__r) {
+						delete this.orders[i].Payment2__r;
+					}
 				}
 
 			})
@@ -104,7 +125,7 @@ export default class UnpaidOrdersForContract extends LightningElement {
 	handleRowSelection(event) {
 		const selectedRows = event.detail.selectedRows;
 
-		this.refundTotal = 0;
+		this.paymentTotal = 0;
 		this.selectedOrderIds = [];
 
 		if (selectedRows.length == 0) {
@@ -117,7 +138,7 @@ export default class UnpaidOrdersForContract extends LightningElement {
 				this.productType = selectedRows[i].Type;  //Only necessary to populate this once each time
 			}
 			this.selectedOrderIds.push(selectedRows[i].Id);
-			this.refundTotal += selectedRows[i].TotalAmount;
+			this.paymentTotal += selectedRows[i].TotalAmount - selectedRows[i].Refunded_Amount__c;
 		}
 
 		//Notify the Flow of the selectedOrders
@@ -140,7 +161,4 @@ export default class UnpaidOrdersForContract extends LightningElement {
 		this.dispatchEvent(attributeChangeEvent);
 	}
 
-	get hasTotal() {
-		return this.refundTotal > 0;
-	}
 }
