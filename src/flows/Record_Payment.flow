@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Create a payment record and update associated orders.</description>
+        <name>Create_Payment_Record_and_Update_Orders</name>
+        <label>Create Payment Record and Update Orders</label>
+        <locationX>794</locationX>
+        <locationY>54</locationY>
+        <actionName>Flow_CreatePaymentRecord</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Done_Screen</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>DML_Error</targetReference>
+        </faultConnector>
+        <inputParameters>
+            <name>accountType</name>
+            <value>
+                <elementReference>AccountType</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>bankName</name>
+            <value>
+                <elementReference>Bank_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>bankTransferDatetime</name>
+            <value>
+                <elementReference>Transfer_Date_Time</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>checkDate</name>
+            <value>
+                <elementReference>Check_Date</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>checkNumber</name>
+            <value>
+                <elementReference>Check_Number</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>contractId</name>
+            <value>
+                <elementReference>ContractId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>orders</name>
+            <value>
+                <elementReference>SelectedOrders</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>amount</name>
+            <value>
+                <elementReference>TotalAmount</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>paymentType</name>
+            <value>
+                <elementReference>Payment_Type</elementReference>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <description>Get the object name of the calling record.</description>
+        <name>Get_Object_Name</name>
+        <label>Get Object Name</label>
+        <locationX>50</locationX>
+        <locationY>378</locationY>
+        <actionName>Flow_ObjectNamesFromIds</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Object_Type</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>DML_Error</targetReference>
+        </faultConnector>
+        <inputParameters>
+            <name>ids</name>
+            <value>
+                <elementReference>RecordIds</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>objectName</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Validate that Orders are Payable.</description>
+        <name>Validate_Orders</name>
+        <label>Validate Orders</label>
+        <locationX>971</locationX>
+        <locationY>558</locationY>
+        <actionName>Flow_ValidatePayableOrders</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Validation_Handling</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>DML_Error</targetReference>
+        </faultConnector>
+        <inputParameters>
+            <name>orders</name>
+            <value>
+                <elementReference>SelectedOrders</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>AccountType</assignToReference>
+            <name>accountType</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>errorMessage</assignToReference>
+            <name>invalidReasons</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>IsValid</assignToReference>
+            <name>isValid</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>TotalAmount</assignToReference>
+            <name>totalAmount</name>
+        </outputParameters>
+    </actionCalls>
+    <assignments>
+        <description>Assign Contract Id to a separate variable.</description>
+        <name>Assign_Contract_Id</name>
+        <label>Assign Contract Id</label>
+        <locationX>483</locationX>
+        <locationY>436</locationY>
+        <assignmentItems>
+            <assignToReference>ContractId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Select_Orders_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the DML Error to a variable.</description>
+        <name>DML_Error</name>
+        <label>DML Error</label>
+        <locationX>398</locationX>
+        <locationY>60</locationY>
+        <assignmentItems>
+            <assignToReference>errorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>&lt;li&gt;{!$Flow.FaultMessage}&lt;/li&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Error_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the error message if the flow wasn&apos;t run from an Order or a Contract.</description>
+        <name>Invalid_Object_Error</name>
+        <label>Invalid Object Error</label>
+        <locationX>454</locationX>
+        <locationY>304</locationY>
+        <assignmentItems>
+            <assignToReference>errorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>&lt;li&gt;This flow was run from an invalid object.&lt;/li&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Error_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the record Id to a List.</description>
+        <name>Record_Id_to_List</name>
+        <label>Record Id to List</label>
+        <locationX>50</locationX>
+        <locationY>195</locationY>
+        <assignmentItems>
+            <assignToReference>RecordIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Object_Name</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Set the Contract Id from the Order.</description>
+        <name>Set_Contract_and_Order_Details</name>
+        <label>Set Contract and Order Details</label>
+        <locationX>543</locationX>
+        <locationY>570</locationY>
+        <assignmentItems>
+            <assignToReference>ContractId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Order.ContractId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SelectedOrders</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Get_Order</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Validate_Orders</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <description>The &apos;bank transfer&apos; payment type choice.</description>
+        <name>BankTransferChoice</name>
+        <choiceText>{!BANKTRANSFER}</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>BANKTRANSFER</elementReference>
+        </value>
+    </choices>
+    <choices>
+        <description>The &apos;cash&apos; payment type choice.</description>
+        <name>CashChoice</name>
+        <choiceText>{!CASH}</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>CASH</elementReference>
+        </value>
+    </choices>
+    <choices>
+        <description>The &apos;check&apos; payment type choice.</description>
+        <name>CheckChoice</name>
+        <choiceText>{!CHECK}</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <elementReference>CHECK</elementReference>
+        </value>
+    </choices>
+    <constants>
+        <description>The Bank Transfer payment type.</description>
+        <name>BANKTRANSFER</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Bank Transfer</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>The Cash payment type.</description>
+        <name>CASH</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Cash</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>The check payment type.</description>
+        <name>CHECK</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Check</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>CONTRACT</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Contract</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>This flow was run from an invalid object.</description>
+        <name>INVALID_OBJECT</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>This flow can only be run from an Order or a Contract.</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>ORDER</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Order</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Determines what to do for various object types.</description>
+        <name>Object_Type</name>
+        <label>Object Type</label>
+        <locationX>42</locationX>
+        <locationY>560</locationY>
+        <defaultConnector>
+            <targetReference>Invalid_Object_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is Error</defaultConnectorLabel>
+        <rules>
+            <name>Is_Contract</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>objectName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>CONTRACT</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Contract_Id</targetReference>
+            </connector>
+            <label>Is Contract</label>
+        </rules>
+        <rules>
+            <name>Is_Order</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>objectName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ORDER</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Order</targetReference>
+            </connector>
+            <label>Is Order</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Handles flow direction if the orders are valid for payment or not.</description>
+        <name>Validation_Handling</name>
+        <label>Validation Handling</label>
+        <locationX>963</locationX>
+        <locationY>406</locationY>
+        <defaultConnector>
+            <targetReference>Payment_Details</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is Valid</defaultConnectorLabel>
+        <rules>
+            <name>Is_Invalid</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsValid</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error_Screen</targetReference>
+            </connector>
+            <label>Is Invalid</label>
+        </rules>
+    </decisions>
+    <description>Record a Cash, Check, or Bank Transfer payment.</description>
+    <interviewLabel>Record Payment {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Record Payment</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Gets the order record</description>
+        <name>Get_Order</name>
+        <label>Get Order</label>
+        <locationX>382</locationX>
+        <locationY>570</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Contract_and_Order_Details</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Order</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <queriedFields>Payment2__c</queriedFields>
+        <queriedFields>Order_Paid__c</queriedFields>
+        <queriedFields>IsReductionOrder</queriedFields>
+        <queriedFields>Type</queriedFields>
+        <queriedFields>TotalAmount</queriedFields>
+        <queriedFields>ContractId</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Done_Screen</name>
+        <label>Done Screen</label>
+        <locationX>961</locationX>
+        <locationY>54</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>DoneScreenDiplayText</name>
+            <fieldText>&lt;p&gt;A payment of {!TotalAmount} has been recorded.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Displays when an error occurs.</description>
+        <name>Error_Screen</name>
+        <label>Error Screen</label>
+        <locationX>612</locationX>
+        <locationY>304</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>displayTextErrorScreen</name>
+            <fieldText>&lt;p&gt;Errors:&lt;/p&gt;&lt;p class=&quot;ql-indent-1&quot;&gt;{!errorMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Select the type of payment and enter it&apos;s details</description>
+        <name>Payment_Details</name>
+        <label>Payment Details</label>
+        <locationX>967</locationX>
+        <locationY>225</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_Payment_Record_and_Update_Orders</targetReference>
+        </connector>
+        <fields>
+            <name>Payment_Type_Title_Display_Text</name>
+            <fieldText>&lt;p&gt;&lt;b&gt;&lt;u&gt;Create a Payment Record for a Cash, Check, or Bank Transfer Payment&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Payment_Type</name>
+            <choiceReferences>BankTransferChoice</choiceReferences>
+            <choiceReferences>CashChoice</choiceReferences>
+            <choiceReferences>CheckChoice</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Payment Type</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>PaymentDetailsPaymentAmount</name>
+            <fieldText>&lt;p&gt;Payment Amount: {!TotalAmount}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>BankTransferDisplayText</name>
+            <fieldText>&lt;p&gt;&lt;b&gt;&lt;u&gt;Bank Transfer/Electronic Funds Transfer Instructions&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Payments by bank transfer are deposited directly into the ITA bank account.  NIST monitors/manages this account.  Thus, &lt;u&gt;all bank transfers must be coordinated though NIST&lt;/u&gt; to ensure timely posting.  Due to the difficultly in tracking this type of payment, bank transfers should be used &lt;b&gt;only&lt;/b&gt; when the client cannot pay via alternative methods.  Remind the client that all bank fees are their responsibility and please remember to add these fees to the amount due.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Before&lt;/b&gt; the bank transfer is made, the Post should &lt;b&gt;email NIST&lt;/b&gt; (&lt;a href=&quot;mailto:lisa.rocker@nist.gov&quot; target=&quot;_blank&quot;&gt;mailto:lisa.rocker@nist.gov&lt;/a&gt;) with a cc to their OIO Regional Country Manager:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Exact amount being transferred&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Exact date of the tranfer&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Event or Service PA Reference Number&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Event project code&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Company name&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Company contact name&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;Company contact phone number&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;CBS ACCS string&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ITA Point of Contact name (will typically be performed by the Post admin specialist)&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ITA Point of Contact email&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;ITA Point of Contact phone number&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Using this information, NIST will be able to find the bank transfer and deposit it into the FCS account.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Wire payments may be made using the U.S. Department of Treasury FEDWIRE system through the following bank using an account with the Federal Reserve Bank of New York:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Bank Name and Address:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Treas NYC&lt;/p&gt;&lt;p&gt;U.S. Department of Treasury&lt;/p&gt;&lt;p&gt;33 Liberty St&lt;/p&gt;&lt;p&gt;New York, NY 10045&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Voice: 202-874-7132&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Details:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;In Payment Details Field: &lt;b&gt;CL329930001&lt;/b&gt;&lt;/p&gt;&lt;p&gt;ABA# (Bank Routing #): &lt;b&gt;021030004&lt;/b&gt;&lt;/p&gt;&lt;p&gt;ALC# (Account #): &lt;b&gt;13060001&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Accountj Name: &lt;b&gt;TREAS NYC/CTR/BNF=NIST/AC-13060001&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please be sure to reference the reason for your payment (Invoice or Order #, or explanation) and note your company as the Originator/Sender Name.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;WE DO NOT HAVE A SWIFT CODE AND WE DO NOT ACCEPT SWIFT OR EFT PAYMENTS.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Our account number and name are of critical importance and must be referenced in order for NIST to be properly credited with your payment.  It must appear in the precise manner shown to allow for the automated processing and classification of the funds transfer message.  In addition, please refer to the Service PA reference number, your country, and any other pertinent information that will help us identify what your company is paying.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;This transfer of funds can only be accomplished by your company going through a U.S. Correspondent Bank or by having your country&apos;s central bank send a swift telecommunication message to the Federal Reserve Bank.  Be sure to cover any processing fees your bank may charge you.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you need any additional information, please contact NIST by telephone at 301-975-3880, by fax to 301-975-8943, or by email to &lt;a href=&quot;mailto:billing@nist.gov&quot; target=&quot;_blank&quot;&gt;mailto:billing@nist.gov&lt;/a&gt;.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Payment_Type</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>BANKTRANSFER</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>CheckDisplayText</name>
+            <fieldText>&lt;p&gt;&lt;b&gt;&lt;u&gt;Check Instructions&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;All checks and money orders should be made payable to one of the following International Trade Administration offices (other than the U.S. Commercial Services):&lt;/p&gt;&lt;ul&gt;&lt;li&gt;U.S. Department of Commerce&lt;/li&gt;&lt;li&gt;U.S. Commercial Service (Offices in the United States)&lt;/li&gt;&lt;li&gt;U.S. Foreign and Commercial Service (International Offices)&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;U.S. checks drawn against a foreign bank or foreign currency are accepted.  In these cases, payees are responsible for a collection fee in addition to the quoted fee.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Collection fees vary by country:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;$10 fee: Japan, South Africa, Singapore, New Zealand, European countries using the Euro, United Kingdom, and Mexico.&lt;/li&gt;&lt;li&gt;$55 fee: All countries not listed above.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Remember:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;When your payment has been processed and all material information received, work will begin.&lt;/li&gt;&lt;li&gt;Non-credit card payments are handled differently around the world.  Please consult with your CS Contact on where to send your payment.&lt;/li&gt;&lt;li&gt;Please reference your Participation Agreement number on your check so your payment gets credited properly.&lt;/li&gt;&lt;/ul&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Payment_Type</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>CHECK</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Bank_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Bank Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Payment_Type</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>CHECK</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Check_Number</name>
+            <dataType>String</dataType>
+            <fieldText>Check Number</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Payment_Type</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>CHECK</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Check_Date</name>
+            <dataType>Date</dataType>
+            <defaultValue>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </defaultValue>
+            <fieldText>Check Date</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Payment_Type</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>CHECK</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Transfer_Date_Time</name>
+            <dataType>DateTime</dataType>
+            <defaultValue>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </defaultValue>
+            <fieldText>Transfer Date/Time</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Payment_Type</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>BANKTRANSFER</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Select the orders for which you want to record a payment.</description>
+        <name>Select_Orders_Screen</name>
+        <label>Select Orders Screen</label>
+        <locationX>616</locationX>
+        <locationY>436</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Validate_Orders</targetReference>
+        </connector>
+        <fields>
+            <name>unpaidOrdersLWC</name>
+            <extensionName>c:unpaidOrdersForContract</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>recordId</elementReference>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>SelectedOrders</assignToReference>
+                <name>selectedOrders</name>
+            </outputParameters>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Record_Id_to_List</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The &apos;Type&apos; of the Orders.</description>
+        <name>AccountType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The cash payment type option.</description>
+        <name>CashPaymentType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Cash</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <description>The Contract Id.</description>
+        <name>ContractId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Error message text.</description>
+        <name>errorMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Whether the orders are valid or not to allow payment.</description>
+        <name>IsValid</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>The object name of the record id.</description>
+        <name>objectName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>An individual Order Id in the list of selected Order Ids.</description>
+        <name>OrderId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The selected payment type.</description>
+        <name>PaymentType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The current record&apos;s Id.  This will be the Contract Id or the Order Id.</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>A collection of record Ids.</description>
+        <name>RecordIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The selected orders.</description>
+        <name>SelectedOrders</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Order</objectType>
+    </variables>
+    <variables>
+        <description>The total amount of the orders.  Also, the total amount of the payment.</description>
+        <name>TotalAmount</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

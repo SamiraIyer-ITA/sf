@@ -17,7 +17,7 @@
             </value>
         </inputParameters>
         <outputParameters>
-            <assignToReference>QueueId</assignToReference>
+            <assignToReference>QueueRecord</assignToReference>
             <name>output</name>
         </outputParameters>
     </actionCalls>
@@ -32,6 +32,24 @@
             <targetReference>Success_Screen</targetReference>
         </connector>
         <inputParameters>
+            <name>companyName</name>
+            <value>
+                <elementReference>Company_Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>contactId</name>
+            <value>
+                <elementReference>contactExt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>converted</name>
+            <value>
+                <elementReference>Converted</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
             <name>country</name>
             <value>
                 <elementReference>countryExt</elementReference>
@@ -44,51 +62,15 @@
             </value>
         </inputParameters>
         <inputParameters>
-            <name>companyName</name>
-            <value>
-                <elementReference>Company_Name</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>lastName</name>
-            <value>
-                <elementReference>Last_Name</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>contactId</name>
-            <value>
-                <elementReference>contactExt</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>requestReason</name>
-            <value>
-                <elementReference>IssueBox</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
             <name>firstName</name>
             <value>
                 <elementReference>First_Name</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>zipCode</name>
+            <name>lastName</name>
             <value>
-                <elementReference>zipCodeExt</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>converted</name>
-            <value>
-                <elementReference>Converted</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>ownerId</name>
-            <value>
-                <elementReference>QueueId</elementReference>
+                <elementReference>Last_Name</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -103,12 +85,42 @@
                 <elementReference>Message</elementReference>
             </value>
         </inputParameters>
+        <inputParameters>
+            <name>queueDeveloperName</name>
+            <value>
+                <elementReference>FormulaQueueSelector</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ownerId</name>
+            <value>
+                <elementReference>QueueRecord.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>queueName</name>
+            <value>
+                <elementReference>QueueRecord.Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>requestReason</name>
+            <value>
+                <elementReference>IssueBox</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>zipCode</name>
+            <value>
+                <elementReference>zipCodeExt</elementReference>
+            </value>
+        </inputParameters>
     </actionCalls>
     <assignments>
         <name>Update_IssueBox_flag</name>
         <label>Turn on validations</label>
-        <locationX>216</locationX>
-        <locationY>403</locationY>
+        <locationX>238</locationX>
+        <locationY>451</locationY>
         <assignmentItems>
             <assignToReference>DoValidationCheck</assignToReference>
             <operator>Assign</operator>
@@ -137,7 +149,7 @@
     <decisions>
         <name>Validate_Form</name>
         <label>Validate Form</label>
-        <locationX>83</locationX>
+        <locationX>82</locationX>
         <locationY>612</locationY>
         <defaultConnector>
             <targetReference>get_contact</targetReference>
@@ -179,13 +191,6 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>IssueBox</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -283,7 +288,7 @@
     <formulas>
         <name>FormulaQueueSelector</name>
         <dataType>String</dataType>
-        <expression>if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;{!U_S} != &apos;Enter U.S. Zip Code&apos; &amp;&amp; !isBlank({!U_S}),&apos;CP_Contact_US_1&apos;,
+        <expression>if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert in the US&apos; &amp;&amp;{!U_S} != &apos;Enter U.S. Zip Code&apos; &amp;&amp; !isBlank({!U_S}),&apos;CP_Contact_US_1&apos;,
 if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp; {!Asia_Region},&apos;CP_Contact_US_2&apos;,
 if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!China_Region},&apos;CP_Contact_US_3&apos;,
 if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Europe_Region1},&apos;CP_Contact_US_4&apos;,
@@ -330,7 +335,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
     <formulas>
         <name>ZipCodeErrorFlag</name>
         <dataType>Boolean</dataType>
-        <expression>if({!flowCountry} == &quot;United States&quot; &amp;&amp; {!IssueBox} == &quot;Contacting a local trade or export assistance expert (*limited availability)&quot; &amp;&amp; NOT(REGEX({!U_S}, &quot;\\d{5}(-\\d{4})?&quot;)),true,false)</expression>
+        <expression>if({!flowCountry} == &quot;United States&quot; &amp;&amp; {!IssueBox} == &quot;Contact a local trade or export assistance expert in the US&quot; &amp;&amp; NOT(REGEX({!U_S}, &quot;\\d{5}(-\\d{4})?&quot;)),true,false)</expression>
     </formulas>
     <formulas>
         <name>zipCodeExt</name>
@@ -511,21 +516,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
             </visibilityRule>
         </fields>
         <fields>
-            <name>URL2</name>
-            <fieldText>&lt;p&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Please see our directory of US Offices:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://trade.gov/commercial-services-offices-us&quot; target=&quot;_blank&quot;&gt;https://trade.gov/commercial-services-offices-us&lt;/a&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
-        <fields>
             <name>First_Name</name>
             <dataType>String</dataType>
             <defaultValue>
@@ -541,13 +531,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
                     <operator>NotEqualTo</operator>
                     <rightValue>
                         <stringValue>Resolving a trade barrier</stringValue>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -570,13 +553,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
                         <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
-                    </rightValue>
-                </conditions>
             </visibilityRule>
         </fields>
         <fields>
@@ -595,13 +571,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
                     <operator>NotEqualTo</operator>
                     <rightValue>
                         <stringValue>Resolving a trade barrier</stringValue>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -624,13 +593,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
                         <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
-                    </rightValue>
-                </conditions>
             </visibilityRule>
         </fields>
         <fields>
@@ -638,14 +600,14 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
             <dataType>String</dataType>
             <fieldText>Zip Code</fieldText>
             <fieldType>InputField</fieldType>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
                     <leftValueReference>IssueBox</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert</stringValue>
+                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -698,13 +660,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
                         <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
-                    </rightValue>
-                </conditions>
             </visibilityRule>
         </fields>
         <fields>
@@ -724,13 +679,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
                         <stringValue>Resolving a trade barrier</stringValue>
                     </rightValue>
                 </conditions>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
-                    </rightValue>
-                </conditions>
             </visibilityRule>
         </fields>
         <fields>
@@ -740,13 +688,6 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
             <isRequired>true</isRequired>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>IssueBox</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Contact a local trade or export assistance expert in the US</stringValue>
-                    </rightValue>
-                </conditions>
                 <conditions>
                     <leftValueReference>IssueBox</leftValueReference>
                     <operator>NotEqualTo</operator>
@@ -769,7 +710,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
     <screens>
         <name>Success_Screen</name>
         <label>Success Screen</label>
-        <locationX>761</locationX>
+        <locationX>762</locationX>
         <locationY>496</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -778,6 +719,21 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
             <name>Success_message</name>
             <fieldText>&lt;p&gt;Thanks for contacting the International Trade Administration. Your request has been routed to the appropriate staff who will respond back as soon as possible.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>PleaseVistOfficeLisst</name>
+            <fieldText>&lt;p&gt;&lt;a href=&quot;https://trade.gov/commercial-services-offices-us&quot; target=&quot;_blank&quot;&gt;Find the U.S. office closest to your location&lt;/a&gt;.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>FormulaQueueSelector</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>CP_Contact_US_1</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>

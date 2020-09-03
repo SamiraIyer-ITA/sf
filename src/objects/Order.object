@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Activate</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Activate</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Approve</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Approve</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Approve</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Deactivate</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Deactivate</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>NewReduction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewReduction</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewReduction</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -45,12 +145,58 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>ReduceOrder</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ReduceOrder</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Order_Services_LPL</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Order_Services_LPL</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
@@ -67,6 +213,7 @@
         <label>Order Compact Layout</label>
     </compactLayouts>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
         <trackHistory>false</trackHistory>
@@ -135,7 +282,27 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Final_Report__c</fullName>
+        <description>The date the final report is due to the client.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the final report is due to the client.</inlineHelpText>
+        <label>Final Report</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>IsReductionOrder</fullName>
+    </fields>
+    <fields>
+        <fullName>Mid_Term_Report__c</fullName>
+        <description>The date the mid-term report is due to the client.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the mid-term report is due to the client.</inlineHelpText>
+        <label>Mid-Term Report</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Name</fullName>
@@ -214,6 +381,20 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Payment2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The successful payment for this order.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The successful payment for this order.</inlineHelpText>
+        <label>Payment 2</label>
+        <referenceTo>Payment2__c</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>PoDate</fullName>
         <trackHistory>true</trackHistory>
     </fields>
@@ -234,6 +415,19 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Refunded_Amount__c</fullName>
+        <defaultValue>0.00</defaultValue>
+        <description>The amount of an order that has been refunded.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The amount of an order that has been refunded.</inlineHelpText>
+        <label>Refunded Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>ShipToContactId</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
@@ -243,12 +437,27 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Status</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>TotalAmount</fullName>
     </fields>
     <fields>
         <fullName>Type</fullName>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Welcome_Kit__c</fullName>
+        <description>The date the Welcome Kit is due to the client.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the Welcome Kit is due to the client.</inlineHelpText>
+        <label>Welcome Kit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <listViews>
         <fullName>AllActivatedOrders</fullName>
@@ -280,6 +489,59 @@
         <filterScope>Everything</filterScope>
         <label>All Orders</label>
     </listViews>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Legacy</fullName>
+        <active>true</active>
+        <description>Legacy order record type</description>
+        <label>Legacy</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Privacy Shield</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Services</fullName>
+        <active>true</active>
+        <description>Services order record type</description>
+        <label>Services</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ORDERS.ORDER_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>SALES.ACCOUNT.NAME</customTabListAdditionalFields>
@@ -300,13 +562,13 @@
     <validationRules>
         <fullName>Toolkits_Must_Agree_to_Terms</fullName>
         <active>true</active>
-        <errorConditionFormula>isPickVal(Status, &apos;Paid&apos;) &amp;&amp; not(isBlank(Participant__c)) &amp;&amp; contains(Participant__r.RecordType.Name, &apos;Toolkit&apos;) &amp;&amp;  Participant__r.TermsandConditionsAcknowledgement__c  = false</errorConditionFormula>
+        <errorConditionFormula>RecordType.DeveloperName = &apos;Legacy&apos; &amp;&amp; isPickVal(Status, &apos;Paid&apos;) &amp;&amp; not(isBlank(Participant__c)) &amp;&amp; contains(Participant__r.RecordType.Name, &apos;Toolkit&apos;) &amp;&amp;  Participant__r.TermsandConditionsAcknowledgement__c  = false</errorConditionFormula>
         <errorMessage>You must agree to the Terms and Conditions</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Toolkits_have_Primary_Contacts</fullName>
         <active>true</active>
-        <errorConditionFormula>isPickVal(Status, &apos;Paid&apos;) &amp;&amp;  not(isBlank(Participant__c)) &amp;&amp;  Participant__r.Primary_Contacts__c = 0</errorConditionFormula>
+        <errorConditionFormula>RecordType.DeveloperName = &apos;Legacy&apos; &amp;&amp; isPickVal(Status, &apos;Paid&apos;) &amp;&amp;  not(isBlank(Participant__c)) &amp;&amp;  Participant__r.Primary_Contacts__c = 0</errorConditionFormula>
         <errorMessage>You must specify at least 1 Primary Contact</errorMessage>
     </validationRules>
 </CustomObject>

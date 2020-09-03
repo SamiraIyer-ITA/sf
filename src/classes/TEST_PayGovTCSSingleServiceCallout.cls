@@ -6,10 +6,10 @@ public class TEST_PayGovTCSSingleServiceCallout {
         return tcsSinglePort.processPCRefund(agencyId, tcsAppId, pcRefund);
     } 
     
-    /*public static PayGovTCSSingleService.PCSaleResponse_element processPCSale(String agencyId, String tcsAppId, PayGovTCSSingleService.PCSaleRequestType pcSale) {
+    public static PayGovTCSSingleService.PCCancelResponse_element processPCCancel(String agencyId, String tcsAppId, PayGovTCSSingleService.PCCancelRequestType pcCancel) {
     
         PayGovTCSSingleService.TCSSinglePort tcsSinglePort = new  PayGovTCSSingleService.TCSSinglePort();
-        return tcsSinglePort.processPCSale(agencyId, tcsAppId, pcSale);
-    }*/  
+        return tcsSinglePort.processPCCancel(agencyId, tcsAppId, pcCancel);
+    } 
 
 }
