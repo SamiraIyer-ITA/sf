@@ -5,7 +5,7 @@
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
     <title>Global Steel Trade Monitor</title>
     <script>
-        document.addEventListener("DOMContentLoaded",function(){window.Explorer.renderSteelSearch("GSTM-app","https://api.trade.gov/v1/steel_data/search","hQ4L7ylI9POH3QuqxOY_l2UC")})
+        document.addEventListener("DOMContentLoaded",function(){window.Explorer.renderSteelSearch("GSTM-app","https://api.trade.gov/v1/steel_data/search","uPVoztKHTr1czXytuvETryiw")})
 <!--document.addEventListener("DOMContentLoaded",function(){window.Explorer.renderSteelSearch("https://api.trade.gov/v1/steel_data/search","FGjwxfSkdeVB2GncULww_uFb","GSTM-app")})-->
     </script>
     <link href="{!URLFor($Resource.gstmcd, 'gstmcd/steel-search.css')}" rel="stylesheet" />

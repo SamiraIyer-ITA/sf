@@ -1,0 +1,22 @@
+div {
+	margin: 15px 20px 15px 20px;
+}
+
+.buttonStyle {
+	float: right;
+}
+
+.header {
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: large;
+}
+
+.componentBorder {
+	border-style: solid;
+	border-width:thin;
+}
+
+.totalStyle {
+	margin-bottom: 25px;
+}
