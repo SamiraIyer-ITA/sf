@@ -24,9 +24,50 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>pageSize</name>
-                <value>15</value>
+                <value>6</value>
             </componentInstanceProperties>
             <componentName>flexipage:filterListCard</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$User.Profile.Name}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>Data Team Admin</rightValue>
+                </criteria>
+            </visibilityRule>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>enableInlineEdit</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>entityName</name>
+                <value>Case</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>filterName</name>
+                <value>Payment_Administrator_Cases</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideActionBar</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideSearchBar</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>pageSize</name>
+                <value>6</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:filterListCard</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!$User.Profile.Name}</leftValue>
+                    <operator>NE</operator>
+                    <rightValue>NIST User</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>main</name>
         <type>Region</type>

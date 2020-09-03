@@ -14,6 +14,11 @@
         <expression>IF({!UserProfile} = &quot;NIST User&quot;, {!TransactionManagementQueue}, {!$User.Id})</expression>
     </formulas>
     <formulas>
+        <name>CaseReason</name>
+        <dataType>String</dataType>
+        <expression>IF({!UserProfile} = &quot;NIST User&quot;, &quot;From NIST&quot;, &quot;To NIST&quot;)</expression>
+    </formulas>
+    <formulas>
         <name>CaseStatus</name>
         <dataType>String</dataType>
         <expression>IF({!UserProfile} = &quot;NIST User&quot;, &quot;In Progress&quot;, &quot;Successfully Closed&quot;)</expression>
@@ -54,6 +59,12 @@
             <field>OwnerId</field>
             <value>
                 <elementReference>CaseOwner</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Reason</field>
+            <value>
+                <elementReference>CaseReason</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

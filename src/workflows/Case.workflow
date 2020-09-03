@@ -88,9 +88,26 @@
         <ccEmails>jeffrey.assibey@trade.gov</ccEmails>
         <description>NIST Case:Alert NIST User when new Case from ITA is created</description>
         <protected>false</protected>
+        <recipients>
+            <recipient>jeffrey.assibey@trade.gov</recipient>
+            <type>user</type>
+        </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/New_NIST_Case_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>NIST_Case_Alert_Transaction_Management_Support_User_when_new_Case_is_created</fullName>
+        <ccEmails>jeffrey.assibey@trade.gov</ccEmails>
+        <description>NIST Case:Alert Transaction Management Support User when new Case is created</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Transaction_Management_Support</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>noreply@trade.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/New_NIST_Case_Queue_Alert</template>
     </alerts>
     <alerts>
         <fullName>Notify_Case_Creator_of_Toolkit_Support_Case_Creation</fullName>
@@ -233,7 +250,7 @@
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Case_Update_with_Actual_Dollar_Value</template>
-    </alerts>	
+    </alerts>
     <alerts>
         <fullName>Send_Privacy_Shield_Application_Approval_to_Case_Contact</fullName>
         <description>Case: Send Privacy Shield Certification Application Approval to Case Contact</description>
@@ -1254,6 +1271,26 @@
             <value>To NIST</value>
         </criteriaItems>
         <description>Alert NIST user when new case is created</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>New NIST Case Alert for Transaction Management App User</fullName>
+        <actions>
+            <name>NIST_Case_Alert_Transaction_Management_Support_User_when_new_Case_is_created</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Transaction Management Support</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Reason</field>
+            <operation>equals</operation>
+            <value>From NIST</value>
+        </criteriaItems>
+        <description>Alert Transaction Management Support Users for NIST cases</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
