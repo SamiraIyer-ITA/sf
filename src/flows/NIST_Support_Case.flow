@@ -4,7 +4,7 @@
         <description>Update case reason field based on user profile.</description>
         <name>Case_Reason</name>
         <label>Update Case Reason</label>
-        <locationX>365</locationX>
+        <locationX>571</locationX>
         <locationY>99</locationY>
         <actionName>Flow_DetermineNISTCaseReason</actionName>
         <actionType>apex</actionType>
@@ -28,7 +28,7 @@
         <description>Minimizes the Utility Item.  Intended for use after a Flow finishes.</description>
         <name>Minimize_Utility_Item</name>
         <label>Minimize Utility Item</label>
-        <locationX>830</locationX>
+        <locationX>1008</locationX>
         <locationY>99</locationY>
         <actionName>c:MinimizeUtilityItem</actionName>
         <actionType>component</actionType>
@@ -60,6 +60,54 @@
             <stringValue>Medium</stringValue>
         </value>
     </choices>
+    <decisions>
+        <description>Decision to bypass case input screen at start of flow</description>
+        <name>Bypass_Case_Input_Screen</name>
+        <label>Case Input Screen</label>
+        <locationX>186</locationX>
+        <locationY>221</locationY>
+        <defaultConnector>
+            <targetReference>Nist_Case_Input</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Send to Input Screen</defaultConnectorLabel>
+        <rules>
+            <name>Send_Admin_to_Input_Screen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>UserProfile</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Admin</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Nist_Case_Input</targetReference>
+            </connector>
+            <label>Send Admin to Input Screen</label>
+        </rules>
+        <rules>
+            <name>Bypass_Input_Screen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>caseSubject</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>caseDescription</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_Reason</targetReference>
+            </connector>
+            <label>Bypass Input Screen</label>
+        </rules>
+    </decisions>
     <description>This flow allows users to create support cases related to the Transaction Management app.</description>
     <dynamicChoiceSets>
         <name>PriorityPKlist</name>
@@ -82,6 +130,12 @@
         <dataType>String</dataType>
         <expression>IF({!CaseReason} = &quot;To NIST&quot;, &quot;Thank you for your submission.  NIST has been notified of your case.&quot;, &quot;Thank you for your submission.  A Payment Administrator will review your case shortly.&quot;)</expression>
     </formulas>
+    <formulas>
+        <description>Return user profile name</description>
+        <name>UserProfile</name>
+        <dataType>String</dataType>
+        <expression>{!$Profile.Name}</expression>
+    </formulas>
     <interviewLabel>NIST Support Case {!$Flow.CurrentDateTime}</interviewLabel>
     <label>NIST Support Case</label>
     <processMetadataValues>
@@ -101,7 +155,7 @@
         <description>Create NIST case record</description>
         <name>Create_NIST_Case</name>
         <label>Create NIST Case</label>
-        <locationX>525</locationX>
+        <locationX>703</locationX>
         <locationY>99</locationY>
         <assignRecordIdToReference>varCaseId</assignRecordIdToReference>
         <connector>
@@ -160,7 +214,7 @@
     <screens>
         <name>Confirmation</name>
         <label>Confirmation</label>
-        <locationX>676</locationX>
+        <locationX>854</locationX>
         <locationY>99</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -180,8 +234,8 @@
         <description>This screen is what users will be filling out to create transaction case</description>
         <name>Nist_Case_Input</name>
         <label>Nist Case Input Screen</label>
-        <locationX>209</locationX>
-        <locationY>99</locationY>
+        <locationX>422</locationX>
+        <locationY>317</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -227,10 +281,10 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>63</locationX>
-        <locationY>99</locationY>
+        <locationX>50</locationX>
+        <locationY>158</locationY>
         <connector>
-            <targetReference>Nist_Case_Input</targetReference>
+            <targetReference>Bypass_Case_Input_Screen</targetReference>
         </connector>
     </start>
     <status>Active</status>
