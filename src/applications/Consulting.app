@@ -3,20 +3,11 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Lead_LPL</content>
+        <content>Quote_Line_Item_LPL</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>Lead</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Services_LPL</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <pageOrSobjectType>QuoteLineItem</pageOrSobjectType>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
@@ -26,6 +17,14 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
         <pageOrSobjectType>OpportunityLineItem</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>Consulting_App_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
@@ -39,110 +38,138 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Quote_Line_Item_LPL</content>
+        <content>Lead_LPL</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>QuoteLineItem</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <content>Consulting_App_Home_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
     </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
-    <profileActionOverrides>
-        <actionName>Tab</actionName>
-        <content>Consulting_App_Home_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>standard-home</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Order_Events_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Order</pageOrSobjectType>
-        <recordType>Order.Events</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Order_Events_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Order</pageOrSobjectType>
-        <recordType>Order.Events</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Order_Services_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Order</pageOrSobjectType>
-        <recordType>Order.Services</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Order_Services_LPL</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Order</pageOrSobjectType>
-        <recordType>Order.Services</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-	    <actionName>View</actionName>
-	    <content>Quote_Services_LPL</content>
-	    <formFactor>Large</formFactor>
-	    <pageOrSobjectType>Quote</pageOrSobjectType>
-	    <recordType>Quote.Services</recordType>
-	    <type>Flexipage</type>
-	    <profile>Core Team</profile>
-	</profileActionOverrides>
-	<profileActionOverrides>
-	    <actionName>View</actionName>
-	    <content>Quote_Services_LPL</content>
-	    <formFactor>Large</formFactor>
-	    <pageOrSobjectType>Quote</pageOrSobjectType>
-	    <recordType>Quote.Services</recordType>
-	    <type>Flexipage</type>
-	    <profile>Admin</profile>
-	</profileActionOverrides>
-	<profileActionOverrides>
-	    <actionName>View</actionName>
-	    <content>Quote_Events_LPL</content>
-	    <formFactor>Large</formFactor>
-	    <pageOrSobjectType>Quote</pageOrSobjectType>
-	    <recordType>Quote.Events</recordType>
-	    <type>Flexipage</type>
-	    <profile>Core Team</profile>
-	</profileActionOverrides>
-	<profileActionOverrides>
-	    <actionName>View</actionName>
-	    <content>Quote_Events_LPL</content>
-	    <formFactor>Large</formFactor>
-	    <pageOrSobjectType>Quote</pageOrSobjectType>
-	    <recordType>Quote.Events</recordType>
-	    <type>Flexipage</type>
-	    <profile>Admin</profile>
-	</profileActionOverrides>
     <description>App for consulting w/ ITA clients</description>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Consulting</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Consulting_App_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Opportunity_Events_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Events</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Opportunity_Services_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Services</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Opportunity_Events_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Events</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Opportunity_Services_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Services</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Order_Events_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Order</pageOrSobjectType>
+        <recordType>Order.Events</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Order_Services_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Order</pageOrSobjectType>
+        <recordType>Order.Services</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Order_Events_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Order</pageOrSobjectType>
+        <recordType>Order.Events</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Order_Services_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Order</pageOrSobjectType>
+        <recordType>Order.Services</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Quote_Services_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.Services</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Quote_Events_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.Events</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Quote_Events_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.Events</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Quote_Services_LPL</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.Services</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
     <tabs>standard-home</tabs>
     <tabs>standard-Lead</tabs>
     <tabs>standard-Contact</tabs>
