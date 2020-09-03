@@ -9,7 +9,7 @@
 
 	<force:recordData aura:id="recordLoader"
 					  recordId="{!v.recordId}"
-					  fields="First_Approver__c, Final_Approver__c, Country_in_Win__c, WIN_Contributors_Rollup__c, Industry_Rollup__c, Related_Cases_to_WIN_Count__c"
+					  fields="First_Approver__c, Final_Approver__c, Country_in_Win__c, Sys_Region_in_WIN_Rollup__c, WIN_Contributors_Rollup__c, Industry_Rollup__c, Client_Verified__c, Related_Cases_to_WIN_Count__c"
 					  targetError="{!v.recordError}"
 					  targetFields="{!v.WINRecord}"
 					  recordUpdated="{!c.handleRecordUpdated}"/>

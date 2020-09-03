@@ -230,6 +230,31 @@
         </values>
     </businessProcesses>
     <businessProcesses>
+        <fullName>Basic Support Flow</fullName>
+        <description>Status Values: New - In Progress - Action Required - On Hold - Successfully Closed</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Action Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Successfully Closed</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>Salesforce Support</fullName>
         <description>Salesforce Support requests, tickets, cases</description>
         <isActive>true</isActive>
@@ -2619,6 +2644,12 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Language</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
         <fullName>Number_of_WINs_associated_to_Case__c</fullName>
         <externalId>false</externalId>
         <label>Number of WINs associated to Case</label>
@@ -3629,6 +3660,21 @@ Select if this is a Compliance Case</description>
             <operation>equals</operation>
             <value>Case.Advocacy,Case.Commercial_Diplomacy,Case.Export_Promotion,Case.Investment_Promotion</value>
         </filters>
+        <label>All Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Cases1</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.RECORDTYPE</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>Owners_Office__c</columns>
+        <columns>Actual_Create_Date__c</columns>
+        <columns>CASES.CLOSED</columns>
+        <filterScope>Everything</filterScope>
         <label>All Cases</label>
     </listViews>
     <listViews>
@@ -91413,7 +91459,7 @@ Select if this is a Compliance Case</description>
     <recordTypes>
         <fullName>Transaction_Management_Support</fullName>
         <active>true</active>
-        <businessProcess>Salesforce Support</businessProcess>
+        <businessProcess>Basic Support Flow</businessProcess>
         <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
         <description>Case support record type for Transaction Management App</description>
         <label>Transaction Management Support</label>
@@ -93495,24 +93541,8 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>N%2FA</fullName>
                 <default>true</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -93818,27 +93848,7 @@ Select if this is a Compliance Case</description>
         <picklistValues>
             <picklist>Reason</picklist>
             <values>
-                <fullName>Advocacy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Commercial Diplomacy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Export Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>From NIST</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Investment Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
                 <default>false</default>
             </values>
             <values>

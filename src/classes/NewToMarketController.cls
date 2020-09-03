@@ -88,7 +88,7 @@ public class NewToMarketController {
         zipError = 'Loading...';
         HttpRequest req = new HttpRequest();
         try {
-            req.setEndpoint('https://api.trade.gov/ita_zipcode_to_post/search?api_key=BieztMWzm1EGY71oPH1KFpwm&zip_codes='+zipCode.deleteWhitespace());
+            req.setEndpoint('https://api.trade.gov/ita_zipcode_to_post/search?api_key=ng3TqSiGapB0sNe14ro5_Qo6&zip_codes='+zipCode.deleteWhitespace());
             req.setMethod('GET');      
         } catch(Exception e) {
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to get USEAC Zip info: \n'+e.getMessage()));
