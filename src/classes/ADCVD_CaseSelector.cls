@@ -1,23 +1,18 @@
 public with sharing class ADCVD_CaseSelector
     extends fflibext_SObjectSelector
-    implements ADCVD_ICaseSelector
-{
+        implements ADCVD_ICaseSelector {
 
-    public static ADCVD_ICaseSelector newInstance()
-    {
+    public static ADCVD_ICaseSelector newInstance() {
         return (ADCVD_ICaseSelector) fflibext_Application.Selector.newInstance(ADCVD_Case__c.SObjectType);
     }
 
     @TestVisible
-    private Schema.sObjectType getSObjectType()
-    {
+    private Schema.sObjectType getSObjectType() {
         return ADCVD_Case__c.SObjectType;
     }
 
-    private List<Schema.SObjectField> getAdditionalSObjectFieldList()
-    {
-        return new List<Schema.SObjectField>
-        {
+    private List<Schema.SObjectField> getAdditionalSObjectFieldList() {
+        return new List<Schema.SObjectField>{
             ADCVD_Case__c.ADCVD_Case_Number__c,
             ADCVD_Case__c.ADCVD_Case_Type__c,
             ADCVD_Case__c.Case_Concat_Text_Values__c,
@@ -27,17 +22,16 @@ public with sharing class ADCVD_CaseSelector
             ADCVD_Case__c.Country_Text__c,
             ADCVD_Case__c.Product__c,
             ADCVD_Case__c.Product_Short_Name__c,
-            ADCVD_Case__c.Locked__c
+            ADCVD_Case__c.Locked__c,
+            ADCVD_Case__c.Program_Manager__c
         };
     }
 
-    public List<ADCVD_Case__c> selectById(Set<Id> idSet)
-    {
+    public List<ADCVD_Case__c> selectById(Set<Id> idSet) {
         return (List<ADCVD_Case__c>) selectSObjectsById(idSet);
     }
 
-    public List<ADCVD_Case__c> selectByIdWithRelations(Set<Id> idSet)
-    {
+    public List<ADCVD_Case__c> selectByIdWithRelations(Set<Id> idSet) {
         fflib_QueryFactory qf = newQueryFactory();
         qf.subselectQuery(Petition__c.SObjectType, true)
             .selectField(Petition__c.Id)

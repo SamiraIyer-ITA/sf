@@ -151,7 +151,7 @@
         </actions>
         <active>true</active>
         <description>An email notification will be sent if Inactive Status Reason is Lapse</description>
-        <formula>Inactive_Status_Reason__r.Name = &quot;Lapse&quot;</formula>
+        <formula>OR(AND(Inactive_Status_Reason__r.Name = &quot;Lapse&quot;, Product2.Name = &apos;EU-US Certification&apos;),AND(Inactive_Status_Reason__r.Name = &quot;Lapse&quot;, Product2.Name = &apos;SW-US Certification&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -162,7 +162,7 @@
         </actions>
         <active>true</active>
         <description>An email notification will be sent if Inactive Status Reason is Persistent Failure to Comply</description>
-        <formula>Inactive_Status_Reason__r.Name = &quot;Persistent Failure to Comply&quot;</formula>
+        <formula>OR(AND(Inactive_Status_Reason__r.Name = &quot;Persistent Failure to Comply&quot;, Product2.Name = &apos;EU-US Certification&apos;),AND(Inactive_Status_Reason__r.Name = &quot;Persistent Failure to Comply&quot;, Product2.Name = &apos;SW-US Certification&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -173,14 +173,14 @@
         </actions>
         <active>true</active>
         <description>An email notification will be sent if Inactive Status Reason is Withdrawal</description>
-        <formula>Inactive_Status_Reason__r.Name = &quot;Withdrawal&quot;</formula>
+        <formula>OR(AND(Inactive_Status_Reason__r.Name = &quot;Withdrawal&quot;, Product2.Name = &apos;EU-US Certification&apos;),AND(Inactive_Status_Reason__r.Name = &quot;Withdrawal&quot;, Product2.Name = &apos;SW-US Certification&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Asset%3A PS Send Reminder Emails Before Due Date</fullName>
         <active>true</active>
         <description>Privacy Shield Re-Certification reminder emails 1 month, 2 weeks and 1 day before Asset&apos;s Usage End Date.</description>
-        <formula>ISPICKVAL(Status,&apos;Active&apos;)</formula>
+        <formula>OR(AND(ISPICKVAL(Status,&apos;Active&apos;), Product2.Name = &apos;EU-US Certification&apos;),AND(ISPICKVAL(Status,&apos;Active&apos;), Product2.Name = &apos;SW-US Certification&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -231,16 +231,8 @@
     <rules>
         <fullName>Deactivate in 12 months %2B 30</fullName>
         <active>true</active>
-        <criteriaItems>
-            <field>Asset.UsageEndDate</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Asset.Status</field>
-            <operation>equals</operation>
-            <value>Active</value>
-        </criteriaItems>
         <description>Sets the Asset Status to Expired after 1 year and 31 days, and notifies related Contact.</description>
+        <formula>OR(AND(NOT(ISBLANK(UsageEndDate)),ISPICKVAL(Status, &apos;active&apos;), Product2.Name = &apos;EU-US Certification&apos;),AND(NOT(ISBLANK(UsageEndDate)),ISPICKVAL(Status, &apos;active&apos;), Product2.Name = &apos;SW-US Certification&apos;))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
