@@ -4,7 +4,7 @@
         <description>Create the Refund Record and Update the Orders.</description>
         <name>Create_Refund_Record_and_Update_Orders</name>
         <label>Create Refund Record and Update Orders</label>
-        <locationX>1007</locationX>
+        <locationX>1167</locationX>
         <locationY>55</locationY>
         <actionName>Flow_CreateRefundRecord</actionName>
         <actionType>apex</actionType>
@@ -69,8 +69,8 @@
         <description>Get the object name of the calling record.</description>
         <name>Get_Object_Name</name>
         <label>Get Object Name</label>
-        <locationX>50</locationX>
-        <locationY>378</locationY>
+        <locationX>290</locationX>
+        <locationY>414</locationY>
         <actionName>Flow_ObjectNamesFromIds</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -94,7 +94,7 @@
         <description>Validate that the reduction orders are refundable.</description>
         <name>Validate_Selected_Orders</name>
         <label>Validate Selected Orders</label>
-        <locationX>787</locationX>
+        <locationX>947</locationX>
         <locationY>392</locationY>
         <actionName>Flow_ValidateRefundableOrders</actionName>
         <actionType>apex</actionType>
@@ -157,7 +157,7 @@
         <description>Assign Contract Id to a separate variable.</description>
         <name>Assign_Contract_Id</name>
         <label>Assign Contract Id</label>
-        <locationX>483</locationX>
+        <locationX>643</locationX>
         <locationY>436</locationY>
         <assignmentItems>
             <assignToReference>ContractId</assignToReference>
@@ -174,7 +174,7 @@
         <description>Assign the DML Error to a variable.</description>
         <name>DML_Error</name>
         <label>DML Error</label>
-        <locationX>398</locationX>
+        <locationX>558</locationX>
         <locationY>60</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
@@ -188,11 +188,28 @@
         </connector>
     </assignments>
     <assignments>
+        <description>DML error message for users who do not have the appropriate permissions to record refunds (run this flow).</description>
+        <name>Flow_Access_Error_Assignment</name>
+        <label>Flow Access Error Assignment</label>
+        <locationX>388</locationX>
+        <locationY>63</locationY>
+        <assignmentItems>
+            <assignToReference>errorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>&lt;li&gt;You do not have the permission to record refunds&lt;/li&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Error_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <description>Assign the error message if the flow wasn&apos;t run from an Order or a Contract.</description>
         <name>Invalid_Object_Error</name>
         <label>Invalid Object Error</label>
-        <locationX>447</locationX>
-        <locationY>276</locationY>
+        <locationX>603</locationX>
+        <locationY>283</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -208,8 +225,8 @@
         <description>Assign the record Id to a List.</description>
         <name>Record_Id_to_List</name>
         <label>Record Id to List</label>
-        <locationX>50</locationX>
-        <locationY>195</locationY>
+        <locationX>178</locationX>
+        <locationY>269</locationY>
         <assignmentItems>
             <assignToReference>RecordIds</assignToReference>
             <operator>Add</operator>
@@ -225,7 +242,7 @@
         <description>Set the Contract Id from the Order.</description>
         <name>Set_Contract_and_Order_Details</name>
         <label>Set Contract and Order Details</label>
-        <locationX>550</locationX>
+        <locationX>710</locationX>
         <locationY>570</locationY>
         <assignmentItems>
             <assignToReference>ContractId</assignToReference>
@@ -249,7 +266,7 @@
         <description>Save the refund details into collections.</description>
         <name>Set_Refund_Details</name>
         <label>Set Refund Details</label>
-        <locationX>1012</locationX>
+        <locationX>1172</locationX>
         <locationY>420</locationY>
         <assignmentItems>
             <assignToReference>Refund_Reasons</assignToReference>
@@ -342,10 +359,36 @@
         </value>
     </constants>
     <decisions>
+        <description>Determination of whether running user has the appropriate permissions to record refunds (run this flow).</description>
+        <name>Can_Access_Flow</name>
+       <label>Can Access Flow</label>
+        <locationX>171</locationX>
+        <locationY>66</locationY>
+        <defaultConnector>
+            <targetReference>Flow_Access_Error_Assignment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Access</defaultConnectorLabel>
+        <rules>
+            <name>Yes_can_access</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CanAccessFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Record_Id_to_List</targetReference>
+            </connector>
+            <label>Yes can access</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>Whether the selected orders has a order that is not refundable.</description>
         <name>Has_Invalid_Order</name>
         <label>Has Invalid Order</label>
-        <locationX>782</locationX>
+        <locationX>942</locationX>
         <locationY>278</locationY>
         <defaultConnector>
             <targetReference>Record_Refund_Confirmation</targetReference>
@@ -371,8 +414,8 @@
         <description>Determines what to do for various object types.</description>
         <name>Object_Type</name>
         <label>Object Type</label>
-        <locationX>42</locationX>
-        <locationY>560</locationY>
+        <locationX>164</locationX>
+        <locationY>559</locationY>
         <defaultConnector>
             <targetReference>Invalid_Object_Error</targetReference>
         </defaultConnector>
@@ -426,6 +469,12 @@
         <scale>2</scale>
     </formulas>
     <formulas>
+        <description>Error reference for decision element determining if a user has the applicable permissions to record refunds (run this flow)</description>
+        <name>CanAccessFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Permission.Can_Record_Refunds}</expression>
+    </formulas>
+    <formulas>
         <description>Convert the refund amount from currency to text.  Invocable methods don&apos;t allow currency/decimal values so it must be converted to text.</description>
         <name>Refund_Amount_As_Text</name>
         <dataType>String</dataType>
@@ -444,7 +493,7 @@
         <description>Loop through each other to get the refund amount and reason for the refund.</description>
         <name>Order_Loop</name>
         <label>Order Loop</label>
-        <locationX>787</locationX>
+        <locationX>947</locationX>
         <locationY>562</locationY>
         <assignNextValueToReference>Order_Record_In_Loop</assignNextValueToReference>
         <collectionReference>SelectedOrders</collectionReference>
@@ -473,7 +522,7 @@
         <description>Gets the order record</description>
         <name>Get_Order</name>
         <label>Get Order</label>
-        <locationX>382</locationX>
+        <locationX>542</locationX>
         <locationY>570</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -501,7 +550,7 @@
     <screens>
         <name>Done_Screen</name>
         <label>Done Screen</label>
-        <locationX>787</locationX>
+        <locationX>947</locationX>
         <locationY>131</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -518,7 +567,7 @@
         <description>Displays when an error occurs.</description>
         <name>Error_Screen</name>
         <label>Error Screen</label>
-        <locationX>597</locationX>
+        <locationX>757</locationX>
         <locationY>276</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -535,7 +584,7 @@
         <description>Confirm that this refund should be recorded.</description>
         <name>Record_Refund_Confirmation</name>
         <label>Record Refund Confirmation</label>
-        <locationX>1007</locationX>
+        <locationX>1167</locationX>
         <locationY>269</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -555,7 +604,7 @@
         <description>Receive details about each order; the refund amount and the reason for the refund.</description>
         <name>Refund_Details</name>
         <label>Refund Details</label>
-        <locationX>1012</locationX>
+        <locationX>1172</locationX>
         <locationY>554</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -615,7 +664,7 @@
         <description>Select the orders for which you want to record a payment.</description>
         <name>Select_Orders_Screen</name>
         <label>Select Orders Screen</label>
-        <locationX>617</locationX>
+        <locationX>777</locationX>
         <locationY>436</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -650,9 +699,9 @@
     </screens>
     <start>
         <locationX>50</locationX>
-        <locationY>50</locationY>
+        <locationY>63</locationY>
         <connector>
-            <targetReference>Record_Id_to_List</targetReference>
+            <targetReference>Can_Access_Flow</targetReference>
         </connector>
     </start>
     <status>Active</status>
