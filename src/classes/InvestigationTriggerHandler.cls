@@ -55,7 +55,7 @@
         if (isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
-            new StaffingAssignmentService().createStaffFromDefaults(newList, 'Investigation__c');
+            new StaffingAssignmentService().createStaffFromSObjectParent(newList, 'Investigation__c');
         }
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
@@ -78,6 +78,7 @@
     @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
     @TestVisible private static InvestigationMapper invMapper;
     @TestVisible private static FederalRegisterMapper frMapper;
+
     /*****************************************
     * Methods called directly by mainEntry()
     *****************************************/
@@ -182,22 +183,24 @@
 
     //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
     @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap, Map<Id,Investigation__c> oldMap) {
-        invMapper = (InvestigationMapper) caseMapper.getMapper('Investigation__c').getInstance();
-        List<Investigation__c> cvdInvestigations = new List<Investigation__c>();
+        Map<Id,Investigation__c> cvdInvestigations = new Map<Id,Investigation__c>();
         Set<Id> querySet = new Set<Id>();
-        for (Id i : newMap.keySet()) {
-            if (newMap.get(i).Tolling_Update__c == oldMap.get(i).Tolling_Update__c &&
-                    newMap.get(i).Schedule_Refresh__c == oldMap.get(i).Schedule_Refresh__c) {
-                querySet.add(i);
+        Id ADRecordType = Schema.SObjectType.Investigation__c.getRecordTypeInfosByDeveloperName().get('AD').getRecordTypeId();
+        for (Investigation__c i : newMap.values()) {
+            if (i.RecordTypeId == ADRecordType){
+                querySet.add(i.Id);
             }
         }
-        for (Investigation__c i : invMapper.getMap().values()) {
-            if (querySet.contains(i.AD_Investigation_Aligned_To__c)) {
-                cvdInvestigations.add(i);
+        cvdInvestigations.putAll(InvestigationSelector.newInstance().selectByIdWithRelations(querySet));
+        if(!cvdInvestigations.isEmpty() && !System.isBatch()){
+            updateCVDinvestigations(cvdInvestigations.keySet());
             }
         }
-        //List<Investigation__c> cvdInvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: querySet AND Locked__c =: false];
-        update cvdInvestigations;
+
+     @Future
+     @TestVisible public static void updateCVDinvestigations(Set<Id> cvdIdSet) {
+         List <Investigation__c> updateCVDInvestigations = new List<Investigation__c> (InvestigationSelector.newInstance().selectById(cvdIdSet));
+         update updateCVDInvestigations;
     }
 
     /***********************************
