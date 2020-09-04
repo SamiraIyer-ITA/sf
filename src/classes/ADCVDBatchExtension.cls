@@ -9,19 +9,16 @@ public class ADCVDBatchExtension {
     }
     
     
-    public void callBatch(){
+    public PageReference callBatch(){
         
         List<ADCVD_Case__c> newList = new List<ADCVD_Case__c>();
         newList.add(new ADCVD_Case__c(Id=ADCVDCaseId));
         Database.executeBatch(new ADCVDStandardCaseFieldsBatch(newList));
-        
-    }
-    
-    public PageReference goBack(){
-        
         PageReference pg = new PageReference('/'+ADCVDCaseId);
         
         return pg;
     }
+    
+    
 
 }

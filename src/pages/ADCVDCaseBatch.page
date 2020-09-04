@@ -1,13 +1,33 @@
-<apex:page standardController="ADCVD_Case__c" extensions="ADCVDBatchExtension" action="{!callBatch}">
-<apex:form >
+<apex:page standardController="ADCVD_Case__c" extensions="ADCVDBatchExtension">
+<apex:slds />
+
+<apex:actionstatus id="counterStatus">
+    <apex:facet name="start">
+        <div class="waitingSearchDiv" id="el_loading" style="height:100%;width:75%;">
+            <div class="waitingHolder" style="top: 200px; width: 100px;">
+            <div aura:id="spinnerId" class="slds-spinner_container">
+               
+                <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                    <span  class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+            
+                    <p style="transform: translate(-35%, -50%) rotate(-90deg);width: 350px;font-size:30px;"><br/>Processing ADCVD Case field updates </p>
+                      
+                </div>
+            </div>
+            
+          
+            </div>
+        </div>
+    </apex:facet>
+</apex:actionstatus>
+<apex:form id="frm" >
+<apex:actionFunction name="doAction" action="{!callBatch}" status="counterStatus" reRender="frm" />
+
 <br/>
-  <apex:outputPanel >
-      <center>
-      <H1 style="text-align:center;font-size:30px;" >Processing child records updates</H1>
-      <br/><br/>
-      
-       <apex:commandButton style="font-size:15px;" action="{!goBack}" value=" Click here to Continue"/>
-      </center> 
-  </apex:outputPanel>
   </apex:form>
+  <script>
+doAction();
+</script>
 </apex:page>
