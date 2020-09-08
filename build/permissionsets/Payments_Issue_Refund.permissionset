@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label>Payments: All rights</label>
     <applicationVisibilities>
         <application>Transaction_Management</application>
         <visible>true</visible>
     </applicationVisibilities>
-    <description>Provide Rights to the Payment2 object. This should only be assigned to Admins.</description>
+    <description>Provides access to Issue Refunds from an Action on Order &amp; Contract records</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Contract.ActivatedById</field>
@@ -412,6 +411,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
+    <label>Payments: Issue Refund</label>
+    <license>Salesforce</license>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
