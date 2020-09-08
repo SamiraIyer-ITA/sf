@@ -42,11 +42,11 @@
     </types>
     <types>
         <members>*</members>
-        <name>ContentAsset</name>
+        <name>ConnectedApp</name>
     </types>
     <types>
         <members>*</members>
-        <name>ConnectedApp</name>
+        <name>ContentAsset</name>
     </types>
     <types>
         <members>*</members>
@@ -155,6 +155,10 @@
     <types>
         <members>*</members>
         <name>LightningMessageChannel</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>NamedCredential</name>
     </types>
     <types>
         <members>*</members>

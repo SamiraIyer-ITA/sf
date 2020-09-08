@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>Events_Remote_Account__c</field>
-        <value xsi:type="xsd:string">TCSITAUSMASSHQA</value>
+        <value xsi:type="xsd:string">TCSITAUSFCSSH</value>
     </values>
     <values>
         <field>Language_Code__c</field>
@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>Privacy_Shield_Remote_Account__c</field>
-        <value xsi:type="xsd:string">TCSITAUSMASSHQA</value>
+        <value xsi:type="xsd:string">Privacy Shield</value>
     </values>
     <values>
         <field>Query_Endpoint__c</field>
@@ -28,7 +28,7 @@
     </values>
     <values>
         <field>Redirect_URL__c</field>
-        <value xsi:type="xsd:string">https://qa.pay.gov/tcsonline/payment.do</value>
+        <value xsi:type="xsd:string">https://www.pay.gov/tcsonline/payment.do</value>
     </values>
     <values>
         <field>Refund_Endpoint__c</field>
@@ -36,7 +36,7 @@
     </values>
     <values>
         <field>Services_Remote_Account__c</field>
-        <value xsi:type="xsd:string">TCSITAUSMASSHQA</value>
+        <value xsi:type="xsd:string">TCSITAUSFCSSH</value>
     </values>
     <values>
         <field>Token_Endpoint__c</field>
