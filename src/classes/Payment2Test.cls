@@ -221,4 +221,28 @@ private class Payment2Test {
 		}
 	}
 
+	@IsTest
+	static void testUpdateSystemSearchString_CallWithoutSetup_IssuesNoErrors(){
+		Payment2__c e = new Payment2__c();
+		List<Payment2__c> payment2List = new List<Payment2__c> {e};
+
+		fflib_ApexMocks mocks = new fflib_ApexMocks();
+		fflibext_ISObjectUnitOfWork mock_uow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
+
+		// Default stub is acceptable; not expecting anything special.  Just don't want a real UOW called.
+		fflibext_Application.UnitOfWork.setMock(mock_uow);
+		try {
+			Payments2.newInstance(payment2List).updateSystemSearchString(payment2List);
+			System.assert(true); // Should be the only assert in this test that actually executes
+		} catch (Exception ex){
+			System.assert(false, 'updateSystemSearchString caused an exception and should not have');
+			System.debug(ex.getStackTraceString());
+		}
+	}
+
+	@IsTest
+	static void testPayments2Trigger_InsertPayment2Record_TriggerIsCovered() {
+		try { insert new Payment2__c(); } catch (Exception e) {}
+	}
+
 }
