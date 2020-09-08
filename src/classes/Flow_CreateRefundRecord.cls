@@ -2,7 +2,6 @@ global without sharing class Flow_CreateRefundRecord {
 
 	@InvocableMethod(label='Create Refund Record' description='Inserts a Refund record and updates the order(s)' category='Payments')
 	global static List<ResponseVariables> createRefundRecord(List<RequestVariables> inputs){
-		//
 		ResponseVariables responseVariables = new ResponseVariables();
 		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 		List<String> errorList = new List<String>();
@@ -62,14 +61,19 @@ global without sharing class Flow_CreateRefundRecord {
 
 			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
 			Map<Id, Payment2__c> paymentIdMap =new Map<Id, Payment2__c>(payments);
+
 			// Info from Opportunity
 			Id orderId = orders[0].Id;
-			Order orderWithData = [SELECT Id, Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
-					Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
-					//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
-					Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
-			FROM Order WHERE Id = :orderId LIMIT 1];
-
+			Order orderWithData = [
+					SELECT Id, (SELECT Order.Payment2__r.Id, ITA_Product_Code__c FROM OrderItems WHERE IsPrimary__c = TRUE LIMIT 1),
+							Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
+							Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
+							//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
+							Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
+					FROM Order
+					WHERE Id = :orderId
+					LIMIT 1
+			];
 			for(Payment2__c payment :payments) {
 				//For each Payment, issue the refund
 				Decimal refundAmount = paymentRefundMap.get(payment.Id);
@@ -97,6 +101,11 @@ global without sharing class Flow_CreateRefundRecord {
 				refund.Collection_Post_Org_Code__c 		= orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
 				refund.Fulfillment_Post_Name__c 		= orderWithData.Opportunity.Fulfillment_Post__r.Name;
 				refund.Fulfillment_Post_Org_Code__c 	= orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
+				if (orderWithData.OrderItems.size() != 0) {
+					if (String.isNotBlank(orderWithData.OrderItems[0].ITA_Product_Code__c)) {
+						refund.Project_Code__c = orderWithData.OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+					}
+				}
 
 				try {
 					fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});

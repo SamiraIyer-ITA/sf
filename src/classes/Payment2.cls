@@ -114,7 +114,7 @@ public with sharing class Payment2 {
 			}
 
 			//Create a payment record
-			Payment2__c payment = Payment2.createPayment(accountType, contractId, orderIds, userId);
+			Payment2__c payment = Payment2.createPayment(accountType, contractId, orderIds, null);
 
 			//Gather data to send to the payment processor
 			return getPaymentProcessorData(accountType, payment, orderIds, userId, paymentPage,
@@ -135,12 +135,10 @@ public with sharing class Payment2 {
 	 *
 	 * @return A Payment2__c object of the newly created payment.
 	 */
-	private static Payment2__c createPayment(String accountType, String contractId, String[] orderIds, String userId) {
+	private static Payment2__c createPayment(String accountType, String contractId, String[] orderIds, String transactionAmount) {
 		RecordLog.push('Payment.createPayment');
 		RecordLog.message('Order Ids: ' + orderIds);
-		//Convert orderIds String array to set of Id
-		Set<Id> orderIdSet = (Set<Id>)JSON.deserialize(JSON.serialize(orderIds), Set<Id>.class);
-		List<Order> orders = OrdersSelector.newInstance().selectById(orderIdSet);
+
 		Payment2__c payment = new Payment2__c();
 		payment.Account_Type__c = accountType;
 		RecordLog.message('Account Type: ' + accountType);
@@ -148,29 +146,56 @@ public with sharing class Payment2 {
 		RecordLog.message('Record Type Id: ' + payment.RecordTypeId);
 		payment.Contract__c = contractId;
 		RecordLog.message('Contract Id: ' + contractId);
-		// Info from Opportunity
-		Order orderWithData = [SELECT Id, Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
-				Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
-				//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
-				Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
-		FROM Order WHERE Id = :orderIds[0] LIMIT 1];
 
-		payment.Organization_Name__c 			= orderWithData.Opportunity.Account.Name;
-		payment.Opportunity_Owner__c 			= orderWithData.Opportunity.Owner.Name;
-		payment.Opportunity_Created_Date__c 	= orderWithData.Opportunity.CreatedDate;
-		payment.Collection_Post_Name__c 		= orderWithData.Opportunity.Collection_Post__r.Name;
-		payment.Collection_Post_Org_Code__c 	= orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
-		payment.Fulfillment_Post_Name__c 		= orderWithData.Opportunity.Fulfillment_Post__r.Name;
-		payment.Fulfillment_Post_Org_Code__c 	= orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
+		if(orderIds != null && !orderIds.isEmpty()) {
+			//Convert orderIds String array to set of Id
+			Set<Id> orderIdSet = (Set<Id>)JSON.deserialize(JSON.serialize(orderIds), Set<Id>.class);
+			List<Order> orders = OrdersSelector.newInstance().selectById(orderIdSet);
 
-		Decimal totalAmount = 0.00;
-		for (Order order: orders) {
-			totalAmount += order.TotalAmount;
+			// Info from Opportunity
+			Order orderWithData = [
+					//SELECT Id, (SELECT Order.Payment2__r.Id, ITA_Product_Code__c FROM OrderItem WHERE isPrimary__c = TRUE LIMIT 1),
+					SELECT Id, (SELECT Order.Payment2__r.Id, ITA_Product_Code__c FROM OrderItems WHERE IsPrimary__c = TRUE LIMIT 1),
+							Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
+							Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
+							//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
+							Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
+					FROM Order
+					WHERE Id = :orderIds[0]
+					LIMIT 1
+			];
+
+			payment.Organization_Name__c 			= orderWithData.Opportunity.Account.Name;
+			payment.Opportunity_Owner__c 			= orderWithData.Opportunity.Owner.Name;
+			payment.Opportunity_Created_Date__c 	= orderWithData.Opportunity.CreatedDate;
+			payment.Collection_Post_Name__c 		= orderWithData.Opportunity.Collection_Post__r.Name;
+			payment.Collection_Post_Org_Code__c 	= orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
+			payment.Fulfillment_Post_Name__c 		= orderWithData.Opportunity.Fulfillment_Post__r.Name;
+			payment.Fulfillment_Post_Org_Code__c 	= orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
+			if (orderWithData.OrderItems.size() != 0) {
+				if (String.isNotBlank(orderWithData.OrderItems[0].ITA_Product_Code__c)) {
+					payment.Project_Code__c = orderWithData.OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+				}
+			}
+			//
+			Decimal totalAmount = 0.00;
+			for (Order order : orders) {
+				totalAmount += order.TotalAmount;
+			}
+			payment.Transaction_Amount__c = totalAmount;
+
+		} else if(transactionAmount != null){
+			payment.Transaction_Amount__c = Decimal.valueOf(transactionAmount);
 		}
-		payment.Transaction_Amount__c = totalAmount;
-		RecordLog.message('Transaction Amount: ' + totalAmount);
+		RecordLog.message('Transaction Amount: ' + payment.Transaction_Amount__c);
+
+		RecordLog.message('Project Code: ' + payment.Project_Code__c);
+
 		RecordLog.message('Inserting Payment');
 		try {
+			if(payment.Transaction_Amount__c == null) {
+				throw new IllegalArgumentException('OrderIds and TransactionAmount cannot both be null.');
+			}
 			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType});
 			uow.registerNew(payment);
 			uow.commitWork();
@@ -334,6 +359,9 @@ public with sharing class Payment2 {
 		String accountMetaDataName = accountType.replace(' ', '_') + '_Remote_Account__c';
 		Map<String, Object> paymentSettingsMap = CustomMetadataSelector.getPaymentSettings('PayGov');
 		return (String) paymentSettingsMap.get(accountMetaDataName);
+	}
+	public  static List<Payment2__c> populateOpportunityonPayment_2(List<Payment2__c> payments){
+		return payments;
 	}
 
 	public class PaymentAuthenticationDetails {

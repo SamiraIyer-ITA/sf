@@ -41,13 +41,16 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 
 		//END OPTIONAL ELEMENTS
 
+		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id> {authenticationDetails.paymentId});
+		//
+
 		PayGovTCSOnline.CustomCollectionFields customFields = new PayGovTCSOnline.CustomCollectionFields();
 		if (authenticationDetails.accountType.equals('Privacy Shield')) {
 			//Privacy Shield
 			customFields.custom_field_1 = '55:0023:' + Payment2.getCurrentFiscalYear() + ':SAFH232-000:35-05-0001-01-00-00-00:05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
 		} else {
 			//Only Privacy Shield uses custom fields, but the first one must be filled in for NIST's system.
-			customFields.custom_field_1 = '::::::::::::::';
+			customFields.custom_field_1 = '55:0023:' + Payment2.getCurrentFiscalYear() + ':' + payments[0].Project_Code__c + '-000:' + payments[0].Fulfillment_Post_Org_Code__c + ':05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
 		}
 
 		startOnlineCollectionRequest.custom_fields= customFields;

@@ -86,6 +86,40 @@ private class Payment2Test {
 	}
 
 	@IsTest
+	static void getTransactions_Positive_Payment_ACH() {
+		//Insert a Credit Card payment that is unrelated to the orders or the contract
+		Payment2__c payment3 = new Payment2__c();
+		payment3.Account_Type__c = 'Services';
+		payment3.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
+		payment3.Payment_Processor__c = 'Pay.gov';
+		payment3.Transaction_Status__c = 'Received';
+		payment3.Transaction_Amount__c = 15.00;
+		payment3.Payment_Type__c = 'ACH';
+		insert payment3;
+
+		String today = Date.today().format();
+		List<Payment2__c> payments = Payment2.getTransactions('Services', 'ACH', 'Payments', today, today, 'Transactions Not Yet Downloaded');
+		System.assertNotEquals(null, payments[0].Id);
+	}
+
+	@IsTest
+	static void getTransactions_Positive_Refund() {
+		//Insert a Credit Card payment that is unrelated to the orders or the contract
+		Payment2__c payment3 = new Payment2__c();
+		payment3.Account_Type__c = 'Services';
+		payment3.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_Refund');
+		payment3.Payment_Processor__c = 'Pay.gov';
+		payment3.Transaction_Status__c = 'Success';
+		payment3.Transaction_Amount__c = 15.00;
+		payment3.Payment_Type__c = 'Credit Card Refund';
+		insert payment3;
+
+		String today = Date.today().format();
+		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card Refund', 'Refunds', today, today, 'Transactions Not Yet Downloaded');
+		System.assertNotEquals(null, payments[0].Id);
+	}
+
+	@IsTest
 	static void getTransactions_Negative() {
 		String today = Date.today().format();
 		List<Payment2__c> payments = Payment2.getTransactions('Blah', 'Credit Card', 'Payments', today, today, 'All Transactions');
@@ -191,14 +225,39 @@ private class Payment2Test {
 	}
 
 	@IsTest
+	static void startElectronicPayment_Exception_NullOrderNoTransactionValue() {
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
+		String[] orderIds = new String[]{};
+		for (Order order: orders) {
+			orderIds.add(order.Id);
+		}
+		String exceptionMessage;
+		try {
+			String serializedDetails = Payment2.startElectronicPayment('Services', null, null, null, '', '', 'Contract', null);
+		} catch (Exception e) {
+			exceptionMessage = e.getMessage();
+		} finally {
+			System.assertEquals('Script-thrown exception', exceptionMessage);
+		}
+
+	}
+
+	@IsTest
 	static void authorizePayment_Positive() {
 		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
 		String[] orderIds = new String[]{};
 		for (Order order: orders) {
 			orderIds.add(order.Id);
 		}
-		String serializedDetails = Payment2.startElectronicPayment('Services', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
-		String paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+		String serializedDetails = null;
+		String paymentRedirectUrl = null;
+		try {
+			serializedDetails = Payment2.startElectronicPayment('Services', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
+			paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+		} catch (Exception e) {
+			System.debug(e.getMessage()+' '+e.getStackTraceString());
+		}
+
 		System.assertNotEquals(null, paymentRedirectUrl);
 	}
 
@@ -250,4 +309,9 @@ private class Payment2Test {
 		try { insert new Payment2__c(); } catch (Exception e) {}
 	}
 
+	@isTest
+	static void test_populateOpportunityonPayment_2() {
+		Payment2.populateOpportunityonPayment_2(null);
+		System.assertEquals(null,null);
+	}
 }

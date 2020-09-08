@@ -17,7 +17,8 @@ public without sharing class TransactionManagement {
 			Map<Id,Payment2__c> paymentMap = new Map<Id,Payment2__c>();
 			Map<Id,List<Order>> paymentOrderMap = new Map<Id,List<Order>>();
 
-			for(Payment2__c pay : [SELECT Id, Transaction_Amount__c, Account_Type__c, Payment_Type__c, Account_Holder_Name__c
+			for(Payment2__c pay : [SELECT Id, Transaction_Amount__c, Account_Type__c, Payment_Type__c, Account_Holder_Name__c, Fulfillment_Post_Org_Code__c,
+					Project_Code__c
 			FROM Payment2__c WHERE Id IN : paymentIds]) {
 				pay.Transmitted__c = true;
 				paymentMap.put(pay.id,pay);
@@ -154,7 +155,7 @@ public without sharing class TransactionManagement {
 				Decimal amt = objpay.Transaction_Amount__c.SetScale(2);
 				body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+getDecimal17Char(amt) + '~' + datetoday + '~' + paymentType + '~1~' + objpay.Account_Holder_Name__c + '~' + businessName + '~15397~1~MELLON~ITA~~~~~~~~~~~~~~XXXXXX~71744~~~\n';
 				body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
-				body += 'UCL03~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~00000001~1BFS231~000~~~~~~~50~07~0003~04~00~00~00~05~20~00~00~000000~' + getDecimal17Char(amt) + '\n';
+				body += 'UCL03~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~00000001~' + objpay.Project_Code__c + '~000~~~~~~~' + objpay.Fulfillment_Post_Org_Code__c + '~05~20~00~00~000000~' + getDecimal17Char(amt) + '\n';
 
 				i = i+1;
 			}

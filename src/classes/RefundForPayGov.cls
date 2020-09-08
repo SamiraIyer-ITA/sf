@@ -114,13 +114,19 @@ public with sharing class RefundForPayGov implements IRefund {
 			transactionDateGMT = DateTime.Valueof(transactionDate.replace('T', ' '));
 			transactionDateGMT = getEST(transactionDateGMT);
 		}
+
 		//Add fields from the associated Opportunity to the Payment2__c record
-		Order orderWithData =Orders[0] ;
-		orderWithData = [SELECT Id, Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
-							Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
-							//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
-							Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
-							FROM Order WHERE Id = :orderWithData.Id LIMIT 1 ];
+		Order orderWithData = [
+
+				SELECT Id, (SELECT Order.Payment2__r.Id, ITA_Product_Code__c FROM OrderItems WHERE IsPrimary__c = TRUE LIMIT 1),
+						Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
+						Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
+						//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
+						Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
+				FROM Order
+				WHERE Id = :Orders[0].Id
+				LIMIT 1
+		];
 		Payment2__c refund = new Payment2__c();
 		refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_Refund');
 		refund.Transaction_Amount__c = refundAmount;
@@ -139,6 +145,11 @@ public with sharing class RefundForPayGov implements IRefund {
 		refund.Collection_Post_Org_Code__c = orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
 		refund.Fulfillment_Post_Name__c = orderWithData.Opportunity.Fulfillment_Post__r.Name;
 		refund.Fulfillment_Post_Org_Code__c = orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
+		if (orderWithData.OrderItems.size() != 0) {
+			if (String.isNotBlank(orderWithData.OrderItems[0].ITA_Product_Code__c)) {
+				refund.Project_Code__c = orderWithData.OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+			}
+		}
 		fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 		uow.registerNew(refund);
 
