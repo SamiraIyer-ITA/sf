@@ -42,6 +42,24 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 		return (List<Order>) Database.query(ordersQueryFactory.setCondition(condition).toSOQL());
 	}
 
+	public List<Order> selectWithOrderItemDetails(Set<Id> idSet) {
+		if (idSet.isEmpty()) return new List<Order>();  //Avoid unnecessary SOQL
+		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
+		ordersQueryFactory.selectFields(new Set<String>{'Opportunity.Account.Name',
+			'Opportunity.Owner.Name', 'Opportunity.CreatedDate', 'Opportunity.Collection_Post__r.Name',
+			'Opportunity.Collection_Post__r.Org_Code__c', 'Opportunity.Fulfillment_Post__r.Name',
+			'Opportunity.Fulfillment_Post__r.Org_Code__c'});
+
+		//Add the following fields above after they exist:
+		//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c
+
+		ordersQueryFactory.setCondition('Id IN :idSet');
+		fflib_QueryFactory orderItemsQueryFactory = ordersQueryFactory.subselectQuery('OrderItems');
+		orderItemsQueryFactory.setCondition('IsPrimary__c = true');
+		orderItemsQueryFactory.selectFields(new OrderItemsSelector().getSObjectFieldList());
+		return Database.query(ordersQueryFactory.toSOQL());
+	}
+
 	private List<Schema.SObjectField> getSObjectFieldList() {
 		//add more fields as appropriate
 		return new List<Schema.SObjectField>{

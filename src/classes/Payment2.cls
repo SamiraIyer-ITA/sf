@@ -121,6 +121,7 @@ public with sharing class Payment2 {
 				paymentConfirmationPage, objectApiName, recordId);
 
 		} catch(Exception e) {
+			System.debug(e.getStackTraceString());
 			throw new AuraHandledException(e.getMessage());
 		}
 	}
@@ -135,7 +136,7 @@ public with sharing class Payment2 {
 	 *
 	 * @return A Payment2__c object of the newly created payment.
 	 */
-	private static Payment2__c createPayment(String accountType, String contractId, String[] orderIds, String transactionAmount) {
+	public static Payment2__c createPayment(String accountType, String contractId, String[] orderIds, String transactionAmount) {
 		RecordLog.push('Payment.createPayment');
 		RecordLog.message('Order Ids: ' + orderIds);
 
@@ -150,48 +151,38 @@ public with sharing class Payment2 {
 		if(orderIds != null && !orderIds.isEmpty()) {
 			//Convert orderIds String array to set of Id
 			Set<Id> orderIdSet = (Set<Id>) JSON.deserialize(JSON.serialize(orderIds), Set<Id>.class);
-			List<Order> orders = OrdersSelector.newInstance().selectById(orderIdSet);
+			List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIdSet);
 
-			// Info from Orders
-			List<Order> ordersWithData = [
-					SELECT Id, (SELECT ITA_Product_Code__c FROM OrderItems WHERE IsPrimary__c = TRUE LIMIT 1),
-							Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
-							Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
-							//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
-							Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
-					FROM Order
-					WHERE Id In :orderIds
-			];
+			//All Orders must be for the same Opportunity, so only look at the Opportunity values for the 1st Order
+			payment.Organization_Name__c = orderListWithDetails[0].Opportunity.Account.Name;
+			payment.Opportunity_Owner__c = orderListWithDetails[0].Opportunity.Owner.Name;
+			payment.Opportunity_Created_Date__c = orderListWithDetails[0].Opportunity.CreatedDate;
+			payment.Collection_Post_Name__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Name;
+			payment.Collection_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
+			payment.Fulfillment_Post_Name__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
+			payment.Fulfillment_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
 
-			payment.Organization_Name__c = ordersWithData[0].Opportunity.Account.Name;
-			payment.Opportunity_Owner__c = ordersWithData[0].Opportunity.Owner.Name;
-			payment.Opportunity_Created_Date__c = ordersWithData[0].Opportunity.CreatedDate;
-			payment.Collection_Post_Name__c = ordersWithData[0].Opportunity.Collection_Post__r.Name;
-			payment.Collection_Post_Org_Code__c = ordersWithData[0].Opportunity.Collection_Post__r.Org_Code__c;
-			payment.Fulfillment_Post_Name__c = ordersWithData[0].Opportunity.Fulfillment_Post__r.Name;
-			payment.Fulfillment_Post_Org_Code__c = ordersWithData[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
-			// create Project code as a CSV
-			for(Integer i = 0; i < ordersWithData.size() ; i++ ) {
-				if(ordersWithData.size() < 12) {
-					if (ordersWithData[i].OrderItems.size() != 0) {
-						if (String.isNotBlank(ordersWithData[i].OrderItems[0].ITA_Product_Code__c)) {
+			// Determine the Project Code value and Total Amount value
+			Decimal totalAmount = 0.00;
+			for(Integer i = 0; i < orderListWithDetails.size() ; i++ ) {
+				if(orderListWithDetails.size() <= 12) {
+					if (orderListWithDetails[i].OrderItems.size() != 0) {
+						if (String.isNotBlank(orderListWithDetails[i].OrderItems[0].ITA_Product_Code__c)) {
 							if (i == 0) {
-								payment.Project_Code__c = ordersWithData[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+								payment.Project_Code__c = orderListWithDetails[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
 							} else{
-								payment.Project_Code__c += ', ' + ordersWithData[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+								payment.Project_Code__c += ', ' + orderListWithDetails[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
 							}
 
 						}
 					}
+					totalAmount += orderListWithDetails[i].TotalAmount;
 				} else {
+					system.debug('*** Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
 					RecordLog.message('Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
 					RecordLog.emit('No Payment Id');
 					throw new PaymentLimitException('Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
 				}
-			}
-			Decimal totalAmount = 0.00;
-			for (Order order : orders) {
-				totalAmount += order.TotalAmount;
 			}
 			payment.Transaction_Amount__c = totalAmount;
 

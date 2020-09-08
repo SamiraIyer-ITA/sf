@@ -17,24 +17,25 @@ public without sharing class TransactionManagement {
 			Map<Id,Payment2__c> paymentMap = new Map<Id,Payment2__c>();
 			Map<Id,List<Order>> paymentOrderMap = new Map<Id,List<Order>>();
 
-			for(Payment2__c pay : [SELECT Id, Transaction_Amount__c, Account_Type__c, Payment_Type__c, Account_Holder_Name__c, Fulfillment_Post_Org_Code__c,
-					Project_Code__c
-			FROM Payment2__c WHERE Id IN : paymentIds]) {
-				pay.Transmitted__c = true;
-				paymentMap.put(pay.id,pay);
-				totalAmt += pay.Transaction_Amount__c;
+			Set<Id> paymentIdSet = (Set<Id>) JSON.deserialize(JSON.serialize(paymentIds), Set<Id>.class);
+			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentIdSet);
+			for(Payment2__c payment : payments) {
+				payment.Transmitted__c = true;
+				paymentMap.put(payment.id,payment);
+				totalAmt += payment.Transaction_Amount__c;
 			}
-			for(Order ord: [SELECT Id, Payment2__c, AccountId, Account.Name, OpportunityId, Opportunity.AccountId,
-					Opportunity.Account.Name FROM Order WHERE Payment2__c IN: paymentMap.keySet()]) {
-				if(paymentOrderMap.containsKey(ord.Payment2__c)){
+
+			List<Order> orders = OrdersSelector.newInstance().selectById(paymentMap.keySet());
+			for (Order order: orders) {
+				if(paymentOrderMap.containsKey(order.Payment2__c)){
 					List<Order> ordList = new List<Order>();
-					ordList = paymentOrderMap.get(ord.Payment2__c);
-					ordList.add(ord);
-					paymentOrderMap.put(ord.Payment2__c,ordList);
+					ordList = paymentOrderMap.get(order.Payment2__c);
+					ordList.add(order);
+					paymentOrderMap.put(order.Payment2__c,ordList);
 				} else {
 					List<Order> ordList = new List<Order>();
-					ordList.add(ord);
-					paymentOrderMap.put(ord.Payment2__c,ordList);
+					ordList.add(order);
+					paymentOrderMap.put(order.Payment2__c,ordList);
 				}
 			}
 

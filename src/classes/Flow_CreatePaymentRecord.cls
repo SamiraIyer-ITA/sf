@@ -51,28 +51,21 @@ global without sharing class Flow_CreatePaymentRecord {
 			payment.Transaction_Status__c = 'Success';
 			payment.Transaction_Amount__c = amount;
 
-			// Info from Opportunity
-			Order orderWithData = [
-					SELECT Id, (SELECT Order.Payment2__r.Id, ITA_Product_Code__c FROM OrderItems WHERE IsPrimary__c = TRUE LIMIT 1),
-							Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
-							Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
-							//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
-							Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
-					FROM Order
-					WHERE Id = :orders[0].Id
-					LIMIT 1
-			];
+			//Look at the first Order to get data from the associated Opportunity
+			Set<Id> orderIds = new Set<Id>();
+			orderIds.add(orders[0].Id);
+			List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds);
 
-			payment.Organization_Name__c 			= orderWithData.Opportunity.Account.Name;
-			payment.Opportunity_Owner__c 			= orderWithData.Opportunity.Owner.Name;
-			payment.Opportunity_Created_Date__c 	= orderWithData.Opportunity.CreatedDate;
-			payment.Collection_Post_Name__c 		= orderWithData.Opportunity.Collection_Post__r.Name;
-			payment.Collection_Post_Org_Code__c 	= orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
-			payment.Fulfillment_Post_Name__c 		= orderWithData.Opportunity.Fulfillment_Post__r.Name;
-			payment.Fulfillment_Post_Org_Code__c 	= orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
-			if (orderWithData.OrderItems.size() != 0) {
-				if (String.isNotBlank(orderWithData.OrderItems[0].ITA_Product_Code__c)) {
-					payment.Project_Code__c = orderWithData.OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+			payment.Organization_Name__c 			= orderListWithDetails[0].Opportunity.Account.Name;
+			payment.Opportunity_Owner__c 			= orderListWithDetails[0].Opportunity.Owner.Name;
+			payment.Opportunity_Created_Date__c 	= orderListWithDetails[0].Opportunity.CreatedDate;
+			payment.Collection_Post_Name__c 		= orderListWithDetails[0].Opportunity.Collection_Post__r.Name;
+			payment.Collection_Post_Org_Code__c 	= orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
+			payment.Fulfillment_Post_Name__c 		= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
+			payment.Fulfillment_Post_Org_Code__c 	= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
+			if (orderListWithDetails[0].OrderItems.size() != 0) {
+				if (String.isNotBlank(orderListWithDetails[0].OrderItems[0].ITA_Product_Code__c)) {
+					payment.Project_Code__c = orderListWithDetails[0].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
 				}
 			}
 			try {
