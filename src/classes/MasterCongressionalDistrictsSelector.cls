@@ -22,6 +22,15 @@ public class MasterCongressionalDistrictsSelector extends fflib_SObjectSelector 
 				);
 	}
 
+	public List<Master_CongressionalDistrict__c> selectByzip_Plus4(Set<String> zip5){
+		return (List<Master_CongressionalDistrict__c>)
+				Database.query(
+						newQueryFactory()
+								.setCondition('Zip_Plus4__c = :zip5')
+								.toSOQL()
+				);
+	}
+
 	private List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 			Master_CongressionalDistrict__c.Id,

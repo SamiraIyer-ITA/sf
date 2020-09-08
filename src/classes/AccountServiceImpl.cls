@@ -75,6 +75,7 @@ public class AccountServiceImpl implements IAccountService {
 				recordTypeMap.get('Partner_Account')
 			};
 			Pattern zipCodSpecChar = Pattern.compile('[0-9]{5}-[0-9]{4}');
+			system.debug('MGK Pattern compile is ' + zipCodSpecChar);
 			for (Account acct: accounts) {
 				Boolean meetsCriteria = (
 					acct.BillingPostalCode != null
