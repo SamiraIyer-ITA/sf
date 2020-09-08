@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Full access Payment related activities</description>
+    <label>Payments: Full Access</label>
+    <permissionSets>Payments_Issue_Refund</permissionSets>
+    <permissionSets>Payments_Record_Payments</permissionSets>
+    <permissionSets>Payments_Record_Refunds</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
