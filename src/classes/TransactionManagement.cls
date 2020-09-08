@@ -24,7 +24,6 @@ public without sharing class TransactionManagement {
 				paymentMap.put(pay.id,pay);
 				totalAmt += pay.Transaction_Amount__c;
 			}
-
 			for(Order ord: [SELECT Id, Payment2__c, AccountId, Account.Name, OpportunityId, Opportunity.AccountId,
 					Opportunity.Account.Name FROM Order WHERE Payment2__c IN: paymentMap.keySet()]) {
 				if(paymentOrderMap.containsKey(ord.Payment2__c)){
@@ -151,12 +150,19 @@ public without sharing class TransactionManagement {
 				if (objpay.Payment_Type__c == 'ACH') {
 					paymentType = 'ACH';
 				}
-
+				// Get the list of orders associated with this Payment2
+				List<Order> ordersForPayment = new List<Order>();
+				ordersForPayment = paymentOrderMap.get(objPay.Id);
 				Decimal amt = objpay.Transaction_Amount__c.SetScale(2);
 				body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+getDecimal17Char(amt) + '~' + datetoday + '~' + paymentType + '~1~' + objpay.Account_Holder_Name__c + '~' + businessName + '~15397~1~MELLON~ITA~~~~~~~~~~~~~~XXXXXX~71744~~~\n';
 				body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
-				body += 'UCL03~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~00000001~' + objpay.Project_Code__c + '~000~~~~~~~' + objpay.Fulfillment_Post_Org_Code__c + '~05~20~00~00~000000~' + getDecimal17Char(amt) + '\n';
-
+				// Project_code__c can be up to 12 comma separated strings - Loop through those and create one line for each of the items in that list
+				List<String> projectCodesForPayment = objpay.Project_Code__c.split(',');
+				system.debug('***' + projectCodesForPayment.size());
+				for(string  aProjectCode : projectCodesForPayment) {
+					// MGK Cary to confirm the format of UCL03
+					body += 'UCL03~55~' + batchNumber + '~' + getNumberLeftChar(i, 8) + '~00000001~00000001~' + aProjectCode + '~000~~~~~~~' + objpay.Fulfillment_Post_Org_Code__c + '~05~20~00~00~000000~' + getDecimal17Char(amt) + '\n';
+				}
 				i = i+1;
 			}
 

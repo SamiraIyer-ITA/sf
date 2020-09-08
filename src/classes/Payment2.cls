@@ -149,35 +149,46 @@ public with sharing class Payment2 {
 
 		if(orderIds != null && !orderIds.isEmpty()) {
 			//Convert orderIds String array to set of Id
-			Set<Id> orderIdSet = (Set<Id>)JSON.deserialize(JSON.serialize(orderIds), Set<Id>.class);
+			Set<Id> orderIdSet = (Set<Id>) JSON.deserialize(JSON.serialize(orderIds), Set<Id>.class);
 			List<Order> orders = OrdersSelector.newInstance().selectById(orderIdSet);
 
-			// Info from Opportunity
-			Order orderWithData = [
-					//SELECT Id, (SELECT Order.Payment2__r.Id, ITA_Product_Code__c FROM OrderItem WHERE isPrimary__c = TRUE LIMIT 1),
-					SELECT Id, (SELECT Order.Payment2__r.Id, ITA_Product_Code__c FROM OrderItems WHERE IsPrimary__c = TRUE LIMIT 1),
+			// Info from Orders
+			List<Order> ordersWithData = [
+					SELECT Id, (SELECT ITA_Product_Code__c FROM OrderItems WHERE IsPrimary__c = TRUE LIMIT 1),
 							Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
 							Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
 							//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
 							Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
 					FROM Order
-					WHERE Id = :orderIds[0]
-					LIMIT 1
+					WHERE Id In :orderIds
 			];
 
-			payment.Organization_Name__c 			= orderWithData.Opportunity.Account.Name;
-			payment.Opportunity_Owner__c 			= orderWithData.Opportunity.Owner.Name;
-			payment.Opportunity_Created_Date__c 	= orderWithData.Opportunity.CreatedDate;
-			payment.Collection_Post_Name__c 		= orderWithData.Opportunity.Collection_Post__r.Name;
-			payment.Collection_Post_Org_Code__c 	= orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
-			payment.Fulfillment_Post_Name__c 		= orderWithData.Opportunity.Fulfillment_Post__r.Name;
-			payment.Fulfillment_Post_Org_Code__c 	= orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
-			if (orderWithData.OrderItems.size() != 0) {
-				if (String.isNotBlank(orderWithData.OrderItems[0].ITA_Product_Code__c)) {
-					payment.Project_Code__c = orderWithData.OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+			payment.Organization_Name__c = ordersWithData[0].Opportunity.Account.Name;
+			payment.Opportunity_Owner__c = ordersWithData[0].Opportunity.Owner.Name;
+			payment.Opportunity_Created_Date__c = ordersWithData[0].Opportunity.CreatedDate;
+			payment.Collection_Post_Name__c = ordersWithData[0].Opportunity.Collection_Post__r.Name;
+			payment.Collection_Post_Org_Code__c = ordersWithData[0].Opportunity.Collection_Post__r.Org_Code__c;
+			payment.Fulfillment_Post_Name__c = ordersWithData[0].Opportunity.Fulfillment_Post__r.Name;
+			payment.Fulfillment_Post_Org_Code__c = ordersWithData[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
+			// create Project code as a CSV
+			for(Integer i = 0; i < ordersWithData.size() ; i++ ) {
+				if(ordersWithData.size() < 12) {
+					if (ordersWithData[i].OrderItems.size() != 0) {
+						if (String.isNotBlank(ordersWithData[i].OrderItems[0].ITA_Product_Code__c)) {
+							if (i == 0) {
+								payment.Project_Code__c = ordersWithData[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+							} else{
+								payment.Project_Code__c += ', ' + ordersWithData[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+							}
+
+						}
+					}
+				} else {
+					RecordLog.message('Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
+					RecordLog.emit('No Payment Id');
+					throw new PaymentLimitException('Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
 				}
 			}
-			//
 			Decimal totalAmount = 0.00;
 			for (Order order : orders) {
 				totalAmount += order.TotalAmount;
@@ -382,5 +393,6 @@ public with sharing class Payment2 {
 		public String email;
 		public String accountType;
 	}
+	public class PaymentLimitException extends Exception {}
 
 }

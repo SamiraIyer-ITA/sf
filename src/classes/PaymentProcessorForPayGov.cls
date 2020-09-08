@@ -50,7 +50,13 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			customFields.custom_field_1 = '55:0023:' + Payment2.getCurrentFiscalYear() + ':SAFH232-000:35-05-0001-01-00-00-00:05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
 		} else {
 			//Only Privacy Shield uses custom fields, but the first one must be filled in for NIST's system.
-			customFields.custom_field_1 = '55:0023:' + Payment2.getCurrentFiscalYear() + ':' + payments[0].Project_Code__c + '-000:' + payments[0].Fulfillment_Post_Org_Code__c + ':05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
+
+			List<String> projectCodesForPayment = payments[0].Project_Code__c.split(',');
+			for (String projectCodeForPayment : projectCodesForPayment) {
+				// MGK increment custom_field_X so that each value in the list is a custom field
+				// MGK use int = 1 loop
+				customFields.custom_field_1 = '55:0023:' + Payment2.getCurrentFiscalYear() + ':' + projectCodeForPayment + '-000:' + payments[0].Fulfillment_Post_Org_Code__c + ':05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
+			}
 		}
 
 		startOnlineCollectionRequest.custom_fields= customFields;

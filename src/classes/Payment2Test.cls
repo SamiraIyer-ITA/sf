@@ -15,11 +15,19 @@ private class Payment2Test {
 		Contract contract = new Contract();
 		contract.Name = 'Contract Test X';
 
+		product2.IsPrimary__c = true;
+		product2.ProductCode = 'ABCD';
+		update product2;
+
+		opp.Pricebook2Id = pricebook.Id;
+		update opp;
+
 		contract.AccountId = account.Id;
 		insert contract;
 		system.debug('in setup contract.id is ==> ' + contract.Id);
 		contract.Status = 'Activated';
 		update contract;
+		Quote quote = new Quote();
 		List<Order> orders = new List<Order>();
 		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
 		order1.Type = 'Services';
@@ -37,12 +45,13 @@ private class Payment2Test {
 		orders.add(order2);
 		update orders;
 
-		OrderItem orderItem1 = new OrderItem();
-		orderItem1.OrderId = order1.id;
-		orderItem1.Quantity = 2;
-		orderItem1.UnitPrice = 2400;
-		orderItem1.Product2id = product2.id;
-		orderItem1.PricebookEntryId=pbe.id;
+		OrderItem orderItem1 		= new OrderItem();
+		orderItem1.OrderId 			= order1.id;
+		orderItem1.Quantity 		= 2;
+		orderItem1.UnitPrice 		= 2400;
+		orderItem1.Product2id 		= product2.id;
+		orderItem1.PricebookEntryId	= pbe.id;
+
 		insert orderItem1;
 
 		OrderItem orderItem2 = new OrderItem();
@@ -53,6 +62,19 @@ private class Payment2Test {
 		orderItem2.PricebookEntryId=pbe.id;
 		insert orderItem2;
 
+		Quote quote1 = new Quote();
+		quote1.OpportunityId = opp.Id;
+		quote1.Name = 'Test Quote';
+		insert quote1;
+
+		QuoteLineItem quoteLineItem1 = new QuoteLineItem();
+		quoteLineItem1.Product2Id = product2.Id;
+		quoteLineItem1.QuoteId = quote1.Id;
+		quoteLineItem1.PricebookEntryId = pbe.Id;
+		quoteLineItem1.Quantity = 1;
+		quoteLineItem1.UnitPrice = 100.00;
+		insert quoteLineItem1;
+
 		//Insert a Payment record for Order 1
 		Payment2__c payment1 = new Payment2__c();
 		payment1.Account_Type__c = 'Services';
@@ -61,6 +83,7 @@ private class Payment2Test {
 		payment1.Transaction_Status__c = 'Success';
 		payment1.Transaction_Amount__c = 4800.00;
 		payment1.Payment_Type__c = 'PLASTIC_CARD';
+		payment1.Project_Code__c = 'ABCD123';
 		insert payment1;
 
 		order1.Payment2__c = payment1.Id;
@@ -75,6 +98,7 @@ private class Payment2Test {
 		payment2.Transaction_Status__c = 'Success';
 		payment2.Transaction_Amount__c = 15.00;
 		payment2.Payment_Type__c = 'PLASTIC_CARD';
+		payment2.Project_Code__c = '1GKY231';
 		insert payment2;
 	}
 
@@ -253,7 +277,11 @@ private class Payment2Test {
 		String paymentRedirectUrl = null;
 		try {
 			serializedDetails = Payment2.startElectronicPayment('Services', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
-			paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+			Payment2.PaymentAuthenticationDetails authenticationDetails = (Payment2.PaymentAuthenticationDetails)JSON.deserialize(serializedDetails, Payment2.PaymentAuthenticationDetails.class);
+			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id> {authenticationDetails.paymentId});
+        	payments[0].Project_Code__c = '1GKY231';
+        	update payments;
+            paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
 		} catch (Exception e) {
 			System.debug(e.getMessage()+' '+e.getStackTraceString());
 		}

@@ -13,8 +13,8 @@ private class TransactionManagementTest {
 
 	@testSetup
 	static void testSetup() {
-
 		Account account = TestUtils.createAccount(true);
+		Opportunity opp = TestUtils.createOpportunity(account.Id, 'a string', true);
 		Program__c program = TestUtils.createProgram('Test Program', true);
 		Pricebook2 pricebook = TestUtils.createPricebook(program.Id);
 		Product2 product2 = TestUtils.createProduct(true);
@@ -22,6 +22,9 @@ private class TransactionManagementTest {
 		PricebookEntry standardPbe = TestUtils.createPricebookEntry(standardPbId, product2.Id, true);
 		PricebookEntry pbe = TestUtils.createPricebookEntry(pricebook.Id, product2.Id, true);
 		Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
+
+		opp.Pricebook2Id = pricebook.Id;
+		update opp;
 
 		Contract contract = new Contract();
 		contract.Name = 'Contract Test X';
@@ -54,7 +57,20 @@ private class TransactionManagementTest {
 		payment1.Transaction_Status__c = 'Success';
 		payment1.Transaction_Amount__c = 4800.00;
 		payment1.Payment_Type__c = 'PLASTIC_CARD';
+		payment1.Project_Code__c = '1GKY';
 		insert payment1;
+
+		Quote quote1 = new Quote();
+		quote1.OpportunityId = opp.Id;
+		quote1.Name = 'Test Quote';
+		insert quote1;
+		QuoteLineItem quoteLineItem1 = new QuoteLineItem();
+		quoteLineItem1.Product2Id = product2.Id;
+		quoteLineItem1.QuoteId = quote1.Id;
+		quoteLineItem1.PricebookEntryId = pbe.Id;
+		quoteLineItem1.Quantity = 1;
+		quoteLineItem1.UnitPrice = 100.00;
+		insert quoteLineItem1;
 
 		order1.Payment2__c = payment1.Id;
 		order1.Status = 'Paid';
