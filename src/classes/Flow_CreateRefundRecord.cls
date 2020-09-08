@@ -10,6 +10,10 @@ global without sharing class Flow_CreateRefundRecord {
 		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 		List<String> errorList = new List<String>();
 
+		ResponseVariables responseVariables = new ResponseVariables();
+		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
+		List<String> errorList = new List<String>();
+
 		if (inputs.isEmpty()) {
 			responseVariables.hasError = true;
 			responseVariables.errorReasons = '<li>Nothing to validate.</li>';
@@ -97,8 +101,8 @@ global without sharing class Flow_CreateRefundRecord {
 				refund.Fulfillment_Post_Name__c 		= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
 				refund.Fulfillment_Post_Org_Code__c 	= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
 				if (orderListWithDetails[0].OrderItems.size() != 0) {
-					if (String.isNotBlank(orderListWithDetails[0].OrderItems[0].ITA_Product_Code__c)) {
-						refund.Project_Code__c = orderListWithDetails[0].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+					if (String.isNotBlank(orderListWithDetails[0].OrderItems[0].Accounting_code__c)) {
+						refund.Project_Code__c = orderListWithDetails[0].OrderItems[0].Accounting_code__c.Left(4) + '231';
 					}
 				}
 

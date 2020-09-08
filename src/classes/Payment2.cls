@@ -121,7 +121,6 @@ public with sharing class Payment2 {
 				paymentConfirmationPage, objectApiName, recordId);
 
 		} catch(Exception e) {
-			System.debug(e.getStackTraceString());
 			throw new AuraHandledException(e.getMessage());
 		}
 	}
@@ -167,11 +166,11 @@ public with sharing class Payment2 {
 			for(Integer i = 0; i < orderListWithDetails.size() ; i++ ) {
 				if(orderListWithDetails.size() <= 12) {
 					if (orderListWithDetails[i].OrderItems.size() != 0) {
-						if (String.isNotBlank(orderListWithDetails[i].OrderItems[0].ITA_Product_Code__c)) {
+						if (String.isNotBlank(orderListWithDetails[i].OrderItems[0].Accounting_code__c)) {
 							if (i == 0) {
-								payment.Project_Code__c = orderListWithDetails[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+								payment.Project_Code__c = orderListWithDetails[i].OrderItems[0].Accounting_code__c.Left(4) + '231';
 							} else{
-								payment.Project_Code__c += ', ' + orderListWithDetails[i].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+								payment.Project_Code__c += ', ' + orderListWithDetails[i].OrderItems[0].Accounting_code__c.Left(4) + '231';
 							}
 
 						}
@@ -189,8 +188,8 @@ public with sharing class Payment2 {
 		} else if(transactionAmount != null){
 			payment.Transaction_Amount__c = Decimal.valueOf(transactionAmount);
 		}
-		RecordLog.message('Transaction Amount: ' + payment.Transaction_Amount__c);
 
+		RecordLog.message('Transaction Amount: ' + payment.Transaction_Amount__c);
 		RecordLog.message('Project Code: ' + payment.Project_Code__c);
 
 		RecordLog.message('Inserting Payment');

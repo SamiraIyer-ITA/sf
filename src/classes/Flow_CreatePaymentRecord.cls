@@ -64,8 +64,8 @@ global without sharing class Flow_CreatePaymentRecord {
 			payment.Fulfillment_Post_Name__c 		= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
 			payment.Fulfillment_Post_Org_Code__c 	= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
 			if (orderListWithDetails[0].OrderItems.size() != 0) {
-				if (String.isNotBlank(orderListWithDetails[0].OrderItems[0].ITA_Product_Code__c)) {
-					payment.Project_Code__c = orderListWithDetails[0].OrderItems[0].ITA_Product_Code__c.Left(4) + '231';
+				if (String.isNotBlank(orderListWithDetails[0].OrderItems[0].Accounting_code__c)) {
+					payment.Project_Code__c = orderListWithDetails[0].OrderItems[0].Accounting_code__c.Left(4) + '231';
 				}
 			}
 			try {
