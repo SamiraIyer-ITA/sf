@@ -511,7 +511,7 @@
         <description>Populated when payment record is created. First four characters come from the order line item. Last 3 characters are static.</description>
         <externalId>false</externalId>
         <label>Project Code</label>
-        <length>7</length>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -798,24 +798,42 @@
     </fields>
     <label>Payment 2</label>
     <listViews>
-        <fullName>All</fullName>
+        <fullName>All_Payments</fullName>
         <columns>NAME</columns>
-        <columns>Remote_Tracking_Id__c</columns>
+        <columns>Organization_Name__c</columns>
+        <columns>Contract__c</columns>
+        <columns>Invoice_Id__c</columns>
         <columns>Payment_Date__c</columns>
         <columns>Payment_Type__c</columns>
         <columns>Remote_Tracking_Id__c</columns>
         <columns>Transaction_Amount__c</columns>
         <columns>Transaction_Date__c</columns>
-        <columns>Payment_Type__c</columns>
         <columns>Transaction_Status__c</columns>
-        <columns>Refund_Total__c</columns>
-        <columns>Contract__c</columns>
-        <columns>CREATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
-        <label>All</label>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Payment2__c.Bank_Transfer_Payment,Payment2__c.Cash_Payment,Payment2__c.Check_Payment,Payment2__c.Credit_Card_or_ACH_Payment,Payment2__c.External_Credit_Card_or_ACH_Payment</value>
+        </filters>
+        <label>All Payments</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Refunds</fullName>
+        <columns>NAME</columns>
+        <columns>Transaction_Date__c</columns>
+        <columns>Transaction_Amount__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Transaction_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Payment2__c.Credit_Card_Refund,Payment2__c.NIST_Issued_Refund</value>
+        </filters>
+        <label>All Refunds</label>
     </listViews>
     <nameField>
-        <displayFormat>DCRM{000000}</displayFormat>
+        <displayFormat>P{000000000}</displayFormat>
         <label>Payment ID</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
