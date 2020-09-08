@@ -539,4 +539,8 @@ public without sharing class Utils {
 		return 'SELECT ' + String.join(fields, ', ') + ', Id FROM ' + soName;
 	}
 
+	public static Boolean isSandbox() {
+		Organization organization = [SELECT IsSandbox FROM Organization LIMIT 1];
+		return organization.IsSandbox;
+	}
 }
