@@ -61,4 +61,58 @@ public class AccountServiceImpl implements IAccountService {
 		return (String.isNotBlank(participationString) && String.isBlank(accountString));
 	}
 
+	public static void updateCCDLookupId(List<Account> accounts) {
+		system.debug('MGK Inside updateCCDLookupId');
+		if (!System.isBatch()) {
+			Set<String> zip4 = new Set<String>();
+			Set<String> zip5 = new Set<String>();
+			// SM-136: Update account triggers by record types
+			Map<String, Id> recordTypeMap = Utils.getRecordTypeMapBySObject(Account.SObjectType);
+			Set<Id> recordTypeIds = new Set<Id>{
+				recordTypeMap.get('ITA_CRM_Law_Firm'),
+				recordTypeMap.get('ITA_User_Account_RT'),
+				recordTypeMap.get('Individual'),
+				recordTypeMap.get('Partner_Account')
+			};
+			Pattern zipCodSpecChar = Pattern.compile('[0-9]{5}-[0-9]{4}');
+			for (Account acct: accounts) {
+				Boolean meetsCriteria = (
+					acct.BillingPostalCode != null
+						&& acct.BillingCountry == 'United States'
+						&& recordTypeIds.contains(acct.RecordTypeId)
+						&& zipCodSpecChar.matcher(acct.BillingPostalCode).matches()
+				);
+				if (meetsCriteria) {
+					system.debug('MGK Zipcode meets criteria');
+					system.debug('MGK 5digit zip is ==> ' + acct.BillingPostalCode.substring(0,5));
+					zip4.add(acct.BillingPostalCode.replace('-','').substring(5,9));
+					zip5.add(acct.BillingPostalCode.substring(0,5));
+				} else {
+					acct.Congressional_District__c = null;
+					acct.County_Name__c = null;
+					acct.State_Code__c = null;
+				}
+			}
+			if (!zip4.isEmpty() && !zip5.isEmpty()) {
+				for (Master_CongressionalDistrict__c mccd:
+					MasterCongressionalDistrictsSelector.newInstance().selectByMin4Max4AndZipPlus4(zip4, zip5)
+				) {
+					for (Account acct : accounts) {
+						//This condition is used to set the existing value to Null
+						//if the cDistricts value is not populated and there is an existing value in
+						//for Master congressional district.
+						if (mccd.Min9Zip__c <= acct.BillingPostalCode.replace('-','')
+								&& mccd.Max9Zip__c >= acct.BillingPostalCode.replace('-','')
+								&& zipCodSpecChar.matcher(acct.BillingPostalCode).matches()) {
+							system.debug('MGK before acct.Congressional_District__c = mccd.Congressional_Dist__c');
+							acct.Congressional_District__c = mccd.Congressional_Dist__c;
+							system.debug('MGK after acct.Congressional_District__c = mccd.Congressional_Dist__c');
+							acct.County_Name__c = mccd.County_Name__c;
+							acct.State_Code__c = mccd.State_Code__c;
+						}
+					}
+				}
+			}
+		}
+	}
 }

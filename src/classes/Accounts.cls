@@ -18,6 +18,7 @@ public class Accounts extends fflib_SObjectDomain implements IAccounts {
 	}
     
     public override void onBeforeInsert() {
+		system.debug('MGK Inside onbefore insert');
         updateCCDLookupId((List<Account>) Records);
     }
     
