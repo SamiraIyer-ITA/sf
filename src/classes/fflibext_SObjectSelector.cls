@@ -3,6 +3,7 @@ public abstract class fflibext_SObjectSelector extends fflib_SObjectSelector {
 
 	//A set of dates going back 7 days starting yesterday. Used as a parameter in a Database call
 	public static Set<Date> dateSet7Days = ScheduleRecordsRefresh.calculateDateSet7Days();
+	public static String parentIdString = StaffingAssignment.getParentIdString();
 
 	static {
 		// Put the fields in as strings and not SObjectFields because sometimes you want to exclude

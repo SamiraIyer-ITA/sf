@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>AddToCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddToCampaign</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddToCampaign</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChangeStatus</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,7 +89,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Convert</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Convert</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,7 +117,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -45,7 +145,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>FindDup</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>FindDup</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -53,7 +173,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>ListClean</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -61,11 +201,41 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SmsHighlightAction</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -75,6 +245,15 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
     </actionOverrides>
     <businessProcesses>
         <fullName>New Registrant</fullName>
@@ -499,6 +678,49 @@
             <restricted>true</restricted>
             <valueSetName>Country_1</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>DNBoptimizer__DNB_D_U_N_S_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Upon successful match, Optimizer populates this field and references it for future refreshes. The Dun &amp; Bradstreet D-U-N-S® Number is an identification number assigned by Dun &amp; Bradstreet that uniquely identifies the entity in accordance with the Data Universal Numbering System (D-U-N-S).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Upon successful match, Optimizer populates this field and references it for future refreshes. It is an identification number assigned by Dun &amp; Bradstreet that uniquely identifies the entity based on the Data Universal Numbering System (D-U-N-S).</inlineHelpText>
+        <label>D&amp;B DUNS Number</label>
+        <length>9</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DNBoptimizer__DnBCompanyRecord__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Upon a successful match, Optimizer populates this field that links the Lead record to a specific D-U-N-S Number for display of the correct custom object with D&amp;B data.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Upon a successful match, Optimizer populates this field that links the Lead record to a specific D-U-N-S Number for display of the correct custom object with D&amp;B data.</inlineHelpText>
+        <label>LeadToDnB</label>
+        <referenceTo>DNBoptimizer__DnBCompanyRecord__c</referenceTo>
+        <relationshipLabel>LeadToDnB</relationshipLabel>
+        <relationshipName>LeadToDnB</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DNBoptimizer__DnBContactRecord__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Upon a successful match, Optimizer populates this field that links the Lead record to a specific D&amp;B Contact ID for display of the correct custom object with D&amp;B data.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Upon a successful match, Optimizer populates this field that links the Lead record to a specific D&amp;B Contact ID for display of the correct custom object with D&amp;B data.</inlineHelpText>
+        <label>LeadContactToDnB</label>
+        <referenceTo>DNBoptimizer__DnBContactRecord__c</referenceTo>
+        <relationshipLabel>LeadToDnB_Contact</relationshipLabel>
+        <relationshipName>LeadToDnB_Contact</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>DataPartnerType__c</fullName>
@@ -1451,10 +1673,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Antarctica</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Antigua and Barbuda</fullName>
                 <default>false</default>
             </values>
@@ -1523,14 +1741,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bosnia and Herzegovina</fullName>
                 <default>false</default>
             </values>
@@ -1539,19 +1749,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bouvet Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Brazil</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1799,14 +2001,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Heard Island and McDonald Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -1828,10 +2022,6 @@
             </values>
             <values>
                 <fullName>Indonesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1883,14 +2073,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -1900,10 +2082,6 @@
             </values>
             <values>
                 <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1923,10 +2101,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
@@ -1940,10 +2114,6 @@
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1988,10 +2158,6 @@
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2079,10 +2245,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Panama</fullName>
                 <default>false</default>
             </values>
@@ -2103,10 +2265,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pitcairn</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -2119,15 +2277,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian Federation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2148,10 +2298,6 @@
             </values>
             <values>
                 <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2199,10 +2345,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
                 <default>false</default>
             </values>
@@ -2220,10 +2362,6 @@
             </values>
             <values>
                 <fullName>South Africa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>South Georgia and the South Sandwich Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2251,10 +2389,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -2263,19 +2397,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2352,10 +2478,6 @@
             </values>
             <values>
                 <fullName>Vanuatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2983,10 +3105,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Antarctica</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Antigua and Barbuda</fullName>
                 <default>false</default>
             </values>
@@ -3055,14 +3173,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bosnia and Herzegovina</fullName>
                 <default>false</default>
             </values>
@@ -3071,19 +3181,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bouvet Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Brazil</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3331,14 +3433,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Heard Island and McDonald Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -3360,10 +3454,6 @@
             </values>
             <values>
                 <fullName>Indonesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3415,14 +3505,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -3432,10 +3514,6 @@
             </values>
             <values>
                 <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3455,10 +3533,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
@@ -3472,10 +3546,6 @@
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3520,10 +3590,6 @@
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3611,10 +3677,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Panama</fullName>
                 <default>false</default>
             </values>
@@ -3635,10 +3697,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pitcairn</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -3651,15 +3709,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian Federation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3680,10 +3730,6 @@
             </values>
             <values>
                 <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3731,10 +3777,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
                 <default>false</default>
             </values>
@@ -3752,10 +3794,6 @@
             </values>
             <values>
                 <fullName>South Africa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>South Georgia and the South Sandwich Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3783,10 +3821,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -3795,19 +3829,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3884,10 +3910,6 @@
             </values>
             <values>
                 <fullName>Vanuatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4384,10 +4406,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Antarctica</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Antigua and Barbuda</fullName>
                 <default>false</default>
             </values>
@@ -4456,14 +4474,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bosnia and Herzegovina</fullName>
                 <default>false</default>
             </values>
@@ -4472,19 +4482,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bouvet Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Brazil</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4732,14 +4734,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Heard Island and McDonald Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -4761,10 +4755,6 @@
             </values>
             <values>
                 <fullName>Indonesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4816,14 +4806,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -4833,10 +4815,6 @@
             </values>
             <values>
                 <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4856,10 +4834,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
@@ -4873,10 +4847,6 @@
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4921,10 +4891,6 @@
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5012,10 +4978,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Panama</fullName>
                 <default>false</default>
             </values>
@@ -5036,10 +4998,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pitcairn</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -5052,15 +5010,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian Federation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5081,10 +5031,6 @@
             </values>
             <values>
                 <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5132,10 +5078,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
                 <default>false</default>
             </values>
@@ -5153,10 +5095,6 @@
             </values>
             <values>
                 <fullName>South Africa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>South Georgia and the South Sandwich Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5184,10 +5122,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -5196,19 +5130,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5285,10 +5211,6 @@
             </values>
             <values>
                 <fullName>Vanuatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
