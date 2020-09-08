@@ -438,6 +438,7 @@
         <locationX>1145</locationX>
         <locationY>73</locationY>
         <collectionReference>SelectedOrders</collectionReference>
+        <assignNextValueToReference>OrderLoopItem</assignNextValueToReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>assignOrderText</targetReference>
@@ -732,7 +733,7 @@
     <status>Active</status>
     <textTemplates>
         <name>orderTemplate</name>
-        <text>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;${!eachOrder.TotalAmount} for&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;  Order &quot;{!eachOrder.Name}&quot;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</text>
+        <text>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;${!OrderLoopItem.TotalAmount} for&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;  Order &quot;{!OrderLoopItem.Name}&quot;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</text>
     </textTemplates>
     <variables>
         <description>The &apos;Type&apos; of the Orders.</description>
@@ -848,5 +849,14 @@
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Loop variable added as workaround to assignNextValueToReference being removed.</description>
+        <name>OrderLoopItem</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Order</objectType>
     </variables>
 </Flow>
