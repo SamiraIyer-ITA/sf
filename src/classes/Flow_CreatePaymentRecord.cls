@@ -44,13 +44,26 @@ global without sharing class Flow_CreatePaymentRecord {
 					throw new CreatePaymentRecordActionException('Invalid Payment Type');
 				}
 			}
-
 			payment.Account_Type__c = accountType;
 			payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
 			payment.Contract__c = contractId;
 			payment.Payment_Processor__c = '';
 			payment.Transaction_Status__c = 'Success';
 			payment.Transaction_Amount__c = amount;
+			// Info from Opportunity
+			Order orderWithData = [SELECT Id, Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
+					Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
+					//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
+					Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
+			FROM Order WHERE Id = :orders[0].Id LIMIT 1];
+			payment.Organization_Name__c 			= orderWithData.Opportunity.Account.Name;
+			payment.Opportunity_Owner__c 			= orderWithData.Opportunity.Owner.Name;
+			payment.Opportunity_Created_Date__c 	= orderWithData.Opportunity.CreatedDate;
+			payment.Collection_Post_Name__c 		= orderWithData.Opportunity.Collection_Post__r.Name;
+			payment.Collection_Post_Org_Code__c 	= orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
+			payment.Fulfillment_Post_Name__c 		= orderWithData.Opportunity.Fulfillment_Post__r.Name;
+			payment.Fulfillment_Post_Org_Code__c 	= orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
+
 			try {
 				fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 				uow.registerNew(payment);

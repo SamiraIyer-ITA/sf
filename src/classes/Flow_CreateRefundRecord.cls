@@ -62,6 +62,13 @@ global without sharing class Flow_CreateRefundRecord {
 
 			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
 			Map<Id, Payment2__c> paymentIdMap =new Map<Id, Payment2__c>(payments);
+			// Info from Opportunity
+			Id orderId = orders[0].Id;
+			Order orderWithData = [SELECT Id, Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
+					Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
+					//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
+					Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
+			FROM Order WHERE Id = :orderId LIMIT 1];
 
 			for(Payment2__c payment :payments) {
 				//For each Payment, issue the refund
@@ -69,24 +76,31 @@ global without sharing class Flow_CreateRefundRecord {
 				List<order> orderList = paymentOrderMap.get(payment.Id);
 				//Payment2__c refundRecord = refund.issueRefund(payment, orderList, refundAmount, orderRefundMap);
 
-			//Create the refund record
-			Payment2__c refund = new Payment2__c();
+				//Create the refund record
+				Payment2__c refund = new Payment2__c();
 
-			String recordTypeName = 'NIST_Issued_Refund';
-			refund.Payment_Type__c = 'NIST-Handled Refund';
-			refund.Payment_2__c = payment.Id;  //A reference to the parent payment record
-			refund.Account_Type__c = accountType;
-			refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
-			refund.Contract__c = contractId;
-			refund.Payment_Processor__c = '';
-			refund.Transaction_Status__c = 'Success';
-			refund.Transaction_Amount__c = paymentRefundMap.get(payment.Id);
-			refund.Refund_Reason__c = refundReasons[0];  //Only the first refund reason is used
-			refund.Refund_Explanation__c = refundExplanations[0];  //Only the first refund explanation is used
+				String recordTypeName = 'NIST_Issued_Refund';
+				refund.Payment_Type__c = 'NIST-Handled Refund';
+				refund.Payment_2__c = payment.Id;  //A reference to the parent payment record
+				refund.Account_Type__c = accountType;
+				refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
+				refund.Contract__c = contractId;
+				refund.Payment_Processor__c = '';
+				refund.Transaction_Status__c = 'Success';
+				refund.Transaction_Amount__c = paymentRefundMap.get(payment.Id);
+				refund.Refund_Reason__c = refundReasons[0];  //Only the first refund reason is used
+				refund.Refund_Explanation__c = refundExplanations[0];  //Only the first refund explanation is used
+				refund.Organization_Name__c 			= orderWithData.Opportunity.Account.Name;
+				refund.Opportunity_Owner__c 			= orderWithData.Opportunity.Owner.Name;
+				refund.Opportunity_Created_Date__c 		= orderWithData.Opportunity.CreatedDate;
+				refund.Collection_Post_Name__c 			= orderWithData.Opportunity.Collection_Post__r.Name;
+				refund.Collection_Post_Org_Code__c 		= orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
+				refund.Fulfillment_Post_Name__c 		= orderWithData.Opportunity.Fulfillment_Post__r.Name;
+				refund.Fulfillment_Post_Org_Code__c 	= orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
 
-			try {
-				fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
-				uow.registerNew(refund);
+				try {
+					fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
+					uow.registerNew(refund);
 
 					List<Order> ordersByPayment = paymentOrderMap.get(payment.Id);
 					for (Integer x = 0; x < ordersByPayment.size(); x++) {
@@ -95,12 +109,12 @@ global without sharing class Flow_CreateRefundRecord {
 						eachOrder.Refunded_Amount__c += orderRefundMap.get(eachOrder.Id);
 						system.debug('Order.Payment2__c ==> ' + Order.Payment2__c);
 						uow.registerDirty(eachOrder, Order.Payment2__c, payment);
+					}
+					uow.commitWork();
+				} catch (Exception e) {
+					String errorMessage = 'Unable to insert refund or update order records.' + e.getMessage();
+					throw new CreateRefundRecordActionException(errorMessage);
 				}
-				uow.commitWork();
-			} catch (Exception e) {
-				String errorMessage = 'Unable to insert refund or update order records.' + e.getMessage();
-				throw new CreateRefundRecordActionException(errorMessage);
-			}
 			}//End loop
 
 			if (! errorList.isEmpty()) {

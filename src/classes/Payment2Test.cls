@@ -4,6 +4,7 @@ private class Payment2Test {
 	@testSetup
 	static void testSetup() {
 		Account account = TestUtils.createAccount(true);
+		Opportunity opp = TestUtils.createOpportunity(account.Id, 'a string', true);
 		Program__c program = TestUtils.createProgram('Test Program', true);
 		Pricebook2 pricebook = TestUtils.createPricebook(program.Id);
 		Product2 product2 = TestUtils.createProduct(true);
@@ -13,8 +14,10 @@ private class Payment2Test {
 		Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
 		Contract contract = new Contract();
 		contract.Name = 'Contract Test X';
+
 		contract.AccountId = account.Id;
 		insert contract;
+		system.debug('in setup contract.id is ==> ' + contract.Id);
 		contract.Status = 'Activated';
 		update contract;
 		List<Order> orders = new List<Order>();
@@ -23,11 +26,13 @@ private class Payment2Test {
 		order1.Name = 'Paid Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
+		order1.OpportunityId = opp.Id;
 		orders.add(order1);
 		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
 		order2.Type = 'Services';
 		order2.Name = 'Unpaid Order X';
 		order2.ContractId = contract.Id;
+		order2.OpportunityId = opp.Id;
 		order2.RecordTypeId = servicesRecordTypeId;
 		orders.add(order2);
 		update orders;
@@ -59,7 +64,7 @@ private class Payment2Test {
 		insert payment1;
 
 		order1.Payment2__c = payment1.Id;
-		order1.Status = 'Paid';
+		order1.Order_Paid__c = true;
 		update order1;
 
 		//Insert a Credit Card payment that is unrelated to the orders or the contract
@@ -161,7 +166,7 @@ private class Payment2Test {
 
 	@IsTest
 	static void startElectronicPayment_Positive() {
-		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Test Order 3'];
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
 		String[] orderIds = new String[]{};
 		for (Order order: orders) {
 			orderIds.add(order.Id);
@@ -173,7 +178,7 @@ private class Payment2Test {
 
 	@IsTest
 	static void startElectronicPayment_Exception() {
-		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Test Order 3'];
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
 		String[] orderIds = new String[]{};
 		String exceptionMessage;
 		try {
@@ -187,7 +192,7 @@ private class Payment2Test {
 
 	@IsTest
 	static void authorizePayment_Positive() {
-		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Test Order 3'];
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
 		String[] orderIds = new String[]{};
 		for (Order order: orders) {
 			orderIds.add(order.Id);

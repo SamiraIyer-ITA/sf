@@ -114,7 +114,13 @@ public with sharing class RefundForPayGov implements IRefund {
 			transactionDateGMT = DateTime.Valueof(transactionDate.replace('T', ' '));
 			transactionDateGMT = getEST(transactionDateGMT);
 		}
-
+		//Add fields from the associated Opportunity to the Payment2__c record
+		Order orderWithData =Orders[0] ;
+		orderWithData = [SELECT Id, Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
+							Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
+							//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
+							Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
+							FROM Order WHERE Id = :orderWithData.Id LIMIT 1 ];
 		Payment2__c refund = new Payment2__c();
 		refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_Refund');
 		refund.Transaction_Amount__c = refundAmount;
@@ -126,6 +132,13 @@ public with sharing class RefundForPayGov implements IRefund {
 		refund.Remote_Tracking_Id__c = payGovTrackingId;
 		refund.Payment_Type__c = 'Credit Card Refund';
 		refund.Payment_2__c = payment.Id;  //The parent payment of this refund
+		refund.Organization_Name__c = orderWithData.Opportunity.Account.Name;
+		refund.Opportunity_Owner__c = orderWithData.Opportunity.Owner.Name;
+		refund.Opportunity_Created_Date__c = orderWithData.Opportunity.CreatedDate;
+		refund.Collection_Post_Name__c = orderWithData.Opportunity.Collection_Post__r.Name;
+		refund.Collection_Post_Org_Code__c = orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
+		refund.Fulfillment_Post_Name__c = orderWithData.Opportunity.Fulfillment_Post__r.Name;
+		refund.Fulfillment_Post_Org_Code__c = orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
 		fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 		uow.registerNew(refund);
 

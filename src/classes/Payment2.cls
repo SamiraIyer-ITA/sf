@@ -148,6 +148,21 @@ public with sharing class Payment2 {
 		RecordLog.message('Record Type Id: ' + payment.RecordTypeId);
 		payment.Contract__c = contractId;
 		RecordLog.message('Contract Id: ' + contractId);
+		// Info from Opportunity
+		Order orderWithData = [SELECT Id, Opportunity.Account.Name, Opportunity.Owner.Name, Opportunity.CreatedDate,
+				Opportunity.Collection_Post__r.Name, Opportunity.Collection_Post__r.Org_Code__c,
+				//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c add these after they exist
+				Opportunity.Fulfillment_Post__r.Name, Opportunity.Fulfillment_Post__r.Org_Code__c
+		FROM Order WHERE Id = :orderIds[0] LIMIT 1];
+
+		payment.Organization_Name__c 			= orderWithData.Opportunity.Account.Name;
+		payment.Opportunity_Owner__c 			= orderWithData.Opportunity.Owner.Name;
+		payment.Opportunity_Created_Date__c 	= orderWithData.Opportunity.CreatedDate;
+		payment.Collection_Post_Name__c 		= orderWithData.Opportunity.Collection_Post__r.Name;
+		payment.Collection_Post_Org_Code__c 	= orderWithData.Opportunity.Collection_Post__r.Org_Code__c;
+		payment.Fulfillment_Post_Name__c 		= orderWithData.Opportunity.Fulfillment_Post__r.Name;
+		payment.Fulfillment_Post_Org_Code__c 	= orderWithData.Opportunity.Fulfillment_Post__r.Org_Code__c;
+
 		Decimal totalAmount = 0.00;
 		for (Order order: orders) {
 			totalAmount += order.TotalAmount;
