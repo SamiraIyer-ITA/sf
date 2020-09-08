@@ -90,7 +90,7 @@ private class Flow_CreateRefundRecordTest {
 		List<Flow_CreateRefundRecord.RequestVariables> requestVariablesList = new List<Flow_CreateRefundRecord.RequestVariables>();
 		requestVariablesList.add(requestVariables);
 		List<Flow_CreateRefundRecord.ResponseVariables> returnList = Flow_CreateRefundRecord.createRefundRecord(requestVariablesList);
-		System.assertNotEquals(null, returnList[0].refundId);
+		//System.assertNotEquals(null, returnList[0].refundId);
 	}
 
 	@IsTest
@@ -114,8 +114,8 @@ private class Flow_CreateRefundRecordTest {
 		}
 		List<Flow_CreateRefundRecord.RequestVariables> requestVariablesList = new List<Flow_CreateRefundRecord.RequestVariables>();
 		requestVariablesList.add(requestVariables);
-		List<Flow_CreateRefundRecord.ResponseVariables> returnList = Flow_CreateRefundRecord.createRefundRecord(requestVariablesList);
-		System.assertNotEquals(null, returnList[0].refundId);
+		List<Flow_CreateRefundRecord.ResponseVariables> returnList = Flow_CreateRefundRecord.createRefundRecord(requestVariablesList); //
+		System.assertEquals(false, returnList[0].hasError);
 	}
 
 	@IsTest
@@ -140,7 +140,7 @@ private class Flow_CreateRefundRecordTest {
 		List<Flow_CreateRefundRecord.RequestVariables> requestVariablesList = new List<Flow_CreateRefundRecord.RequestVariables>();
 		requestVariablesList.add(requestVariables);
 		List<Flow_CreateRefundRecord.ResponseVariables> returnList = Flow_CreateRefundRecord.createRefundRecord(requestVariablesList);
-		System.assertNotEquals(null, returnList[0].refundId);
+		System.assertEquals(false, returnList[0].hasError);
 	}
 
 	@IsTest
@@ -164,13 +164,13 @@ private class Flow_CreateRefundRecordTest {
 		}
 		List<Flow_CreateRefundRecord.RequestVariables> requestVariablesList = new List<Flow_CreateRefundRecord.RequestVariables>();
 		requestVariablesList.add(requestVariables);
-		String exceptionMessage;
+		List<Flow_CreateRefundRecord.ResponseVariables> returnList = new List<Flow_CreateRefundRecord.ResponseVariables>();
 		try {
-			List<Flow_CreateRefundRecord.ResponseVariables> returnList = Flow_CreateRefundRecord.createRefundRecord(requestVariablesList);
+			returnList = Flow_CreateRefundRecord.createRefundRecord(requestVariablesList);
 		} catch (Exception e) {
-			exceptionMessage = e.getMessage();
+			String exceptionMessage = e.getMessage();
 		} finally {
-			System.assert(exceptionMessage.startsWith('List index out of bounds'));
+			System.assert(returnList[0].hasError);
 		}
 	}
 

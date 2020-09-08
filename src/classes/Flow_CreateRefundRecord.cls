@@ -2,7 +2,7 @@ global without sharing class Flow_CreateRefundRecord {
 
 	@InvocableMethod(label='Create Refund Record' description='Inserts a Refund record and updates the order(s)' category='Payments')
 	global static List<ResponseVariables> createRefundRecord(List<RequestVariables> inputs){
-
+		//
 		ResponseVariables responseVariables = new ResponseVariables();
 		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 		List<String> errorList = new List<String>();
@@ -23,19 +23,51 @@ global without sharing class Flow_CreateRefundRecord {
 			List<String> refundExplanations = inputs[0].refundExplanations;
 			List<Order> orders = inputs[0].orders;
 
-			//Verify that all orders have the same payment Id
-			Id paymentId = orders[0].Payment2__c;
-			for (Order order: orders) {
-				if (paymentId != order.Payment2__c) {
+			Order myOrder;
+			String refundAmountString;
+
+			Map<Id, List<Order>> paymentOrderMap = new Map<Id, List<Order>>();  //Id = Payment Id
+			Map<Id, Decimal> paymentRefundMap = new Map<Id, Decimal>();   //Id = Payment Id, Decimal is total refund for that payment
+			Map<Id, Decimal> orderRefundMap = new Map<Id, Decimal>();	  // Id = order.id, Decimal is the refund for that order
+
+			for (Integer x=0; x<orders.size(); x++) {
+				myOrder = orders[x];
+				//Check to make sure that each order is paid
+				if (myOrder.Order_Paid__c != true) {
 					responseVariables.hasError = true;
-					responseVariables.errorReasons = '<li>All orders weren\'t processed on the same payment.</li>';
+					responseVariables.errorReasons = '<li>All orders must be paid before issuing refunds.</li>';
 					responseVariablesList.add(responseVariables);
 					return responseVariablesList;
 				}
+				List<order> o = new List<order>();
+				refundAmountString = refundAmounts[x];
+				orderRefundMap.put(myOrder.Id, Decimal.valueOf(refundAmountString));
+				if (paymentOrderMap.containsKey(myOrder.Payment2__c)) {
+					o = paymentOrderMap.get(myOrder.Payment2__c);
+					o.add(myOrder);
+					paymentOrderMap.put(myOrder.Payment2__c, o);
+				} else {
+					o.add(myOrder);
+					paymentOrderMap.put(myOrder.Payment2__c, o);
+				}
+
+				if (paymentRefundMap.containsKey(myOrder.Payment2__c)) {
+					Decimal d = paymentRefundMap.get(myOrder.Payment2__c);
+					d += Decimal.ValueOf(refundAmounts[x]);
+					paymentRefundMap.put(myOrder.Payment2__c, d);
+				} else {
+					paymentRefundMap.put(myOrder.Payment2__c, Decimal.ValueOf(refundAmounts[x]));
+				}
 			}
 
-			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id>{paymentId});
-			Payment2__c payment = payments[0];
+			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
+			Map<Id, Payment2__c> paymentIdMap =new Map<Id, Payment2__c>(payments);
+
+			for(Payment2__c payment :payments) {
+				//For each Payment, issue the refund
+				Decimal refundAmount = paymentRefundMap.get(payment.Id);
+				List<order> orderList = paymentOrderMap.get(payment.Id);
+				//Payment2__c refundRecord = refund.issueRefund(payment, orderList, refundAmount, orderRefundMap);
 
 			//Create the refund record
 			Payment2__c refund = new Payment2__c();
@@ -48,28 +80,29 @@ global without sharing class Flow_CreateRefundRecord {
 			refund.Contract__c = contractId;
 			refund.Payment_Processor__c = '';
 			refund.Transaction_Status__c = 'Success';
-			refund.Transaction_Amount__c = refundTotal;
+			refund.Transaction_Amount__c = paymentRefundMap.get(payment.Id);
 			refund.Refund_Reason__c = refundReasons[0];  //Only the first refund reason is used
 			refund.Refund_Explanation__c = refundExplanations[0];  //Only the first refund explanation is used
 
 			try {
 				fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
 				uow.registerNew(refund);
-				for (Integer x=0; x<orders.size(); x++) {
-					Order eachOrder = orders.get(x);
-					String refundAmountString = refundAmounts.get(x);
-					Decimal refundAmount = Decimal.valueOf(refundAmountString);
-					eachOrder.Payment2__c = refund.Id;
-					eachOrder.Refunded_Amount__c += refundAmount;
-					uow.registerDirty(eachOrder, Order.Payment2__c, refund);
+
+					List<Order> ordersByPayment = paymentOrderMap.get(payment.Id);
+					for (Integer x = 0; x < ordersByPayment.size(); x++) {
+						Order eachOrder = ordersByPayment.get(x);
+						eachOrder.Payment2__c = payment.Id;
+						eachOrder.Refunded_Amount__c += orderRefundMap.get(eachOrder.Id);
+						system.debug('Order.Payment2__c ==> ' + Order.Payment2__c);
+						uow.registerDirty(eachOrder, Order.Payment2__c, payment);
 				}
 				uow.commitWork();
 			} catch (Exception e) {
 				String errorMessage = 'Unable to insert refund or update order records.' + e.getMessage();
 				throw new CreateRefundRecordActionException(errorMessage);
 			}
+			}//End loop
 
-			responseVariables.refundId = refund.Id;
 			if (! errorList.isEmpty()) {
 				responseVariables.hasError = true;
 				responseVariables.errorReasons = String.join(errorList, '  ');  //Convert the list to a single string
@@ -84,6 +117,19 @@ global without sharing class Flow_CreateRefundRecord {
 
 	//Inputs from Flow to Apex
 	global class RequestVariables {
+		@InvocableVariable(label='Orders' required=true)
+		global List<Order> orders;
+
+		@InvocableVariable(label='Refund Reasons' required=true)
+		global List<String> refundReasons;
+
+		@InvocableVariable(label='Refund Amounts' required=true)
+		global List<String> refundAmounts;
+
+		@InvocableVariable(label='Refund Explanations' required=true)
+		global List<String> refundExplanations;
+		// the following three variables are not in the credit card refund flow
+
 		@InvocableVariable(label='Contract Id' required=true)
 		global String contractId;
 
@@ -94,26 +140,11 @@ global without sharing class Flow_CreateRefundRecord {
 		@InvocableVariable(label='Refund Total' required=true)
 		global Decimal refundTotal;
 
-		//The individual refund amounts for each order
-		//At this time, collections are limited to String values rather than Decimal
-		@InvocableVariable(label='Refund Amounts' required=true)
-		global List<String> refundAmounts;
-
-		@InvocableVariable(label='Refund Reasons' required=true)
-		global List<String> refundReasons;
-
-		@InvocableVariable(label='Refund Explanations' required=true)
-		global List<String> refundExplanations;
-
-		@InvocableVariable(label='Orders' required=true)
-		global List<Order> orders;
 	}
 
 	//Outputs from Apex to Flow
 	global class ResponseVariables {
-		@InvocableVariable(label='Refund Id' required=true)
-		global String refundId;
-
+//
 		@InvocableVariable(label='Has Error' required=true)
 		global Boolean hasError = false;
 

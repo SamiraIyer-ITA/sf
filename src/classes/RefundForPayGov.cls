@@ -2,7 +2,7 @@ public with sharing class RefundForPayGov implements IRefund {
 
 	public static final String METADATA_SETTINGS_NAME = 'PayGov';
 
-	public Payment2__c issueRefund(Payment2__c payment, List<Order> orders, Decimal refundAmount) {
+	public Payment2__c issueRefund(Payment2__c payment, List<Order> orders, Decimal refundAmount, Map<Id, Decimal> orderRefundMap) {
 
 		String transactionStatus;
 		String returnCode;
@@ -62,7 +62,7 @@ public with sharing class RefundForPayGov implements IRefund {
 
 		//Create the Refund record
 		Payment2__c refund = RefundForPayGov.createRefundRecord(payment, orders, refundAmount,
-			transactionDate, returnCode, returnDetail, payGovTrackingId, status);
+			transactionDate, returnCode, returnDetail, payGovTrackingId, status, orderRefundMap);
 		return refund;
 	}
 
@@ -108,7 +108,7 @@ public with sharing class RefundForPayGov implements IRefund {
 
 	private static Payment2__c createRefundRecord(Payment2__c payment, List<Order> orders,
 		Decimal refundAmount, String transactionDate, String returnCode, String returnDetail, String payGovTrackingId,
-		String status) {
+		String status, Map<Id, Decimal> orderRefundMap) {
 		DateTime transactionDateGMT = null;
 		if (!String.isEmpty(transactionDate)) {
 			transactionDateGMT = DateTime.Valueof(transactionDate.replace('T', ' '));
@@ -132,7 +132,7 @@ public with sharing class RefundForPayGov implements IRefund {
 		//Only update Orders if the refund was successful
 		if (status == 'Success') {
 			for (Order eachOrder : orders) {
-				eachOrder.Refunded_Amount__c = eachOrder.Refunded_Amount__c + Math.abs(eachOrder.TotalAmount);
+				eachOrder.Refunded_Amount__c = eachOrder.Refunded_Amount__c + orderRefundMap.get(eachOrder.Id);
 				uow.registerDirty(eachOrder, Order.Payment2__c, refund);
 			}
 		}

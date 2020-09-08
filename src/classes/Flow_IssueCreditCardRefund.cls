@@ -2,7 +2,6 @@ global without sharing class Flow_IssueCreditCardRefund {
 
 	@InvocableMethod(label='Issue a Credit Card Refund' description='Issues a Credit Card refund through Pay.gov, inserts a refund (Payment2__c) record, and updates the order(s)' category='Payments')
 	global static List<ResponseVariables> issueCreditCardRefund(List<RequestVariables> inputs){
-
 		ResponseVariables responseVariables = new ResponseVariables();
 		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 		List<String> errorList = new List<String>();
@@ -15,23 +14,49 @@ global without sharing class Flow_IssueCreditCardRefund {
 		}
 
 		try {
-			Decimal refundAmount = inputs[0].refundAmount;
 			List<Order> orders = inputs[0].orders;
+			List<String> orderRefundAmounts = inputs[0].orderRefundAmounts;
 
-			//Verify that all orders have the same payment Id
-			Id paymentId = orders[0].Payment2__c;
-			for (Order order: orders) {
-				if (paymentId != order.Payment2__c) {
-					responseVariables.hasError = true;
-					responseVariables.errorReasons = '<li>All orders weren\'t processed on the same payment.</li>';
-					responseVariablesList.add(responseVariables);
-					return responseVariablesList;
+			Order order;
+			String refundAmountString;
+			Map<Id, List<Order>> paymentOrderMap = new Map<Id, List<Order>>();  //Id = Payment Id
+			Map<Id, Decimal> paymentRefundMap = new Map<Id, Decimal>();   //Id = Payment Id, Decimal is total refund for that payment
+			Map<Id, Decimal> orderRefundMap = new Map<Id, Decimal>();	  // Id = order.id, Decimal is the refund for that order
+
+			for (Integer x=0; x<orders.size(); x++) {
+                order = orders[x];
+                //Check to make sure that each order is paid
+                if (order.Order_Paid__c != true) {
+                    responseVariables.hasError = true;
+                    responseVariables.errorReasons = '<li>All orders must be paid before issuing refunds.</li>';
+                    responseVariablesList.add(responseVariables);
+                    return responseVariablesList;
+                }
+				List<order> o = new List<order>();
+				refundAmountString = orderRefundAmounts[x];
+				orderRefundMap.put(order.Id, Decimal.valueOf(refundAmountString));
+				if (paymentOrderMap.containsKey(order.Payment2__c)) {
+
+					o = paymentOrderMap.get(order.Payment2__c);
+					o.add(order);
+					paymentOrderMap.put(order.Payment2__c, o);
+				} else {
+					o.add(order);
+					paymentOrderMap.put(order.Payment2__c, o);
+				}
+
+				if (paymentRefundMap.containsKey(order.Payment2__c)) {
+					Decimal d = paymentRefundMap.get(order.Payment2__c);
+					d += Decimal.ValueOf(orderRefundAmounts[x]);
+					paymentRefundMap.put(order.Payment2__c, d);
+				} else {
+					paymentRefundMap.put(order.Payment2__c, Decimal.ValueOf(orderRefundAmounts[x]));
 				}
 			}
 
-			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id>{paymentId});
-			Payment2__c payment = payments[0];
-
+			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
+            Map<Id, Payment2__c> paymentIdMap =new Map<Id, Payment2__c>(payments);
+            for(Payment2__c payment :payments) {
 			if (payment.Payment_Type__c != 'PLASTIC_CARD') {
 				responseVariables.hasError = true;
 				responseVariables.errorReasons = '<li>This refund process is only for credit card payments.  Refunds for other payment types must be processed through NIST.</li>';
@@ -41,9 +66,14 @@ global without sharing class Flow_IssueCreditCardRefund {
 
 			String refundBindingName = 'RefundFor' + payment.Payment_Processor__c;
 			IRefund refund = (IRefund) di_Injector.Org.getInstance(refundBindingName);
-			Payment2__c refundRecord =  refund.issueRefund(payment, orders, refundAmount);
 
-			responseVariables.refundId = refundRecord.Id;
+                //For each Payment, issue the refund
+                Decimal refundAmount = paymentRefundMap.get(payment.Id);
+                List<order> orderList = paymentOrderMap.get(payment.Id);
+                Payment2__c refundRecord = refund.issueRefund(payment, orderList, refundAmount, orderRefundMap);
+
+            }//End loop
+
 			if (! errorList.isEmpty()) {
 				responseVariables.hasError = true;
 				responseVariables.errorReasons = String.join(errorList, '  ');  //Convert the list to a single string
@@ -58,24 +88,26 @@ global without sharing class Flow_IssueCreditCardRefund {
 
 	//Inputs from Flow to Apex
 	global class RequestVariables {
-		@InvocableVariable(label='Refund Amount' required=true)
-		global Decimal refundAmount;
-
 		@InvocableVariable(label='Orders' required=true)
 		global List<Order> orders;
+
+		@InvocableVariable(label='Order Refund Reasons' required=true)
+		global List<String> orderRefundReasons;
+
+		@InvocableVariable(label='Order Refund Amounts' required=true)
+		global List<String> orderRefundAmounts;
+
+		@InvocableVariable(label='Order Refund Explanations' required=true)
+		global List<String> orderRefundExplanations;
 	}
 
 	//Outputs from Apex to Flow
 	global class ResponseVariables {
-		@InvocableVariable(label='Refund Id' required=true)
-		global String refundId;
-
 		@InvocableVariable(label='Has Error' required=true)
 		global Boolean hasError = false;
 
 		@InvocableVariable(label='Error Reasons' required=true)
 		global String errorReasons;
-
 	}
 
 	class IssueCreditCardRefundActionException extends Exception {}
