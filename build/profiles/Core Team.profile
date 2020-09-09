@@ -5,7 +5,7 @@
         <readable>true</readable>
  </fieldPermissions>
  <layoutAssignments>
-        <layout>Lead-Export</layout>
+        <layout>Lead-Export Layout</layout>
         <recordType>Lead.Export</recordType>
  </layoutAssignments>
 </Profile>
