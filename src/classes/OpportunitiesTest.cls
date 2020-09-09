@@ -1,14 +1,34 @@
 @IsTest
 private class OpportunitiesTest {
 
-	static Map<String, Schema.RecordTypeInfo> recordTypeMap
-		= Opportunity.SObjectType.getDescribe().getRecordTypeInfosByDeveloperName();
-	static Id orderServicesRecordTypeId = OpportunitiesSvcLibrary.orderServicesRecordTypeId;
+	static Map<String, Id> recordTypeMap = Utils.getRecordTypeMapBySObject(Opportunity.SObjectType);
+	static Id orderServicesRecordTypeId = Utils.getRecordTypeIdBySObjectAndRecordTypeDeveloperName(Order.SObjectType, 'Services');
+	static Id orderEventsRecordTypeId = Utils.getRecordTypeIdBySObjectAndRecordTypeDeveloperName(Order.SObjectType, 'Events');
 	static Id contractParticipationAgreementRecordTypeId
-		= OpportunitiesSvcLibrary.contractParticipationAgreementRecordTypeId;
+		= Utils.getRecordTypeIdBySObjectAndRecordTypeDeveloperName(Contract.SObjectType, 'Participation_Agreement');
 	static Id accountId = fflib_IDGenerator.generate(Account.SObjectType);
 	static Id opportunityId = fflib_IDGenerator.generate(Opportunity.SObjectType);
 	static Id companyQuestionnaireId = fflib_IDGenerator.generate(Client_Form__c.SObjectType);
+
+	private static Opportunity getContractOrderOpportunity(String recordTypeDeveloperName, String stageName) {
+		Opportunity opp = new Opportunity(
+			Id = opportunityId,
+			AccountId = accountId,
+			Name = 'Test ' + recordTypeDeveloperName + ' Opp',
+			CloseDate = Date.today(),
+			Export_Ready__c = 'Yes',
+			Company_Questionnaire__c = companyQuestionnaireId,
+			RecordTypeId = recordTypeMap.get(recordTypeDeveloperName),
+			StageName = stageName,
+			Requested_Service_Start_Date__c	= Date.today(),
+			Requested_Service_End_Date__c = Date.today().addDays(1)
+		);
+		return (Opportunity)fflib_ApexMocksUtils.setReadOnlyFields(
+			opp,
+			Opportunity.class,
+			new Map<SObjectField, Object> {Opportunity.Record_Type_Developer_Name__c => recordTypeDeveloperName}
+		);
+	}
 
 	@IsTest
 	static void testNewInstanceOfOpportunitiesDomain_PassListWithOneNonInsertedObject_ReturnsValidInterface() {
@@ -44,17 +64,7 @@ private class OpportunitiesTest {
 		fflibext_Application.UnitOfWork.setMock(mockUow);
 
 		// Given - Create mock data
-		Opportunity testOpp = new Opportunity(
-			Id = opportunityId,
-			AccountId = accountId,
-			Name = 'Test Events Opp',
-			CloseDate = Date.today(),
-			Export_Ready__c = 'Yes',
-			Company_Questionnaire__c = companyQuestionnaireId,
-			RecordTypeId = recordTypeMap.get('Events').getRecordTypeId(),
-			StageName = 'Needs Analysis'
-		);
-		testOpp = getOpportunityWithRecordTypeNameFormulaField(testOpp, 'Events');
+		Opportunity testOpp = getContractOrderOpportunity('Events', 'Needs Analysis');
 
 		// When - Use the test database to mock an onBeforeInsert
 		fflib_SObjectDomain.Test.Database.onInsert(new List<Opportunity>{ testOpp });
@@ -68,15 +78,17 @@ private class OpportunitiesTest {
 					new Map<SObjectField, Object> {
 						Contract.AccountId => accountId,
 						Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
-						Contract.StartDate => Date.today(),
+						Contract.StartDate => testOpp.CloseDate,
 						Contract.ContractTerm => 12
 					},
 					new Map<SObjectField,Object> {
 						Order.OpportunityId => opportunityId,
 						Order.AccountId => accountId,
 						Order.Status => 'Draft',
-						Order.EffectiveDate => Date.today(),
-						Order.RecordTypeId => orderServicesRecordTypeId
+						Order.EffectiveDate => testOpp.Requested_Service_Start_Date__c,
+						Order.EndDate => testOpp.Requested_Service_End_Date__c,
+						Order.Type => 'Events',
+						Order.RecordTypeId => orderEventsRecordTypeId
 					}
 				}
 			));
@@ -92,17 +104,7 @@ private class OpportunitiesTest {
 		fflibext_Application.UnitOfWork.setMock(mockUow);
 
 		// Given - Create mock data
-		Opportunity testOpp = new Opportunity(
-			Id = opportunityId,
-			AccountId = accountId,
-			Name = 'Test Services Opp',
-			CloseDate = Date.today(),
-			Export_Ready__c = 'Yes',
-			Company_Questionnaire__c = companyQuestionnaireId,
-			RecordTypeId = recordTypeMap.get('Services').getRecordTypeId(),
-			StageName = 'Needs Analysis'
-		);
-		testOpp = getOpportunityWithRecordTypeNameFormulaField(testOpp, 'Services');
+		Opportunity testOpp = getContractOrderOpportunity('Services', 'Needs Analysis');
 
 		// When - Use the test database to mock an onBeforeInsert
 		fflib_SObjectDomain.Test.Database.onInsert(new List<Opportunity>{ testOpp });
@@ -112,22 +114,24 @@ private class OpportunitiesTest {
 		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(1)
 			.description('Verify a contract and order were created with correct values')))
 			.registerNew(fflib_Match.sObjectsWith(
-			new List<Map<SObjectField, Object>> {
-				new Map<SObjectField, Object> {
-					Contract.AccountId => accountId,
-					Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
-					Contract.StartDate => Date.today(),
-					Contract.ContractTerm => 12
-				},
-				new Map<SObjectField,Object> {
-					Order.OpportunityId => opportunityId,
-					Order.AccountId => accountId,
-					Order.Status => 'Draft',
-					Order.EffectiveDate => Date.today(),
-					Order.RecordTypeId => orderServicesRecordTypeId
+				new List<Map<SObjectField, Object>> {
+					new Map<SObjectField, Object> {
+							Contract.AccountId => accountId,
+							Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
+							Contract.StartDate => testOpp.CloseDate,
+							Contract.ContractTerm => 12
+					},
+					new Map<SObjectField,Object> {
+						Order.OpportunityId => opportunityId,
+						Order.AccountId => accountId,
+						Order.Status => 'Draft',
+						Order.EffectiveDate => testOpp.Requested_Service_Start_Date__c,
+						Order.EndDate => testOpp.Requested_Service_End_Date__c,
+						Order.Type => 'Services',
+						Order.RecordTypeId => orderServicesRecordTypeId
+					}
 				}
-			}
-		));
+			));
 	}
 
 	@IsTest
@@ -140,15 +144,7 @@ private class OpportunitiesTest {
 		fflibext_Application.UnitOfWork.setMock(mockUow);
 
 		// Given - Create mock data
-		Opportunity existingTestOpp = new Opportunity(
-			Id = opportunityId,
-			AccountId = accountId,
-			Name = 'Test Events Opp',
-			CloseDate = Date.today(),
-			RecordTypeId = recordTypeMap.get('Events').getRecordTypeId(),
-			StageName = 'Qualification'
-		);
-		existingTestOpp = getOpportunityWithRecordTypeNameFormulaField(existingTestOpp, 'Events');
+		Opportunity existingTestOpp = getContractOrderOpportunity('Events', 'Qualification');
 
 		Opportunity testOpp = existingTestOpp.clone(true, true, false, false);
 		testOpp.StageName = 'Needs Analysis';
@@ -170,15 +166,17 @@ private class OpportunitiesTest {
 					new Map<SObjectField, Object> {
 						Contract.AccountId => accountId,
 						Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
-						Contract.StartDate => Date.today(),
+						Contract.StartDate => testOpp.CloseDate,
 						Contract.ContractTerm => 12
 					},
 					new Map<SObjectField,Object> {
 						Order.OpportunityId => opportunityId,
 						Order.AccountId => accountId,
 						Order.Status => 'Draft',
-						Order.EffectiveDate => Date.today(),
-						Order.RecordTypeId => orderServicesRecordTypeId
+						Order.EffectiveDate => testOpp.Requested_Service_Start_Date__c,
+						Order.EndDate => testOpp.Requested_Service_End_Date__c,
+						Order.Type => 'Events',
+						Order.RecordTypeId => orderEventsRecordTypeId
 					}
 				}
 			));
@@ -194,15 +192,7 @@ private class OpportunitiesTest {
 		fflibext_Application.UnitOfWork.setMock(mockUow);
 
 		// Given - Create mock data
-		Opportunity existingTestOpp = new Opportunity(
-			Id = opportunityId,
-			AccountId = accountId,
-			Name = 'Test Services Opp',
-			CloseDate = Date.today(),
-			RecordTypeId = recordTypeMap.get('Services').getRecordTypeId(),
-			StageName = 'Qualification'
-		);
-		existingTestOpp = getOpportunityWithRecordTypeNameFormulaField(existingTestOpp, 'Services');
+		Opportunity existingTestOpp = getContractOrderOpportunity('Services', 'Qualification');
 
 		Opportunity testOpp = existingTestOpp.clone(true, true, false, false);
 		testOpp.StageName = 'Needs Analysis';
@@ -224,14 +214,16 @@ private class OpportunitiesTest {
 				new Map<SObjectField, Object> {
 					Contract.AccountId => accountId,
 					Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
-					Contract.StartDate => Date.today(),
+					Contract.StartDate => testOpp.CloseDate,
 					Contract.ContractTerm => 12
 				},
 				new Map<SObjectField,Object> {
 					Order.OpportunityId => opportunityId,
 					Order.AccountId => accountId,
 					Order.Status => 'Draft',
-					Order.EffectiveDate => Date.today(),
+					Order.EffectiveDate => testOpp.Requested_Service_Start_Date__c,
+					Order.EndDate => testOpp.Requested_Service_End_Date__c,
+					Order.Type => 'Services',
 					Order.RecordTypeId => orderServicesRecordTypeId
 				}
 			}
@@ -246,17 +238,7 @@ private class OpportunitiesTest {
 		IOrdersSelector mockSelector = (IOrdersSelector) mocks.mock(IOrdersSelector.class);
 
 		// Given - Create mock data
-		Opportunity testOpp = new Opportunity(
-			Id = opportunityId,
-			AccountId = accountId,
-			Name = 'Test Events Opp',
-			CloseDate = Date.today(),
-			Export_Ready__c = 'Yes',
-			Company_Questionnaire__c = companyQuestionnaireId,
-			RecordTypeId = recordTypeMap.get('Events').getRecordTypeId(),
-			StageName = 'Needs Analysis'
-		);
-		testOpp = getOpportunityWithRecordTypeNameFormulaField(testOpp, 'Events');
+		Opportunity testOpp = getContractOrderOpportunity('Events', 'Needs Analysis');
 
 		// Create mock data with an order using the opportunity Id in our update method
 		List<Order> mockOrders = new List<Order>{
@@ -309,17 +291,7 @@ private class OpportunitiesTest {
 		IOrdersSelector mockSelector = (IOrdersSelector) mocks.mock(IOrdersSelector.class);
 
 		// Given - Create mock data
-		Opportunity testOpp = new Opportunity(
-			Id = opportunityId,
-			AccountId = accountId,
-			Name = 'Test Services Opp',
-			CloseDate = Date.today(),
-			Export_Ready__c = 'Yes',
-			Company_Questionnaire__c = companyQuestionnaireId,
-			RecordTypeId = recordTypeMap.get('Services').getRecordTypeId(),
-			StageName = 'Needs Analysis'
-		);
-		testOpp = getOpportunityWithRecordTypeNameFormulaField(testOpp, 'Services');
+		Opportunity testOpp = getContractOrderOpportunity('Services', 'Needs Analysis');
 
 		// Create mock data with an order using the opportunity Id in our update method
 		List<Order> mockOrders = new List<Order>{
@@ -374,17 +346,7 @@ private class OpportunitiesTest {
 		fflibext_Application.UnitOfWork.setMock(mockUow);
 
 		// Given - Create mock data
-		Opportunity testOpp = new Opportunity(
-			Id = opportunityId,
-			AccountId = accountId,
-			Name = 'Test Events Opp',
-			CloseDate = Date.today(),
-			Export_Ready__c = 'Yes',
-			Company_Questionnaire__c = companyQuestionnaireId,
-			RecordTypeId = recordTypeMap.get('Events').getRecordTypeId(),
-			StageName = 'Needs Analysis'
-		);
-		testOpp = getOpportunityWithRecordTypeNameFormulaField(testOpp, 'Events');
+		Opportunity testOpp = getContractOrderOpportunity('Events', 'Needs Analysis');
 
 		// When - Pass an opportunity with a contract Id so it will not create a new one
 		fflib_SObjectDomain.Test.Database.onUpdate(
@@ -415,17 +377,7 @@ private class OpportunitiesTest {
 		fflibext_Application.UnitOfWork.setMock(mockUow);
 
 		// Given - Create mock data
-		Opportunity testOpp = new Opportunity(
-			Id = opportunityId,
-			AccountId = accountId,
-			Name = 'Test Services Opp',
-			CloseDate = Date.today(),
-			Export_Ready__c = 'Yes',
-			Company_Questionnaire__c = companyQuestionnaireId,
-			RecordTypeId = recordTypeMap.get('Services').getRecordTypeId(),
-			StageName = 'Needs Analysis'
-		);
-		testOpp = getOpportunityWithRecordTypeNameFormulaField(testOpp, 'Services');
+		Opportunity testOpp = getContractOrderOpportunity('Services', 'Needs Analysis');
 
 		// When - Use the test database to mock an onBeforeUpdate
 		fflib_SObjectDomain.Test.Database.onUpdate(
@@ -461,9 +413,13 @@ private class OpportunitiesTest {
 			ContractId = fflib_IDGenerator.generate(Contract.SObjectType),
 			Name = 'Test Services Opp',
 			CloseDate = Date.today(),
-			RecordTypeId = recordTypeMap.get('Services').getRecordTypeId()
+			RecordTypeId = recordTypeMap.get('Services')
 		);
-		testOpp = getOpportunityWithRecordTypeNameFormulaField(testOpp, 'Services');
+		testOpp = (Opportunity)fflib_ApexMocksUtils.setReadOnlyFields(
+			testOpp,
+			Opportunity.class,
+			new Map<SObjectField, Object> {Opportunity.Record_Type_Developer_Name__c => 'Services'}
+		);
 
 		// When - Use the test database to mock an onBeforeInsert
 		fflib_SObjectDomain.Test.Database.onInsert(new List<Opportunity>{ testOpp });
@@ -529,10 +485,15 @@ private class OpportunitiesTest {
 			ContractId = fflib_IDGenerator.generate(Contract.SObjectType),
 			Name = 'Test Services Opp',
 			CloseDate = Date.today(),
-			RecordTypeId = recordTypeMap.get('Events').getRecordTypeId()
+			RecordTypeId = recordTypeMap.get('Events')
 		);
-		existingTestOpp = getOpportunityWithRecordTypeNameFormulaField(existingTestOpp, 'Services');
+		existingTestOpp = (Opportunity)fflib_ApexMocksUtils.setReadOnlyFields(
+			existingTestOpp,
+			Opportunity.class,
+			new Map<SObjectField, Object> {Opportunity.Record_Type_Developer_Name__c => 'Services'}
+		);
 		Opportunity testOpp = existingTestOpp.clone(true, true, false, false);
+
 		// Given - Set criteria to check next stage
 		testOpp.Company_Questionnaire__c = companyQuestionnaireId;
 
@@ -597,17 +558,5 @@ private class OpportunitiesTest {
 
 		// Then - Verify the status
 		System.assertEquals('Negotiation/Review', testOpp.StageName);
-	}
-
-	/*
-	 * We need to set the read only record type developer name using the apex mock utils method
-	 */
-	private static Opportunity getOpportunityWithRecordTypeNameFormulaField(Opportunity opp, String mockFormula) {
-		opp = (Opportunity)fflib_ApexMocksUtils.setReadOnlyFields(
-			opp,
-			Opportunity.class,
-			new Map<SObjectField, Object> {Opportunity.Record_Type_Developer_Name__c => mockFormula}
-		);
-		return opp;
 	}
 }
