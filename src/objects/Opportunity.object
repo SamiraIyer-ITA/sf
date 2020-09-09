@@ -1100,4 +1100,12 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>V04Require_value_if_opportunity_is_lost</fullName>
+        <active>true</active>
+        <description>Require value if opportunity is lost</description>
+        <errorConditionFormula>AND(ISPICKVAL(StageName,&apos;Closed Lost&apos;),ISPICKVAL( Reason_Lost__c,&apos;&apos;)) &amp;&amp; (RecordType.DeveloperName = &quot;Services&quot;)</errorConditionFormula>
+        <errorDisplayField>Reason_Lost__c</errorDisplayField>
+        <errorMessage>A reason is required when the opportunity stage is Closed Lost.</errorMessage>
+    </validationRules>
 </CustomObject>

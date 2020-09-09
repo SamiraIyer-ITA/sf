@@ -5722,6 +5722,14 @@
         <errorDisplayField>State</errorDisplayField>
         <errorMessage>When converting a lead, if Country = US (United States) a State must be indicated.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>V03Require_value_if_not_converted</fullName>
+        <active>true</active>
+        <description>Require value for reason not converted if criteria applies</description>
+        <errorConditionFormula>AND(ISPICKVAL(Outcome__c,&apos;Not Converted&apos;),ISPICKVAL( Reason_Not_Converted__c,&apos;&apos;)) &amp;&amp; (RecordType.DeveloperName = &quot;Export&quot;)</errorConditionFormula>
+        <errorDisplayField>Reason_Not_Converted__c</errorDisplayField>
+        <errorMessage>You must state a reason for not converting this lead</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>
         <availability>online</availability>
