@@ -280,7 +280,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Verified</fullName>
+            <fullName>Verification</fullName>
             <default>false</default>
         </values>
     </businessProcesses>
