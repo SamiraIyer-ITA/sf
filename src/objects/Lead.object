@@ -256,6 +256,35 @@
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
+        <fullName>Export Lead</fullName>
+        <description>Export</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Contact Attempted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contacted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Not Converted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verified</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>New Registrant</fullName>
         <description>The process for converting a lead created from a newly registered website user</description>
         <isActive>true</isActive>
@@ -543,6 +572,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Able_to_translate_marketing_materials__c</fullName>
+        <description>Able to translate marketing materials?</description>
+        <externalId>false</externalId>
+        <label>Able to translate marketing materials?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>AccountCategory__c</fullName>
         <externalId>false</externalId>
         <label>Account Category</label>
@@ -654,6 +696,59 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Assigned_Date__c</fullName>
+        <description>Assigned Date</description>
+        <externalId>false</externalId>
+        <label>Assigned Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_Office__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Assigned Office</description>
+        <externalId>false</externalId>
+        <label>Assigned Office</label>
+        <referenceTo>Collection_Fulfillment__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_to_Me__c</fullName>
+        <description>Assigned to Me</description>
+        <externalId>false</externalId>
+        <formula>$User.Id = Assigned_User__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Assigned to Me</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_to_My_Office__c</fullName>
+        <description>Assigned to My Office</description>
+        <externalId>false</externalId>
+        <formula>IsConverted</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Assigned to My Office</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>CampaignId</fullName>
         <type>Lookup</type>
     </fields>
@@ -687,6 +782,59 @@
         <trackHistory>false</trackHistory>
         <type>Email</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Attempts__c</fullName>
+        <description>Contact Attempts</description>
+        <externalId>false</externalId>
+        <label>Contact Attempts</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Attempts</fullName>
+                    <default>true</default>
+                    <label>No Attempts</label>
+                </value>
+                <value>
+                    <fullName>First Attempt</fullName>
+                    <default>false</default>
+                    <label>First Attempt</label>
+                </value>
+                <value>
+                    <fullName>First Attempt Past Due</fullName>
+                    <default>false</default>
+                    <label>First Attempt Past Due</label>
+                </value>
+                <value>
+                    <fullName>Second Attempt</fullName>
+                    <default>false</default>
+                    <label>Second Attempt</label>
+                </value>
+                <value>
+                    <fullName>Second Attempt Past Due</fullName>
+                    <default>false</default>
+                    <label>Second Attempt Past Due</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contacted_Date__c</fullName>
+        <description>Contacted Date</description>
+        <externalId>false</externalId>
+        <label>Contacted Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Country_1__c</fullName>
@@ -777,6 +925,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Dedicated_resources_staff_budget__c</fullName>
+        <description>Dedicated resources (staff &amp; budget)?</description>
+        <externalId>false</externalId>
+        <label>Dedicated resources (staff &amp; budget)?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -785,8 +946,103 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Eligibility_Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Eligibility Verified</description>
+        <externalId>false</externalId>
+        <label>Eligibility Verified</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EligibleforExportPromotion__c</fullName>
+        <description>Eligible for Export Promotion</description>
+        <externalId>false</externalId>
+        <label>Eligible for Export Promotion</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Email</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ExpeditedDelivery__c</fullName>
+        <description>Expedited Delivery</description>
+        <externalId>false</externalId>
+        <label>Expedited Delivery</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ExportReady__c</fullName>
+        <description>Export Ready</description>
+        <externalId>false</externalId>
+        <label>Export Ready</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Export_Readiness_Assessment_Score__c</fullName>
+        <description>Export Readiness Assessment Score</description>
+        <externalId>false</externalId>
+        <formula>TEXT(IF(TEXT(Able_to_translate_marketing_materials__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Dedicated_resources_staff_budget__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Exported_in_the_past_12_months__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Globalized_your_website__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(International_marketing_plan__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Know_financing_payment_options__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Know_foreign_legal_regulatory_reqs__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Know_how_to_ship_product_overseas__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Know_U_S_Export_Control_requirements__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Process_to_protect_IP_internationally__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Process_to_respond_to_int_l_inquiries__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Prod_of_US_origin_or_has_51_materials__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Production_capacity_to_meet_orders__c) = &quot;Yes&quot;, 1, 0) +
+IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &quot;/14&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Export Readiness Assessment Score</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Export_Readiness_Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Export Readiness Verified</description>
+        <externalId>false</externalId>
+        <label>Export Readiness Verified</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Exported_in_the_past_12_months__c</fullName>
+        <description>Exported in the past 12 months?</description>
+        <externalId>false</externalId>
+        <label>Exported in the past 12 months?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Fax</fullName>
@@ -795,6 +1051,28 @@
     <fields>
         <fullName>FirstNameLocal</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>First_Attempt_Past_Due__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>First Attempt Past Due</description>
+        <externalId>false</externalId>
+        <label>First Attempt Past Due</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Globalized_your_website__c</fullName>
+        <description>Globalized your website?</description>
+        <externalId>false</externalId>
+        <label>Globalized your website?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>HasOptedOutOfEmail</fullName>
@@ -826,6 +1104,54 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Interest_Type__c</fullName>
+        <description>Interest Type</description>
+        <externalId>false</externalId>
+        <label>Interest Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Services</fullName>
+                    <default>false</default>
+                    <label>Services</label>
+                </value>
+                <value>
+                    <fullName>Events</fullName>
+                    <default>false</default>
+                    <label>Events</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>International_marketing_plan__c</fullName>
+        <description>International marketing plan?</description>
+        <externalId>false</externalId>
+        <label>International marketing plan?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Investment_Promotion__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -836,6 +1162,58 @@
     <fields>
         <fullName>Jigsaw</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Know_U_S_Export_Control_requirements__c</fullName>
+        <description>Know U.S. Export Control requirements?</description>
+        <externalId>false</externalId>
+        <label>Know U.S. Export Control requirements?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Know_financing_payment_options__c</fullName>
+        <description>Know financing &amp; payment options?</description>
+        <externalId>false</externalId>
+        <label>Know financing &amp; payment options?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Know_foreign_legal_regulatory_reqs__c</fullName>
+        <description>Know foreign legal &amp; regulatory reqs?</description>
+        <externalId>false</externalId>
+        <label>Know foreign legal &amp; regulatory reqs?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Know_how_to_ship_product_overseas__c</fullName>
+        <description>Know how to ship product overseas?</description>
+        <externalId>false</externalId>
+        <label>Know how to ship product overseas?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>LD_USE_DnB_Optimize__c</fullName>
@@ -1253,6 +1631,49 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Outcome_Date__c</fullName>
+        <description>Outcome Date</description>
+        <externalId>false</externalId>
+        <label>Outcome Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Outcome__c</fullName>
+        <description>Outcome</description>
+        <externalId>false</externalId>
+        <label>Outcome</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Abandoned</fullName>
+                    <default>false</default>
+                    <label>Abandoned</label>
+                </value>
+                <value>
+                    <fullName>Referred</fullName>
+                    <default>false</default>
+                    <label>Referred</label>
+                </value>
+                <value>
+                    <fullName>Counseled</fullName>
+                    <default>false</default>
+                    <label>Counseled</label>
+                </value>
+                <value>
+                    <fullName>Converted</fullName>
+                    <default>false</default>
+                    <label>Converted</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>OwnerId</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
@@ -1262,9 +1683,43 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
-        <fullName>Rating</fullName>
+        <fullName>PrimaryPost__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Primary Post</description>
+        <externalId>false</externalId>
+        <label>Primary Post</label>
+        <referenceTo>Zip_Code__c</referenceTo>
+        <relationshipLabel>Primary Posts</relationshipLabel>
+        <relationshipName>PrimaryPost</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Process_to_protect_IP_internationally__c</fullName>
+        <description>Process to protect IP internationally?</description>
+        <externalId>false</externalId>
+        <label>Process to protect IP internationally?</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Process_to_respond_to_int_l_inquiries__c</fullName>
+        <description>Process to respond to int&apos;l inquiries?</description>
+        <externalId>false</externalId>
+        <label>Process to respond to int&apos;l inquiries?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Record_Type_Developer_Name__c</fullName>
@@ -1291,6 +1746,281 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Prod_of_US_origin_or_has_51_materials__c</fullName>
+        <description>Prod of US origin or has 51% materials?</description>
+        <externalId>false</externalId>
+        <label>Prod of US origin or has 51% materials?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Family_Interest__c</fullName>
+        <description>Product Family Interest</description>
+        <externalId>false</externalId>
+        <label>Product Family Interest</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Business Service Providers</fullName>
+                    <default>false</default>
+                    <label>Business Service Providers</label>
+                </value>
+                <value>
+                    <fullName>Customized Market Research</fullName>
+                    <default>false</default>
+                    <label>Customized Market Research</label>
+                </value>
+                <value>
+                    <fullName>Featured U.S. Exporters</fullName>
+                    <default>false</default>
+                    <label>Featured U.S. Exporters</label>
+                </value>
+                <value>
+                    <fullName>Gold Key Service</fullName>
+                    <default>false</default>
+                    <label>Gold Key Service</label>
+                </value>
+                <value>
+                    <fullName>Initial Market Check</fullName>
+                    <default>false</default>
+                    <label>Initial Market Check</label>
+                </value>
+                <value>
+                    <fullName>International Company Profile</fullName>
+                    <default>false</default>
+                    <label>International Company Profile</label>
+                </value>
+                <value>
+                    <fullName>International Partner Search</fullName>
+                    <default>false</default>
+                    <label>International Partner Search</label>
+                </value>
+                <value>
+                    <fullName>Single Company or Location Promotion</fullName>
+                    <default>false</default>
+                    <label>Single Company or Location Promotion</label>
+                </value>
+                <value>
+                    <fullName>Trade Show Representation</fullName>
+                    <default>false</default>
+                    <label>Trade Show Representation</label>
+                </value>
+                <value>
+                    <fullName>Virtual Fairs</fullName>
+                    <default>false</default>
+                    <label>Virtual Fairs</label>
+                </value>
+                <value>
+                    <fullName>Virtual Introductions</fullName>
+                    <default>false</default>
+                    <label>Virtual Introductions</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Production_capacity_to_meet_orders__c</fullName>
+        <description>Production capacity to meet orders?</description>
+        <externalId>false</externalId>
+        <label>Production capacity to meet orders?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Promotion_Type__c</fullName>
+        <description>Promotion Type</description>
+        <externalId>false</externalId>
+        <label>Promotion Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Promotion</fullName>
+                    <default>false</default>
+                    <label>Promotion</label>
+                </value>
+                <value>
+                    <fullName>Investment Promotion</fullName>
+                    <default>false</default>
+                    <label>Investment Promotion</label>
+                </value>
+                <value>
+                    <fullName>etc.</fullName>
+                    <default>false</default>
+                    <label>etc.</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Queue_Routing_Past_Due__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Queue Routing Past Due</description>
+        <externalId>false</externalId>
+        <label>Queue Routing Past Due</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Queued_Date__c</fullName>
+        <description>Queued Date</description>
+        <externalId>false</externalId>
+        <label>Queued Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Rating</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Re_routed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Re-routed</description>
+        <externalId>false</externalId>
+        <label>Re-routed</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Reason_Not_Converted__c</fullName>
+        <description>Reason Not Converted</description>
+        <externalId>false</externalId>
+        <label>Reason Not Converted</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unqualified</fullName>
+                    <default>false</default>
+                    <label>Unqualified</label>
+                </value>
+                <value>
+                    <fullName>Product Not Helpful</fullName>
+                    <default>false</default>
+                    <label>Product Not Helpful</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Record_Type_Developer_Name__c</fullName>
+        <description>Record Type Developer Name formula field.</description>
+        <externalId>false</externalId>
+        <formula>RecordType.DeveloperName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record Type Developer Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Referral_Type__c</fullName>
+        <description>Referral Type</description>
+        <externalId>false</externalId>
+        <label>Referral Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Referred_Date__c</fullName>
+        <description>Referred Date</description>
+        <externalId>false</externalId>
+        <label>Referred Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Referred_To__c</fullName>
+        <description>Referred To</description>
+        <externalId>false</externalId>
+        <label>Referred To</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SBA</fullName>
+                    <default>false</default>
+                    <label>SBA</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Registrant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Registrant</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Second_Attempt_Past_Due__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Second Attempt Past Due</description>
+        <externalId>false</externalId>
+        <label>Second Attempt Past Due</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SecondaryPost__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SecondaryPost</description>
+        <externalId>false</externalId>
+        <label>Secondary Post</label>
+        <referenceTo>Zip_Code__c</referenceTo>
+        <relationshipLabel>Secondary Posts</relationshipLabel>
+        <relationshipName>SecondaryPost</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Sector_Hidden__c</fullName>
         <externalId>false</externalId>
         <label>Sector Hidden</label>
@@ -1299,6 +2029,19 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Request_Country__c</fullName>
+        <description>Service Request Country</description>
+        <externalId>false</externalId>
+        <label>Service Request Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SourceTechnology__c</fullName>
@@ -1434,6 +2177,35 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Status__c</fullName>
+        <description>Status</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Contacting</fullName>
+                    <default>false</default>
+                    <label>Contacting</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Sub_Sector_Hidden__c</fullName>
         <externalId>false</externalId>
         <label>Sub-Sector Hidden</label>
@@ -1448,6 +2220,19 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>UsedITAsfeebasedservicesbefore__c</fullName>
+        <description>Used ITA&apos;s fee-based services before?</description>
+        <externalId>false</externalId>
+        <label>Used ITA&apos;s fee-based services before?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Web_Campaign_ID__c</fullName>
         <externalId>false</externalId>
         <label>Web Campaign ID</label>
@@ -1460,6 +2245,73 @@
     <fields>
         <fullName>Website</fullName>
         <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Which_services_have_you_used_before__c</fullName>
+        <description>Which services have you used before?</description>
+        <externalId>false</externalId>
+        <label>Which services have you used before?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Single Company Promotion</fullName>
+                    <default>false</default>
+                    <label>Single Company Promotion</label>
+                </value>
+                <value>
+                    <fullName>Location Promotion</fullName>
+                    <default>false</default>
+                    <label>Location Promotion</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Willing_to_travel_internationally__c</fullName>
+        <description>Willing to travel internationally?</description>
+        <externalId>false</externalId>
+        <label>Willing to travel internationally?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X1st_Contact_Attempt_Date__c</fullName>
+        <description>1st Contact Attempt Date</description>
+        <externalId>false</externalId>
+        <label>1st Contact Attempt Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X2nd_Contact_Attempt_Date__c</fullName>
+        <description>2nd Contact Attempt Date</description>
+        <externalId>false</externalId>
+        <label>2nd Contact Attempt Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ZipCodeorClientCountry__c</fullName>
+        <description>Zip Code or Client Country</description>
+        <externalId>false</externalId>
+        <formula>BLANKVALUE(PostalCode,  Country)</formula>
+        <label>Zip Code or Client Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>iContactforSF__iContact_Contact_Id__c</fullName>
@@ -1600,6 +2452,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Able_to_translate_marketing_materials__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountCategory__c</picklist>
             <values>
                 <fullName>Business Service Providers</fullName>
@@ -1671,6 +2534,33 @@
             </values>
             <values>
                 <fullName>Web Content</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contact_Attempts__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Attempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Attempt Past Due</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Attempts</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Second Attempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Attempt Past Due</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2637,6 +3527,72 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dedicated_resources_staff_budget__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>EligibleforExportPromotion__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ExpeditedDelivery__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ExportReady__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Exported_in_the_past_12_months__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Globalized_your_website__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -2764,6 +3720,80 @@
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interest_Type__c</picklist>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>International_marketing_plan__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_U_S_Export_Control_requirements__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_financing_payment_options__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_foreign_legal_regulatory_reqs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_how_to_ship_product_overseas__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2988,6 +4018,131 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Outcome__c</picklist>
+            <values>
+                <fullName>Abandoned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Counseled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_to_protect_IP_internationally__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_to_respond_to_int_l_inquiries__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prod_of_US_origin_or_has_51_materials__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Family_Interest__c</picklist>
+            <values>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customized Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Featured U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold Key Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Market Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Company Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Partner Search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company or Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show Representation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Introductions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Production_capacity_to_meet_orders__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Promotion_Type__c</picklist>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>etc%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
@@ -2999,6 +4154,31 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referral_Type__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referred_To__c</picklist>
+            <values>
+                <fullName>SBA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Request_Country__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3050,6 +4230,54 @@
             </values>
             <values>
                 <fullName>XML</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UsedITAsfeebasedservicesbefore__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Which_services_have_you_used_before__c</picklist>
+            <values>
+                <fullName>Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Willing_to_travel_internationally__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3109,6 +4337,17 @@
             </values>
             <values>
                 <fullName>Zip Code to USEAC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Able_to_translate_marketing_materials__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3184,6 +4423,33 @@
             </values>
             <values>
                 <fullName>Web Content</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contact_Attempts__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Attempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Attempt Past Due</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Attempts</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Second Attempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Attempt Past Due</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3286,14 +4552,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bosnia and Herzegovina</fullName>
                 <default>false</default>
             </values>
@@ -3307,10 +4565,6 @@
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3558,10 +4812,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -3583,10 +4833,6 @@
             </values>
             <values>
                 <fullName>Indonesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3638,14 +4884,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -3655,10 +4893,6 @@
             </values>
             <values>
                 <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3678,10 +4912,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
@@ -3695,10 +4925,6 @@
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3743,10 +4969,6 @@
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3834,10 +5056,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Panama</fullName>
                 <default>false</default>
             </values>
@@ -3858,10 +5076,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pitcairn</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -3874,15 +5088,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian Federation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3903,10 +5109,6 @@
             </values>
             <values>
                 <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3954,10 +5156,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
                 <default>false</default>
             </values>
@@ -4002,10 +5200,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -4014,19 +5208,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4106,10 +5292,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
@@ -4146,6 +5328,72 @@
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dedicated_resources_staff_budget__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>EligibleforExportPromotion__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ExpeditedDelivery__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ExportReady__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Exported_in_the_past_12_months__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Globalized_your_website__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4277,6 +5525,80 @@
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interest_Type__c</picklist>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>International_marketing_plan__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_U_S_Export_Control_requirements__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_financing_payment_options__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_foreign_legal_regulatory_reqs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_how_to_ship_product_overseas__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4505,6 +5827,131 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Outcome__c</picklist>
+            <values>
+                <fullName>Abandoned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Counseled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_to_protect_IP_internationally__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_to_respond_to_int_l_inquiries__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prod_of_US_origin_or_has_51_materials__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Family_Interest__c</picklist>
+            <values>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customized Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Featured U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold Key Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Market Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Company Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Partner Search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company or Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show Representation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Introductions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Production_capacity_to_meet_orders__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Promotion_Type__c</picklist>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>etc%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
@@ -4516,6 +5963,31 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referral_Type__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referred_To__c</picklist>
+            <values>
+                <fullName>SBA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Request_Country__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4567,6 +6039,54 @@
             </values>
             <values>
                 <fullName>XML</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UsedITAsfeebasedservicesbefore__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Which_services_have_you_used_before__c</picklist>
+            <values>
+                <fullName>Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Willing_to_travel_internationally__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4625,6 +6145,17 @@
             </values>
             <values>
                 <fullName>Zip Code to USEAC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Able_to_translate_marketing_materials__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4700,6 +6231,33 @@
             </values>
             <values>
                 <fullName>Web Content</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contact_Attempts__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Attempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Attempt Past Due</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Attempts</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Second Attempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Attempt Past Due</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4802,14 +6360,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bosnia and Herzegovina</fullName>
                 <default>false</default>
             </values>
@@ -4823,10 +6373,6 @@
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5074,10 +6620,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -5099,10 +6641,6 @@
             </values>
             <values>
                 <fullName>Indonesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5154,14 +6692,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -5171,10 +6701,6 @@
             </values>
             <values>
                 <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5194,10 +6720,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
@@ -5211,10 +6733,6 @@
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5259,10 +6777,6 @@
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5350,10 +6864,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Panama</fullName>
                 <default>false</default>
             </values>
@@ -5374,10 +6884,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pitcairn</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -5390,15 +6896,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian Federation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5419,10 +6917,6 @@
             </values>
             <values>
                 <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5470,10 +6964,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
                 <default>false</default>
             </values>
@@ -5518,10 +7008,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -5530,19 +7016,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5622,10 +7100,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
@@ -5662,6 +7136,72 @@
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dedicated_resources_staff_budget__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>EligibleforExportPromotion__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ExpeditedDelivery__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ExportReady__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Exported_in_the_past_12_months__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Globalized_your_website__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5793,6 +7333,80 @@
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interest_Type__c</picklist>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>International_marketing_plan__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_U_S_Export_Control_requirements__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_financing_payment_options__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_foreign_legal_regulatory_reqs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_how_to_ship_product_overseas__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6017,6 +7631,131 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Outcome__c</picklist>
+            <values>
+                <fullName>Abandoned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Counseled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_to_protect_IP_internationally__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_to_respond_to_int_l_inquiries__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prod_of_US_origin_or_has_51_materials__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Family_Interest__c</picklist>
+            <values>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customized Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Featured U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold Key Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Market Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Company Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Partner Search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company or Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show Representation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Introductions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Production_capacity_to_meet_orders__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Promotion_Type__c</picklist>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>etc%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
@@ -6028,6 +7767,31 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referral_Type__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referred_To__c</picklist>
+            <values>
+                <fullName>SBA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Request_Country__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6079,6 +7843,54 @@
             </values>
             <values>
                 <fullName>XML</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UsedITAsfeebasedservicesbefore__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Which_services_have_you_used_before__c</picklist>
+            <values>
+                <fullName>Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Willing_to_travel_internationally__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7040,6 +8852,72 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Dedicated_resources_staff_budget__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>EligibleforExportPromotion__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ExpeditedDelivery__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ExportReady__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Exported_in_the_past_12_months__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Globalized_your_website__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -7167,6 +9045,80 @@
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interest_Type__c</picklist>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>International_marketing_plan__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_U_S_Export_Control_requirements__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_financing_payment_options__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_foreign_legal_regulatory_reqs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Know_how_to_ship_product_overseas__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7391,6 +9343,131 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Outcome__c</picklist>
+            <values>
+                <fullName>Abandoned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Counseled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referred</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_to_protect_IP_internationally__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_to_respond_to_int_l_inquiries__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prod_of_US_origin_or_has_51_materials__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Family_Interest__c</picklist>
+            <values>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customized Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Featured U%2ES%2E Exporters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold Key Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Market Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Company Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Partner Search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company or Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show Representation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Fairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual Introductions</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Production_capacity_to_meet_orders__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Promotion_Type__c</picklist>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>etc%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
@@ -7402,6 +9479,79 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referral_Type__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Referred_To__c</picklist>
+            <values>
+                <fullName>SBA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Service_Request_Country__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UsedITAsfeebasedservicesbefore__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Which_services_have_you_used_before__c</picklist>
+            <values>
+                <fullName>Location Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Company Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Willing_to_travel_internationally__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
