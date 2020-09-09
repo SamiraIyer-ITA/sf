@@ -589,24 +589,54 @@ public without sharing class Utils {
 	}
 
 	/**
-	 * Gets a list of records Ids based on list of related records
-	 *
-	 * For instance passing in a list of contacts specifying Contact.AccountId as the related field will return a set
-	 * accounts Ids related to those contacts.
-	 *
-	 * @param relatedRecords Records related to opportunity
-	 * @param relatedField The field on the related record
-	 *
-	 * @return Set of related record Ids
+	 * Caches SObjectTypes to RecordType Maps
 	 */
-	public static Set<Id> getRecordsIdsByRelatedObjectRecords(
-		List<SObject> relatedRecords,
-		Schema.SObjectField relatedField
-	) {
-		Set<Id> recordIds = new Set<Id>();
-		for (SObject record: relatedRecords) {
-			recordIds.add((Id)record.get(relatedField));
+    private static Map<Schema.SObjectType, Map<String, Id>> recordTypeIdsBySObjectTypes {
+		get {
+			if (recordTypeIdsBySObjectTypes == null) {
+				recordTypeIdsBySObjectTypes = new Map<Schema.SObjectType, Map<String, Id>>();
+			}
+			return recordTypeIdsBySObjectTypes;
 		}
-		return recordIds;
+		set;
+	}
+
+	/**
+	 * Gets a RecordTypeId map by SObjectType
+	 *
+	 * The Schema.RecordTypeInfo is cached the first time the SObjectType is called.
+	 *
+	 * @param sObjectType SObject Type
+	 *
+	 * @return RecordType Map
+	 */
+	public static Map<String, Id> getRecordTypeMapBySObject(Schema.SObjectType sObjectType) {
+		if (!recordTypeIdsBySObjectTypes.containsKey(sObjectType)) {
+			Map<String, Schema.RecordTypeInfo> recordTypeMap
+				= sObjectType.getDescribe().getRecordTypeInfosByDeveloperName();
+			Map<String, Id> recordTypeIdsByNames = new Map<String, Id>();
+			for (String recordTypeName: recordTypeMap.keySet()) {
+				recordTypeIdsByNames.put(recordTypeName, recordTypeMap.get(recordTypeName).getRecordTypeId());
+			}
+			recordTypeIdsBySObjectTypes.put(sObjectType, recordTypeIdsByNames);
+		}
+		return recordTypeIdsBySObjectTypes.get(sObjectType);
+	}
+
+	/**
+	 * Gets a RecordTypeId by SObjectType and RecordTypeDeveloperName
+	 *
+	 * The Schema.RecordTypeInfo is cached the first time the SObjectType is called.
+	 *
+	 * @param sObjectType SObject Type
+	 * @param developerName The SObject RecordType DeveloperName
+	 *
+	 * @return RecordTypeId
+	 */
+	public static Id getRecordTypeIdBySObjectAndRecordTypeDeveloperName(
+		Schema.SObjectType sObjectType,
+		String developerName
+	) {
+		return getRecordTypeMapBySObject(sObjectType).get(developerName);
 	}
 }
