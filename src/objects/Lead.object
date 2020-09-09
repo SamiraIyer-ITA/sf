@@ -260,10 +260,6 @@
         <description>Export</description>
         <isActive>true</isActive>
         <values>
-            <fullName>Contact Attempted</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Contacted</fullName>
             <default>false</default>
         </values>
