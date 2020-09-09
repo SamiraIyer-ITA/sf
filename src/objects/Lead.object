@@ -260,6 +260,10 @@
         <description>Export</description>
         <isActive>true</isActive>
         <values>
+            <fullName>Contact Attempted</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Contacted</fullName>
             <default>false</default>
         </values>
@@ -906,6 +910,21 @@
                     <fullName>Partner</fullName>
                     <default>false</default>
                     <label>Partner</label>
+                </value>
+                <value>
+                    <fullName>Foreign Buyer / Distributor / Partner</fullName>
+                    <default>false</default>
+                    <label>Foreign Buyer / Distributor / Partner</label>
+                </value>
+                <value>
+                    <fullName>Foreign Investor</fullName>
+                    <default>false</default>
+                    <label>Foreign Investor</label>
+                </value>
+                <value>
+                    <fullName>Foreign Service Provider</fullName>
+                    <default>false</default>
+                    <label>Foreign Service Provider</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1666,6 +1685,11 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                     <default>false</default>
                     <label>Converted</label>
                 </value>
+                <value>
+                    <fullName>Not Converted</fullName>
+                    <default>false</default>
+                    <label>Not Converted</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1844,6 +1868,35 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         </valueSet>
     </fields>
     <fields>
+        <fullName>Queue_Routing_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATEVALUE( Queued_Date__c ) +
+CASE(
+WEEKDAY(DATEVALUE(Queued_Date__c) ),
+1, 2,
+2, 2,
+3, 2,
+4, 2,
+5, 4,
+6, 4,
+7, 3,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Queue Routing Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Queue_Routing_Past_Due_Formula__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(TODAY() &gt; Queue_Routing_Due_Date__c ,ISBLANK( Assigned_User__c ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Queue Routing Past Due Formula</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Queue_Routing_Past_Due__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Queue Routing Past Due</description>
@@ -1884,6 +1937,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
+            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -2266,6 +2320,35 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>X1st_Contact_Attempt_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATEVALUE( Assigned_Date__c ) +
+CASE(
+WEEKDAY(DATEVALUE(Assigned_Date__c ) ),
+1, 1,
+2, 1,
+3, 1,
+4, 1,
+5, 1,
+6, 3,
+7, 2,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>1st Contact Attempt Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X1st_Contact_Attempt_Past_Due_Formula__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(TODAY() &gt; X1st_Contact_Attempt_Due_Date__c ,ISBLANK(X1st_Contact_Attempt_Date__c),NOT(ISBLANK( Assigned_User__c )),NOT(ISBLANK( Assigned_Date__c )))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>1st Contact Attempt Past Due Formula</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>X2nd_Contact_Attempt_Date__c</fullName>
         <description>2nd Contact Attempt Date</description>
         <externalId>false</externalId>
@@ -2273,6 +2356,36 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X2nd_Contact_Attempt_Due_Date__c</fullName>
+        <description>Returns a due date of 5 weekdays after the 1st contact attempt date and is the date which a second contact attempt is due.</description>
+        <externalId>false</externalId>
+        <formula>X1st_Contact_Attempt_Date__c +
+CASE(
+WEEKDAY(X1st_Contact_Attempt_Date__c ),
+1, 5,
+2, 7,
+3, 7,
+4, 7,
+5, 7,
+6, 7,
+7, 6,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>2nd Contact Attempt Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X2nd_Contact_Attempt_Past_Due_Formula__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(TODAY() &gt; X2nd_Contact_Attempt_Due_Date__c ,ISBLANK(X2nd_Contact_Attempt_Date__c),NOT(ISBLANK( Assigned_User__c )),NOT(ISBLANK( Assigned_Date__c )),NOT(ISBLANK( X1st_Contact_Attempt_Date__c )))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>2nd Contact Attempt Past Due Formula</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>ZipCodeorClientCountry__c</fullName>
@@ -4004,6 +4117,10 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
+                <fullName>Not Converted</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Referred</fullName>
                 <default>false</default>
             </values>
@@ -4126,6 +4243,17 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_Not_Converted__c</picklist>
+            <values>
+                <fullName>Product Not Helpful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unqualified</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5939,6 +6067,17 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Reason_Not_Converted__c</picklist>
+            <values>
+                <fullName>Product Not Helpful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unqualified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -7107,6 +7246,18 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
+                <fullName>Foreign Buyer %2F Distributor %2F Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Investor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Service Provider</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Partner</fullName>
                 <default>false</default>
             </values>
@@ -7743,6 +7894,17 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Reason_Not_Converted__c</picklist>
+            <values>
+                <fullName>Product Not Helpful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unqualified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -7873,6 +8035,44 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <businessProcess>Standard Leads</businessProcess>
         <label>Standard Lead</label>
         <picklistValues>
+            <picklist>Able_to_translate_marketing_materials__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contact_Attempts__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Attempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Attempt Past Due</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Attempts</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Second Attempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Attempt Past Due</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_1__c</picklist>
             <values>
                 <fullName>Afghanistan</fullName>
@@ -7971,14 +8171,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bosnia and Herzegovina</fullName>
                 <default>false</default>
             </values>
@@ -7992,10 +8184,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8243,10 +8431,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Honduras</fullName>
                 <default>false</default>
             </values>
@@ -8268,10 +8452,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
             <values>
                 <fullName>Indonesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8323,14 +8503,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -8340,10 +8512,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
             <values>
                 <fullName>Kyrgyzstan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8363,10 +8531,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
@@ -8380,10 +8544,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8428,10 +8588,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova%2C Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8519,10 +8675,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Panama</fullName>
                 <default>false</default>
             </values>
@@ -8543,10 +8695,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pitcairn</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Poland</fullName>
                 <default>false</default>
             </values>
@@ -8559,15 +8707,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Russian Federation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8588,10 +8728,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
             <values>
                 <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8639,10 +8775,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
                 <default>false</default>
             </values>
@@ -8687,10 +8819,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -8699,19 +8827,11 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Taiwan</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8788,10 +8908,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
             <values>
                 <fullName>Vanuatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9455,6 +9571,17 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Reason_Not_Converted__c</picklist>
+            <values>
+                <fullName>Product Not Helpful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unqualified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -9640,6 +9767,14 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <errorConditionFormula>(Country = &quot;United States&quot;) &amp;&amp; (ISBLANK(State)) &amp;&amp; IsConverted=TRUE &amp;&amp; (RecordType.DeveloperName = &quot;Standard_Lead&quot;)</errorConditionFormula>
         <errorDisplayField>State</errorDisplayField>
         <errorMessage>When converting a lead, if Country = US (United States) a State must be indicated.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V03Require_value_if_not_converted</fullName>
+        <active>true</active>
+        <description>Require value for reason not converted if criteria applies</description>
+        <errorConditionFormula>AND(ISPICKVAL(Outcome__c,&apos;Not Converted&apos;),ISPICKVAL( Reason_Not_Converted__c,&apos;&apos;)) &amp;&amp; (RecordType.DeveloperName = &quot;Export&quot;)</errorConditionFormula>
+        <errorDisplayField>Reason_Not_Converted__c</errorDisplayField>
+        <errorMessage>You must state a reason for not converting this lead</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>
