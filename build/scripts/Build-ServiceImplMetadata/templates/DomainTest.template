@@ -1,0 +1,19 @@
+@IsTest
+private class {0}Test {{
+
+	static Id {2}Id = fflib_IDGenerator.generate({1}.SObjectType);
+
+	@IsTest
+	static void testNewInstanceOf{0}Domain_PassListWithOneNonInsertedObject_ReturnsValidInterface() {{
+		List<{1}> {2}List  = new List<{1}>{{ new {1}() }};
+		I{0} i{0} = (I{0}) {0}.newInstance({2}List);
+		System.assertNotEquals(i{0}, null, 'Interface returned as null and should not have');
+	}}
+
+	@IsTest
+	static void testNewInstanceOf{0}Domain_PassSetWithOneNonInsertedObject_ReturnsValidInterface() {{
+		Set<Id> {2}Ids = new Set<Id>{{ {2}Id }};
+		I{0} i{0} = (I{0}) {0}.newInstance({2}Ids);
+		System.assertNotEquals(i{0}, null, 'Interface returned as null and should not have');
+	}}
+}}
