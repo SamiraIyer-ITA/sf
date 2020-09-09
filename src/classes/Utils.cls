@@ -589,6 +589,28 @@ public without sharing class Utils {
 	}
 
 	/**
+	 * Gets a list of records Ids based on list of related records
+	 *
+	 * For instance passing in a list of contacts specifying Contact.AccountId as the related field will return a set
+	 * accounts Ids related to those contacts.
+	 *
+	 * @param relatedRecords Records related to opportunity
+	 * @param relatedField The field on the related record
+	 *
+	 * @return Set of related record Ids
+	 */
+	public static Set<Id> getRecordsIdsByRelatedObjectRecords(
+		List<SObject> relatedRecords,
+		Schema.SObjectField relatedField
+	) {
+		Set<Id> recordIds = new Set<Id>();
+		for (SObject record: relatedRecords) {
+			recordIds.add((Id)record.get(relatedField));
+		}
+		return recordIds;
+	}
+
+	/**
 	 * Caches SObjectTypes to RecordType Maps
 	 */
     private static Map<Schema.SObjectType, Map<String, Id>> recordTypeIdsBySObjectTypes {
