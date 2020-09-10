@@ -53,11 +53,6 @@ public with sharing class Payment2Utils {
 	}
 
 	public static PaymentAuthenticationDetails deserializePaymentDetails(String paymentDetails) {
-		//Correct the paymentDetails string prior to deserialization.
-		//Remove starting and ending quotes
-		paymentDetails = paymentDetails.substring(1, paymentDetails.length() - 1);
-		//Remove escapes
-		paymentDetails = paymentDetails.replace('\\', '');
 		return (PaymentAuthenticationDetails)JSON.deserialize(paymentDetails, PaymentAuthenticationDetails.class);
 	}
 

@@ -126,7 +126,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			RecordLog.push('Payment.completeTransaction Exception');
 			RecordLog.message(e.getMessage());
 			RecordLog.emit(paymentId);
-			errorMessage = 'Unable to complete payment.  ';
+			errorMessage = 'Unable to complete payment.  ' + e.getMessage();
 			error = true;
 		}
 
@@ -190,7 +190,9 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			RecordLog.emit(paymentId);
 
 			//Future callout to Pay.gov again to get and update the Account Holder Name and Masked Account Number
-			PaymentProcessorForPayGov.futureGetPaymentDetails(paymentId);
+			if (! error) {
+				PaymentProcessorForPayGov.futureGetPaymentDetails(paymentId);
+			}
 		}
 
 		if (error) {

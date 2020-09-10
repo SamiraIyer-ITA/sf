@@ -40,15 +40,26 @@ global without sharing class REST_BeginPayment {
 	 * @return A JSON string containing an error or a redirectUrl (for redirection to Pay.gov).
 	 */
 	@HttpPost
-	global static String doPost(REST_BeginPaymentParams params) {
+	global static void doPost(REST_BeginPaymentParams params) {
+		beginPayment(params);
+	}
 
+	/**
+	 * For internal Salesforce callers.  See doPost() for parameter details.
+	 *
+	 * @param params Parameters of the REST_CreatePayment class.
+	 *
+	 * @return A JSON string containing an error or a redirectUrl (for redirection to Pay.gov).
+	 */
+	public static String beginPayment(REST_BeginPaymentParams params) {
 		String jsonReturnValue;  //Return value for calls made internally to this method
+
+		params = setDefaultValues(params);
 
 		RequiredFields requiredFields = checkRequiredFields(params);
 		if (requiredFields != null && requiredFields.hasRequiredFields == false) {
 			jsonReturnValue = requiredFields.serializedError;
 		} else {
-
 		//Call the CreatePayment Rest Service.
 		//Calling it as a REST Service allows DML (creating a Payment record) before the callout to get a Pay.gov token.
 			try {
@@ -80,6 +91,33 @@ global without sharing class REST_BeginPayment {
 	}
 
 	/**
+	 * Set default values that couldn't be set in the REST_BeginPaymentParams class because they always populate as null.
+	 *
+	 * @param params Parameters of the REST_CreatePayment class.
+	 *
+	 * @return REST_BeginPaymentParams
+	 */
+	private static REST_BeginPaymentParams setDefaultValues(REST_BeginPaymentParams params) {
+		if (params.receiptAllowed == null) {
+			params.receiptAllowed = true;
+		}
+
+		if (params.internalCaller == null) {
+			params.internalCaller = false;
+		}
+
+		if (params.taskCode == null) {
+			params.taskCode = '000';
+		}
+
+		if (params.objectClass == null) {
+			params.objectClass = '05-20-00-00';
+		}
+
+		return params;
+	}
+
+	/**
 	 * Utility method to set the REST response body.
 	 * @param responseString The string to set as the response.
 	 */
@@ -100,12 +138,9 @@ global without sharing class REST_BeginPayment {
 		HttpRequest request = new HttpRequest();
 		request.setMethod('POST');
 		String sessionId;
-		if (params.internalCaller) {
-			//If we came from an AuraEnabled method, UserInfo.getSessionId() won't work.  So get it in an alternative way.
-			sessionId = Utils.getSessionId();
-		} else {
-			sessionId = UserInfo.getSessionId();
-		}
+		//If we came from an AuraEnabled method or through a REST service without a logged in user,
+		// UserInfo.getSessionId() won't work.  So get it in an alternative way.
+		sessionId = Utils.getSessionId();
 		request.setHeader('Authorization','Bearer ' + sessionId);
 		request.setHeader('Content-Type','application/json');
 		Map<String, REST_BeginPaymentParams> jsonBody = new Map<String, REST_BeginPaymentParams>();
@@ -149,7 +184,7 @@ global without sharing class REST_BeginPayment {
 			//Required fields are missing
 			requiredFields = new RequiredFields();
 			requiredFields.hasRequiredFields = false;
-			requiredFields.serializedError = '{"error": "Either orderId or these fields are required: accountType, transactionAmount, projectCode, organizationName, taskCode, objectClass, objectClass, originatingOffice."}';
+			requiredFields.serializedError = '{"error": "Either orderId or these fields are required: accountType, transactionAmount, projectCode, organizationName, taskCode, objectClass, originatingOffice."}';
 			return requiredFields;
 		}
 

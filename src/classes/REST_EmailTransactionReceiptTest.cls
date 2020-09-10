@@ -12,7 +12,7 @@ private with sharing class REST_EmailTransactionReceiptTest {
 		payment1.Receipt_Sent_To__c = 'test@test.gov';
 		insert payment1;
 
-		String response = REST_EmailTransactionReceipt.doPost('test@test.gov',payment1.Id);
+		String response = REST_EmailTransactionReceipt.emailReceipt('test@test.gov',payment1.Id);
 		Map<String, Object> responseMap = (Map<String, Object>)JSON.deserializeUntyped(response);
 		//System.assert(responseMap.get('errorMessage') == null);
 		System.assertEquals(true,responseMap.get('receiptSent'));
@@ -72,7 +72,7 @@ private with sharing class REST_EmailTransactionReceiptTest {
 		orders.add(order1);
 		update orders;
 
-		String response = REST_EmailTransactionReceipt.doPost('test@test.gov',order1.Id);
+		String response = REST_EmailTransactionReceipt.emailReceipt('test@test.gov',order1.Id);
 		Map<String, Object> responseMap = (Map<String, Object>)JSON.deserializeUntyped(response);
 		//System.assert(responseMap.get('errorMessage') == 'Attempt to de-reference a null object');
 		System.assertEquals(true,responseMap.get('receiptSent'));
@@ -91,7 +91,7 @@ private with sharing class REST_EmailTransactionReceiptTest {
 		payment1.Receipt_Sent_To__c = 'test@test.gov';
 		insert payment1;
 
-		String response = REST_EmailTransactionReceipt.doPost('test@test.gov',payment1.Id);
+		String response = REST_EmailTransactionReceipt.emailReceipt('test@test.gov',payment1.Id);
 		Map<String, Object> responseMap = (Map<String, Object>)JSON.deserializeUntyped(response);
 		System.assert(responseMap.get('errorMessage') == '');
 		System.assertEquals(true,responseMap.get('receiptSent'));
@@ -99,7 +99,7 @@ private with sharing class REST_EmailTransactionReceiptTest {
 
 	@IsTest
 	static void REST_EmailTransactionReceipt_Fail1() {
-		String response = REST_EmailTransactionReceipt.doPost('test@email.com','');
+		String response = REST_EmailTransactionReceipt.emailReceipt('test@email.com','');
 		Map<String, Object> responseMap = (Map<String, Object>)JSON.deserializeUntyped(response);
 		String errorMessage = String.valueOf(responseMap.get('errorMessage'));
 		Map<String, Object> errorMap = (Map<String, Object>)JSON.deserializeUntyped(errorMessage);
@@ -118,7 +118,7 @@ private with sharing class REST_EmailTransactionReceiptTest {
 		payment1.Payment_Type__c = 'PLASTIC_CARD';
 		insert payment1;
 
-		String response = REST_EmailTransactionReceipt.doPost('test@email.com',payment1.Id);
+		String response = REST_EmailTransactionReceipt.emailReceipt('test@email.com',payment1.Id);
 		Map<String, Object> responseMap = (Map<String, Object>)JSON.deserializeUntyped(response);
 		System.assertEquals('Receipt does not yet have fields necessary to send the receipt.',String.valueOf(responseMap.get('errorMessage')));
 		System.assertEquals(false,responseMap.get('receiptSent'));
@@ -126,7 +126,7 @@ private with sharing class REST_EmailTransactionReceiptTest {
 
 	@IsTest
 	static void REST_EmailTransactionReceipt_Fail4() {
-		String response = REST_EmailTransactionReceipt.doPost('test@email.com',UserInfo.getUserId());
+		String response = REST_EmailTransactionReceipt.emailReceipt('test@email.com',UserInfo.getUserId());
 		Map<String, Object> responseMap = (Map<String, Object>)JSON.deserializeUntyped(response);
 		System.assertEquals('Attempt to de-reference a null object',String.valueOf(responseMap.get('errorMessage')));
 		System.assertEquals(false,responseMap.get('receiptSent'));
@@ -144,7 +144,7 @@ private with sharing class REST_EmailTransactionReceiptTest {
 		payment1.Receipt_Sent_To__c = 'test@test.gov';
 		insert payment1;
 
-		String response = REST_EmailTransactionReceipt.doPost('test@test.gov',payment1.Id);
+		String response = REST_EmailTransactionReceipt.emailReceipt('test@test.gov',payment1.Id);
 		Map<String, Object> responseMap = (Map<String, Object>)JSON.deserializeUntyped(response);
 		System.assertEquals('Receipt does not yet have fields necessary to send the receipt.',responseMap.get('errorMessage'));
 		System.assertEquals(false,responseMap.get('receiptSent'));
@@ -162,7 +162,7 @@ private with sharing class REST_EmailTransactionReceiptTest {
 		payment1.Receipt_Sent_To__c = 'test@test.gov';
 		insert payment1;
 
-		String response = REST_EmailTransactionReceipt.doPost('test@test.gov',payment1.Id);
+		String response = REST_EmailTransactionReceipt.emailReceipt('test@test.gov',payment1.Id);
 		Map<String, Object> responseMap = (Map<String, Object>)JSON.deserializeUntyped(response);
 		System.assertEquals('This receipt should not be sent to the client.',responseMap.get('errorMessage'));
 		System.assertEquals(false,responseMap.get('receiptSent'));

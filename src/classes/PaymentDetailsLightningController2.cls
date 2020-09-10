@@ -13,7 +13,8 @@ public with sharing class PaymentDetailsLightningController2 {
 			if (payments.size() > 0) {
 				Payment2__c payment = payments[0];
 
-				if (payment.RecordTypeId == rtMap.get('Credit_Card_or_ACH_Payment')) {
+				if (payment.RecordTypeId == rtMap.get('Credit_Card_or_ACH_Payment') ||
+					payment.RecordTypeId == rtMap.get('External_Credit_Card_or_ACH_Payment')) {
 					if (payment.Payment_Type__c == 'PLASTIC_CARD' || payment.Payment_Type__c == 'ACH') {
 						String remoteAccountName = Payment2Utils.getRemoteAccountName(payment.Account_Type__c);
 						String paymentDetailsMetaName = 'PaymentDetailsFor' + payment.Payment_Processor__c;

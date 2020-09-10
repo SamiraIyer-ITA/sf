@@ -2,17 +2,17 @@
     <messaging:htmlEmailBody >
         <!--Insertion for ITA Logo Image -->
         <img src="https://trade--c.na21.content.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=068t000000D10nS&operationContext=DELIVERY&contentId=05Tt000001CyzgJ&page=0&d=/a/t00000011RlE/3uMkBqnxEr7T8_SUX1_5xx31gq0PYMXmMGsuVrjSmkg&oid=00Dt0000000Gydl&dpt=null&viewId=" alt="International Trade Administration Logo" width="200" class="pageImg"/>
-        
+
         <p style="color:black;font-size:24px;">Receipt of Order</p>
-        
-        <p>Invoice Date: {relatedTo.Invoice_Date__c}</p>
-        
-        <p>Invoice Id: {relatedTo.Invoice_Id__c}</p>
-                       
+
+        <p>Invoice Date: {!relatedTo.Invoice_Date__c}</p>
+
+        <p>Invoice Id: {!relatedTo.Invoice_Id__c}</p>
+
         <p>Payment Id: {!IF(relatedTo.Payment_Type__c ='PLASTIC_CARD' || relatedTo.Payment_Type__c ='ACH', relatedTo.Remote_Tracking_Id__c, relatedTo.Name)}</p>
-        
+
         <hr />
-        
+
         <table width="800">
             <tbody>
                 <tr>
@@ -31,8 +31,8 @@
                         <td width="214">
                             <p><strong>Cardholder Name</strong></p>
                         </td>
-                    </apex:outputPanel>  
-                    <apex:outputPanel layout="none" rendered="{!NOT(ISNULL(relatedTo.Account_Number__c))}">              
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!NOT(ISNULL(relatedTo.Account_Number__c))}">
                         <td width="214">
                             <p><strong>Card Number</strong></p>
                         </td>
@@ -50,7 +50,7 @@
                     <td width="215">
                         <apex:outputText value="{0, date, MM/dd/yyyy}">
                         <apex:Param value="{!relatedTo.Payment_Date__c }" />
-                        </apex:OutputText> 
+                        </apex:OutputText>
                     </td>
                     <td width="215">
                         <apex:outputField value="{!relatedTo.Payment_Type__c}" />
@@ -59,8 +59,8 @@
                        <td width="214">
                             <p>{!relatedTo.Account_Holder_Name__c}</p>
                         </td>
-                    </apex:outputPanel> 
-                    <apex:outputPanel layout="none" rendered="{!NOT(ISNULL(relatedTo.Account_Number__c))}">   
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!NOT(ISNULL(relatedTo.Account_Number__c))}">
                         <td width="214">
                             <p>{!relatedTo.Account_Number__c}</p>
                         </td>
@@ -68,31 +68,31 @@
                     <td width="214">
                         <apex:outputText value="{0, number, currency}">
                         <apex:Param value="{!relatedTo.Transaction_Amount__c }" />
-                        </apex:OutputText> 
+                        </apex:OutputText>
                     </td>
-                </tr>      
+                </tr>
             </tbody>
         </table>
         <br/>
-     
-               
-        <!--Conditional diplay of text for bank statement note//Displayed if payment type = plastic card OR ACH-->      
+
+
+        <!--Conditional diplay of text for bank statement note//Displayed if payment type = plastic card OR ACH-->
         <apex:outputPanel layout="none" rendered="{!IF(relatedTo.Payment_Type__c ='PLASTIC_CARD' || relatedTo.Payment_Type__c ='ACH' ,true,false)}">
-            <p><span style="background-color: #F0F0F0;"><b>Note:</b> Your 
+            <p><span style="background-color: #F0F0F0;"><b>Note:</b> Your
             {!IF(relatedTo.Payment_Type__c=="PLASTIC_CARD", "credit card","")}
             {!IF(relatedTo.Payment_Type__c=="ACH", "bank","")}
             statement will display
             {!IF(relatedTo.Account_Type__c=="Privacy Shield", "\"US Commerce Dept-Privacy Shield\"","")}
             {!IF(relatedTo.Account_Type__c=="Services", "\"US Commerce Dept-USFCS\"","")}
-            {!IF(relatedTo.Account_Type__c=="Events", "\"US Commerce Dept-USFCS\"","")}      
-        <!--Add line for whatever external account is added to the Account Type field, for example, FTZ or Office of Trade and Tourism-->              
+            {!IF(relatedTo.Account_Type__c=="Events", "\"US Commerce Dept-USFCS\"","")}
+        <!--Add line for whatever external account is added to the Account Type field, for example, FTZ or Office of Trade and Tourism-->
             as the merchant name.</span></p>
         </apex:outputPanel>
-        
-        <!--POC info-->        
+
+        <!--POC info-->
         <p>Yvette Jones<br />Global Markets, Office of Budget<br />Department of Commerce, International Trade Administration<br />1401 Constitution Avenue, NW &ndash; Rm. 21010<br />Washington, DC 20230</p>
-        
-    
+
+
     </messaging:htmlEmailBody>
 
 </messaging:emailTemplate>

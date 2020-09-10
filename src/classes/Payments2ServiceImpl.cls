@@ -82,8 +82,6 @@ public class Payments2ServiceImpl implements IPayments2Service{
 		Map<Id, Id> orderToOppMap = new Map<Id, Id>();
 		Map<Id, Id> paymentToOrderMap = new Map<Id, Id>();
 		List<Order> getOpportunitiesFromTheseOrders = OrdersSelector.newInstance().selectByPaymentId(getOrdersPaymentIds);
-		//List<Order> getOpportunitiesFromTheseOrders = [SELECT Id, OpportunityId, Payment2__c  FROM Order WHERE Payment2__c IN :getOrdersPaymentIds ORDER BY OrderNumber ASC NULLS FIRST];
-		System.debug('CARY G: ' + getOpportunitiesFromTheseOrders);
 		// getOpportunityContactRoles
 		Set<Id> getOpportunityContactRoles = new Set<Id>();
 		for(Order o : getOpportunitiesFromTheseOrders){
@@ -92,9 +90,9 @@ public class Payments2ServiceImpl implements IPayments2Service{
 			orderToOppMap.put(o.Id, o.OpportunityId);
 			paymentToOrderMap.put(o.Payment2__c, o.Id);
 		}
+
 		// Create a list of all OpportunityContactRole where the Contact isPrimary from the Opportunities
 		List<OpportunityContactRole> emailsToSend = OpportunityContactRolesSelector.newInstance().selectByOpportunityId(getOpportunityContactRoles, true);
-
 
 		// Tie everything together creating the Payment to email map
 		Map<Id, String> oppToEmailMap = new Map<Id, String>();
@@ -104,7 +102,6 @@ public class Payments2ServiceImpl implements IPayments2Service{
 
 		// Create a CSV containing all of the emails in the OpportunityContactRole isPrimary list
 		// Create an Id, String Map before the following loop
-
 		for(Payment2__c payment2 : newRecords) {
 			Id thisPaymentId;
 			String thisEmail;
@@ -130,19 +127,26 @@ public class Payments2ServiceImpl implements IPayments2Service{
 				} else {
 					thisPaymentId = payment2.Id;
 				}
-				// This nested get works like this
+
+				//Get the email address(es) to which to send the receipt
+				if (paymentToOrderMap.get(thisPaymentId) == null) {
+					//This payment has no order associated with it, so it is for an external payment.
+					//Grab the email address from the payment record
+					thisEmail = payment2.Receipt_Email_Address__c;
+				} else {
 				// paymentToOrderMap.get(thisPaymentId) gives us the Order associated with the Payment2
 				// orderToOppMap.get gives us the Opportunity for the Payment2
 				// oppToEmailMap.get gives us the email associated with the Payment2
 				thisEmail = oppToEmailMap.get(orderToOppMap.get(paymentToOrderMap.get(thisPaymentId)));
-				String returnMessage = REST_EmailTransactionReceipt.doPost(thisEmail, payment2.Id);
+				}
+				String returnMessage = REST_EmailTransactionReceipt.emailReceipt(thisEmail, payment2.Id);
 			}
 		}
 	}
 
 	public static String beginPayment(Id orderId) {
 		REST_BeginPaymentParams params = populateBeginPaymentParams(orderId);
-		return REST_BeginPayment.doPost(params);
+		return REST_BeginPayment.beginPayment(params);
 	}
 
 	private static REST_BeginPaymentParams populateBeginPaymentParams(Id orderId) {
@@ -159,7 +163,7 @@ public class Payments2ServiceImpl implements IPayments2Service{
 	}
 
 	public static String confirmPayment(String accountType, String paymentId, String token, String orderId) {
-		return REST_ConfirmPayment.doPost(accountType, paymentId, token, orderId);
+		return REST_ConfirmPayment.beginConfirmPayment(accountType, paymentId, token, orderId);
 	}
 
 	public static Payment2__c createPayment(REST_BeginPaymentParams params) {
@@ -424,11 +428,15 @@ public class Payments2ServiceImpl implements IPayments2Service{
 		}
 
 		if (String.isNotBlank(params.organizationCode )) {
-			payment.Organization_Name__c = params.organizationCode ;
+			payment.Fulfillment_Post_Org_Code__c = params.organizationCode ;
 		}
 
 		if (String.isNotBlank(params.originatingOffice )) {
 			payment.Fulfillment_Post_Acronym__c = params.originatingOffice;
+		}
+
+		if (String.isNotBlank(params.receiptEmailAddresses )) {
+			payment.Receipt_Email_Address__c = params.receiptEmailAddresses;
 		}
 
 		if (String.isNotBlank(params.orderId)) {

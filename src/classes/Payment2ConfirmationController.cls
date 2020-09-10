@@ -33,7 +33,7 @@ public without sharing class Payment2ConfirmationController {
 			return;
 		}
 
-		String response = REST_ConfirmPayment.doPost(acctType, paymentId, token, orderId);
+		String response = REST_ConfirmPayment.beginConfirmPayment(acctType, paymentId, token, orderId);
 		if (response != null) {
 			Map<String, Object> responseMap = (Map<String, Object>)JSON.deserializeUntyped(response);
 			if (responseMap != null && ! responseMap.isEmpty()) {
@@ -55,7 +55,7 @@ public without sharing class Payment2ConfirmationController {
 	}
 
 	private Boolean hasData() {
-		if (String.isBlank(acctType) || String.isBlank(paymentId) || String.isBlank(token) || String.isBlank(orderId)) {
+		if (String.isBlank(acctType) || String.isBlank(paymentId) || String.isBlank(token)) {
 			return false;
 		}
 		return true;

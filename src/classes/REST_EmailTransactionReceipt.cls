@@ -11,8 +11,18 @@ global without sharing class REST_EmailTransactionReceipt {
 	 * @param recordId A Payment2 record Id or an Order record Id.
 	 */
 	@HttpPost
-	global static String doPost(String recipientEmails, String recordId) {
+	global static void doPost(String recipientEmails, String recordId) {
+		emailReceipt(recipientEmails, recordId);
+	}
 
+	/**
+	 * For internal Salesforce callers.  See doPost() for parameter details.
+	 *
+	 * @param recipientEmails A comma-separated list of email addresses.
+	 * @param recordId A Payment2 record Id or an Order record Id.
+	 *
+	 */
+	public static String emailReceipt(String recipientEmails, String recordId) {
 		try {
 			String objectName;
 			Payment2__c payment;
@@ -43,8 +53,7 @@ global without sharing class REST_EmailTransactionReceipt {
 			List<String> emailList = recipientEmails.split(',');
 
 			//Send the payment receipt
-			//UserId isn't used on any payment receipt, but is required for sending email
-			emailResult = sendEmail(emailList, payment, UserInfo.getUserId(), recipientEmails);
+			emailResult = sendEmail(emailList, payment, recipientEmails);
 			jsonReturnValue = JSON.serialize(emailResult);
 			setResponse(jsonReturnValue);
 			return jsonReturnValue;
@@ -201,7 +210,7 @@ global without sharing class REST_EmailTransactionReceipt {
 	 *
 	 * @return The EmailResult class.
 	 */
-	private static EmailResult sendEmail(List<String> emailList, Payment2__c payment, String currentUserId, String recipientEmails) {
+	private static EmailResult sendEmail(List<String> emailList, Payment2__c payment, String recipientEmails) {
 
 		EmailResult emailResult = new EmailResult();
 		String templateApiName;
@@ -228,7 +237,10 @@ global without sharing class REST_EmailTransactionReceipt {
 		}
 
 		try {
-			EmailUtils.sendTemplatedEmail(emailList, null, templateApiName, currentUserId, true, payment.Id, orgWideEmailId, false, null);
+			//Get a dummy user Id.  When called from outside Salesforce, there is no userId.
+			//The userId isn't used for the email, but it's required.
+			List<User> users = UsersSelector.newInstance().selectByName(new Set<String> {'Integration Account'});
+			EmailUtils.sendTemplatedEmail(emailList, null, templateApiName, users[0].Id, false, payment.Id, orgWideEmailId, false, null);
 			emailResult.receiptSent = true;
 
 			//Update the Payment Record to show who and when the receipt was sent to

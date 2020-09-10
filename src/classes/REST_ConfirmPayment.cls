@@ -15,7 +15,11 @@ global without sharing class REST_ConfirmPayment {
 	 * @param orderId The Id of the Order being paid for.
 	 */
 	@HttpPost
-	global static String doPost(String accountType, String paymentId, String token, String orderId) {
+	global static void doPost(String accountType, String paymentId, String token, String orderId) {
+		beginConfirmPayment(accountType, paymentId, token, orderId);
+	}
+
+	public static String beginConfirmPayment(String accountType, String paymentId, String token, String orderId) {
 
 		String jsonReturnValue;  //Return value for calls made internally to this method
 

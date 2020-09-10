@@ -39,13 +39,13 @@ global class REST_BeginPaymentParams {
 	global String billingStateCode;
 	global String billingZip;
 	global String billingCountryCode;
-	global String taskCode = '000';
-	global String objectClass = '05-20-00-00';
+	global String taskCode;
+	global String objectClass;
 	global String organizationCode;
 	global String originatingOffice;
 	global String receiptEmailAddresses;
-	global Boolean receiptAllowed = true;
+	global Boolean receiptAllowed;
 	global String invoiceDate;
 	global String invoiceId;
-	global Boolean internalCaller = false;
+	global Boolean internalCaller;
 }

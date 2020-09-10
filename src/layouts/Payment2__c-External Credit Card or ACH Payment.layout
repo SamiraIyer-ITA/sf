@@ -119,7 +119,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Collection_Post_Acronym__c</field>
+                <field>Fulfillment_Post_Acronym__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

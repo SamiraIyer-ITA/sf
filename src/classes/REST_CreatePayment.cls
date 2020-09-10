@@ -34,10 +34,10 @@ global without sharing class REST_CreatePayment {
 	 * invoiceId: String.  Optional.  A string value that an external Salesforce payment may want displayed on the receipt.
 	 * internalCaller Whether the caller of the service is internal (from within Salesforce) or not.
 	 *
-	 * @return A JSON String containing payment details or an error.
+	 * @return A JSON String containing payment details or an error in the Rest Response Body.
 	 */
 	@HttpPost
-	global static String doPost(REST_BeginPaymentParams params) {
+	global static void doPost(REST_BeginPaymentParams params) {
 
 		String jsonReturnValue;  //Return value for calls made internally to this method
 		Payment2__c payment;
@@ -51,13 +51,11 @@ global without sharing class REST_CreatePayment {
 			 */
 			jsonReturnValue = Payments2Service.getPaymentProcessorData(payment.Id, params);
 			setResponse(jsonReturnValue);  //paymentDetails is already serialized
-			return jsonReturnValue;
 		} catch (Exception e) {
 			PaymentAuthenticationDetails details = new PaymentAuthenticationDetails();
 			details.error = e.getMessage();
 			jsonReturnValue = JSON.serialize(details);
 			setResponse(jsonReturnValue);
-			return jsonReturnValue;
 		}
 	}
 
