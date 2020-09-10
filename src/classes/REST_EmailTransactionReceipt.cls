@@ -1,6 +1,9 @@
 @RestResource(urlMapping='/EmailReceipt/*')
 global without sharing class REST_EmailTransactionReceipt {
 
+	private static String jsonReturnValue;
+	private static EmailResult emailResult = new EmailResult();
+
 	/**
 	 * Email a receipt for a payment or refund.
 	 *
@@ -11,8 +14,6 @@ global without sharing class REST_EmailTransactionReceipt {
 	@HttpPost
 	global static String doPost(String recipientEmails, String recordId, String currentUserId) {
 
-		String jsonReturnValue;
-		EmailResult emailResult = new EmailResult();
 		try {
 			String objectName;
 			Payment2__c payment;
@@ -22,37 +23,34 @@ global without sharing class REST_EmailTransactionReceipt {
 
 				//Get the Payment record
 				payment = getPaymentRecord(recordId, objectName);
-			}
 
-			//If the Receipt is not yet ready, don't send it
-			if (! payment.Receipt_Ready__c) {
-				emailResult.errorMessage = 'Receipt does not yet have fields necessary to send the receipt.';
-				jsonReturnValue = JSON.serialize(emailResult);
-				setResponse(jsonReturnValue);
-				return jsonReturnValue;
+				//If the receipt shouldn't be sent, don't send it
+				if (! receiptCanBeSent(payment)) {
+					return getReturnValue('This receipt should not be sent to the client.');
+				}
+
+				//If the Receipt is not yet ready, don't send it
+				if (! receiptReady(payment)) {
+					return getReturnValue('Receipt does not yet have fields necessary to send the receipt.');
+				}
 			}
 
 			RequiredFields requiredFields = checkRequiredFields(recipientEmails, recordId, objectName, payment);
 			if (requiredFields != null) {
-				emailResult.errorMessage = requiredFields.errorMessage;
-				jsonReturnValue = JSON.serialize(emailResult);
-				setResponse(jsonReturnValue);
-				return jsonReturnValue;
+				return getReturnValue(requiredFields.errorMessage);
 			}
 
 			//Get the list of email addresses
 			List<String> emailList = recipientEmails.split(',');
 
-			//Send the email
+			//Send the payment receipt
 			emailResult = sendEmail(emailList, payment, currentUserId, recipientEmails);
 			jsonReturnValue = JSON.serialize(emailResult);
 			setResponse(jsonReturnValue);
+			return jsonReturnValue;
 		} catch (Exception e) {
-			emailResult.errorMessage = e.getMessage();
-			jsonReturnValue = JSON.serialize(emailResult);
-			setResponse(jsonReturnValue);
+			return getReturnValue(e.getMessage());
 		}
-		return jsonReturnValue;
 	}
 
 	/**
@@ -84,7 +82,7 @@ global without sharing class REST_EmailTransactionReceipt {
 	 */
 	private static RequiredFields checkRequiredFields(String recipientEmails, String recordId, String objectName, Payment2__c payment) {
 
-		//Creat a list of fields that are required
+		//Create a list of fields that are required
 		Map<String, Object> requiredFieldMap = new Map<String, Object>();  //Map of field name and field value
 		requiredFieldMap.put('recipientEmails', recipientEmails);
 		requiredFieldMap.put('recordId', recordId);
@@ -105,18 +103,47 @@ global without sharing class REST_EmailTransactionReceipt {
 			return requiredFields;
 		}
 
-		//Check that the payment is ready to have its receipt sent
-		if (payment.Receipt_Ready__c != true) {
-			//Throw error.  Payment record doesn't yet have all the information it needs for the receipt
-			requiredFields = new RequiredFields();
-			requiredFields.hasRequiredFields = false;
-			requiredFields.errorMessage = 'Receipt cannot be sent.  The payment record doesn\'t yet have all the information it needs for the receipt.';
-			return requiredFields;
-		}
-
 		//Whether the email addresses are valid will be checked when the email is sent
 
 		return null;
+	}
+
+	/**
+	 * @param errorMessage The error message to return.
+	 *
+	 * @return A JSON string value to be returned to the caller.
+	 */
+	private static String getReturnValue(String errorMessage) {
+		emailResult.errorMessage = errorMessage;
+		jsonReturnValue = JSON.serialize(emailResult);
+		setResponse(jsonReturnValue);
+		return jsonReturnValue;
+	}
+
+	/**
+	 * @param payment A Payment2__c record.
+	 *
+	 * @return A Boolean of whether the payment receipt has all fields necessary to populate a receipt.
+	 */
+	private static Boolean receiptReady(Payment2__c payment) {
+		//Check that the payment is ready to have its receipt sent
+		if (! payment.Receipt_Ready__c) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * @param payment A Payment2__c record.
+	 *
+	 * @return A Boolean of whether the payment receipt has all fields necessary to populate a receipt.
+	 */
+	private static Boolean receiptCanBeSent(Payment2__c payment) {
+		//Check that the receipt should be sent to the client
+		if (! payment.Receipt_Allowed__c) {
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -132,7 +159,7 @@ global without sharing class REST_EmailTransactionReceipt {
 			if (String.isBlank(fieldValue.toString())) {
 				RequiredFields requiredFields = new RequiredFields();
 				requiredFields.hasRequiredFields = false;
-				requiredFields.errorMessage = 'Required field is missing: ' + fieldName + '.';
+				requiredFields.errorMessage = '{"error": "Required field is missing: ' + fieldName + '."}';
 				return requiredFields;
 			}
 		}
@@ -161,8 +188,7 @@ global without sharing class REST_EmailTransactionReceipt {
 		}
 
 		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id>{paymentId});
-		return payments[0];
-
+		return (payments.isEmpty() ? null : payments[0]);
 	}
 
 	/**

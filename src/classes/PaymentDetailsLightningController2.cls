@@ -15,7 +15,7 @@ public with sharing class PaymentDetailsLightningController2 {
 
 				if (payment.RecordTypeId == rtMap.get('Credit_Card_or_ACH_Payment')) {
 					if (payment.Payment_Type__c == 'PLASTIC_CARD' || payment.Payment_Type__c == 'ACH') {
-						String remoteAccountName = Payment2.getRemoteAccountName(payment.Account_Type__c);
+						String remoteAccountName = Payment2Utils.getRemoteAccountName(payment.Account_Type__c);
 						String paymentDetailsMetaName = 'PaymentDetailsFor' + payment.Payment_Processor__c;
 						IPaymentDetails paymentDetails = (IPaymentDetails) di_Injector.Org.getInstance(paymentDetailsMetaName);
 						return paymentDetails.getPaymentDetails(payment.Name, remoteAccountName, payment.Remote_Tracking_Id__c);

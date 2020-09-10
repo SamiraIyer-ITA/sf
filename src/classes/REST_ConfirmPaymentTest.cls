@@ -18,22 +18,23 @@ private class REST_ConfirmPaymentTest {
         PricebookEntry standardPbe = TestUtils.createPricebookEntry(standardPbId, product2.Id, true);
         PricebookEntry pbe = TestUtils.createPricebookEntry(pricebook.Id, product2.Id, true);
         Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
-
-        Contract contract = TestUtils.createContract(true, account.Id);
-        contract.Name = 'Contract Test X';
-        contract.Status = 'Activated';
-        update contract;
+		Contract contract = TestUtils.createContract(false, account.Id);
+		contract.Name = 'Contract Test X';
 
         opp.Pricebook2Id = pricebook.Id;
         update opp;
 
-        Quote quote1 = TestUtils.createQuote(true, opp.Id, pricebook.Id,'Test Quote');
+		insert contract;
+		contract.Status = 'Activated';
+		update contract;
 
-        //Insert a Payment record for Order 1 and Order 2
-        QuoteLineItem quoteLineItem1 = TestUtils.createQuoteLineItem(true, product2.Id, quote1.Id, pbe.Id);
-        quoteLineItem1.Quantity = 2;
-        quoteLineItem1.UnitPrice = 2400.00;
-        update quoteLineItem1;
+		Quote quote1 = TestUtils.createQuote(true, opp.Id, pricebook.Id, 'Test Quote');
+
+		//Insert a Payment record for Order 1 and Order 2
+		QuoteLineItem quoteLineItem1 = TestUtils.createQuoteLineItem(false, product2.Id, quote1.Id, pbe.Id);
+		quoteLineItem1.Quantity = 2;
+		quoteLineItem1.UnitPrice = 2400.00;
+		insert quoteLineItem1;
 
         List<Order> orders = new List<Order>();
         Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
@@ -54,40 +55,41 @@ private class REST_ConfirmPaymentTest {
         orders.add(order2);
         update orders;
 
-        OrderItem orderItem1 = TestUtils.createStandardOrderItem(true, order1.id, pbe.id);
-        orderItem1.Quantity = 2;
-        orderItem1.UnitPrice = 2400;
-        orderItem1.QuoteLineItemId = quoteLineItem1.Id;
-        update orderItem1;
+		OrderItem orderItem1 = TestUtils.createStandardOrderItem(false, order1.Id, pbe.Id);
+		orderItem1.Quantity = 2;
+		orderItem1.UnitPrice = 2400;
+		orderItem1.Product2id = product2.Id;
+		orderItem1.QuoteLineItemId = quoteLineItem1.Id;
+		insert orderItem1;
 
-        OrderItem orderItem2 = TestUtils.createStandardOrderItem(true, order2.id, pbe.id);
-        orderItem2.Quantity = 2;
-        orderItem2.UnitPrice = 2400;
-        orderItem2.QuoteLineItemId = quoteLineItem1.Id;
-        update orderItem2;
+		OrderItem orderItem2 = TestUtils.createStandardOrderItem(false, order2.Id, pbe.Id);
+		orderItem2.Quantity = 2;
+		orderItem2.UnitPrice = 2400;
+		orderItem2.Product2id = product2.Id;
+		orderItem2.QuoteLineItemId = quoteLineItem1.Id;
+		insert orderItem2;
 
-        //Insert a Payment record for Order 1
-        string recordType = 'Credit_Card_or_ACH_Payment';
-        Payment2__c payment1 = TestUtils.createPayment2(true, recordType);
+		//Insert a Payment record for Order 1
+		Payment2__c payment1 = TestUtils.createPayment2(false, 'Credit_Card_or_ACH_Payment');
         payment1.Account_Type__c = 'Services';
         payment1.Payment_Processor__c = 'Paygov';
         payment1.Transaction_Status__c = 'Success';
         payment1.Transaction_Amount__c = 4800.00;
         payment1.Payment_Type__c = 'PLASTIC_CARD';
-        update payment1;
+		insert payment1;
 
         order1.Payment2__c = payment1.Id;
         order1.Order_Paid__c = true;
         update order1;
 
         //Insert a Credit Card payment that is unrelated to the orders or the contract
-        Payment2__c payment2 = TestUtils.createPayment2(true, recordType);
+		Payment2__c payment2 = TestUtils.createPayment2(false, 'Credit_Card_or_ACH_Payment');
         payment2.Account_Type__c = 'Services';
         payment2.Payment_Processor__c = 'Pay.gov';
         payment2.Transaction_Status__c = 'Success';
         payment2.Transaction_Amount__c = 15.00;
         payment2.Payment_Type__c = 'PLASTIC_CARD';
-        update payment2;
+		insert payment2;
     }
 
     @isTest static void testConfirmPaymentCallout_Success() {
@@ -96,17 +98,16 @@ private class REST_ConfirmPaymentTest {
 
         List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
         REST_BeginPaymentParams params = new REST_BeginPaymentParams();
-        Collection_Fulfillment__c cp = TestUtils.createCollectionFulfillment(true, '56789', '12345' );
-        Collection_Fulfillment__c fp = TestUtils.createCollectionFulfillment(true, '67890', '23456' );
-        List<Collection_Fulfillment__c> cfList = new List<Collection_Fulfillment__c>{cp,fp};
+
+		Collection_Fulfillment__c cp = new Collection_Fulfillment__c(Post__c='56789',Org_Code__c='12345');
+		Collection_Fulfillment__c fp = new Collection_Fulfillment__c(Post__c='67890',Org_Code__c='23456');
+		List<Collection_Fulfillment__c> cfList = new List<Collection_Fulfillment__c>{cp,fp};
+		insert cfList;
         params.projectCode = '9999ABC';
         params.accountType = 'Services';
         params.accountHolderName = 'Jeff';
         params.transactionAmount = '100.00';
-        params.collectionPost = cp.Id;
-        params.fulfillmentPost = fp.Id;
-        params.organizationName = 'Jorg Industries';
-        params.userId = UserInfo.getUserId();
+		params.organizationName = 'Jorg Industries';
         params.billingAddress = '311 Jorg Street';
         params.billingCity = 'Beverly Hills';
         params.billingStateCode = 'CA';
@@ -124,20 +125,11 @@ private class REST_ConfirmPaymentTest {
         RestContext.request = req;
         RestContext.response = res;
 
-        List<Payment2__c> payments2 = [select name,id from Payment2__c];
-        List<ORDER> orders2 = [select name,id from Order];
+		List<Payment2__c> payments2 = [SELECT Name, Id FROM Payment2__c];
+		List<ORDER> orders2 = [SELECT Name, Id FROM Order];
 
-        //REST_BeginPayment.doPost(params);
-        try {
-            // doPost doesnt return anything at the moment but it will at some time in the future
-            REST_ConfirmPayment.doPost('Services', String.valueOf(payments2[0].Id), 'TOKEN', String.valueOf(orders2[0].Id));
-            system.assert(true);
-        }
-        catch (Exception ex){
-            System.assert(false, 'REST_ConfirmPayment.doPost caused an exception and should not have');
-            System.debug(ex.getStackTraceString());
-
-        }
+		//REST_BeginPayment.doPost(params);
+		REST_ConfirmPayment.doPost('Services',String.valueOf(payments2[0].Id),'TOKEN',String.valueOf(orders2[0].Id));
     }
 
     @IsTest
@@ -148,18 +140,15 @@ private class REST_ConfirmPaymentTest {
         List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
         REST_BeginPaymentParams params = new REST_BeginPaymentParams();
 
-        Collection_Fulfillment__c cp = TestUtils.createCollectionFulfillment(true, '56789','12345');
-        Collection_Fulfillment__c fp = TestUtils.createCollectionFulfillment(true, '67890','23456');
-        List<Collection_Fulfillment__c> cfList = new List<Collection_Fulfillment__c>{cp,fp};
-
+		Collection_Fulfillment__c cp = new Collection_Fulfillment__c(Post__c='56789',Org_Code__c='12345');
+		Collection_Fulfillment__c fp = new Collection_Fulfillment__c(Post__c='67890',Org_Code__c='23456');
+		List<Collection_Fulfillment__c> cfList = new List<Collection_Fulfillment__c>{cp,fp};
+		insert cfList;
         params.projectCode = '9999ABC';
         params.accountType = 'Services';
         params.accountHolderName = 'Jeff';
         params.transactionAmount = '100.00';
-        params.collectionPost = cp.Id;
-        params.fulfillmentPost = fp.Id;
-        params.organizationName = 'Jorg Industries';
-        params.userId = UserInfo.getUserId();
+		params.organizationName = 'Jorg Industries';
         params.billingAddress = '311 Jorg Street';
         params.billingCity = 'Beverly Hills';
         params.billingStateCode = 'CA';
@@ -176,17 +165,9 @@ private class REST_ConfirmPaymentTest {
         RestContext.request = req;
         RestContext.response = res;
 
-        List<Payment2__c> payments2 = [select name,id from Payment2__c];
-        List<ORDER> orders2 = [select name,id from Order];
+		List<Payment2__c> payments2 = [SELECT Name, Id FROM Payment2__c];
+		List<ORDER> orders2 = [SELECT Name, Id FROM Order];
 
-        try {
-            // doPost doesnt return anything at the moment but it will at some time in the future
-            REST_ConfirmPayment.doPost('Services',null,'TOKEN',null);
-            system.assert(true);
-        }
-        catch (Exception ex){
-            System.assert(false, 'REST_ConfirmPayment.doPost caused an exception and should not have');
-            System.debug(ex.getStackTraceString());
-        }
+		REST_ConfirmPayment.doPost('Services',null,'TOKEN',null);
     }
 }

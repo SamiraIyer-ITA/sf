@@ -18,7 +18,7 @@ private class REST_CreatePaymentTest {
         PricebookEntry standardPbe = TestUtils.createPricebookEntry(standardPbId, product2.Id, true);
         PricebookEntry pbe = TestUtils.createPricebookEntry(pricebook.Id, product2.Id, true);
         Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
-        Contract contract = new Contract();
+		Contract contract = TestUtils.createContract(false, account.Id);
         contract.Name = 'Contract Test X';
 
         opp.Pricebook2Id = pricebook.Id;
@@ -26,20 +26,13 @@ private class REST_CreatePaymentTest {
 
         contract.AccountId = account.Id;
         insert contract;
-        system.debug('in setup contract.id is ==> ' + contract.Id);
-        contract.Status = 'Activated';
-        update contract;
+		contract.Status = 'Activated';
+		update contract;
 
-        Quote quote1 = new Quote();
-        quote1.OpportunityId = opp.Id;
-        quote1.Name = 'Test Quote';
-        insert quote1;
+		Quote quote1 = TestUtils.createQuote(true, opp.Id, pricebook.Id, 'Test Quote');
 
-        //Insert a Payment record for Order 1 and Order 2
-        QuoteLineItem quoteLineItem1 = new QuoteLineItem();
-        quoteLineItem1.Product2Id = product2.Id;
-        quoteLineItem1.QuoteId = quote1.Id;
-        quoteLineItem1.PricebookEntryId = pbe.Id;
+		//Insert a Payment record for Order 1 and Order 2
+		QuoteLineItem quoteLineItem1 = TestUtils.createQuoteLineItem(false, product2.Id, quote1.Id, pbe.Id);
         quoteLineItem1.Quantity = 2;
         quoteLineItem1.UnitPrice = 2400.00;
         insert quoteLineItem1;
@@ -63,28 +56,23 @@ private class REST_CreatePaymentTest {
         orders.add(order2);
         update orders;
 
-        OrderItem orderItem1 = new OrderItem();
-        orderItem1.OrderId = order1.id;
-        orderItem1.Quantity = 2;
-        orderItem1.UnitPrice = 2400;
-        orderItem1.Product2id = product2.id;
-        orderItem1.PricebookEntryId=pbe.id;
-        orderItem1.QuoteLineItemId = quoteLineItem1.Id;
-        insert orderItem1;
+		OrderItem orderItem1 = TestUtils.createStandardOrderItem(false, order1.Id, pbe.Id);
+		orderItem1.Quantity = 2;
+		orderItem1.UnitPrice = 2400;
+		orderItem1.Product2id = product2.id;
+		orderItem1.QuoteLineItemId = quoteLineItem1.Id;
+		insert orderItem1;
 
-        OrderItem orderItem2 = new OrderItem();
-        orderItem2.OrderId = order2.id;
-        orderItem2.Quantity = 2;
-        orderItem2.UnitPrice = 2400;
-        orderItem2.Product2id = product2.id;
-        orderItem2.PricebookEntryId=pbe.id;
+		OrderItem orderItem2 = TestUtils.createStandardOrderItem(false, order2.Id, pbe.Id);
+		orderItem2.Quantity = 2;
+		orderItem2.UnitPrice = 2400;
+		orderItem2.Product2id = product2.id;
         orderItem2.QuoteLineItemId = quoteLineItem1.Id;
         insert orderItem2;
 
         //Insert a Payment record for Order 1
-        Payment2__c payment1 = new Payment2__c();
-        payment1.Account_Type__c = 'Services';
-        payment1.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
+		Payment2__c payment1 = TestUtils.createPayment2(false, 'Credit_Card_or_ACH_Payment');
+		payment1.Account_Type__c = 'Services';
         payment1.Payment_Processor__c = 'Paygov';
         payment1.Transaction_Status__c = 'Success';
         payment1.Transaction_Amount__c = 4800.00;
@@ -96,9 +84,8 @@ private class REST_CreatePaymentTest {
         update order1;
 
         //Insert a Credit Card payment that is unrelated to the orders or the contract
-        Payment2__c payment2 = new Payment2__c();
-        payment2.Account_Type__c = 'Services';
-        payment2.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
+		Payment2__c payment2 = TestUtils.createPayment2(false, 'Credit_Card_or_ACH_Payment');
+		payment2.Account_Type__c = 'Services';
         payment2.Payment_Processor__c = 'Pay.gov';
         payment2.Transaction_Status__c = 'Success';
         payment2.Transaction_Amount__c = 15.00;
@@ -121,10 +108,7 @@ private class REST_CreatePaymentTest {
         params.accountType = 'Services';
         params.accountHolderName = 'Jeff';
         params.transactionAmount = '100.00';
-        params.collectionPost = cp.Id;
-        params.fulfillmentPost = fp.Id;
-        params.organizationName = 'Jorg Industries';
-        params.userId = UserInfo.getUserId();
+		params.organizationName = 'Jorg Industries';
         params.billingAddress = '311 Jorg Street';
         params.billingCity = 'Beverly Hills';
         params.billingStateCode = 'CA';
@@ -161,10 +145,7 @@ private class REST_CreatePaymentTest {
         params.accountType = 'Services';
         params.accountHolderName = 'Jeff';
         params.transactionAmount = '100.00';
-        params.collectionPost = cp.Id;
-        params.fulfillmentPost = fp.Id;
-        params.organizationName = 'Jorg Industries';
-        params.userId = UserInfo.getUserId();
+		params.organizationName = 'Jorg Industries';
         params.billingAddress = '311 Jorg Street';
         params.billingCity = 'Beverly Hills';
         params.billingStateCode = 'CA';
@@ -200,8 +181,6 @@ private class REST_CreatePaymentTest {
         params.accountType = 'Services';
         params.accountHolderName = 'Jeff';
         params.transactionAmount = '100.00';
-        params.collectionPost = cp.Id;
-        params.fulfillmentPost = fp.Id;
 
         params.failurePage = 'https://www.test.com/failure';
         params.confirmationPage = 'https://www.test.com/confirmation';

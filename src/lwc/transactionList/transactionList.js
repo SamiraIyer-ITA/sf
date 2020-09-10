@@ -1,6 +1,6 @@
 import {LightningElement, track} from 'lwc';
 import {reduceErrors} from 'c/ldsUtils';
-import getTransactions from '@salesforce/apex/Payment2.getTransactions';
+import getTransactions from '@salesforce/apex/Payments2Service.getTransactions';
 import LWCStyles from '@salesforce/resourceUrl/LWCStyles';
 import {loadStyle} from 'lightning/platformResourceLoader';
 import {createMessageContext,releaseMessageContext, subscribe, APPLICATION_SCOPE} from 'lightning/messageService';

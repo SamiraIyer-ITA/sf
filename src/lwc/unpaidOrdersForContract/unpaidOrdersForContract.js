@@ -1,5 +1,5 @@
 import {LightningElement, track, api} from 'lwc';
-import getOrdersByContractId from '@salesforce/apex/Payment2.getOrdersByContractId';
+import getOrdersByContractId from '@salesforce/apex/Payments2Service.getOrdersByContractId';
 import {FlowAttributeChangeEvent} from 'lightning/flowSupport';
 import {reduceErrors} from 'c/ldsUtils';
 

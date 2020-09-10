@@ -20,7 +20,7 @@ global without sharing class REST_ConfirmPayment {
 		String jsonReturnValue;  //Return value for calls made internally to this method
 
 		try {
-			jsonReturnValue =  Payment2.confirmPayment(accountType, paymentId, token, orderId);
+			jsonReturnValue =  confirmPayment(accountType, paymentId, token, orderId);
 			setResponse(jsonReturnValue);  //Response is already serialized
 			return jsonReturnValue;
 		} catch (Exception e) {
@@ -35,6 +35,16 @@ global without sharing class REST_ConfirmPayment {
 			RestContext.response.addHeader('Content-Type', 'application/json');
 			RestContext.response.responseBody = Blob.valueOf(responseString);
 		}
+	}
+
+	private static String confirmPayment(String accountType, String paymentId, String token, String orderId) {
+		//Handle exceptions in the calling method
+		IPayment payment = (IPayment) di_Injector.Org.getInstance('PaymentProcessor');
+		String remoteAccountName = Payment2Utils.getRemoteAccountName(accountType);
+		if (String.isBlank(remoteAccountName)) {
+			throw new Payment2Utils.PaymentException('Unknown remote account name.');
+		}
+		return payment.confirmPayment(remoteAccountName, paymentId, token, accountType, orderId);
 	}
 
 }

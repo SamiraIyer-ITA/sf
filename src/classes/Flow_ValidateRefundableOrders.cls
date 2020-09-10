@@ -1,36 +1,63 @@
 global without sharing class Flow_ValidateRefundableOrders {
 
+	private static List<Order> passedInOrders;
+	private static Map<Id, RefundData> refundDataMap;
+	private static ResponseVariables responseVariables = new ResponseVariables();
+	private static List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
+
 	@InvocableMethod(label='Validate that Orders are Refundable.' description='Validate that Orders are Refundable.' category='Payments')
-	global static List<ResponseVariables> validateRefundableOrders(List<RequestVariables> inputs){
+	global static List<ResponseVariables> validateRefundableOrders(List<RequestVariables> inputs) {
 
-		ResponseVariables responseVariables = new ResponseVariables();
-		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
-
-		if (inputs.isEmpty()) {
-			responseVariables.isValid = false;
-			responseVariables.invalidReasons = '<li>Nothing to validate.</li>';
-			responseVariablesList.add(responseVariables);
+		if (! validateInputs(inputs)) {
 			return responseVariablesList;
 		}
 
 		try {
-			List<Order> passedInOrders = inputs[0].orders;
+			populateVariables(inputs);
 
+			if (! validateOrders()) {
+				return responseVariablesList;
+			}
+
+			List<Order> orders = retrievePassedInOrderPaymentInfo();
+
+			if (passedInOrders.size() != orders.size()) {
+				return returnInvalidOrderPayments();
+			}
+
+			return determineResponse(orders);
+
+		} catch(Exception e) {
+			throw new ValidateRefundableOrdersActionException(e.getMessage());
+		}
+	}
+
+	private static Boolean validateInputs(List<RequestVariables> inputs) {
+		if (inputs.isEmpty()) {
+			responseVariables.isValid = false;
+			responseVariables.invalidReasons = '<li>Nothing to validate.</li>';
+			responseVariablesList.add(responseVariables);
+			return false;
+		}
+		return true;
+	}
+
+	private static Boolean validateOrders() {
 			if (passedInOrders.isEmpty()) {
 				responseVariables.isValid = false;
 				responseVariables.invalidReasons = '<li>No orders to validate.</li>';
 				responseVariablesList.add(responseVariables);
-				return responseVariablesList;
-			}
+			return false;
+		}
+		return true;
+	}
 
-			Map<Id, RefundData> refundDataMap = structureRefundInputs(inputs, passedInOrders);
+	private static void populateVariables(List<RequestVariables> inputs) {
+		passedInOrders = inputs[0].orders;
+		refundDataMap = structureRefundInputs(inputs);
+	}
 
-			List<Order> orders = retrievePassedInOrderPaymentInfo(passedInOrders);
-
-			if (passedInOrders.size() != orders.size()) {
-				return returnInvalidOrderPayments(responseVariablesList,passedInOrders,responseVariables);
-			}
-
+	private static List<ResponseVariables> determineResponse(List<Order> orders) {
 			//Determine the account type.  All orders need to be the same Type.
 			String accountType = orders[0].Type;
 
@@ -64,14 +91,10 @@ global without sharing class Flow_ValidateRefundableOrders {
 				}
 			}
 
-			return setResponseVariables(responseVariablesList, responseVariables, caseDescription, accountType, errorList, totalAmount);
-
-		} catch(Exception e) {
-			throw new ValidateRefundableOrdersActionException(e.getMessage());
-		}
+		return setResponseVariables(caseDescription, accountType, errorList, totalAmount);
 	}
 
-	private static Map<Id, RefundData> structureRefundInputs (List<RequestVariables> inputs, List<Order> passedInOrders) {
+	private static Map<Id, RefundData> structureRefundInputs (List<RequestVariables> inputs) {
 		/*Create a Map of passedInOrder Ids and refund amounts, refund reasons and refund explanations.
 		The map will be used to create a Case Description.
 		A Case Description may be needed to create a Case for NIST.*/
@@ -91,7 +114,7 @@ global without sharing class Flow_ValidateRefundableOrders {
 		return refundDataMap;
 	}
 
-	private static List<Order> retrievePassedInOrderPaymentInfo (List<Order> passedInOrders) {
+	private static List<Order> retrievePassedInOrderPaymentInfo() {
 		//The passed-in orders don't have any payment information, so query for it
 		Set<Id> orderIds = new Set<Id>();
 		for (Order order: passedInOrders) {
@@ -100,7 +123,7 @@ global without sharing class Flow_ValidateRefundableOrders {
 		return OrdersSelector.newInstance().selectByPaidNonPaidOnly(orderIds, false, true);
 	}
 
-	private static List<ResponseVariables> returnInvalidOrderPayments(List<ResponseVariables> responseVariablesList, List<Order> passedInOrders, ResponseVariables responseVariables) {
+	private static List<ResponseVariables> returnInvalidOrderPayments() {
 		//The passed-in orders must not have been already paid
 		List<String> errorList = new List<String>();
 		for (Order order: passedInOrders) {
@@ -134,8 +157,7 @@ global without sharing class Flow_ValidateRefundableOrders {
 		return errorList;
 	}
 
-	private static List<ResponseVariables> setResponseVariables(List<ResponseVariables> responseVariablesList, ResponseVariables responseVariables,
-																					String caseDescription, String accountType, List<String> errorList, Decimal totalAmount) {
+	private static List<ResponseVariables> setResponseVariables(String caseDescription, String accountType, List<String> errorList, Decimal totalAmount) {
 		responseVariables.totalAmount = totalAmount;
 		if (! errorList.isEmpty()) {
 			responseVariables.isValid = false;

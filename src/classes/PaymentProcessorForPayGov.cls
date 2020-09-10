@@ -2,7 +2,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 
 	public static final String METADATA_SETTINGS_NAME = 'PayGov';
 
-	public String authorizePayment(Payment2.PaymentAuthenticationDetails authenticationDetails) {
+	public String authorizePayment(PaymentAuthenticationDetails authenticationDetails) {
 		RecordLog.push('Payment.authorizePayment');
 		RecordLog.message('Remote Account Name: ' + authenticationDetails.remoteAccountName);
 
@@ -23,21 +23,21 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		//POPULATE OPTIONAL ELEMENTS
 
 		//80 char limit
-		startOnlineCollectionRequest.account_holder_name = Payment2.userElementFormat(authenticationDetails.accountHolderName, 80);
+		startOnlineCollectionRequest.account_holder_name = Payment2Utils.userElementFormat(authenticationDetails.accountHolderName, 80);
 		//80 char limit
-		startOnlineCollectionRequest.billing_address = Payment2.userElementFormat(authenticationDetails.billingAddress, 80);
+		startOnlineCollectionRequest.billing_address = Payment2Utils.userElementFormat(authenticationDetails.billingAddress, 80);
 		//80 char limit
-		startOnlineCollectionRequest.billing_address2 = Payment2.userElementFormat(authenticationDetails.billingAddress2, 80);
+		startOnlineCollectionRequest.billing_address2 = Payment2Utils.userElementFormat(authenticationDetails.billingAddress2, 80);
 		//40 char limit
-		startOnlineCollectionRequest.billing_city = Payment2.userElementFormat(authenticationDetails.billingCity, 40);
+		startOnlineCollectionRequest.billing_city = Payment2Utils.userElementFormat(authenticationDetails.billingCity, 40);
 		//2 char limit
-		startOnlineCollectionRequest.billing_state = Payment2.userElementFormat(authenticationDetails.billingStateCode, 2);
+		startOnlineCollectionRequest.billing_state = Payment2Utils.userElementFormat(authenticationDetails.billingStateCode, 2);
 		//20 char limit
-		startOnlineCollectionRequest.billing_zip = Payment2.userElementFormat(authenticationDetails.billingZip, 20);
+		startOnlineCollectionRequest.billing_zip = Payment2Utils.userElementFormat(authenticationDetails.billingZip, 20);
 		//3 digit ISO code
-		startOnlineCollectionRequest.billing_country = Payment2.userElementFormat(authenticationDetails.billingCountryCode, 3);
+		startOnlineCollectionRequest.billing_country = Payment2Utils.userElementFormat(authenticationDetails.billingCountryCode, 3);
 		//80 char limit
-		startOnlineCollectionRequest.email_address = Payment2.userElementFormat(authenticationDetails.email, 80);
+		startOnlineCollectionRequest.email_address = Payment2Utils.userElementFormat(authenticationDetails.email, 80);
 
 		//END OPTIONAL ELEMENTS
 
@@ -47,18 +47,18 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		PayGovTCSOnline.CustomCollectionFields customFields = new PayGovTCSOnline.CustomCollectionFields();
 		if (authenticationDetails.accountType.equals('Privacy Shield')) {
 			//Privacy Shield
-			customFields.custom_field_1 = '55:0023:' + Payment2.getCurrentFiscalYear() + ':SAFH232-000:35-05-0001-01-00-00-00:05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
+			customFields.custom_field_1 = '55:0023:' + Payment2Utils.getCurrentFiscalYear() + ':SAFH232-000:35-05-0001-01-00-00-00:05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
 		} else {
 			//Only Privacy Shield uses custom fields, but the first one must be filled in for NIST's system.
 
 			if (String.isBlank(payments[0].Project_Code__c)) {
-				throw new Payment2.PaymentException('Project Code is missing.');
+				throw new Payment2Utils.PaymentException('Project Code is missing.');
 			}
 			List<String> projectCodesForPayment = payments[0].Project_Code__c.split(',');
 			for (String projectCodeForPayment : projectCodesForPayment) {
 				// MGK increment custom_field_X so that each value in the list is a custom field
 				// MGK use int = 1 loop
-				customFields.custom_field_1 = '55:0023:' + Payment2.getCurrentFiscalYear() + ':' + projectCodeForPayment + '-000:' + payments[0].Fulfillment_Post_Org_Code__c + ':05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
+				customFields.custom_field_1 = '55:0023:' + Payment2Utils.getCurrentFiscalYear() + ':' + projectCodeForPayment + '-000:' + payments[0].Fulfillment_Post_Org_Code__c + ':05-20-00-00:' + authenticationDetails.transactionAmount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
 			}
 		}
 
@@ -150,7 +150,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			DateTime transDate = completeOnlineCollectionWithDetailsResponse.transaction_date;
 			RecordLog.message('Original Transaction Date: ' + String.valueOf(transDate));
 			RecordLog.message('Original Transaction Date as GMT: ' + String.valueOfGmt(transDate));
-			DateTime transDateGMT = transDate.addSeconds(Payment2.getTimeZoneOffset());
+			DateTime transDateGMT = transDate.addSeconds(Payment2Utils.getTimeZoneOffset());
 			payments[0].Transaction_Date__c = transDateGMT;  //Datetimes need to be either GMT or have a timezone specified
 			RecordLog.message('Adjusted Transaction Date: ' + String.valueOf(transDateGMT));
 

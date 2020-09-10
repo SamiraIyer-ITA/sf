@@ -36,7 +36,9 @@ public with sharing class EmailUtils {
 		email.setTreatTargetObjectAsRecipient(targetObjectIsRecipient);
 
 		//Exceptions to the line below must be caught by the calling method
-		Messaging.sendEmail(new Messaging.SingleEmailMessage[]{email});
+		if(!Test.isRunningTest()) {
+			Messaging.sendEmail(new Messaging.SingleEmailMessage[]{email});
+		}
 		return;
 	}
 

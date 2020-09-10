@@ -15,7 +15,7 @@ public with sharing class RefundForPayGov implements IRefund {
 		Map<String, Object> paymentSettingsMap = CustomMetadataSelector.getPaymentSettings(METADATA_SETTINGS_NAME);
 		String agencyId = (String) paymentSettingsMap.get('Agency_Id__c');
 
-		String remoteAccountName = Payment2.getRemoteAccountName(payment.Account_Type__c);
+		String remoteAccountName = Payment2Utils.getRemoteAccountName(payment.Account_Type__c);
 
 		//Get the Refund Response from Pay.gov
 		PayGovTCSSingleService.PCRefundResponse_element pcRefundResponse = RefundForPayGov.getRefundResponse(payment, refundAmount, agencyId, remoteAccountName);

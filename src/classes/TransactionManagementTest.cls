@@ -74,7 +74,7 @@ private class TransactionManagementTest {
 	@IsTest
 	static void getCBSdata_AccountTypeS() {
 		String today = Date.today().format();
-		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
+		List<Payment2__c> payments = Payments2Service.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
 		String[] paymentIds = new String[]{payments[0].Id};
 		TransactionManagement.CBSData cbsData = TransactionManagement.getCBSdata(paymentIds);
 		System.assertNotEquals(null, cbsData.csvString);
@@ -83,7 +83,7 @@ private class TransactionManagementTest {
 	@IsTest
 	static void getCBSdata_AccountTypeVA() {
 		String today = Date.today().format();
-		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
+		List<Payment2__c> payments = Payments2Service.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
 		String[] paymentIds = new String[]{payments[0].Id};
 		payments[0].Account_Type__c = 'Events';
 		payments[0].Payment_Type__c = 'ACH';
@@ -95,7 +95,7 @@ private class TransactionManagementTest {
 	@IsTest
 	static void getCBSdata_AccountType9() {
 		String today = Date.today().format();
-		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
+		List<Payment2__c> payments = Payments2Service.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
 		String[] paymentIds = new String[]{payments[0].Id};
 		payments[0].Account_Type__c = 'Privacy Shield';
 		update payments;

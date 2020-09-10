@@ -17,12 +17,9 @@ global without sharing class REST_BeginPayment {
 	 * confirmationPage Required.  The page to which pay.gov returns to in Salesforce if the payment was authorized.
 	 * failurePage Required.  Canceled or failed payments get redirected back here.
 	 * orderId Optional.  An Id for an Order.  Either orderId are all are required: accountType, transactionAmount, projectCode, collectionPost, fulfillmentPost.
-	 * userId Optional. If you want the current user's information to be the default values at pay.gov.  Pass in a user id if you want someone else's information to be the default values.
 	 * accountType Required if orderId is null.  The account that a payment is attributed to.  'Services', 'Events', or 'Privacy Shield'.
 	 * transactionAmount Required if orderId is null.  The payment amount.
 	 * projectCode Required if orderId is null.  The Project Code to which to attribute a payment.  eg '1GKY231'.
-	 * collectionPost Required if orderId is null.  The name of the collection office to which to attribute a payment.
-	 * fulfillmentPost Required if orderId is null.  The name of the fulfillment office to which to attribute a payment.
 	 * organizationName Required if orderId is null.  The name of the company to which to attribute the payment.
 	 * accountHolderName Optional.  Defaults the Name field at pay.gov.
 	 * billingAddress Optional.  Defaults the Address field at pay.gov.
@@ -30,6 +27,15 @@ global without sharing class REST_BeginPayment {
 	 * billingStateCode Optional.  Defaults the State field at pay.gov.
 	 * billingZip Optional.  Defaults the Zip Code field at pay.gov.
 	 * billingCountryCode Optional.  Defaults the Country field at pay.gov.
+	 * taskCode: String.  Used to populate the new Task Code field.
+	 * objectClass: String.  Used to populate the new Object Class field.
+	 * organizationCode: String.  Used to populate the Fulfillment Post Org Code if it has a value.
+	 * originatingOffice: String.  Used to populate the Fulfillment Post Acronym field.
+	 * receiptEmailAddresses: String.  Comma-separated list of email addresses to which the receipt is sent.
+	 * receiptAllowed: Boolean.  Whether a receipt should be sent by Salesforce.
+	 * invoiceDate: String.  Optional.  A string value that an external Salesforce payment may want displayed on the receipt.
+	 * invoiceId: String.  Optional.  A string value that an external Salesforce payment may want displayed on the receipt.
+	 * internalCaller Whether the caller of the service is internal (from within Salesforce) or not.
 	 *
 	 * @return A JSON string containing an error or a redirectUrl (for redirection to Pay.gov).
 	 */
@@ -54,7 +60,7 @@ global without sharing class REST_BeginPayment {
 					jsonReturnValue = paymentDetails;
 				} else {
 					//Get the redirectUrl.  This includes SOAP callout to Pay.gov.
-					String redirectUrl = Payment2.authorizePayment(paymentDetails);
+					String redirectUrl = Payments2Service.authorizePayment(paymentDetails);
 					jsonReturnValue = '{"redirectUrl": "' + redirectUrl + '"}';
 				}
 
@@ -69,7 +75,7 @@ global without sharing class REST_BeginPayment {
 	}
 
 	/**
-	 * @param paymentDetails A serialized String of Payment2.PaymentAuthenticationDetails
+	 * @param paymentDetails A serialized String of PaymentAuthenticationDetails
 	 *
 	 * @return A Boolean of whether an error occurred during the Create Payment callout.
 	 */
@@ -124,13 +130,16 @@ global without sharing class REST_BeginPayment {
 	}
 
 	private static RequiredFields checkRequiredFields(REST_BeginPaymentParams params) {
-		RequiredFields requiredFields = new RequiredFields();
 
-		//Check for required fields
-		if (String.isBlank(params.confirmationPage) || String.isBlank(params.failurePage)) {
-			//Throw error.  confirmationPage and failurePage are required.
-			requiredFields.hasRequiredFields = false;
-			requiredFields.serializedError = '{"error": "Required field is missing: confirmationPage or failurePage."}';
+		//Create a list of fields that are required
+		Map<String, Object> requiredFieldMap = new Map<String, Object>();  //Map of field name and field value
+		requiredFieldMap.put('confirmationPage', params.confirmationPage);
+		requiredFieldMap.put('failurePage', params.failurePage);
+
+		//Check that each required field is populated
+		RequiredFields requiredFields = checkIndividuallyRequiredFields(requiredFieldMap);
+		if (requiredFields != null) {
+			//A required field is missing
 			return requiredFields;
 		}
 
@@ -146,6 +155,7 @@ global without sharing class REST_BeginPayment {
 				String.isBlank(params.originatingOffice)
 			)) {
 			//Required fields are missing
+			requiredFields = new RequiredFields();
 			requiredFields.hasRequiredFields = false;
 			requiredFields.serializedError = '{"error": "Either orderId or these fields are required: accountType, transactionAmount, projectCode, organizationName, taskCode, objectClass, objectClass, originatingOffice."}';
 			return requiredFields;
@@ -156,11 +166,13 @@ global without sharing class REST_BeginPayment {
 			if (orderList.size() > 0) {
 				Order order = orderList[0];
 				if (order.Order_Paid__c == true) {
+					requiredFields = new RequiredFields();
 					requiredFields.hasRequiredFields = false;
 					requiredFields.serializedError = '{"error": "This order has already been paid for."}';
 					return requiredFields;
 				}
 			} else {
+				requiredFields = new RequiredFields();
 				requiredFields.hasRequiredFields = false;
 				requiredFields.serializedError = '{"error": "Invalid Order Id."}';
 				return requiredFields;
@@ -168,6 +180,27 @@ global without sharing class REST_BeginPayment {
 		}
 
 		return requiredFields;
+	}
+
+	/**
+ * Check that each required field is populated
+ * @param requiredFieldList An Object list of fields that are required.
+ *
+ * @return RequiredFields.
+ */
+	private static RequiredFields checkIndividuallyRequiredFields(Map<String, Object> requiredFieldMap) {
+
+		for (String fieldName : requiredFieldMap.keySet()) {
+			Object fieldValue = requiredFieldMap.get(fieldName);
+			if (String.isBlank(fieldValue.toString())) {
+				RequiredFields requiredFields = new RequiredFields();
+				requiredFields.hasRequiredFields = false;
+				requiredFields.serializedError = '{"error": "Required field is missing: ' + fieldName + '."}';
+				return requiredFields;
+			}
+		}
+
+		return null;
 	}
 
 }

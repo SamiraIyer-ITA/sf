@@ -48,7 +48,7 @@ public without sharing class TransactionManagement {
 	}
 
 	private static void initializeStaticVariables(List<String> paymentIds) {
-		currentFiscalYear = Payment2.getCurrentFiscalYear();
+		currentFiscalYear = Payment2Utils.getCurrentFiscalYear();
 		paymentMap = new Map<Id,Payment2__c>();
 		totalAmt = populatePaymentMap(paymentIds);
 		dateToday = getDtFormat(Datetime.now());
@@ -153,7 +153,7 @@ public without sharing class TransactionManagement {
 	private static void checkBatchCountersForReset() {
 		//TRANS#6052 - JJW
 		//Reset fiscal year & batch counters if last recorded fiscal year is different from current
-		String currentFiscalYear = Payment2.getCurrentFiscalYear();
+		String currentFiscalYear = Payment2Utils.getCurrentFiscalYear();
 		if(currentActiveObj.LastRecordedFiscalYear__c != currentFiscalYear) {
 			currentActiveObj.EventsACHBatchCount__c = 0;
 			currentActiveObj.EventsCreditBatchCount__c = 0;
