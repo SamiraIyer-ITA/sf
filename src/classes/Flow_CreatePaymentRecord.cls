@@ -74,6 +74,7 @@ global without sharing class Flow_CreatePaymentRecord {
 				for (Order eachOrder: orders) {
 					eachOrder.Payment2__c = payment.Id;
 					eachOrder.Order_Paid__c = true;
+					payment.Receipt_Ready__c = true;
 					uow.registerDirty(eachOrder, Order.Payment2__c, payment);
 				}
 				uow.commitWork();
