@@ -15,7 +15,7 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 			'Payment2__r.Remote_Tracking_Id__c' });
 		String condition = 'Id IN :idSet ';
 		if (nonPaidOnly) {
-			condition += ' AND Order_Paid__c = false';
+			condition += ' AND Order_Paid__c = false AND Payment2__c = null';
 		}
 		if (paidOnly) {
 			condition += ' AND Order_Paid__c = true';
@@ -31,7 +31,7 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 		'Contract.Name', 'Contract.ContractNumber' });
 		String condition = 'ContractId IN :idSet  AND TotalAmount > 0';
 		if (nonPaidOnly) {
-			condition += ' AND Order_Paid__c = false';
+			condition += ' AND Order_Paid__c = false AND Payment2__c = null';
 		}
 		if (paidOnly) {
 			condition += ' AND Order_Paid__c = true';
