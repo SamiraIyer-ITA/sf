@@ -3,8 +3,8 @@
     <actionCalls>
         <name>ApexGetRecordName</name>
         <label>ApexGetRecordName</label>
-        <locationX>245</locationX>
-        <locationY>136</locationY>
+        <locationX>318</locationX>
+        <locationY>374</locationY>
         <actionName>Flow_ObjectNamesFromIds</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -24,8 +24,8 @@
     <actionCalls>
         <name>ApexRestEmailService</name>
         <label>ApexRestEmailService</label>
-        <locationX>1094</locationX>
-        <locationY>716</locationY>
+        <locationX>1761</locationX>
+        <locationY>297</locationY>
         <actionName>Flow_SendEmail</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -61,8 +61,8 @@
     <assignments>
         <name>addFirstEmail</name>
         <label>addFirstEmail</label>
-        <locationX>332</locationX>
-        <locationY>590</locationY>
+        <locationX>1058</locationX>
+        <locationY>481</locationY>
         <assignmentItems>
             <assignToReference>VarEmailList</assignToReference>
             <operator>Assign</operator>
@@ -98,8 +98,8 @@
     <assignments>
         <name>Assign_RecordID</name>
         <label>Assign RecordID</label>
-        <locationX>70</locationX>
-        <locationY>136</locationY>
+        <locationX>318</locationX>
+        <locationY>213</locationY>
         <assignmentItems>
             <assignToReference>VarRecordID</assignToReference>
             <operator>Assign</operator>
@@ -142,8 +142,8 @@
     <assignments>
         <name>updateEmailList</name>
         <label>updateEmailList</label>
-        <locationX>753</locationX>
-        <locationY>818</locationY>
+        <locationX>1643</locationX>
+        <locationY>814</locationY>
         <assignmentItems>
             <assignToReference>VarEmailList</assignToReference>
             <operator>Assign</operator>
@@ -158,8 +158,8 @@
     <decisions>
         <name>as_the_email_sent</name>
         <label>as the email sent?</label>
-        <locationX>1223</locationX>
-        <locationY>718</locationY>
+        <locationX>1486</locationX>
+        <locationY>299</locationY>
         <defaultConnector>
             <targetReference>Email_Error_Screen</targetReference>
         </defaultConnector>
@@ -183,8 +183,8 @@
     <decisions>
         <name>decisionAddmoreEmails</name>
         <label>decisionAddmoreEmails</label>
-        <locationX>761</locationX>
-        <locationY>601</locationY>
+        <locationX>1422</locationX>
+        <locationY>482</locationY>
         <defaultConnector>
             <targetReference>you_are_done</targetReference>
         </defaultConnector>
@@ -208,8 +208,8 @@
     <decisions>
         <name>doTheyWantAnotherEmail</name>
         <label>doTheyWantAnotherEmail</label>
-        <locationX>839</locationX>
-        <locationY>972</locationY>
+        <locationX>1753</locationX>
+        <locationY>965</locationY>
         <defaultConnector>
             <targetReference>you_are_done</targetReference>
         </defaultConnector>
@@ -234,8 +234,8 @@
         <description>tells us the SObject that the flow is invoked from</description>
         <name>Identify_Order_SObject_records</name>
         <label>Identify Order SObject records</label>
-        <locationX>238</locationX>
-        <locationY>273</locationY>
+        <locationX>310</locationX>
+        <locationY>571</locationY>
         <defaultConnector>
             <targetReference>Get_Order_Data</targetReference>
         </defaultConnector>
@@ -257,10 +257,43 @@
         </rules>
     </decisions>
     <decisions>
+        <description>Determine whether the recordId is for a Payment or Refund record.</description>
+        <name>Is_Payment_or_Refund</name>
+        <label>Is Payment or Refund</label>
+        <locationX>582</locationX>
+        <locationY>1002</locationY>
+        <defaultConnector>
+            <targetReference>getFirstEmail</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is Payment</defaultConnectorLabel>
+        <rules>
+            <name>Is_Refund</name>
+            <conditionLogic>1 OR 2</conditionLogic>
+            <conditions>
+                <leftValueReference>VarPaymentType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Credit Card Refund</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>VarPaymentType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NIST-Handled Refund</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Contract_Id</targetReference>
+            </connector>
+            <label>Is Refund</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>isEmailBlank2</name>
         <label>isEmailBlank2</label>
-        <locationX>577</locationX>
-        <locationY>708</locationY>
+        <locationX>1560</locationX>
+        <locationY>621</locationY>
         <defaultConnector>
             <targetReference>updateEmailList</targetReference>
         </defaultConnector>
@@ -284,8 +317,8 @@
     <decisions>
         <name>isPrimaryContactBlank</name>
         <label>isPrimaryContactBlank</label>
-        <locationX>184</locationX>
-        <locationY>750</locationY>
+        <locationX>1052</locationX>
+        <locationY>762</locationY>
         <defaultConnector>
             <targetReference>addFirstEmail</targetReference>
         </defaultConnector>
@@ -309,8 +342,8 @@
     <decisions>
         <name>OrderCanAReceiptBeIssued</name>
         <label>OrderCanAReceiptBeIssued</label>
-        <locationX>497</locationX>
-        <locationY>471</locationY>
+        <locationX>831</locationX>
+        <locationY>392</locationY>
         <defaultConnector>
             <targetReference>ScreenOrderNoReceipt</targetReference>
         </defaultConnector>
@@ -348,10 +381,10 @@
     <decisions>
         <name>ReceiptCanAReceiptBeIssued</name>
         <label>ReceiptCanAReceiptBeIssued</label>
-        <locationX>50</locationX>
-        <locationY>409</locationY>
+        <locationX>312</locationX>
+        <locationY>997</locationY>
         <defaultConnector>
-            <targetReference>getFirstEmail</targetReference>
+            <targetReference>Is_Payment_or_Refund</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>PaymentReceiptISOK</defaultConnectorLabel>
         <rules>
@@ -445,10 +478,33 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     </processMetadataValues>
     <processType>Flow</processType>
     <recordLookups>
+        <description>Get the Contract Id</description>
+        <name>Get_Contract_Id</name>
+        <label>Get Contract Id</label>
+        <locationX>590</locationX>
+        <locationY>758</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>getFirstEmail</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>VarParentPaymentId</elementReference>
+            </value>
+        </filters>
+        <object>Payment2__c</object>
+        <outputAssignments>
+            <assignToReference>VarContractId</assignToReference>
+            <field>Contract__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Order_Data</name>
         <label>Get Order Data</label>
-        <locationX>393</locationX>
-        <locationY>271</locationY>
+        <locationX>535</locationX>
+        <locationY>571</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Order_Payment2_Transaction_Status</targetReference>
@@ -477,8 +533,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <recordLookups>
         <name>Get_Order_Payment2_Transaction_Status</name>
         <label>Get Order-Payment2-Transaction_Status</label>
-        <locationX>505</locationX>
-        <locationY>271</locationY>
+        <locationX>533</locationX>
+        <locationY>390</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>OrderCanAReceiptBeIssued</targetReference>
@@ -503,8 +559,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <recordLookups>
         <name>Get_Payment2_Data</name>
         <label>Get Payment2 Data</label>
-        <locationX>61</locationX>
-        <locationY>272</locationY>
+        <locationX>319</locationX>
+        <locationY>826</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>ReceiptCanAReceiptBeIssued</targetReference>
@@ -522,6 +578,14 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
             <field>Contract__c</field>
         </outputAssignments>
         <outputAssignments>
+            <assignToReference>VarParentPaymentId</assignToReference>
+            <field>Payment_2__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>VarPaymentType</assignToReference>
+            <field>Payment_Type__c</field>
+        </outputAssignments>
+        <outputAssignments>
             <assignToReference>VarPaymentTransactionStatus</assignToReference>
             <field>Transaction_Status__c</field>
         </outputAssignments>
@@ -529,8 +593,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <recordLookups>
         <name>getContactEmail</name>
         <label>getContactEmail</label>
-        <locationX>64</locationX>
-        <locationY>748</locationY>
+        <locationX>1058</locationX>
+        <locationY>1006</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>isPrimaryContactBlank</targetReference>
@@ -551,8 +615,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <recordLookups>
         <name>getFirstEmail</name>
         <label>getFirstEmail</label>
-        <locationX>63</locationX>
-        <locationY>552</locationY>
+        <locationX>846</locationX>
+        <locationY>1007</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>getContactEmail</targetReference>
@@ -573,8 +637,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <screens>
         <name>addAnEmail</name>
         <label>addAnEmail</label>
-        <locationX>458</locationX>
-        <locationY>1028</locationY>
+        <locationX>1438</locationX>
+        <locationY>974</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -615,8 +679,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <screens>
         <name>Email_Error_Screen</name>
         <label>Email Error Screen</label>
-        <locationX>1246</locationX>
-        <locationY>850</locationY>
+        <locationX>1242</locationX>
+        <locationY>295</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -631,8 +695,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <screens>
         <name>Email_Success_Screen</name>
         <label>Email Success Screen</label>
-        <locationX>1386</locationX>
-        <locationY>720</locationY>
+        <locationX>1491</locationX>
+        <locationY>122</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -647,8 +711,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <screens>
         <name>ScreenNoEmail</name>
         <label>ScreenNoEmail</label>
-        <locationX>333</locationX>
-        <locationY>895</locationY>
+        <locationX>1302</locationX>
+        <locationY>759</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -666,8 +730,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <screens>
         <name>ScreenNoReceipt</name>
         <label>ScreenNoReceipt</label>
-        <locationX>267</locationX>
-        <locationY>411</locationY>
+        <locationX>50</locationX>
+        <locationY>1006</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -682,8 +746,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <screens>
         <name>ScreenOrderNoReceipt</name>
         <label>ScreenOrderNoReceipt</label>
-        <locationX>856</locationX>
-        <locationY>411</locationY>
+        <locationX>842</locationX>
+        <locationY>182</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -698,8 +762,8 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     <screens>
         <name>you_are_done</name>
         <label>you are done!</label>
-        <locationX>979</locationX>
-        <locationY>716</locationY>
+        <locationX>1762</locationX>
+        <locationY>478</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -715,7 +779,7 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>119</locationX>
+        <locationX>191</locationX>
         <locationY>45</locationY>
         <connector>
             <targetReference>Assign_RecordID</targetReference>
@@ -838,6 +902,14 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <description>The Payment Id of parent payment record for a refund.</description>
+        <name>VarParentPaymentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>VarPaymentNumberOnOrder</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -846,6 +918,14 @@ MID({!VarEmailList}, 2, LEN({!VarEmailList})),
     </variables>
     <variables>
         <name>VarPaymentTransactionStatus</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Payment2__c.Payment_Type__c</description>
+        <name>VarPaymentType</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
