@@ -12,6 +12,7 @@ public class OrderItemsSelector extends fflib_SObjectSelector implements IOrderI
         return new List<Schema.SObjectField> {
                 OrderItem.Id,
                 OrderItem.OrderId,
+                OrderItem.Product2Id,
                 OrderItem.isPrimary__c,
                 OrderItem.Accounting_Code__c,
                 OrderItem.QuoteLineItemId,

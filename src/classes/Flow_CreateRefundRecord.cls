@@ -22,6 +22,10 @@ global without sharing class Flow_CreateRefundRecord {
 		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 		List<String> errorList = new List<String>();
 
+		ResponseVariables responseVariables = new ResponseVariables();
+		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
+		List<String> errorList = new List<String>();
+
 		if (inputs.isEmpty()) {
 			responseVariables.hasError = true;
 			responseVariables.errorReasons = '<li>Nothing to validate.</li>';
@@ -72,7 +76,7 @@ global without sharing class Flow_CreateRefundRecord {
 					paymentRefundMap.put(myOrder.Payment2__c, d);
 				} else {
 					paymentRefundMap.put(myOrder.Payment2__c, Decimal.ValueOf(refundAmounts[x]));
-				}
+			}
 			}
 
 			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
