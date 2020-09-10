@@ -127,6 +127,18 @@ public class InvestigationSelector
 		return (List<Investigation__c>) selectSObjectsById(idSet);
 	}
 
+	public List<Investigation__c> selectByIdWithRelations(Set<Id> idSet)
+	{
+		fflib_QueryFactory qf = newQueryFactory();
+		qf.subselectQuery(Investigation__c.SObjectType, true)
+				.selectField(Investigation__c.Id)
+				.selectField(Investigation__c.ADCVD_Case__c)
+				.selectField(Investigation__c.AD_Investigation_Aligned_To__c)
+				.selectField(Investigation__c.Petition__c);
+		qf.setCondition(Investigation__c.AD_Investigation_Aligned_To__c + ' in :idSet');
+		return Database.query(qf.toSOQL());
+	}
+
 	public List<Investigation__c> selectByWhereClause(String wc) {
 		return (List<Investigation__c>) selectSObjectsWhere(wc);
 	}

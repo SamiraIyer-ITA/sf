@@ -1,0 +1,8 @@
+/**
+ * Base service implementation interface that all service implementation will require.
+ *
+ * @author {0}
+ */
+public interface I{1}SvcBase extends ISObjectsTriggerService {{
+
+}}
