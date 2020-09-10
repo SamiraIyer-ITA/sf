@@ -14,10 +14,8 @@ private with sharing class Flow_SendEmailTest {
 		contract.AccountId = account.Id;
 		insert contract;
 
-		Payment2__c payment1 = new Payment2__c();
-		payment1 = TestUtils.CreatePayment2(true);
+		Payment2__c payment1 = TestUtils.CreatePayment2(true, 'Credit_Card_or_ACH_Payment');
 		payment1.Account_Type__c = 'Services';
-		payment1.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		payment1.Payment_Processor__c = 'Paygov';
 		payment1.Transaction_Status__c = 'Success';
 		payment1.Transaction_Amount__c = 4800.00;
@@ -56,6 +54,7 @@ private with sharing class Flow_SendEmailTest {
 		rv1.userId = orders[0].OwnerId;
 		rv.add(rv1);
 		List<Flow_SendEmail.ResponseVariables> backFromApex = Flow_SendEmail.createEMailReceipt(rv);
+		system.debug('backfromapex ==> ' + backFromApex);
 		System.assertEquals(true, backFromApex[0].VarEmailReceiptSent);
 	}
 

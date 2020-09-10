@@ -16,65 +16,54 @@ private class TransactionManagementTest {
 		Account account = TestUtils.createAccount(true);
 		Opportunity opp = TestUtils.createOpportunity(account.Id, 'a string', true);
 		Program__c program = TestUtils.createProgram('Test Program', true);
-		Pricebook2 pricebook = TestUtils.createPricebook(program.Id);
 		Product2 product2 = TestUtils.createProduct(true);
 		ID standardPbId = Test.getStandardPricebookId();
 		PricebookEntry standardPbe = TestUtils.createPricebookEntry(standardPbId, product2.Id, true);
-		PricebookEntry pbe = TestUtils.createPricebookEntry(pricebook.Id, product2.Id, true);
 		Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
 
-		opp.Pricebook2Id = pricebook.Id;
+		opp.Pricebook2Id = standardPbId;
 		update opp;
 
-		Contract contract = new Contract();
+		Contract contract = TestUtils.createContract(true, account.Id);
 		contract.Name = 'Contract Test X';
-		contract.AccountId = account.Id;
-		insert contract;
 		contract.Status = 'Activated';
 		update contract;
 
 		List<Order> orders = new List<Order>();
-		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, standardPbId);
 		order1.Type = 'Services';
 		order1.Name = 'Test Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
+		update order1;
 		orders.add(order1);
 
-		OrderItem orderItem1 = new OrderItem();
-		orderItem1.OrderId = order1.id;
+		OrderItem orderItem1 = TestUtils.createStandardOrderItem(true, order1.Id,  standardPbe.Id);
 		orderItem1.Quantity = 2;
 		orderItem1.UnitPrice = 2400;
-		orderItem1.Product2id = product2.id;
-		orderItem1.PricebookEntryId=pbe.id;
-		insert orderItem1;
+		update orderItem1;
 
 		//Insert a Payment record for Order 1
-		Payment2__c payment1 = new Payment2__c();
+		String recordType = 'Credit_Card_or_ACH_Payment';
+		Payment2__c payment1 = TestUtils.createPayment2(true, recordType);
 		payment1.Account_Type__c = 'Services';
-		payment1.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		payment1.Payment_Processor__c = 'Paygov';
 		payment1.Transaction_Status__c = 'Success';
 		payment1.Transaction_Amount__c = 4800.00;
 		payment1.Payment_Type__c = 'PLASTIC_CARD';
-		payment1.Project_Code__c = '1GKY';
-		insert payment1;
+		payment1.Project_Code__c = '1GKY231';
+		payment1.Fulfillment_Post_Org_Code__c = '50-00-00';
+		payment1.Fulfillment_Post_Acronym__c = 'ACRONY';
+		payment1.Organization_Name__c = 'Test Org';
+		update payment1;
 
-		Quote quote1 = new Quote();
-		quote1.OpportunityId = opp.Id;
-		quote1.Name = 'Test Quote';
-		insert quote1;
-		QuoteLineItem quoteLineItem1 = new QuoteLineItem();
-		quoteLineItem1.Product2Id = product2.Id;
-		quoteLineItem1.QuoteId = quote1.Id;
-		quoteLineItem1.PricebookEntryId = pbe.Id;
+		Quote quote1 = testUtils.createQuote(true, opp.Id, standardPbId, 'Test Quote');
+
+		QuoteLineItem quoteLineItem1 = TestUtils.createQuoteLineItem(true, product2.Id, quote1.Id, standardPbe.Id);
 		quoteLineItem1.Quantity = 1;
 		quoteLineItem1.UnitPrice = 100.00;
-		insert quoteLineItem1;
+		update quoteLineItem1;
 
-		order1.Payment2__c = payment1.Id;
-		order1.Status = 'Paid';
-		update order1;
 
 		CBSBatchCount__c settings = new CBSBatchCount__c();
 		settings.Name = 'test';
@@ -83,7 +72,7 @@ private class TransactionManagementTest {
 	}
 
 	@IsTest
-	static void getCBSdata_Positive() {
+	static void getCBSdata_AccountTypeS() {
 		String today = Date.today().format();
 		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
 		String[] paymentIds = new String[]{payments[0].Id};
@@ -91,4 +80,26 @@ private class TransactionManagementTest {
 		System.assertNotEquals(null, cbsData.csvString);
 	}
 
+	@IsTest
+	static void getCBSdata_AccountTypeVA() {
+		String today = Date.today().format();
+		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
+		String[] paymentIds = new String[]{payments[0].Id};
+		payments[0].Account_Type__c = 'Events';
+		payments[0].Payment_Type__c = 'ACH';
+		update payments;
+		TransactionManagement.CBSData cbsData = TransactionManagement.getCBSdata(paymentIds);
+		System.assertNotEquals(null, cbsData.csvString);
+	}
+
+	@IsTest
+	static void getCBSdata_AccountType9() {
+		String today = Date.today().format();
+		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
+		String[] paymentIds = new String[]{payments[0].Id};
+		payments[0].Account_Type__c = 'Privacy Shield';
+		update payments;
+		TransactionManagement.CBSData cbsData = TransactionManagement.getCBSdata(paymentIds);
+		System.assertNotEquals(null, cbsData.csvString);
+	}
 }

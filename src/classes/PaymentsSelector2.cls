@@ -44,10 +44,16 @@ public class PaymentsSelector2 extends fflib_SObjectSelector implements IPayment
 			Payment2__c.Opportunity_Created_Date__c,
 			Payment2__c.Collection_Post_Name__c,
 			Payment2__c.Collection_Post_Org_Code__c,
+			Payment2__c.Collection_Post_Acronym__c,
 			Payment2__c.Fulfillment_Post_Name__c,
 			Payment2__c.Fulfillment_Post_Org_Code__c,
+			Payment2__c.Fulfillment_Post_Acronym__c,
 			Payment2__c.Receipt_Ready__c,
-			Payment2__c.Receipt_Sent_To__c
+			Payment2__c.Receipt_Sent_To__c,
+			Payment2__c.Object_Class__c,
+			Payment2__c.Task_Code__c,
+			Payment2__c.Invoice_Date__c,
+			Payment2__c.Invoice_Id__c
 		};
 	}
 

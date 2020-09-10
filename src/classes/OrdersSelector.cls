@@ -49,7 +49,6 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 			'Opportunity.Owner.Name', 'Opportunity.CreatedDate', 'Opportunity.Collection_Post__r.Name',
 			'Opportunity.Collection_Post__r.Org_Code__c', 'Opportunity.Fulfillment_Post__r.Name',
 			'Opportunity.Fulfillment_Post__r.Org_Code__c', 'Opportunity.Collection_Post__r.Acronym__c', 'Opportunity.Fulfillment_Post__r.Acronym__c'});
-
 		ordersQueryFactory.setCondition('Id IN :idSet');
 		fflib_QueryFactory orderItemsQueryFactory = ordersQueryFactory.subselectQuery('OrderItems');
 		if (primaryItemOnly) {
@@ -62,6 +61,7 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 	public List<Order> selectByPaymentId(Set<Id> idSet) {
 		if (idSet.isEmpty()) return new List<Order>();  //Avoid unnecessary SOQL
 		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
+		ordersQueryFactory.selectFields(new Set<String>{'Account.Name'});
 		ordersQueryFactory.setCondition('Payment2__c IN :idSet');
 		fflib_QueryFactory orderItemsQueryFactory = ordersQueryFactory.subselectQuery('OrderItems');
 		orderItemsQueryFactory.selectFields(new OrderItemsSelector().getSObjectFieldList());
@@ -80,7 +80,8 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 			Order.Payment2__c,
 			Order.Order_Paid__c,
 			Order.Refunded_Amount__c,
-			Order.OrderNumber
+			Order.OrderNumber,
+			Order.AccountId
 		};
 	}
 
