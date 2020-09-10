@@ -45,7 +45,7 @@ global without sharing class REST_BeginPayment {
 		String jsonReturnValue;  //Return value for calls made internally to this method
 
 		RequiredFields requiredFields = checkRequiredFields(params);
-		if (! requiredFields.hasRequiredFields) {
+		if (requiredFields != null && requiredFields.hasRequiredFields == false) {
 			jsonReturnValue = requiredFields.serializedError;
 		} else {
 
@@ -189,10 +189,9 @@ global without sharing class REST_BeginPayment {
  * @return RequiredFields.
  */
 	private static RequiredFields checkIndividuallyRequiredFields(Map<String, Object> requiredFieldMap) {
-
 		for (String fieldName : requiredFieldMap.keySet()) {
 			Object fieldValue = requiredFieldMap.get(fieldName);
-			if (String.isBlank(fieldValue.toString())) {
+			if (fieldValue == null || String.isBlank(fieldValue.toString())) {
 				RequiredFields requiredFields = new RequiredFields();
 				requiredFields.hasRequiredFields = false;
 				requiredFields.serializedError = '{"error": "Required field is missing: ' + fieldName + '."}';

@@ -249,10 +249,14 @@ public class Payments2ServiceImpl implements IPayments2Service{
 		RecordLog.message('Collection Post Name: ' + payment.Collection_Post_Name__c);
 		payment.Collection_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
 		RecordLog.message('Collection Post Org Code: ' + payment.Collection_Post_Org_Code__c);
+		payment.Collection_Post_Acronym__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Acronym__c;
+		RecordLog.message('Collection Post Acronym: ' + payment.Collection_Post_Acronym__c);
 		payment.Fulfillment_Post_Name__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
 		RecordLog.message('Fulfillment Post Name: ' + payment.Fulfillment_Post_Name__c);
 		payment.Fulfillment_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
 		RecordLog.message('Fulfillment Post Org Code: ' + payment.Fulfillment_Post_Org_Code__c);
+		payment.Fulfillment_Post_Acronym__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Acronym__c;
+		RecordLog.message('Fulfillment Post Acronym: ' + payment.Fulfillment_Post_Acronym__c);
 
 		payment.Contract__c = orderListWithDetails[0].ContractId;
 		RecordLog.message('Contract Id: ' + payment.Contract__c);
