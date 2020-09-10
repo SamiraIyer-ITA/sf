@@ -26,6 +26,10 @@ global without sharing class Flow_CreateRefundRecord {
 		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 		List<String> errorList = new List<String>();
 
+		ResponseVariables responseVariables = new ResponseVariables();
+		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
+		List<String> errorList = new List<String>();
+
 		if (inputs.isEmpty()) {
 			responseVariables.hasError = true;
 			responseVariables.errorReasons = '<li>Nothing to validate.</li>';
@@ -58,25 +62,9 @@ global without sharing class Flow_CreateRefundRecord {
 					responseVariablesList.add(responseVariables);
 					return responseVariablesList;
 				}
-				List<order> o = new List<order>();
 				refundAmountString = refundAmounts[x];
-				orderRefundMap.put(myOrder.Id, Decimal.valueOf(refundAmountString));
-				if (paymentOrderMap.containsKey(myOrder.Payment2__c)) {
-					o = paymentOrderMap.get(myOrder.Payment2__c);
-					o.add(myOrder);
-					paymentOrderMap.put(myOrder.Payment2__c, o);
-				} else {
-					o.add(myOrder);
-					paymentOrderMap.put(myOrder.Payment2__c, o);
-				}
-
-				if (paymentRefundMap.containsKey(myOrder.Payment2__c)) {
-					Decimal d = paymentRefundMap.get(myOrder.Payment2__c);
-					d += Decimal.ValueOf(refundAmounts[x]);
-					paymentRefundMap.put(myOrder.Payment2__c, d);
-				} else {
-					paymentRefundMap.put(myOrder.Payment2__c, Decimal.ValueOf(refundAmounts[x]));
-			}
+                populatePaymentOrderMap(myOrder, orderRefundMap, refundAmountString, paymentOrderMap);
+                populateRefundOrderMap(paymentRefundMap, myOrder, refundAmountString);
 			}
 
 			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
@@ -92,27 +80,8 @@ global without sharing class Flow_CreateRefundRecord {
 				List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds, true);
 
 				//Create the refund record
-				Payment2__c refund = new Payment2__c();
+				Payment2__c refund = createPayment2(accountType, contractId, paymentRefundMap, refundReasons, refundExplanations, orderListWithDetails, payment);
 
-				String recordTypeName = 'NIST_Issued_Refund';
-				refund.Payment_Type__c = 'NIST-Handled Refund';
-				refund.Payment_2__c = payment.Id;  //A reference to the parent payment record
-				refund.Account_Type__c = accountType;
-				refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
-				refund.Contract__c = contractId;
-				refund.Payment_Processor__c = '';
-				refund.Transaction_Status__c = 'Success';
-				refund.Transaction_Amount__c = paymentRefundMap.get(payment.Id);
-				refund.Refund_Reason__c = refundReasons[0];  //Only the first refund reason is used
-				refund.Refund_Explanation__c = refundExplanations[0];  //Only the first refund explanation is used
-				refund.Organization_Name__c 			= orderListWithDetails[0].Opportunity.Account.Name;
-				refund.Opportunity_Owner__c 			= orderListWithDetails[0].Opportunity.Owner.Name;
-				refund.Opportunity_Created_Date__c 		= orderListWithDetails[0].Opportunity.CreatedDate;
-				refund.Collection_Post_Name__c 			= orderListWithDetails[0].Opportunity.Collection_Post__r.Name;
-				refund.Collection_Post_Org_Code__c 		= orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
-				refund.Fulfillment_Post_Name__c 		= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
-				refund.Fulfillment_Post_Org_Code__c 	= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
-				refund.Receipt_Ready__c = true;
 				if (orderListWithDetails[0].OrderItems.size() != 0) {
 					if (String.isNotBlank(orderListWithDetails[0].OrderItems[0].Accounting_code__c)) {
 						refund.Project_Code__c = orderListWithDetails[0].OrderItems[0].Accounting_code__c.Left(4) + '231';
@@ -150,6 +119,56 @@ global without sharing class Flow_CreateRefundRecord {
 		}
 	}
 
+    private static Payment2__c createPayment2(String accountType, String contractId, Map<Id,Decimal> paymentRefundMap,
+                                                List<String> refundReasons, List<String> refundExplanations, List<Order> orderListWithDetails, Payment2__c payment) {
+        //Create the refund record
+        Payment2__c refund = new Payment2__c();
+
+        String recordTypeName = 'NIST_Issued_Refund';
+        refund.Payment_Type__c = 'NIST-Handled Refund';
+        refund.Payment_2__c = payment.Id;  //A reference to the parent payment record
+        refund.Account_Type__c = accountType;
+        refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
+        refund.Contract__c = contractId;
+        refund.Payment_Processor__c = '';
+        refund.Transaction_Status__c = 'Success';
+        refund.Transaction_Amount__c = paymentRefundMap.get(payment.Id);
+        refund.Refund_Reason__c = refundReasons[0];  //Only the first refund reason is used
+        refund.Refund_Explanation__c = refundExplanations[0];  //Only the first refund explanation is used
+        refund.Organization_Name__c 			= orderListWithDetails[0].Opportunity.Account.Name;
+        refund.Opportunity_Owner__c 			= orderListWithDetails[0].Opportunity.Owner.Name;
+        refund.Opportunity_Created_Date__c 		= orderListWithDetails[0].Opportunity.CreatedDate;
+        refund.Collection_Post_Name__c 			= orderListWithDetails[0].Opportunity.Collection_Post__r.Name;
+        refund.Collection_Post_Org_Code__c 		= orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
+        refund.Fulfillment_Post_Name__c 		= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
+        refund.Fulfillment_Post_Org_Code__c 	= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
+        refund.Receipt_Ready__c = true;
+        return refund;
+    }
+
+    private static void populatePaymentOrderMap(Order myOrder, Map<Id,Decimal> orderRefundMap, String refundAmountString, Map<Id,List<Order>> paymentOrderMap) {
+        List<order> o = new List<order>();
+        orderRefundMap.put(myOrder.Id, Decimal.valueOf(refundAmountString));
+        if (paymentOrderMap.containsKey(myOrder.Payment2__c)) {
+            o = paymentOrderMap.get(myOrder.Payment2__c);
+            o.add(myOrder);
+            paymentOrderMap.put(myOrder.Payment2__c, o);
+        } else {
+            o.add(myOrder);
+            paymentOrderMap.put(myOrder.Payment2__c, o);
+        }
+    }
+
+    private static void populateRefundOrderMap(Map<Id,Decimal> paymentRefundMap, Order myOrder, String refundAmountsString) {
+        if (paymentRefundMap.containsKey(myOrder.Payment2__c)) {
+            Decimal d = paymentRefundMap.get(myOrder.Payment2__c);
+            d += Decimal.ValueOf(refundAmountsString);
+            paymentRefundMap.put(myOrder.Payment2__c, d);
+        } else {
+            paymentRefundMap.put(myOrder.Payment2__c, Decimal.ValueOf(refundAmountsString));
+        }
+    }
+
 	//Inputs from Flow to Apex
 	global class RequestVariables {
 		@InvocableVariable(label='Orders' required=true)
@@ -179,7 +198,6 @@ global without sharing class Flow_CreateRefundRecord {
 
 	//Outputs from Apex to Flow
 	global class ResponseVariables {
-//
 		@InvocableVariable(label='Has Error' required=true)
 		global Boolean hasError = false;
 

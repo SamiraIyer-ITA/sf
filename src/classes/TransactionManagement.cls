@@ -13,33 +13,15 @@ public without sharing class TransactionManagement {
 		CBSData objCBSData = new CBSData();
 
 		try {
-			Decimal totalAmt = 0;
+
 			Map<Id,Payment2__c> paymentMap = new Map<Id,Payment2__c>();
 			Map<Id,List<Order>> paymentOrderMap = new Map<Id,List<Order>>();
 
 			Set<Id> paymentIdSet = (Set<Id>) JSON.deserialize(JSON.serialize(paymentIds), Set<Id>.class);
 			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentIdSet);
-			for(Payment2__c payment : payments) {
-				payment.Transmitted__c = true;
-				paymentMap.put(payment.id,payment);
-				totalAmt += payment.Transaction_Amount__c;
-			}
 
-			List<Order> orders = OrdersSelector.newInstance().selectById(paymentMap.keySet());
-			for (Order order: orders) {
-				if(paymentOrderMap.containsKey(order.Payment2__c)){
-					List<Order> ordList = new List<Order>();
-					ordList = paymentOrderMap.get(order.Payment2__c);
-					ordList.add(order);
-					paymentOrderMap.put(order.Payment2__c,ordList);
-				} else {
-					List<Order> ordList = new List<Order>();
-					ordList.add(order);
-					paymentOrderMap.put(order.Payment2__c,ordList);
-				}
-			}
+			Decimal totalAmt = populatePaymentOrderMaps(payments, paymentMap, paymentOrderMap);
 
-			String body = '';
 			String datetoday = getDtFormat(Datetime.now());
 
 			List<CBSBatchCount__c> listCodes = CBSBatchCount__c.getAll().values();
@@ -49,91 +31,19 @@ public without sharing class TransactionManagement {
 				currentActiveObj=obj;
 			}
 
-			//TRANS#6052 - JJW
-			//Reset fiscal year & batch counters if last recorded fiscal year is different from current
-			String currentFiscalYear = Payment2.getCurrentFiscalYear();
-			if(currentActiveObj.LastRecordedFiscalYear__c != currentFiscalYear) {
-				currentActiveObj.EventsACHBatchCount__c = 0;
-				currentActiveObj.EventsCreditBatchCount__c = 0;
-				currentActiveObj.EventsRefundBatchCount__c = 0;
-				currentActiveObj.PrivacyShieldACHBatchCount__c = 0;
-				currentActiveObj.PrivacyShieldCreditBatchCount__c = 0;
-				currentActiveObj.PrivacyShieldRefundBatchCount__c = 0;
-				currentActiveObj.ServicesACHBatchCount__c = 0;
-				currentActiveObj.ServicesCreditBatchCount__c = 0;
-				currentActiveObj.ServicesRefundBatchCount__c = 0;
-				currentActiveObj.LastRecordedFiscalYear__c = currentFiscalYear;
-			}
+			checkBatchCountersForReset(currentActiveObj);
+
 			String batchNumber = '';
 			if(!paymentMap.values().isEmpty()) {
-				String accountType = '';
-				String payment2Type = '';
 				Payment2__c firstPayment = paymentMap.values()[0];
-				//Get account type info & year & add to batch number
-				if(firstPayment.Account_Type__c == 'Privacy Shield') {
-					accountType = '9';
-				} else if(firstPayment.Account_Type__c == 'Events') {
-					accountType = 'V';
-				} else {
-					accountType = 'S';
-				}
-				batchNumber = accountType + getYearDigit(currentFiscalYear);
-				//Get payment type info & add to batch number
-				switch on firstPayment.Payment_Type__c {
-					when 'PLASTIC_CARD' {
-						payment2Type = 'C';
-					}
-					when 'ACH' {
-						payment2Type = 'A';
-					}
-					when 'Credit Card Refund' {
-						payment2Type = 'R';
-					}
-				}
-
-				batchNumber += payment2Type;
-				//Get actual number counter for each type by fiscal year & add to batch number
-				if(accountType == 'V') {
-					//Events
-					if(payment2Type == 'A') {
-						currentActiveObj.EventsACHBatchCount__c += 1;
-						batchNumber += getNumberLeftChar((Integer)currentActiveObj.EventsACHBatchCount__c, 3);
-					} else if(payment2Type == 'C') {
-						currentActiveObj.EventsCreditBatchCount__c += 1;
-						batchNumber += getNumberLeftChar((Integer)currentActiveObj.EventsCreditBatchCount__c, 3);
-					} else if(payment2Type == 'R') {
-						currentActiveObj.EventsRefundBatchCount__c += 1;
-						batchNumber += getNumberLeftChar((Integer)currentActiveObj.EventsRefundBatchCount__c, 3);
-					}
-				} else if(accountType == '9') {
-					//Privacy Shield
-					if(payment2Type == 'A') {
-						currentActiveObj.PrivacyShieldACHBatchCount__c += 1;
-						batchNumber += getNumberLeftChar((Integer)currentActiveObj.PrivacyShieldACHBatchCount__c, 3);
-					} else if(payment2Type == 'C') {
-						currentActiveObj.PrivacyShieldCreditBatchCount__c += 1;
-						batchNumber += getNumberLeftChar((Integer)currentActiveObj.PrivacyShieldCreditBatchCount__c, 3);
-					} else if(payment2Type == 'R') {
-						currentActiveObj.PrivacyShieldRefundBatchCount__c += 1;
-						batchNumber += getNumberLeftChar((Integer)currentActiveObj.PrivacyShieldRefundBatchCount__c, 3);
-					}
-				} else if(accountType == 'S') {
-					//Services
-					if(payment2Type == 'A') {
-						currentActiveObj.ServicesACHBatchCount__c += 1;
-						batchNumber += getNumberLeftChar((Integer)currentActiveObj.ServicesACHBatchCount__c, 3);
-					} else if(payment2Type == 'C') {
-						currentActiveObj.ServicesCreditBatchCount__c += 1;
-						batchNumber += getNumberLeftChar((Integer)currentActiveObj.ServicesCreditBatchCount__c, 3);
-					} else if(payment2Type == 'R') {
-						currentActiveObj.ServicesRefundBatchCount__c += 1;
-						batchNumber += getNumberLeftChar((Integer)currentActiveObj.ServicesRefundBatchCount__c, 3);
-					}
-				}
+				String accountType = getAccountTypeInfo(firstPayment);
+				String payment2Type = getPayment2TypeInfo(firstPayment);
+				batchNumber = accountType + getYearDigit(Payment2.getCurrentFiscalYear()) + payment2Type;
+				batchNumber += incrementAppropriateBatchNumbers(accountType, payment2Type, currentActiveObj);
 			}
-			//END TRANS#6052
 
-			body += 'UCL00,ITACOLL,' +datetoday + ',' + getNumberLeftChar(paymentMap.size(),8) + ',' + getDecimal17Char(totalAmt) + ',N\n';
+			String body = 'UCL00,ITACOLL,' +datetoday + ',' + getNumberLeftChar(paymentMap.size(),8) + ',' + getDecimal17Char(totalAmt) + ',N\n';
+
 			Integer i = 1;
 			for (Payment2__c objpay : paymentMap.values()) {
 				String businessName='';
@@ -212,6 +122,120 @@ public without sharing class TransactionManagement {
 
 	public class CBSData {
 		@AuraEnabled public String csvString;
+	}
+
+	private static Decimal populatePaymentOrderMaps(List<Payment2__c> payments, Map<Id,Payment2__c> paymentMap, Map<Id,List<Order>> paymentOrderMap) {
+		Decimal totalAmt = 0;
+		for(Payment2__c payment : payments) {
+			payment.Transmitted__c = true;
+			paymentMap.put(payment.id,payment);
+			totalAmt += payment.Transaction_Amount__c;
+		}
+		List<Order> orders = OrdersSelector.newInstance().selectById(paymentMap.keySet());
+		for (Order order: orders) {
+			if(paymentOrderMap.containsKey(order.Payment2__c)){
+				List<Order> ordList = new List<Order>();
+				ordList = paymentOrderMap.get(order.Payment2__c);
+				ordList.add(order);
+				paymentOrderMap.put(order.Payment2__c,ordList);
+			} else {
+				List<Order> ordList = new List<Order>();
+				ordList.add(order);
+				paymentOrderMap.put(order.Payment2__c,ordList);
+			}
+		}
+		return totalAmt;
+	}
+
+	private static void checkBatchCountersForReset(CBSBatchCount__c currentActiveObj) {
+		//TRANS#6052 - JJW
+		//Reset fiscal year & batch counters if last recorded fiscal year is different from current
+		String currentFiscalYear = Payment2.getCurrentFiscalYear();
+		if(currentActiveObj.LastRecordedFiscalYear__c != currentFiscalYear) {
+			currentActiveObj.EventsACHBatchCount__c = 0;
+			currentActiveObj.EventsCreditBatchCount__c = 0;
+			currentActiveObj.EventsRefundBatchCount__c = 0;
+			currentActiveObj.PrivacyShieldACHBatchCount__c = 0;
+			currentActiveObj.PrivacyShieldCreditBatchCount__c = 0;
+			currentActiveObj.PrivacyShieldRefundBatchCount__c = 0;
+			currentActiveObj.ServicesACHBatchCount__c = 0;
+			currentActiveObj.ServicesCreditBatchCount__c = 0;
+			currentActiveObj.ServicesRefundBatchCount__c = 0;
+			currentActiveObj.LastRecordedFiscalYear__c = currentFiscalYear;
+		}
+	}
+
+	private static String getAccountTypeInfo(Payment2__c firstPayment) {
+		//Get account type info & add to batch number
+		if(firstPayment.Account_Type__c == 'Privacy Shield') {
+			return '9';
+		} else if(firstPayment.Account_Type__c == 'Events') {
+			return 'V';
+		} else {
+			return 'S';
+		}
+	}
+
+	private static String getPayment2TypeInfo(Payment2__c firstPayment) {
+		//Get payment type info & add to batch number
+		switch on firstPayment.Payment_Type__c {
+			when 'PLASTIC_CARD' {
+				return 'C';
+			}
+			when 'ACH' {
+				return 'A';
+			}
+			when 'Credit Card Refund' {
+				return 'R';
+			}
+			when else {
+				return 'C';
+			}
+		}
+	}
+
+	private static String incrementAppropriateBatchNumbers(String accountType, String payment2Type, CBSBatchCount__c currentActiveObj) {
+		//TRANS#6052
+		//Get actual number counter for each type by fiscal year & add to batch number
+		String batchNumber = '';
+		if(accountType == 'V') {
+			//Events
+			if(payment2Type == 'A') {
+				currentActiveObj.EventsACHBatchCount__c += 1;
+				batchNumber += getNumberLeftChar((Integer)currentActiveObj.EventsACHBatchCount__c, 3);
+			} else if(payment2Type == 'C') {
+				currentActiveObj.EventsCreditBatchCount__c += 1;
+				batchNumber += getNumberLeftChar((Integer)currentActiveObj.EventsCreditBatchCount__c, 3);
+			} else if(payment2Type == 'R') {
+				currentActiveObj.EventsRefundBatchCount__c += 1;
+				batchNumber += getNumberLeftChar((Integer)currentActiveObj.EventsRefundBatchCount__c, 3);
+			}
+		} else if(accountType == '9') {
+			//Privacy Shield
+			if(payment2Type == 'A') {
+				currentActiveObj.PrivacyShieldACHBatchCount__c += 1;
+				batchNumber += getNumberLeftChar((Integer)currentActiveObj.PrivacyShieldACHBatchCount__c, 3);
+			} else if(payment2Type == 'C') {
+				currentActiveObj.PrivacyShieldCreditBatchCount__c += 1;
+				batchNumber += getNumberLeftChar((Integer)currentActiveObj.PrivacyShieldCreditBatchCount__c, 3);
+			} else if(payment2Type == 'R') {
+				currentActiveObj.PrivacyShieldRefundBatchCount__c += 1;
+				batchNumber += getNumberLeftChar((Integer)currentActiveObj.PrivacyShieldRefundBatchCount__c, 3);
+			}
+		} else if(accountType == 'S') {
+			//Services
+			if(payment2Type == 'A') {
+				currentActiveObj.ServicesACHBatchCount__c += 1;
+				batchNumber += getNumberLeftChar((Integer)currentActiveObj.ServicesACHBatchCount__c, 3);
+			} else if(payment2Type == 'C') {
+				currentActiveObj.ServicesCreditBatchCount__c += 1;
+				batchNumber += getNumberLeftChar((Integer)currentActiveObj.ServicesCreditBatchCount__c, 3);
+			} else if(payment2Type == 'R') {
+				currentActiveObj.ServicesRefundBatchCount__c += 1;
+				batchNumber += getNumberLeftChar((Integer)currentActiveObj.ServicesRefundBatchCount__c, 3);
+			}
+		}
+		return batchNumber;
 	}
 
 }
