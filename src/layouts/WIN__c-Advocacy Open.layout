@@ -347,7 +347,7 @@
         <fields>Sub_Sector__c</fields>
         <fields>Category__c</fields>
         <fields>Trade_Issue__c</fields>
-		<fields>Type__c</fields>
+        <fields>Type__c</fields>
         <fields>Sub_Type__c</fields>
         <relatedList>Taxonomy_Tagging__c.Related_WIN__c</relatedList>
     </relatedLists>
