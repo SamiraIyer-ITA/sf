@@ -27,7 +27,7 @@ public class Payments2ServiceImpl implements IPayments2Service{
 
 	public static void sendEmailReceipt(Map<Id,Payment2__c> existingRecords, List<Payment2__c> newRecords) {
 		for(Payment2__c payment2 : newRecords) {
-			if(payment2.Receipt_Ready__c == true && existingRecords.get(payment2.Id).Receipt_Ready__c == false) {
+			if(payment2.Receipt_Ready__c == true && existingRecords.get(payment2.Id).Receipt_Ready__c == false && payment2.Receipt_Allowed__c == true) {
 				//receipt ready flag was just checked
 				REST_EmailTransactionReceipt.doPost(payment2.Receipt_Sent_To__c, payment2.Id, UserInfo.getUserId());
 			}
@@ -41,10 +41,8 @@ public class Payments2ServiceImpl implements IPayments2Service{
 
 	private static REST_BeginPaymentParams populateBeginPaymentParams(Id orderId) {
 		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
-		//params.confirmationPage = getBaseUrl() + '/apex/InternalPayment';
-		//params.failurePage = getBaseUrl() + '/apex/InternalPayment';
-		params.confirmationPage = 'https://trade--cdf4.lightning.force.com/lightning/n/Payment_Confirmation';
-		params.failurePage = 'https://trade--cdf4.lightning.force.com/lightning/n/Payment_Confirmation';
+		params.confirmationPage = getBaseUrl() + '/one/one.app#/alohaRedirect/apex/Payment2Confirmation';
+		params.failurePage = getBaseUrl() + '/one/one.app#/alohaRedirect/apex/Payment2Confirmation';
 		params.userId = UserInfo.getUserId();
 		params.orderId = orderId;
 		params.internalCaller = true;
