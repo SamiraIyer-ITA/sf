@@ -15,6 +15,16 @@
         <field>Product2.Accounting_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Payment2__c.Receipt_Ready__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Payment2__c.Receipt_Sent_To__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Case-Transaction Management Support</layout>
         <recordType>Case.Transaction_Management_Support</recordType>
