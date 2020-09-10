@@ -33,10 +33,13 @@ global without sharing class REST_CreatePayment {
 	 * invoiceDate: String.  Optional.  A string value that an external Salesforce payment may want displayed on the receipt.
 	 * invoiceId: String.  Optional.  A string value that an external Salesforce payment may want displayed on the receipt.
 	 * internalCaller Whether the caller of the service is internal (from within Salesforce) or not.
+	 *
+	 * @return A JSON String containing payment details or an error.
 	 */
 	@HttpPost
-	global static void doPost(REST_BeginPaymentParams params) {
+	global static String doPost(REST_BeginPaymentParams params) {
 
+		String jsonReturnValue;  //Return value for calls made internally to this method
 		Payment2__c payment;
 		try {
 			payment = Payments2Service.createPayment(params);
@@ -46,18 +49,21 @@ global without sharing class REST_CreatePayment {
 			 to get the payment.Name field.  Since payment.Name is an Auto-Number field, the record must be queried
 			 again to get its value.
 			 */
-			String paymentDetails = Payments2Service.getPaymentProcessorData(payment.Id, params);
-			setResponse(paymentDetails);  //paymentDetails is already serialized
-			return;
+			jsonReturnValue = Payments2Service.getPaymentProcessorData(payment.Id, params);
+			setResponse(jsonReturnValue);  //paymentDetails is already serialized
+			return jsonReturnValue;
 		} catch (Exception e) {
-			setResponse('{"error": "' + e.getMessage() + '"}');
-			return;
+			jsonReturnValue = '{"error": "' + e.getMessage() + '"}';
+			setResponse(jsonReturnValue);
+			return jsonReturnValue;
 		}
 	}
 
 	private static void setResponse(String responseString) {
-		RestContext.response.addHeader('Content-Type', 'application/json');
-		RestContext.response.responseBody = Blob.valueOf(responseString);
+		if (RestContext.response != null) {
+			RestContext.response.addHeader('Content-Type', 'application/json');
+			RestContext.response.responseBody = Blob.valueOf(responseString);
+		}
 	}
 
 }
