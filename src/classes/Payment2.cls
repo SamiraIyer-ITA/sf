@@ -111,8 +111,10 @@ public with sharing class Payment2 {
 			(String.isBlank(params.accountType) ||
 				String.isBlank(params.transactionAmount) ||
 				String.isBlank(params.projectCode) ||
-				String.isBlank(params.collectionPost) ||
-				String.isBlank(params.fulfillmentPost) ||
+				String.isBlank(params.taskCode) ||
+				String.isBlank(params.objectClass) ||
+				String.isBlank(params.organizationCode) ||
+				String.isBlank(params.originatingOffice ) ||
 				String.isBlank(params.organizationName))) {
 			throw new IllegalArgumentException('Either orderId or these values are required: accountType, transactionAmount, projectCode, collectionPost,  fulfillmentPost, organizationName');
 		}
@@ -123,7 +125,14 @@ public with sharing class Payment2 {
 		//Begin to create the payment record
 		Payment2__c payment = new Payment2__c();
 
-		payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
+		String recordTypeName;
+		if (String.isNotBlank(params.orderId)) {
+			recordTypeName = 'Credit_Card_or_ACH_Payment';
+		} else {
+			recordTypeName = 'External_Credit_Card_or_ACH_Payment';
+		}
+		payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
+
 		RecordLog.message('Record Type Id: ' + payment.RecordTypeId);
 
 		if (String.isNotBlank(params.projectCode)) {
@@ -138,39 +147,47 @@ public with sharing class Payment2 {
 			payment.Transaction_Amount__c = Decimal.valueOf(params.transactionAmount);
 		}
 
-		if (String.isNotBlank(params.collectionPost)) {
-			//Replace this with a selector.  Add Acronym__c later when it's available.
-			//Collection_Fulfillment__c cf = [SELECT Org_Code__c, Post__c FROM Collection_Fulfillment__c WHERE Name = :params.collectionPost];
-			List<Collection_Fulfillment__c> cf = CollectionFulfillmentsSelector.newInstance().selectById(new Set<Id>{params.collectionPost});
-			if(cf != null && !cf.isEmpty()) {
-				payment.Collection_Post_Name__c = cf[0].Post__c;
-				payment.Collection_Post_Org_Code__c = cf[0].Org_Code__c;
-				//payment.Collection_Post_Acronym__c = cf[0].Acronym__c;
-			}
-		}
-
-		if (String.isNotBlank(params.fulfillmentPost)) {
-			//Replace this with a selector.  Add Acronym__c later when it's available.
-			List<Collection_Fulfillment__c> cf = CollectionFulfillmentsSelector.newInstance().selectById(new Set<Id>{params.fulfillmentPost});
-			if(cf != null && !cf.isEmpty()) {
-				payment.Fulfillment_Post_Name__c = cf[0].Post__c;
-				payment.Fulfillment_Post_Org_Code__c = cf[0].Org_Code__c;
-				//payment.Fulfillment_Post_Acronym__c = cf[0].Acronym__c;
-			}
-		}
-
 		if (String.isNotBlank(params.organizationName)) {
 			payment.Organization_Name__c = params.organizationName;
+		}
+
+		if (String.isNotBlank(params.taskCode )) {
+			payment.Task_Code__c = params.taskCode ;
+		}
+
+		if (String.isNotBlank(params.objectClass)) {
+			payment.Object_Class__c  = params.objectClass ;
+		}
+
+		if (String.isNotBlank(params.invoiceDate)) {
+			payment.Invoice_Date__c = params.invoiceDate ;
+		}
+
+		if (String.isNotBlank(params.invoiceId )) {
+			payment.Invoice_Id__c  = params.invoiceId ;
+		}
+
+		if (String.isNotBlank(params.organizationCode )) {
+			payment.Organization_Name__c = params.organizationCode ;
+		}
+
+		if (String.isNotBlank(params.originatingOffice )) {
+			payment.Collection_Post_Acronym__c = params.originatingOffice;
 		}
 
 		if (String.isNotBlank(params.orderId)) {
 			payment = populatePaymentDetailsFromOrder(params, payment);
 		}
 
-		RecordLog.message('Account Type: ' + payment.Account_Type__c);
-		RecordLog.message('Organization Name: ' + payment.Organization_Name__c);
-		RecordLog.message('Project Code: ' + payment.Project_Code__c);
-		RecordLog.message('Transaction Amount: ' + payment.Transaction_Amount__c);
+		RecordLog.message('Account Type: ' + 		payment.Account_Type__c);
+		RecordLog.message('Organization Name: ' + 	payment.Organization_Name__c);
+		RecordLog.message('Project Code: ' + 		payment.Project_Code__c);
+		RecordLog.message('Transaction Amount: ' + 	payment.Transaction_Amount__c);
+		RecordLog.message('Task Code: ' + 			payment.Task_Code__c);
+		RecordLog.message('Object Class: ' + 		payment.Object_Class__c);
+		RecordLog.message('Invoice Date: ' + 		payment.Invoice_Date__c);
+		RecordLog.message('Invoice Id: ' + 			payment.Invoice_Id__c);
+		RecordLog.message('Originating Office: ' +  payment.Collection_Post_Acronym__c);
 
 		RecordLog.message('Inserting Payment');
 		try {
@@ -267,15 +284,14 @@ public with sharing class Payment2 {
 		details.transactionType = 'Sale';
 		details.transactionAmount = String.valueOf(payment.Transaction_Amount__c);
 
-		String baseUrl = getBaseUrl();
-		details.successUrl = baseUrl + '/' + params.confirmationPage + '?paymentId=' + payment.Id + '&acctType='
+		details.successUrl = params.confirmationPage + '?paymentId=' + payment.Id + '&acctType='
 			+ payment.Account_Type__c;
 		if (String.isNotBlank(params.orderId)) {
 			details.successUrl += '&orderId=' + params.orderId;
 		}
 		RecordLog.message('Success Url: ' + details.successUrl);
 
-		details.cancelUrl = baseUrl + '/' + params.failurePage + '?cancel=true';
+		details.cancelUrl = params.failurePage + '?cancel=true';
 		RecordLog.message('Cancel Url: ' + details.cancelUrl);
 
 		if (String.isNotBlank(params.accountHolderName)) {
@@ -415,13 +431,6 @@ public with sharing class Payment2 {
 	}
 
 	/**
-	 * Get the Salesforce Base URL.
-	 */
-	private static String getBaseUrl() {
-		return URL.getSalesforceBaseURL().toExternalForm();
-	}
-
-	/**
 	 * Get the Remote Account Name from metadata.  This is the 'Application' name used by Pay.gov.
 	 */
 	public static String getRemoteAccountName(String accountType) {
@@ -453,7 +462,5 @@ public with sharing class Payment2 {
 		public String accountType;
 	}
 	public class PaymentLimitException extends Exception {}
-
-	public class PaymentException extends Exception {}
 
 }

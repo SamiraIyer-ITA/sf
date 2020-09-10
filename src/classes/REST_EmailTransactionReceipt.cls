@@ -24,6 +24,14 @@ global without sharing class REST_EmailTransactionReceipt {
 				payment = getPaymentRecord(recordId, objectName);
 			}
 
+			//If the Receipt is not yet ready, don't send it
+			if (! payment.Receipt_Ready__c) {
+				emailResult.errorMessage = 'Receipt does not yet have fields necessary to send the receipt.';
+				jsonReturnValue = JSON.serialize(emailResult);
+				setResponse(jsonReturnValue);
+				return jsonReturnValue;
+			}
+
 			RequiredFields requiredFields = checkRequiredFields(recipientEmails, recordId, objectName, payment);
 			if (requiredFields != null) {
 				emailResult.errorMessage = requiredFields.errorMessage;
