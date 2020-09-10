@@ -45,6 +45,9 @@ global without sharing class Flow_CreateRefundRecord {
 		ResponseVariables responseVariables = new ResponseVariables();
 		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 
+		ResponseVariables responseVariables = new ResponseVariables();
+		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
+
 		if (inputs.isEmpty()) {
 			return errorMessageResponse('<li>Nothing to validate.</li>', responseVariables, responseVariablesList);
 		}
@@ -158,8 +161,10 @@ global without sharing class Flow_CreateRefundRecord {
 		refund.Opportunity_Created_Date__c 		= order.Opportunity.CreatedDate;
 		refund.Collection_Post_Name__c 			= order.Opportunity.Collection_Post__r.Name;
 		refund.Collection_Post_Org_Code__c 		= order.Opportunity.Collection_Post__r.Org_Code__c;
+		refund.Collection_Post_Acronym__c		= order.Opportunity.Collection_Post__r.Acronym__c;
 		refund.Fulfillment_Post_Name__c 		= order.Opportunity.Fulfillment_Post__r.Name;
 		refund.Fulfillment_Post_Org_Code__c 	= order.Opportunity.Fulfillment_Post__r.Org_Code__c;
+		refund.Fulfillment_Post_Acronym__c		= order.Opportunity.Fulfillment_Post__r.Acronym__c;
 		refund.Receipt_Ready__c = true;
 		return refund;
 	}
@@ -212,56 +217,6 @@ global without sharing class Flow_CreateRefundRecord {
 		responseVariables.errorReasons = errorMessage;
 			responseVariablesList.add(responseVariables);
 			return responseVariablesList;
-	}
-
-    private static Payment2__c createPayment2(String accountType, String contractId, Map<Id,Decimal> paymentRefundMap,
-                                                List<String> refundReasons, List<String> refundExplanations, List<Order> orderListWithDetails, Payment2__c payment) {
-        //Create the refund record
-        Payment2__c refund = new Payment2__c();
-
-        String recordTypeName = 'NIST_Issued_Refund';
-        refund.Payment_Type__c = 'NIST-Handled Refund';
-        refund.Payment_2__c = payment.Id;  //A reference to the parent payment record
-        refund.Account_Type__c = accountType;
-        refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordTypeName);
-        refund.Contract__c = contractId;
-        refund.Payment_Processor__c = '';
-        refund.Transaction_Status__c = 'Success';
-        refund.Transaction_Amount__c = paymentRefundMap.get(payment.Id);
-        refund.Refund_Reason__c = refundReasons[0];  //Only the first refund reason is used
-        refund.Refund_Explanation__c = refundExplanations[0];  //Only the first refund explanation is used
-        refund.Organization_Name__c 			= orderListWithDetails[0].Opportunity.Account.Name;
-        refund.Opportunity_Owner__c 			= orderListWithDetails[0].Opportunity.Owner.Name;
-        refund.Opportunity_Created_Date__c 		= orderListWithDetails[0].Opportunity.CreatedDate;
-        refund.Collection_Post_Name__c 			= orderListWithDetails[0].Opportunity.Collection_Post__r.Name;
-        refund.Collection_Post_Org_Code__c 		= orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
-        refund.Fulfillment_Post_Name__c 		= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
-        refund.Fulfillment_Post_Org_Code__c 	= orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
-        refund.Receipt_Ready__c = true;
-        return refund;
-    }
-
-    private static void populatePaymentOrderMap(Order myOrder, Map<Id,Decimal> orderRefundMap, String refundAmountString, Map<Id,List<Order>> paymentOrderMap) {
-        List<order> o = new List<order>();
-        orderRefundMap.put(myOrder.Id, Decimal.valueOf(refundAmountString));
-        if (paymentOrderMap.containsKey(myOrder.Payment2__c)) {
-            o = paymentOrderMap.get(myOrder.Payment2__c);
-            o.add(myOrder);
-            paymentOrderMap.put(myOrder.Payment2__c, o);
-        } else {
-            o.add(myOrder);
-            paymentOrderMap.put(myOrder.Payment2__c, o);
-        }
-    }
-
-    private static void populateRefundOrderMap(Map<Id,Decimal> paymentRefundMap, Order myOrder, String refundAmountsString) {
-        if (paymentRefundMap.containsKey(myOrder.Payment2__c)) {
-            Decimal d = paymentRefundMap.get(myOrder.Payment2__c);
-            d += Decimal.ValueOf(refundAmountsString);
-            paymentRefundMap.put(myOrder.Payment2__c, d);
-        } else {
-            paymentRefundMap.put(myOrder.Payment2__c, Decimal.ValueOf(refundAmountsString));
-        }
     }
 
 	//Inputs from Flow to Apex

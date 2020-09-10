@@ -160,8 +160,10 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			payments[0].Transaction_Status__c = completeOnlineCollectionWithDetailsResponse.transaction_status;
 			RecordLog.message('Transaction Status: ' + payments[0].Transaction_Status__c);
 			payments[0].Payment_Type__c = completeOnlineCollectionWithDetailsResponse.payment_type;
-			payments[0].Receipt_Ready__c = true;
+			payments[0].Receipt_Ready__c = false;
 			RecordLog.message('Receipt Ready: ' + payments[0].Receipt_Ready__c);
+			payments[0].Receipt_Allowed__c = true;
+			RecordLog.message('Receipt Allowed: ' + payments[0].Receipt_Allowed__c);
 
 			if(String.isNotBlank(orderId)) {
 				//Also update each Order to add the lookup for this payment
@@ -221,6 +223,7 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id> {paymentId});
 			payments[0].Account_Holder_Name__c = returnValue.accountHolderName;
 			payments[0].Account_Number__c = returnValue.accountNumber;
+			payments[0].Receipt_Ready__c = true;
 			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType});
 			uow.registerDirty(payments);
 			uow.commitWork();

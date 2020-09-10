@@ -61,7 +61,7 @@ public without sharing class TransactionManagement {
 	}
 
 	private static void writeBodyHeader() {
-		body = 'UCL00~ITACOLL~' + dateToday + '~' + getNumberLeftChar(paymentMap.size(),8) + '~' + getDecimal17Char(totalAmt) + '~N\n';
+		body = 'UCL00~ITACOLL~' + dateToday + '~' + getNumberLeftChar(paymentMap.size(),6) + '~' + getDecimal17Char(totalAmt) + '~N\n';
 	}
 
 	private static void writePaymentBody(Payment2__c paymentRecord, Integer i) {
@@ -77,13 +77,19 @@ public without sharing class TransactionManagement {
 		body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
 		// Project_code__c can be up to 12 comma separated strings - Loop through those and create one line for each of the items in that list
 
-		if(paymentRecord.Project_Code__c != null && paymentRecord.Object_Class__c != null){
+		if(paymentRecord.Project_Code__c != null) {
+			//paymentRecord.Object_Class_c will never be null
 			List<String> projectCodesForPayment = paymentRecord.Project_Code__c.split(',');
 			for(String aProjectCode : projectCodesForPayment) {
 				String fulfillmentCodeTilde = paymentRecord.Fulfillment_Post_Org_Code__c.replace('-', '~'); /// need method for objpay.Fulfillment_Post_Org_Code__c and objpay.Object_Class__c
 				String objectClassTilde = paymentRecord.Object_Class__c .replace('-', '~');
 				body += 'UCL03~55~' + batchNumber + '~' + getNumberLeftChar(i, 8) + '~00000001~00000001~' + aProjectCode + '~' + paymentRecord.Task_Code__c + '~~' + currentFiscalYear + '~~~~~' + fulfillmentCodeTilde + '~' + objectClassTilde + '~000000~' + getDecimal16Char(amt) + '\n';
 			}
+		} else {
+			String exceptionMessage = 'Missing Project Code for record ' + paymentRecord.Name + '.';
+			AuraHandledException auraHandledException = new AuraHandledException(exceptionMessage);
+			auraHandledException.setMessage(exceptionMessage);
+			throw auraHandledException;
 		}
 	}
 

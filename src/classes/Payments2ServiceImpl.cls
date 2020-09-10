@@ -50,6 +50,9 @@ public class Payments2ServiceImpl implements IPayments2Service{
 		// Retrieve all of the Orders associated with these payments
 		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentRecordIds);
 
+		//Get the Payment2 Record Type map
+		Map<String, Id> rtMap = Utils.getRecordTypeIdMap('Payment2__c');
+
 		// getOrdersPaymentIds Contains the payment Ids that have orders associated with them
 		Set<Id> getOrdersPaymentIds = new Set<Id>();
 
@@ -120,17 +123,15 @@ public class Payments2ServiceImpl implements IPayments2Service{
 				//if(payment2.Receipt_Ready__c == true && payment2.Receipt_Allowed__c == true) {
 				//receipt ready flag was just checked
 				// If the Payment2 is a refund - use it's parent
-				if (refundPaymentParentIds != null) {
-					if (!refundPaymentParentIds.contains(payment2.Id)) {
-						thisPaymentId = payment2.Id;
-					}
+				if (refundPaymentParentIds != null && (!refundPaymentParentIds.contains(payment2.Id))) {
+					thisPaymentId = paymentToRefundMap.get(payment2.Id);
 				} else {
 					thisPaymentId = payment2.Id;
 				}
 
 				//Get the email address(es) to which to send the receipt
-				if (paymentToOrderMap.get(thisPaymentId) == null) {
-					//This payment has no order associated with it, so it is for an external payment.
+				if (payment2.RecordTypeId == rtMap.get('External_Credit_Card_or_ACH_Payment')) {
+					//This payment is for an external payment.
 					//Grab the email address from the payment record
 					thisEmail = payment2.Receipt_Email_Address__c;
 				} else {

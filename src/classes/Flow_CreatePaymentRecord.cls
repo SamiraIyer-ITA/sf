@@ -101,8 +101,10 @@ global without sharing class Flow_CreatePaymentRecord {
 		payment.Opportunity_Created_Date__c 	= order.Opportunity.CreatedDate;
 		payment.Collection_Post_Name__c 		= order.Opportunity.Collection_Post__r.Name;
 		payment.Collection_Post_Org_Code__c 	= order.Opportunity.Collection_Post__r.Org_Code__c;
+		payment.Collection_Post_Acronym__c		= order.Opportunity.Collection_Post__r.Acronym__c;
 		payment.Fulfillment_Post_Name__c 		= order.Opportunity.Fulfillment_Post__r.Name;
 		payment.Fulfillment_Post_Org_Code__c 	= order.Opportunity.Fulfillment_Post__r.Org_Code__c;
+		payment.Fulfillment_Post_Acronym__c		= order.Opportunity.Fulfillment_Post__r.Acronym__c;
 		if (order.OrderItems.size() != 0) {
 			if (String.isNotBlank(order.OrderItems[0].Accounting_code__c)) {
 				payment.Project_Code__c = order.OrderItems[0].Accounting_code__c.Left(4) + '231';

@@ -136,9 +136,12 @@ public with sharing class RefundForPayGov implements IRefund {
 		refund.Opportunity_Created_Date__c = orderListWithDetails[0].Opportunity.CreatedDate;
 		refund.Collection_Post_Name__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Name;
 		refund.Collection_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
+		refund.Collection_Post_Acronym__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Acronym__c;
 		refund.Fulfillment_Post_Name__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
 		refund.Fulfillment_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
-		refund.Receipt_Ready__c = true;
+		refund.Fulfillment_Post_Acronym__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Acronym__c;
+		refund.Receipt_Ready__c = false;
+		refund.Receipt_Allowed__c = true;
 
 		if (orderListWithDetails[0].OrderItems.size() != 0) {
 			if (String.isNotBlank(orderListWithDetails[0].OrderItems[0].Accounting_Code__c)) {
@@ -164,6 +167,9 @@ public with sharing class RefundForPayGov implements IRefund {
 			AuraHandledException auraHandledException = new AuraHandledException(errorMessage);
 			auraHandledException.setMessage(errorMessage);
 			throw auraHandledException;
+		} finally {
+			//Populate the Account Holder Name and Account Number
+			PaymentProcessorForPayGov.futureGetPaymentDetails(refund.Id);
 		}
 
 		return refund;
