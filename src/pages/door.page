@@ -45,8 +45,8 @@
                       <apex:outputpanel layout="block" styleClass="col-md-12">
                <apex:repeat value="{!AvailableFrameworkMap}" var="framework">
                <!-- this is the list of frameworks that the Customer may renew -->
-                   <apex:outputtext rendered="{!or(AvailableFrameworkMap[framework].status = 'Active', and(AvailableFrameworkMap[framework].status = 'Inactive', AvailableFrameworkMap[framework].inactive_status_reason__r.description__c != 'Withdrawal'))}">
-                       <p class="text-muted uppercase framework"> {!framework}: <apex:outputpanel styleClass="inlineBlock {!AvailableFrameworkMap[framework].status}ITA"> {!AvailableFrameworkMap[framework].status} </apex:outputpanel></p>
+                   <apex:outputtext rendered="{!or(AvailableFrameworkMap[framework].status = 'Active', AvailableFrameworkMap[framework].status = 'Inactive')}">
+                       <p class="text-muted uppercase framework"> {!framework}: <apex:outputpanel styleClass="inlineBlock {!AvailableFrameworkMap[framework].status}ITA"> {!AvailableFrameworkMap[framework].status} {!if(AvailableFrameworkMap[framework].status == 'Inactive', ' - ' + AvailableFrameworkMap[framework].Inactive_Status_Reason__r.description__c, '')}</apex:outputpanel></p>
                               <apex:outputpanel layout="block" styleClass="about">Covered Data:  {!if(AvailableFrameworkMap[framework].hr_data__c, 'HR', '')}{!if(AvailableFrameworkMap[framework].hr_data__c && AvailableFrameworkMap[framework].non_hr_data__c, ', ','')}{!if(AvailableFrameworkMap[framework].non_hr_data__c, 'Non-HR', '')} Data</apex:outputpanel>
                               <apex:outputpanel layout="block" styleClass="about">Next Certified Due Date: {!month(AvailableFrameworkMap[framework].usageenddate)}/{!day(AvailableFrameworkMap[framework].usageenddate)}/{!year(AvailableFrameworkMap[framework].usageenddate)}</apex:outputpanel>                                  
                    </apex:outputtext>
@@ -133,9 +133,9 @@
                
                <apex:repeat value="{!AvailableFrameworkMap}" var="framework">
                <!-- this is the list of frameworks that the Customer may renew -->
-                   <apex:outputtext rendered="{!or(AvailableFrameworkMap[framework].status = 'Active', and(AvailableFrameworkMap[framework].status = 'Inactive', AvailableFrameworkMap[framework].inactive_status_reason__r.description__c != 'Withdrawal'))}">
+                   <apex:outputtext rendered="{!or(AvailableFrameworkMap[framework].status = 'Active', AvailableFrameworkMap[framework].status = 'Inactive')}">
                         
-                       <p class="text-muted uppercase framework"> {!framework}: <apex:outputpanel styleClass="inlineBlock {!AvailableFrameworkMap[framework].status}ITA"> {!AvailableFrameworkMap[framework].status} </apex:outputpanel></p>
+                        <p class="text-muted uppercase framework"> {!framework}: <apex:outputpanel styleClass="inlineBlock {!AvailableFrameworkMap[framework].status}ITA"> {!AvailableFrameworkMap[framework].status} {!if(AvailableFrameworkMap[framework].status == 'Inactive', ' - ' + AvailableFrameworkMap[framework].Inactive_Status_Reason__r.description__c, '')} </apex:outputpanel></p>
                               <apex:outputpanel layout="block" styleClass="about">Covered Data:  {!if(AvailableFrameworkMap[framework].hr_data__c, 'HR', '')}{!if(AvailableFrameworkMap[framework].hr_data__c && AvailableFrameworkMap[framework].non_hr_data__c, ', ','')}{!if(AvailableFrameworkMap[framework].non_hr_data__c, 'Non-HR', '')} Data</apex:outputpanel>
                               <apex:outputpanel layout="block" styleClass="about">Next Certified Due Date: {!month(AvailableFrameworkMap[framework].usageenddate)}/{!day(AvailableFrameworkMap[framework].usageenddate)}/{!year(AvailableFrameworkMap[framework].usageenddate)}</apex:outputpanel>           
                        
