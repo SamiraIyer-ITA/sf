@@ -73,6 +73,7 @@ public class Orders extends fflib_SObjectDomain implements IOrders {
 
 	public override void onAfterUpdate(Map<Id, SObject> existingRecords) {
 		updatePayments(legacyOrders);
+		emailsForNewPayments(existingRecords);
 	}
 
 	public void updateOrderContactAndOfficer(List<Order> ordersToUpdate) {
@@ -107,4 +108,23 @@ public class Orders extends fflib_SObjectDomain implements IOrders {
 		}
 	}
 
+	public void emailsForNewPayments(Map<Id, SObject> existingRecords) {
+		Set<Id> paymentIds = new Set<Id>();
+		for (Order nlOrder : nonLegacyOrders) {
+			Order oldMapOrder = (Order) existingRecords.get(nlOrder.Id);
+			if (nlOrder.Payment2__c != null && oldMapOrder.Payment2__c == null) {
+				//A payment has been inserted - send the email
+				paymentIds.add(nlOrder.Payment2__c);
+			}
+		}
+		try {
+			Map<Id, Payment2__c> nullMap = new Map<Id, Payment2__c>();
+			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentIds);
+			if(payments.size() > 0) {
+				Payments2ServiceImpl.sendEmailReceipt(nullMap, payments);
+			}
+		} catch (Exception e) {
+			system.debug((e.getMessage()));
+		}
+	}
 }

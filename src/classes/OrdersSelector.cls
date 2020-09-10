@@ -78,6 +78,7 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 			Order.Status,
 			Order.ContractId,
 			Order.Payment2__c,
+			Order.OpportunityId,
 			Order.Order_Paid__c,
 			Order.Refunded_Amount__c,
 			Order.OrderNumber,
