@@ -1216,26 +1216,33 @@ public class InvestigationTriggerHandlerTest {
     List<Investigation__c> investigationList = new List<Investigation__c>();
     List<Federal_Register__c> frList = new List<Federal_Register__c>();
     List<ADCVD_Order__c> orderList = new List<ADCVD_Order__c>();
+
+    User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
+
+    System.runAs(testUser) {
     //create custom setting configuration to activate triggers, workflow rules, and validation rules
     Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
     AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+
     //create test data
-    User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-    ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', false);
+      ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser, false);
     caseList.add(testADCase);
-    ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', false);
+      ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', testUser, false);
     caseList.add(testCVDCase);
     insert caseList;
+
     Petition__c testADPetition = TestUtils.createPetition(testADCase, petitionDate, false);
     petitionList.add(testADPetition);
     Petition__c testCVDPetition = TestUtils.createPetition(testCVDCase, petitionDate, false);
     petitionList.add(testCVDPetition);
     insert petitionList;
+
     Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, false);
     investigationList.add(testADinvestigation);
     Investigation__c testCVDinvestigation = TestUtils.createInvestigation(testCVDPetition, false);
     investigationList.add(testCVDinvestigation);
     insert investigationList;
+
     Federal_Register__c testAdPrelimFR = TestUtils.createFR(testADinvestigation.Id, 'Investigation__c', testPublishedDate.addDays(210), 'Preliminary', false);
     frList.add(testAdPrelimFR);
     Federal_Register__c testCvdPrelimFR = TestUtils.createFR(testCVDinvestigation.Id, 'Investigation__c', testPublishedDate.addDays(140), 'Preliminary', false);
@@ -1252,6 +1259,7 @@ public class InvestigationTriggerHandlerTest {
     ADCVD_Order__c testCvdOrder = TestUtils.createOrder(testCVDinvestigation, false);
     orderList.add(testCvdOrder);
     insert orderList;
+  }
   }
 
   private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {
