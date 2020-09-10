@@ -1,0 +1,8 @@
+/**
+ * {1} {2} service interface.
+ *
+ * @author {0}
+ */
+public interface I{1}Svc{2} extends I{1}SvcBase {{
+
+}}
