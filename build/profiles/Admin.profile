@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Payment2__c.Task_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <field>Payment2__c.Receipt_Email_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>OrderItem.isPrimary__c</field>
         <readable>true</readable>
@@ -8,6 +17,15 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>OrderItem.Accounting_Code__c</field>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Payment2__c.Invoice_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Payment2__c.Invoice_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17,7 +35,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Payment2__c.Object_Class__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Payment2__c.Receipt_Ready__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Payment2__c.Receipt_Allowed__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -56,6 +84,11 @@
 		<recordType>Payment2__c.NIST_Issued_Refund</recordType>
 		<visible>true</visible>
 	</recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Payment2__c.External_Credit_Card_or_ACH_Payment</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
 	<custom>true</custom>
     <layoutAssignments>
         <layout>Case-Transaction Management Support</layout>
@@ -84,5 +117,9 @@
 	<layoutAssignments>
 		<layout>Payment2__c-NIST-Issued Refund</layout>
 		<recordType>Payment2__c.NIST_Issued_Refund</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Payment2__c-External Credit Card or ACH Payment</layout>
+        <recordType>Payment2__c.External_Credit_Card_or_ACH_Payment</recordType>
     </layoutAssignments>
 </Profile>

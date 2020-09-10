@@ -519,7 +519,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-<<<<<<< HEAD
         <fullName>Receipt_Allowed__c</fullName>
         <defaultValue>true</defaultValue>
         <description>Receipt allowed</description>
@@ -542,8 +541,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-=======
->>>>>>> CRM-10108-Add-Receipt-FIelds
         <fullName>Receipt_Ready__c</fullName>
         <defaultValue>false</defaultValue>
         <description>TBD</description>
@@ -702,7 +699,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-<<<<<<< HEAD
         <fullName>Task_Code__c</fullName>
         <defaultValue>&quot;000&quot;</defaultValue>
         <description>Task code</description>
@@ -716,8 +712,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-=======
->>>>>>> CRM-10108-Add-Receipt-FIelds
         <fullName>Transaction_Amount__c</fullName>
         <description>The transaction amount</description>
         <externalId>false</externalId>
@@ -804,17 +798,9 @@
     </fields>
     <label>Payment 2</label>
     <listViews>
-<<<<<<< HEAD
-        <fullName>All_Payments</fullName>
-        <columns>NAME</columns>
-        <columns>Organization_Name__c</columns>
-        <columns>Contract__c</columns>
-        <columns>Invoice_Id__c</columns>
-=======
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Remote_Tracking_Id__c</columns>
->>>>>>> CRM-10108-Add-Receipt-FIelds
         <columns>Payment_Date__c</columns>
         <columns>Payment_Type__c</columns>
         <columns>Remote_Tracking_Id__c</columns>
@@ -822,36 +808,11 @@
         <columns>Transaction_Date__c</columns>
         <columns>Payment_Type__c</columns>
         <columns>Transaction_Status__c</columns>
-<<<<<<< HEAD
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Payment2__c.Bank_Transfer_Payment,Payment2__c.Cash_Payment,Payment2__c.Check_Payment,Payment2__c.Credit_Card_or_ACH_Payment,Payment2__c.External_Credit_Card_or_ACH_Payment</value>
-        </filters>
-        <label>All Payments</label>
-    </listViews>
-    <listViews>
-        <fullName>All_Refunds</fullName>
-        <columns>NAME</columns>
-        <columns>Transaction_Date__c</columns>
-        <columns>Transaction_Amount__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>Transaction_Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Payment2__c.Credit_Card_Refund,Payment2__c.NIST_Issued_Refund</value>
-        </filters>
-        <label>All Refunds</label>
-=======
         <columns>Refund_Total__c</columns>
         <columns>Contract__c</columns>
         <columns>CREATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
->>>>>>> CRM-10108-Add-Receipt-FIelds
     </listViews>
     <nameField>
         <displayFormat>P{000000000}</displayFormat>
@@ -1304,7 +1265,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-<<<<<<< HEAD
             <picklist>Transaction_Status__c</picklist>
             <values>
                 <fullName>Cancelled</fullName>
@@ -1403,8 +1363,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-=======
->>>>>>> CRM-10108-Add-Receipt-FIelds
             <picklist>Transaction_Status__c</picklist>
             <values>
                 <fullName>Cancelled</fullName>
