@@ -1,0 +1,8 @@
+/**
+ * {1} Service {2} implementation class
+ *
+ * @author {0}
+ */
+public with sharing class {1}Svc{2} extends SObjectsTriggerService implements I{1}Svc{2} {{
+
+}}
