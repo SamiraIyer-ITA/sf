@@ -17,9 +17,8 @@ global without sharing class Flow_SendEmail {
 		try{
 			String csvEmails = inputs[0].emailList;
 			String recordId = inputs[0].recordId;
-			String userId = inputs[0].userId;
 
-			String jsonReturnedFrom = REST_EmailTransactionReceipt.doPost(csvEmails, recordId, userId);
+			String jsonReturnedFrom = REST_EmailTransactionReceipt.doPost(csvEmails, recordId);
 			REST_EmailTransactionReceipt.EmailResult emailResult = (REST_EmailTransactionReceipt.EmailResult)JSON.deserialize(jsonReturnedFrom, REST_EmailTransactionReceipt.EmailResult.class);
 			responseFromEmail.VarEmailReceiptSent = emailResult.receiptSent;
 			responseFromEmail.VarEmailErrorMessage = emailResult.errorMessage;

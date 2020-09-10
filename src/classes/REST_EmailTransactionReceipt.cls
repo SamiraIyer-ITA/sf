@@ -9,10 +9,9 @@ global without sharing class REST_EmailTransactionReceipt {
 	 *
 	 * @param recipientEmails A comma-separated list of email addresses.
 	 * @param recordId A Payment2 record Id or an Order record Id.
-	 * @param currentUserId The Id of the User record for the current user.
 	 */
 	@HttpPost
-	global static String doPost(String recipientEmails, String recordId, String currentUserId) {
+	global static String doPost(String recipientEmails, String recordId) {
 
 		try {
 			String objectName;
@@ -44,7 +43,8 @@ global without sharing class REST_EmailTransactionReceipt {
 			List<String> emailList = recipientEmails.split(',');
 
 			//Send the payment receipt
-			emailResult = sendEmail(emailList, payment, currentUserId, recipientEmails);
+			//UserId isn't used on any payment receipt, but is required for sending email
+			emailResult = sendEmail(emailList, payment, UserInfo.getUserId(), recipientEmails);
 			jsonReturnValue = JSON.serialize(emailResult);
 			setResponse(jsonReturnValue);
 			return jsonReturnValue;

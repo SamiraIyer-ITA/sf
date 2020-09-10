@@ -54,7 +54,6 @@ private with sharing class Flow_SendEmailTest {
 		rv1.userId = orders[0].OwnerId;
 		rv.add(rv1);
 		List<Flow_SendEmail.ResponseVariables> backFromApex = Flow_SendEmail.createEMailReceipt(rv);
-		system.debug('backfromapex ==> ' + backFromApex);
 		System.assertEquals(true, backFromApex[0].VarEmailReceiptSent);
 	}
 

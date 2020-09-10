@@ -29,7 +29,7 @@ public class Payments2ServiceImpl implements IPayments2Service{
 		for(Payment2__c payment2 : newRecords) {
 			if(payment2.Receipt_Ready__c == true && existingRecords.get(payment2.Id).Receipt_Ready__c == false && payment2.Receipt_Allowed__c == true) {
 				//receipt ready flag was just checked
-				REST_EmailTransactionReceipt.doPost(payment2.Receipt_Sent_To__c, payment2.Id, UserInfo.getUserId());
+				REST_EmailTransactionReceipt.doPost(payment2.Receipt_Sent_To__c, payment2.Id);
 			}
 		}
 	}
