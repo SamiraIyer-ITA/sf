@@ -62,11 +62,11 @@ public with sharing class Payments2Service {
 	/**
 	 * Authorize an electronic payment.  This method includes a callout to the payment processor's site (Pay.gov).
 	 *
-	 * @param authenticationDetailsString A JSON string of data that will be used by the payment processor as default values for the payment.
+	 * @param paymentAuthenticationDetails An instance of PaymentAuthenticationDetails that will be used by the payment processor as default values for the payment.
 	 */
 	@AuraEnabled(cacheable=false)
-	public static String authorizePayment(String authenticationDetailsString) {
-		return service().authorizePayment(authenticationDetailsString);
+	public static String authorizePayment(PaymentAuthenticationDetails paymentAuthenticationDetails) {
+		return service().authorizePayment(paymentAuthenticationDetails);
 	}
 
 	/**

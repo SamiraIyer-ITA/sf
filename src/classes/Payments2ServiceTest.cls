@@ -217,7 +217,8 @@ private class Payments2ServiceTest {
 		params.orderId = orders[0].Id;
 		Payment2__c payment = Payments2Service.createPayment(params);
 		String serializedDetails = Payments2Service.getPaymentProcessorData(payment.Id, params);
-		String paymentRedirectUrl = Payments2Service.authorizePayment(serializedDetails);
+		PaymentAuthenticationDetails paymentAuthenticationDetails = (PaymentAuthenticationDetails)JSON.deserialize(serializedDetails, PaymentAuthenticationDetails.class);
+		String paymentRedirectUrl = Payments2Service.authorizePayment(paymentAuthenticationDetails);
 		System.assertNotEquals(null, paymentRedirectUrl);
 	}
 
@@ -241,7 +242,8 @@ private class Payments2ServiceTest {
 		params.orderId = orders[0].Id;
 		Payment2__c payment = Payments2Service.createPayment(params);
 		String serializedDetails = Payments2Service.getPaymentProcessorData(payment.Id, params);
-		String paymentRedirectUrl = Payments2Service.authorizePayment(serializedDetails);
+		PaymentAuthenticationDetails paymentAuthenticationDetails = (PaymentAuthenticationDetails)JSON.deserialize(serializedDetails, PaymentAuthenticationDetails.class);
+		String paymentRedirectUrl = Payments2Service.authorizePayment(paymentAuthenticationDetails);
 		System.assertNotEquals(null, paymentRedirectUrl);
 	}
 
@@ -261,7 +263,8 @@ private class Payments2ServiceTest {
 		try {
 			Payment2__c payment = Payments2Service.createPayment(params);
 			String serializedDetails = Payments2Service.getPaymentProcessorData(payment.Id, params);
-			String paymentRedirectUrl = Payments2Service.authorizePayment(serializedDetails);
+			PaymentAuthenticationDetails paymentAuthenticationDetails = (PaymentAuthenticationDetails)JSON.deserialize(serializedDetails, PaymentAuthenticationDetails.class);
+			String paymentRedirectUrl = Payments2Service.authorizePayment(paymentAuthenticationDetails);
 		} catch(Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
@@ -281,7 +284,8 @@ private class Payments2ServiceTest {
 		try {
 			Payment2__c payment = Payments2Service.createPayment(params);
 			String serializedDetails = Payments2Service.getPaymentProcessorData(payment.Id, params);
-			String paymentRedirectUrl = Payments2Service.authorizePayment(serializedDetails);
+			PaymentAuthenticationDetails paymentAuthenticationDetails = (PaymentAuthenticationDetails)JSON.deserialize(serializedDetails, PaymentAuthenticationDetails.class);
+			String paymentRedirectUrl = Payments2Service.authorizePayment(paymentAuthenticationDetails);
 		} catch(Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {

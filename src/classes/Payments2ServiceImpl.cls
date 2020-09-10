@@ -94,11 +94,10 @@ public class Payments2ServiceImpl implements IPayments2Service{
 		return payment;
 	}
 
-	public static String authorizePayment(String authenticationDetailsString) {
+	public static String authorizePayment(PaymentAuthenticationDetails paymentAuthenticationDetails) {
 		//Handle exceptions in the calling method
-		PaymentAuthenticationDetails authenticationDetails = (PaymentAuthenticationDetails)JSON.deserialize(authenticationDetailsString, PaymentAuthenticationDetails.class);
 		IPayment payment = (IPayment) di_Injector.Org.getInstance('PaymentProcessor');
-		return payment.authorizePayment(authenticationDetails);
+		return payment.authorizePayment(paymentAuthenticationDetails);
 	}
 
 	public static String getPaymentProcessorData(Id paymentId, REST_BeginPaymentParams params) {

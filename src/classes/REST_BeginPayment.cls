@@ -51,19 +51,20 @@ global without sharing class REST_BeginPayment {
 
 		//Call the CreatePayment Rest Service.
 		//Calling it as a REST Service allows DML (creating a Payment record) before the callout to get a Pay.gov token.
-		String paymentDetails;
-		try {
-			paymentDetails = createPaymentCallout(params);
+			try {
+				String paymentDetails = createPaymentCallout(params);
+
+				PaymentAuthenticationDetails paymentAuthenticationDetails = Payment2Utils.deserializePaymentDetails(paymentDetails);
 
 				//Check if an error was returned
-				if (paymentCalloutError(paymentDetails)) {
-					jsonReturnValue = paymentDetails;
+				if (paymentAuthenticationDetails.error != null) {
+					jsonReturnValue = '{"error": "' + paymentAuthenticationDetails.error + '"}';
 				} else {
 					//Get the redirectUrl.  This includes SOAP callout to Pay.gov.
 					if (Test.IsRunningTest()) {
 						jsonReturnValue = '{"redirectUrl": "myReturnUrl"}';
 					} else {
-						String redirectUrl = Payments2Service.authorizePayment(paymentDetails);
+						String redirectUrl = Payments2Service.authorizePayment(paymentAuthenticationDetails);
 						jsonReturnValue = '{"redirectUrl": "' + redirectUrl + '"}';
 					}
 				}
@@ -76,19 +77,6 @@ global without sharing class REST_BeginPayment {
 		setResponse(jsonReturnValue);
 		return jsonReturnValue;
 
-	}
-
-	/**
-	 * @param paymentDetails A serialized String of PaymentAuthenticationDetails
-	 *
-	 * @return A Boolean of whether an error occurred during the Create Payment callout.
-	 */
-	private static Boolean paymentCalloutError(String paymentDetails) {
-		Map<String, Object> paymentDetailsMap = (Map<String, Object>) JSON.deserializeUntyped(paymentDetails);
-		if (paymentDetailsMap.containsKey('error')) {
-			return true;
-		}
-		return false;
 	}
 
 	/**

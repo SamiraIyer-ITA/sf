@@ -15,4 +15,5 @@ public class PaymentAuthenticationDetails {
 	public String billingCountryCode;
 	public String email;
 	public String accountType;
+	public String error;
 }

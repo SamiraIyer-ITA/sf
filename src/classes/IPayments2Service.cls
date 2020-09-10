@@ -12,7 +12,7 @@ public interface IPayments2Service {
 	String confirmPayment(String accountType, String paymentId, String token, String orderId);
 	Payment2__c createPayment(REST_BeginPaymentParams params);
 	String getPaymentProcessorData(Id paymentId, REST_BeginPaymentParams params);
-	String authorizePayment(String authenticationDetailsString);
+	String authorizePayment(PaymentAuthenticationDetails paymentAuthenticationDetails);
 	List<Payment2__c> getTransactions(String accountType, String paymentMethod, String transactionType, String fromDateString, String toDateString, String downloaded);
 	Order getOrderByPaidNonPaidOnly(String orderId, Boolean nonPaidOnly, Boolean paidOnly);
 	List<Order> getOrdersByContractId(String contractId, Boolean onlyCreditCardPayments, Boolean nonPaidOnly, Boolean paidOnly);

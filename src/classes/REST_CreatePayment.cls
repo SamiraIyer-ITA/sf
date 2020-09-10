@@ -53,7 +53,9 @@ global without sharing class REST_CreatePayment {
 			setResponse(jsonReturnValue);  //paymentDetails is already serialized
 			return jsonReturnValue;
 		} catch (Exception e) {
-			jsonReturnValue = '{"error": "' + e.getMessage() + '"}';
+			PaymentAuthenticationDetails details = new PaymentAuthenticationDetails();
+			details.error = e.getMessage();
+			jsonReturnValue = JSON.serialize(details);
 			setResponse(jsonReturnValue);
 			return jsonReturnValue;
 		}
