@@ -166,11 +166,11 @@ public without sharing class SegmentTriggerHandler {
     			setNewShipperSyncLevel(s);
     			newShipperReviewsToSyncList.add(s);
     		}
+		}
     		if (!newShipperReviewsToSyncList.isEmpty()) {
     			SyncUtility.syncObject(newShipperReviewsToSyncList, null, true);
             }
     	}
-    }
 
 	@TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
 		Map<String,List<Segment__c>> segmentListMap = new Map<String,List<Segment__c>>();
