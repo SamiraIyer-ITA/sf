@@ -128,7 +128,6 @@ public class AccountServiceImpl implements IAccountService {
 				}
 				for (Account acct : accounts) {
 					String acctZip5 = acct.BillingPostalCode.substring(0, 5);
-					system.debug('MGK acctZip5 ==> ' + acctZip5);
 					Master_CongressionalDistrict__c m = mccdMap.get(acctZip5);
 					acct.Congressional_District__c = m.Congressional_Dist__c;
 					acct.County_Name__c = m.County_Name__c;
