@@ -97,7 +97,7 @@ global without sharing class CP_SaveContactRequestFlowAction {
     }
     private static String getEmailBody(Id RecordId){
         String body;
-        String recordURL = URL.getSalesforceBaseUrl().toExternalForm() +
+        String recordURL = URL.getOrgDomainUrl().toExternalForm() +
         '/' + RecordId;
         body = 'A new contact request has been received. Please review the request here:' +  '\n \n'
             + recordURL ;
