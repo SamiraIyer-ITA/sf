@@ -22,7 +22,9 @@ public with sharing class PaymentDetailsLightningController2 {
 			}
 			return '';  //return null is not allowed by the lightning component
 		} catch (Exception e) {
-			throw new AuraHandledException(e.getMessage());
+			AuraHandledException auraHandledException = new AuraHandledException(e.getMessage());
+			auraHandledException.setMessage(e.getMessage());
+			throw auraHandledException;
 		}
 	}
 
