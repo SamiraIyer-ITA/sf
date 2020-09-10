@@ -195,7 +195,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
                 if (sa.Title__c != 'Program Manager') {continue;}
                 //if we already have a PM and it is not an update
                 if (programManager != null && programManager.Id != sa.Id) {
-                    sa.User__c.addError('There must be only one Program Manager per parent record. Please remove additional Program Managers.');
+                   // sa.User__c.addError('There must be only one Program Manager per parent record. Please remove additional Program Managers.');
                     break;
                 } else {
                     programManager = sa;
@@ -203,7 +203,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
             }
             if (programManager == null) {
                 System.debug('staffListByParentMap: ' + staffListByParentMap);
-                throw new DmlException('There is no Program Manager for this parent record. Please add one to continue.');
+                //throw new DmlException('There is no Program Manager for this parent record. Please add one to continue.');
             }
         }
     }
