@@ -1,0 +1,25 @@
+/**
+ * Implementation of I{1} interface that will be used as an fflib domain object.
+ *
+ * @author {0}
+ */
+public class {1} extends fflib_SObjectDomain implements I{1} {{
+
+	public static I{1} newInstance(List<{2}> records)  {{
+		return (I{1}) fflibext_Application.Domain.newInstance(records);
+	}}
+
+	public static I{1} newInstance(Set<Id> recordIds) {{
+		return (I{1}) fflibext_Application.Domain.newInstance(recordIds);
+	}}
+
+	public {1}(List<{2}> sObjectList) {{
+		super(sObjectList);
+	}}
+
+	public class Constructor implements fflib_SObjectDomain.IConstructable {{
+		public fflib_SObjectDomain construct(List<SObject> sObjectList) {{
+			return new {1}(sObjectList);
+		}}
+	}}
+}}
