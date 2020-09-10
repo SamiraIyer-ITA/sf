@@ -207,13 +207,16 @@ global without sharing class REST_EmailTransactionReceipt {
 		String templateApiName;
 		Map<String,Id> paymentRecordTypeMap = Utils.getRecordTypeIdMap('Payment2__c');
 
-		if (payment.RecordTypeId == paymentRecordTypeMap.get('Bank_Transfer_Payment')
+		if (payment.RecordTypeId == paymentRecordTypeMap.get('External_Credit_Card_or_ACH_Payment')) {
+			templateApiName = 'Transactions_External_Payment_Receipt';
+		}
+		else if (payment.RecordTypeId == paymentRecordTypeMap.get('Bank_Transfer_Payment')
 			|| payment.RecordTypeId == paymentRecordTypeMap.get('Cash_Payment')
 			|| payment.RecordTypeId == paymentRecordTypeMap.get('Check_Payment')
 			|| payment.RecordTypeId == paymentRecordTypeMap.get('Credit_Card_or_ACH_Payment')) {
 			templateApiName = 'Transactions_Payment_Receipt';
 		} else {
-			//This must be for a refund receipt
+			//This must be for a refund receipt (Credit_Card_Refund or NIST-Issued_Refund)
 			templateApiName = 'Transactions_Refund_Receipt';
 		}
 
