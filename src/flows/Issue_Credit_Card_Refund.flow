@@ -4,8 +4,8 @@
         <description>Get the object name of the calling record.</description>
         <name>Get_Object_Name</name>
         <label>Get Object Name</label>
-        <locationX>50</locationX>
-        <locationY>378</locationY>
+        <locationX>174</locationX>
+        <locationY>588</locationY>
         <actionName>Flow_ObjectNamesFromIds</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -29,8 +29,8 @@
         <description>Issue a credit card refund through Pay.gov.</description>
         <name>Issue_Credit_Card_Refund</name>
         <label>Issue Credit Card Refund</label>
-        <locationX>1132</locationX>
-        <locationY>66</locationY>
+        <locationX>1256</locationX>
+        <locationY>276</locationY>
         <actionName>Flow_IssueCreditCardRefund</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -76,8 +76,8 @@
         <description>Validate that the reduction orders are refundable.</description>
         <name>Validate_Selected_Orders</name>
         <label>Validate Selected Orders</label>
-        <locationX>1000</locationX>
-        <locationY>579</locationY>
+        <locationX>1124</locationX>
+        <locationY>789</locationY>
         <actionName>Flow_ValidateRefundableOrders</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -139,8 +139,8 @@
         <description>Assign Contract Id to a separate variable.</description>
         <name>Assign_Contract_Id</name>
         <label>Assign Contract Id</label>
-        <locationX>483</locationX>
-        <locationY>436</locationY>
+        <locationX>607</locationX>
+        <locationY>646</locationY>
         <assignmentItems>
             <assignToReference>ContractId</assignToReference>
             <operator>Assign</operator>
@@ -156,8 +156,8 @@
         <description>Assign the DML Error to a variable.</description>
         <name>DML_Error</name>
         <label>DML Error</label>
-        <locationX>398</locationX>
-        <locationY>60</locationY>
+        <locationX>544</locationX>
+        <locationY>355</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -170,11 +170,28 @@
         </connector>
     </assignments>
     <assignments>
+        <description>DML error message for users who do not have the appropriate permissions to issue credit card refunds (run this flow).</description>
+        <name>Flow_Access_Error_Assignment</name>
+        <label>Flow Access Error Assignment</label>
+        <locationX>425</locationX>
+        <locationY>218</locationY>
+        <assignmentItems>
+            <assignToReference>errorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>&lt;li&gt;You do not have the permission to issue credit card refunds&lt;/li&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Error_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <description>Assign the error message if the flow wasn&apos;t run from an Order or a Contract.</description>
         <name>Invalid_Object_Error</name>
         <label>Invalid Object Error</label>
-        <locationX>444</locationX>
-        <locationY>304</locationY>
+        <locationX>568</locationX>
+        <locationY>514</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -190,8 +207,8 @@
         <description>Assign the record Id to a List.</description>
         <name>Record_Id_to_List</name>
         <label>Record Id to List</label>
-        <locationX>50</locationX>
-        <locationY>195</locationY>
+        <locationX>174</locationX>
+        <locationY>405</locationY>
         <assignmentItems>
             <assignToReference>RecordIds</assignToReference>
             <operator>Add</operator>
@@ -207,8 +224,8 @@
         <description>Set the Contract Id from the Order.</description>
         <name>Set_Contract_and_Order_Details</name>
         <label>Set Contract and Order Details</label>
-        <locationX>551</locationX>
-        <locationY>570</locationY>
+        <locationX>675</locationX>
+        <locationY>780</locationY>
         <assignmentItems>
             <assignToReference>ContractId</assignToReference>
             <operator>Assign</operator>
@@ -231,8 +248,8 @@
         <description>Save the refund details into collections.</description>
         <name>Set_Refund_Details</name>
         <label>Set Refund Details</label>
-        <locationX>1533</locationX>
-        <locationY>623</locationY>
+        <locationX>1657</locationX>
+        <locationY>833</locationY>
         <assignmentItems>
             <assignToReference>Refund_Reasons</assignToReference>
             <operator>Add</operator>
@@ -324,11 +341,37 @@
         </value>
     </constants>
     <decisions>
+        <description>Determination of whether running user has the appropriate permissions to issue credit card refunds (run this flow).</description>
+        <name>Can_access_flow</name>
+        <label>Can access flow</label>
+        <locationX>168</locationX>
+        <locationY>221</locationY>
+        <defaultConnector>
+            <targetReference>Flow_Access_Error_Assignment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Access</defaultConnectorLabel>
+        <rules>
+            <name>Yes_can_access</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CanAccessFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Record_Id_to_List</targetReference>
+            </connector>
+            <label>Yes can access</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>Whether the selected orders has a order that is not refundable.</description>
         <name>Determine_Order_Path</name>
         <label>Determine Order Path</label>
-        <locationX>1125</locationX>
-        <locationY>480</locationY>
+        <locationX>1249</locationX>
+        <locationY>690</locationY>
         <defaultConnector>
             <targetReference>Record_Refund_Confirmation</targetReference>
         </defaultConnector>
@@ -368,8 +411,8 @@
         <description>Determines what to do for various object types.</description>
         <name>Object_Type</name>
         <label>Object Type</label>
-        <locationX>42</locationX>
-        <locationY>560</locationY>
+        <locationX>166</locationX>
+        <locationY>770</locationY>
         <defaultConnector>
             <targetReference>Invalid_Object_Error</targetReference>
         </defaultConnector>
@@ -409,8 +452,8 @@
         <description>Handles if an error occurred while processing the refund.</description>
         <name>Refund_Error</name>
         <label>Refund Error</label>
-        <locationX>846</locationX>
-        <locationY>154</locationY>
+        <locationX>970</locationX>
+        <locationY>364</locationY>
         <defaultConnector>
             <targetReference>Done_Screen</targetReference>
         </defaultConnector>
@@ -449,6 +492,12 @@
         <scale>2</scale>
     </formulas>
     <formulas>
+        <description>Error reference for decision element determining if a user has the applicable permissions to issue credit card refunds (run this flow)</description>
+        <name>CanAccessFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Permission.Can_Issue_Credit_Card_Refunds}</expression>
+    </formulas>
+    <formulas>
         <description>A part of the Case Description used in the Case created for NIST.  Each order will have it&apos;s own part.</description>
         <name>Case_Description_Part</name>
         <dataType>String</dataType>
@@ -474,8 +523,8 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
         <description>Loop through each other to get the refund amount and reason for the refund.</description>
         <name>Order_Loop</name>
         <label>Order Loop</label>
-        <locationX>785</locationX>
-        <locationY>684</locationY>
+        <locationX>909</locationX>
+        <locationY>894</locationY>
         <assignNextValueToReference>Order_Record_In_Loop</assignNextValueToReference>
         <collectionReference>SelectedOrders</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -503,8 +552,8 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
         <description>Gets the order record</description>
         <name>Get_Order</name>
         <label>Get Order</label>
-        <locationX>382</locationX>
-        <locationY>570</locationY>
+        <locationX>506</locationX>
+        <locationY>780</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Contract_and_Order_Details</targetReference>
@@ -531,8 +580,8 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
     <screens>
         <name>Done_Screen</name>
         <label>Done Screen</label>
-        <locationX>972</locationX>
-        <locationY>280</locationY>
+        <locationX>1096</locationX>
+        <locationY>490</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -548,8 +597,8 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
         <description>Displays when an error occurs.</description>
         <name>Error_Screen</name>
         <label>Error Screen</label>
-        <locationX>601</locationX>
-        <locationY>304</locationY>
+        <locationX>725</locationX>
+        <locationY>514</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -565,8 +614,8 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
         <description>Shown if an original order was not paid by credit card.  Will call another flow to create a case.</description>
         <name>Non_Credit_Card_Payment</name>
         <label>Non-Credit Card Payment</label>
-        <locationX>1386</locationX>
-        <locationY>479</locationY>
+        <locationX>1510</locationX>
+        <locationY>689</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -585,8 +634,8 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
         <description>Confirm that this refund should be recorded.</description>
         <name>Record_Refund_Confirmation</name>
         <label>Record Refund Confirmation</label>
-        <locationX>1132</locationX>
-        <locationY>282</locationY>
+        <locationX>1256</locationX>
+        <locationY>492</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -605,71 +654,8 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
         <description>Receive details about each order; the refund amount and the reason for the refund.</description>
         <name>Refund_Details</name>
         <label>Refund Details</label>
-        <locationX>1397</locationX>
-        <locationY>702</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>Set_Refund_Details</targetReference>
-        </connector>
-        <fields>
-            <name>OrderDetailsDisplayText</name>
-            <fieldText>&lt;p&gt;Enter refund details for Order &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;&quot;{!Order_Record_In_Loop.Name}&quot;&lt;/span&gt;, for which {!RefundAmountAvailableInLoop} is refundable.&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Refund_Amount</name>
-            <dataType>Currency</dataType>
-            <defaultValue>
-                <numberValue>0.0</numberValue>
-            </defaultValue>
-            <fieldText>Refund Amount</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>true</isRequired>
-            <scale>2</scale>
-            <validationRule>
-                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Refund Amount must be greater than zero and less than or equal&lt;/span&gt;&lt;span style=&quot;color: rgb(194, 57, 52); background-color: rgb(255, 255, 255);&quot;&gt; to {!RefundAmountAvailableInLoop}.&lt;/span&gt;&lt;/p&gt;</errorMessage>
-                <formulaExpression>AND (
-{!Refund_Amount} &gt; 0,
-{!Refund_Amount}&lt;={!RefundAmountAvailableInLoop}
-)</formulaExpression>
-            </validationRule>
-        </fields>
-        <fields>
-            <name>Refund_Reason</name>
-            <choiceReferences>RefundReason</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Refund Reason</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <isRequired>true</isRequired>
-        </fields>
-        <fields>
-            <name>Refund_Explanation</name>
-            <dataType>String</dataType>
-            <fieldText>Refund Explanation</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>true</isRequired>
-            <visibilityRule>
-                <conditionLogic>1</conditionLogic>
-                <conditions>
-                    <leftValueReference>Refund_Reason</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <stringValue>Other</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <description>Receive details about each order; the refund amount and the reason for the refund.</description>
-        <name>Refund_Details</name>
-        <label>Refund Details</label>
-        <locationX>1397</locationX>
-        <locationY>702</locationY>
+        <locationX>1521</locationX>
+        <locationY>912</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -731,8 +717,8 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
         <description>Select the orders for which you want to record a payment.</description>
         <name>Select_Orders_Screen</name>
         <label>Select Orders Screen</label>
-        <locationX>617</locationX>
-        <locationY>436</locationY>
+        <locationX>741</locationX>
+        <locationY>646</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -768,7 +754,7 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
         <locationX>50</locationX>
         <locationY>50</locationY>
         <connector>
-            <targetReference>Record_Id_to_List</targetReference>
+            <targetReference>Can_access_flow</targetReference>
         </connector>
     </start>
     <status>Active</status>
@@ -776,8 +762,8 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
         <description>Create a Transaction Management Support Case for NIST to issue a refund.</description>
         <name>Create_Transaction_Management_Support_Case</name>
         <label>Create Transaction Management Support Case</label>
-        <locationX>1386</locationX>
-        <locationY>309</locationY>
+        <locationX>1510</locationX>
+        <locationY>519</locationY>
         <flowName>NIST_Support_Case</flowName>
         <inputAssignments>
             <name>caseDescription</name>

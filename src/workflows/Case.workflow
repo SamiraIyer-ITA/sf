@@ -768,7 +768,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>10/1/2015</value>
+            <value>9/30/2015 11:00 PM</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Administratively Closed or Unable to Resolve</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -812,7 +812,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>10/1/2015</value>
+            <value>9/30/2015 11:00 PM</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Successfully Closed</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1087,7 +1087,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>10/1/2015</value>
+            <value>9/30/2015 11:00 PM</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Administratively Closed or Unable to Resolve</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1137,7 +1137,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>10/1/2015</value>
+            <value>9/30/2015 11:00 PM</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Successfully Closed</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1271,7 +1271,7 @@
             <value>To NIST</value>
         </criteriaItems>
         <description>Alert NIST user when new case is created</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>New NIST Case Alert for Transaction Management App User</fullName>
@@ -1291,7 +1291,7 @@
             <value>From NIST</value>
         </criteriaItems>
         <description>Alert Transaction Management Support Users for NIST cases</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Notify Case Creator of Toolkit Support Case Creation</fullName>

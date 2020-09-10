@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
     <flexiPageRegions>
-        <componentInstances>
+        <itemInstances>
+            <componentInstance>
             <componentInstanceProperties>
                 <name>eager</name>
                 <type>decorator</type>
@@ -32,7 +33,7 @@
             <componentInstanceProperties>
                 <name>label</name>
                 <type>decorator</type>
-                <value>Create Case</value>
+                    <value>Create Transaction Management Case</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>scrollable</name>
@@ -45,7 +46,8 @@
                 <value>400</value>
             </componentInstanceProperties>
             <componentName>flowruntime:interview</componentName>
-        </componentInstances>
+            </componentInstance>
+        </itemInstances>
         <name>utilityItems</name>
         <type>Region</type>
     </flexiPageRegions>
