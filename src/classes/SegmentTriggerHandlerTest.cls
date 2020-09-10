@@ -4965,7 +4965,37 @@ public class SegmentTriggerHandlerTest {
 
         System.assertEquals('Closed', acSeg.Status__c);
     }
-       
+
+    @isTest static void setSegmentIdToLitigationMap() {
+        Test.startTest();
+
+        Segment__c s = [SELECT Id FROM Segment__c LIMIT 1];
+        Set<Id> segmentSet = new Set<Id>();
+        segmentSet.add(s.Id);
+        SegmentTriggerHandler.setSegmentIdToLitigationMap(segmentSet);
+
+        Test.stopTest();
+    }
+
+    @isTest static void setNewShipperSyncLevel() {
+        Test.startTest();
+
+        Segment__c s = [SELECT Id, Administrative_Review_Aligned_To__c FROM Segment__c LIMIT 1];
+        SegmentTriggerHandler.setNewShipperSyncLevel(s);
+
+        Test.stopTest();
+    }
+
+    @isTest static void validateCompletedOutcome() {
+        Test.startTest();
+
+        Segment__c s = [SELECT Id FROM Segment__c LIMIT 1];
+        s.Segment_Outcome__c = 'Completed';
+        SegmentTriggerHandler.validateCompletedOutcome(s);
+
+        Test.stopTest();
+    }
+
 /*
     @isTest static void setSI_Status() {
         Test.startTest();
@@ -5168,23 +5198,25 @@ public class SegmentTriggerHandlerTest {
 */
 
     @testSetup static void dataSetup() {
+        List<Segment__c> segsToInsert = new List<Segment__c>();
+
+        User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
+
+        System.runAs(testUser) {
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
         Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, false);
         ma.Scope_Inquiry_Edit_Request_Filed__c = true;
         insert ma;
         AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+
         //create test data
-        User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-        User pleaseAssignUser = TestUtils.createAdminUser(false, 'myemail2@email.com.testita', 2);
-        pleaseAssignUser.LastName = 'Please Assign';
-        pleaseAssignUser.Staffing_Role__c = 'Program Manager';
-        insert pleaseAssignUser;
-        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser, false);
+        insert testADCase;
+        
         Petition__c testADPetition = TestUtils.createPetition(testADCase, segmentDate.addDays(-350), true);
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
         ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
-        List<Segment__c> segsToInsert = new List<Segment__c>();
-        System.runAs(testUser) {
+
             for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {
                 Segment__c testSeg = TestUtils.createSegment(testADOrder, segRecordTypeName, false);
                 segsToInsert.add(testSeg);
