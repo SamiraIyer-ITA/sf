@@ -40,15 +40,27 @@
             <targetReference>DML_Error</targetReference>
         </faultConnector>
         <inputParameters>
-            <name>orders</name>
+            <name>orderRefundAmounts</name>
             <value>
-                <elementReference>SelectedOrders</elementReference>
+                <elementReference>Refund_Amounts</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
-            <name>refundAmount</name>
+            <name>orderRefundExplanations</name>
             <value>
-                <elementReference>AbsoluteTotalAmount</elementReference>
+                <elementReference>Refund_Explanations</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>orderRefundReasons</name>
+            <value>
+                <elementReference>Refund_Reasons</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>orders</name>
+            <value>
+                <elementReference>SelectedOrders</elementReference>
             </value>
         </inputParameters>
         <outputParameters>
@@ -58,10 +70,6 @@
         <outputParameters>
             <assignToReference>HasError</assignToReference>
             <name>hasError</name>
-        </outputParameters>
-        <outputParameters>
-            <assignToReference>RefundId</assignToReference>
-            <name>refundId</name>
         </outputParameters>
     </actionCalls>
     <actionCalls>
@@ -589,6 +597,69 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
             <name>recordRefundConfirmationText</name>
             <fieldText>&lt;p&gt;Are you sure you want to issue a refund?  Click the &apos;Next&apos; button to issue a refund of {!AbsoluteTotalAmount}.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Receive details about each order; the refund amount and the reason for the refund.</description>
+        <name>Refund_Details</name>
+        <label>Refund Details</label>
+        <locationX>1397</locationX>
+        <locationY>702</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Set_Refund_Details</targetReference>
+        </connector>
+        <fields>
+            <name>OrderDetailsDisplayText</name>
+            <fieldText>&lt;p&gt;Enter refund details for Order &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;&quot;{!Order_Record_In_Loop.Name}&quot;&lt;/span&gt;, for which {!RefundAmountAvailableInLoop} is refundable.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Refund_Amount</name>
+            <dataType>Currency</dataType>
+            <defaultValue>
+                <numberValue>0.0</numberValue>
+            </defaultValue>
+            <fieldText>Refund Amount</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <scale>2</scale>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(194, 57, 52);&quot;&gt;Refund Amount must be greater than zero and less than or equal&lt;/span&gt;&lt;span style=&quot;color: rgb(194, 57, 52); background-color: rgb(255, 255, 255);&quot;&gt; to {!RefundAmountAvailableInLoop}.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>AND (
+{!Refund_Amount} &gt; 0,
+{!Refund_Amount}&lt;={!RefundAmountAvailableInLoop}
+)</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Refund_Reason</name>
+            <choiceReferences>RefundReason</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Refund Reason</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Refund_Explanation</name>
+            <dataType>String</dataType>
+            <fieldText>Refund Explanation</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>1</conditionLogic>
+                <conditions>
+                    <leftValueReference>Refund_Reason</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Other</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>

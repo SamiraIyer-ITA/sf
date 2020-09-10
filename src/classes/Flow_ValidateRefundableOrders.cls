@@ -23,46 +23,12 @@ global without sharing class Flow_ValidateRefundableOrders {
 				return responseVariablesList;
 			}
 
-			/*Create a Map of passedInOrder Ids and refund amounts, refund reasons and refund explanations.
-			The map will be used to create a Case Description.
-			A Case Description may be needed to create a Case for NIST.*/
+			Map<Id, RefundData> refundDataMap = structureRefundInputs(inputs, passedInOrders);
 
-			List<String> refundAmounts = inputs[0].refundAmounts;
-			List<String> refundReasons = inputs[0].refundReasons;
-			List<String> refundExplanations = inputs[0].refundExplanations;
-			List<String> currentFormatList = new String[]{'0','number','###,###,##0.00'};
-			Map<Id, RefundData> refundDataMap = new Map<Id, RefundData>();
-			for (Integer x = 0; x<passedInOrders.size(); x++) {
-				RefundData refundData = new RefundData();
-				refundData.refundAmount = Decimal.valueOf(refundAmounts[x]);
-				refundData.refundAmountString = '$' + String.format(refundData.refundAmount.format(), currentFormatList);
-				refundData.refundReason = refundReasons[x];
-				refundData.refundExplanation = refundExplanations[x];
-				refundDataMap.put(passedInOrders[x].Id, refundData);
-			}
+			List<Order> orders = retrievePassedInOrderPaymentInfo(passedInOrders);
 
-			//The passed-in orders don't have any payment information, so query for it
-			Set<Id> orderIds = new Set<Id>();
-			for (Order order: passedInOrders) {
-				orderIds.add(order.Id);
-			}
-
-			List<Order> orders = OrdersSelector.newInstance().selectByPaidNonPaidOnly(orderIds, false, true);
-
-			List<String> errorList = new List<String>();
 			if (passedInOrders.size() != orders.size()) {
-				//The passed-in orders must not have been already paid
-				for (Order order: passedInOrders) {
-					if (order.Order_Paid__c) {
-						errorList.add('<li>Order \'' + order.Name + '\' has not yet been paid.</li>');
-					}
-				}
-				responseVariables.isValid = false;
-				if (! errorList.isEmpty()) {
-					responseVariables.invalidReasons = String.join(errorList, '  ');  //Convert the list to a single string
-				}
-				responseVariablesList.add(responseVariables);
-				return responseVariablesList;
+				return returnInvalidOrderPayments(responseVariablesList,passedInOrders,responseVariables);
 			}
 
 			//Determine the account type.  All orders need to be the same Type.
@@ -73,6 +39,8 @@ global without sharing class Flow_ValidateRefundableOrders {
 
 			//Calculate the total amount of the refund, for use to inform the user.
 			Decimal totalAmount = 0.00;
+
+			List<String> errorList = new List<String>();
 
 			for (Order order: orders) {
 				//Populate the case description, with a blank line between each order's info
@@ -89,39 +57,96 @@ global without sharing class Flow_ValidateRefundableOrders {
 				caseDescription += 'A refund of ' + refundData.refundAmountString + ' is requested for Payment Id: ' + order.Payment2__r.Name
 					+ ' (Order Number: ' + order.OrderNumber + '). The reason for the refund is "' + refundData.refundReason + '".';
 
-				//Determine any error messages
-				if (! order.Order_Paid__c) {
-					errorList.add('<li>Order \'' + order.Name + '\' cannot be refunded because it hasn\'t been paid.</li>');
-				}
-				if (accountType != order.Type) {
-					errorList.add('<li>The  \'Type\' field for all orders must match.</li>');
-				}
-				if (order.Payment2__c == null) {
-					errorList.add('<li>Order \'' + order.Name + '\' is missing a payment.</li>');
-				}
-				if (Math.abs(refundData.refundAmount) > (order.TotalAmount - order.Refunded_Amount__c)) {
-					errorList.add('<li>Order \'' + order.Name + '\' has a total amount that exceeds the amount available to be refunded.</li>');
-				}
+				errorList = determineErrorMessages(order,accountType,refundData);
+
 				if (order.Payment2__r.Payment_Type__c != 'PLASTIC_CARD') {
 					responseVariables.nonCreditCardPayment = true;
 				}
 			}
 
-			responseVariables.totalAmount = totalAmount;
-			if (! errorList.isEmpty()) {
-				responseVariables.isValid = false;
-				responseVariables.invalidReasons = String.join(errorList, '  ');  //Convert the list to a single string
-			} else {
-				responseVariables.isValid = true;
-			}
-			responseVariables.caseDescription = caseDescription;
-			responseVariables.accountType = accountType;
-			responseVariablesList.add(responseVariables);
-			return responseVariablesList;
+			return setResponseVariables(responseVariablesList, responseVariables, caseDescription, accountType, errorList, totalAmount);
 
 		} catch(Exception e) {
 			throw new ValidateRefundableOrdersActionException(e.getMessage());
 		}
+	}
+
+	private static Map<Id, RefundData> structureRefundInputs (List<RequestVariables> inputs, List<Order> passedInOrders) {
+		/*Create a Map of passedInOrder Ids and refund amounts, refund reasons and refund explanations.
+		The map will be used to create a Case Description.
+		A Case Description may be needed to create a Case for NIST.*/
+		List<String> refundAmounts = inputs[0].refundAmounts;
+		List<String> refundReasons = inputs[0].refundReasons;
+		List<String> refundExplanations = inputs[0].refundExplanations;
+		List<String> currentFormatList = new String[]{'0','number','###,###,##0.00'};
+		Map<Id, RefundData> refundDataMap = new Map<Id, RefundData>();
+		for (Integer x = 0; x<passedInOrders.size(); x++) {
+			RefundData refundData = new RefundData();
+			refundData.refundAmount = Decimal.valueOf(refundAmounts[x]);
+			refundData.refundAmountString = '$' + String.format(refundData.refundAmount.format(), currentFormatList);
+			refundData.refundReason = refundReasons[x];
+			refundData.refundExplanation = refundExplanations[x];
+			refundDataMap.put(passedInOrders[x].Id, refundData);
+		}
+		return refundDataMap;
+	}
+
+	private static List<Order> retrievePassedInOrderPaymentInfo (List<Order> passedInOrders) {
+		//The passed-in orders don't have any payment information, so query for it
+		Set<Id> orderIds = new Set<Id>();
+		for (Order order: passedInOrders) {
+			orderIds.add(order.Id);
+		}
+		return OrdersSelector.newInstance().selectByPaidNonPaidOnly(orderIds, false, true);
+	}
+
+	private static List<ResponseVariables> returnInvalidOrderPayments(List<ResponseVariables> responseVariablesList, List<Order> passedInOrders, ResponseVariables responseVariables) {
+		//The passed-in orders must not have been already paid
+		List<String> errorList = new List<String>();
+		for (Order order: passedInOrders) {
+			if (order.Order_Paid__c) {
+				errorList.add('<li>Order \'' + order.Name + '\' has not yet been paid.</li>');
+			}
+		}
+		responseVariables.isValid = false;
+		if (! errorList.isEmpty()) {
+			responseVariables.invalidReasons = String.join(errorList, '  ');  //Convert the list to a single string
+		}
+		responseVariablesList.add(responseVariables);
+		return responseVariablesList;
+	}
+
+	private static List<String> determineErrorMessages(Order order, String accountType, RefundData refundData) {
+		List<String> errorList = new List<String>();
+		//Determine any error messages
+		if (! order.Order_Paid__c) {
+			errorList.add('<li>Order \'' + order.Name + '\' cannot be refunded because it hasn\'t been paid.</li>');
+		}
+		if (accountType != order.Type) {
+			errorList.add('<li>The  \'Type\' field for all orders must match.</li>');
+		}
+		if (order.Payment2__c == null) {
+			errorList.add('<li>Order \'' + order.Name + '\' is missing a payment.</li>');
+		}
+		if (Math.abs(refundData.refundAmount) > (order.TotalAmount - order.Refunded_Amount__c)) {
+			errorList.add('<li>Order \'' + order.Name + '\' has a total amount that exceeds the amount available to be refunded.</li>');
+		}
+		return errorList;
+	}
+
+	private static List<ResponseVariables> setResponseVariables(List<ResponseVariables> responseVariablesList, ResponseVariables responseVariables,
+																					String caseDescription, String accountType, List<String> errorList, Decimal totalAmount) {
+		responseVariables.totalAmount = totalAmount;
+		if (! errorList.isEmpty()) {
+			responseVariables.isValid = false;
+			responseVariables.invalidReasons = String.join(errorList, '  ');  //Convert the list to a single string
+		} else {
+			responseVariables.isValid = true;
+		}
+		responseVariables.caseDescription = caseDescription;
+		responseVariables.accountType = accountType;
+		responseVariablesList.add(responseVariables);
+		return responseVariablesList;
 	}
 
 	//Inputs from Flow to Apex
@@ -168,5 +193,4 @@ global without sharing class Flow_ValidateRefundableOrders {
 		String refundReason;
 		String refundExplanation;
 	}
-
 }
