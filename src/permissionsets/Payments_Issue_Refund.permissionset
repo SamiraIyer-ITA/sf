@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Can_Issue_Credit_Card_Refunds</name>
+    </customPermissions>
+    <description>Provides access to Issue Refunds from an Action on Order &amp; Contract records</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Payments: Issue Refund</label>
+    <license>Salesforce</license>
+</PermissionSet>

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>Transaction_Management_Home</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <logo>PaymentAppLogo</logo>
@@ -261,82 +269,83 @@
         <content>Admin_Payment2_Record_Page</content>
         <formFactor>Small</formFactor>
         <pageOrSobjectType>Payment2__c</pageOrSobjectType>
+        <recordType>Payment2__c.NIST_Issued_Refund</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment2_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
+        <recordType>Payment2__c.NIST_Issued_Refund</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment2_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
+        <recordType>Payment2__c.Check_Payment</recordType>
+        <type>Flexipage</type>
+        <profile>NIST User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment2_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
+        <recordType>Payment2__c.Check_Payment</recordType>
+        <type>Flexipage</type>
+        <profile>NIST User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment2_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
+        <recordType>Payment2__c.Cash_Payment</recordType>
+        <type>Flexipage</type>
+        <profile>NIST User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment2_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
+        <recordType>Payment2__c.Cash_Payment</recordType>
+        <type>Flexipage</type>
+        <profile>NIST User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment2_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
+        <recordType>Payment2__c.Credit_Card_or_ACH_Payment</recordType>
+        <type>Flexipage</type>
+        <profile>NIST User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment2_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
+        <recordType>Payment2__c.Credit_Card_or_ACH_Payment</recordType>
+        <type>Flexipage</type>
+        <profile>NIST User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Admin_Payment2_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
         <recordType>Payment2__c.Credit_Card_Refund</recordType>
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment2_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
-        <recordType>Payment2__c.NIST_Issued_Refund</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment2_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
-        <recordType>Payment2__c.NIST_Issued_Refund</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment2_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
-        <recordType>Payment2__c.Check_Payment</recordType>
-        <type>Flexipage</type>
-        <profile>NIST User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment2_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
-        <recordType>Payment2__c.Check_Payment</recordType>
-        <type>Flexipage</type>
-        <profile>NIST User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment2_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
-        <recordType>Payment2__c.Cash_Payment</recordType>
-        <type>Flexipage</type>
-        <profile>NIST User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment2_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
-        <recordType>Payment2__c.Cash_Payment</recordType>
-        <type>Flexipage</type>
-        <profile>NIST User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment2_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
-        <recordType>Payment2__c.Credit_Card_or_ACH_Payment</recordType>
-        <type>Flexipage</type>
-        <profile>NIST User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Admin_Payment2_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Payment2__c</pageOrSobjectType>
-        <recordType>Payment2__c.Credit_Card_or_ACH_Payment</recordType>
-        <type>Flexipage</type>
-        <profile>NIST User</profile>
-    </profileActionOverrides>
+    <tabs>standard-home</tabs>
     <tabs>Transaction_Management</tabs>
     <tabs>Action_Items</tabs>
     <tabs>standard-Contract</tabs>
