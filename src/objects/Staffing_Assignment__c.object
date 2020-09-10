@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,17 +33,55 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Edit</actionName>
-        <content>StaffingAssignment</content>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -62,10 +120,10 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -251,7 +309,7 @@
     <fields>
         <fullName>Office__c</fullName>
         <externalId>false</externalId>
-        <formula>if(!ISBLANK(Text(Investigation__r.Office__c)),TEXT(Investigation__r.Office__c), 
+        <formula>if(!ISBLANK(Text(Investigation__r.Office__c)),TEXT(Investigation__r.Office__c),
 if(!ISBLANK(TEXT(ADCVD_Order__r.Office__c)),Text(ADCVD_Order__r.Office__c),
 if(!ISBLANK(TEXT(Segment__r.Office__c)),TEXT(Segment__r.Office__c),
 if(!ISBLANK(TEXT(Petition__r.Office__c)),TEXT(Petition__r.Office__c),&apos;Unassigned&apos; )
@@ -269,12 +327,12 @@ if(!ISBLANK(TEXT(Petition__r.Office__c)),TEXT(Petition__r.Office__c),&apos;Unass
     <fields>
         <fullName>Parent_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ADCVD_Order__c != null,  ADCVD_Order__r.ADCVD_Order_Name__c , 
-IF( Investigation__c != null,  Investigation__r.Investigation_Name__c , 
-IF( Petition__c != null,  Petition__r.Petition_Name__c , 
-IF( Related_Organization__c != null,   Related_Organization__r.Related_Organization_Name__c , 
-IF( Segment__c != null,  Segment__r.Segment_Name__c , 
-&apos;&apos; 
+        <formula>IF( ADCVD_Order__c != null,  ADCVD_Order__r.ADCVD_Order_Name__c ,
+IF( Investigation__c != null,  Investigation__r.Investigation_Name__c ,
+IF( Petition__c != null,  Petition__r.Petition_Name__c ,
+IF( Related_Organization__c != null,   Related_Organization__r.Related_Organization_Name__c ,
+IF( Segment__c != null,  Segment__r.Segment_Name__c ,
+&apos;&apos;
 ) ) ) ) )</formula>
         <label>Parent Name</label>
         <required>false</required>
@@ -286,11 +344,11 @@ IF( Segment__c != null,  Segment__r.Segment_Name__c ,
     <fields>
         <fullName>Parent__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ADCVD_Order__c != null, ADCVD_Order__r.Link__c , 
-IF( Investigation__c != null, Investigation__r.Link__c , 
-IF( Petition__c != null, Petition__r.Link__c , 
-IF( Related_Organization__c != null, Related_Organization__r.Link__c , 
-IF( Segment__c != null, Segment__r.Link__c , 
+        <formula>IF( ADCVD_Order__c != null, ADCVD_Order__r.Link__c ,
+IF( Investigation__c != null, Investigation__r.Link__c ,
+IF( Petition__c != null, Petition__r.Link__c ,
+IF( Related_Organization__c != null, Related_Organization__r.Link__c ,
+IF( Segment__c != null, Segment__r.Link__c ,
 &apos;&apos;
 ) ) ) ) )</formula>
         <label>Parent</label>
@@ -441,11 +499,11 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <fullName>Status__c</fullName>
         <description>The Status field on Staffing is derived from the parent record.</description>
         <externalId>false</externalId>
-        <formula>IF(NOT(ISBLANK(Petition__c)), TEXT(Petition__r.Status__c), 
-IF(NOT(ISBLANK(Investigation__c)), TEXT(Investigation__r.Status__c), 
-IF(NOT(ISBLANK(ADCVD_Order__c)), TEXT(ADCVD_Order__r.Status__c), 
-IF(NOT(ISBLANK(Segment__c)), TEXT(Segment__r.Status__c), 
-IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;, 
+        <formula>IF(NOT(ISBLANK(Petition__c)), TEXT(Petition__r.Status__c),
+IF(NOT(ISBLANK(Investigation__c)), TEXT(Investigation__r.Status__c),
+IF(NOT(ISBLANK(ADCVD_Order__c)), TEXT(ADCVD_Order__r.Status__c),
+IF(NOT(ISBLANK(Segment__c)), TEXT(Segment__r.Status__c),
+IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
 &quot;No Parent&quot;)))))</formula>
         <label>Status</label>
         <required>false</required>
@@ -549,16 +607,17 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         <externalId>false</externalId>
         <label>User</label>
         <lookupFilter>
-            <active>false</active>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
             <filterItems>
-                <field>$Source.Title__c</field>
+                <field>User.UserRole.Name</field>
                 <operation>equals</operation>
-                <valueField>User.Staffing_Role__c</valueField>
+                <value>E&amp;C DAS/AS</value>
             </filterItems>
             <filterItems>
-                <field>User.Staffing_Role__c</field>
-                <operation>notEqual</operation>
-                <value></value>
+                <field>User.UserRole.Name</field>
+                <operation>equals</operation>
+                <value>E&amp;C TANC</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -1184,6 +1243,15 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A1200ProgramManagerCannotBeBlank</fullName>
+        <active>true</active>
+        <description>Program Manager user cannot be blank or have &apos;Please Assign&apos; on the record</description>
+        <errorConditionFormula>AND(Text(Title__c)==&apos;Program Manager&apos;,
+			OR(ISBLANK(User__c),User__r.LastName ==&apos;Please Assign&apos;)
+			)</errorConditionFormula>
+        <errorMessage>Please assign a user to the program manager.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A1201PermSetReparentsStaffing</fullName>
         <active>true</active>
         <description>Staffing records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
@@ -1209,12 +1277,12 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         <fullName>Only_Admin_reparents_records</fullName>
         <active>false</active>
         <description>Staffing Assignment records can only be reparented by a System Administrator. This rule considered Interested Organization as a possible parent.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-Locked__c == false, 
-NOT( ISNEW() ), 
-OR(ISCHANGED(ADCVD_Case__c ),ISCHANGED(ADCVD_Order__c),ISCHANGED(Investigation__c),ISCHANGED(Petition__c),ISCHANGED(Related_Organization__c),ISCHANGED(Segment__c)),$Profile.Name 
-&lt;&gt; 
-&quot;System Administrator&quot; 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+Locked__c == false,
+NOT( ISNEW() ),
+OR(ISCHANGED(ADCVD_Case__c ),ISCHANGED(ADCVD_Order__c),ISCHANGED(Investigation__c),ISCHANGED(Petition__c),ISCHANGED(Related_Organization__c),ISCHANGED(Segment__c)),$Profile.Name
+&lt;&gt;
+&quot;System Administrator&quot;
 )</errorConditionFormula>
         <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Investigation, Petition, Interested Organization, Segment or ADCVD Case for this record.</errorMessage>
     </validationRules>
@@ -1222,10 +1290,10 @@ OR(ISCHANGED(ADCVD_Case__c ),ISCHANGED(ADCVD_Order__c),ISCHANGED(Investigation__
         <fullName>Program_Manager_must_have_a_user</fullName>
         <active>true</active>
         <description>If the staffing assignment Title is &quot;Program Manager&quot;, the User must be populated. Populates on create to user with the last name &quot;Please Assign&quot; if that user exists.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
 Locked__c == false,
 ISPICKVAL(Title__c, &quot;Program Manager&quot;),
-ISBLANK(User__c) 
+ISBLANK(User__c)
 )</errorConditionFormula>
         <errorDisplayField>User__c</errorDisplayField>
         <errorMessage>Program Manager must have a user assigned to the staffing assignment.</errorMessage>
@@ -1234,14 +1302,14 @@ ISBLANK(User__c)
         <fullName>Require_a_parent_value</fullName>
         <active>true</active>
         <description>Require one parent value for each staffing assignment along with a related ADCVD Case. This rule considers Related Organization as a possible parent.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, ISNEW(), ISBLANK(ADCVD_Case__c), OR( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, ISNEW(), ISBLANK(ADCVD_Case__c), OR(
 (AND( ISBLANK(ADCVD_Order__c),ISBLANK(Investigation__c),ISBLANK(Petition__c),ISBLANK(Related_Organization__c),ISBLANK(Segment__c))),
 (IF(ISBLANK(ADCVD_Order__c),0,1)+
 IF(ISBLANK(Investigation__c),0,1)+
 IF(ISBLANK(Petition__c),0,1)+
-IF(ISBLANK(Related_Organization__c),0,1)+ 
-IF(ISBLANK(Segment__c),0,1)&gt;1) 
-) 
+IF(ISBLANK(Related_Organization__c),0,1)+
+IF(ISBLANK(Segment__c),0,1)&gt;1)
+)
 )</errorConditionFormula>
         <errorMessage>Please select one parent ADCVD Order, Interested Organization, Investigation, Petition, or Segment for this Staffing Assignment with a related ADCVD Case.</errorMessage>
     </validationRules>
