@@ -49,9 +49,14 @@ global without sharing class REST_BeginPayment {
 		try {
 			paymentDetails = createPaymentCallout(params);
 
-		//Get the redirectUrl.  This includes SOAP callout to Pay.gov.
-		String redirectUrl = Payment2.authorizePayment(paymentDetails);
-		jsonReturnValue = '{"redirectUrl": "' + redirectUrl + '"}';
+				//Check if an error was returned
+				if (paymentCalloutError(paymentDetails)) {
+					jsonReturnValue = paymentDetails;
+				} else {
+					//Get the redirectUrl.  This includes SOAP callout to Pay.gov.
+					String redirectUrl = Payment2.authorizePayment(paymentDetails);
+					jsonReturnValue = '{"redirectUrl": "' + redirectUrl + '"}';
+				}
 
 			} catch (Exception e) {
 				jsonReturnValue = '{"error": "' + e.getMessage() + '"}';
@@ -61,6 +66,19 @@ global without sharing class REST_BeginPayment {
 		setResponse(jsonReturnValue);
 		return jsonReturnValue;
 
+	}
+
+	/**
+	 * @param paymentDetails A serialized String of Payment2.PaymentAuthenticationDetails
+	 *
+	 * @return A Boolean of whether an error occurred during the Create Payment callout.
+	 */
+	private static Boolean paymentCalloutError(String paymentDetails) {
+		Map<String, Object> paymentDetailsMap = (Map<String, Object>) JSON.deserializeUntyped(paymentDetails);
+		if (paymentDetailsMap.containsKey('error')) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
