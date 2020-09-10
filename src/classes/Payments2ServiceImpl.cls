@@ -24,4 +24,13 @@ public class Payments2ServiceImpl implements IPayments2Service{
             payment.System_Search_String__c = systemSearchString;
         }
     }
+
+	public static void sendEmailReceipt(Map<Id,Payment2__c> existingRecords, List<Payment2__c> newRecords) {
+		for(Payment2__c payment2 : newRecords) {
+			if(payment2.Receipt_Ready__c == true && existingRecords.get(payment2.Id).Receipt_Ready__c == false) {
+				//receipt ready flag was just checked
+				REST_EmailTransactionReceipt.doPost(payment2.Receipt_Sent_To__c, payment2.Id, UserInfo.getUserId());
+			}
+		}
+	}
 }

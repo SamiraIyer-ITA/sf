@@ -17,6 +17,10 @@ public with sharing class Payments2Service {
 		service().updateSystemSearchStringList(payments2List);
 	}
 
+	public static void sendEmailReceipt(Map<Id,Payment2__c> existingRecords, List<Payment2__c> newRecords){
+		service().sendEmailReceipt(existingRecords, newRecords);
+	}
+
 	public class Payments2ServiceException extends Exception {}
 
 }

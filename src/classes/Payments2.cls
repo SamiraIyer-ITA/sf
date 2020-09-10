@@ -34,9 +34,21 @@ public class Payments2 extends fflib_SObjectDomain implements IPayments2 {
 		updateSystemSearchString(Trigger.New);
 	}
 
+	public override void onAfterUpdate(Map<Id, SObject> existingRecords) {
+		sendEmailReceipt((Map<Id,Payment2__c>)existingRecords,(List<Payment2__c>)Trigger.New);
+	}
+
 	public void updateSystemSearchString(List<Payment2__c> payment2List) {
 		try {
 			Payments2Service.updateSystemSearchStringList(payment2List);
+		} catch (Payments2Service.Payments2ServiceException e){
+			Records.get(0).addError(e.getMessage());
+		}
+	}
+
+	public void sendEmailReceipt(Map<Id,Payment2__c> existingRecords, List<Payment2__c> payment2List) {
+		try {
+			Payments2Service.sendEmailReceipt(existingRecords, payment2List);
 		} catch (Payments2Service.Payments2ServiceException e){
 			Records.get(0).addError(e.getMessage());
 		}

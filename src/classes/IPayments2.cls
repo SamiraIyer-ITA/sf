@@ -7,5 +7,5 @@
 public interface IPayments2 extends fflib_ISObjectDomain {
 
 	void updateSystemSearchString(List<Payment2__c> payments2List);
-
+	void sendEmailReceipt(Map<Id,Payment2__c> existingRecords, List<Payment2__c> newRecords);
 }
