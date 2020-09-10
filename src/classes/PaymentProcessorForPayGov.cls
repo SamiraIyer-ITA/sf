@@ -234,27 +234,4 @@ public with sharing class PaymentProcessorForPayGov implements IPayment {
 		public String errorMessage {get;set;}
 	}
 
-	/**
-	* Populate the Account Holder Name and Account Number using a pay.gov future callout
-	*
-	* @param paymentId
-	*/
-	@future(callout=true)
-	public static void futureGetPaymentDetails(Id paymentId) {
-		try {
-			String paymentDetails = PaymentDetailsLightningController2.getPaymentDetails(paymentId);
-			PaymentDetailsForPayGov.ReturnValue returnValue = (PaymentDetailsForPayGov.ReturnValue) JSON.deserialize(paymentDetails, PaymentDetailsForPayGov.ReturnValue.class);
-			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id> {paymentId});
-			payments[0].Account_Holder_Name__c = returnValue.accountHolderName;
-			payments[0].Account_Number__c = returnValue.accountNumber;
-			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType});
-			uow.registerDirty(payments);
-			uow.commitWork();
-		} catch (Exception e) {
-			RecordLog.push('futureGetPaymentDetails Exception');
-			RecordLog.message(e.getMessage());
-			RecordLog.emit(paymentId);
-		}
-	}
-
 }

@@ -172,7 +172,7 @@ public with sharing class Payment2 {
 		}
 
 		if (String.isNotBlank(params.originatingOffice )) {
-			payment.Collection_Post_Acronym__c = params.originatingOffice;
+			payment.Fulfillment_Post_Acronym__c = params.originatingOffice;
 		}
 
 		if (String.isNotBlank(params.orderId)) {
@@ -187,7 +187,7 @@ public with sharing class Payment2 {
 		RecordLog.message('Object Class: ' + 		payment.Object_Class__c);
 		RecordLog.message('Invoice Date: ' + 		payment.Invoice_Date__c);
 		RecordLog.message('Invoice Id: ' + 			payment.Invoice_Id__c);
-		RecordLog.message('Originating Office: ' +  payment.Collection_Post_Acronym__c);
+		RecordLog.message('Originating Office: ' +  payment.Fulfillment_Post_Acronym__c);
 
 		RecordLog.message('Inserting Payment');
 		try {
@@ -462,5 +462,7 @@ public with sharing class Payment2 {
 		public String accountType;
 	}
 	public class PaymentLimitException extends Exception {}
+
+	public class PaymentException extends Exception {}
 
 }

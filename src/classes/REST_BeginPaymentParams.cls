@@ -20,11 +20,12 @@
  * taskCode: String.  Used to populate the new Task Code field.
  * objectClass: String.  Used to populate the new Object Class field.
  * organizationCode: String.  Used to populate the Fulfillment Post Org Code if it has a value.
- * originatingOffice: String.  Used to populate the Collection Post Acronym field.
+ * originatingOffice: String.  Used to populate the Fulfillment Post Acronym field.
  * receiptEmailAddresses: String.  Comma-separated list of email addresses to which the receipt is sent.
  * receiptAllowed: Boolean.  Whether a receipt should be sent by Salesforce.
  * invoiceDate: String.  Optional.  A string value that an external Salesforce payment may want displayed on the receipt.
  * invoiceId: String.  Optional.  A string value that an external Salesforce payment may want displayed on the receipt.
+ * internalCaller Whether the caller of the service is internal (from within Salesforce) or not.
  */
 
 global class REST_BeginPaymentParams {
@@ -52,4 +53,5 @@ global class REST_BeginPaymentParams {
 	global Boolean receiptAllowed = true;
 	global String invoiceDate;
 	global String invoiceId;
+	global Boolean internalCaller = false;
 }

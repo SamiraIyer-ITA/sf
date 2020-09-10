@@ -21,6 +21,8 @@ global without sharing class REST_BeginPayment {
 	 * accountType Required if orderId is null.  The account that a payment is attributed to.  'Services', 'Events', or 'Privacy Shield'.
 	 * transactionAmount Required if orderId is null.  The payment amount.
 	 * projectCode Required if orderId is null.  The Project Code to which to attribute a payment.  eg '1GKY231'.
+	 * collectionPost Required if orderId is null.  The name of the collection office to which to attribute a payment.
+	 * fulfillmentPost Required if orderId is null.  The name of the fulfillment office to which to attribute a payment.
 	 * organizationName Required if orderId is null.  The name of the company to which to attribute the payment.
 	 * accountHolderName Optional.  Defaults the Name field at pay.gov.
 	 * billingAddress Optional.  Defaults the Address field at pay.gov.
@@ -28,14 +30,6 @@ global without sharing class REST_BeginPayment {
 	 * billingStateCode Optional.  Defaults the State field at pay.gov.
 	 * billingZip Optional.  Defaults the Zip Code field at pay.gov.
 	 * billingCountryCode Optional.  Defaults the Country field at pay.gov.
-	 * taskCode: String.  Used to populate the new Task Code field.
-	 * objectClass: String.  Used to populate the new Object Class field.
-	 * organizationCode: String.  Used to populate the Fulfillment Post Org Code if it has a value.
-	 * originatingOffice: String.  Used to populate the Collection Post Acronym field.
-	 * receiptEmailAddresses: String.  Comma-separated list of email addresses to which the receipt is sent.
-	 * receiptAllowed: Boolean.  Whether a receipt should be sent by Salesforce.
-	 * invoiceDate: String.  Optional.  A string value that an external Salesforce payment may want displayed on the receipt.
-	 * invoiceId: String.  Optional.  A string value that an external Salesforce payment may want displayed on the receipt.
 	 *
 	 * @return A JSON string containing an error or a redirectUrl (for redirection to Pay.gov).
 	 */
@@ -47,26 +41,26 @@ global without sharing class REST_BeginPayment {
 		RequiredFields requiredFields = checkRequiredFields(params);
 		if (! requiredFields.hasRequiredFields) {
 			jsonReturnValue = requiredFields.serializedError;
-			setResponse(jsonReturnValue);
-			return jsonReturnValue;
-		}
+		} else {
 
 		//Call the CreatePayment Rest Service.
 		//Calling it as a REST Service allows DML (creating a Payment record) before the callout to get a Pay.gov token.
 		String paymentDetails;
 		try {
 			paymentDetails = createPaymentCallout(params);
-		} catch (Exception e) {
-			jsonReturnValue = '{"error": "' + e.getMessage() + '"}';
-			setResponse(jsonReturnValue);
-			return jsonReturnValue;
-		}
 
 		//Get the redirectUrl.  This includes SOAP callout to Pay.gov.
 		String redirectUrl = Payment2.authorizePayment(paymentDetails);
 		jsonReturnValue = '{"redirectUrl": "' + redirectUrl + '"}';
+
+			} catch (Exception e) {
+				jsonReturnValue = '{"error": "' + e.getMessage() + '"}';
+			}
+		}
+
 		setResponse(jsonReturnValue);
 		return jsonReturnValue;
+
 	}
 
 	/**
@@ -89,7 +83,14 @@ global without sharing class REST_BeginPayment {
 		Http http = new Http();
 		HttpRequest request = new HttpRequest();
 		request.setMethod('POST');
-		request.setHeader('Authorization','Bearer ' + UserInfo.getSessionId());
+		String sessionId;
+		if (params.internalCaller) {
+			//If we came from an AuraEnabled method, UserInfo.getSessionId() won't work.  So get it in an alternative way.
+			sessionId = Utils.getSessionId();
+		} else {
+			sessionId = UserInfo.getSessionId();
+		}
+		request.setHeader('Authorization','Bearer ' + sessionId);
 		request.setHeader('Content-Type','application/json');
 		Map<String, REST_BeginPaymentParams> jsonBody = new Map<String, REST_BeginPaymentParams>();
 		jsonBody.put('params', params);

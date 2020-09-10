@@ -21,6 +21,33 @@ public with sharing class Payments2Service {
 		service().sendEmailReceipt(existingRecords, newRecords);
 	}
 
+	/**
+	 * Create a payment record and get the redirect URL to call Pay.gov.
+	 *
+	 * @param orderId The Id of an order for which a Pay.gov payment will be made.
+	 *
+	 * @return A JSON string with an error or redirectURL for redirection to Pay.gov.
+	 */
+	@AuraEnabled(cacheable=false)
+	public static String beginPayment(Id orderId) {
+		return service().beginPayment(orderId);
+	}
+
+	/**
+	 * Confirm with the payment processor that the authorized payment should be charged.
+	 *
+	 * @param accountType The account that a payment is attributed to.  'Services', 'Events', or 'Privacy Shield'.
+	 * @param paymentId The Payment Id.
+	 * @param token The token previously returned from Pay.gov when the transaction was authorized.
+	 * @param orderId The Id of the order being paid for.
+	 *
+	 * @return
+	 */
+	@AuraEnabled(cacheable=false)
+	public static String confirmPayment(String accountType, String paymentId, String token, String orderId) {
+		return service().confirmPayment(accountType, paymentId, token, orderId);
+	}
+
 	public class Payments2ServiceException extends Exception {}
 
 }

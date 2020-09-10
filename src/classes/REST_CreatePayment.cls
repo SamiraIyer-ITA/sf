@@ -51,8 +51,7 @@ global without sharing class REST_CreatePayment {
 
 	private static void setResponse(String responseString) {
 		RestContext.response.addHeader('Content-Type', 'application/json');
-		String returnValue = responseString;
-		RestContext.response.responseBody = Blob.valueOf(returnValue);
+		RestContext.response.responseBody = Blob.valueOf(responseString);
 	}
 
 }

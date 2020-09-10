@@ -33,4 +33,29 @@ public class Payments2ServiceImpl implements IPayments2Service{
 			}
 		}
 	}
+
+	public static String beginPayment(Id orderId) {
+		REST_BeginPaymentParams params = populateBeginPaymentParams(orderId);
+		return REST_BeginPayment.doPost(params);
+	}
+
+	private static REST_BeginPaymentParams populateBeginPaymentParams(Id orderId) {
+		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
+		//params.confirmationPage = getBaseUrl() + '/apex/InternalPayment';
+		//params.failurePage = getBaseUrl() + '/apex/InternalPayment';
+		params.confirmationPage = 'https://trade--cdf4.lightning.force.com/lightning/n/Payment_Confirmation';
+		params.failurePage = 'https://trade--cdf4.lightning.force.com/lightning/n/Payment_Confirmation';
+		params.userId = UserInfo.getUserId();
+		params.orderId = orderId;
+		params.internalCaller = true;
+		return params;
+	}
+
+	private static String getBaseUrl() {
+		return URL.getSalesforceBaseUrl().toExternalForm();
+	}
+
+	public static String confirmPayment(String accountType, String paymentId, String token, String orderId) {
+		return REST_ConfirmPayment.doPost(accountType, paymentId, token, orderId);
+	}
 }

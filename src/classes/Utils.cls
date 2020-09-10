@@ -36,7 +36,7 @@ public without sharing class Utils {
 			for(Schema.SObjectType soType : cachedGD.values()){
 				Schema.DescribeSObjectResult r = soType.getDescribe();
 				String prefix = r.getKeyPrefix();
-				 
+
 				//Check if the prefix matches with requested prefix
 				if(prefix!=null && prefix.equals(myIdPrefix)){
 					objectName = r.getName();
@@ -133,7 +133,7 @@ public without sharing class Utils {
 	}
 
 	//Visualforce Page Utilities
-	
+
 	public static String parseUrlForId(String retUrl) {
 		if(!String.isBlank(retUrl)){
 			retUrl = retUrl.replaceAll('/', '');
@@ -542,5 +542,15 @@ public without sharing class Utils {
 	public static Boolean isSandbox() {
 		Organization organization = [SELECT IsSandbox FROM Organization LIMIT 1];
 		return organization.IsSandbox;
+	}
+	/**
+	 * Provides a session id to components that cannot get it, such as in AuraEnabled methods.
+	 * @return A session Id.
+	 */
+	public static String getSessionId() {
+		PageReference vfPage = Page.SessionId;
+		String content = vfPage.getContent().toString();
+		Map<String, Object> myMap = (Map<String, Object>) JSON.deserializeUntyped(content);
+		return myMap.get('sessionId').toString();
 	}
 }

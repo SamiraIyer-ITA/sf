@@ -15,22 +15,26 @@ global without sharing class REST_ConfirmPayment {
 	 * @param orderId The Id of the Order being paid for.
 	 */
 	@HttpPost
-	global static void doPost(String accountType, String paymentId, String token, String orderId) {
+	global static String doPost(String accountType, String paymentId, String token, String orderId) {
+
+		String jsonReturnValue;  //Return value for calls made internally to this method
 
 		try {
-			String confirmPaymentResponse =  Payment2.confirmPayment(accountType, paymentId, token, orderId);
-			setResponse(confirmPaymentResponse);  //Response is already serialized
-			return;
+			jsonReturnValue =  Payment2.confirmPayment(accountType, paymentId, token, orderId);
+			setResponse(jsonReturnValue);  //Response is already serialized
+			return jsonReturnValue;
 		} catch (Exception e) {
-			setResponse('{"Error":{"name": "' + e.getMessage() + '"}}');
-			return;
+			jsonReturnValue = '{"error": "' + e.getMessage() + '"}';
+			setResponse(jsonReturnValue);
+			return jsonReturnValue;
 		}
 	}
 
 	private static void setResponse(String responseString) {
-		RestContext.response.addHeader('Content-Type', 'application/json');
-		String returnValue = responseString;
-		RestContext.response.responseBody = Blob.valueOf(returnValue);
+		if (RestContext.response != null) {
+			RestContext.response.addHeader('Content-Type', 'application/json');
+			RestContext.response.responseBody = Blob.valueOf(responseString);
+		}
 	}
 
 }
