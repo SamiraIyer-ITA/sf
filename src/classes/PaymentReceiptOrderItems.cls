@@ -4,6 +4,16 @@ public without sharing class PaymentReceiptOrderItems {
 
 	public String getOrderItems()
 	{
+		//Determine if this is for a Refund.
+		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id>{paymentId});
+		if (payments!= null && payments.size() > 0) {
+			Payment2__c payment = payments[0];
+			if (payment.Payment_Type__c == 'NIST-Handled Refund' || payment.Payment_Type__c == 'Credit Card Refund') {
+				//This is a refund record.  Get the parent payment Id and use it to get order item details.
+				paymentId = payment.Payment_2__c;
+			}
+		}
+
 		String returnString = '';
 		List<Order> orders = OrdersSelector.newInstance().selectByPaymentId(new Set<Id>{paymentId});
 

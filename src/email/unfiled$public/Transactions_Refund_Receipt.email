@@ -11,7 +11,7 @@
                 <apex:Param value="{!relatedTo.Opportunity_Created_Date__c }" />
             </apex:OutputText></p>
 
-        <p>Payment Id: {!IF(relatedTo.Payment_Type__c ='PLASTIC_CARD' || relatedTo.Payment_Type__c ='ACH', relatedTo.Remote_Tracking_Id__c, relatedTo.Name)}</p>
+        <p>Refund Id: {!IF(relatedTo.Payment_Type__c ='PLASTIC_CARD' || relatedTo.Payment_Type__c ='ACH', relatedTo.Remote_Tracking_Id__c, relatedTo.Name)}</p>
 
         <hr />
 

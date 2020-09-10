@@ -152,7 +152,7 @@ public with sharing class RefundForPayGov implements IRefund {
 		if (status == 'Success') {
 			for (Order eachOrder : orders) {
 				eachOrder.Refunded_Amount__c = eachOrder.Refunded_Amount__c + orderRefundMap.get(eachOrder.Id);
-				uow.registerDirty(eachOrder, Order.Payment2__c, refund);
+				uow.registerDirty(eachOrder, Order.Payment2__c, payment);
 			}
 		}
 
