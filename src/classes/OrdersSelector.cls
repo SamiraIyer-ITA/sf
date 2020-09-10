@@ -48,10 +48,7 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 		ordersQueryFactory.selectFields(new Set<String>{'Opportunity.Account.Name',
 			'Opportunity.Owner.Name', 'Opportunity.CreatedDate', 'Opportunity.Collection_Post__r.Name',
 			'Opportunity.Collection_Post__r.Org_Code__c', 'Opportunity.Fulfillment_Post__r.Name',
-			'Opportunity.Fulfillment_Post__r.Org_Code__c'});
-
-		//Add the following fields above after they exist:
-		//Opportunity.Collection_Post__r.Acronym__c, Opportunity.Fulfillment_Post__r.Acronym__c
+			'Opportunity.Fulfillment_Post__r.Org_Code__c', 'Opportunity.Collection_Post__r.Acronym__c', 'Opportunity.Fulfillment_Post__r.Acronym__c'});
 
 		ordersQueryFactory.setCondition('Id IN :idSet');
 		fflib_QueryFactory orderItemsQueryFactory = ordersQueryFactory.subselectQuery('OrderItems');
