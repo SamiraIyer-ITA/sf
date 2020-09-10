@@ -121,6 +121,7 @@ public class AccountServiceImpl implements IAccountService {
 					}
 				}
 			} else if(!zip5.isEmpty()) {
+				// Assigns Congressional District to Orgs that do not have +4 zip codes
 				List<Master_CongressionalDistrict__c> mccd = MasterCongressionalDistrictsSelector.newInstance().selectByzip_Plus4(zip5);
 				Map<String, Master_CongressionalDistrict__c> mccdMap = new Map<String, Master_CongressionalDistrict__c>();
 				for (Master_CongressionalDistrict__c m : mccd) {
