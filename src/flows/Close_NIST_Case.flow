@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <constants>
-        <name>TransactionManagementQueue</name>
+        <description>This flow is part of the NIST Case process. The queue is managed by ITA SF users (trade specialists). The Case Owner updates when a user with the NIST profile assigned, clicks on the &quot;Close_Case_NIST&quot; action on the Transaction Management Support page layout,</description>
+        <name>TransactionManagementSupportQueue</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>00G35000001AWaA</stringValue>
+            <stringValue>Transaction_Management_Support</stringValue>
         </value>
     </constants>
     <description>Close function that updates case owner and status fields.</description>
     <formulas>
         <name>CaseOwner</name>
         <dataType>String</dataType>
-        <expression>IF({!UserProfile} = &quot;NIST User&quot;, {!TransactionManagementQueue}, {!$User.Id})</expression>
+        <expression>IF({!UserProfile} = &quot;NIST User&quot;, {!TransactionManagementSupportQueue}, {!$User.Id})</expression>
     </formulas>
     <formulas>
         <name>CaseReason</name>
@@ -43,11 +44,39 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Pulling Transaction_Management_Support queue into the flow</description>
+        <name>Get_Queue</name>
+        <label>Get Queue</label>
+        <locationX>308</locationX>
+        <locationY>314</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TransactionManagementSupportQueue</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Queue</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Case</name>
         <label>Update Case</label>
-        <locationX>216</locationX>
-        <locationY>51</locationY>
+        <locationX>645</locationX>
+        <locationY>69</locationY>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -58,7 +87,7 @@
         <inputAssignments>
             <field>OwnerId</field>
             <value>
-                <elementReference>CaseOwner</elementReference>
+                <elementReference>Get_Queue.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -79,7 +108,7 @@
         <locationX>50</locationX>
         <locationY>50</locationY>
         <connector>
-            <targetReference>Update_Case</targetReference>
+            <targetReference>Get_Queue</targetReference>
         </connector>
     </start>
     <status>Active</status>
