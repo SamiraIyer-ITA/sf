@@ -1,0 +1,8 @@
+/**
+ * {1} Service class that can be called by implementations when they share the same exact methodology.
+ *
+ * @author {0}
+ */
+public with sharing class {1}SvcLibrary {{
+
+}}
