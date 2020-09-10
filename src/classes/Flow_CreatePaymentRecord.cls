@@ -54,7 +54,7 @@ global without sharing class Flow_CreatePaymentRecord {
 			//Look at the first Order to get data from the associated Opportunity
 			Set<Id> orderIds = new Set<Id>();
 			orderIds.add(orders[0].Id);
-			List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds);
+			List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds, true);
 
 			payment.Organization_Name__c 			= orderListWithDetails[0].Opportunity.Account.Name;
 			payment.Opportunity_Owner__c 			= orderListWithDetails[0].Opportunity.Owner.Name;

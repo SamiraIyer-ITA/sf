@@ -2,7 +2,7 @@ import {LightningElement, track, api} from 'lwc';
 import {ShowToastEvent} from 'lightning/platformShowToastEvent';
 import {reduceErrors} from 'c/ldsUtils';
 import {getQueryParameters} from 'c/getQueryParameters';
-import startElectronicPayment from '@salesforce/apex/Payment2.startElectronicPayment';
+//import startElectronicPayment from '@salesforce/apex/Payment2.startElectronicPayment';
 import authorizePayment from '@salesforce/apex/Payment2.authorizePayment';
 import getOrderByPaidNonPaidOnly from '@salesforce/apex/Payment2.getOrderByPaidNonPaidOnly';
 import {NavigationMixin} from 'lightning/navigation';
@@ -99,7 +99,8 @@ export default class Payment extends NavigationMixin(LightningElement) {
 	payment(orderRecords, productType) {
 		/*NOTE: Do not combine startElectronicPayment() and authorizePayment().  They are broken up this way because
 		  authorizePayment() includes a callout and startElectronicPayment() include DML.*/
-		startElectronicPayment({accountType: productType, contractId: this.contractId, orderIds: orderRecords,
+		//Commenting method that no longer exists.  Preserving the code though for a possible future update.
+		/*startElectronicPayment({accountType: productType, contractId: this.contractId, orderIds: orderRecords,
 			userId: null, paymentPage: this.paymentPage, paymentConfirmationPage: this.paymentConfirmationPage,
 			objectApiName: this.objectApiName, recordId: this.recordId})
 			.then(result => {
@@ -143,7 +144,7 @@ export default class Payment extends NavigationMixin(LightningElement) {
 						variant: 'error'
 					})
 				);
-			});
+			});*/
 	}
 
 	get buttonClicked() {

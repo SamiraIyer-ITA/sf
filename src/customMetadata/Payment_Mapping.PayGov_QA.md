@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Completion_Endpoint__c</field>
-        <value xsi:type="xsd:string">callout:Pay_gov/services/TCSOnlineService/2.0/</value>
+        <value xsi:type="xsd:string">callout:Pay_gov_QA/services/TCSOnlineService/2.0/</value>
     </values>
     <values>
         <field>Events_Remote_Account__c</field>
@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>Query_Endpoint__c</field>
-        <value xsi:type="xsd:string">callout:Pay_gov/tcssinglequery/services/TCSSingleQueryService</value>
+        <value xsi:type="xsd:string">callout:Pay_gov_QA/tcssinglequery/services/TCSSingleQueryService</value>
     </values>
     <values>
         <field>Redirect_URL__c</field>
@@ -32,7 +32,7 @@
     </values>
     <values>
         <field>Refund_Endpoint__c</field>
-        <value xsi:type="xsd:string">callout:Pay_gov/tcscollections/services/TCSSingleService</value>
+        <value xsi:type="xsd:string">callout:Pay_gov_QA/tcscollections/services/TCSSingleService</value>
     </values>
     <values>
         <field>Services_Remote_Account__c</field>
@@ -40,6 +40,6 @@
     </values>
     <values>
         <field>Token_Endpoint__c</field>
-        <value xsi:type="xsd:string">callout:Pay_gov/services/TCSOnlineService/2.0/</value>
+        <value xsi:type="xsd:string">callout:Pay_gov_QA/services/TCSOnlineService/2.0/</value>
     </values>
 </CustomMetadata>

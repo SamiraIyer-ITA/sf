@@ -42,7 +42,7 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 		return (List<Order>) Database.query(ordersQueryFactory.setCondition(condition).toSOQL());
 	}
 
-	public List<Order> selectWithOrderItemDetails(Set<Id> idSet) {
+	public List<Order> selectWithOrderItemDetails(Set<Id> idSet, Boolean primaryItemOnly) {
 		if (idSet.isEmpty()) return new List<Order>();  //Avoid unnecessary SOQL
 		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
 		ordersQueryFactory.selectFields(new Set<String>{'Opportunity.Account.Name',
@@ -55,7 +55,18 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 
 		ordersQueryFactory.setCondition('Id IN :idSet');
 		fflib_QueryFactory orderItemsQueryFactory = ordersQueryFactory.subselectQuery('OrderItems');
-		orderItemsQueryFactory.setCondition('IsPrimary__c = true');
+		if (primaryItemOnly) {
+			orderItemsQueryFactory.setCondition('IsPrimary__c = true');
+		}
+		orderItemsQueryFactory.selectFields(new OrderItemsSelector().getSObjectFieldList());
+		return Database.query(ordersQueryFactory.toSOQL());
+	}
+
+	public List<Order> selectByPaymentId(Set<Id> idSet) {
+		if (idSet.isEmpty()) return new List<Order>();  //Avoid unnecessary SOQL
+		fflib_QueryFactory ordersQueryFactory = newQueryFactory();
+		ordersQueryFactory.setCondition('Payment2__c IN :idSet');
+		fflib_QueryFactory orderItemsQueryFactory = ordersQueryFactory.subselectQuery('OrderItems');
 		orderItemsQueryFactory.selectFields(new OrderItemsSelector().getSObjectFieldList());
 		return Database.query(ordersQueryFactory.toSOQL());
 	}

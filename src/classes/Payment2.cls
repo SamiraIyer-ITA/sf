@@ -67,7 +67,8 @@ public with sharing class Payment2 {
 			if (orders.size() > 0) {
 				return orders[0];
 			}
-			return null;
+
+			return PaymentsSelector2.newInstance().selectByTransactionDetails(accountType, paymentType, recordTypeId, transactionStatus, fromDatetime, toDatetime, nonTransmittedOnly);
 		} catch (Exception e) {
 			throw new AuraHandledException(e.getMessage());
 		}
@@ -92,111 +93,87 @@ public with sharing class Payment2 {
 	}
 
 	/**
-	 * Create a payment record and get user details for the payment.  After calling this method, the user will be on the Pay.gov site.
-	 * Do not combine startElectronicPayment() and authorizePayment().  They are broken up this way because authorizePayment() includes a callout and startElectronicPayment() include DML.
-	 *
-	 * @param accountType The account that a payment is attributed to.  'Services', 'Events', or 'Privacy Shield'.
-	 * @param contractId A Contract Id.
-	 * @param orderIds An array of Order Ids.
-	 * @param userId Either null or empty string if you want the current user's information to be the default values at pay.gov.  Pass in a user id if you want someone else's information to be the default values.
-	 * @param paymentPage The page on which the transaction is being processed.  Canceled payments get redirected back here.
-	 * @param paymentConfirmationPage The page to which pay.gov returns to in Salesforce if the payment was authorized.
-	 * @param objectApiName 'Contract' or 'Order', depending on whether the payment is being made on a 'Contract' or 'Order' page.
-	 * @param recordId The Contract Id or Order Id of the page from which payment is attempted.
-	 */
-	@AuraEnabled(cacheable=false)
-	public static String startElectronicPayment(String accountType, String contractId, String[] orderIds, String userId,
-		String paymentPage, String paymentConfirmationPage, String objectApiName, String recordId) {
-		try {
-			//Get the User Id for the current user if none was passed in.
-			if (String.isBlank(userId)) {
-				userId = UserInfo.getUserId();
-			}
-
-			//Create a payment record
-			Payment2__c payment = Payment2.createPayment(accountType, contractId, orderIds, null);
-
-			//Gather data to send to the payment processor
-			return getPaymentProcessorData(accountType, payment, orderIds, userId, paymentPage,
-				paymentConfirmationPage, objectApiName, recordId);
-
-		} catch(Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
-	}
-
-	/**
 	 * Create a payment record.
 	 *
-	 * @param accountType The account that a payment is attributed to.  'Services', 'Events', or 'Privacy Shield'.
-	 * @param contractId A Contract Id.
-	 * @param orderIds An array of Order Ids.
-	 * @param userId Either null or empty string if you want the current user's information to be the default values at pay.gov.  Pass in a user id if you want someone else's information to be the default values.
-	 *
+	 * @param accountType Required if orderId is null.  The account that a payment is attributed to.  'Services', 'Events', or 'Privacy Shield'.
+	 * @param orderId An Id for an Order.  Either orderId or all other parameters are required.
+	 * @param projectCode Required if orderId is null.  The Project Code to which to attribute a payment.  eg '1GKY231'.
+	 * @param collectionPost Required if orderId is null.  The name of the collection office to which to attribute a payment.
+	 * @param fulfillmentPost Required if orderId is null.  The name of the fulfillment office to which to attribute a payment.
+	 * @param transactionAmount Required if orderId is null.  The payment amount.
+	 * @param organizationName Required if orderId is null.  The name of the company to which to attribute the payment.
 	 * @return A Payment2__c object of the newly created payment.
 	 */
-	public static Payment2__c createPayment(String accountType, String contractId, String[] orderIds, String transactionAmount) {
-		RecordLog.push('Payment.createPayment');
-		RecordLog.message('Order Ids: ' + orderIds);
+	public static Payment2__c createPayment(REST_BeginPaymentParams params) {
 
-		Payment2__c payment = new Payment2__c();
-		payment.Account_Type__c = accountType;
-		RecordLog.message('Account Type: ' + accountType);
-		payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
-		RecordLog.message('Record Type Id: ' + payment.RecordTypeId);
-		payment.Contract__c = contractId;
-		RecordLog.message('Contract Id: ' + contractId);
-
-		if(orderIds != null && !orderIds.isEmpty()) {
-			//Convert orderIds String array to set of Id
-			Set<Id> orderIdSet = (Set<Id>) JSON.deserialize(JSON.serialize(orderIds), Set<Id>.class);
-			List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIdSet);
-
-			//All Orders must be for the same Opportunity, so only look at the Opportunity values for the 1st Order
-			payment.Organization_Name__c = orderListWithDetails[0].Opportunity.Account.Name;
-			payment.Opportunity_Owner__c = orderListWithDetails[0].Opportunity.Owner.Name;
-			payment.Opportunity_Created_Date__c = orderListWithDetails[0].Opportunity.CreatedDate;
-			payment.Collection_Post_Name__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Name;
-			payment.Collection_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
-			payment.Fulfillment_Post_Name__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
-			payment.Fulfillment_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
-
-			// Determine the Project Code value and Total Amount value
-			Decimal totalAmount = 0.00;
-			for(Integer i = 0; i < orderListWithDetails.size() ; i++ ) {
-				if(orderListWithDetails.size() <= 12) {
-					if (orderListWithDetails[i].OrderItems.size() != 0) {
-						if (String.isNotBlank(orderListWithDetails[i].OrderItems[0].Accounting_code__c)) {
-							if (i == 0) {
-								payment.Project_Code__c = orderListWithDetails[i].OrderItems[0].Accounting_code__c.Left(4) + '231';
-							} else{
-								payment.Project_Code__c += ', ' + orderListWithDetails[i].OrderItems[0].Accounting_code__c.Left(4) + '231';
-							}
-
-						}
-					}
-					totalAmount += orderListWithDetails[i].TotalAmount;
-				} else {
-					system.debug('*** Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
-					RecordLog.message('Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
-					RecordLog.emit('No Payment Id');
-					throw new PaymentLimitException('Exception: Payment Order limit exceeded. A Payment must be for 12 Orders or less.');
-				}
-			}
-			payment.Transaction_Amount__c = totalAmount;
-
-		} else if(transactionAmount != null){
-			payment.Transaction_Amount__c = Decimal.valueOf(transactionAmount);
+		//Check for missing data
+		if (String.isBlank(params.orderId) &&
+			(String.isBlank(params.accountType) ||
+				String.isBlank(params.transactionAmount) ||
+				String.isBlank(params.projectCode) ||
+				String.isBlank(params.collectionPost) ||
+				String.isBlank(params.fulfillmentPost) ||
+				String.isBlank(params.organizationName))) {
+			throw new IllegalArgumentException('Either orderId or these values are required: accountType, transactionAmount, projectCode, collectionPost,  fulfillmentPost, organizationName');
 		}
 
-		RecordLog.message('Transaction Amount: ' + payment.Transaction_Amount__c);
+		RecordLog.push('Payment.createPayment');
+		RecordLog.message('Order Id: ' + params.orderId);
+
+		//Begin to create the payment record
+		Payment2__c payment = new Payment2__c();
+
+		payment.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
+		RecordLog.message('Record Type Id: ' + payment.RecordTypeId);
+
+		if (String.isNotBlank(params.projectCode)) {
+			payment.Project_Code__c = params.projectCode;
+		}
+
+		if (String.isNotBlank(params.accountType)) {
+			payment.Account_Type__c = params.accountType;
+		}
+
+		if (String.isNotBlank(params.transactionAmount)) {
+			payment.Transaction_Amount__c = Decimal.valueOf(params.transactionAmount);
+		}
+
+		if (String.isNotBlank(params.collectionPost)) {
+			//Replace this with a selector.  Add Acronym__c later when it's available.
+			//Collection_Fulfillment__c cf = [SELECT Org_Code__c, Post__c FROM Collection_Fulfillment__c WHERE Name = :params.collectionPost];
+			List<Collection_Fulfillment__c> cf = CollectionFulfillmentsSelector.newInstance().selectById(new Set<Id>{params.collectionPost});
+			if(cf != null && !cf.isEmpty()) {
+				payment.Collection_Post_Name__c = cf[0].Post__c;
+				payment.Collection_Post_Org_Code__c = cf[0].Org_Code__c;
+				//payment.Collection_Post_Acronym__c = cf[0].Acronym__c;
+			}
+		}
+
+		if (String.isNotBlank(params.fulfillmentPost)) {
+			//Replace this with a selector.  Add Acronym__c later when it's available.
+			List<Collection_Fulfillment__c> cf = CollectionFulfillmentsSelector.newInstance().selectById(new Set<Id>{params.fulfillmentPost});
+			if(cf != null && !cf.isEmpty()) {
+				payment.Fulfillment_Post_Name__c = cf[0].Post__c;
+				payment.Fulfillment_Post_Org_Code__c = cf[0].Org_Code__c;
+				//payment.Fulfillment_Post_Acronym__c = cf[0].Acronym__c;
+			}
+		}
+
+		if (String.isNotBlank(params.organizationName)) {
+			payment.Organization_Name__c = params.organizationName;
+		}
+
+		if (String.isNotBlank(params.orderId)) {
+			payment = populatePaymentDetailsFromOrder(params, payment);
+		}
+
+		RecordLog.message('Account Type: ' + payment.Account_Type__c);
+		RecordLog.message('Organization Name: ' + payment.Organization_Name__c);
 		RecordLog.message('Project Code: ' + payment.Project_Code__c);
+		RecordLog.message('Transaction Amount: ' + payment.Transaction_Amount__c);
 
 		RecordLog.message('Inserting Payment');
 		try {
-			if(payment.Transaction_Amount__c == null) {
-				throw new IllegalArgumentException('OrderIds and TransactionAmount cannot both be null.');
-			}
 			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType});
 			uow.registerNew(payment);
 			uow.commitWork();
@@ -205,65 +182,161 @@ public with sharing class Payment2 {
 			RecordLog.emit('No Payment Id');
 			throw e;
 		}
+
 		RecordLog.message('Payment inserted');
+		return payment;
+	}
+
+	private static Payment2__c populatePaymentDetailsFromOrder(REST_BeginPaymentParams params, Payment2__c payment) {
+		List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(new Set<Id>{params.orderId}, true);
+
+		payment.Organization_Name__c = orderListWithDetails[0].Opportunity.Account.Name;
+		RecordLog.message('Opportunity Owner: ' + payment.Opportunity_Owner__c);
+		payment.Opportunity_Owner__c = orderListWithDetails[0].Opportunity.Owner.Name;
+		payment.Opportunity_Created_Date__c = orderListWithDetails[0].Opportunity.CreatedDate;
+		RecordLog.message('Opportunity Created Date: ' + payment.Opportunity_Created_Date__c);
+		payment.Collection_Post_Name__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Name;
+		RecordLog.message('Collection Post Name: ' + payment.Collection_Post_Name__c);
+		payment.Collection_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Collection_Post__r.Org_Code__c;
+		RecordLog.message('Collection Post Org Code: ' + payment.Collection_Post_Org_Code__c);
+		payment.Fulfillment_Post_Name__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Name;
+		RecordLog.message('Fulfillment Post Name: ' + payment.Fulfillment_Post_Name__c);
+		payment.Fulfillment_Post_Org_Code__c = orderListWithDetails[0].Opportunity.Fulfillment_Post__r.Org_Code__c;
+		RecordLog.message('Fulfillment Post Org Code: ' + payment.Fulfillment_Post_Org_Code__c);
+
+		payment.Contract__c = orderListWithDetails[0].ContractId;
+		RecordLog.message('Contract Id: ' + payment.Contract__c);
+
+		payment.Account_Type__c = orderListWithDetails[0].Type;
+
+		if (orderListWithDetails[0].OrderItems != null
+			&& orderListWithDetails[0].OrderItems.size() > 0
+			&& String.isNotBlank(orderListWithDetails[0].OrderItems[0].Accounting_Code__c)) {
+			payment.Project_Code__c = orderListWithDetails[0].OrderItems[0].Accounting_Code__c.Left(4) + '231';
+		} else {
+			throw new Payment2.PaymentException('Project Code is missing.');
+		}
+
+		payment.Transaction_Amount__c = orderListWithDetails[0].TotalAmount;
+
 		return payment;
 	}
 
 	/**
 	 * Package data to send to the payment processor
 	 *
-	 * @param accountType The account that a payment is attributed to.  'Services', 'Events', or 'Privacy Shield'.
-	 * @param payment The newly created payment record.
-	 * @param orderIds An array of Order Ids.
-	 * @param userId Either null or empty string if you want the current user's information to be the default values at pay.gov.  Pass in a user id if you want someone else's information to be the default values.
-	 * @param paymentPage The page on which the transaction is being processed.  Canceled payments get redirected back here.
-	 * @param paymentConfirmationPage The page to which pay.gov returns to in Salesforce if the payment was authorized.
-	 * @param objectApiName 'Contract' or 'Order', depending on whether the payment is being made on a 'Contract' or 'Order' page.
-	 * @param recordId The Contract Id or Order Id of the page from which payment is attempted.
+	 * @param payment Required.  A Payment2__c record.
+	 * @param params Parameters of the REST_CreatePayment class.
+	 *
+	 * For params, details are:
+	 * orderId Optional.  An Id for an Order.
+	 * userId Optional. If you want the current user's information to be the default values at pay.gov.  Pass in a user id if you want someone else's information to be the default values.
+	 * failurePage Required.  Canceled or failed payments get redirected back here.
+	 * confirmationPage Required.  The page to which pay.gov returns to in Salesforce if the payment was authorized.
+	 * accountHolderName Optional.  Defaults the Name field at pay.gov.
+	 * billingAddress Optional.  Defaults the Address field at pay.gov.
+	 * billingCity Optional.  Defaults the City field at pay.gov.
+	 * billingStateCode Optional.  Defaults the State field at pay.gov.
+	 * billingZip Optional.  Defaults the Zip Code field at pay.gov.
+	 * billingCountryCode Optional.  Defaults the Country field at pay.gov.
 	 *
 	 * @return A JSON string of PaymentAuthenticationDetails
 	 */
-	private static String getPaymentProcessorData(String accountType, Payment2__c payment, String[] orderIds,
-		String userId, String paymentPage, String paymentConfirmationPage, String objectApiName, String recordId) {
+	public static String getPaymentProcessorData(Id paymentId, REST_BeginPaymentParams params) {
+
+		//Check for required fields
+		if (paymentId == null || String.isBlank(params.confirmationPage) || String.isBlank(params.failurePage)) {
+			throw new IllegalArgumentException('paymentId, params.confirmationPage, and params.failurePage are required parameters.');
+		}
 
 		//Since Name is an Auto-Number field, must query the paymentObject to get the value
-		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id> {payment.Id});
-		String paymentIdentifier = payments[0].Name;
+		List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id>{paymentId});
+		Payment2__c payment = payments[0];
+
+		String paymentIdentifier = payment.Name;
 		RecordLog.message('Payment Identifier: ' + paymentIdentifier);
 
 		//Gather data to send to the payment processor
-		List<User> users = UsersSelector.newInstance().selectById(new Set<Id> {userId});
+		List<User> users;
+		if (String.isNotBlank(params.userId)) {
+			users = UsersSelector.newInstance().selectById(new Set<Id> {params.userId});
+		}
 		PaymentAuthenticationDetails details = new PaymentAuthenticationDetails();
 		details.paymentId = payment.Id;
 		details.paymentIdentifier = paymentIdentifier;
 		details.transactionType = 'Sale';
 		details.transactionAmount = String.valueOf(payment.Transaction_Amount__c);
+
 		String baseUrl = getBaseUrl();
-		//orderIds contains a starting and ending parentheses.  Remove them.
-		String orderIdsString = '' + orderIds;  //Convert orderIds array to a string
-		orderIdsString = orderIdsString.removeStart('(');
-		orderIdsString = orderIdsString.removeEnd(')');
-		details.successUrl = baseUrl + '/' + paymentConfirmationPage + '?paymentId=' + payment.Id + '&acctType='
-			+ accountType + '&orderIds=' + orderIdsString + '&objectApiName=' + objectApiName + '&recordId=' + recordId;
-		RecordLog.message('Success Url = ' + details.successUrl);
-		details.cancelUrl = baseUrl + '/' + paymentPage + '?cancel=true';
-		RecordLog.message('Cancel Url' + details.cancelUrl);
-		details.accountHolderName = Accents.removeDiacritics(users[0].Name);
+		details.successUrl = baseUrl + '/' + params.confirmationPage + '?paymentId=' + payment.Id + '&acctType='
+			+ payment.Account_Type__c;
+		if (String.isNotBlank(params.orderId)) {
+			details.successUrl += '&orderId=' + params.orderId;
+		}
+		RecordLog.message('Success Url: ' + details.successUrl);
+
+		details.cancelUrl = baseUrl + '/' + params.failurePage + '?cancel=true';
+		RecordLog.message('Cancel Url: ' + details.cancelUrl);
+
+		if (String.isNotBlank(params.accountHolderName)) {
+			details.accountHolderName = params.accountHolderName;
+		} else {
+			if (users != null && users.size() > 0) {
+				details.accountHolderName = Accents.removeDiacritics(users[0].Name);
+			}
+		}
 		RecordLog.message('Account Holder Name: ' + details.accountHolderName);
-		details.billingAddress = users[0].Contact.MailingStreet != null ? Utils.convMultiLineTextToOne(users[0].Contact.MailingStreet) : null;
+
+		if (String.isNotBlank(params.billingAddress)) {
+			details.billingAddress = params.billingAddress;
+		} else {
+			if (users != null && users.size() > 0) {
+				details.billingAddress = users[0].Contact.MailingStreet != null ? Utils.convMultiLineTextToOne(users[0].Contact.MailingStreet) : null;
+			}
+		}
 		RecordLog.message('Billing Address: ' + details.billingAddress);
-		details.billingCity = users[0].Contact.MailingCity;
+
+		if (String.isNotBlank(params.billingCity)) {
+			details.billingCity = params.billingCity;
+		} else {
+			if (users != null && users.size() > 0) {
+				details.billingCity = users[0].Contact.MailingCity;
+			}
+		}
 		RecordLog.message('Billing City: ' + details.billingCity);
-		details.billingStateCode = users[0].Contact.MailingStateCode;
+
+		if (String.isNotBlank(params.billingStateCode)) {
+			details.billingStateCode = params.billingStateCode;
+		} else {
+			if (users != null && users.size() > 0) {
+				details.billingStateCode = users[0].Contact.MailingStateCode;
+			}
+		}
 		RecordLog.message('Billing State Code: ' + details.billingStateCode);
-		details.billingZip = users[0].Contact.MailingPostalCode;
+
+		if (String.isNotBlank(params.billingZip)) {
+			details.billingZip = params.billingZip;
+		} else {
+			if (users != null && users.size() > 0) {
+				details.billingZip = users[0].Contact.MailingPostalCode;
+			}
+		}
 		RecordLog.message('Billing Zip Code: ' + details.billingZip);
-		details.billingCountryCode = Utils.getCountryCodeFromAlpha2(
-			users[0].Contact.MailingCountryCode, Utils.CountryCodeType.NUMERIC);
+
+		if (String.isNotBlank(params.billingCountryCode)) {
+			details.billingCountryCode = params.billingCountryCode;
+		} else {
+			if (users != null && users.size() > 0) {
+				details.billingCountryCode = Utils.getCountryCodeFromAlpha2(
+					users[0].Contact.MailingCountryCode, Utils.CountryCodeType.NUMERIC);
+			}
+		}
 		RecordLog.message('Billing Country Code: ' + details.billingCountryCode);
-		//details.email = user.Contact.Email;  //Do not allow pluses if sending email to pay.gov
-		details.accountType = accountType;
-		String remoteAccountName = getRemoteAccountName(accountType);
+
+		//details.email = users[0].Contact.Email;  //Do not populate now.  Currently unused at Pay.gov.
+		//If do populate email, do not allow plus sign in email address or Pay.gov will error.
+		details.accountType = payment.Account_Type__c;
+		String remoteAccountName = getRemoteAccountName(payment.Account_Type__c);
 		RecordLog.message('Remote Account Name: ' + remoteAccountName);
 		details.remoteAccountName = remoteAccountName;
 		RecordLog.emit(payment.Id);
@@ -272,19 +345,15 @@ public with sharing class Payment2 {
 
 	/**
 	 * Authorize an electronic payment.  This method includes a callout to the payment processor's site (Pay.gov).
-	 * Do not combine startElectronicPayment() and authorizePayment().  They are broken up this way because authorizePayment() includes a callout and startElectronicPayment() include DML.
 	 *
 	 * @param authenticationDetailsString A JSON string of data that will be used by the payment processor as default values for the payment.
 	 */
 	@AuraEnabled(cacheable=false)
 	public static String authorizePayment(String authenticationDetailsString) {
-		try {
-			Payment2.PaymentAuthenticationDetails authenticationDetails = (Payment2.PaymentAuthenticationDetails)JSON.deserialize(authenticationDetailsString, PaymentAuthenticationDetails.class);
-			IPayment payment = (IPayment) di_Injector.Org.getInstance('PaymentProcessor');
-			return payment.authorizePayment(authenticationDetails);
-		} catch(Exception e) {
-			throw new AuraHandledException(e.getMessage());
-		}
+		//Handle exceptions in the calling method
+		Payment2.PaymentAuthenticationDetails authenticationDetails = (Payment2.PaymentAuthenticationDetails)JSON.deserialize(authenticationDetailsString, PaymentAuthenticationDetails.class);
+		IPayment payment = (IPayment) di_Injector.Org.getInstance('PaymentProcessor');
+		return payment.authorizePayment(authenticationDetails);
 	}
 
 	/**
@@ -296,14 +365,14 @@ public with sharing class Payment2 {
 	 * @param orderIds An array of Order Ids, which are the orders being paid for.
 	 */
 	@AuraEnabled(cacheable=false)
-	public static String confirmPayment(String accountType, String paymentId, String token, String[] orderIds) {
-		try {
-			IPayment payment = (IPayment) di_Injector.Org.getInstance('PaymentProcessor');
-			String remoteAccountName = getRemoteAccountName(accountType);
-			return payment.confirmPayment(remoteAccountName, paymentId, token, accountType, orderIds);
-		} catch(Exception e) {
-			throw new AuraHandledException(e.getMessage());
+	public static String confirmPayment(String accountType, String paymentId, String token, String orderId) {
+		//Handle exceptions in the calling method
+		IPayment payment = (IPayment) di_Injector.Org.getInstance('PaymentProcessor');
+		String remoteAccountName = getRemoteAccountName(accountType);
+		if (String.isBlank(remoteAccountName)) {
+			throw new PaymentException('Unknown remote account name.');
 		}
+		return payment.confirmPayment(remoteAccountName, paymentId, token, accountType, orderId);
 	}
 
 	/**
@@ -340,7 +409,7 @@ public with sharing class Payment2 {
 		Timezone tz = Timezone.getTimeZone('America/New_York');
 		// Create a date after the 2007 shift of DST into November
 		DateTime dt = system.now();
-		//system.debug(tz.getOffset(dt));  //-18000000 (= -5 hours = EST)
+		//tz.getOffset(dt)  == -18000000 (== -5 hours, which is EST)
 		Integer offsetSeconds = tz.getOffset(dt)/1000*-1;  //1000 is to convert milliseconds to seconds and -1 is to add seconds instead of subtract
 		return offsetSeconds;
 	}
@@ -384,5 +453,7 @@ public with sharing class Payment2 {
 		public String accountType;
 	}
 	public class PaymentLimitException extends Exception {}
+
+	public class PaymentException extends Exception {}
 
 }

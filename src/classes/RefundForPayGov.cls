@@ -118,7 +118,7 @@ public with sharing class RefundForPayGov implements IRefund {
 		//Look at the first Order to get data from the associated Opportunity
 		Set<Id> orderIds = new Set<Id>();
 		orderIds.add(orders[0].Id);
-		List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds);
+		List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds, true);
 
 		Payment2__c refund = new Payment2__c();
 		refund.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_Refund');

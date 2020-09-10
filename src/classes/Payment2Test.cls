@@ -8,98 +8,85 @@ private class Payment2Test {
 		Program__c program = TestUtils.createProgram('Test Program', true);
 		Pricebook2 pricebook = TestUtils.createPricebook(program.Id);
 		Product2 product2 = TestUtils.createProduct(true);
+		product2.IsPrimary__c = true;
+		product2.Accounting_Code__c = '1BFS';
+		update product2;
 		ID standardPbId = Test.getStandardPricebookId();
 		PricebookEntry standardPbe = TestUtils.createPricebookEntry(standardPbId, product2.Id, true);
 		PricebookEntry pbe = TestUtils.createPricebookEntry(pricebook.Id, product2.Id, true);
 		Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
-		Contract contract = new Contract();
-		contract.Name = 'Contract Test X';
 
-		product2.IsPrimary__c = true;
-		product2.ProductCode = 'ABCD';
-		update product2;
+		Contract contract = TestUtils.createContract(true, account.Id);
+		contract.Name = 'Contract Test X';
+		contract.Status = 'Activated';
+		update contract;
 
 		opp.Pricebook2Id = pricebook.Id;
 		update opp;
 
-		contract.AccountId = account.Id;
-		insert contract;
-		system.debug('in setup contract.id is ==> ' + contract.Id);
-		contract.Status = 'Activated';
-		update contract;
-		Quote quote = new Quote();
+		Quote quote1 = TestUtils.createQuote(true, opp.Id, pricebook.Id, 'Test Quote');
+
+		//Insert a Payment record for Order 1 and Order 2
+		QuoteLineItem quoteLineItem1 = TestUtils.createQuoteLineItem(true, product2.Id, quote1.Id, pbe.Id);
+		quoteLineItem1.Quantity = 2;
+		quoteLineItem1.UnitPrice = 2400.00;
+		update quoteLineItem1;
+
 		List<Order> orders = new List<Order>();
-		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		Order order1 = TestUtils.createStandardOrder(true, account.Id, pricebook.Id );
 		order1.Type = 'Services';
 		order1.Name = 'Paid Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
 		order1.OpportunityId = opp.Id;
+		order1.QuoteId = quote1.Id;
 		orders.add(order1);
-		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		Order order2 = TestUtils.createStandardOrder(true, account.Id, pricebook.Id);
 		order2.Type = 'Services';
 		order2.Name = 'Unpaid Order X';
 		order2.ContractId = contract.Id;
 		order2.OpportunityId = opp.Id;
 		order2.RecordTypeId = servicesRecordTypeId;
+		order2.QuoteId = quote1.Id;
 		orders.add(order2);
 		update orders;
 
-		OrderItem orderItem1 		= new OrderItem();
-		orderItem1.OrderId 			= order1.id;
-		orderItem1.Quantity 		= 2;
-		orderItem1.UnitPrice 		= 2400;
-		orderItem1.Product2id 		= product2.id;
-		orderItem1.PricebookEntryId	= pbe.id;
+		OrderItem orderItem1 = TestUtils.createStandardOrderItem(true, order1.id, pbe.id );
+		orderItem1.Quantity = 2;
+		orderItem1.UnitPrice = 2400;
+		orderItem1.QuoteLineItemId = quoteLineItem1.Id;
+		update orderItem1;
 
-		insert orderItem1;
-
-		OrderItem orderItem2 = new OrderItem();
-		orderItem2.OrderId = order2.id;
+		OrderItem orderItem2 = TestUtils.createStandardOrderItem(true, order2.id, pbe.id);
 		orderItem2.Quantity = 2;
 		orderItem2.UnitPrice = 2400;
-		orderItem2.Product2id = product2.id;
-		orderItem2.PricebookEntryId=pbe.id;
-		insert orderItem2;
-
-		Quote quote1 = new Quote();
-		quote1.OpportunityId = opp.Id;
-		quote1.Name = 'Test Quote';
-		insert quote1;
-
-		QuoteLineItem quoteLineItem1 = new QuoteLineItem();
-		quoteLineItem1.Product2Id = product2.Id;
-		quoteLineItem1.QuoteId = quote1.Id;
-		quoteLineItem1.PricebookEntryId = pbe.Id;
-		quoteLineItem1.Quantity = 1;
-		quoteLineItem1.UnitPrice = 100.00;
-		insert quoteLineItem1;
+		orderItem2.QuoteLineItemId = quoteLineItem1.Id;
+		update orderItem2;
 
 		//Insert a Payment record for Order 1
-		Payment2__c payment1 = new Payment2__c();
+		String recordType = 'Credit_Card_or_ACH_Payment';
+		Payment2__c payment1 = TestUtils.createPayment2(true, recordType);
 		payment1.Account_Type__c = 'Services';
-		payment1.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		payment1.Payment_Processor__c = 'Paygov';
 		payment1.Transaction_Status__c = 'Success';
 		payment1.Transaction_Amount__c = 4800.00;
 		payment1.Payment_Type__c = 'PLASTIC_CARD';
-		payment1.Project_Code__c = 'ABCD123';
-		insert payment1;
+		update payment1;
 
 		order1.Payment2__c = payment1.Id;
 		order1.Order_Paid__c = true;
 		update order1;
 
 		//Insert a Credit Card payment that is unrelated to the orders or the contract
-		Payment2__c payment2 = new Payment2__c();
+		Payment2__c payment2 = TestUtils.createPayment2(true, recordType);
 		payment2.Account_Type__c = 'Services';
-		payment2.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		payment2.Payment_Processor__c = 'Pay.gov';
 		payment2.Transaction_Status__c = 'Success';
 		payment2.Transaction_Amount__c = 15.00;
 		payment2.Payment_Type__c = 'PLASTIC_CARD';
-		payment2.Project_Code__c = '1GKY231';
-		insert payment2;
+		update payment2;
+
+
 	}
 
 	@IsTest
@@ -112,14 +99,14 @@ private class Payment2Test {
 	@IsTest
 	static void getTransactions_Positive_Payment_ACH() {
 		//Insert a Credit Card payment that is unrelated to the orders or the contract
-		Payment2__c payment3 = new Payment2__c();
+		String recordType = 'Credit_Card_or_ACH_Payment';
+		Payment2__c payment3 = TestUtils.createPayment2(true, recordType);
 		payment3.Account_Type__c = 'Services';
-		payment3.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_or_ACH_Payment');
 		payment3.Payment_Processor__c = 'Pay.gov';
 		payment3.Transaction_Status__c = 'Received';
 		payment3.Transaction_Amount__c = 15.00;
 		payment3.Payment_Type__c = 'ACH';
-		insert payment3;
+		update payment3;
 
 		String today = Date.today().format();
 		List<Payment2__c> payments = Payment2.getTransactions('Services', 'ACH', 'Payments', today, today, 'Transactions Not Yet Downloaded');
@@ -129,14 +116,14 @@ private class Payment2Test {
 	@IsTest
 	static void getTransactions_Positive_Refund() {
 		//Insert a Credit Card payment that is unrelated to the orders or the contract
-		Payment2__c payment3 = new Payment2__c();
+		String recordType = 'Credit_Card_Refund';
+		Payment2__c payment3 = TestUtils.createPayment2(true, recordType);
 		payment3.Account_Type__c = 'Services';
-		payment3.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get('Credit_Card_Refund');
 		payment3.Payment_Processor__c = 'Pay.gov';
 		payment3.Transaction_Status__c = 'Success';
 		payment3.Transaction_Amount__c = 15.00;
 		payment3.Payment_Type__c = 'Credit Card Refund';
-		insert payment3;
+		update payment3;
 
 		String today = Date.today().format();
 		List<Payment2__c> payments = Payment2.getTransactions('Services', 'Credit Card Refund', 'Refunds', today, today, 'Transactions Not Yet Downloaded');
@@ -223,93 +210,115 @@ private class Payment2Test {
 	}
 
 	@IsTest
-	static void startElectronicPayment_Positive() {
-		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
-		String[] orderIds = new String[]{};
-		for (Order order: orders) {
-			orderIds.add(order.Id);
-		}
-		String serializedDetails = Payment2.startElectronicPayment('Services', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
-		Payment2.PaymentAuthenticationDetails paymentAuthenticationDetails = (Payment2.PaymentAuthenticationDetails)JSON.deserialize(serializedDetails, Payment2.PaymentAuthenticationDetails.class);
-		System.assertEquals('4800.00', paymentAuthenticationDetails.transactionAmount);
-	}
-
-	@IsTest
-	static void startElectronicPayment_Exception() {
-		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
-		String[] orderIds = new String[]{};
-		String exceptionMessage;
-		try {
-			String serializedDetails = Payment2.startElectronicPayment('Blah', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
-		} catch (Exception e) {
-			exceptionMessage = e.getMessage();
-		} finally {
-			System.assertEquals('Script-thrown exception', exceptionMessage);
-		}
-	}
-
-	@IsTest
-	static void startElectronicPayment_Exception_NullOrderNoTransactionValue() {
-		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
-		String[] orderIds = new String[]{};
-		for (Order order: orders) {
-			orderIds.add(order.Id);
-		}
-		String exceptionMessage;
-		try {
-			String serializedDetails = Payment2.startElectronicPayment('Services', null, null, null, '', '', 'Contract', null);
-		} catch (Exception e) {
-			exceptionMessage = e.getMessage();
-		} finally {
-			System.assertEquals('Script-thrown exception', exceptionMessage);
-		}
-
-	}
-
-	@IsTest
 	static void authorizePayment_Positive() {
 		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
-		String[] orderIds = new String[]{};
-		for (Order order: orders) {
-			orderIds.add(order.Id);
-		}
-		String serializedDetails = null;
-		String paymentRedirectUrl = null;
-		try {
-			serializedDetails = Payment2.startElectronicPayment('Services', orders[0].ContractId, orderIds, null, '', '', 'Contract', orders[0].ContractId);
-			Payment2.PaymentAuthenticationDetails authenticationDetails = (Payment2.PaymentAuthenticationDetails)JSON.deserialize(serializedDetails, Payment2.PaymentAuthenticationDetails.class);
-			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(new Set<Id> {authenticationDetails.paymentId});
-        	payments[0].Project_Code__c = '1GKY231';
-        	update payments;
-            paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
-		} catch (Exception e) {
-			System.debug(e.getMessage()+' '+e.getStackTraceString());
-		}
-
+		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
+		params.failurePage = 'https://www.test.com/failure';
+		params.confirmationPage = 'https://www.test.com/confirmation';
+		params.orderId = orders[0].Id;
+		Payment2__c payment = Payment2.createPayment(params);
+		String serializedDetails = Payment2.getPaymentProcessorData(payment.Id, params);
+		String paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
 		System.assertNotEquals(null, paymentRedirectUrl);
+	}
+
+	@IsTest
+	static void authorizePayment_Positive_MoreParams() {
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
+		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
+		Collection_Fulfillment__c cp = TestUtils.createCollectionFulfillment(true, '56789','12345');
+		Collection_Fulfillment__c fp = TestUtils.createCollectionFulfillment(true, '67890','23456');
+		List<Collection_Fulfillment__c> cfList = new List<Collection_Fulfillment__c>{cp,fp};
+		params.projectCode = '9999ABC';
+		params.accountType = 'Services';
+		params.accountHolderName = 'Jeff';
+		params.transactionAmount = '100.00';
+		params.collectionPost = cp.Id;
+		params.fulfillmentPost = fp.Id;
+		params.organizationName = 'Jorg Industries';
+		params.userId = UserInfo.getUserId();
+		params.billingAddress = '311 Jorg Street';
+		params.billingCity = 'Beverly Hills';
+		params.billingStateCode = 'CA';
+		params.billingZip = '90210';
+		params.billingCountryCode = 'USA';
+
+
+		params.failurePage = 'https://www.test.com/failure';
+		params.confirmationPage = 'https://www.test.com/confirmation';
+		params.orderId = orders[0].Id;
+		Payment2__c payment = Payment2.createPayment(params);
+		String serializedDetails = Payment2.getPaymentProcessorData(payment.Id, params);
+		String paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+		System.assertNotEquals(null, paymentRedirectUrl);
+	}
+
+	@IsTest
+	static void authorizePayment_Positive_NoOrderId() {
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
+		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
+
+		Collection_Fulfillment__c cp = TestUtils.createCollectionFulfillment(true, '56789','12345');
+		Collection_Fulfillment__c fp = TestUtils.createCollectionFulfillment(true, '67890','23456');
+		List<Collection_Fulfillment__c> cfList = new List<Collection_Fulfillment__c>{cp,fp};
+		params.projectCode = '9999ABC';
+		params.accountType = 'Services';
+		params.accountHolderName = 'Jeff';
+		params.transactionAmount = '100.00';
+		params.collectionPost = cp.Id;
+		params.fulfillmentPost = fp.Id;
+
+		params.failurePage = 'https://www.test.com/failure';
+		params.confirmationPage = 'https://www.test.com/confirmation';
+
+		String exceptionMessage;
+		try {
+			Payment2__c payment = Payment2.createPayment(params);
+			String serializedDetails = Payment2.getPaymentProcessorData(payment.Id, params);
+			String paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+		} catch(Exception e) {
+			exceptionMessage = e.getMessage();
+		} finally {
+			System.assertEquals('Either orderId or these values are required: accountType, transactionAmount, projectCode, collectionPost,  fulfillmentPost, organizationName', exceptionMessage);
+		}
+	}
+
+	@IsTest
+	static void authorizePayment_Negative_NoFailurePage() {
+		List<Order> orders = [SELECT Id, ContractId FROM ORDER WHERE Name = 'Unpaid Order X'];
+		REST_BeginPaymentParams params = new REST_BeginPaymentParams();
+		params.failurePage = null;
+		params.confirmationPage = 'https://www.test.com/confirmation';
+		params.orderId = orders[0].Id;
+
+		String exceptionMessage;
+		try {
+			Payment2__c payment = Payment2.createPayment(params);
+			String serializedDetails = Payment2.getPaymentProcessorData(payment.Id, params);
+			String paymentRedirectUrl = Payment2.authorizePayment(serializedDetails);
+		} catch(Exception e) {
+			exceptionMessage = e.getMessage();
+		} finally {
+			System.assertEquals('paymentId, params.confirmationPage, and params.failurePage are required parameters.', exceptionMessage);
+		}
 	}
 
 	@IsTest
 	static void confirmPayment_Positive() {
 		List<Order> orders = [SELECT Id, ContractId, Payment2__c FROM ORDER WHERE Name = 'Paid Order X'];
-		String[] orderIds = new String[]{};
-		for (Order order: orders) {
-			orderIds.add(order.Id);
-		}
-		String paymentId = Payment2.confirmPayment('Services', (String) orders[0].Payment2__c, 'myToken', orderIds);
-		System.assertEquals((String) orders[0].Payment2__c, paymentId);
+		String confirmPayment = Payment2.confirmPayment('Services', (String) orders[0].Payment2__c, 'myToken', orders[0].Id);
+		System.assertEquals(confirmPayment,'{"paymentConfirmed":true,"errorMessage":null}');
 	}
 
 	@IsTest
 	static void confirmPayment_Exception() {
-		String[] orderIds = new String[]{};
 		String exceptionMessage;
 		try {
-			String paymentId = Payment2.confirmPayment('Services', null, 'myToken', orderIds);
+			String paymentId = Payment2.confirmPayment('Unknown', null, 'myToken', '');
 		} catch (Exception e) {
 			exceptionMessage = e.getMessage();
 		} finally {
-			System.assertEquals('Script-thrown exception', exceptionMessage);
+			System.assertEquals('Unknown remote account name.', exceptionMessage);
 		}
 	}
 
@@ -334,12 +343,10 @@ private class Payment2Test {
 
 	@IsTest
 	static void testPayments2Trigger_InsertPayment2Record_TriggerIsCovered() {
-		try { insert new Payment2__c(); } catch (Exception e) {}
+		try {
+			string recordType = 'Credit_Card_or_ACH_Payment';
+			Payment2__c p2 = TestUtils.createPayment2(true, recordType);
+		} catch (Exception e) {}
 	}
 
-	@isTest
-	static void test_populateOpportunityonPayment_2() {
-		Payment2.populateOpportunityonPayment_2(null);
-		System.assertEquals(null,null);
-	}
 }

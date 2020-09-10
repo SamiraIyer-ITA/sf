@@ -18,6 +18,10 @@ global without sharing class Flow_CreateRefundRecord {
 		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 		List<String> errorList = new List<String>();
 
+		ResponseVariables responseVariables = new ResponseVariables();
+		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
+		List<String> errorList = new List<String>();
+
 		if (inputs.isEmpty()) {
 			responseVariables.hasError = true;
 			responseVariables.errorReasons = '<li>Nothing to validate.</li>';
@@ -81,7 +85,7 @@ global without sharing class Flow_CreateRefundRecord {
 				List<Order> orderList = paymentOrderMap.get(payment.Id);
 				Set<Id> orderIds = new Set<Id>();
 				orderIds.add(orderList[0].Id);
-				List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds);
+				List<Order> orderListWithDetails = OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds, true);
 
 				//Create the refund record
 				Payment2__c refund = new Payment2__c();
