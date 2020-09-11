@@ -328,6 +328,21 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Collection_Post__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Looks up to Collection_Fulfillment__c</description>
+        <externalId>false</externalId>
+        <label>Collection Post</label>
+        <referenceTo>Collection_Fulfillment__c</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Collection_Post</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>ContractId</fullName>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
