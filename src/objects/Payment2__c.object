@@ -808,7 +808,6 @@
         <columns>Remote_Tracking_Id__c</columns>
         <columns>Transaction_Amount__c</columns>
         <columns>Transaction_Date__c</columns>
-        <columns>Payment_Type__c</columns>
         <columns>Transaction_Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
