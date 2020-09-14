@@ -256,35 +256,6 @@
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
-        <fullName>Export Lead</fullName>
-        <description>Export</description>
-        <isActive>true</isActive>
-        <values>
-            <fullName>Contact Attempted</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Contacted</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>New</fullName>
-            <default>true</default>
-        </values>
-        <values>
-            <fullName>Not Converted</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Qualified</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Verification</fullName>
-            <default>false</default>
-        </values>
-    </businessProcesses>
-    <businessProcesses>
         <fullName>New Registrant</fullName>
         <description>The process for converting a lead created from a newly registered website user</description>
         <isActive>true</isActive>
