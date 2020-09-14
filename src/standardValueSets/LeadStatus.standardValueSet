@@ -50,12 +50,6 @@
         <converted>false</converted>
     </standardValue>
     <standardValue>
-        <fullName>Verification</fullName>
-        <default>false</default>
-        <label>Verification</label>
-        <converted>false</converted>
-    </standardValue>
-    <standardValue>
         <fullName>Qualified</fullName>
         <default>false</default>
         <label>Qualified</label>
