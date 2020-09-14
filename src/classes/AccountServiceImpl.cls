@@ -62,6 +62,7 @@ public class AccountServiceImpl implements IAccountService {
 	}
 
 	public static void updateCCDLookupId(List<Account> accounts) {
+		// Move to populateZipSets
 		if (!System.isBatch()) {
 			Set<String> zip4 = new Set<String>();
 			Set<String> zip5 = new Set<String>();
@@ -73,7 +74,8 @@ public class AccountServiceImpl implements IAccountService {
 				recordTypeMap.get('Individual'),
 				recordTypeMap.get('Partner_Account')
 			};
-			// Update to assign Congressional District with Zip5 alone
+
+			// Move to populateMCCDLists
 
 			Pattern zipCode5Plus4 = Pattern.compile('[0-9]{5}-[0-9]{4}');
 			Pattern zipCode5 = Pattern.compile('[0-9]{5}');
@@ -90,7 +92,6 @@ public class AccountServiceImpl implements IAccountService {
 								meetsCriteriaZip5 = true;
 							}
 					}
-				// change this if statement to account for zip5plus4 and zip5
 				if (meetsCriteriaZip5Plus4) {
 					zip4.add(acct.BillingPostalCode.replace('-','').substring(5,9));
 					zip5.add(acct.BillingPostalCode.substring(0,5));
@@ -102,7 +103,9 @@ public class AccountServiceImpl implements IAccountService {
 					acct.State_Code__c = null;
 				}
 			}
+			// move to setCongressionalDistrict
 			if (!zip4.isEmpty() && !zip5.isEmpty()) {
+				// Accounts that have both Zip5 and Plus4
 				for (Master_CongressionalDistrict__c mccd:
 					MasterCongressionalDistrictsSelector.newInstance().selectByMin4Max4AndZipPlus4(zip4, zip5)
 				) {
@@ -137,4 +140,10 @@ public class AccountServiceImpl implements IAccountService {
 			}
 		}
 	}
+	private static void populateZipSets(){}
+
+	private static void populateMCCDLists(){}
+
+	private static void setCongressionalDistrict(){}
+
 }
