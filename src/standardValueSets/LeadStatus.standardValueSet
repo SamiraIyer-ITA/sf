@@ -14,12 +14,43 @@
         <converted>false</converted>
     </standardValue>
     <standardValue>
+        <fullName>Verification</fullName>
+        <default>false</default>
+        <label>Verification</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Converted</fullName>
+        <default>false</default>
+        <label>Converted</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Not Converted</fullName>
+        <default>false</default>
+        <label>Not Converted</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
         <fullName>Contacted</fullName>
         <default>false</default>
         <label>Contacted</label>
         <converted>false</converted>
     </standardValue>
     <standardValue>
+        <fullName>Open</fullName>
+        <default>false</default>
+        <label>Open</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Verified</fullName>
+        <default>false</default>
+        <label>Verified</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Verified</fullName>
         <fullName>Verification</fullName>
         <default>false</default>
         <label>Verification</label>
@@ -39,6 +70,18 @@
     </standardValue>
     <standardValue>
         <fullName>Not Converted</fullName>
+        <default>false</default>
+        <label>Not Converted</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Unverified</fullName>
+        <default>false</default>
+        <label>Unverified</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Unqualified</fullName>
         <default>false</default>
         <label>Not Converted</label>
         <converted>false</converted>
