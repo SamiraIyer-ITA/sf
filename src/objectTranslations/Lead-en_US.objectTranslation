@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- MCP_REGFIELDS --></label>
+        <name>MCP_REGFIELDS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- MPCRegFields --></label>
+        <name>MPCRegFields</name>
+    </fieldSets>
     <fields>
         <caseValues>
             <plural>false</plural>
@@ -16,26 +24,1006 @@
         <name>email_opt_out_lead</name>
         <startsWith>Vowel</startsWith>
     </fields>
+    <fields>
+        <help><!-- API Endpoint for Data Customers --></help>
+        <label><!-- API Endpoint --></label>
+        <name>APIEndpoint__c</name>
+        <picklistValues>
+            <masterLabel>Business Service Providers</masterLabel>
+            <translation><!-- Business Service Providers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consolidated Screening List</masterLabel>
+            <translation><!-- Consolidated Screening List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>De Minimis</masterLabel>
+            <translation><!-- De Minimis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FAQs on Exporting</masterLabel>
+            <translation><!-- FAQs on Exporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITA Offices &amp; Centers</masterLabel>
+            <translation><!-- ITA Offices &amp; Centers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITA Taxonomies</masterLabel>
+            <translation><!-- ITA Taxonomies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Research Library</masterLabel>
+            <translation><!-- Market Research Library --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tariff Rates</masterLabel>
+            <translation><!-- Tariff Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Events</masterLabel>
+            <translation><!-- Trade Events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Leads</masterLabel>
+            <translation><!-- Trade Leads --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade News &amp; Articles</masterLabel>
+            <translation><!-- Trade News &amp; Articles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zip Code to USEAC</masterLabel>
+            <translation><!-- Zip Code to USEAC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Able to translate marketing materials? --></label>
+        <name>Able_to_translate_marketing_materials__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Category --></label>
+        <name>AccountCategory__c</name>
+        <picklistValues>
+            <masterLabel>Business Service Providers</masterLabel>
+            <translation><!-- Business Service Providers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Codes</masterLabel>
+            <translation><!-- Codes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contacts</masterLabel>
+            <translation><!-- Contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Country Pages</masterLabel>
+            <translation><!-- Country Pages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data</masterLabel>
+            <translation><!-- Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Events</masterLabel>
+            <translation><!-- Events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Form</masterLabel>
+            <translation><!-- Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Links</masterLabel>
+            <translation><!-- Links --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Location</masterLabel>
+            <translation><!-- Location --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Research</masterLabel>
+            <translation><!-- Market Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procurment Opportunity</masterLabel>
+            <translation><!-- Procurment Opportunity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promotion Opportunity</masterLabel>
+            <translation><!-- Promotion Opportunity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference</masterLabel>
+            <translation><!-- Reference --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statistics</masterLabel>
+            <translation><!-- Statistics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tariff Schedules</masterLabel>
+            <translation><!-- Tariff Schedules --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video</masterLabel>
+            <translation><!-- Video --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Content</masterLabel>
+            <translation><!-- Web Content --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Assigned Date --></label>
+        <name>Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned Office --></label>
+        <name>Assigned_Office__c</name>
+        <relationshipLabel><!-- Leads --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Assigned User --></label>
+        <name>Assigned_User__c</name>
+        <relationshipLabel><!-- Leads --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Assigned to Me --></label>
+        <name>Assigned_to_Me__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned to My Office --></label>
+        <name>Assigned_to_My_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Campaign ID --></label>
+        <name>Campaign_ID__c</name>
+        <relationshipLabel><!-- Leads --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Confirm Email --></label>
+        <name>Confirm_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Attempts --></label>
+        <name>Contact_Attempts__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First Attempt</masterLabel>
+            <translation><!-- First Attempt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First Attempt Past Due</masterLabel>
+            <translation><!-- First Attempt Past Due --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Attempts</masterLabel>
+            <translation><!-- No Attempts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Second Attempt</masterLabel>
+            <translation><!-- Second Attempt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Second Attempt Past Due</masterLabel>
+            <translation><!-- Second Attempt Past Due --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contacted Date --></label>
+        <name>Contacted_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Upon successful match, Optimizer populates this field and references it for future refreshes. It is an identification number assigned by Dun &amp; Bradstreet that uniquely identifies the entity based on the Data Universal Numbering System (D-U-N-S). --></help>
+        <label><!-- D&amp;B DUNS Number --></label>
+        <name>DNBoptimizer__DNB_D_U_N_S_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Upon a successful match, Optimizer populates this field that links the Lead record to a specific D-U-N-S Number for display of the correct custom object with D&amp;B data. --></help>
+        <label><!-- LeadToDnB --></label>
+        <name>DNBoptimizer__DnBCompanyRecord__c</name>
+        <relationshipLabel><!-- LeadToDnB --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Upon a successful match, Optimizer populates this field that links the Lead record to a specific D&amp;B Contact ID for display of the correct custom object with D&amp;B data. --></help>
+        <label><!-- LeadContactToDnB --></label>
+        <name>DNBoptimizer__DnBContactRecord__c</name>
+        <relationshipLabel><!-- LeadToDnB_Contact --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Data Partner Type --></label>
+        <name>DataPartnerType__c</name>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation><!-- Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner</masterLabel>
+            <translation><!-- Partner --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data Set --></label>
+        <name>DataSet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dedicated resources (staff &amp; budget)? --></label>
+        <name>Dedicated_resources_staff_budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Eligibility Verified --></label>
+        <name>Eligibility_Verified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Eligible for Export Promotion --></label>
+        <name>EligibleforExportPromotion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expedited Delivery --></label>
+        <name>ExpeditedDelivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Export Ready --></label>
+        <name>ExportReady__c</name>
+    </fields>
+    <fields>
+        <label><!-- Export Readiness Assessment Score --></label>
+        <name>Export_Readiness_Assessment_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Export Readiness Verified --></label>
+        <name>Export_Readiness_Verified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Exported in the past 12 months? --></label>
+        <name>Exported_in_the_past_12_months__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Attempt Past Due --></label>
+        <name>First_Attempt_Past_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- Globalized your website? --></label>
+        <name>Globalized_your_website__c</name>
+    </fields>
+    <fields>
+        <label><!-- Industry Hidden --></label>
+        <name>Industry_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interest Type --></label>
+        <name>Interest_Type__c</name>
+        <picklistValues>
+            <masterLabel>Events</masterLabel>
+            <translation><!-- Events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Services</masterLabel>
+            <translation><!-- Services --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- International marketing plan? --></label>
+        <name>International_marketing_plan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Investment Promotion --></label>
+        <name>Investment_Promotion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Know U.S. Export Control requirements? --></label>
+        <name>Know_U_S_Export_Control_requirements__c</name>
+    </fields>
+    <fields>
+        <label><!-- Know financing &amp; payment options? --></label>
+        <name>Know_financing_payment_options__c</name>
+    </fields>
+    <fields>
+        <label><!-- Know foreign legal &amp; regulatory reqs? --></label>
+        <name>Know_foreign_legal_regulatory_reqs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Know how to ship product overseas? --></label>
+        <name>Know_how_to_ship_product_overseas__c</name>
+    </fields>
+    <fields>
+        <help><!-- When checked, match and enrich from D&amp;B Optimizer will process --></help>
+        <label><!-- Allow D&amp;B Optimizer --></label>
+        <name>LD_USE_DnB_Optimize__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Owner Agency --></label>
+        <name>Lead_Owner_Agency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Owner Country --></label>
+        <name>Lead_Owner_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Owner DAS --></label>
+        <name>Lead_Owner_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Owner Office --></label>
+        <name>Lead_Owner_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Owner Region --></label>
+        <name>Lead_Owner_Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Owner Sub-region --></label>
+        <name>Lead_Owner_Sub_region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Owner Unit --></label>
+        <name>Lead_Owner_Unit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization Location --></label>
+        <name>Organization_Location__c</name>
+        <picklistValues>
+            <masterLabel>Located in US</masterLabel>
+            <translation><!-- Located in US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Located outside US</masterLabel>
+            <translation><!-- Located outside US --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Organization Name --></label>
+        <name>Organization_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization Type --></label>
+        <name>Organization_Type__c</name>
+        <picklistValues>
+            <masterLabel>Advanced Manufacturing</masterLabel>
+            <translation><!-- Advanced Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aerospace &amp; Defense</masterLabel>
+            <translation><!-- Aerospace &amp; Defense --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Automotive &amp; Smart Mobility</masterLabel>
+            <translation><!-- Automotive &amp; Smart Mobility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Current or Prospective Buyer of U.S. Goods/Services</masterLabel>
+            <translation><!-- Current or Prospective Buyer of U.S. Goods/Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Current or Prospective Investor in U.S.</masterLabel>
+            <translation><!-- Current or Prospective Investor in U.S. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Design &amp; Construction, Building &amp; Heavy Equipment</masterLabel>
+            <translation><!-- Design &amp; Construction, Building &amp; Heavy Equipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education and Training Services</masterLabel>
+            <translation><!-- Education and Training Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy</masterLabel>
+            <translation><!-- Energy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environment Technologies</masterLabel>
+            <translation><!-- Environment Technologies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Services</masterLabel>
+            <translation><!-- Financial Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food and Agriculture Value Chain</masterLabel>
+            <translation><!-- Food and Agriculture Value Chain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Government Entity</masterLabel>
+            <translation><!-- Foreign Government Entity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Student/Researcher</masterLabel>
+            <translation><!-- Foreign Student/Researcher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Subsidiary of U.S. Company (95% U.S. owned)</masterLabel>
+            <translation><!-- Foreign Subsidiary of U.S. Company (95% U.S. owned) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Subsidiary of U.S. Company (less than 95% U.S. owned)</masterLabel>
+            <translation><!-- Foreign Subsidiary of U.S. Company (less than 95% U.S. owned) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Trade Show/Event Organizer</masterLabel>
+            <translation><!-- Foreign Trade Show/Event Organizer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Franchising</masterLabel>
+            <translation><!-- Franchising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthcare and Health Technologies</masterLabel>
+            <translation><!-- Healthcare and Health Technologies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information and Communication Technologies</masterLabel>
+            <translation><!-- Information and Communication Technologies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marine Technology</masterLabel>
+            <translation><!-- Marine Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media and Entertainment</masterLabel>
+            <translation><!-- Media and Entertainment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office of Textiles and Apparel</masterLabel>
+            <translation><!-- Office of Textiles and Apparel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Safety and Security</masterLabel>
+            <translation><!-- Public Safety and Security --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recreational Transportation</masterLabel>
+            <translation><!-- Recreational Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Provider to U.S. Exporters</masterLabel>
+            <translation><!-- Service Provider to U.S. Exporters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supply Chain &amp; Logistics and Distribution Services</masterLabel>
+            <translation><!-- Supply Chain &amp; Logistics and Distribution Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textile, Apparel, Footwear and Travel Goods</masterLabel>
+            <translation><!-- Textile, Apparel, Footwear and Travel Goods --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel and Tourism</masterLabel>
+            <translation><!-- Travel and Tourism --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Business Currently Exporting Goods/Services</masterLabel>
+            <translation><!-- U.S. Business Currently Exporting Goods/Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Business Seeking to Export Goods/Services</masterLabel>
+            <translation><!-- U.S. Business Seeking to Export Goods/Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Citizen Seeking to Export Goods/Services</masterLabel>
+            <translation><!-- U.S. Citizen Seeking to Export Goods/Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Economic Development Organization</masterLabel>
+            <translation><!-- U.S. Economic Development Organization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Educational Institution</masterLabel>
+            <translation><!-- U.S. Educational Institution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Government</masterLabel>
+            <translation><!-- U.S. Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Industry Associations</masterLabel>
+            <translation><!-- U.S. Industry Associations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Trade Show/Event Organizer</masterLabel>
+            <translation><!-- U.S. Trade Show/Event Organizer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Travel &amp; Tourism Bureau</masterLabel>
+            <translation><!-- U.S. Travel &amp; Tourism Bureau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. based Student/Researcher</masterLabel>
+            <translation><!-- U.S. based Student/Researcher --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Outcome Date --></label>
+        <name>Outcome_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outcome --></label>
+        <name>Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Abandoned</masterLabel>
+            <translation><!-- Abandoned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Converted</masterLabel>
+            <translation><!-- Converted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Counseled</masterLabel>
+            <translation><!-- Counseled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Converted</masterLabel>
+            <translation><!-- Not Converted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referred</masterLabel>
+            <translation><!-- Referred --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Post --></label>
+        <name>PrimaryPost__c</name>
+        <relationshipLabel><!-- Primary Posts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Process to protect IP internationally? --></label>
+        <name>Process_to_protect_IP_internationally__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process to respond to int&apos;l inquiries? --></label>
+        <name>Process_to_respond_to_int_l_inquiries__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prod of US origin or has 51% materials? --></label>
+        <name>Prod_of_US_origin_or_has_51_materials__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Family Interest --></label>
+        <name>Product_Family_Interest__c</name>
+        <picklistValues>
+            <masterLabel>Business Service Providers</masterLabel>
+            <translation><!-- Business Service Providers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customized Market Research</masterLabel>
+            <translation><!-- Customized Market Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Featured U.S. Exporters</masterLabel>
+            <translation><!-- Featured U.S. Exporters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold Key Service</masterLabel>
+            <translation><!-- Gold Key Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initial Market Check</masterLabel>
+            <translation><!-- Initial Market Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Company Profile</masterLabel>
+            <translation><!-- International Company Profile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Partner Search</masterLabel>
+            <translation><!-- International Partner Search --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Company or Location Promotion</masterLabel>
+            <translation><!-- Single Company or Location Promotion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Show Representation</masterLabel>
+            <translation><!-- Trade Show Representation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual Fairs</masterLabel>
+            <translation><!-- Virtual Fairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual Introductions</masterLabel>
+            <translation><!-- Virtual Introductions --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Production capacity to meet orders? --></label>
+        <name>Production_capacity_to_meet_orders__c</name>
+    </fields>
+    <fields>
+        <label><!-- Promotion Type --></label>
+        <name>Promotion_Type__c</name>
+        <picklistValues>
+            <masterLabel>Investment Promotion</masterLabel>
+            <translation><!-- Investment Promotion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promotion</masterLabel>
+            <translation><!-- Promotion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>etc.</masterLabel>
+            <translation><!-- etc. --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Queue Routing Due Date --></label>
+        <name>Queue_Routing_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Queue Routing Past Due Formula --></label>
+        <name>Queue_Routing_Past_Due_Formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Queue Routing Past Due --></label>
+        <name>Queue_Routing_Past_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- Queued Date --></label>
+        <name>Queued_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Re-routed --></label>
+        <name>Re_routed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason Not Converted --></label>
+        <name>Reason_Not_Converted__c</name>
+        <picklistValues>
+            <masterLabel>Product Not Helpful</masterLabel>
+            <translation><!-- Product Not Helpful --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unqualified</masterLabel>
+            <translation><!-- Unqualified --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Record Type Developer Name --></label>
+        <name>Record_Type_Developer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Referral Type --></label>
+        <name>Referral_Type__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Referred Date --></label>
+        <name>Referred_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Referred To --></label>
+        <name>Referred_To__c</name>
+        <picklistValues>
+            <masterLabel>SBA</masterLabel>
+            <translation><!-- SBA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Registrant --></label>
+        <name>Registrant__c</name>
+        <relationshipLabel><!-- Leads --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Second Attempt Past Due --></label>
+        <name>Second_Attempt_Past_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Post --></label>
+        <name>SecondaryPost__c</name>
+        <relationshipLabel><!-- Secondary Posts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sector Hidden --></label>
+        <name>Sector_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Request Country --></label>
+        <name>Service_Request_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Technology --></label>
+        <name>SourceTechnology__c</name>
+        <picklistValues>
+            <masterLabel>API</masterLabel>
+            <translation><!-- API --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Excel</masterLabel>
+            <translation><!-- Excel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FTP</masterLabel>
+            <translation><!-- FTP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lotus Notes</masterLabel>
+            <translation><!-- Lotus Notes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSS</masterLabel>
+            <translation><!-- RSS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce</masterLabel>
+            <translation><!-- Salesforce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SharePoint</masterLabel>
+            <translation><!-- SharePoint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Service</masterLabel>
+            <translation><!-- Web Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Word Document</masterLabel>
+            <translation><!-- Word Document --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XML</masterLabel>
+            <translation><!-- XML --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source Detail --></label>
+        <name>Source_Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contacting</masterLabel>
+            <translation><!-- Contacting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub-Sector Hidden --></label>
+        <name>Sub_Sector_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Used ITA&apos;s fee-based services before? --></label>
+        <name>UsedITAsfeebasedservicesbefore__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Campaign ID --></label>
+        <name>Web_Campaign_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Which services have you used before? --></label>
+        <name>Which_services_have_you_used_before__c</name>
+        <picklistValues>
+            <masterLabel>Location Promotion</masterLabel>
+            <translation><!-- Location Promotion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Company Promotion</masterLabel>
+            <translation><!-- Single Company Promotion --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Willing to travel internationally? --></label>
+        <name>Willing_to_travel_internationally__c</name>
+    </fields>
+    <fields>
+        <label><!-- 1st Contact Attempt Date --></label>
+        <name>X1st_Contact_Attempt_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- 1st Contact Attempt Due Date --></label>
+        <name>X1st_Contact_Attempt_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- 1st Contact Attempt Past Due Formula --></label>
+        <name>X1st_Contact_Attempt_Past_Due_Formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- 2nd Contact Attempt Date --></label>
+        <name>X2nd_Contact_Attempt_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- 2nd Contact Attempt Due Date --></label>
+        <name>X2nd_Contact_Attempt_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- 2nd Contact Attempt Past Due Formula --></label>
+        <name>X2nd_Contact_Attempt_Past_Due_Formula__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code or Client Country --></label>
+        <name>ZipCodeorClientCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- iContact Contact Id --></label>
+        <name>iContactforSF__iContact_Contact_Id__c</name>
+    </fields>
     <layouts>
-        <layout>Lead Layout</layout>
+        <layout>Admin Lead Layout</layout>
+        <sections>
+            <label><!-- Dun &amp; Bradstreet Company Information --></label>
+            <section>Dun &amp; Bradstreet Company Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Export Layout</layout>
         <sections>
             <label><!-- Data.com --></label>
             <section>Data.com</section>
         </sections>
     </layouts>
     <layouts>
-        <layout>Partner Lead Layout</layout>
+        <layout>Export Lead</layout>
         <sections>
-            <label><!-- Data.com --></label>
-            <section>Data.com</section>
+            <label><!-- Dun &amp; Bradstreet Company Information --></label>
+            <section>Dun &amp; Bradstreet Company Information</section>
         </sections>
+    </layouts>
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label><!-- Dun &amp; Bradstreet Company Information --></label>
+            <section>Dun &amp; Bradstreet Company Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>New Registrant</layout>
+        <sections>
+            <label><!-- Dun &amp; Bradstreet Company Information --></label>
+            <section>Dun &amp; Bradstreet Company Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Partner Lead Layout</layout>
         <sections>
             <label><!-- Description --></label>
             <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Dun &amp; Bradstreet Company Information --></label>
+            <section>Dun &amp; Bradstreet Company Information</section>
         </sections>
         <sections>
             <label><!-- Partner Information --></label>
             <section>Partner Information</section>
         </sections>
     </layouts>
+    <recordTypes>
+        <description><!-- Record type for export-related leads --></description>
+        <label><!-- Export --></label>
+        <name>Export</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- A new registrant from the website --></description>
+        <label><!-- New Registrant --></label>
+        <name>New_Registrant</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Lead for Data Partners/Consumers. --></description>
+        <label><!-- Partner Lead --></label>
+        <name>Partner_Lead</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Standard Lead --></label>
+        <name>Standard_Lead</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- When converting a lead, if Country = US (United States) a State must be indicated. --></errorMessage>
+        <name>If_Country_is_US_need_state_at_convert</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- To create a lead, you must indicate a Country. --></errorMessage>
+        <name>Lead_Create_Country_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must have either an email address or phone number indicated to save a lead. --></errorMessage>
+        <name>Lead_Create_Phone_or_Email</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- When selecting &quot;Other&quot; for lead source, you must enter an alternative lead source in the Source Detail field. --></errorMessage>
+        <name>Lead_Source_Other_must_update_Sor_Detai</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- When selecting &quot;Other&quot; for lead source, you must enter an alternative lead source in the Source Detail field. --></errorMessage>
+        <name>V01Explanation_Required_if_Source_Other</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must have either an email address or phone number indicated to save a lead. --></errorMessage>
+        <name>V01Phone_or_Email_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- To create a lead, you must indicate a Country. --></errorMessage>
+        <name>V01Require_Country</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- When converting a lead, if Country = US (United States) a State must be indicated. --></errorMessage>
+        <name>V01Require_State_If_Country_is_USA</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- When selecting &quot;Other&quot; for lead source, you must enter an alternative lead source in the Source Detail field. --></errorMessage>
+        <name>V02Explanation_Required_if_Source_Other</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must have either an email address or phone number indicated to save a lead. --></errorMessage>
+        <name>V02Phone_or_Email_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- To create a lead, you must indicate a Country. --></errorMessage>
+        <name>V02Require_Country</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- When converting a lead, if Country = US (United States) a State must be indicated. --></errorMessage>
+        <name>V02Require_State_If_Country_is_USA</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must state a reason for not converting this lead --></errorMessage>
+        <name>V03Require_value_if_not_converted</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- AltavistaNews --></label>
+        <name>AltavistaNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Convert_Lead --></label>
+        <name>Convert_Lead</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- HooversProfile --></label>
+        <name>HooversProfile</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendGmail --></label>
+        <name>SendGmail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
 </CustomObjectTranslation>
