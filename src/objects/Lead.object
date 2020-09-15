@@ -256,8 +256,25 @@
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
-        <fullName>Export Lead</fullName>
-        <description>Export</description>
+        <fullName>New Registrant</fullName>
+        <description>The process for converting a lead created from a newly registered website user</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Account Verified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unverified</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
+        <fullName>Services Export</fullName>
+        <description>Services Export Support Process</description>
         <isActive>true</isActive>
         <values>
             <fullName>Contact Attempted</fullName>
@@ -285,23 +302,6 @@
         </values>
     </businessProcesses>
     <businessProcesses>
-        <fullName>New Registrant</fullName>
-        <description>The process for converting a lead created from a newly registered website user</description>
-        <isActive>true</isActive>
-        <values>
-            <fullName>Account Verified</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Qualified</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Unverified</fullName>
-            <default>true</default>
-        </values>
-    </businessProcesses>
-    <businessProcesses>
         <fullName>Partner Lead Process</fullName>
         <description>Process for Leads of Partner Contacts and Accounts.</description>
         <isActive>true</isActive>
@@ -323,11 +323,23 @@
         </values>
     </businessProcesses>
     <businessProcesses>
-        <fullName>Services Export</fullName>
-        <description>Services Export Support Process</description>
+        <fullName>Export Lead</fullName>
+        <description>Export</description>
         <isActive>true</isActive>
         <values>
+            <fullName>Contact Attempted</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Contacted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Not Converted</fullName>
             <default>false</default>
         </values>
         <values>
@@ -335,12 +347,8 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Unqualified</fullName>
+            <fullName>Verification</fullName>
             <default>false</default>
-        </values>
-        <values>
-            <fullName>Unverified</fullName>
-            <default>true</default>
         </values>
     </businessProcesses>
     <businessProcesses>
@@ -4117,11 +4125,11 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Not Converted</fullName>
+                <fullName>Referred</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Referred</fullName>
+                <fullName>Not Converted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4243,17 +4251,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>Warm</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>Product Not Helpful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unqualified</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
