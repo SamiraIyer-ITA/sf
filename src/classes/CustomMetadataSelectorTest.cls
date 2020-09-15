@@ -91,26 +91,8 @@ public class CustomMetadataSelectorTest {
 		System.assertNotEquals(0, cms.getParentsForChildSObject('Segment__c').size());
 	}
 
-
 	@isTest static void getPaymentSettings_Positive() {
 		System.assertNotEquals(0, CustomMetadataSelector.getPaymentSettings('Paygov').size());
 	}
 
-	@isTest static void childToParentsSObjectMap_Positive() {
-		System.assertNotEquals(0, CustomMetadataSelector.childToParentsSObjectMap.size());
-	}
-
-	@isTest static void getConstantNameToConstantMap_Positive() {
-		System.assertNotEquals(0, CustomMetadataSelector.getConstantNameToConstantMap('adcvd_order_calculation_offset__c').size());
-	}
-
-	@isTest static void getParentsForChildSObject_Positive() {
-		CustomMetadataSelector cms = new CustomMetadataSelector();
-		System.assertNotEquals(0, cms.getParentsForChildSObject('Segment__c').size());
-	}
-
-
-	@isTest static void getPaymentSettings_Positive() {
-		System.assertNotEquals(0, CustomMetadataSelector.getPaymentSettings('Paygov').size());
-	}
 }
