@@ -14,36 +14,6 @@ global without sharing class Flow_CreateRefundRecord {
 
 	@InvocableMethod(label='Create Refund Record' description='Inserts a Refund record and updates the order(s)' category='Payments')
 	global static List<ResponseVariables> createRefundRecord(List<RequestVariables> inputs){
-		ResponseVariables responseVariables = new ResponseVariables();
-		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
-		List<String> errorList = new List<String>();
-
-		ResponseVariables responseVariables = new ResponseVariables();
-		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
-		List<String> errorList = new List<String>();
-
-		ResponseVariables responseVariables = new ResponseVariables();
-		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
-		List<String> errorList = new List<String>();
-
-		ResponseVariables responseVariables = new ResponseVariables();
-		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
-		List<String> errorList = new List<String>();
-
-		ResponseVariables responseVariables = new ResponseVariables();
-		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
-		List<String> errorList = new List<String>();
-
-		ResponseVariables responseVariables = new ResponseVariables();
-		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
-		List<String> errorList = new List<String>();
-
-		ResponseVariables responseVariables = new ResponseVariables();
-		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
-		List<String> errorList = new List<String>();
-
-		ResponseVariables responseVariables = new ResponseVariables();
-		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
 
 		ResponseVariables responseVariables = new ResponseVariables();
 		List<ResponseVariables> responseVariablesList = new List<ResponseVariables>();
@@ -129,21 +99,14 @@ global without sharing class Flow_CreateRefundRecord {
 		Set<Id> orderIds = new Set<Id>();
 		for (Order order: orders) {
 			orderIds.add(order.Id);
-				}
-				refundAmountString = refundAmounts[x];
-                populatePaymentOrderMap(myOrder, orderRefundMap, refundAmountString, paymentOrderMap);
-                populateRefundOrderMap(paymentRefundMap, myOrder, refundAmountString);
-			}
-
-			List<Payment2__c> payments = PaymentsSelector2.newInstance().selectById(paymentOrderMap.keySet());
-			Map<Id, Payment2__c> paymentIdMap =new Map<Id, Payment2__c>(payments);
+		}
 
 		return new Map<Id, Order>(OrdersSelector.newInstance().selectWithOrderItemDetails(orderIds, true));
 	}
 
 	private static Payment2__c createRefundRecord(Payment2__c payment, Order order) {
-				//Create the refund record
-				Payment2__c refund = createPayment2(accountType, contractId, paymentRefundMap, refundReasons, refundExplanations, orderListWithDetails, payment);
+		//Create the refund record
+		Payment2__c refund = new Payment2__c();
 
 		String recordTypeName = 'NIST_Issued_Refund';
 		refund.Payment_Type__c = 'NIST-Handled Refund';
@@ -193,31 +156,30 @@ global without sharing class Flow_CreateRefundRecord {
 	}
 
 	private static void saveRefundRecord(Payment2__c refund, Payment2__c payment) {
-				try {
-					fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
-					uow.registerNew(refund);
+		try {
+			fflib_SObjectUnitOfWork uow = new fflib_SObjectUnitOfWork(new List<SObjectType> {Payment2__c.SObjectType, Order.SObjectType});
+			uow.registerNew(refund);
 
-					List<Order> ordersByPayment = paymentOrderMap.get(payment.Id);
-					for (Integer x = 0; x < ordersByPayment.size(); x++) {
-						Order eachOrder = ordersByPayment.get(x);
-						eachOrder.Payment2__c = payment.Id;
-						eachOrder.Refunded_Amount__c += orderRefundMap.get(eachOrder.Id);
-						uow.registerDirty(eachOrder, Order.Payment2__c, payment);
-					}
-					uow.commitWork();
-				} catch (Exception e) {
-					String errorMessage = 'Unable to insert refund or update order records.' + e.getMessage();
-					throw new CreateRefundRecordActionException(errorMessage);
+			List<Order> ordersByPayment = paymentOrderMap.get(payment.Id);
+			for (Integer x = 0; x < ordersByPayment.size(); x++) {
+				Order eachOrder = ordersByPayment.get(x);
+				eachOrder.Payment2__c = payment.Id;
+				eachOrder.Refunded_Amount__c += orderRefundMap.get(eachOrder.Id);
+				uow.registerDirty(eachOrder, Order.Payment2__c, payment);
+			}
+			uow.commitWork();
+		} catch (Exception e) {
+			String errorMessage = 'Unable to insert refund or update order records.' + e.getMessage();
+			throw new CreateRefundRecordActionException(errorMessage);
 		}
-				}
-			}//End loop
+	}
 
 	private static List<ResponseVariables> errorMessageResponse(String errorMessage, ResponseVariables responseVariables, List<ResponseVariables> responseVariablesList) {
 		responseVariables.hasError = true;
 		responseVariables.errorReasons = errorMessage;
-			responseVariablesList.add(responseVariables);
-			return responseVariablesList;
-    }
+		responseVariablesList.add(responseVariables);
+		return responseVariablesList;
+	}
 
 	//Inputs from Flow to Apex
 	global class RequestVariables {
