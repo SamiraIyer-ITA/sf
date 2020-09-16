@@ -5,6 +5,6 @@
  */
 public interface IAccounts {
     
-    void updateCCDLookupId(List<Account> accounts);
+    void updateCD(List<Account> accounts);
 
 }

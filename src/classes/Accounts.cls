@@ -16,19 +16,18 @@ public class Accounts extends fflib_SObjectDomain implements IAccounts {
 	public Accounts(List<Account> sObjectList) {
 		super(sObjectList);
 	}
-    
+
     public override void onBeforeInsert() {
-		system.debug('MGK Inside onbefore insert');
-        updateCCDLookupId((List<Account>) Records);
+		updateCD((List<Account>) Records);
     }
     
     public override void onBeforeUpdate(Map<Id, SObject> existingRecords) {
-        updateCCDLookupId((List<Account>) Records);
+		updateCD((List<Account>) Records);
     }
     
-    public void updateCCDLookupId(List<Account> accounts) {
+    public void updateCD(List<Account> accounts) {
         try {
-			AccountService.updateCCDLookupId(accounts);
+			AccountService.updateCD(accounts);
 		} catch (AssetsService.AssetsServiceException e){
 			accounts.get(0).addError(e.getMessage());
 		}

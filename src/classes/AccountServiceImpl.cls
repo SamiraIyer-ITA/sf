@@ -4,6 +4,26 @@ public class AccountServiceImpl implements IAccountService {
 
 	public static IAccountSelector acctSelector = AccountSelector.newInstance();
 
+	private static Set<String> zip4;
+
+	private static Set<String> zip5;
+
+	private static Set<Id> recordTypeIds;
+
+	private static Map<String, Id> recordTypeMap;
+
+	private static Pattern patternZipCode5Plus4;
+
+	private static Pattern patternZipCode5;
+
+	private static List<Account> AccountsZip5Plus4;
+
+	private static List<Account> AccountsZip5;
+
+	private static List<Master_CongressionalDistrict__c> min4Max4AndZipPlus4MCCD;
+
+	private static List<Master_CongressionalDistrict__c> selectByzip_Plus4;
+
 	public static List<Account> updateAccountAddresses(List<Participation__c> participationList) {
 		if(participationList == null || participationList.isEmpty()){
 			return new List<Account>();
@@ -56,43 +76,43 @@ public class AccountServiceImpl implements IAccountService {
 		return accountList;
 	}
 
-	private static Set<String> zip4;
-
-	private static Set<String> zip5;
-
-	private static Set<Id> recordTypeIds;
-
-	private static Map<String, Id> recordTypeMap;
-
-	private static Pattern zipCode5Plus4;
-
-	private static Pattern zipCode5;
-
-	private static List<Master_CongressionalDistrict__c> min4Max4AndZipPlus4MCCD;
-
-	private static List<Master_CongressionalDistrict__c> selectByzip_Plus4;
 
 	@TestVisible
 	private static Boolean isAddressFieldUpdatable(String participationString, String accountString) {
 		return (String.isNotBlank(participationString) && String.isBlank(accountString));
 	}
 
-	public static void updateCCDLookupId(List<Account> accounts) {
+	public static void updateCD(List<Account> accounts) {
 
-		if (!System.isBatch()) {
+		updateCD_initVars(accounts);
 
-			updateCCDLookupId_initVars();
-
-			updateCCDLookupId_populateZipSets(accounts);
-
-			updateCCDLookupId_populateMCCDLists();
-
-			updateCCDLookupId_setCongressionalDistrict(accounts);
-
+		if(AccountsZip5Plus4.size() > 0) {
+			updateCDHandler(AccountsZip5Plus4);
 		}
+
+		// Clear all of the zip5+4 Accounts and run the process again
+		AccountsZip5Plus4.clear();
+		if(AccountsZip5.size() > 0 ) {
+			updateCDHandler(AccountsZip5);
+		}
+
 	}
 
-	private static void updateCCDLookupId_initVars(){
+	public static void updateCDHandler(List<Account> accounts) {
+
+			updateCD_populateZipSets(accounts);
+
+			updateCD_populateCDLists();
+
+			updateCD_setCongressionalDistrict(accounts);
+
+	}
+
+	private static void updateCD_initVars(List<Account> accounts){
+
+		AccountsZip5Plus4 = new List<account>();
+		AccountsZip5 		= new List<account>();
+
 		zip4 = new Set<String>();
 		zip5 = new Set<String>();
 		// SM-136: Update account triggers by record types
@@ -104,20 +124,32 @@ public class AccountServiceImpl implements IAccountService {
 				recordTypeMap.get('Partner_Account')
 		};
 
-		zipCode5Plus4 = Pattern.compile('[0-9]{5}-[0-9]{4}');
-		zipCode5 = Pattern.compile('[0-9]{5}');
+		patternZipCode5Plus4 = Pattern.compile('[0-9]{5}-[0-9]{4}');
+		patternZipCode5 = Pattern.compile('[0-9]{5}');
+
+		for (Account acct: accounts) {
+			if (Acct.BillingPostalCode != null
+					&& acct.BillingCountry == 'United States'
+					&& recordTypeIds.contains(acct.RecordTypeId)) {
+				if (patternZipCode5Plus4.matcher(acct.BillingPostalCode).matches()) {
+					accountszip5Plus4.add(acct);
+				} else if (patternZipCode5.matcher(acct.BillingPostalCode).matches()) {
+					accountszip5.add(acct);
+				}
+			}
+		}
 	}
 
-	private static void updateCCDLookupId_populateZipSets(List<Account> accounts){
+	private static void updateCD_populateZipSets(List<Account> accounts){
 		for (Account acct: accounts) {
 			Boolean meetsCriteriaZip5Plus4 = false;
 			Boolean meetsCriteriaZip5 = false;
-			if(Acct.BillingPostalCode != null
+			if (Acct.BillingPostalCode != null
 					&& acct.BillingCountry == 'United States'
-					&& recordTypeIds.contains(acct.RecordTypeId)){
-				if(zipCode5Plus4.matcher(acct.BillingPostalCode).matches()){
+					&& recordTypeIds.contains(acct.RecordTypeId)) {
+				if (patternZipCode5Plus4.matcher(acct.BillingPostalCode).matches()) {
 					meetsCriteriaZip5Plus4 = true;
-				} else if(zipCode5.matcher(acct.BillingPostalCode).matches()){
+				} else if (patternZipCode5.matcher(acct.BillingPostalCode).matches()) {
 					meetsCriteriaZip5 = true;
 				}
 			}
@@ -135,12 +167,15 @@ public class AccountServiceImpl implements IAccountService {
 
 	}
 
-	private static void updateCCDLookupId_populateMCCDLists(){
-		min4Max4AndZipPlus4MCCD = MasterCongressionalDistrictsSelector.newInstance().selectByMin4Max4AndZipPlus4(zip4, zip5);
-		selectByzip_Plus4 = MasterCongressionalDistrictsSelector.newInstance().selectByzip_Plus4(zip5);
+	private static void updateCD_populateCDLists() {
+		if (!zip4.isEmpty() && !zip5.isEmpty()) {
+			min4Max4AndZipPlus4MCCD = MasterCongressionalDistrictsSelector.newInstance().selectByMin4Max4AndZipPlus4(zip4, zip5);
+		} else if (!zip5.isEmpty()) {
+			selectByzip_Plus4 = MasterCongressionalDistrictsSelector.newInstance().selectByzip_Plus4(zip5);
+		}
 	}
 
-	private static void updateCCDLookupId_setCongressionalDistrict(List<Account> accounts){
+	private static void updateCD_setCongressionalDistrict(List<Account> accounts){
 		if (!zip4.isEmpty() && !zip5.isEmpty()) {
 			// Accounts that have both Zip5 and Plus4
 			for (Master_CongressionalDistrict__c mccd: min4Max4AndZipPlus4MCCD) {
@@ -151,7 +186,7 @@ public class AccountServiceImpl implements IAccountService {
 					if (mccd.Min9Zip__c <= acct.BillingPostalCode.replace('-','')
 							//zipcodespecchar needs to differentiate between Zip5-zip4 and Zip5
 							&& mccd.Max9Zip__c >= acct.BillingPostalCode.replace('-','')
-							&& zipCode5Plus4.matcher(acct.BillingPostalCode).matches()) {
+							&& patternZipCode5Plus4.matcher(acct.BillingPostalCode).matches()) {
 						acct.Congressional_District__c = mccd.Congressional_Dist__c;
 						acct.County_Name__c = mccd.County_Name__c;
 						acct.State_Code__c = mccd.State_Code__c;

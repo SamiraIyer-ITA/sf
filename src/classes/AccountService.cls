@@ -8,8 +8,8 @@ public class AccountService {
 		return service().updateAccountAddresses(participationList);
 	}
     
-    public static void updateCCDLookupId(List<Account> accounts) {
-		service().updateCCDLookupId(accounts);
+    public static void updateCD(List<Account> accounts) {
+		service().updateCD(accounts);
 	}
 
 	public class AccountServiceException extends Exception {}
