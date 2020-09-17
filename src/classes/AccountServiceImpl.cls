@@ -63,9 +63,8 @@ public class AccountServiceImpl implements IAccountService {
 	}
 
 	public static void updateCD(List<Account> accounts) {
-		system.debug('MGK: Running trigger');
+
 		if(!System.isBatch()){
-			system.debug('MGK: Not Batch!');
 
 			// The call to UpdateCDHandler returns a list because UpdateCDHandler is used by a batch process which
 			// requires a returned list. In the Trigger context, the list isnt used.

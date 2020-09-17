@@ -32,7 +32,7 @@ public class UpdateCDHandler {
 	private static List<Master_CongressionalDistrict__c> selectByzip_Plus4;
 
 	public static List<Account> updateCDHandlerMain(List<Account> accounts) {
-		system.debug('MGK: in updateCDHandlerMain');
+
 		updatedAccounts = new List<Account>();
 		updateCD_initVars(accounts);
 		updateCD(AccountsZip5Plus4);
@@ -48,7 +48,6 @@ public class UpdateCDHandler {
 	}
 
 	public static void updateCD(List<Account> updateCDAccounts) {
-		system.debug('MGK: in updateCD');
 
 		updateCD_populateZipSets(updateCDAccounts);
 
@@ -59,7 +58,7 @@ public class UpdateCDHandler {
 	}
 
 	private static void updateCD_initVars(List<Account> accounts){
-		system.debug('MGK: in updateCD_initVars');
+
 		AccountsZip5Plus4 = new List<account>();
 		AccountsZip5 		= new List<account>();
 
@@ -91,7 +90,7 @@ public class UpdateCDHandler {
 	}
 
 	private static void updateCD_populateZipSets(List<Account> accounts){
-		system.debug('MGK: in updateCD_populateZipSets');
+
 		for (Account acct: accounts) {
 			Boolean meetsCriteriaZip5Plus4 = false;
 			Boolean meetsCriteriaZip5 = false;
@@ -119,7 +118,7 @@ public class UpdateCDHandler {
 	}
 
 	private static void updateCD_populateCDLists() {
-		system.debug('MGK: in updateCD_populateCDLists');
+
 		if (!zip4.isEmpty() && !zip5.isEmpty()) {
 			min4Max4AndZipPlus4MCCD = MasterCongressionalDistrictsSelector.newInstance().selectByMin4Max4AndZipPlus4(zip4, zip5);
 		} else if (!zip5.isEmpty()) {
