@@ -1,1 +1,5 @@
 src/namedCredentials/Pay_gov_QA.namedCredential
+src/lwc/payment/payment.css
+src/lwc/payment/payment.html
+src/lwc/payment/payment.js
+src/lwc/payment/payment.js-meta.xml
