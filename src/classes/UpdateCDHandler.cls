@@ -4,6 +4,10 @@
  */
 
 public class UpdateCDHandler {
+	/*
+		Mthods in this class are called from two different places: Account trigger and
+		AccountCDBatchProcess. Both call updateCDHandlerMain.
+	*/
 
 	private static Set<Id> recordTypeIds;
 
@@ -32,20 +36,18 @@ public class UpdateCDHandler {
 	private static List<Master_CongressionalDistrict__c> selectByzip_Plus4MCCD;
 
 	public static List<Account> updateCDHandlerMain(List<Account> accounts) {
-		system.debug(' MGK: Inside updateCDHandlerMain');
-		system.debug(' MGK: accounts.size() ==> ' + accounts.size());
+
 		updatedAccounts = new List<Account>();
 		updateCD_initVars(accounts);
 
 		updateCD(AccountsZip5Plus4);
-		system.debug(' MGK: AccountsZip5Plus4.size() ==> ' + AccountsZip5Plus4.size());
+
 		updatedAccounts.addAll(AccountsZip5Plus4);
 		AccountsZip5Plus4.clear();
 		Zip4.clear();
-		//meetsCriteriaZip5Plus4 = false;
 
 		updateCD(AccountsZip5);
-		system.debug(' MGK: AccountsZip5.size() ==> ' + AccountsZip5.size());
+
 		updatedAccounts.addAll(AccountsZip5);
 		return updatedAccounts;
 
@@ -79,7 +81,8 @@ public class UpdateCDHandler {
 
 		patternZipCode5Plus4 = Pattern.compile('[0-9]{5}-[0-9]{4}');
 		patternZipCode5 = Pattern.compile('[0-9]{5}');
-
+		// The following loop cretes two different lasts - one that contains all
+		//  accounts with a valid zip5plus4 and one with valid zip5.
 		for (Account acct: accounts) {
 			if (Acct.BillingPostalCode != null
 					&& acct.BillingCountry == 'United States'
@@ -94,7 +97,7 @@ public class UpdateCDHandler {
 	}
 
 	private static void updateCD_populateZipSets(List<Account> accounts){
-
+		// Sets created in this method are used in the MasterCongressionalDistricts Selector
 		for (Account acct: accounts) {
 			Boolean meetsCriteriaZip5Plus4 = false;
 			Boolean meetsCriteriaZip5 = false;
@@ -122,7 +125,7 @@ public class UpdateCDHandler {
 	}
 
 	private static void updateCD_populateCDLists() {
-
+		// Lists are used to assign Congressional Districts in updateCD_setCongressionalDistrict
 		if (!zip4.isEmpty() && !zip5.isEmpty()) {
 			min4Max4AndZipPlus4MCCD = MasterCongressionalDistrictsSelector.newInstance().selectByMin4Max4AndZipPlus4(zip4, zip5);
 		} else if (!zip5.isEmpty()) {
@@ -132,7 +135,7 @@ public class UpdateCDHandler {
 
 	private static void updateCD_setCongressionalDistrict(List<Account> accounts){
 		if (!zip4.isEmpty() && !zip5.isEmpty()) {
-			// Accounts that have both Zip5 and Plus4
+
 			for (Master_CongressionalDistrict__c mccd: min4Max4AndZipPlus4MCCD) {
 				for (Account acct : accountszip5Plus4) {
 					//This condition is used to set the existing value to Null
@@ -149,14 +152,12 @@ public class UpdateCDHandler {
 				}
 			}
 		} else if(!zip5.isEmpty()) {
-			// Assigns Congressional District to Orgs that do not have +4 zip codes
+			// Assigns Congressional District to Orgs with valid zip5 zip codes
 			List<Master_CongressionalDistrict__c> mccd = MasterCongressionalDistrictsSelector.newInstance().selectByzip_Plus4(zip5);
 			Map<String, Master_CongressionalDistrict__c> mccdMap = new Map<String, Master_CongressionalDistrict__c>();
 			for (Master_CongressionalDistrict__c m : mccd) {
 				mccdMap.put(m.zip_Plus4__c, m);
-				system.debug('Map: m.zip_Plus4__c' + m.zip_Plus4__c + ' m ==> ' + m);
 			}
-			system.debug('MGK: mccdMap.size() ==> ' + mccdMap.size());
 
 			for (Account acct : accountszip5) {
 				String acctZip5 = acct.BillingPostalCode.substring(0, 5);
@@ -168,7 +169,6 @@ public class UpdateCDHandler {
 				}
 			}
 		}
-
 	}
 }
 
