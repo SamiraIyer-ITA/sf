@@ -29,19 +29,23 @@ public class UpdateCDHandler {
 
 	private static List<Master_CongressionalDistrict__c> min4Max4AndZipPlus4MCCD;
 
-	private static List<Master_CongressionalDistrict__c> selectByzip_Plus4;
+	private static List<Master_CongressionalDistrict__c> selectByzip_Plus4MCCD;
 
 	public static List<Account> updateCDHandlerMain(List<Account> accounts) {
-
+		system.debug(' MGK: Inside updateCDHandlerMain');
+		system.debug(' MGK: accounts.size() ==> ' + accounts.size());
 		updatedAccounts = new List<Account>();
 		updateCD_initVars(accounts);
-		updateCD(AccountsZip5Plus4);
 
-		AccountsZip5Plus4.clear();
-		meetsCriteriaZip5Plus4 = false;
+		updateCD(AccountsZip5Plus4);
+		system.debug(' MGK: AccountsZip5Plus4.size() ==> ' + AccountsZip5Plus4.size());
 		updatedAccounts.addAll(AccountsZip5Plus4);
+		AccountsZip5Plus4.clear();
+		Zip4.clear();
+		//meetsCriteriaZip5Plus4 = false;
 
 		updateCD(AccountsZip5);
+		system.debug(' MGK: AccountsZip5.size() ==> ' + AccountsZip5.size());
 		updatedAccounts.addAll(AccountsZip5);
 		return updatedAccounts;
 
@@ -122,18 +126,17 @@ public class UpdateCDHandler {
 		if (!zip4.isEmpty() && !zip5.isEmpty()) {
 			min4Max4AndZipPlus4MCCD = MasterCongressionalDistrictsSelector.newInstance().selectByMin4Max4AndZipPlus4(zip4, zip5);
 		} else if (!zip5.isEmpty()) {
-			selectByzip_Plus4 = MasterCongressionalDistrictsSelector.newInstance().selectByzip_Plus4(zip5);
+			selectByzip_Plus4MCCD = MasterCongressionalDistrictsSelector.newInstance().selectByzip_Plus4(zip5);
 		}
 	}
 
 	private static void updateCD_setCongressionalDistrict(List<Account> accounts){
-		system.debug('MGK: in updateCD_setCongressionalDistrict');
 		if (!zip4.isEmpty() && !zip5.isEmpty()) {
 			// Accounts that have both Zip5 and Plus4
 			for (Master_CongressionalDistrict__c mccd: min4Max4AndZipPlus4MCCD) {
-				for (Account acct : accounts) {
+				for (Account acct : accountszip5Plus4) {
 					//This condition is used to set the existing value to Null
-					//if the cDistricts value is not populated and there is an existing value in
+					//if the CDistricts value is not populated and there is an existing value in
 					//for Master congressional district.
 					if (mccd.Min9Zip__c <= acct.BillingPostalCode.replace('-','')
 							//zipcodespecchar needs to differentiate between Zip5-zip4 and Zip5
@@ -151,15 +154,21 @@ public class UpdateCDHandler {
 			Map<String, Master_CongressionalDistrict__c> mccdMap = new Map<String, Master_CongressionalDistrict__c>();
 			for (Master_CongressionalDistrict__c m : mccd) {
 				mccdMap.put(m.zip_Plus4__c, m);
+				system.debug('Map: m.zip_Plus4__c' + m.zip_Plus4__c + ' m ==> ' + m);
 			}
-			for (Account acct : accounts) {
+			system.debug('MGK: mccdMap.size() ==> ' + mccdMap.size());
+
+			for (Account acct : accountszip5) {
 				String acctZip5 = acct.BillingPostalCode.substring(0, 5);
 				Master_CongressionalDistrict__c m = mccdMap.get(acctZip5);
-				acct.Congressional_District__c = m.Congressional_Dist__c;
-				acct.County_Name__c = m.County_Name__c;
-				acct.State_Code__c = m.State_Code__c;
+				if(m != null){
+					acct.Congressional_District__c = m.Congressional_Dist__c;
+					acct.County_Name__c = m.County_Name__c;
+					acct.State_Code__c = m.State_Code__c;
+				}
 			}
 		}
 
 	}
 }
+
