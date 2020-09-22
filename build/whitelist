@@ -1,9 +1,1 @@
-src/classes/AddTollingDayBatch.cls
-src/classes/AddTollingDayBatchTest.cls
-src/classes/CallAddTollingDayBatch.cls
-src/classes/CallAddTollingDayBatchTest.cls
-src/classes/ChatterPostWriter.cls
-src/flows/Update_Tolling.flow
-src/layouts/Tolling_Day__c-Toll By Specific Record.layout
-src/layouts/Tolling_Day__c-Tolling Day Layout.layout
-src/quickActions/Tolling_Day__c.Update_Tolling.quickAction
+src/classes/InvestigationTriggerHandler.cls
