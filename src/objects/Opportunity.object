@@ -507,6 +507,20 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Globalized_your_website__c</fullName>
+        <description>Field data to be copied over from Lead upon conversion. Necessary for early stage nurturing.</description>
+        <externalId>false</externalId>                                                                                                                                                           <label>Globalized your website?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>                                                                                                                                                       <trackTrending>false</trackTrending>                                                                                                                                                     <type>Picklist</type>                                                                                                                                                                    <valueSet>                                                                                                                                                                                   <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>                                                                                                                                                   </valueSet>                                                                                                                                                                          </fields>                                                                                                                                                                                <fields>                                                                                                                                                                                     <fullName>International_marketing_plan__c</fullName>
+        <description>Field data to be copied over from Lead upon conversion. Necessary for early stage nurturing.</description>
+        <externalId>false</externalId>                                                                                                                                                           <label>International marketing plan?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>                                                                                                                                                       <trackTrending>false</trackTrending>                                                                                                                                                     <type>Picklist</type>                                                                                                                                                                    <valueSet>                                                                                                                                                                                   <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>                                                                                                                                                   </valueSet>                                                                                                                                                                          </fields>
+    <fields>
         <fullName>IqScore</fullName>
         <trackTrending>false</trackTrending>
     </fields>
