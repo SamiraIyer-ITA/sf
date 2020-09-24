@@ -351,29 +351,60 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>IqScore</fullName>
+        <fullName>Eligibility_Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Eligibility Verified</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>IsExcludedFromTerritory2Filter</fullName>
+        <fullName>Eligible_for_Export_Promotion__c</fullName>
+        <externalId>false</externalId>
+        <label>Eligible for Export Promotion</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>IsPrivate</fullName>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>LeadSource</fullName>
+        <fullName>Expedited_Delivery__c</fullName>
+        <externalId>false</externalId>
+        <label>Expedited Delivery</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Name</fullName>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>NextStep</fullName>
+        <fullName>Export_Readiness_Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Export Readiness Verified</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
@@ -502,6 +533,47 @@
     </fields>
     <fields>
         <fullName>Type</fullName>
+    <fields>
+        <fullName>Used_ITA_s_fee_based_services_before__c</fullName>
+        <externalId>false</externalId>
+        <label>Used ITA&apos;s fee-based services before?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Which_services_have_you_used_before__c</fullName>
+        <externalId>false</externalId>
+        <label>Which services have you used before?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Single Company Promotion</fullName>
+                    <default>false</default>
+                    <label>Single Company Promotion</label>
+                </value>
+                <value>
+                    <fullName>Location Promotion</fullName>
+                    <default>false</default>
+                    <label>Location Promotion</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
