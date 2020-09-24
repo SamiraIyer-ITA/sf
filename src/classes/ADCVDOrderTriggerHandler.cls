@@ -1,9 +1,9 @@
 /**
- * 
+ *
  *    Created by Joshua Moody
  *    on Apr 17 2017
  *    MIL Corporation
- * 
+ *
  **/
  public without sharing class ADCVDOrderTriggerHandler {
      /***********************************************************
@@ -29,10 +29,10 @@
 
 
     public static boolean preventRecursion = false;
-    public static void mainEntry(List<ADCVD_Order__c> newList, List<ADCVD_Order__c> oldList, Map<Id, ADCVD_Order__c> newMap, 
-        Map<Id, ADCVD_Order__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
+    public static void mainEntry(List<ADCVD_Order__c> newList, List<ADCVD_Order__c> oldList, Map<Id, ADCVD_Order__c> newMap,
+        Map<Id, ADCVD_Order__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete,
         Boolean isBefore, Boolean isAfter) {
-        
+
         if (!AppConfigService.triggerEnabled) {
             return;
         }
@@ -96,12 +96,6 @@
             addNewOrderToMappers(newMap);
             frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
             frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
-            
-            if(!system.isFuture() && !system.isBatch() && !system.isQueueable() && Limits.getLimitFutureCalls() > Limits.getFutureCalls()){
-                
-                setOrderIdToSegmentMap(newMap.keySet());
-            }
-            
             setOrderIdToSegmentStatusMap(newMap.keySet());
         }
     }
@@ -179,8 +173,8 @@
             for (Constant__mdt sc : [
                     SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, String_Value__c,
                                                     ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c,
-                                                    Segment_Calculation_Offset__c 
-                                            FROM Constant__mdt 
+                                                    Segment_Calculation_Offset__c
+                                            FROM Constant__mdt
                     WHERE ADCVD_Order_Calculation_Offset__c = :true
             ]) {
                 if (sc.Used_with_Field_Named__c == 'Status__c' && sc.Segment_Calculation_Offset__c && sc.String_Value__c != null) {
@@ -277,7 +271,7 @@
         }
     }
 
-    @TestVisible private static void setStatus(List<ADCVD_Order__c> newList){        
+    @TestVisible private static void setStatus(List<ADCVD_Order__c> newList){
         for (ADCVD_Order__c o : newList){
             if (o.Status__c != 'Revoked-Complete') {//skip if already Revoked-Complete
                 o.Status__c = 'Order FR Needed';//set for before insert context
