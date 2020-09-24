@@ -27,18 +27,18 @@ public without sharing class StaffingAssignmentTriggerHandler {
             initialize(newList, newMap);
             setCaseValues(newList);
             setDefaultProgramManager(newList);
-            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList));
+            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList),newList,false);
         }
         if (isBefore && isUpdate) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             setDefaultProgramManager(newList);
-            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList));
+            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList),newList,false);
         }
         if (isBefore && isDelete) {
             newList = new LockedRecordHandler().removeLockedRecords(oldList);
             initialize(oldList, oldMap);
-            validateOneProgramManager(buildStaffListByParentForDelete(oldList));
+            validateOneProgramManager(buildStaffListByParentForDelete(oldList),oldList,true);
         }
         if (isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
@@ -186,26 +186,99 @@ public without sharing class StaffingAssignmentTriggerHandler {
     }
     //Validates there is only one Staffing Assignment with Title__c == to "Program Manager" per parent
     //Iterates through staffing assignments by parent ensuring there is one and only one Program Manager per parent
-    @TestVisible private static void validateOneProgramManager (Map <Id, List<Staffing_Assignment__c>> staffListByParentMap) {
-        if (!Master_Automation__c.getInstance().ValidationRulesEnabled__c) {return;}//same allowance as declarative VRs
-        //iterate over each staff record for each parent
-        for (Id parentId : staffListByParentMap.keySet()) {
-            Staffing_Assignment__c programManager = null;
-            for (Staffing_Assignment__c sa : staffListByParentMap.get(parentId)) {
-                if (sa.Title__c != 'Program Manager') {continue;}
-                //if we already have a PM and it is not an update
-                if (programManager != null && programManager.Id != sa.Id) {
-                   // sa.User__c.addError('There must be only one Program Manager per parent record. Please remove additional Program Managers.');
-                    break;
-                } else {
-                    programManager = sa;
+    @TestVisible private static void validateOneProgramManager (Map <Id, List<Staffing_Assignment__c>> staffListByParentMap,List<Staffing_Assignment__c> newList,Boolean isDelete) {
+        
+        List<Staffing_Assignment__c> staffingAssignments = [SELECT Id,Title__c,User__c,Petition__c,Investigation__c,Segment__c,ADCVD_Order__c,Related_Organization__c 
+                                                            FROM Staffing_Assignment__c WHERE Petition__c IN: staffListByParentMap.keySet() 
+                                                            OR Investigation__c IN: staffListByParentMap.keySet()
+                                                            OR Segment__c IN: staffListByParentMap.keySet()
+                                                            OR ADCVD_Order__c IN: staffListByParentMap.keySet()
+                                                            OR Related_Organization__c IN: staffListByParentMap.keySet()
+                                                             ];
+        
+        Map<Id,Integer> programMangerByParent = new Map<Id,Integer>();
+        set<String> staffIdProgramManager = new set<String>();
+        
+        for(Staffing_Assignment__c sa : staffingAssignments){
+            
+            if(sa.Title__c=='Program Manager'){
+                
+                String parentId;
+                                
+                if(sa.Petition__c != null) {
+                    parentId = sa.Petition__c;
+                } else if(sa.Investigation__c != null) {
+                    parentId = sa.Investigation__c;
+                } else if(sa.Segment__c != null) {
+                    parentId = sa.Segment__c;
+                } else if(sa.ADCVD_Order__c != null) {
+                    parentId = sa.ADCVD_Order__c;
+                } else if(sa.Related_Organization__c != null) {
+                    parentId = sa.Related_Organization__c;
                 }
+                
+                staffIdProgramManager.add(sa.Id);
+                
+                if(programMangerByParent.containsKey(parentId)){
+                   
+                   Integer i = programMangerByParent.get(parentId);
+                   i=i+1;
+                   programMangerByParent.put(parentId,i);
+                    
+                } else {
+                   programMangerByParent.put(parentId,1); 
+                }
+                
+                
+                
             }
-            if (programManager == null) {
-                System.debug('staffListByParentMap: ' + staffListByParentMap);
-                //throw new DmlException('There is no Program Manager for this parent record. Please add one to continue.');
+            
+        } 
+                   
+        for(Staffing_Assignment__c sa : newList){
+            
+            if(sa.Id != null){
+                
+                String parentId;
+                                    
+                if(sa.Petition__c != null) {
+                    parentId = sa.Petition__c;
+                } else if(sa.Investigation__c != null) {
+                    parentId = sa.Investigation__c;
+                } else if(sa.Segment__c != null) {
+                    parentId = sa.Segment__c;
+                } else if(sa.ADCVD_Order__c != null) {
+                    parentId = sa.ADCVD_Order__c;
+                } else if(sa.Related_Organization__c != null) {
+                    parentId = sa.Related_Organization__c;
+                }
+                
+                if(programMangerByParent.containsKey(parentId)){
+                       
+                   Integer i = programMangerByParent.get(parentId);
+                   
+                   if(i==1 && staffIdProgramManager.contains(sa.Id) && sa.Title__c != 'Program Manager'){
+                      
+                       sa.addError('At least one Program Manager needs to be assigned to a record.');
+                   
+                   } else if(isDelete && i==1 && staffIdProgramManager.contains(sa.Id) && sa.Title__c == 'Program Manager'){
+                       sa.addError('At least one Program Manager needs to be assigned to a record.');
+                       
+                   }
+                   
+                } else {
+                    
+                    sa.addError('At least one Program Manager needs to be assigned to a record.');
+                    
+                }    
             }
+                        
         }
+        
+        
+        
+        
+        
     }
     //method to add the Staff from the recent insert/update to the staffMapper, the caseMapper,
     //and update the StaffingAssignmentMapper instance in the map of selectors with the new Staff
