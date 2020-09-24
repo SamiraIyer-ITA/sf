@@ -462,6 +462,21 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Export_Ready__c</fullName>
+        <description>Field data to be mapped from Lead upon conversion. Necessary for early stage nurturing.</description>
+        <externalId>false</externalId>
+        <label>Export Ready</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Fulfillment_Post__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Looks up to Collection_Fulfillment__c</description>
