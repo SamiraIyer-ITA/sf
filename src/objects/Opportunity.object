@@ -477,6 +477,21 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Exported_in_the_past_12_months__c</fullName>
+        <description>Field data to be copied over from Lead upon conversion. Necessary for early stage nurturing.</description>
+        <externalId>false</externalId>
+        <label>Exported in the past 12 months?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Fulfillment_Post__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Looks up to Collection_Fulfillment__c</description>
