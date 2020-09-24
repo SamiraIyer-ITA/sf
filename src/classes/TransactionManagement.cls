@@ -67,15 +67,10 @@ public without sharing class TransactionManagement {
 		batchNumber = determineBatchNumber();
 	}
 
-<<<<<<< HEAD
-	private static void writeBodyHeader() {
-		body = 'UCL00~ITACOLL~' + dateToday + '~' + getNumberLeftChar(paymentMap.size(),6) + '~' + getDecimal17Char(totalAmt) + '~N\n';
-=======
 	private static void writeBodyHeader(String accountType) {
 	//Update 9/9/2020 By Daniel Haro creating a dynamic MCS code as opposed to previously fixed code
 	//		body = 'UCL00~ITACOLL~' + dateToday + '~' + getNumberLeftChar(paymentMap.size(),6) + '~' + getDecimal17Char(totalAmt) + '~N\n';
 		body = 'UCL00~' + MSCMap.get(accountType) + '~' + dateToday + '~' + getNumberLeftChar(paymentMap.size(),6) + '~' + getDecimal17Char(totalAmt) + '~N\n';
->>>>>>> SM-13052
 	}
 
 	private static void writePaymentBody(Payment2__c paymentRecord, Integer i) {
@@ -261,8 +256,4 @@ public without sharing class TransactionManagement {
 		return batchNumber;
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> SM-13052
