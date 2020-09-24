@@ -85,6 +85,7 @@ private class TransactionManagementTest {
 		String today = Date.today().format();
 		List<Payment2__c> payments = Payments2Service.getTransactions('Services', 'Credit Card', 'Payments', today, today, 'Transactions Not Yet Downloaded');
 		String[] paymentIds = new String[]{payments[0].Id};
+		System.debug('Payment Ids : ' + paymentIds );
 		payments[0].Account_Type__c = 'Events';
 		payments[0].Payment_Type__c = 'ACH';
 		update payments;

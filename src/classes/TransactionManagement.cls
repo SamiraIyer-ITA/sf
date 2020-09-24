@@ -7,6 +7,7 @@ public without sharing class TransactionManagement {
 	private static String dateToday;
 	private static String body;
 	private static CBSBatchCount__c currentActiveObj;
+	Private static Map<String,String> MSCMap;
 
 	/**
 	* Get the transaction (payment/refund) data that will be saved as a file and imported into CBS by NIST.
@@ -24,7 +25,7 @@ public without sharing class TransactionManagement {
 			initializeStaticVariables(paymentIds);
 
 			//Write the first line of the body
-			writeBodyHeader();
+			writeBodyHeader(paymentMap.values()[0].Account_Type__c);
 
 			Integer i = 1;
 			for (Payment2__c paymentRecord : paymentMap.values()) {
@@ -52,6 +53,12 @@ public without sharing class TransactionManagement {
 		paymentMap = new Map<Id,Payment2__c>();
 		totalAmt = populatePaymentMap(paymentIds);
 		dateToday = getDtFormat(Datetime.now());
+		MSCMap = new Map <String,String>();
+
+		//Set MSC values
+		MSCMap.put('Events', 'ITASFE');
+		MSCMap.put('Services', 'ITASFS');
+		MSCMap.put('Privacy Shield', 'ITACOLL');
 
 		List<CBSBatchCount__c> listCodes = CBSBatchCount__c.getAll().values();
 		currentActiveObj = listCodes[0];  //There should be only 1 metadata record
@@ -60,8 +67,15 @@ public without sharing class TransactionManagement {
 		batchNumber = determineBatchNumber();
 	}
 
+<<<<<<< HEAD
 	private static void writeBodyHeader() {
 		body = 'UCL00~ITACOLL~' + dateToday + '~' + getNumberLeftChar(paymentMap.size(),6) + '~' + getDecimal17Char(totalAmt) + '~N\n';
+=======
+	private static void writeBodyHeader(String accountType) {
+	//Update 9/9/2020 By Daniel Haro creating a dynamic MCS code as opposed to previously fixed code
+	//		body = 'UCL00~ITACOLL~' + dateToday + '~' + getNumberLeftChar(paymentMap.size(),6) + '~' + getDecimal17Char(totalAmt) + '~N\n';
+		body = 'UCL00~' + MSCMap.get(accountType) + '~' + dateToday + '~' + getNumberLeftChar(paymentMap.size(),6) + '~' + getDecimal17Char(totalAmt) + '~N\n';
+>>>>>>> SM-13052
 	}
 
 	private static void writePaymentBody(Payment2__c paymentRecord, Integer i) {
@@ -247,4 +261,8 @@ public without sharing class TransactionManagement {
 		return batchNumber;
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> SM-13052
