@@ -101,6 +101,12 @@ public without sharing class ADCVD_TollingDayUtility {
 		return deadline;
 	}
 
+	public static Date getCalculatedDateNoTolling(Date startDate, Date deadline, Id recordId) {
+		recordSpecificTollingDayList = recordId != null ? setRecordSpecificTollingDayList(recordId) : new List<Tolling_Day__c>();
+		deadline = rollForwardNextBusinessDayNoTolling(deadline);
+		return deadline;
+	}
+
 	/* Method used to determine the value of the deadline with tolling days taken into account
 	*  Input Params: 	startDate:  	should be passed in to determine how many of the days are in scope 
 	*					deadline: 	 	this is the current deadline (without tolling days in scope)
