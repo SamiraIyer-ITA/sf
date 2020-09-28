@@ -203,6 +203,18 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Queue_Routing_Past_Due__c</field>
+            </layoutItems>
+                        <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Queue_Routing_Due_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Queue_Routing_Past_Due_Formula__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Contact_Attempts__c</field>
             </layoutItems>
         </layoutColumns>
