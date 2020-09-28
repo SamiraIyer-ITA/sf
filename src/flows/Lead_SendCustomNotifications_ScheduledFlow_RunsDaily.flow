@@ -326,13 +326,6 @@
                 <stringValue>Export</stringValue>
             </value>
         </filters>
-        <filters>
-            <field>Status</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Unverified</stringValue>
-            </value>
-        </filters>
         <object>Lead</object>
         <schedule>
             <frequency>Daily</frequency>
