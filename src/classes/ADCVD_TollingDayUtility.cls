@@ -102,7 +102,6 @@ public without sharing class ADCVD_TollingDayUtility {
 	}
 
 	public static Date getCalculatedDateNoTolling(Date startDate, Date deadline, Id recordId) {
-		recordSpecificTollingDayList = recordId != null ? setRecordSpecificTollingDayList(recordId) : new List<Tolling_Day__c>();
 		deadline = rollForwardNextBusinessDayNoTolling(deadline);
 		return deadline;
 	}
