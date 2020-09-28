@@ -4,7 +4,7 @@
     <label>Payments: NIST User</label>
     <permissionSets>Account_Read_Access</permissionSets>
     <permissionSets>Action_Items_Tab_Available_Visible</permissionSets>
-    <permissionSets>Case_Create_Access_Transaction_Management_Support</permissionSets>
+    <permissionSets>Case_Create_Access</permissionSets>
     <permissionSets>Case_Edit_Access</permissionSets>
     <permissionSets>Case_Field_Level_Edit_Access_Transaction_Management</permissionSets>
     <permissionSets>Case_Field_Level_Read_Access_Transaction_Management</permissionSets>

@@ -2,8 +2,38 @@
 <PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Full access Payment related activities</description>
     <label>Payments: Full Access</label>
+    <permissionSets>Account_Read_Access</permissionSets>
+    <permissionSets>Accounts_View_All</permissionSets>
+    <permissionSets>Action_Items_Tab_Available_Visible</permissionSets>
+    <permissionSets>Case_Create_Access</permissionSets>
+    <permissionSets>Case_Edit_Access</permissionSets>
+    <permissionSets>Case_Field_Level_Edit_Access_Transaction_Management</permissionSets>
+    <permissionSets>Case_Field_Level_Read_Access_Transaction_Management</permissionSets>
+    <permissionSets>Case_Read_Access</permissionSets>
+    <permissionSets>Case_Transaction_Management_Support_Record_Type</permissionSets>
+    <permissionSets>Contract_Read_Access</permissionSets>
+    <permissionSets>Contract_Tab_Available_Visible</permissionSets>
+    <permissionSets>Contracts_Field_Level_Read_Access</permissionSets>
+    <permissionSets>Contracts_View_All</permissionSets>
+    <permissionSets>Flows_Run</permissionSets>
+    <permissionSets>Lightning_Interface_Access</permissionSets>
+    <permissionSets>Opportunity_Read_Access</permissionSets>
+    <permissionSets>Opportunity_Tab_Available_Visible</permissionSets>
+    <permissionSets>Order_Field_Level_Read_Access</permissionSets>
+    <permissionSets>Order_Product_Field_Level_Read_Access</permissionSets>
+    <permissionSets>Order_Read_Access</permissionSets>
+    <permissionSets>Order_Services_Record_Type</permissionSets>
+    <permissionSets>Order_Tab_Available_Visible</permissionSets>
+    <permissionSets>Order_View_All</permissionSets>
+    <permissionSets>Payments_Edit_Access</permissionSets>
+    <permissionSets>Payments_Field_Level_Edit_Access</permissionSets>
+    <permissionSets>Payments_Field_Level_Read_Access</permissionSets>
     <permissionSets>Payments_Issue_Refund</permissionSets>
+    <permissionSets>Payments_Read_Access</permissionSets>
     <permissionSets>Payments_Record_Payments</permissionSets>
     <permissionSets>Payments_Record_Refunds</permissionSets>
+    <permissionSets>Payments_Tab_Available_Visible</permissionSets>
+    <permissionSets>Payments_View_All</permissionSets>
+    <permissionSets>Run_Reports</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
