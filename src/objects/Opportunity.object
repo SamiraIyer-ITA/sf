@@ -142,10 +142,6 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
     <businessProcesses>
         <fullName>Data Customer Opportunity Process</fullName>
         <description>Opportunity Process for ITA Data to be accessed by an external Customer.</description>
@@ -159,11 +155,19 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Id%2E Decision Makers</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Needs Analysis</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Negotiation%2FReview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perception Analysis</fullName>
             <default>false</default>
         </values>
         <values>
