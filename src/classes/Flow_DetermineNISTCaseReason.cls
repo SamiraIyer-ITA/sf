@@ -12,7 +12,7 @@ global without sharing class Flow_DetermineNISTCaseReason {
 			String caseReason = null;  //Will be 'To NIST' or 'From NIST'
 			Id profileId = userinfo.getProfileId();
 			Profile myProfile = [SELECT Name FROM Profile WHERE Id = :profileId LIMIT 1];
-			if (myProfile.Name == 'NIST User') {
+			if (myProfile.Name == 'Transaction Management') {
 				caseReason = 'From NIST';
 			} else {
 				caseReason = 'To NIST';
