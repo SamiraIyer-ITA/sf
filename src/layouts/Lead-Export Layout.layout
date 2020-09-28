@@ -205,7 +205,7 @@
                 <behavior>Edit</behavior>
                 <field>Queue_Routing_Past_Due__c</field>
             </layoutItems>
-                        <layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Queue_Routing_Due_Date__c</field>
             </layoutItems>
