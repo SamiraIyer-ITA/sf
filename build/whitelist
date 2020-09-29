@@ -1,12 +1,8 @@
-src/classes/CP_Flow_Query_Groups.cls
-src/classes/CP_Flow_Query_Groups_Test.cls
-src/classes/CP_SaveContactRequestFlowAction.cls
-src/classes/CP_SaveContactRequestFlowActionTest.cls
-src/classes/MCP_LightningSelfRegisterController.cls
-src/classes/MCP_LightningSelfRegisterControllerTest.cls
-src/classes/MCP_NonSharingUtilityClass.cls
-src/flows/CP_Contact_Request_Standard_Flow.flow
-src/labels/CP_DuplicateEmailAddress.labels
-src/labels/CP_First_Name_Not_Populated.labels
-src/objects/CP_Queue_grouping__c.object
-src/queues/CP_Contact_US_1.queue
+src/layouts/Case-Advocacy Cases.layout
+src/layouts/Case-Case Layout.layout
+src/layouts/Case-Commercial Diplomacy Cases.layout
+src/layouts/Case-Export Promotion Cases.layout
+src/layouts/Case-Feedback.layout
+src/layouts/Case-Investment Promotion Cases.layout
+src/layouts/Case-Lead Generation.layout
+src/layouts/Case-PA Case Create layout.layout
