@@ -171,15 +171,35 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Contacted_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>X1st_Contact_Attempt_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>X1st_Contact_Attempt_Due_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>X1st_Contact_Attempt_Past_Due_Formula__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Second_Attempt_Past_Due__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>X2nd_Contact_Attempt_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contacted_Date__c</field>
+                <behavior>Readonly</behavior>
+                <field>X2nd_Contact_Attempt_Due_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>X2nd_Contact_Attempt_Past_Due_Formula__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
