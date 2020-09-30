@@ -918,6 +918,53 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Reason_Lost__c</fullName>
+        <description>Reason opportunity was lost</description>
+        <externalId>false</externalId>
+        <label>Reason Lost</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cost</fullName>
+                    <default>false</default>
+                    <label>Cost</label>
+                </value>
+                <value>
+                    <fullName>Customer</fullName>
+                    <default>false</default>
+                    <label>Customer</label>
+                </value>
+                <value>
+                    <fullName>Withdrawal</fullName>
+                    <default>false</default>
+                    <label>Withdrawal</label>
+                </value>
+                <value>
+                    <fullName>Mutual Decision</fullName>
+                    <default>false</default>
+                    <label>Mutual Decision</label>
+                </value>
+                <value>
+                    <fullName>Post unable to fulfill</fullName>
+                    <default>false</default>
+                    <label>Post unable to fulfill</label>
+                </value>
+                <value>
+                    <fullName>Timing</fullName>
+                    <default>false</default>
+                    <label>Timing</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Record_Type_Developer_Name__c</fullName>
         <externalId>false</externalId>
         <formula>RecordType.DeveloperName</formula>
@@ -2863,5 +2910,13 @@
         <errorConditionFormula>ISBLANK(AccountId)</errorConditionFormula>
         <errorDisplayField>AccountId</errorDisplayField>
         <errorMessage>Organization is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V04Require_value_if_opportunity_is_lost</fullName>
+        <active>true</active>
+        <description>Require value if opportunity is lost</description>
+        <errorConditionFormula>AND(ISPICKVAL(StageName,&apos;Closed Lost&apos;),ISPICKVAL( Reason_Lost__c,&apos;&apos;)) &amp;&amp; (RecordType.DeveloperName = &quot;Services&quot;)</errorConditionFormula>
+        <errorDisplayField>Reason_Lost__c</errorDisplayField>
+        <errorMessage>A reason is required when the opportunity stage is Closed Lost.</errorMessage>
     </validationRules>
 </CustomObject>
