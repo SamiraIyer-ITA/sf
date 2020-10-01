@@ -876,6 +876,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Dedicated_resources_staff_budget__c</fullName>
+        <description>Dedicated resources (staff &amp; budget)?</description>
+        <externalId>false</externalId>
+        <label>Dedicated resources (staff &amp; budget)?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
     </fields>
