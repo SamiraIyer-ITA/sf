@@ -656,6 +656,50 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Assigned_Office__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Assigned Office</description>
+        <externalId>false</externalId>
+        <label>Assigned Office</label>
+        <referenceTo>Collection_Fulfillment__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_to_Me__c</fullName>
+        <description>Assigned to Me</description>
+        <externalId>false</externalId>
+        <formula>$User.Id = Assigned_User__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Assigned to Me</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_to_My_Office__c</fullName>
+        <description>Assigned to My Office</description>
+        <externalId>false</externalId>
+        <formula>IsConverted</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Assigned to My Office</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>CampaignId</fullName>
         <type>Lookup</type>
     </fields>
