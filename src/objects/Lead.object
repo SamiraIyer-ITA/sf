@@ -779,6 +779,15 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Contacted_Date__c</fullName>
+        <description>Contacted Date</description>
+        <externalId>false</externalId>
+        <label>Contacted Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Country_1__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
