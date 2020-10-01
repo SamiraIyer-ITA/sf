@@ -735,6 +735,50 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Contact_Attempts__c</fullName>
+        <description>Contact Attempts</description>
+        <externalId>false</externalId>
+        <label>Contact Attempts</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Attempts</fullName>
+                    <default>true</default>
+                    <label>No Attempts</label>
+                </value>
+                <value>
+                    <fullName>First Attempt</fullName>
+                    <default>false</default>
+                    <label>First Attempt</label>
+                </value>
+                <value>
+                    <fullName>First Attempt Past Due</fullName>
+                    <default>false</default>
+                    <label>First Attempt Past Due</label>
+                </value>
+                <value>
+                    <fullName>Second Attempt</fullName>
+                    <default>false</default>
+                    <label>Second Attempt</label>
+                </value>
+                <value>
+                    <fullName>Second Attempt Past Due</fullName>
+                    <default>false</default>
+                    <label>Second Attempt Past Due</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Country_1__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
