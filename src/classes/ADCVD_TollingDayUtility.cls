@@ -36,6 +36,7 @@ public without sharing class ADCVD_TollingDayUtility {
 			}
 			return tollingDaySet;
 		}
+		set;
 	}
 
 	@TestVisible private static Set<Date> holidaySet {
@@ -48,6 +49,7 @@ public without sharing class ADCVD_TollingDayUtility {
 			}
 			return holidaySet;
 		}
+		set;
 	}
 
 	@TestVisible private static Id bizHoursId {
