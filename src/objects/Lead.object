@@ -646,6 +646,16 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Assigned_Date__c</fullName>
+        <description>Assigned Date</description>
+        <externalId>false</externalId>
+        <label>Assigned Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>CampaignId</fullName>
         <type>Lookup</type>
     </fields>
