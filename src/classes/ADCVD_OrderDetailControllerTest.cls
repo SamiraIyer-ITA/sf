@@ -9,24 +9,21 @@
 public class ADCVD_OrderDetailControllerTest {
 
     @testSetup static void createData() {
-        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
-        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
-        User pleaseAssignUser = TestUtils.createAdminUser(false, 'myemail2@email.com.testita', 2);
-        pleaseAssignUser.LastName = 'Test1 Assign';
-        pleaseAssignUser.Staffing_Role__c = 'Program Manager';
-        insert pleaseAssignUser;
-        
-        ADCVD_Case__c adcvdCase = TestUtils.createADCVDCase('A-111-222', 'AD ME', true); //Matching case name to adcvd order case name
-        adcvdCase.Program_Manager__c = pleaseAssignUser.Id;
-        update adcvdCase ;
-        
-        Petition__c petition = TestUtils.createPetition(adcvdCase, Date.today(), true);
-        //Investigations are now combined on the page, inside the same wrapper class, and are part of the assertions
-        Investigation__c investigationAD1 = TestUtils.createInvestigation(petition, false);
-        investigationAD1.RecordTypeId = utils.getRecordTypeIdMap('Investigation__c').get('AD');
-        insert investigationAD1;
-        
 
+        User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
+
+        System.runAs(testUser) {
+
+            Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+            AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+            ADCVD_Case__c adcvdCase = TestUtils.createADCVDCase('A-111-222', 'AD ME', testUser,true); //Matching case name to adcvd order case name
+            Petition__c petition = TestUtils.createPetition(adcvdCase, Date.today(), true);
+            //Investigations are now combined on the page, inside the same wrapper class, and are part of the assertions
+            Investigation__c investigationAD1 = TestUtils.createInvestigation(petition, false);
+            investigationAD1.RecordTypeId = utils.getRecordTypeIdMap('Investigation__c').get('AD');
+            insert investigationAD1;
+
+        }
     }
     //TODO: use a selector here instead of a query
     private static Segment__c segment {
