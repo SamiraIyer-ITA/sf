@@ -14,6 +14,16 @@ public class UsersSelector extends fflib_SObjectSelector implements IUsersSelect
 			usersQueryFactory.setCondition('id in :idSet').toSOQL());
 	}
 
+	public List<User> selectByName(Set<String> names) {
+		fflib_QueryFactory usersQueryFactory = newQueryFactory();
+
+		new ContactsSelector().
+			configureQueryFactoryFields(usersQueryFactory, 'Contact');
+
+		return (List<User>) Database.query(
+			usersQueryFactory.setCondition('name in :names').toSOQL());
+	}
+
 	private List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField>{
 			User.Id,

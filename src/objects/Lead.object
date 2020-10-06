@@ -522,6 +522,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Able_to_translate_marketing_materials__c</fullName>
+        <description>Able to translate marketing materials?</description>
+        <externalId>false</externalId>
+        <label>Able to translate marketing materials?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>AccountCategory__c</fullName>
         <externalId>false</externalId>
         <label>Account Category</label>

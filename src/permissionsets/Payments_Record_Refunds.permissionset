@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Can_Record_Refunds</name>
+    </customPermissions>
+    <description>Provides access to Record Refunds from an Action on Order &amp; Contract records. The corresponding custom permission is then referenced in the corresponding flow.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Payments: Record Refunds</label>
+</PermissionSet>
