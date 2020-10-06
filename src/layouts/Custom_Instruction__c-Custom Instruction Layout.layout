@@ -9,11 +9,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Customs_Status__c</field>
+                <field>CBP_Case_Number_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CBP_Case_Number_Text__c</field>
+                <field>Date_Message_Loaded_in_ACE__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -22,14 +22,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Message_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CBP_Instructions_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CBP_Instructions_Sub_Category__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -49,14 +41,51 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Applicable_Rate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Basis_for_Rate__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Customs_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AD_CVD_Module_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>IMN_NO__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CBP_Instructions_Category__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CBP_Instructions_Sub_Category__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Message_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Public_Indicator__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Country_in_which_factors_were_valued__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Countervailed_Programs__c</field>
+            </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
