@@ -4,8 +4,6 @@ src/classes/ContactsSelector.cls
 src/classes/ContactsSelectorTest.cls
 src/classes/ContractsSelector.cls
 src/classes/ContractsSelectorTest.cls
-src/classes/CustomMetadataSelector.cls
-src/classes/CustomMetadataSelectorTest.cls
 src/classes/Flow_CreatePaymentRecord.cls
 src/classes/Flow_CreatePaymentRecordTest.cls
 src/classes/Flow_CreateRefundRecord.cls
