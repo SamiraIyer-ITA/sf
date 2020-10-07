@@ -28,12 +28,16 @@ public class CustomMetadataSelectorTest {
 		List<Investigation__c> iList = new List<Investigation__c>();
 		List<Federal_Register__c> frList = new List<Federal_Register__c>();
 		for (Integer i = 0; i < COUNT; i++) {
-			User testUser = TestUtils.createAdminUser(false, 'myemail@email.com.testita', i);
-			uList.add(testUser);
-			ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-12' + i, 'AD ME', false);
-			cList.add(testADCase);
-			ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-12' + i, 'CVD', false);
-			cList.add(testCVDCase);
+
+
+			User testUser = TestUtils.createStaffingUser(false, 'myemail@email.com.testita', i);
+			System.runAs(testUser){//change context because of holiday insert
+				uList.add(testUser);
+				ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-12' + i, 'AD ME', testUser, true);
+				cList.add(testADCase);
+				ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-12' + i, 'CVD', testUser, true);
+				cList.add(testCVDCase);
+			}
 		}
 		insert uList;
 		insert cList;
