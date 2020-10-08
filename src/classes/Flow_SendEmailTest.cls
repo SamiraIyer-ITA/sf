@@ -7,12 +7,23 @@ private with sharing class Flow_SendEmailTest {
 	@testSetup static void testSetup() {
 		Account account = TestUtils.createAccount(true);
 		Program__c program = TestUtils.createProgram('Test Program', true);
-		Pricebook2 pricebook = TestUtils.createPricebook(program.Id);
+
+		Id pricebookId = Test.getStandardPricebookId();
+		Product2 product2 = TestUtils.createProduct('Test Product', true);
+		PricebookEntry pbe = TestUtils.createPricebookEntry(pricebookId, product2.Id, true);
 		Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
 		Contract contract = new Contract();
 		contract.Name = 'Contract Test X';
 		contract.AccountId = account.Id;
+		contract.Pricebook2Id = pricebookId;
+		contract.StartDate = Date.newInstance(2020, 01, 01);
+		contract.ContractTerm = 30;
+		contract.BillingCountry = 'United States';
+		contract.ShippingCountry = 'United States';
+		contract.Status = 'Draft';
 		insert contract;
+		contract.Status = 'Activated';
+		update contract;
 
 		Payment2__c payment1 = TestUtils.CreatePayment2(true, 'Credit_Card_or_ACH_Payment');
 		payment1.Account_Type__c = 'Services';
@@ -25,7 +36,8 @@ private with sharing class Flow_SendEmailTest {
 		update payment1;
 
 		List<Order> orders = new List<Order>();
-		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebookId);
+		OrderItem orderItem1 = TestUtils.createStandardOrderItem(true, order1.Id, pbe.Id);
 		order1.Type = 'Services';
 		order1.Name = 'Test Order X';
 		order1.ContractId = contract.Id;
@@ -34,7 +46,8 @@ private with sharing class Flow_SendEmailTest {
 		order1.Payment2__c = payment1.Id;
 		orders.add(order1);
 
-		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebookId);
+		OrderItem orderItem2 = TestUtils.createStandardOrderItem(true, order2.Id, pbe.Id);
 		order2.Type = 'Services';
 		order2.Name = 'Test Order X';
 		order2.ContractId = contract.Id;
