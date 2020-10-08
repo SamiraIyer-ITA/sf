@@ -140,7 +140,9 @@ global without sharing class REST_BeginPayment {
 		String sessionId;
 		//If we came from an AuraEnabled method or through a REST service without a logged in user,
 		// UserInfo.getSessionId() won't work.  So get it in an alternative way.
-		sessionId = Utils.getSessionId();
+		if(!system.test.isRunningTest()) {
+			sessionId = Utils.getSessionId();
+		}
 		request.setHeader('Authorization','Bearer ' + sessionId);
 		request.setHeader('Content-Type','application/json');
 		Map<String, REST_BeginPaymentParams> jsonBody = new Map<String, REST_BeginPaymentParams>();
