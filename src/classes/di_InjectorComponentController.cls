@@ -45,7 +45,9 @@ public with sharing class di_InjectorComponentController {
     }
 
     public static di_Binding getBinding(String bindingName) {
-        return di_Injector.Org.Bindings.byName(bindingName).get()[0];
+        if (di_Binding()  != null) {
+        	return di_Injector.Org.Bindings.byName(bindingName).get()[0];
+	}
     }
 
     // To avoid "Operation cast is not allowed on type" error, then
