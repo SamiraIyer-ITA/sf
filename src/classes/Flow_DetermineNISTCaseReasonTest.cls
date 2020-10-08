@@ -18,7 +18,7 @@ private class Flow_DetermineNISTCaseReasonTest {
 
 	@IsTest
 	static void determineNISTCaseReason_Positive2() {
-		Profile nistProfile = [SELECT Id FROM Profile WHERE Name='NIST User'];
+		Profile nistProfile = [SELECT Id FROM Profile WHERE Name='Transaction Management'];
 		User nistUser = TestUtils.createGenericUser('username@test.com', 'username@test.com', nistProfile.Id);
 
 		System.runAs(nistUser) {

@@ -4,24 +4,33 @@ private class Flow_ValidatePayableOrdersTest {
 	@testSetup static void testSetup() {
 		Account account = TestUtils.createAccount(true);
 		Program__c program = TestUtils.createProgram('Test Program', true);
-		Pricebook2 pricebook = TestUtils.createPricebook(program.Id);
+		Id pricebookId = Test.getStandardPricebookId();
+
 		Product2 product2 = TestUtils.createProduct(true);
+		PricebookEntry pbe = TestUtils.createPricebookEntry(pricebookId, product2.Id, true);
 		Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
-		ID standardPbId = Test.getStandardPricebookId();
-		PricebookEntry standardPbe = TestUtils.createPricebookEntry(standardPbId, product2.Id, true);
-		PricebookEntry pbe = TestUtils.createPricebookEntry(pricebook.Id, product2.Id, true);
+
 		Contract contract = new Contract();
 		contract.Name = 'Contract Test X';
 		contract.AccountId = account.Id;
+
+		contract.Pricebook2Id = pricebookId;
+		contract.StartDate = Date.newInstance(2020, 01, 01);
+		contract.ContractTerm = 30;
+		contract.BillingCountry = 'United States';
+		contract.ShippingCountry = 'United States';
+		contract.Status = 'Draft';
 		insert contract;
+		contract.Status = 'Activated';
+		update contract;
 		List<Order> orders = new List<Order>();
-		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebookId);
 		order1.Type = 'Services';
 		order1.Name = 'Test Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
 		orders.add(order1);
-		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebookId);
 		order2.Type = 'Services';
 		order2.Name = 'Test Order X';
 		order2.ContractId = contract.Id;
