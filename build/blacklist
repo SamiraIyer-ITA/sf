@@ -7,4 +7,3 @@ src/lwc/payment/payment.css
 src/lwc/payment/payment.html
 src/lwc/payment/payment.js
 src/lwc/payment/payment.js-meta.xml
-src/classes/Flow_CreatePaymentRecordTest.cls
