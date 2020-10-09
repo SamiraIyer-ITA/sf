@@ -103,13 +103,14 @@ private class PaymentsTest {
         appContacts[1].Email__c = 'contact@success.com';
         update appContacts;
 
+        Test.startTest();
+
         Participation__c myApplication2 = [SELECT Name,Organization_Contact__c,Organization_Corporate_Officer__c FROM Participation__c WHERE Id =: myApplication.Id];
         Order myOrder2 = [SELECT Name,Organization_Contact__c,Organization_Corporate_Officer__c FROM Order WHERE Id =: myOrder.Id];
         Payment__c myPayment2 = [SELECT Name,Organization_Contact__c,Organization_Corporate_Officer__c FROM Payment__c WHERE Id =: myPayment.Id];
         Refund__c myRefund2 = [SELECT Name,Organization_Contact__c,Organization_Corporate_Officer__c FROM Refund__c WHERE Id =: myRefund.Id];
         Case myCase2 = [SELECT Organization_Contact__c,Organization_Corporate_Officer__c FROM Case WHERE Id =: myCase.Id];
 
-        Test.startTest();
         System.assertEquals('officer@success.com',myApplication2.Organization_Corporate_Officer__c);
         System.assertEquals('contact@success.com',myApplication2.Organization_Contact__c);
         System.assertEquals('officer@success.com',myOrder2.Organization_Corporate_Officer__c);
