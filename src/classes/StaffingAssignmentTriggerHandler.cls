@@ -128,7 +128,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
         Set<Id> existingStaffRecords = new Set<Id>();
         //add new Staff to Map
         for (Staffing_Assignment__c sa : newList) {
-            if(sa.User__c == null) {continue;}
+            //if(sa.User__c == null) {continue;}
             if(sa.Id != null) {existingStaffRecords.add(sa.Id);}
             List<Staffing_Assignment__c> tempList = new List<Staffing_Assignment__c>();
             Id parentId = (Id)sa.get(sa.Staff_Parent__c);
