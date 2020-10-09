@@ -23,6 +23,7 @@ private class Payment2ConfirmationControllerTest {
 		update contract;
 		List<Order> orders = new List<Order>();
 		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		OrderItem orderItem1 = TestUtils.createStandardOrderItem(true, order1.Id, pbe.Id);
 		order1.Type = 'Services';
 		order1.Name = 'Test Order X';
 		order1.ContractId = contract.Id;
