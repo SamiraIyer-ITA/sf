@@ -42,8 +42,6 @@ src/classes/ProductSelectorComponent.cls
 src/classes/RefundForPayGov.cls
 src/classes/TEST_ECOMM.cls
 src/classes/TEST_PayGovSingleQueryCCMockImpl.cls
-src/classes/TEST_PayGovTCSOnlineCallout.cls
-src/classes/TEST_PayGovTCSSingleServiceCallout.cls
 src/classes/TEST_PayGovTCSSingleServiceCalloutTest.cls
 src/classes/TEST_PayGovTCSSingleServiceMockImpl.cls
 src/classes/UsersSelector.cls
