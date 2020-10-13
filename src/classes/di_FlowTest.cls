@@ -1,13 +1,6 @@
 @isTest
 private with sharing class di_FlowTest {
     @isTest
-    public static void exerciseMethods() {
-        Map<String,Object> params = new Map<String,Object>();
-        Flow.Return_Hello_World testFlow = new Flow.Return_Hello_World(params);
-        di_Flow f = new di_Flow(testFlow);
-        f.run();
-    }
-    @isTest
     public static void givenNullInputWhenObjectCreatedThenSetInitialized(){
         //Given
         Flow.Interview flow = null;
@@ -43,8 +36,8 @@ private with sharing class di_FlowTest {
         System.assertEquals(1, diObj.outputVarsNamesRequired.size(), 'value not inserted in Set');
     }
 
-    /**
-     * Removed until further mocking support added to di_Flow
+    /** 
+     * Removed until further mocking support added to di_Flow 
      *  (see https://github.com/afawcett/flowextensions for ideas)
     @isTest
     public static void givenFlowNameWhenReturningThenExceptionThrown(){
