@@ -1,13 +1,6 @@
 @isTest
 private with sharing class di_FlowTest {
     @isTest
-    public static void exerciseMethods() {
-        Map<String,Object> params = new Map<String,Object>();
-        Flow.Interview.Return_Hello_World testFlow = new Flow.Interview.Return_Hello_World(params);
-        di_Flow f = new di_Flow(testFlow);
-        f.run();
-    }
-    @isTest
     public static void givenNullInputWhenObjectCreatedThenSetInitialized(){
         //Given
         Flow.Interview flow = null;
