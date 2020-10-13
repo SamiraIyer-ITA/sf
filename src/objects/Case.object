@@ -1308,6 +1308,17 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Compliance_Date__c</fullName>
+        <description>Date when a Commercial Diplomacy Case becomes compliant.</description>
+        <externalId>false</externalId>
+        <label>Compliance Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>ContactEmail</fullName>
         <trackTrending>false</trackTrending>
