@@ -40,7 +40,7 @@
                         <stringValue>String</stringValue>
                     </value>
                 </processMetadataValues>
-                <leftValueReference>myVariable_current.Owner:User.Alias</leftValueReference>
+                <leftValueReference>myVariable_current.CreatedBy.Alias</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>guest</stringValue>
@@ -161,6 +161,7 @@
         <object>Task</object>
     </recordUpdates>
     <startElementReference>myDecision</startElementReference>
+    <status>Active</status>
     <variables>
         <name>myVariable_current</name>
         <dataType>SObject</dataType>
