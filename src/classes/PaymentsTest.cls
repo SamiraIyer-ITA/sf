@@ -40,7 +40,9 @@ private class PaymentsTest {
         asset.AccountId = myAccount.Id;
         insert asset;
 
-        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,
+                Status='In Progress', Organization_Corporate_Officer__c = 'officer@success.com',
+                Organization_Contact__c = 'contact@success.com',EffectiveDate=Date.today());
         insert myOrder;
 
         Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);
@@ -90,7 +92,9 @@ private class PaymentsTest {
         asset.AccountId = myAccount.Id;
         insert asset;
 
-        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,
+                Organization_Corporate_Officer__c = 'officer@success.com', Organization_Contact__c = 'contact@success.com',
+                Status='In Progress',EffectiveDate=Date.today());
         insert myOrder;
 
         Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);
