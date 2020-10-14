@@ -36,7 +36,6 @@ Flow_SendEmailTest
 Flow_ValidatePayableOrdersTest
 Flow_ValidateRefundableOrdersTest
 OpportunityContactRolesSelectorTest
-OrderItemsSelectorTest
 OrdersTest
 OrdersSelectorTest
 Payment2ConfirmationControllerTest
