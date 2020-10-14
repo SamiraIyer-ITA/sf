@@ -90,6 +90,25 @@ private class UtilsTest {
 		system.assertEquals(objectName, 'Account');
 
 	}
+        @isTest
+                private static void testAllfieldSets(){
+        	Utils.allFieldsSet('Account');
+}
+ 	@isTest
+        	private static void testgetSObjectsInContext(){
+        	Account a = new Account();
+        	a.name = 'test';
+        	insert a;
+        	Set<id> alist = new Set<Id>();
+       	 	Set<String> fieldList = new Set<String>();
+        	fieldList.add('Name');
+        	Utils.getSObjectsInContext('Account', aList, fieldList);
+}
+
+  	@isTest
+        	private static void testconvMultiLineTextToOne(){
+        	Utils.convMultiLineTextToOne('This is test \r\n  tester');
+    	}
 
 
 }
