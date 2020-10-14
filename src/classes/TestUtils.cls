@@ -1,10 +1,10 @@
-@IsTest
+@isTest
 public class TestUtils {
 	private static Id adminProfileId = [SELECT Id FROM Profile WHERE Name=: 'System Administrator' LIMIT 1].Id;
     private static Id managerProfileId = [SELECT Id FROM Profile WHERE Name = :'ADCVD Manager' LIMIT 1].Id;
     private static UserRole ecRole = [SELECT Id, Name, DeveloperName FROM UserRole WHERE Name = 'E&C TANC'];
     private static Id testRoleId = [SELECT Id, Name, DeveloperName FROM UserRole WHERE Name = 'E&C TANC'].Id;
-	@IsTest
+
 	public static Boolean messageFound(ApexPages.Severity severity, String msg) {
 		List<ApexPages.Message> pageMessages = ApexPages.getMessages();
 		// Check that the error message you are expecting is in pageMessages
@@ -18,7 +18,7 @@ public class TestUtils {
 
 		return messageFound;
 	}
-	@IsTest
+
 	public static Page__c createPage(Boolean doInsert) {
         Page__c pg = new Page__c(Name = 'Test Home Page');
 		if(doInsert) {
@@ -26,7 +26,7 @@ public class TestUtils {
 		}
 		return pg;
 	}
-	@IsTest
+
 	public static Row__c createRow(Boolean doInsert, Page__c pg) {
 		Row__c r = new Row__c(
 			Name= 'Test Row',
@@ -37,7 +37,7 @@ public class TestUtils {
 		}
 		return r;
 	}
-	@IsTest
+
 	public static Template_Page__c createTemplatePage(Boolean doInsert) {
 		Template_Page__c tp = new Template_Page__c(
 			Name = 'My Test Template',
@@ -50,7 +50,7 @@ public class TestUtils {
 		}
 		return tp;
 	}
-	@IsTest
+
 	public static Template_Row__c createTemplateRow(Boolean doInsert, Template_Page__c pg) {
 		Template_Row__c r = new Template_Row__c(
 			Name= 'Test Row',
@@ -61,7 +61,7 @@ public class TestUtils {
 		}
 		return r;
 	}
-	@IsTest
+
 	public static Template_Page_Content__c createTemplatePageContent(Boolean doInsert, Template_Page__c pg, Template_Row__c tr) {
 		//TODO implement schema utils
 		Map<String, Id> recordTypeMap = new Map<String, Id>();
@@ -79,7 +79,7 @@ public class TestUtils {
 		}
 		return tpc;
 	}
-	@IsTest
+
 	public static User createAdminUser(Boolean doInsert, String email, Integer i) {
 		User u = new User();
 		u.ProfileId = adminProfileId;
@@ -99,7 +99,7 @@ public class TestUtils {
         }
         return u;
     }
-	@IsTest
+
     public static User createStaffingUser(Boolean doInsert, String email, Integer i) {
         User u = new User();
         u.UserRoleId = testRoleId;
@@ -122,7 +122,7 @@ public class TestUtils {
 		}
 		return u;
 	}
-	@IsTest
+
 	public static Account createAccount(Boolean doInsert) {
 		Account newRecord = new Account(
 			Name='Acme',
@@ -136,7 +136,7 @@ public class TestUtils {
         }
 		return newRecord;
 	}
-	@IsTest
+
     public static Account createAccount(String name, String url, Boolean doInsert) {
 		Account a = new Account();
         a.Name = name;
@@ -164,7 +164,7 @@ public class TestUtils {
 		return regulation;
 	}
 */
-	@IsTest
+
 	public static Product2 createProduct(Boolean doInsert) {
         Product2 newRecord = new Product2(
 			Name='MyTestProduct',
@@ -175,7 +175,7 @@ public class TestUtils {
         }
 		return newRecord;
 	}
-	@IsTest
+
     public static Product2 createProduct(String name, String description, String url, Boolean doInsert) {
 		Product2 product = new Product2();
         product.Name = name;
@@ -187,7 +187,7 @@ public class TestUtils {
         }
 		return product;
 	}
-	@IsTest
+
     public static Pricebook2 createPricebook(String name, Boolean isActive, Boolean doInsert) {
 		Pricebook2 pb= new Pricebook2();
         pb.Name = name;
@@ -197,7 +197,7 @@ public class TestUtils {
         }
 		return pb;
 	}
-	@IsTest
+
 	public static PricebookEntry createPricebookEntry(String pricebookId, String productId, Boolean doInsert){
 		PricebookEntry pbe = new PricebookEntry();
         pbe.IsActive = true;
@@ -209,14 +209,14 @@ public class TestUtils {
         }
 		return pbe;
 	}
-	@IsTest
+
 	public static Payment2__c createPayment2(Boolean doInsert, String recordType){
 		Payment2__c payment2 = new Payment2__c();
 		payment2.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordType);
 		if(doInsert) {insert payment2;}
 		return payment2;
 	}
-	@IsTest
+
 	public static Collection_Fulfillment__c createCollectionFulfillment(Boolean doInsert, String post, string orgCode){
 		Collection_Fulfillment__c cf = new Collection_Fulfillment__c();
 		cf.Post__c = post;
@@ -224,7 +224,7 @@ public class TestUtils {
 		if(doInsert) {insert cf;}
 		return cf;
 	}
-	@IsTest
+
 	public static Order createStandardOrder(Boolean doInsert, Id accountId, Id priceBookId){
 		Order standardOrder = new Order();
 		standardOrder.EffectiveDate = system.today();
@@ -234,7 +234,7 @@ public class TestUtils {
 		if(doInsert) {insert standardOrder;}
 		return standardOrder;
 	}
-	@IsTest
+
 	public static OrderItem createStandardOrderItem(Boolean doInsert, Id orderId, Id pbeId){
 		OrderItem standardOrderItem = new OrderItem();
 		standardOrderItem.OrderId = orderId;
@@ -244,7 +244,7 @@ public class TestUtils {
 		if(doInsert) {insert standardOrderItem;}
 		return standardOrderItem;
 	}
-	@IsTest
+
 	public static Quote createQuote(Boolean doInsert, Id oppId, Id priceBookId, String quoteName){
 		Quote standardQuote = new Quote();
 		standardQuote.OpportunityId = oppId;
@@ -253,7 +253,7 @@ public class TestUtils {
 		if(doInsert) {insert standardQuote;}
 		return standardQuote;
 	}
-	@IsTest
+
 	public static QuoteLineItem createQuoteLineItem(Boolean doInsert, Id product2Id, Id quoteId, Id pbeId){
 		QuoteLineItem standardQuoteLineItem = new QuoteLineItem();
 		standardQuoteLineItem.QuoteId = quoteId;
@@ -263,22 +263,22 @@ public class TestUtils {
 		if(doInsert) {insert standardQuoteLineItem;}
 		return standardQuoteLineItem;
 	}
-	@IsTest
+
 	public static Contract createContract(Boolean doInsert, Id accountId){
 		Contract c = new Contract();
 		c.AccountId = accountId;
 		if(doInsert){insert c;}
 		return c;
 	}
-	@IsTest
+
 	public static Asset createAsset(Account account, Product2 product, Boolean doInsert){
 		return createAsset('Installed', account, product, doInsert);
 	}
-	@IsTest
+
 	public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert){
 		return createAsset(status, account, product, doInsert, true, true, null, null);
 	}
-	@IsTest
+
 	public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert, Boolean hasHrData, Boolean hasNonHrData, Framework__c framework, Participation__c app){
 		Asset newRecord = new Asset(
                 Name = product.Name,
@@ -299,7 +299,7 @@ public class TestUtils {
         }
 		return newRecord;
 	}
-	@IsTest
+
 	public static Attachment createAttachment(Id parentId, Boolean doInsert) {
 		Attachment newRecord = new Attachment(
 			ParentId = parentId,
@@ -312,7 +312,7 @@ public class TestUtils {
 		return newRecord;
 	}
 	//create test Contact
-	@IsTest
+
 	public static Contact createContact(String name, String accId , Boolean isInsert){
         Contact con = new Contact(LastName = name, AccountId = accId, OwnerId = UserInfo.getUserId());
 		if(isInsert){
@@ -322,7 +322,7 @@ public class TestUtils {
 	}
 
 	// create Case
-	@IsTest
+
     public static Case createCase(String sub, Boolean isInsert) {
 		Case cs = new Case();
 		cs.Subject = sub;
@@ -333,7 +333,7 @@ public class TestUtils {
 	}
 
 	// create ADCVD Case
-	@IsTest
+
     public static ADCVD_Case__c createADCVDCase(String caseName, String caseType, User u, Boolean doInsert) {
         ADCVD_Case__c testCase = new ADCVD_Case__c(
                 Name = caseName,
@@ -351,7 +351,7 @@ public class TestUtils {
         }
         return testCase;
     }
-	@IsTest
+
     public static ADCVD_Case__c createADCVDCase(String caseName, String caseType, Boolean doInsert) {
 		ADCVD_Case__c testCase = new ADCVD_Case__c(
 			Name = caseName,
@@ -370,7 +370,7 @@ public class TestUtils {
 	}
 
 	//create custom settings object controlling ADCVD App triggers
-	@IsTest
+
 	public static AppConfig__c createAppConfig(String name, Boolean triggersEnabled, Boolean doInsert) {
 		AppConfig__c app = new AppConfig__c();
 		app.Name = name;
@@ -391,7 +391,7 @@ public class TestUtils {
 	}
 
 	//create Federal Register
-	@IsTest
+
 	public static Federal_Register__c createFR(Id parentId, String parentLookupField, Date publishedDate, String frType, Boolean doInsert) {
 		Federal_Register__c fr = new Federal_Register__c();
 		fr.put(parentLookupField, parentId);
