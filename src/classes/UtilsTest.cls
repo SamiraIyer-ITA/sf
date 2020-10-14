@@ -82,5 +82,14 @@ private class UtilsTest {
 
 	}
 
+	@isTest
+	private static void findObjectNameFromRecordIdPrefixTest(){
+		String prefix = '001';
+		String objectName;
+		objectName = Utils.findObjectNameFromRecordIdPrefix(prefix);
+		system.assertEquals(objectName, 'Account');
+
+	}
+
 
 }
