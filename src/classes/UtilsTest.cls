@@ -35,4 +35,22 @@ private class UtilsTest {
 
 	}
 
+	@isTest
+	private static void alpha2CountryCodeMapTest(){
+		Utils.CountryCodeType a = Utils.CountryCodeType.ALPHA2;
+		String b = Utils.getCountryCodeFromAlpha2('US', a);
+		system.assertNotEquals(a, null);
+
+		Utils.CountryCodeType c = Utils.CountryCodeType.ALPHA3;
+		String d = Utils.getCountryCodeFromAlpha2('US', c);
+		system.assertNotEquals(d, null);
+
+		Utils.CountryCodeType e = Utils.CountryCodeType.NUMERIC;
+		String f = Utils.getCountryCodeFromAlpha2('US', e);
+		system.assertNotEquals(f, null);
+
+	}
+
+
+
 }
