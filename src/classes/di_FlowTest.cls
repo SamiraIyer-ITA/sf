@@ -35,6 +35,21 @@ private with sharing class di_FlowTest {
         System.assertEquals(1, diObj.outputVarsNames.size(), 'value not inserted in Set');
         System.assertEquals(1, diObj.outputVarsNamesRequired.size(), 'value not inserted in Set');
     }
+    
+    @isTest
+    public static void flowRun(){
+        //Given 
+        String flowName='Return_Hello_World';
+        Flow.Interview flow = Flow.Interview.createInterview(flowName, new Map<String, Object>());
+        String variableName = 'HelloWorld';
+        String outputVariableName = 'HelloWorld';
+        //When
+        di_Flow diObj = new di_Flow(flow);
+        diObj.required(variableName);
+        try{
+        	diObj.run();
+        } catch(Exception e) { System.debug(e.getMessage()); }
+    }
 
     /** 
      * Removed until further mocking support added to di_Flow 
