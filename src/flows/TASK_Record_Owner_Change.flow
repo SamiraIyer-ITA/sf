@@ -49,16 +49,16 @@
             <connector>
                 <targetReference>myRule_1_A1</targetReference>
             </connector>
-            <label>CD Record Owner Update</label>
+            <label>Task Record Owner Change</label>
         </rules>
     </decisions>
-    <description>Change the CD record owner from trade community site guest user to Baron Green</description>
-    <interviewLabel>CD_Record_Owner_Change-6_InterviewLabel</interviewLabel>
-    <label>CD Record Owner Change</label>
+    <description>Change the Task  record owner from trade community site guest user to Baron Green</description>
+    <interviewLabel>TASK_Record_Owner_Change-1_InterviewLabel</interviewLabel>
+    <label>TASK Record Owner Change</label>
     <processMetadataValues>
         <name>ObjectType</name>
         <value>
-            <stringValue>Commercial_Diplomacy_Triage__c</stringValue>
+            <stringValue>Task</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -99,14 +99,14 @@
         <processMetadataValues>
             <name>reference</name>
             <value>
-                <stringValue>[Commercial_Diplomacy_Triage__c]</stringValue>
+                <stringValue>[Task]</stringValue>
             </value>
         </processMetadataValues>
         <processMetadataValues>
             <name>referenceTargetField</name>
         </processMetadataValues>
         <name>myRule_1_A1</name>
-        <label>Update Owner field</label>
+        <label>Update Assigned To</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
         <filters>
@@ -138,7 +138,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>Owner ID</stringValue>
+                    <stringValue>Assigned To ID</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -158,7 +158,7 @@
                 <stringValue>005t0000000Xfax</stringValue>
             </value>
         </inputAssignments>
-        <object>Commercial_Diplomacy_Triage__c</object>
+        <object>Task</object>
     </recordUpdates>
     <startElementReference>myDecision</startElementReference>
     <status>Active</status>
@@ -168,7 +168,7 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>true</isOutput>
-        <objectType>Commercial_Diplomacy_Triage__c</objectType>
+        <objectType>Task</objectType>
     </variables>
     <variables>
         <name>myVariable_old</name>
@@ -176,6 +176,6 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
-        <objectType>Commercial_Diplomacy_Triage__c</objectType>
+        <objectType>Task</objectType>
     </variables>
 </Flow>

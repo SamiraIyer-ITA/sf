@@ -1309,6 +1309,17 @@ Select if this is a Compliance Case</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Compliance_Date__c</fullName>
+        <description>Date when a Commercial Diplomacy Case becomes compliant.</description>
+        <externalId>false</externalId>
+        <label>Compliance Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>ContactEmail</fullName>
         <trackTrending>false</trackTrending>
     </fields>
@@ -2620,6 +2631,12 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Language</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
         <fullName>Number_of_WINs_associated_to_Case__c</fullName>
         <externalId>false</externalId>
         <label>Number of WINs associated to Case</label>
@@ -3831,23 +3848,6 @@ Select if this is a Compliance Case</description>
         <label>Cases to Delete</label>
     </listViews>
     <listViews>
-        <fullName>Civil_Nuclear_Toolkit_Case</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>NAME</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.PRIORITY</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Queue</filterScope>
-        <label>Civil Nuclear Toolkit</label>
-        <queue>Civil_Nuclear_Toolkit</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>Closed_Cases_Non_Layout</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -4230,35 +4230,26 @@ Select if this is a Compliance Case</description>
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>Unassigned_Web_Assistanc</fullName>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7</booleanFilter>
+        <fullName>Unassigned_Web_Assistance_Cases</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6 AND 7 AND 8 AND 9 AND 10</booleanFilter>
         <columns>CASES.CASE_NUMBER</columns>
-        <columns>NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.TYPE</columns>
         <columns>ACCOUNT.NAME</columns>
         <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
+        <columns>CASES.LAST_UPDATE</columns>
         <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
+        <columns>OWNER_NAME</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CASES.RECORDTYPE</field>
             <operation>equals</operation>
-            <value>Case.PS_Feedback,Case.Dispute_Resolution_and_Enforcement,Case.Participation</value>
+            <value>Case.Dispute_Resolution_and_Enforcement,Case.PS_Feedback,Case.Outreach,Case.Participation</value>
         </filters>
         <filters>
-            <field>CASES.STATUS</field>
+            <field>CASES.CLOSED</field>
             <operation>equals</operation>
-            <value>New</value>
-        </filters>
-        <filters>
-            <field>CASES.SUBJECT</field>
-            <operation>notEqual</operation>
-            <value>Application for Review</value>
-        </filters>
-        <filters>
-            <field>Case_Owner_Full_Name__c</field>
-            <operation>notEqual</operation>
-            <value>Andres Lahiguera,Andrew Steele,Joshua Blume,Rochelle Osei-Tutu,Blake Murray</value>
+            <value>0</value>
         </filters>
         <filters>
             <field>Owners_Office__c</field>
@@ -4266,16 +4257,41 @@ Select if this is a Compliance Case</description>
             <value>IA SVCS-ODSI-DPT,GM-CS EMEA-Field-Belgium</value>
         </filters>
         <filters>
-            <field>CASES.NAME</field>
+            <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>dyen</value>
+            <value>Andres Lahiguera,Andrew Steele,Joshua Blume,Blake Murray,Rochelle Osei-Tutu</value>
         </filters>
         <filters>
-            <field>CORE.USERS.ALIAS</field>
+            <field>CASES.SUBJECT</field>
+            <operation>notContain</operation>
+            <value>6663464.com,6663405.com,6663462.com,6663465.com</value>
+        </filters>
+        <filters>
+            <field>OWNER_NAME</field>
             <operation>notEqual</operation>
             <value>PrivacyShield</value>
         </filters>
-        <label>Unassigned Web Assistance</label>
+        <filters>
+            <field>CASES.SUBJECT</field>
+            <operation>notEqual</operation>
+            <value>腾博会12周年庆典，老台子，开户送100，首存8倍水 网址：tengbo44.com</value>
+        </filters>
+        <filters>
+            <field>CASES.SUBJECT</field>
+            <operation>notContain</operation>
+            <value>tengbo44.com</value>
+        </filters>
+        <filters>
+            <field>Case_Owner_Full_Name__c</field>
+            <operation>notEqual</operation>
+            <value>Clinton Harper,Kelsey Schrenk,Isabella Carlton,Ian Wallace</value>
+        </filters>
+        <filters>
+            <field>Case_Owner_Full_Name__c</field>
+            <operation>notEqual</operation>
+            <value>adel fahd</value>
+        </filters>
+        <label>Unassigned Web Assistance Cases</label>
         <sharedTo>
             <group>PrivacyShield</group>
             <group>Privacy_Shield</group>
