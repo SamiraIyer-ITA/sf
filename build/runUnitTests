@@ -12,5 +12,4 @@ TEST_PayGovTCSOnlineMockImpl
 Test_ShoppingCart
 TEST_PaymentTriggerHandler
 fflib_SObjectSelectorTest
-CustomMetadataSelectorTest
 
