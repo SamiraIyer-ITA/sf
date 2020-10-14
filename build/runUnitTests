@@ -16,7 +16,6 @@ AggregateResultProxyTest
 CollectionFulfillmentsSelectorTest
 ContactsSelectorTest
 ContractsSelectorTest
-CustomMetadataSelectorTest
 di_BindingTest
 di_BindingConfigWrapperTest
 di_BindingParamTest
