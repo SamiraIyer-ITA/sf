@@ -11,5 +11,4 @@ TEST_PayGovTCSOnlineCalloutTest
 TEST_PayGovTCSOnlineMockImpl
 Test_ShoppingCart
 TEST_PaymentTriggerHandler
-CustomMetadataSelectorTest
 
