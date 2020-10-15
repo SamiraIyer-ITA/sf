@@ -14,25 +14,4 @@ Test_ShoppingCart
 TEST_PaymentTriggerHandler
 fflib_SObjectSelectorTest
 RefundLightningControllerTest
-fflib_ApplicationTest
-fflib_AnswerTest
-fflib_AnyOrderTest
-fflib_ApexMocksTest
-fflib_ApexMocksUtilsTest
-fflib_ApplicationTest
-fflib_ArgumentCaptorTest
-fflibext_SObjectSelectorTest
-fflib_IDGeneratorTest
-fflib_InheritorTest
-fflib_InOrderTest
-fflib_MatcherDefinitionsTest
-fflib_MatchTest
-fflib_MethodArgValuesTest
-fflib_QualifiedMethodTest
-fflib_QueryFactoryTest
-fflib_SObjectDescribeTest
-fflib_SObjectDomainTest
-fflib_SObjectSelectorTest
-fflib_StringBuilderTest
-fflib_SystemTest
 
