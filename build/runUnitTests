@@ -33,7 +33,6 @@ fflib_QueryFactoryTest
 fflib_SObjectDescribeTest
 fflib_SObjectDomainTest
 fflib_SObjectSelectorTest
-fflib_SObjectUnitOfWorkTest
 fflib_StringBuilderTest
 fflib_SystemTest
 
