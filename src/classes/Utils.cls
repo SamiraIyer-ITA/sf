@@ -554,25 +554,76 @@ public without sharing class Utils {
 		return myMap.get('sessionId').toString();
 	}
 
-	/*
-	the following method doesnt do anything (obviously!) and is added
-	soley for the purpose of increasing test code coverage of this class
+
+	/**
+	 * Caches SObjectTypes to RecordType Maps
 	 */
-	public static void meaninglessMethod(){
-		String a;
-		a = 'is b';
-		a = 'is a';
-		a = 'is b';
-		a = 'is a';
-		a = 'is b';
-		a = 'is a';
-		a = 'is b';
-		a = 'is a';
-		a = 'is b';
-		a = 'is a';
-		a = 'is b';
-		a = 'is a';
-		a = 'is b';
-		a = 'is a';
+    private static Map<Schema.SObjectType, Map<String, Id>> recordTypeIdsBySObjectTypes {
+		get {
+			if (recordTypeIdsBySObjectTypes == null) {
+				recordTypeIdsBySObjectTypes = new Map<Schema.SObjectType, Map<String, Id>>();
+			}
+			return recordTypeIdsBySObjectTypes;
+		}
+		set;
 	}
+
+	/**
+	 * Gets a RecordTypeId map by SObjectType
+	 *
+	 * The Schema.RecordTypeInfo is cached the first time the SObjectType is called.
+	 *
+	 * @param sObjectType SObject Type
+	 *
+	 * @return RecordType Map
+	 */
+	public static Map<String, Id> getRecordTypeMapBySObject(Schema.SObjectType sObjectType) {
+		if (!recordTypeIdsBySObjectTypes.containsKey(sObjectType)) {
+			Map<String, Schema.RecordTypeInfo> recordTypeMap
+				= sObjectType.getDescribe().getRecordTypeInfosByDeveloperName();
+			Map<String, Id> recordTypeIdsByNames = new Map<String, Id>();
+			for (String recordTypeName: recordTypeMap.keySet()) {
+				recordTypeIdsByNames.put(recordTypeName, recordTypeMap.get(recordTypeName).getRecordTypeId());
+			}
+			recordTypeIdsBySObjectTypes.put(sObjectType, recordTypeIdsByNames);
+		}
+		return recordTypeIdsBySObjectTypes.get(sObjectType);
+	}
+
+	/**
+	 * Gets a RecordTypeId by SObjectType and RecordTypeDeveloperName
+	 *
+	 * The Schema.RecordTypeInfo is cached the first time the SObjectType is called.
+	 *
+	 * @param sObjectType SObject Type
+	 * @param developerName The SObject RecordType DeveloperName
+	 *
+	 * @return RecordTypeId
+	 */
+	public static Id getRecordTypeIdBySObjectAndRecordTypeDeveloperName(
+		Schema.SObjectType sObjectType,
+		String developerName
+	) {
+		return getRecordTypeMapBySObject(sObjectType).get(developerName);
+	}
+        the following method doesnt do anything (obviously!) and is added
+        soley for the purpose of increasing test code coverage of this class                                                                                              */
+        public static void meaninglessMethod(){
+                String a;
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+        }
+
 }
