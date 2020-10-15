@@ -14,4 +14,6 @@ Test_ShoppingCart
 TEST_PaymentTriggerHandler
 fflib_SObjectSelectorTest
 RefundLightningControllerTest
+fflib_ApexMocksTest
+fflib_ApplicationTest
 
