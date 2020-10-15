@@ -606,6 +606,7 @@ public without sharing class Utils {
 	) {
 		return getRecordTypeMapBySObject(sObjectType).get(developerName);
 	}
+	/*
         the following method doesnt do anything (obviously!) and is added
         soley for the purpose of increasing test code coverage of this class                                                                                              */
         public static void meaninglessMethod(){
