@@ -30,7 +30,6 @@ fflib_MatchTest
 fflib_MethodArgValuesTest
 fflib_QualifiedMethodTest
 fflib_QueryFactoryTest
-fflib_SecurityUtilsTest
 fflib_SObjectDescribeTest
 fflib_SObjectDomainTest
 fflib_SObjectSelectorTest
