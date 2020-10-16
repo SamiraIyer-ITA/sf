@@ -424,29 +424,9 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Initiation</fullName>
+                    <fullName>Admin Review Opportunity Notice</fullName>
                     <default>false</default>
-                    <label>Initiation</label>
-                </value>
-                <value>
-                    <fullName>Continuation</fullName>
-                    <default>false</default>
-                    <label>Continuation</label>
-                </value>
-                <value>
-                    <fullName>Preliminary</fullName>
-                    <default>false</default>
-                    <label>Preliminary</label>
-                </value>
-                <value>
-                    <fullName>Amended Preliminary</fullName>
-                    <default>false</default>
-                    <label>Amended Preliminary</label>
-                </value>
-                <value>
-                    <fullName>Final</fullName>
-                    <default>false</default>
-                    <label>Final</label>
+                    <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
                     <fullName>Amended Final</fullName>
@@ -454,39 +434,14 @@
                     <label>Amended Final</label>
                 </value>
                 <value>
-                    <fullName>ITC Preliminary</fullName>
+                    <fullName>Amended Preliminary</fullName>
                     <default>false</default>
-                    <label>ITC Preliminary</label>
+                    <label>Amended Preliminary</label>
                 </value>
                 <value>
-                    <fullName>ITC Final</fullName>
+                    <fullName>Continuation</fullName>
                     <default>false</default>
-                    <label>ITC Final</label>
-                </value>
-                <value>
-                    <fullName>Order</fullName>
-                    <default>false</default>
-                    <label>Order</label>
-                </value>
-                <value>
-                    <fullName>Postponement</fullName>
-                    <default>false</default>
-                    <label>Postponement</label>
-                </value>
-                <value>
-                    <fullName>Post Litigation</fullName>
-                    <default>false</default>
-                    <label>Post Litigation</label>
-                </value>
-                <value>
-                    <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
-                    <label>Admin Review Opportunity Notice</label>
-                </value>
-                <value>
-                    <fullName>Rescission</fullName>
-                    <default>false</default>
-                    <label>Rescission</label>
+                    <label>Continuation</label>
                 </value>
                 <value>
                     <fullName>Correction</fullName>
@@ -494,14 +449,69 @@
                     <label>Correction</label>
                 </value>
                 <value>
-                    <fullName>Revocation</fullName>
+                    <fullName>Critical Circumstances</fullName>
                     <default>false</default>
-                    <label>Revocation</label>
+                    <label>Critical Circumstances</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
                 </value>
                 <value>
                     <fullName>Quarterly Scope</fullName>
                     <default>false</default>
                     <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission Full</fullName>
+                    <default>false</default>
+                    <label>Rescission (Full)</label>
+                </value>
+                <value>
+                    <fullName>Rescission Partial</fullName>
+                    <default>false</default>
+                    <label>Rescission (Partial)</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
                 </value>
                 <value>
                     <fullName>Suspension Agreement</fullName>
@@ -512,11 +522,6 @@
                     <fullName>Termination</fullName>
                     <default>false</default>
                     <label>Termination</label>
-                </value>
-                <value>
-                    <fullName>Critical Circumstances</fullName>
-                    <default>false</default>
-                    <label>Critical Circumstances</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
