@@ -10,6 +10,7 @@ TEST_PayGovSingleQueryAchMockImpl
 TEST_PayGovSingleQueryCCMockImpl
 TEST_PayGovTCSOnlineCalloutTest
 TEST_PayGovTCSOnlineMockImpl
+TEST_PayGovTCSSingleServiceCalloutTest
 Test_ShoppingCart
 TEST_PaymentTriggerHandler
 RefundLightningControllerTest
