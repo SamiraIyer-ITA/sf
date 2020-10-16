@@ -50,6 +50,7 @@ types=" app \
         js \
         labels \
         layout \
+	LeadConvertSetting \
         liveChatButton \
 	notiftype \
         md \
