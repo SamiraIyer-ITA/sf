@@ -1,27 +1,27 @@
 @isTest
 private class TEST_PayGovTCSSingleServiceCalloutTest {
-    
+
     static String agencyId = 'agencyId';
     static String tcsAppId = 'tcsAppId';
-    
-    @isTest static void testProcessPCRefund() { 
+
+    @isTest static void testProcessPCRefund() {
         insert new PaymentSettings__c(name='PAY_GOV_TCS_SINGLE_SERVICE_ENDPOINT', value__c = 'Test');
         Test.setMock(WebServiceMock.class, new TEST_PayGovTCSSingleServiceMockImpl());
         Test.startTest();
-        
+
         PayGovTCSSingleService.PCRefundRequestType pcRefund = new PayGovTCSSingleService.PCRefundRequestType();
         pcRefund.orig_paygov_tracking_id = 'origPayGovTrackingId';
         pcRefund.transaction_amount = 'transactionAmount';
         pcRefund.orig_agency_tracking_id = 'origAgencyTrackingId';
-        
+
         PayGovTCSSingleService.PCRefundResponse_element pcRefundResponse = TEST_PayGovTCSSingleServiceCallout.processPCRefund(agencyId, tcsAppId, pcRefund);
         System.assertEquals('agencyId', pcRefundResponse.agency_id);
     }
 
-    /*@isTest static void testProcessPCSale() { 
+    @isTest static void testProcessPCSale() {
         Test.setMock(WebServiceMock.class, new TEST_PayGovTCSSingleServiceMockImpl());
         Test.startTest();
-        
+
         PayGovTCSSingleService.PCSaleRequestType pcSale = new PayGovTCSSingleService.PCSaleRequestType();
         pcSale.agency_tracking_id = 'agencyTrackingId';
         pcSale.transaction_amount = 'transactionAmount';
@@ -45,8 +45,8 @@ private class TEST_PayGovTCSSingleServiceCalloutTest {
         pcSale.custom_fields = new PayGovTCSSingleService.custom_fields();
         pcSale.account_holder_email_address = 'accountHolderEmailAddress';
         pcSale.classification = new PayGovTCSSingleService.classification();
-        
+
         PayGovTCSSingleService.PCSaleResponse_element pcSaleResponse = TEST_PayGovTCSSingleServiceCallout.processPCSale(agencyId, tcsAppId, pcSale);
         System.assertEquals('agencyId', pcSaleResponse.agency_id);
-    }*/
+    }
 }
