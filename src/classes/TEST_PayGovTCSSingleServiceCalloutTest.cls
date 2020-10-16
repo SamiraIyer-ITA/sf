@@ -18,6 +18,40 @@ private class TEST_PayGovTCSSingleServiceCalloutTest {
         System.assertEquals('agencyId', pcRefundResponse.agency_id);
     }
 
+    @isTest static void testfieldCoverage() {
+
+        PayGovTCSSingleService.PCCancelResponseType fieldTests1 = new PayGovTCSSingleService.PCCancelResponseType();
+        String[] test1 = new String[6];
+        test1 = fieldTests1.orig_paygov_tracking_id_type_info;
+
+        PayGovTCSSingleService.PCCancelRequestType fieldTests2 = new PayGovTCSSingleService.PCCancelRequestType();
+        test1 = fieldTests2.orig_paygov_tracking_id_type_info;
+
+
+        PayGovTCSSingleService.PCCancelRequest_element fieldTests3 = new PayGovTCSSingleService.PCCancelRequest_element();
+        test1 = fieldTests3.agency_id_type_info;
+
+        PayGovTCSSingleService.PCRefundRequestType fieldTests4 = new PayGovTCSSingleService.PCRefundRequestType();
+        test1 = fieldTests4.orig_paygov_tracking_id_type_info;
+
+        PayGovTCSSingleService.PCRefundResponseType fieldTests5 = new PayGovTCSSingleService.PCRefundResponseType();
+        test1 = fieldTests5.orig_paygov_tracking_id_type_info;
+
+        PayGovTCSSingleService.PCRefundRequest_element fieldTests6 = new PayGovTCSSingleService.PCRefundRequest_element();
+        test1 = fieldTests6.agency_id_type_info;
+
+        PayGovTCSSingleService.PCCancelResponse_element fieldTests7 = new PayGovTCSSingleService.PCCancelResponse_element();
+        test1 = fieldTests7.agency_id_type_info;
+
+        PayGovTCSSingleService.PCRefundResponse_element fieldTests8 = new PayGovTCSSingleService.PCRefundResponse_element();
+        test1 = fieldTests8.agency_id_type_info;
+
+
+
+    }
+
+
+
     /*@isTest static void testProcessPCSale() { 
         Test.setMock(WebServiceMock.class, new TEST_PayGovTCSSingleServiceMockImpl());
         Test.startTest();
