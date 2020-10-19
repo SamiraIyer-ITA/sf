@@ -6,6 +6,6 @@
 public interface IQuoteLineItemsSelector extends fflib_ISObjectSelector {
 
 	List<QuoteLineItem> selectById(Set<Id> idSet);
-    List<QuoteLineItem> selectByIdAndRecordTypeOppNotClosedQuoteIsSyncingPrimaryWithOrderItems(
-    	Set<Id> idSet, String recordTypeDeveloperName);
+	List<QuoteLineItem> selectByIdAndRecordTypeOppNotClosedQuoteIsSyncingPrimaryWithOrderItems(
+		Set<Id> idSet, String recordTypeDeveloperName);
 }
