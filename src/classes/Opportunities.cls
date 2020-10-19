@@ -25,10 +25,6 @@ public class Opportunities extends fflib_SObjectDomain implements IOpportunities
 		OpportunitiesService.handleBeforeUpdate(Records, existingRecords);
 	}
 
-	public override void onAfterInsert() {
-		OpportunitiesService.handleAfterInsert(Records);
-	}
-
 	public class Constructor implements fflib_SObjectDomain.IConstructable {
 		public fflib_SObjectDomain construct(List<SObject> sObjectList) {
 			return new Opportunities(sObjectList);
