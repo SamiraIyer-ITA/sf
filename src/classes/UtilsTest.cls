@@ -93,7 +93,7 @@ private class UtilsTest {
         @isTest
                 private static void testAllfieldSets(){
         	Utils.allFieldsSet('Account');
-}
+	}
  	@isTest
         	private static void testgetSObjectsInContext(){
         	Account a = new Account();
@@ -103,7 +103,7 @@ private class UtilsTest {
        	 	Set<String> fieldList = new Set<String>();
         	fieldList.add('Name');
         	Utils.getSObjectsInContext('Account', aList, fieldList);
-}
+	}
 
   	@isTest
         	private static void testconvMultiLineTextToOne(){

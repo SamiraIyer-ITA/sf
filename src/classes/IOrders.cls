@@ -7,5 +7,6 @@
 public interface IOrders extends fflib_ISObjectDomain {
 
     void updatePayments(List<Order> existingOrders);
+    void updateSystemSearchString(List<Order> ordersToUpdate);
 
 }
