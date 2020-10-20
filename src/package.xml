@@ -197,11 +197,7 @@
         <name>RemoteSiteSetting</name>
     </types>
     <types>
-        <members>TransactionManagement</members>
-        <members>TransactionManagement/Orders_without_Linked_Payments_vad</members>
-        <members>TransactionManagement/Payment_Reconciliation_m3f</members>
-        <members>TransactionManagement/NIST</members>
-        <members>TransactionManagement/NIST/Orders_without_Linked_Payments_H36</members>
+        <members>*</members>
         <name>Report</name>
     </types>
     <types>
