@@ -40,7 +40,7 @@
                         <stringValue>String</stringValue>
                     </value>
                 </processMetadataValues>
-                <leftValueReference>myVariable_current.Owner:User.Alias</leftValueReference>
+                <leftValueReference>myVariable_current.CreatedBy.Alias</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>guest</stringValue>

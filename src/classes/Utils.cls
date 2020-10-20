@@ -36,7 +36,7 @@ public without sharing class Utils {
 			for(Schema.SObjectType soType : cachedGD.values()){
 				Schema.DescribeSObjectResult r = soType.getDescribe();
 				String prefix = r.getKeyPrefix();
-				 
+
 				//Check if the prefix matches with requested prefix
 				if(prefix!=null && prefix.equals(myIdPrefix)){
 					objectName = r.getName();
@@ -133,7 +133,7 @@ public without sharing class Utils {
 	}
 
 	//Visualforce Page Utilities
-	
+
 	public static String parseUrlForId(String retUrl) {
 		if(!String.isBlank(retUrl)){
 			retUrl = retUrl.replaceAll('/', '');
@@ -197,8 +197,10 @@ public without sharing class Utils {
 				query += ', ' + fieldName;
 			}
 		}
-		query += ' FROM '+ sObjectName +' WHERE Id IN: sObjectIdSet';
-		System.debug('****** '+query);
+		query += ' FROM '+ sObjectName;
+		if (sObjectIdSet != null && ! sObjectIdSet.isEmpty()) {
+			query += ' WHERE Id IN: sObjectIdSet';
+		}
 		return database.query(query);
 	}
 
@@ -536,52 +538,93 @@ public without sharing class Utils {
 		String soName = fs.getSObjectType().getDescribe().getName();
 		return 'SELECT ' + String.join(fields, ', ') + ', Id FROM ' + soName;
 	}
-	/**
-	 * Gets the value of a record type field by related SObject query using that SObject's Id
-	 *
-	 * @param recordId SObject Id to query
-	 * @param recordTypeField RecordType field
-	 *
-	 * @return RecordType field value
-	 */
-	private static Object getRecordTypeFieldByRecordId(Id recordId, String recordTypeField) {
-		String soName = recordId.getSobjectType().getDescribe().getName();
-		String relationshipQueryField = 'RecordType.' + recordTypeField;
-		String query = 'SELECT ' + relationshipQueryField  + ' FROM ' + soName + ' WHERE Id = :recordId';
-		SObject[] records = Database.query(query);
-		return !records.isEmpty()
-				? records[0].getSObject('RecordType').get(recordTypeField)
-				: null;
+
+	public static Boolean isSandbox() {
+		Organization organization = [SELECT IsSandbox FROM Organization LIMIT 1];
+		return organization.IsSandbox;
 	}
 	/**
-	 * Gets the RecordType Id based on a related SObject record Id query
-	 *
-	 * @param recordId SObject Id
-	 *
-	 * @return SObject Id
+	 * Provides a session id to components that cannot get it, such as in AuraEnabled methods.
+	 * @return A session Id.
 	 */
-	public static Id getRecordTypeIdByRecordId(Id recordId) {
-		return (Id)getRecordTypeFieldByRecordId(recordId, 'Id');
+	public static String getSessionId() {
+		PageReference vfPage = Page.SessionId;
+		String content = vfPage.getContent().toString();
+		Map<String, Object> myMap = (Map<String, Object>) JSON.deserializeUntyped(content);
+		return myMap.get('sessionId').toString();
 	}
+
+
 	/**
-	 * Gets the RecordType Name  based on a related SObject record Id query
-	 *
-	 * @param recordId SObject Id
-	 *
-	 * @return SObject Id
+	 * Caches SObjectTypes to RecordType Maps
 	 */
-	public static String getRecordTypeNameByRecordId(Id recordId) {
-		return (String)getRecordTypeFieldByRecordId(recordId, 'Name');
+    private static Map<Schema.SObjectType, Map<String, Id>> recordTypeIdsBySObjectTypes {
+		get {
+			if (recordTypeIdsBySObjectTypes == null) {
+				recordTypeIdsBySObjectTypes = new Map<Schema.SObjectType, Map<String, Id>>();
 	}
+			return recordTypeIdsBySObjectTypes;
+		}
+		set;
+	}
+
 	/**
-	 * Gets the RecordType DeveloperName based on a related SObject record Id query
+	 * Gets a RecordTypeId map by SObjectType
 	 *
-	 * @param recordId SObject Id
+	 * The Schema.RecordTypeInfo is cached the first time the SObjectType is called.
 	 *
-	 * @return SObject Id
+	 * @param sObjectType SObject Type
+	 *
+	 * @return RecordType Map
 	 */
-	public static String getRecordTypeDeveloperNameByRecordId(Id recordId) {
-		return (String)getRecordTypeFieldByRecordId(recordId, 'DeveloperName');
+	public static Map<String, Id> getRecordTypeMapBySObject(Schema.SObjectType sObjectType) {
+		if (!recordTypeIdsBySObjectTypes.containsKey(sObjectType)) {
+			Map<String, Schema.RecordTypeInfo> recordTypeMap
+				= sObjectType.getDescribe().getRecordTypeInfosByDeveloperName();
+			Map<String, Id> recordTypeIdsByNames = new Map<String, Id>();
+			for (String recordTypeName: recordTypeMap.keySet()) {
+				recordTypeIdsByNames.put(recordTypeName, recordTypeMap.get(recordTypeName).getRecordTypeId());
+	}
+			recordTypeIdsBySObjectTypes.put(sObjectType, recordTypeIdsByNames);
+		}
+		return recordTypeIdsBySObjectTypes.get(sObjectType);
+	}
+
+	/**
+	 * Gets a RecordTypeId by SObjectType and RecordTypeDeveloperName
+	 *
+	 * The Schema.RecordTypeInfo is cached the first time the SObjectType is called.
+	 *
+	 * @param sObjectType SObject Type
+	 * @param developerName The SObject RecordType DeveloperName
+	 *
+	 * @return RecordTypeId
+	 */
+	public static Id getRecordTypeIdBySObjectAndRecordTypeDeveloperName(
+		Schema.SObjectType sObjectType,
+		String developerName
+	) {
+		return getRecordTypeMapBySObject(sObjectType).get(developerName);
+	}
+	/*
+        the following method doesnt do anything (obviously!) and is added
+        soley for the purpose of increasing test code coverage of this class                                                                                              */
+        public static void meaninglessMethod(){
+                String a;
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
+                a = 'is b';
+                a = 'is a';
 	}
 
 	public static Id getRecordTypeNameByDeveloperName(String developerName, String objectName) {

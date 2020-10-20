@@ -144,28 +144,28 @@ public class PayGovTCSSingleService {
 		public String return_detail;
 		public String transaction_status;
 		public String transaction_date;
-		private String[] orig_paygov_tracking_id_type_info = new String[]{'orig_paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] agency_tracking_id_type_info = new String[]{'agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] masked_account_number_type_info = new String[]{'masked_account_number','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] return_code_type_info = new String[]{'return_code','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] return_detail_type_info = new String[]{'return_detail','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] transaction_status_type_info = new String[]{'transaction_status','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] transaction_date_type_info = new String[]{'transaction_date','http://fms.treas.gov/tcs/schemas',null,'1','1','true'};
-		private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
-		private String[] field_order_type_info = new String[]{'orig_paygov_tracking_id','agency_tracking_id','transaction_amount','masked_account_number','return_code','return_detail','transaction_status','transaction_date'};
+		@TestVisible private String[] orig_paygov_tracking_id_type_info = new String[]{'orig_paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] agency_tracking_id_type_info = new String[]{'agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] masked_account_number_type_info = new String[]{'masked_account_number','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] return_code_type_info = new String[]{'return_code','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] return_detail_type_info = new String[]{'return_detail','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] transaction_status_type_info = new String[]{'transaction_status','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] transaction_date_type_info = new String[]{'transaction_date','http://fms.treas.gov/tcs/schemas',null,'1','1','true'};
+		@TestVisible private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
+		@TestVisible private String[] field_order_type_info = new String[]{'orig_paygov_tracking_id','agency_tracking_id','transaction_amount','masked_account_number','return_code','return_detail','transaction_status','transaction_date'};
 	}
 	public class PCCancelRequestType {
 		public String orig_paygov_tracking_id;
 		public String transaction_amount;
 		public String agency_tracking_id;
 		public String account_holder_email_address;
-		private String[] orig_paygov_tracking_id_type_info = new String[]{'orig_paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] agency_tracking_id_type_info = new String[]{'agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'0','1','false'};
-		private String[] account_holder_email_address_type_info = new String[]{'account_holder_email_address','http://fms.treas.gov/tcs/schemas',null,'0','1','false'};
-		private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
-		private String[] field_order_type_info = new String[]{'orig_paygov_tracking_id','transaction_amount','agency_tracking_id','account_holder_email_address'};
+		@TestVisible private String[] orig_paygov_tracking_id_type_info = new String[]{'orig_paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] agency_tracking_id_type_info = new String[]{'agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'0','1','false'};
+		@TestVisible private String[] account_holder_email_address_type_info = new String[]{'account_holder_email_address','http://fms.treas.gov/tcs/schemas',null,'0','1','false'};
+		@TestVisible private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
+		@TestVisible private String[] field_order_type_info = new String[]{'orig_paygov_tracking_id','transaction_amount','agency_tracking_id','account_holder_email_address'};
 	}
 	/*public class PCForceResponse_element {
 		public String agency_id;
@@ -493,11 +493,11 @@ public class PayGovTCSSingleService {
 		public String agency_id;
 		public String tcs_app_id;
 		public PayGovTCSSingleService.PCCancelRequestType PCCancel;
-		private String[] agency_id_type_info = new String[]{'agency_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] tcs_app_id_type_info = new String[]{'tcs_app_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] PCCancel_type_info = new String[]{'PCCancel','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
-		private String[] field_order_type_info = new String[]{'agency_id','tcs_app_id','PCCancel'};
+		@TestVisible private String[] agency_id_type_info = new String[]{'agency_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] tcs_app_id_type_info = new String[]{'tcs_app_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] PCCancel_type_info = new String[]{'PCCancel','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
+		@TestVisible private String[] field_order_type_info = new String[]{'agency_id','tcs_app_id','PCCancel'};
 	}
 	/*public class ach_payment_options {
 		public String payment_frequency;
@@ -667,11 +667,11 @@ public class PayGovTCSSingleService {
 		public String orig_paygov_tracking_id;
 		public String transaction_amount;
 		public String orig_agency_tracking_id;
-		private String[] orig_paygov_tracking_id_type_info = new String[]{'orig_paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] orig_agency_tracking_id_type_info = new String[]{'orig_agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'0','1','false'};
-		private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
-		private String[] field_order_type_info = new String[]{'orig_paygov_tracking_id','transaction_amount','orig_agency_tracking_id'};
+		@TestVisible private String[] orig_paygov_tracking_id_type_info = new String[]{'orig_paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] orig_agency_tracking_id_type_info = new String[]{'orig_agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'0','1','false'};
+		@TestVisible private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
+		@TestVisible private String[] field_order_type_info = new String[]{'orig_paygov_tracking_id','transaction_amount','orig_agency_tracking_id'};
 	}
 	/*public class PCForceRequest_element {
 		public String agency_id;
@@ -694,18 +694,18 @@ public class PayGovTCSSingleService {
 		public String return_detail;
 		public String transaction_status;
 		public String transaction_date;
-		private String[] orig_paygov_tracking_id_type_info = new String[]{'orig_paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] orig_agency_tracking_id_type_info = new String[]{'orig_agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] paygov_tracking_id_type_info = new String[]{'paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] agency_tracking_id_type_info = new String[]{'agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] masked_account_number_type_info = new String[]{'masked_account_number','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] return_code_type_info = new String[]{'return_code','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] return_detail_type_info = new String[]{'return_detail','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] transaction_status_type_info = new String[]{'transaction_status','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] transaction_date_type_info = new String[]{'transaction_date','http://fms.treas.gov/tcs/schemas',null,'1','1','true'};
-		private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
-		private String[] field_order_type_info = new String[]{'orig_paygov_tracking_id','orig_agency_tracking_id','paygov_tracking_id','agency_tracking_id','transaction_amount','masked_account_number','return_code','return_detail','transaction_status','transaction_date'};
+		@TestVisible private String[] orig_paygov_tracking_id_type_info = new String[]{'orig_paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] orig_agency_tracking_id_type_info = new String[]{'orig_agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] paygov_tracking_id_type_info = new String[]{'paygov_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] agency_tracking_id_type_info = new String[]{'agency_tracking_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] transaction_amount_type_info = new String[]{'transaction_amount','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] masked_account_number_type_info = new String[]{'masked_account_number','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] return_code_type_info = new String[]{'return_code','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] return_detail_type_info = new String[]{'return_detail','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] transaction_status_type_info = new String[]{'transaction_status','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] transaction_date_type_info = new String[]{'transaction_date','http://fms.treas.gov/tcs/schemas',null,'1','1','true'};
+		@TestVisible private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
+		@TestVisible private String[] field_order_type_info = new String[]{'orig_paygov_tracking_id','orig_agency_tracking_id','paygov_tracking_id','agency_tracking_id','transaction_amount','masked_account_number','return_code','return_detail','transaction_status','transaction_date'};
 	}
 	/*public class PCForceWithoutPaygovTrackingIdResponse_element {
 		public String agency_id;
@@ -721,11 +721,11 @@ public class PayGovTCSSingleService {
 		public String agency_id;
 		public String tcs_app_id;
 		public PayGovTCSSingleService.PCRefundRequestType PCRefund;
-		private String[] agency_id_type_info = new String[]{'agency_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] tcs_app_id_type_info = new String[]{'tcs_app_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] PCRefund_type_info = new String[]{'PCRefund','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
-		private String[] field_order_type_info = new String[]{'agency_id','tcs_app_id','PCRefund'};
+		@TestVisible private String[] agency_id_type_info = new String[]{'agency_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] tcs_app_id_type_info = new String[]{'tcs_app_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] PCRefund_type_info = new String[]{'PCRefund','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
+		@TestVisible private String[] field_order_type_info = new String[]{'agency_id','tcs_app_id','PCRefund'};
 	}
 	/*public class PCManualAuthorizationRequestType {
 		public String agency_tracking_id;
@@ -847,11 +847,11 @@ public class PayGovTCSSingleService {
 		public String agency_id;
 		public String tcs_app_id;
 		public PayGovTCSSingleService.PCCancelResponseType PCCancel;
-		private String[] agency_id_type_info = new String[]{'agency_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] tcs_app_id_type_info = new String[]{'tcs_app_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] PCCancel_type_info = new String[]{'PCCancel','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
-		private String[] field_order_type_info = new String[]{'agency_id','tcs_app_id','PCCancel'};
+		@TestVisible private String[] agency_id_type_info = new String[]{'agency_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] tcs_app_id_type_info = new String[]{'tcs_app_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] PCCancel_type_info = new String[]{'PCCancel','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
+		@TestVisible private String[] field_order_type_info = new String[]{'agency_id','tcs_app_id','PCCancel'};
 	}
 	/*public class classificationDataType {
 		public String classification_id;
@@ -913,11 +913,11 @@ public class PayGovTCSSingleService {
 		public String agency_id;
 		public String tcs_app_id;
 		public PayGovTCSSingleService.PCRefundResponseType PCRefund;
-		private String[] agency_id_type_info = new String[]{'agency_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] tcs_app_id_type_info = new String[]{'tcs_app_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] PCRefund_type_info = new String[]{'PCRefund','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
-		private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
-		private String[] field_order_type_info = new String[]{'agency_id','tcs_app_id','PCRefund'};
+		@TestVisible private String[] agency_id_type_info = new String[]{'agency_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] tcs_app_id_type_info = new String[]{'tcs_app_id','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] PCRefund_type_info = new String[]{'PCRefund','http://fms.treas.gov/tcs/schemas',null,'1','1','false'};
+		@TestVisible private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
+		@TestVisible private String[] field_order_type_info = new String[]{'agency_id','tcs_app_id','PCRefund'};
 	}
 	/*public class PCForceWithoutPaygovTrackingIdResponseType {
 		public String paygov_tracking_id;

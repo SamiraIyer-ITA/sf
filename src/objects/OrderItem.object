@@ -101,6 +101,16 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>Accounting_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Accounting_Code__c</formula>
+        <label>Accounting Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Affirmation__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -203,5 +213,14 @@
     <fields>
         <fullName>UnitPrice</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>isPrimary__c</fullName>
+        <externalId>false</externalId>
+        <formula>QuoteLineItem.IsPrimary__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>isPrimary</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
 </CustomObject>
