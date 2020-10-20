@@ -197,8 +197,10 @@ public without sharing class Utils {
 				query += ', ' + fieldName;
 			}
 		}
-		query += ' FROM '+ sObjectName +' WHERE Id IN: sObjectIdSet';
-		System.debug('****** '+query);
+		query += ' FROM '+ sObjectName;
+		if (sObjectIdSet != null && ! sObjectIdSet.isEmpty()) {
+			query += ' WHERE Id IN: sObjectIdSet';
+		}
 		return database.query(query);
 	}
 
@@ -536,57 +538,22 @@ public without sharing class Utils {
 		String soName = fs.getSObjectType().getDescribe().getName();
 		return 'SELECT ' + String.join(fields, ', ') + ', Id FROM ' + soName;
 	}
-	/**
-	 * Gets the value of a record type field by related SObject query using that SObject's Id
-	 *
-	 * @param recordId SObject Id to query
-	 * @param recordTypeField RecordType field
-	 *
-	 * @return RecordType field value
-	 */
-	private static Object getRecordTypeFieldByRecordId(Id recordId, String recordTypeField) {
-		String soName = recordId.getSobjectType().getDescribe().getName();
-		String relationshipQueryField = 'RecordType.' + recordTypeField;
-		String query = 'SELECT ' + relationshipQueryField  + ' FROM ' + soName + ' WHERE Id = :recordId';
-		SObject[] records = Database.query(query);
-		return !records.isEmpty()
-				? records[0].getSObject('RecordType').get(recordTypeField)
-				: null;
+
+	public static Boolean isSandbox() {
+		Organization organization = [SELECT IsSandbox FROM Organization LIMIT 1];
+		return organization.IsSandbox;
 	}
 	/**
-	 * Gets the RecordType Id based on a related SObject record Id query
-	 *
-	 * @param recordId SObject Id
-	 *
-	 * @return SObject Id
+	 * Provides a session id to components that cannot get it, such as in AuraEnabled methods.
+	 * @return A session Id.
 	 */
-	public static Id getRecordTypeIdByRecordId(Id recordId) {
-		return (Id)getRecordTypeFieldByRecordId(recordId, 'Id');
-	}
-	/**
-	 * Gets the RecordType Name  based on a related SObject record Id query
-	 *
-	 * @param recordId SObject Id
-	 *
-	 * @return SObject Id
-	 */
-	public static String getRecordTypeNameByRecordId(Id recordId) {
-		return (String)getRecordTypeFieldByRecordId(recordId, 'Name');
-	}
-	/**
-	 * Gets the RecordType DeveloperName based on a related SObject record Id query
-	 *
-	 * @param recordId SObject Id
-	 *
-	 * @return SObject Id
-	 */
-	public static String getRecordTypeDeveloperNameByRecordId(Id recordId) {
-		return (String)getRecordTypeFieldByRecordId(recordId, 'DeveloperName');
+	public static String getSessionId() {
+		PageReference vfPage = Page.SessionId;
+		String content = vfPage.getContent().toString();
+		Map<String, Object> myMap = (Map<String, Object>) JSON.deserializeUntyped(content);
+		return myMap.get('sessionId').toString();
 	}
 
-	public static Id getRecordTypeNameByDeveloperName(String developerName, String objectName) {
-		return [SELECT Id FROM RecordType WHERE DeveloperName = :developerName AND sObjectType = :objectName LIMIT 1].Id;
-	}
 
 	/**
 	 * Caches SObjectTypes to RecordType Maps
@@ -639,10 +606,9 @@ public without sharing class Utils {
 	) {
 		return getRecordTypeMapBySObject(sObjectType).get(developerName);
 	}
-       /*
+	/*
         the following method doesnt do anything (obviously!) and is added
-        soley for the purpose of increasing test code coverage of this class
-         */
+        soley for the purpose of increasing test code coverage of this class                                                                                              */
         public static void meaninglessMethod(){
                 String a;
                 a = 'is b';

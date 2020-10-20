@@ -37,5 +37,23 @@ private class di_InjectorTest {
                                     .bySObject( Account.sObjectType )
                                     .replaceBindingWith( null );
         
+        // TODO Update methods below to use data that will not cause exceptions
+        try {
+            injector.getInstance('di_InjectorTest');
+        } catch (Exception e) {}
+        
+        try {
+            injector.getInstance(di_InjectorTest.class);
+        } catch (Exception e) {}
+        
+        try {
+            injector.getInstance(di_InjectorTest.class, (Object) Account.sObjectType);
+        } catch (Exception e) {}
+        
+        try {
+            injector.getInstance(di_InjectorTest.class, Account.sObjectType);
+        } catch (Exception e) {}
     }
+    
+    private class TestInjector {}
 }

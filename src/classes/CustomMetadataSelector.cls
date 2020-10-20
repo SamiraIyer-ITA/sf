@@ -187,6 +187,9 @@ public without sharing class CustomMetadataSelector {
 	}
 
 	public static Map<String, Object> getPaymentSettings(String paymentProcessor) {
+		if(Utils.isSandbox()){
+			paymentProcessor += '_QA';
+		}
 		String query = Utils.soqlBuilderAllFields('Payment_Mapping__mdt', true);
 		query += ' WHERE DeveloperName = :paymentProcessor LIMIT 1';
 		Payment_Mapping__mdt mdt = Database.query(query);
