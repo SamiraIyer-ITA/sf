@@ -1,0 +1,4 @@
+<apex:component controller="PaymentReceiptOrderItems" id="PaymentReceiptOrderItems" access="global">
+	<apex:attribute name="emailPaymentId" description="Id of a Payment record"  assignTo="{!paymentId}" type="String"/>
+	<apex:outputText escape="false" value="{!orderItems}"></apex:outputText>
+</apex:component>

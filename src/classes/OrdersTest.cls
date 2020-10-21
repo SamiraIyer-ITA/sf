@@ -123,4 +123,28 @@ private class OrdersTest {
 		try { insert new Order(); } catch (Exception e) {}
 	}
 
+    @IsTest
+    static void testUpdateSystemSearchString_CallWithoutSetup_IssuesNoErrors(){
+        Order e = new Order();
+        List<Order> orderList = new List<Order> {e};
+
+        fflib_ApexMocks mocks = new fflib_ApexMocks();
+        fflibext_ISObjectUnitOfWork mock_uow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
+
+        // Default stub is acceptable; not expecting anything special.  Just don't want a real UOW called.
+        fflibext_Application.UnitOfWork.setMock(mock_uow);
+        try {
+            Orders.newInstance(orderList).updateSystemSearchString(orderList);
+            System.assert(true); // Should be the only assert in this test that actually executes
+        } catch (Exception ex){
+            System.assert(false, 'updateSystemSearchString caused an exception and should not have');
+            System.debug(ex.getStackTraceString());
+        }
+    }
+
+    @IsTest
+    static void testOrderTrigger_InsertOrderRecord_TriggerIsCovered() {
+        try { insert new Order(); } catch (Exception e) {}
+    }
+
 }

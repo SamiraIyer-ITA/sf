@@ -128,19 +128,7 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Opportunity_LPL</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Opportunity_LPL</content>
-        <formFactor>Small</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
+        <type>Default</type>
     </actionOverrides>
     <businessProcesses>
         <fullName>Data Customer Opportunity Process</fullName>
@@ -1469,28 +1457,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Eligible_for_Export_Promotion__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Expedited_Delivery__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Export_Ready__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1677,33 +1643,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Lost__c</picklist>
-            <values>
-                <fullName>Cost</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mutual Decision</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Post unable to fulfill</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Timing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawal</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>SourceTechnology__c</picklist>
             <values>
                 <fullName>API</fullName>
@@ -1762,28 +1701,6 @@
             </values>
             <values>
                 <fullName>New Business</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Used_ITA_s_fee_based_services_before__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Which_services_have_you_used_before__c</picklist>
-            <values>
-                <fullName>Location Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Company Promotion</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1954,28 +1871,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Eligible_for_Export_Promotion__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Expedited_Delivery__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Export_Ready__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2162,33 +2057,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Lost__c</picklist>
-            <values>
-                <fullName>Cost</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mutual Decision</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Post unable to fulfill</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Timing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawal</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>SourceTechnology__c</picklist>
             <values>
                 <fullName>API</fullName>
@@ -2247,28 +2115,6 @@
             </values>
             <values>
                 <fullName>New Business</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Used_ITA_s_fee_based_services_before__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Which_services_have_you_used_before__c</picklist>
-            <values>
-                <fullName>Location Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Company Promotion</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2439,28 +2285,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Eligible_for_Export_Promotion__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Expedited_Delivery__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Export_Ready__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2647,33 +2471,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Lost__c</picklist>
-            <values>
-                <fullName>Cost</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mutual Decision</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Post unable to fulfill</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Timing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawal</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>SourceTechnology__c</picklist>
             <values>
                 <fullName>API</fullName>
@@ -2732,28 +2529,6 @@
             </values>
             <values>
                 <fullName>New Business</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Used_ITA_s_fee_based_services_before__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Which_services_have_you_used_before__c</picklist>
-            <values>
-                <fullName>Location Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Company Promotion</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2924,28 +2699,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Eligible_for_Export_Promotion__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Expedited_Delivery__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Export_Ready__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3132,33 +2885,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Lost__c</picklist>
-            <values>
-                <fullName>Cost</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mutual Decision</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Post unable to fulfill</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Timing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawal</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>SourceTechnology__c</picklist>
             <values>
                 <fullName>API</fullName>
@@ -3217,28 +2943,6 @@
             </values>
             <values>
                 <fullName>New Business</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Used_ITA_s_fee_based_services_before__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Which_services_have_you_used_before__c</picklist>
-            <values>
-                <fullName>Location Promotion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Company Promotion</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
