@@ -13,5 +13,7 @@ public class di_BindingConfigWrapperTest {
             , 'bindingObjectQualifiedApiName'
             , 'bindingObjectAlternate'
             , 10.0);
+  
+        dbc = new di_BindingConfigWrapper(new di_Binding__mdt());
     }
 }

@@ -239,6 +239,31 @@ private with sharing class fflib_SObjectSelectorTest
 		Matcher soqlMatcher = soqlPattern.matcher(soql);
 		system.assert(soqlMatcher.matches(), 'The SOQL should have that expected.');
 	}
+
+	@IsTest
+	static void testUncoveredMethods() {
+		Testfflib_SObjectSelector selector = new Testfflib_SObjectSelector();
+		selector.getOrderBy();
+		selector.getFieldListBuilder();
+		selector.setFieldListBuilder(null);
+		selector.getFieldListString();
+		selector.getRelatedFieldListString('');
+		selector.assertIsAccessible();
+		selector.sObjectType();
+		selector.newQueryFactory(false);
+		try {
+			selector.configureQueryFactoryFields(null, '');
+		} catch (Exception e) { }
+		try {
+			selector.addQueryFactorySubselect(null);
+		} catch (Exception e) { }
+		try {
+			selector.addQueryFactorySubselect(null, false);
+		} catch (Exception e) { }
+		try {
+			selector.addQueryFactorySubselect(null, '', false);
+		} catch (Exception e) { }
+	}
 	
 	private static void assertEqualsSelectFields(String expectedSelectFields, String actualSelectFields)
 	{
