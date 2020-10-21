@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
     <baseObject>Petition__c</baseObject>
-    <category>admin</category>
+    <category>other</category>
     <deployed>true</deployed>
-    <description>Information on Petitions and Petitioners</description>
+    <description>Petitions and Staffing Assignments</description>
     <join>
-        <outerJoin>false</outerJoin>
-        <relationship>Related_Organizations__r</relationship>
+        <outerJoin>true</outerJoin>
+        <relationship>Staffing_Assignments__r</relationship>
     </join>
-    <label>ADCVD Pet w IntOrgs</label>
+    <label>ADCVD Pet &amp; Staff</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -265,194 +265,174 @@
             <field>Product_Text__c</field>
             <table>Petition__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>A0803PrivateCaseRequiresPrivatePetition__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>This_ADCVD_Case_Has_a_Petition__c</field>
+            <table>Petition__c</table>
+        </columns>
         <masterLabel>Petitions</masterLabel>
     </sections>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Owner</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Name</field>
-            <table>Petition__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>RecordType</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastActivityDate</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Account__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Custom_Instruction__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Exporter__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Link__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>Parent_Name__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Litigation__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>Parent__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Parent_Id__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>Related_Org_Parent_Id__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Producer__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>Related_Org_Parent_Name__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Related_Organization_Name__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>Related_Organization_Parent__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Related_Organization__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Segment__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Status__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>Title__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Type__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>User__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Locked__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Type_Text__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CBP_Case_Number_Text__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_Concat_Text__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Commodity_Text__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Country_Text__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IO_Parent__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Short_Name_Text__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Text__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Legal_Representation__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>Staff_Parent__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Entity_Alias__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>Status__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Entity_Name__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
+            <field>Office__c</field>
+            <table>Petition__c.Staffing_Assignments__r</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Lead_Attorney__c</field>
-            <table>Petition__c.Related_Organizations__r</table>
-        </columns>
-        <masterLabel>Interested Organizations</masterLabel>
+        <masterLabel>Staffing Assignments</masterLabel>
     </sections>
 </ReportType>

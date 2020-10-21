@@ -1,378 +1,328 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <baseObject>ADCVD_Order__c</baseObject>
+    <baseObject>Suspension_Agreement__c</baseObject>
     <category>admin</category>
     <deployed>true</deployed>
-    <description>Orders with Interested Orgs</description>
+    <description>Suspension Agreements that have at least one FR</description>
     <join>
         <outerJoin>false</outerJoin>
-        <relationship>Related_Organizations__r</relationship>
+        <relationship>Federal_Registers__r</relationship>
     </join>
-    <label>ADCVD Ord w IntOrgs</label>
+    <label>ADCVD SuspAgr w FR</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Owner</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Name</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order_Name__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Anniversary_Month__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Effective_Date_for_Most_Recent_SunsetFR__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Effective_Date_of_Revocation__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Link__c</field>
-            <table>ADCVD_Order__c</table>
+            <field>Additional_Notes__c</field>
+            <table>Suspension_Agreement__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Anniversary_Month__c</field>
+            <table>Suspension_Agreement__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Effective_Date_of_Termination__c</field>
+            <table>Suspension_Agreement__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Enforcement_Concerns__c</field>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Lotus_Notes_History_Data__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Next_Sunset_Initiation_Date_UI__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Next_Sunset_Initiation_Date__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Office__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition_Filed__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Revocation_Reason__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment_Status__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Status__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Third_Country_Case_Number_s__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>This_Investigation_has_an_Order__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Locked__c</field>
-            <table>ADCVD_Order__c</table>
+            <field>Notations_Amendments__c</field>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition_Case_Type__c</field>
-            <table>ADCVD_Order__c</table>
+            <field>Office__c</field>
+            <table>Suspension_Agreement__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Suspension_Date__c</field>
+            <table>Suspension_Agreement__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Termination_Date__c</field>
+            <table>Suspension_Agreement__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>This_Investigation_has_a_Susp_Agreement__c</field>
+            <table>Suspension_Agreement__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Locked__c</field>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Text_Value__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Status__c</field>
+            <table>Suspension_Agreement__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Type__c</field>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Type_Text__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CBP_Case_Number_Text__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Commodity_Text__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Country_Text__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Short_Name_Text__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Text__c</field>
-            <table>ADCVD_Order__c</table>
+            <table>Suspension_Agreement__c</table>
         </columns>
-        <masterLabel>ADCVD Orders</masterLabel>
+        <masterLabel>Suspension Agreements</masterLabel>
     </sections>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Owner</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Name</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>RecordType</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastActivityDate</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <field>ADCVD_Order__c</field>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <field>Cite_Number__c</field>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Custom_Instruction__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <field>Do_Delete__c</field>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Exporter__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <field>External_Id__c</field>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FR_URL__c</field>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>IDM_URL__c</field>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Link__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Litigation__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Parent_Id__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Producer__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Related_Organization_Name__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <field>Published_Date__c</field>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Segment__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Status__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Type__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Locked__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text_Value__c</field>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FR_Parent__c</field>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Type_Text__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CBP_Case_Number_Text__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_Concat_Text__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Commodity_Text__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Country_Text__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IO_Parent__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Short_Name_Text__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Text__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
+            <table>Suspension_Agreement__c.Federal_Registers__r</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Legal_Representation__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Entity_Alias__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Entity_Name__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Lead_Attorney__c</field>
-            <table>ADCVD_Order__c.Related_Organizations__r</table>
-        </columns>
-        <masterLabel>Interested Organizations</masterLabel>
+        <masterLabel>Federal Registers</masterLabel>
     </sections>
 </ReportType>

@@ -4,7 +4,7 @@
     <category>other</category>
     <deployed>true</deployed>
     <description>Parent Fields accessed via lookups, can be used for reports on All Cases/Segments</description>
-    <label>Staffing Assignments</label>
+    <label>ADCVD Staff (Deprecate)</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -141,31 +141,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Number__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Type__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.CBP_Case_Number__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Commodity__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Country__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.CreatedBy</field>
             <table>Staffing_Assignment__c</table>
         </columns>
@@ -297,16 +272,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.Petition_Outcome__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product_Short_Name__c</field>
             <table>Staffing_Assignment__c</table>
         </columns>
         <columns>
@@ -724,42 +689,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.ADCVD_Case_Number__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.ADCVD_Case_Type__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.CBP_Case_Number__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Commodity__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Country__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c.Petition_Initiation_Signature__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Product__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Product_Short_Name__c</field>
             <table>Staffing_Assignment__c</table>
         </columns>
         <columns>
@@ -1436,41 +1366,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Period_Covered_Start_Date__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.ADCVD_Case_Number__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.ADCVD_Case_Type__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.CBP_Case_Number__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Commodity__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Country__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Product__c</field>
-            <table>Staffing_Assignment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Product_Short_Name__c</field>
             <table>Staffing_Assignment__c</table>
         </columns>
         <columns>

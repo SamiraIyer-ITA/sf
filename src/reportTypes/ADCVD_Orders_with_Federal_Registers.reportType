@@ -3,12 +3,12 @@
     <baseObject>ADCVD_Order__c</baseObject>
     <category>other</category>
     <deployed>true</deployed>
-    <description>Orders with HTS Numbers</description>
+    <description>All ADCVD Orders</description>
     <join>
         <outerJoin>false</outerJoin>
-        <relationship>Harmonized_Tariff_Schedules__r</relationship>
+        <relationship>Federal_Register__r</relationship>
     </join>
-    <label>ADCVD Ord w HTS</label>
+    <label>ADCVD Ord w FR</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -43,11 +43,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Effective_Date_for_Most_Recent_SunsetFR__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Effective_Date_of_Revocation__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
         <columns>
@@ -102,31 +97,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Revocation_Reason__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment_Status__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Status__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Third_Country_Case_Number_s__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>This_Investigation_has_an_Order__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
@@ -152,7 +122,57 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CBP_Case_Number_Text__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Product_Short_Name_Text__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Revocation_Reason__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment_Status__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Status__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Third_Country_Case_Number_s__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Effective_Date_of_Revocation__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Locked__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.Status__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.Locked__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.Investigation_Outcome__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
         <masterLabel>ADCVD Orders</masterLabel>
@@ -160,59 +180,44 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
+            <table>ADCVD_Order__c.Federal_Register__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
+            <table>ADCVD_Order__c.Federal_Register__r</table>
         </columns>
         <columns>
-            <checkedByDefault>true</checkedByDefault>
+            <checkedByDefault>false</checkedByDefault>
             <field>Name</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
+            <table>ADCVD_Order__c.Federal_Register__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>HTS_Number_Formatted__c</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
+            <field>FR_URL__c</field>
+            <table>ADCVD_Order__c.Federal_Register__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>HTS_Number__c</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
+            <field>IDM_URL__c</field>
+            <table>ADCVD_Order__c.Federal_Register__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
+            <field>Published_Date__c</field>
+            <table>ADCVD_Order__c.Federal_Register__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
+            <field>Type__c</field>
+            <table>ADCVD_Order__c.Federal_Register__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>HTS_Number_Length__c</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
+            <field>Cite_Number__c</field>
+            <table>ADCVD_Order__c.Federal_Register__r</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Owner</field>
-            <table>ADCVD_Order__c.Harmonized_Tariff_Schedules__r</table>
-        </columns>
-        <masterLabel>Harmonized Tariff Schedules</masterLabel>
+        <masterLabel>Federal Register</masterLabel>
     </sections>
 </ReportType>
