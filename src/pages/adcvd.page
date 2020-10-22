@@ -1,159 +1,73 @@
-<apex:page sidebar="false" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="ADCVD_OrderDetailController">
- <apex:composition template="Site_Template2">
-     <apex:define name="page">
-         
-      <!--Custom CSS-->
-      <link href="{!URLFor($Resource.uswds, 'uswds/css/nav.css')}" rel="stylesheet" />
-      <link href="{!URLFor($Resource.adcvd, 'adcvd/clickthrough2.css')}" rel="stylesheet" /> 
-      
-      <!--jQuery-->
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
-      <script type="text/javascript" src="{!URLFor($Resource.adcvd, 'adcvd/jquery.collapser.min.js')}" />  
-      
- <style> 
- #PeriodCoveredStartDate {
-    font-size: 15px;
-    font-weight: 400;
-    opacity: 0.8;
-}
-
-#PeriodCoveredEndDate {
-    font-size: 15px;
-    font-weight: 400;
-    opacity: 0.8;
-}
-              
-@media screen and (max-width: 600px) { 
-.newgrid {
-    float: left;
-    display: block;
-    margin-right: 0%;
-    width: 100%;
-}
-.sidebar-box .read-more {
-text-align:left;
-}
-}    
-      </style>           
-      <script>
-        $(function() {
-            var $el, $ps, $up, totalHeight;
-            $(".sidebar-box .button").click(function() {                
-                totalHeight = "auto"
-
-                $el = $(this);
-                $p  = $el.parent();
-                $up = $p.parent();
-                $ps = $up.find("p:not('.read-more')");
+<apex:page showHeader="false" applyBodyTag="false" applyHtmlTag="false" controller="ADCVD_OrderDetailController">
+    <apex:composition template="Site_Template">
+      <apex:define name="sectionalNav">          
+        <link href="{!URLFor($Resource.ps, 'ps/participant.css')}" rel="stylesheet" />
+        <link href="{!URLFor($Resource.adcvd, 'adcvd/clickthrough.css')}" rel="stylesheet" />               
+      </apex:define>
+        <apex:define name="page">              
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+        <script type="text/javascript" src="{!URLFor($Resource.adcvd, 'adcvd/bootstrap-toc.js')}" />
+        <script type="text/javascript" src="{!URLFor($Resource.adcvd, 'adcvd/jquery.collapser.min.js')}" />
                 
-                $ps.each(function() {
-                    totalHeight += $(this).outerHeight();
-                });
-                $up
-                    .css({                                                
-                        "max-height": 9999,
-                        "height": "auto"
-                    })
-                    .animate({
-                        "height": totalHeight
-                    });
-                
-                $p.fadeOut();                
-                return false;
+<div class="container" id="wrapper">
+  <div class="row">
+  <div class="col-md-3 col-sm-5">
+      <div id="blog-sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="345">      
+          <ol class="breadcrumb">
+          <p id="prod-name">Case #{!order.ADCVD_Case_Number__c}</p>
+          <p id="order-country">{!order.Country__c}</p>
+          <p id="order-country">{!order.Product_Short_Name__c}</p>
+          </ol>          
+          <nav id="toc" data-toggle="toc" ></nav>
+      </div>
+    </div>
+    <div class="col-md-9 col-sm-7">
+      <div id="blog-main">
+           
+<div class="panel panel-default" id="upcoming-announcements">
+  <div class="panel-heading"> <h2>Upcoming Announcements</h2></div>
 
-            });
-
-        });
-    </script>
-    <script>
-    $(document).ready(function() {
-    if($('.hts').is(':empty') ){     
-      $('.read-more').hide()
-      $( "div.sidebar-box" ).text( "No data is available to display." );            
-    }
-
-});
-</script>
-   
-   <div class="usa-grid">
-<p class="site-subheading"><a href="/adcvd-search">AD/CVD Case Search</a> / Case Detail</p>
-</div>
-   
-      <main class="usa-grid  usa-content usa-layout-docs" id="main-content">       
-      <aside class="usa-width-one-fourth usa-layout-docs-sidenav sticky" id="leftnav">
-        
-        <div style="padding: 8px 15px;margin-bottom: 20px;list-style: none;background-color: #f5f5f5;border-radius: 4px;">
-        <h3 class="usa-heading " id="casenum">Case #{!caseObj.ADCVD_Case_Number__c}</h3>            
-        <h5 class="section-heading-h5">{!caseObj.Country__c}</h5>
-        <h5 class="section-heading-h5">{!IF ((caseObj.Product_Short_Name__c != ""), caseObj.Product_Short_Name__c, caseObj.Product__c)}</h5>
-        <h5 class="section-heading-h5">{!caseObj.Commodity__c}</h5>
-        <!--<span class="usa-label ">{!caseObj.Commodity__c}</span>-->        
-        </div>
-        <br/>           
-            <ul class="usa-sidenav-list">
-              <li class="side-li">
-                <a href="#upcoming-announcements">Upcoming Announcements</a>
-              </li>
-              <li class="side-li">
-                <a href="#hts-numbers">HTS Numbers</a>
-              </li>
-              <li class="side-li">
-                <a href="#scope-of-the-order">Scope of the Order</a>
-              </li>
-            </ul>      
-      </aside>
-      
-      <div class="usa-width-three-fourths usa-layout-docs-main_content">
-
-<!--Upcoming Announcements-->      
-      <div class="usa-grid blockk"> 
-      <h2 class="usa-heading" id="upcoming-announcements">Upcoming Announcements</h2>
-          
-          <div><apex:repeat value="{!segInvList}" var="s"><div class="usa-width-one-half" ><p id="review">{!s.recordType}</p><div class="about" id="announcement-type">{!s.announcementType} Results Announcement: {!s.announcementDate}</div>
-          <apex:outputtext >
-          <div class="about" id="days-remaining">Extension Days Remaining: <span class="daysremaining">{!s.daysRemaining}</span></div>
-          <div class="about" id="PeriodCoveredStartDate">Period Covered: <span class="daysremaining">{!s.PeriodCoveredStartDate} - {!s.PeriodCoveredEndDate}</span></div>
-          </apex:outputtext><br/></div></apex:repeat></div>          
-          </div>  
-  
-<!--HTS Numbers section--> 
-<div class="usa-grid blockk"> 
-<h2 class="usa-heading" id="hts-numbers">HTS Numbers</h2>
-<!--<div><input type="checkbox" class="read-more-state" id="post-1" /><div class="read-more-wrap ">First 10 HTS numbers...<span class="read-more-target usa-grid" style="padding:0;"><br/><apex:repeat value="{!caseObj.Harmonized_Tariff_Schedules__r}" var="hts"><span class="expanded usa-width-one-fourth">{!hts.HTS_Number_Formatted__c}</span></apex:repeat></span></div><label for="post-1" class="read-more-trigger usa-grid" style="padding:0;"></label></div>-->
-
-
-<div class="sidebar-box">
-            <p class="hts"><apex:repeat value="{!caseObj.Harmonized_Tariff_Schedules__r}" var="hts"><apex:outputText styleClass="usa-width-one-fourth newgrid" value="{!hts.HTS_Number_Formatted__c}"/></apex:repeat></p>
-            <p class="read-more"><a href="#" class="button">Show all</a></p>
-        </div>
-
-</div>
-
-
-<!--Scope of the Order section-->
-<div class="usa-grid blockk">
-<h2 class="usa-heading" id="scope-of-the-order">Scope of the Order</h2>  
-<div class="holder-description"><apex:outputtext ><p class="demo3" id="attach-body">{!attachmentBody}</p></apex:outputtext></div>
-
-</div>          
-      
-</div>
-
-
-
-
-</main>
-
-<!--new logic if the Segment case type is null and/or Investigation type
-<apex:outputpanel layout="block" rendered="{!newfieldSegmentorInvestigation = null}">
-<c:adcvd_investigation />
-</apex:outputpanel>-->
+    <div class="panel-body">
     
-<br/><br/>
-      
-    <script>
+    <div class="row" id="cust-row"><div class="row pad-none"><apex:repeat value="{!Segments}" var="s"><apex:outputPanel ><div class="col-md-6"><p class="text-muted uppercase">{!s.recordType}</p><div class="about" id="announcement-type">{!s.announcementType} Results Announcement: {!s.announcementDate}</div><apex:outputtext ><div class="about" id="days-remaining">Extension Days Remaining: <span class="daysremaining">{!s.daysRemaining}</span></div></apex:outputtext><br/></div></apex:outputPanel></apex:repeat></div></div>
+    
+    </div>
+
+</div>
+
+<apex:outputtext >
+ <div class="panel panel-default" id="hts-numbers">
+    <div class="panel-heading"> <h2>HTS Numbers</h2></div>
+    <div class="panel-body">
+            <div class="row" id="cust-row"><div class="row pad-none"><apex:repeat value="{!order.Harmonized_Tariff_Schedules__r}" var="hts"><div class="col-md-3"><p class="text-muted uppercase">{!hts.HTS_Number_Formatted__c}</p><apex:outputPanel styleClass="itaBr"></apex:outputPanel></div></apex:repeat></div></div>
+    </div>
+</div>
+</apex:outputtext>
+
+<div class="panel panel-default" id="scope" >
+    <div class="panel-heading"> <h2>Scope of the Order</h2></div>
+    <div class="panel-body">                
+              <div class="col-md-12">
+                  <div class="about">      
+      <div class="holder-description">
+<apex:outputtext >
+     <p class="demo3" id="attach-body">{!attachmentBody}</p>                      
+</apex:outputtext>
+</div> 
+                  </div>
+              </div>
+       </div>
+   </div>    
+      </div>
+    </div>   
+  </div>
+</div><!-- /.container -->
+
+<div id='blog-footer'> </div>
+<script>
 $('.daysremaining:contains(Decision Signed)').addClass('signed');
-</script>
+</script> 
 <script>
 $(document).ready(function(){  
     $('.demo3').collapser({
@@ -163,8 +77,12 @@ $(document).ready(function(){
         
 });
 </script>
-     
-      
-     </apex:define>
- </apex:composition>
+<script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    $('#tabs').tab();
+                    $('[data-toggle="tooltip"]').tooltip();  
+                });
+ </script>                      
+        </apex:define>
+    </apex:composition>
 </apex:page>
