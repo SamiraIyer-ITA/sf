@@ -170,6 +170,11 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__TrustCard</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>ADCVDCaseTriggerHandler</apexClass>
         <enabled>false</enabled>
@@ -468,6 +473,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CP_scheduled_Upgrade_External_User_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CallAddTollingDayBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CallAddTollingDayBatchTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -15144,6 +15157,10 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Update_Third_Party_Data</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Update_Tolling</flow>
     </flowAccesses>
     <layoutAssignments>
         <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
