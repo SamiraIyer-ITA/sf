@@ -1,4 +1,4 @@
-public with sharing class OpportunitySObjectMapper {
+public class OpportunitySObjectMapper {
 
 	/**
 	 * Maps Opportunity Services details to a new Contract.
@@ -47,6 +47,17 @@ public with sharing class OpportunitySObjectMapper {
 			'International Partner Search'
 		};
 
+		private final Set<String> NOT_REQUIRED_PRODUCT_NAMES = new Set<String>{
+			 'Official Letters Specific To A Market',
+			 'Featured US Exporters: Annual Renewal',
+			 'Featured US Exporters: Lanugage Translation',
+			 'Featured US Exporters: Per Market',
+			 'Services: Contact List',
+			 'Services: Other',
+			 'Services: Other (SelectUSA)',
+			 'Business Service Provider'
+		};
+
 		public ServicesNewOrder() {
 			super('Services');
 		}
@@ -80,8 +91,14 @@ public with sharing class OpportunitySObjectMapper {
 			targetRecord.put('Name', 'Order-' + sourceRecord.get('Name'));
 		}
 
-		public void setMidtermStatus(Order order, String productFamily) {
+		public void setReportStatus(Order order, String productFamily, String productName) {
 			order.Mid_Term_Report_Status__c = REQUIRED_PRODUCT_FAMILIES.contains(productFamily)
+				? 'Required'
+				: 'Not Required';
+			order.Final_Report_Status__c = NOT_REQUIRED_PRODUCT_NAMES.contains(productName)
+				? 'Not Required'
+				: 'Required';
+			order.Official_Letter_Status__c = productName == 'Official Letters Specific To A Market'
 				? 'Required'
 				: 'Not Required';
 		}

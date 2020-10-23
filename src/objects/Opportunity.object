@@ -999,6 +999,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>SOW_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When Opportunity Record Type equals Services, the Quote Record Type equals Services, and Quote Status equals Approved this is set to true.</description>
+        <externalId>false</externalId>
+        <label>SOW Approved</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Site__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>

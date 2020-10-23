@@ -11,12 +11,10 @@ public with sharing class OpportunitiesSvcServices extends SObjectsTriggerServic
 
 	public override void onBeforeUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
 		setStages(records, existingRecords);
-		createContractOrderAndOrderItemsWhenProposalPriceQuote(records, existingRecords);
+		createContractOrderAndOrderItemsWhenSowApproved(records, existingRecords);
 	}
 
-	public void createContractOrderAndOrderItemsWhenProposalPriceQuote(
-		List<SObject> records,
-		Map<Id, SObject> existingRecords
+	public void createContractOrderAndOrderItemsWhenSowApproved(List<SObject> records, Map<Id, SObject> existingRecords
 	) {
 		// Get only opportunities that changed to Proposal/Price Quote, are syncing, and do not have a contract/order
 		Map<Id, Opportunity> oppsByIds = new Map<Id, Opportunity>();
@@ -26,7 +24,7 @@ public with sharing class OpportunitiesSvcServices extends SObjectsTriggerServic
 					.selectOrdersByOpportunities(new Map<Id, SObject>(records).keySet()), Order.OpportunityId);
 		for (Opportunity opp : (List<Opportunity>) records) {
 			Opportunity existingOpp = (Opportunity) existingRecords.get(opp.Id);
-			if (opp.StageName != existingOpp.StageName && opp.StageName == 'Proposal/Price Quote'
+			if (opp.SOW_Approved__c && opp.SOW_Approved__c != existingOpp.SOW_Approved__c
 					&& opp.SyncedQuoteId != null && opp.ContractId == null && !opportunityIdsWithOrders.contains(opp.Id)
 			) {
 				oppsByIds.put(opp.Id, opp);
@@ -61,25 +59,30 @@ public with sharing class OpportunitiesSvcServices extends SObjectsTriggerServic
 	private static void buildOpportunityContractOrderOrderItemsUOW(
 		Opportunity opp,
 		Quote syncedQuote,
-		fflib_ISObjectUnitOfWork uow,
+		fflibext_ISObjectUnitOfWork uow,
 		List<SObject> recordsToInsert
 	) {
 		// Add contract and order
-		Contract oppContract = (Contract) servicesNewContract.getTargetRecord(opp);
 		Order oppOrder = (Order) servicesNewOrder.getTargetRecord(opp);
-		servicesNewOrder.setMidtermStatus(oppOrder, syncedQuote.PrimaryProductFamily__c);
-		recordsToInsert.add(oppContract);
-		recordsToInsert.add(oppOrder);
-		// Register relationships
-		uow.registerRelationship(opp, Opportunity.ContractId, oppContract);
-		uow.registerRelationship(oppOrder, Order.ContractId, oppContract);
-		uow.registerDirty(syncedQuote, Quote.ContractId, oppContract);
+		Contract oppContract = (Contract) servicesNewContract.getTargetRecord(opp);
 		// Add OrderItems
 		for (QuoteLineItem qli : syncedQuote.QuoteLineItems) {
+			if (qli.IsPrimary__c) {
+				// Set contract SOW
+				oppContract.Statement_of_Work__c = qli.Statement_of_Work__c;
+				// Set order report status
+				servicesNewOrder.setReportStatus(oppOrder, syncedQuote.PrimaryProductFamily__c, qli.Product2.Name);
+			}
 			OrderItem qliOrderItem = (OrderItem) servicesNewOrderItem.getTargetRecord(qli);
 			recordsToInsert.add(qliOrderItem);
 			uow.registerRelationship(qliOrderItem, OrderItem.OrderId, oppOrder);
 		}
+		recordsToInsert.add(oppOrder);
+		recordsToInsert.add(oppContract);
+		// Register contract relationships
+		uow.registerRelationship(opp, Opportunity.ContractId, oppContract);
+		uow.registerRelationship(oppOrder, Order.ContractId, oppContract);
+		uow.registerDirty(syncedQuote, Quote.ContractId, oppContract);
 	}
 
 	// Maps Opportunity fields to contracts to get the contract record to insert

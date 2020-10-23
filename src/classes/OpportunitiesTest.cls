@@ -74,18 +74,32 @@ private class OpportunitiesTest {
 		Opportunity testOpp = existingTestOpp.clone(true, true, false, false);
 		testOpp.StageName = 'Proposal/Price Quote';
 
+		Id productId = fflib_IDGenerator.generate(Product2.SObjectType);
+		Product2 testProduct = new Product2(
+			Name = 'Test Product'
+		);
+
 		Quote testQuote = new Quote(Id = quoteId, OpportunityId = opportunityId);
-		List<QuoteLineItem> testQuoteLineItems = new List<QuoteLineItem>{
-			new QuoteLineItem(
-				Id = fflib_IDGenerator.generate(QuoteLineItem.SObjectType),
-				Product2Id = fflib_IDGenerator.generate(Product2.SObjectType),
-				Description = 'Test Product Quote',
-				PricebookEntryId = fflib_IDGenerator.generate(PricebookEntry.SObjectType),
-				Quantity = 1,
-				ServiceDate = Date.today(),
-				UnitPrice = 100.00
-			)
-		};
+		QuoteLineItem testQuoteLineItem = new QuoteLineItem(
+			Id = fflib_IDGenerator.generate(QuoteLineItem.SObjectType),
+			Product2 = testProduct,
+			Product2Id = productId,
+			Description = 'Test Product Quote',
+			PricebookEntryId = fflib_IDGenerator.generate(PricebookEntry.SObjectType),
+			Quantity = 1,
+			ServiceDate = Date.today(),
+			UnitPrice = 100.00,
+			Statement_of_Work__c = 'SOW'
+		);
+		System.debug(testQuoteLineItem.Product2.Name);
+		System.debug(testQuoteLineItem.Product2Id);
+		testQuoteLineItem = (QuoteLineItem) fflib_ApexMocksUtils.setReadOnlyFields(
+			testQuoteLineItem,
+			QuoteLineItem.class,
+			new Map<SObjectField, Object>{ QuoteLineItem.IsPrimary__c => true }
+		);
+		List<QuoteLineItem> testQuoteLineItems = new List<QuoteLineItem>{ testQuoteLineItem };
+
 		// Make relationship between Quote and QuoteLineItems
 		List<Quote> mockQuotes = (List<Quote>)
 			fflib_ApexMocksUtils.makeRelationship(
@@ -118,26 +132,6 @@ private class OpportunitiesTest {
 			.registerNew(fflib_Match.sObjectsWith(
 				new List<Map<SObjectField, Object>> {
 					new Map<SObjectField, Object>{
-						Contract.RecordTypeId 	=> contractParticipationAgreementRecordTypeId,
-						Contract.AccountId 		=> testOpp.AccountId,
-						Contract.Pricebook2Id 	=> testOpp.Pricebook2Id,
-						Contract.ContractTerm 	=> 12,
-						Contract.StartDate 		=> testOpp.Requested_Service_Start_Date__c
-					},
-					new Map<SObjectField, Object>{
-						Order.RecordTypeId => orderServicesRecordTypeId,
-						Order.Name => 'Order-Test Services Opp',
-						Order.OpportunityId => testOpp.Id,
-						Order.AccountId => testOpp.AccountId,
-						Order.QuoteId => testOpp.SyncedQuoteId,
-						Order.Pricebook2Id => testOpp.Pricebook2Id,
-						Order.Status => 'Draft',
-						Order.EffectiveDate => testOpp.Requested_Service_Start_Date__c,
-						Order.EndDate => testOpp.Requested_Service_End_Date__c,
-						Order.Type => 'Services',
-						Order.Mid_Term_Report_Status__c => 'Not Required'
-					},
-					new Map<SObjectField, Object>{
 						OrderItem.QuoteLineItemId 	=> testQuoteLineItems[0].Id,
 						OrderItem.Description		=> testQuoteLineItems[0].Description,
 						OrderItem.ListPrice			=> testQuoteLineItems[0].ListPrice,
@@ -146,6 +140,30 @@ private class OpportunitiesTest {
 						OrderItem.Quantity			=> testQuoteLineItems[0].Quantity,
 						OrderItem.ServiceDate		=> testQuoteLineItems[0].ServiceDate,
 						OrderItem.UnitPrice			=> testQuoteLineItems[0].UnitPrice
+					},
+					new Map<SObjectField, Object>{
+						Order.RecordTypeId 				=> orderServicesRecordTypeId,
+						Order.Name 						=> 'Order-Test Services Opp',
+						Order.OpportunityId				=> testOpp.Id,
+						Order.AccountId 				=> testOpp.AccountId,
+						Order.QuoteId 					=> testOpp.SyncedQuoteId,
+						Order.Pricebook2Id 				=> testOpp.Pricebook2Id,
+						Order.Status 					=> 'Draft',
+						Order.EffectiveDate 			=> testOpp.Requested_Service_Start_Date__c,
+						Order.EndDate 					=> testOpp.Requested_Service_End_Date__c,
+						Order.Type 						=> 'Services',
+						Order.Mid_Term_Report_Status__c => 'Not Required',
+						Order.Final_Report_Status__c	=> 'Required',
+						Order.Official_Letter_Status__c	=> 'Not Required'
+					},
+					new Map<SObjectField, Object>{
+						Contract.RecordTypeId 			=> contractParticipationAgreementRecordTypeId,
+						Contract.AccountId 				=> testOpp.AccountId,
+						Contract.Pricebook2Id 			=> testOpp.Pricebook2Id,
+						Contract.ContractTerm 			=> 12,
+						Contract.StartDate 				=> testOpp.Requested_Service_Start_Date__c,
+						Contract.Status					=> 'Draft',
+						Contract.Statement_of_Work__c	=> testQuoteLineItems[0].Statement_of_Work__c
 					}
 				}
 		));

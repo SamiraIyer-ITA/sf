@@ -14,14 +14,24 @@ public class QuotesSelector extends fflib_SObjectSelector implements IQuotesSele
 	}
 
 	public List<Quote> selectBySyncedQuotesAndOpportunitiesWithPrimaryLineItems(Set<Id> opportunityIds) {
+		fflib_QueryFactory quotesQueryFactory = newQueryFactory();
+
+		fflib_QueryFactory lineItemsQueryFactory =
+			new QuoteLineItemsSelector().
+				addQueryFactorySubselect(quotesQueryFactory);
+
+		new ProductsSelector().
+			configureQueryFactoryFields(lineItemsQueryFactory, 'Product2');
+
 		String condition = 'PrimaryProductFamily__c != NULL '
 							+ 'AND IsSyncing = TRUE '
 							+ 'AND OpportunityId IN :opportunityIds';
-		fflib_QueryFactory query = newQueryFactory()
-			.setCondition(condition);
-		new QuoteLineItemsSelector()
-			.addQueryFactorySubselect(query, 'QuoteLineItems');
-		return (List<Quote>) Database.query(query.toSOQL());
+
+		return (List<Quote>)
+				Database.query(
+					quotesQueryFactory
+						.setCondition(condition)
+						.toSOQL());
 	}
 
 	private List<Schema.SObjectField> getSObjectFieldList() {
