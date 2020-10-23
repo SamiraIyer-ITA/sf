@@ -15,7 +15,19 @@ public class OpportunitiesSelector extends fflib_SObjectSelector implements IOpp
 
 	private List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
-			Opportunity.Id
+			Opportunity.Id,
+			Opportunity.AccountId,
+			Opportunity.Amount,
+			Opportunity.CloseDate,
+			Opportunity.ContractId,
+			Opportunity.RecordTypeId,
+			Opportunity.Record_Type_Developer_Name__c,
+			Opportunity.Requested_Service_End_Date__c,
+			Opportunity.Requested_Service_Start_Date__c,
+			Opportunity.Pricebook2Id,
+			Opportunity.StageName,
+			Opportunity.SyncedQuoteId,
+			Opportunity.Type
 		};
 	}
 

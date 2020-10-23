@@ -17,6 +17,10 @@ public class Quotes extends fflib_SObjectDomain implements IQuotes {
 		super(sObjectList);
 	}
 
+	public override void onBeforeUpdate(Map<Id, SObject> existingRecords) {
+	   QuotesService.handleBeforeUpdate(Records, existingRecords);
+	}
+
 	public class Constructor implements fflib_SObjectDomain.IConstructable {
 		public fflib_SObjectDomain construct(List<SObject> sObjectList) {
 			return new Quotes(sObjectList);
