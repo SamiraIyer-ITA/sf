@@ -2923,6 +2923,22 @@
         <errorMessage>Organization is required.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Svc_Require_CP_When_Conf_Call_Completed</fullName>
+        <active>true</active>
+        <description>Require a value for Collection Post when Conference Call Completed and the record type is Services.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Services&quot;, Conference_Call_Completed__c = TRUE, ISBLANK(Collection_Post__c))</errorConditionFormula>
+        <errorDisplayField>Collection_Post__c</errorDisplayField>
+        <errorMessage>Collection Post is required when Conference Call Completed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Svc_Require_FP_When_Conf_Call_Completed</fullName>
+        <active>true</active>
+        <description>Require a value for Fulfillment Post when Conference Call Completed and record type is Services.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Services&quot;, Conference_Call_Completed__c = TRUE, ISBLANK(Fulfillment_Post__c))</errorConditionFormula>
+        <errorDisplayField>Fulfillment_Post__c</errorDisplayField>
+        <errorMessage>Fulfillment Post is required when Conference Call Completed.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>V04Require_value_if_opportunity_is_lost</fullName>
         <active>true</active>
         <description>Require value if opportunity is lost</description>
