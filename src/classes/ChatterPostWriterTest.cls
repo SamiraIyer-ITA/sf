@@ -144,6 +144,35 @@ public class ChatterPostWriterTest {
     }
 
     @IsTest
+    static void testFinishPost() {
+        dataSetup();
+        Petition__c oldP = newP.clone(true, true, true, true);
+        Test.startTest();
+        //newP.Tolling_Update__c = true;
+        //oldP.Tolling_Update__c = true;
+        ChatterPostWriter cpw = new ChatterPostWriter();
+        cpw.finishPost('test', 'test', newP, true);
+        //System.assert(testMap.isEmpty());
+        //newP.Tolling_Update__c = false;
+        //testMap = cpw.fieldChanged('Tolling_Update__c', newP, oldP);
+        //System.assert(!testMap.isEmpty());
+        Test.stopTest();
+
+    }
+    @IsTest
+    static void testAddTemplateWithCaseInfo() {
+        dataSetup();
+        Test.startTest();
+        ChatterPostWriter cpw = new ChatterPostWriter();
+        Map<String, Automated_Chatter_Post__mdt> postsMap = cpw.getPostsMap('Investigation__c');
+        cpw.AddTemplateWithCaseInfo(newP, postsMap.get('Extension'));
+        Test.stopTest();
+        System.assert(!postsMap.isEmpty());
+        System.assertEquals(true, postsMap.containsKey('Extension'));
+
+    }
+
+    @IsTest
     static void testGetLitigationStateChangeIs() {
 
         dataSetup();

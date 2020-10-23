@@ -1,10 +1,8 @@
-import {LightningElement, track, wire} from 'lwc';
-import {CurrentPageReference} from 'lightning/navigation';
-import {fireEvent} from 'c/pubsub';
+import {LightningElement, track} from 'lwc';
+import {publish,createMessageContext,releaseMessageContext} from 'lightning/messageService';
+import messageChannel from "@salesforce/messageChannel/TransactionManagement__c";
 
 export default class TransactionCriteria extends LightningElement {
-
-	@wire(CurrentPageReference) pageRef;
 
 	accountTypeOptions = [
 		{ label: 'Services', value: 'Services' },
@@ -13,13 +11,18 @@ export default class TransactionCriteria extends LightningElement {
 	];
 
 	transactionTypeOptions = [
-		{ label: 'Payment', value: 'Payment' },
-		{ label: 'Refund', value: 'Refund' }
+		{ label: 'Payments', value: 'Payments' },
+		{ label: 'Refunds', value: 'Refunds' }
 	];
 
 	paymentMethodOptions = [
 		{ label: 'Credit Card', value: 'Credit Card' },
 		{ label: 'ACH', value: 'ACH' }
+	];
+
+	downloadedOptions = [
+		{ label: 'Not Yet Downloaded', value: 'Not Yet Downloaded' },
+		{ label: 'All', value: 'All' }
 	];
 
 	@track fromDate;
@@ -29,9 +32,11 @@ export default class TransactionCriteria extends LightningElement {
 	@track accountType;
 	@track transactionType;
 	@track paymentMethod;
+	@track downloaded = "Not Yet Downloaded";
 	@track activeAccordionSection = "accountTypeSection";
 	firstTimeDateSelection = true;
 	firstTimeRefundSelection = true;
+	context = createMessageContext();
 
 	connectedCallback() {
 		let d = new Date();
@@ -40,6 +45,11 @@ export default class TransactionCriteria extends LightningElement {
 		d.setDate(d.getDate() - 1);
 		this.fromDate = d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + d.getDate();
 		this.fromDateText = this.getDateFormatted(this.fromDate);
+	}
+
+	disconnectedCallback() {
+		//Release Message Context for Lightning Message Service
+		releaseMessageContext(this.context);
 	}
 
 	get accountTypeText() {
@@ -63,8 +73,15 @@ export default class TransactionCriteria extends LightningElement {
 		return "Transaction Type";
 	}
 
+	get downloadedText() {
+		if (this.downloaded) {
+			return "Transactions to Display: " + this.downloaded;
+		}
+		return "Transactions to Display";
+	}
+
 	get isRefund() {
-		if (this.transactionType == "Refund") {
+		if (this.transactionType == "Refunds") {
 			return true;
 		}
 		return false;
@@ -72,7 +89,7 @@ export default class TransactionCriteria extends LightningElement {
 
 	handleTransactionTypeChange(event) {
 		this.transactionType = event.detail.value;
-		if (this.transactionType == "Refund") {
+		if (this.transactionType == "Refunds") {
 			this.paymentMethod = "Credit Card";
 			if (this.firstTimeRefundSelection == true) {
 				this.activeAccordionSection = "dateRangeSection";
@@ -101,7 +118,6 @@ export default class TransactionCriteria extends LightningElement {
 
 	get dateRangeText() {
 		if (this.fromDateText && this.toDateText) {
-			//return "Date Range: " + this.getDateFormatted(this.fromDate) + " - " + this.getDateFormatted(this.toDate);
 			return "Date Range: " + this.fromDateText + " - " + this.toDateText;
 		}
 		return "Date Range";
@@ -129,8 +145,19 @@ export default class TransactionCriteria extends LightningElement {
 		obj.paymentMethod = this.paymentMethod;
 		obj.fromDate = this.fromDateText;
 		obj.toDate = this.toDateText;
+		obj.downloaded = this.downloaded;
 		let searchCriteria = JSON.stringify(obj);
 
-		fireEvent(this.pageRef, 'transactionListUpdate', searchCriteria);
+		//Send the search criteria to the transactionList LWC
+		const payload = {
+			source: "transactionCriteria",
+			messageBody: searchCriteria
+		};
+		publish(this.context, messageChannel, payload);
+
+	}
+
+	handleDownloadedChange(event) {
+		this.downloaded = event.detail.value;
 	}
 }
