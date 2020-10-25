@@ -606,6 +606,17 @@ public without sharing class Utils {
 	) {
 		return getRecordTypeMapBySObject(sObjectType).get(developerName);
 	}
+
+	public static Boolean getHasRecordChanged(Set<String> fieldsToChecks, SObject record, SObject existingRecord) {
+		Boolean hasChanged = false;
+		for (String field :fieldsToChecks) {
+			if ((hasChanged) = record.get(field) != existingRecord.get(field)) {
+				break;
+			}
+		}
+		return hasChanged;
+	}
+
 	/*
         the following method doesnt do anything (obviously!) and is added
         soley for the purpose of increasing test code coverage of this class                                                                                              */
