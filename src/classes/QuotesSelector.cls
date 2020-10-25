@@ -13,6 +13,18 @@ public class QuotesSelector extends fflib_SObjectSelector implements IQuotesSele
 		return (List<Quote>) selectSObjectsById(idSet);
 	}
 
+	public List<Quote> selectByQuoteLineItemsIsSyncingOppNotClosedIsPrimary(Set<Id> quoteLineItemIds) {
+		String condition = 'PrimaryProductFamily__c != NULL '
+							+ 'AND IsSyncing = TRUE '
+							+ 'AND RecordType.DeveloperName = \'Services\' '
+							+ 'AND Id IN (SELECT QuoteId FROM QuoteLineItem WHERE Id IN : quoteLineItemIds)';
+		return (List<Quote>)
+			Database.query(
+				newQueryFactory()
+					.setCondition(condition)
+					.toSOQL());
+	}
+
 	public List<Quote> selectBySyncedQuotesAndOpportunitiesWithPrimaryLineItems(Set<Id> opportunityIds) {
 		fflib_QueryFactory quotesQueryFactory = newQueryFactory();
 
@@ -25,6 +37,7 @@ public class QuotesSelector extends fflib_SObjectSelector implements IQuotesSele
 
 		String condition = 'PrimaryProductFamily__c != NULL '
 							+ 'AND IsSyncing = TRUE '
+							+ 'AND RecordType.DeveloperName = \'Services\' '
 							+ 'AND OpportunityId IN :opportunityIds';
 
 		return (List<Quote>)
