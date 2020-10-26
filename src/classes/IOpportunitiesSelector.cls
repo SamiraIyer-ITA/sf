@@ -6,4 +6,5 @@
 public interface IOpportunitiesSelector extends fflib_ISObjectSelector {
 
 	List<Opportunity> selectById(Set<Id> idSet);
+	List<Opportunity> selectByIdNoContractNoOrdersServicesQuoteApproved(Set<Id> idSet);
 }

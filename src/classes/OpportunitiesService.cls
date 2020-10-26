@@ -15,6 +15,15 @@ public with sharing class OpportunitiesService {
 	}
 
 	/**
+	 * Call this when you need to call methods for OpportunitiesSvcServices
+	 *
+	 * @return IOpportunitiesSvcServices
+	 */
+	public static IOpportunitiesSvcServices servicesService() {
+		return OpportunitiesImplManager.servicesService();
+	}
+
+	/**
 	 * Call this when you require functionality on specific or all service implementations
 	 *
 	 * @param records SObjects list
@@ -54,5 +63,9 @@ public with sharing class OpportunitiesService {
 
 	public static void handleBeforeUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
 		triggerService(records, existingRecords).handleBeforeUpdate();
+	}
+
+	public static void createServicesContractOrderAndOrderItems(Set<Id> opportunityIds) {
+		servicesService().createContractOrderAndOrderItemsWhenSowApproved(opportunityIds);
 	}
 }

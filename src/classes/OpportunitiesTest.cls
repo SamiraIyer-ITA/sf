@@ -60,7 +60,7 @@ private class OpportunitiesTest {
 	}
 
 	@IsTest
-	static void test_OnBeforeUpdate_CreateServicesContractOrderAndOrderItemsWhenProposalPriceQuote_NoDml() {
+	static void test_OnBeforeUpdate_CreateServicesContractOrderAndOrderItemsWhenSOWApproved_NoDml() {
 		// Given - Create mocks
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
@@ -70,9 +70,9 @@ private class OpportunitiesTest {
 		fflibext_Application.UnitOfWork.setMock(mockUow);
 
 		// Given - Create mock data
-		Opportunity existingTestOpp = getContractOrderOpportunity('Services', 'Needs Analysis');
+		Opportunity existingTestOpp = getContractOrderOpportunity('Services', 'Proposal/Price Quote');
 		Opportunity testOpp = existingTestOpp.clone(true, true, false, false);
-		testOpp.StageName = 'Proposal/Price Quote';
+		testOpp.SOW_Approved__c = true;
 
 		Id productId = fflib_IDGenerator.generate(Product2.SObjectType);
 		Product2 testProduct = new Product2(
@@ -91,8 +91,7 @@ private class OpportunitiesTest {
 			UnitPrice = 100.00,
 			Statement_of_Work__c = 'SOW'
 		);
-		System.debug(testQuoteLineItem.Product2.Name);
-		System.debug(testQuoteLineItem.Product2Id);
+
 		testQuoteLineItem = (QuoteLineItem) fflib_ApexMocksUtils.setReadOnlyFields(
 			testQuoteLineItem,
 			QuoteLineItem.class,
@@ -167,13 +166,10 @@ private class OpportunitiesTest {
 					}
 				}
 		));
-		((IQuotesSelector)
-			 mocks.verify(mockQuoteSelector))
-				.selectBySyncedQuotesAndOpportunitiesWithPrimaryLineItems(new Set<Id>{ opportunityId });
 	}
 
 	@IsTest
-	static void test_OnBeforeUpdate_VerifyServicesContractsOrdersAndOrderItemsAreNotCreatedMoreThanOnceWhenProposalPriceQuote_NoDml() {
+	static void test_OnBeforeUpdate_VerifyServicesContractsOrdersAndOrderItemsAreNotCreatedMoreThanOnceWhenSOWApproved_NoDml() {
 		// Given - Create mocks
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
@@ -221,8 +217,6 @@ private class OpportunitiesTest {
 		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(0)
 			.description('Verify no contract and order were created')))
 			.registerNew(new List<SObject>());
-		((IOrdersSelector)
-			mocks.verify(mockSelector)).selectOrdersByOpportunities(testOppSet);
 	}
 
 	@IsTest

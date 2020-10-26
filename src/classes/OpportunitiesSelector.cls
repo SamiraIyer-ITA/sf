@@ -13,9 +13,24 @@ public class OpportunitiesSelector extends fflib_SObjectSelector implements IOpp
 		return (List<Opportunity>) selectSObjectsById(idSet);
 	}
 
+	public List<Opportunity> selectByIdNoContractNoOrdersServicesQuoteApproved(Set<Id> idSet) {
+		String condition = 'ContractId = NULL '
+							+ 'AND SOW_Approved__c = TRUE '
+							+ 'AND SyncedQuote.Status = \'Approved\' '
+							+ 'AND SyncedQuote.RecordType.DeveloperName = \'Services\' '
+							+ 'AND Id NOT IN (SELECT OpportunityId FROM Order WHERE OpportunityId IN :idSet) '
+							+ 'AND Id IN :idSet';
+		return (List<Opportunity>)
+			Database.query(
+				newQueryFactory()
+					.setCondition(condition)
+					.toSOQL());
+	}
+
 	private List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 			Opportunity.Id,
+			Opportunity.Name,
 			Opportunity.AccountId,
 			Opportunity.Amount,
 			Opportunity.CloseDate,
@@ -27,6 +42,7 @@ public class OpportunitiesSelector extends fflib_SObjectSelector implements IOpp
 			Opportunity.Pricebook2Id,
 			Opportunity.StageName,
 			Opportunity.SyncedQuoteId,
+			Opportunity.SOW_Approved__c,
 			Opportunity.Type
 		};
 	}
