@@ -4,12 +4,12 @@
         <description>Create a payment record and update associated orders.</description>
         <name>Create_Payment_Record_and_Update_Orders</name>
         <label>Create Payment Record and Update Orders</label>
-        <locationX>794</locationX>
-        <locationY>54</locationY>
+        <locationX>1145</locationX>
+        <locationY>200</locationY>
         <actionName>Flow_CreatePaymentRecord</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Done_Screen</targetReference>
+            <targetReference>eachOrder</targetReference>
         </connector>
         <faultConnector>
             <targetReference>DML_Error</targetReference>
@@ -74,8 +74,8 @@
         <description>Get the object name of the calling record.</description>
         <name>Get_Object_Name</name>
         <label>Get Object Name</label>
-        <locationX>50</locationX>
-        <locationY>378</locationY>
+        <locationX>403</locationX>
+        <locationY>526</locationY>
         <actionName>Flow_ObjectNamesFromIds</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -99,8 +99,8 @@
         <description>Validate that Orders are Payable.</description>
         <name>Validate_Orders</name>
         <label>Validate Orders</label>
-        <locationX>971</locationX>
-        <locationY>558</locationY>
+        <locationX>1324</locationX>
+        <locationY>706</locationY>
         <actionName>Flow_ValidatePayableOrders</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -136,8 +136,8 @@
         <description>Assign Contract Id to a separate variable.</description>
         <name>Assign_Contract_Id</name>
         <label>Assign Contract Id</label>
-        <locationX>483</locationX>
-        <locationY>436</locationY>
+        <locationX>836</locationX>
+        <locationY>584</locationY>
         <assignmentItems>
             <assignToReference>ContractId</assignToReference>
             <operator>Assign</operator>
@@ -150,11 +150,27 @@
         </connector>
     </assignments>
     <assignments>
+        <name>assignOrderText</name>
+        <label>assignOrderText</label>
+        <locationX>1311</locationX>
+        <locationY>66</locationY>
+        <assignmentItems>
+            <assignToReference>varDisplayOrders</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>orderTemplate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>eachOrder</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <description>Assign the DML Error to a variable.</description>
         <name>DML_Error</name>
         <label>DML Error</label>
-        <locationX>398</locationX>
-        <locationY>60</locationY>
+        <locationX>751</locationX>
+        <locationY>208</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -167,11 +183,28 @@
         </connector>
     </assignments>
     <assignments>
+        <description>DML error message for users who do not have the appropriate permissions to record payments (run this flow).</description>
+        <name>Flow_Access_Error_Assignment</name>
+        <label>Flow Access Error Assignment</label>
+        <locationX>643</locationX>
+        <locationY>84</locationY>
+        <assignmentItems>
+            <assignToReference>errorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>&lt;li&gt;You do not have the permission to record payments&lt;/li&gt;</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Error_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <description>Assign the error message if the flow wasn&apos;t run from an Order or a Contract.</description>
         <name>Invalid_Object_Error</name>
         <label>Invalid Object Error</label>
-        <locationX>454</locationX>
-        <locationY>304</locationY>
+        <locationX>807</locationX>
+        <locationY>452</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -187,8 +220,8 @@
         <description>Assign the record Id to a List.</description>
         <name>Record_Id_to_List</name>
         <label>Record Id to List</label>
-        <locationX>50</locationX>
-        <locationY>195</locationY>
+        <locationX>403</locationX>
+        <locationY>318</locationY>
         <assignmentItems>
             <assignToReference>RecordIds</assignToReference>
             <operator>Add</operator>
@@ -204,8 +237,8 @@
         <description>Set the Contract Id from the Order.</description>
         <name>Set_Contract_and_Order_Details</name>
         <label>Set Contract and Order Details</label>
-        <locationX>543</locationX>
-        <locationY>570</locationY>
+        <locationX>896</locationX>
+        <locationY>718</locationY>
         <assignmentItems>
             <assignToReference>ContractId</assignToReference>
             <operator>Assign</operator>
@@ -298,11 +331,37 @@
         </value>
     </constants>
     <decisions>
+        <description>Determination of whether running user has the appropriate permissions to record payments (run this flow).</description>
+        <name>Can_access_flow</name>
+        <label>Can access flow</label>
+        <locationX>396</locationX>
+        <locationY>83</locationY>
+        <defaultConnector>
+            <targetReference>Flow_Access_Error_Assignment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Access</defaultConnectorLabel>
+        <rules>
+            <name>Yes_can_access</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CanAccessFormula</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Record_Id_to_List</targetReference>
+            </connector>
+            <label>Yes can access</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>Determines what to do for various object types.</description>
         <name>Object_Type</name>
         <label>Object Type</label>
-        <locationX>42</locationX>
-        <locationY>560</locationY>
+        <locationX>395</locationX>
+        <locationY>708</locationY>
         <defaultConnector>
             <targetReference>Invalid_Object_Error</targetReference>
         </defaultConnector>
@@ -342,8 +401,8 @@
         <description>Handles flow direction if the orders are valid for payment or not.</description>
         <name>Validation_Handling</name>
         <label>Validation Handling</label>
-        <locationX>963</locationX>
-        <locationY>406</locationY>
+        <locationX>1316</locationX>
+        <locationY>584</locationY>
         <defaultConnector>
             <targetReference>Payment_Details</targetReference>
         </defaultConnector>
@@ -365,8 +424,29 @@
         </rules>
     </decisions>
     <description>Record a Cash, Check, or Bank Transfer payment.</description>
+    <formulas>
+        <description>Error reference for decision element determining if a user has the applicable permissions to record payments (run this flow)</description>
+        <name>CanAccessFormula</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Permission.Can_Record_Payments}</expression>
+    </formulas>
     <interviewLabel>Record Payment {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Record Payment</label>
+    <loops>
+        <name>eachOrder</name>
+        <label>eachOrder</label>
+        <locationX>1145</locationX>
+        <locationY>73</locationY>
+        <collectionReference>SelectedOrders</collectionReference>
+        <assignNextValueToReference>OrderLoopItem</assignNextValueToReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>assignOrderText</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Done_Screen</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -384,8 +464,8 @@
         <description>Gets the order record</description>
         <name>Get_Order</name>
         <label>Get Order</label>
-        <locationX>382</locationX>
-        <locationY>570</locationY>
+        <locationX>735</locationX>
+        <locationY>718</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Contract_and_Order_Details</targetReference>
@@ -412,15 +492,40 @@
     <screens>
         <name>Done_Screen</name>
         <label>Done Screen</label>
-        <locationX>961</locationX>
-        <locationY>54</locationY>
+        <locationX>1318</locationX>
+        <locationY>215</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <fields>
             <name>DoneScreenDiplayText</name>
-            <fieldText>&lt;p&gt;A payment of {!TotalAmount} has been recorded.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Your payment of {!TotalAmount} has been recorded.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;     {!varDisplayOrders}&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Is_Contract</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>OrderFinalMessage</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Your payment of {!TotalAmount} has been recorded for Order &quot;{!Get_Order.Name}&quot;.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Is_Order</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -429,8 +534,8 @@
         <description>Displays when an error occurs.</description>
         <name>Error_Screen</name>
         <label>Error Screen</label>
-        <locationX>612</locationX>
-        <locationY>304</locationY>
+        <locationX>963</locationX>
+        <locationY>452</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -446,8 +551,8 @@
         <description>Select the type of payment and enter it&apos;s details</description>
         <name>Payment_Details</name>
         <label>Payment Details</label>
-        <locationX>967</locationX>
-        <locationY>225</locationY>
+        <locationX>1318</locationX>
+        <locationY>373</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -585,8 +690,8 @@
         <description>Select the orders for which you want to record a payment.</description>
         <name>Select_Orders_Screen</name>
         <label>Select Orders Screen</label>
-        <locationX>616</locationX>
-        <locationY>436</locationY>
+        <locationX>982</locationX>
+        <locationY>603</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -603,6 +708,12 @@
                     <elementReference>recordId</elementReference>
                 </value>
             </inputParameters>
+            <inputParameters>
+                <name>actionType</name>
+                <value>
+                    <stringValue>Payment</stringValue>
+                </value>
+            </inputParameters>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>SelectedOrders</assignToReference>
@@ -613,13 +724,17 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
-        <locationY>50</locationY>
+        <locationX>56</locationX>
+        <locationY>81</locationY>
         <connector>
-            <targetReference>Record_Id_to_List</targetReference>
+            <targetReference>Can_access_flow</targetReference>
         </connector>
     </start>
     <status>Active</status>
+    <textTemplates>
+        <name>orderTemplate</name>
+        <text>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);&quot;&gt;${!OrderLoopItem.TotalAmount} for&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;  Order &quot;{!OrderLoopItem.Name}&quot;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</text>
+    </textTemplates>
     <variables>
         <description>The &apos;Type&apos; of the Orders.</description>
         <name>AccountType</name>
@@ -726,5 +841,22 @@
         <value>
             <numberValue>0.0</numberValue>
         </value>
+    </variables>
+    <variables>
+        <description>Display selected orders</description>
+        <name>varDisplayOrders</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Loop variable added as workaround to assignNextValueToReference being removed.</description>
+        <name>OrderLoopItem</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Order</objectType>
     </variables>
 </Flow>
