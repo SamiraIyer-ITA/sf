@@ -515,6 +515,11 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>Required</fullName>
+                    <default>false</default>
+                    <label>Required</label>
+                </value>
+                <value>
                     <fullName>Not Required</fullName>
                     <default>false</default>
                     <label>Not Required</label>
@@ -533,11 +538,6 @@
                     <fullName>Rejected</fullName>
                     <default>false</default>
                     <label>Rejected</label>
-                </value>
-                <value>
-                    <fullName>Required</fullName>
-                    <default>false</default>
-                    <label>Required</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

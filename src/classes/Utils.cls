@@ -607,6 +607,16 @@ public without sharing class Utils {
 		return getRecordTypeMapBySObject(sObjectType).get(developerName);
 	}
 
+	/**
+	 * Checks to see if record's field has been changed within in a list of fields. Once one field shows a change, the
+	 * operation breaks and confirms the that the record has changed.
+	 *
+	 * @param fieldsToChecks List of of fields to check by Api name
+	 * @param record The record being updated
+	 * @param existingRecord The record with the existing values
+	 *
+	 * @return hasChanged
+	 */
 	public static Boolean getHasRecordChanged(Set<String> fieldsToChecks, SObject record, SObject existingRecord) {
 		Boolean hasChanged = false;
 		for (String field :fieldsToChecks) {
