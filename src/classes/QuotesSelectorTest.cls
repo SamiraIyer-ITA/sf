@@ -15,4 +15,12 @@ private class QuotesSelectorTest {
 		System.assertNotEquals(null, result, 'Selector returned null instead of list');
 		System.assertEquals(0, result.size(), 'List not empty');
 	}
+
+	@IsTest
+	static void testSelectByQuoteLineItemsIsSyncingOppNotClosedIsPrimary() {
+		List<Quote> result = QuotesSelector.newInstance()
+			.selectByQuoteLineItemsIsSyncingOppNotClosedIsPrimary(new Set<Id> {});
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertEquals(0, result.size(), 'List not empty');
+	}
 }
