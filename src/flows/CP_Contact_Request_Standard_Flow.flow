@@ -3,7 +3,7 @@
     <actionCalls>
         <name>Get_Group_Id</name>
         <label>Get Group Id</label>
-        <locationX>351</locationX>
+        <locationX>422</locationX>
         <locationY>496</locationY>
         <actionName>CP_Flow_Query_Groups</actionName>
         <actionType>apex</actionType>
@@ -24,7 +24,7 @@
     <actionCalls>
         <name>Save_Contact_Request</name>
         <label>Save Contact Request</label>
-        <locationX>577</locationX>
+        <locationX>648</locationX>
         <locationY>496</locationY>
         <actionName>CP_SaveContactRequestFlowAction</actionName>
         <actionType>apex</actionType>
@@ -116,10 +116,11 @@
             </value>
         </inputParameters>
     </actionCalls>
+    <apiVersion>49.0</apiVersion>
     <assignments>
         <name>Update_IssueBox_flag</name>
         <label>Turn on validations</label>
-        <locationX>238</locationX>
+        <locationX>309</locationX>
         <locationY>451</locationY>
         <assignmentItems>
             <assignToReference>DoValidationCheck</assignToReference>
@@ -149,7 +150,7 @@
     <decisions>
         <name>Validate_Form</name>
         <label>Validate Form</label>
-        <locationX>82</locationX>
+        <locationX>153</locationX>
         <locationY>612</locationY>
         <defaultConnector>
             <targetReference>get_contact</targetReference>
@@ -288,14 +289,27 @@
     <formulas>
         <name>FormulaQueueSelector</name>
         <dataType>String</dataType>
-        <expression>if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert in the US&apos; &amp;&amp;{!U_S} != &apos;Enter U.S. Zip Code&apos; &amp;&amp; !isBlank({!U_S}),&apos;CP_Contact_US_1&apos;,
-if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp; {!Asia_Region},&apos;CP_Contact_US_2&apos;,
-if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!China_Region},&apos;CP_Contact_US_3&apos;,
-if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Europe_Region1},&apos;CP_Contact_US_4&apos;,
-if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Middle_East_And_Africa_Region},&apos;CP_Contact_US_5&apos;,
-if(({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Western_Hemisphere_And_Canada},&apos;CP_Contact_US_6&apos;,
-if({!IssueBox} = &apos;Policy-Identifying Top Markets-Industry Trends&apos;, &apos;CP_Contact_US_9&apos;,
-if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apos;CP_Contact_US_8&apos;))))))))</expression>
+        <expression>if(
+  ({!IssueBox}) == &apos;Contact a local trade or export assistance expert in the US&apos;      &amp;&amp; {!U_S} != &apos;Enter U.S. Zip Code&apos; &amp;&amp; !isBlank({!U_S}),&apos;CP_Contact_US_1&apos;,
+    if(
+      ({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp; {!Asia_Region},&apos;CP_Contact_US_2&apos;,
+        if(
+          ({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!China_Region},&apos;CP_Contact_US_3&apos;,
+            if(
+              ({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Europe_Region1},&apos;CP_Contact_US_4&apos;,
+                if(
+                  ({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Middle_East_And_Africa_Region},&apos;CP_Contact_US_5&apos;,
+                    if(
+                      ({!IssueBox}) == &apos;Contact a local trade or export assistance expert outside the US&apos; &amp;&amp;  {!Western_Hemisphere_And_Canada},&apos;CP_Contact_US_6&apos;,
+                        if(
+                          ({!IssueBox}) = &apos;Media Inquiries&apos;, &apos;CP_Contact_US_8&apos;,
+                            if(
+                              ({!IssueBox}) = &apos;Policy-Identifying Top Markets-Industry Trends&apos;, &apos;CP_Contact_US_9&apos;,
+                                if(
+                                  ({!IssueBox}) = &apos;My trade.gov account&apos;, &apos;CP_Contact_US_10&apos;,
+                                    if(
+                                      ({!IssueBox}) = &apos;Website Issue&apos;, &apos;CP_Contact_US_11&apos;, &apos;CP_Contact_US_11&apos;
+))))))))))</expression>
     </formulas>
     <formulas>
         <name>LeadIdForExt</name>
@@ -316,7 +330,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
     <formulas>
         <name>SelectErrorFlag2</name>
         <dataType>Boolean</dataType>
-        <expression>if({!DoValidationCheck} == true &amp;&amp; {!IssueBox} == &quot;Select&quot;, true,false)</expression>
+        <expression>if({!DoValidationCheck} == true &amp;&amp; {!IssueBox} == &quot;--Select--&quot;, true,false)</expression>
     </formulas>
     <formulas>
         <name>TradeBArrierURL</name>
@@ -351,6 +365,12 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
         </value>
     </processMetadataValues>
     <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
         <name>OriginBuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
@@ -360,12 +380,13 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
     <recordLookups>
         <name>get_contact</name>
         <label>get contact</label>
-        <locationX>343</locationX>
+        <locationX>414</locationX>
         <locationY>68</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Group_Id</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Email</field>
             <operator>EqualTo</operator>
@@ -390,12 +411,13 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
     <recordLookups>
         <name>getrecordTypeId</name>
         <label>getrecordTypeId</label>
-        <locationX>76</locationX>
+        <locationX>147</locationX>
         <locationY>182</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Contact_us</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
@@ -412,7 +434,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
     <screens>
         <name>Contact_us</name>
         <label>Contact us</label>
-        <locationX>82</locationX>
+        <locationX>153</locationX>
         <locationY>307</locationY>
         <allowBack>true</allowBack>
         <allowFinish>false</allowFinish>
@@ -710,7 +732,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
     <screens>
         <name>Success_Screen</name>
         <label>Success Screen</label>
-        <locationX>762</locationX>
+        <locationX>833</locationX>
         <locationY>496</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -722,7 +744,7 @@ if({!IssueBox} = &apos;Resolving_a_trade&apos;,&apos;CP_Contact_US_7&apos;, &apo
         </fields>
         <fields>
             <name>PleaseVistOfficeLisst</name>
-            <fieldText>&lt;p&gt;&lt;a href=&quot;https://trade.gov/commercial-services-offices-us&quot; target=&quot;_blank&quot;&gt;Find the U.S. office closest to your location&lt;/a&gt;.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;a href=&quot;https://2016.export.gov/usoffices/index.asp&quot; target=&quot;_blank&quot;&gt;Find the U.S. office closest to your location&lt;/a&gt;.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>

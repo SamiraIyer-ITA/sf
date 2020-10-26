@@ -206,7 +206,7 @@
                 <value>
                     <fullName>My trade gov account</fullName>
                     <default>false</default>
-                    <label>My trade gov account</label>
+                    <label>My trade.gov account</label>
                 </value>
                 <value>
                     <fullName>Media inquiry (* media members only)</fullName>
@@ -216,12 +216,7 @@
                 <value>
                     <fullName>Issue with the website</fullName>
                     <default>false</default>
-                    <label>Report a website issue</label>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                    <label>Other</label>
+                    <label>Website Issue</label>
                 </value>
                 <value>
                     <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
@@ -577,10 +572,6 @@
             </values>
             <values>
                 <fullName>My trade gov account</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
