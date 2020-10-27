@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>apo_Modernization</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>APO_MODERNIZATION</name>
+    </customPermissions>
+    <description>This permission set provides APO Modernization field access to specific users</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>A0110ApoModernization Component Access</label>
+    <license>Salesforce</license>
+</PermissionSet>
