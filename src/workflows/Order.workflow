@@ -39,6 +39,16 @@
         <template>Trade_Community/Order_Submitted</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Order_Status_Paid</fullName>
+        <description>Order Status updates to Paid</description>
+        <field>Status</field>
+        <literalValue>Paid</literalValue>
+        <name>Order Status Paid</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Organization_Contact</fullName>
         <description>Update the Organization Contact field on Order</description>
         <field>Organization_Contact__c</field>
@@ -80,5 +90,20 @@
         <description>When an Order is paid, send the user an email receipt.</description>
         <formula>and( Order_Paid__c, contains(Participant__r.Program__r.Name, &apos;Privacy Shield&apos;), or(isNew(), ISCHANGED(Order_Paid__c), Participant__r.Program__r.Name = &apos;Privacy Shield&apos;))</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Payment Status Sync</fullName>
+        <actions>
+            <name>Order_Status_Paid</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order.Order_Paid__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Update the Order Status to &quot;Paid&quot; when the Order Paid checkbox is updated to &quot;true&quot;</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

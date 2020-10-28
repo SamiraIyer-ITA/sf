@@ -1,0 +1,9 @@
+/**
+ * {2} fflib Selector Interface
+ *
+ * @author {0}
+ */
+public interface I{1}Selector extends fflib_ISObjectSelector {{
+
+	List<{2}> selectById(Set<Id> idSet);
+}}
