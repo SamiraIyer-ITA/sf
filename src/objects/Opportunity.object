@@ -479,6 +479,58 @@
         <fullName>Probability</fullName>
         <trackTrending>false</trackTrending>
     </fields>
+     <fields>
+        <fullName>Reason_Lost__c</fullName>
+        <description>Reason opportunity was lost</description>
+        <externalId>false</externalId>
+        <label>Reason Lost</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cost</fullName>
+                    <default>false</default>
+                    <label>Cost</label>
+                </value>
+                <value>
+                    <fullName>Customer</fullName>
+                    <default>false</default>
+                    <label>Customer</label>
+                </value>
+                <value>
+                    <fullName>Withdrawal</fullName>
+                    <default>false</default>
+                    <label>Withdrawal</label>
+                </value>
+                <value>
+                    <fullName>Mutual Decision</fullName>
+                    <default>false</default>
+                    <label>Mutual Decision</label>
+                </value>
+                <value>
+                    <fullName>Post unable to fulfill</fullName>
+                    <default>false</default>
+                    <label>Post unable to fulfill</label>
+                </value>
+                <value>
+                    <fullName>Timing</fullName>
+                    <default>false</default>
+                    <label>Timing</label>
+                </value>
+                <value>
+                    <fullName>No Longer Qualify</fullName>
+                    <default>false</default>
+                    <label>No Longer Qualify</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <fields>
         <fullName>Site__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
