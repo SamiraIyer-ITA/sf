@@ -64,7 +64,7 @@ private class OpportunitiesSvcServicesTest {
 
 		mocks.startStubbing();
 		mocks.when(mockOppSelector.sObjectType()).thenReturn(Opportunity.SObjectType);
-		mocks.when(mockOppSelector.selectByIdNoContractNoOrdersServicesQuoteApproved(new Set<Id>{ opportunityId }))
+		mocks.when(mockOppSelector.selectByIdNoContractNoOrdersSowApproved(new Set<Id>{ opportunityId }))
 			.thenReturn(new List<Opportunity>{ testOpp });
 		mocks.when(mockQuoteSelector.sObjectType()).thenReturn(Quote.SObjectType);
 		mocks.when(mockQuoteSelector.selectBySyncedQuotesAndOpportunitiesWithPrimaryLineItems(new Set<Id>{ opportunityId }))
@@ -128,11 +128,16 @@ private class OpportunitiesSvcServicesTest {
 		// Given - Create mocks
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		IOpportunitiesSelector mockOppSelector = (IOpportunitiesSelector) mocks.mock(IOpportunitiesSelector.class);
+		IQuotesSelector mockQuoteSelector = (IQuotesSelector) mocks.mock(IQuotesSelector.class);
 
 		mocks.startStubbing();
 		mocks.when(mockOppSelector.sObjectType()).thenReturn(Opportunity.SObjectType);
-		mocks.when(mockOppSelector.selectByIdNoContractNoOrdersServicesQuoteApproved(new Set<Id>{ opportunityId }))
-			.thenReturn(new List<Opportunity>{});
+		mocks.when(mockOppSelector.selectByIdNoContractNoOrdersSowApproved(new Set<Id>{ opportunityId }))
+			.thenReturn(new List<Opportunity>{ new Opportunity( Id = opportunityId) });
+		// We will return an empty list for Quote so the exception can be thrown
+		mocks.when(mockQuoteSelector.sObjectType()).thenReturn(Quote.SObjectType);
+		mocks.when(mockQuoteSelector.selectBySyncedQuotesAndOpportunitiesWithPrimaryLineItems(new Set<Id>{ opportunityId }))
+			.thenReturn(new List<Quote>{});
 		mocks.stopStubbing();
 
 		// Given - Inject mocks

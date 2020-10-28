@@ -5,7 +5,7 @@
  */
 public with sharing class QuotesSvcServices extends SObjectsTriggerService implements IQuotesSvcServices {
 
-	public override void onBeforeUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
+	public override void onAfterUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
 		updateOpportunitySOWAppproved(records, existingRecords);
 	}
 

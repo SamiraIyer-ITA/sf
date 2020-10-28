@@ -48,7 +48,7 @@ public with sharing class QuotesService {
 		return new QuotesImplManager(records, existingRecords).triggerService();
 	}
 
-	public static void handleBeforeUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
-		triggerService(records, existingRecords).handleBeforeUpdate();
+	public static void handleAfterUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
+		triggerService(records, existingRecords).handleAfterUpdate();
 	}
 }
