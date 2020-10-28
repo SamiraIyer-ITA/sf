@@ -130,6 +130,642 @@
         <default>false</default>
         <label>GM CS-WH-Field Mexico</label>
     </customValue>
+    <customValue>
+        <fullName>GM CS-China-Field Hong Kong</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-China-Field Hong Kong</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Benelux France</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Benelux France</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field Chile</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field Chile</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field ARGUR Argentina</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field ARGUR Argentina</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field UK Ireland</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field UK Ireland</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Africa Ghana</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Africa Ghana</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field CAFTA El Salvador</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field CAFTA El Salvador</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field North Africa Egypt</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field North Africa Egypt</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Gulf Kuwait</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Gulf Kuwait</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Benelux Netherlands</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Benelux Netherlands</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Balkans Hungary</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Balkans Hungary</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field EURASIA Kazakhstan</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field EURASIA Kazakhstan</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field PoCz Poland</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field PoCz Poland</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field Korea</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-Asia-Field Korea</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Gulf Qatar</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Gulf Qatar</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field SPG Greece</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field SPG Greece</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Benelux Belgium</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Benelux Belgium</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Nordics Norway</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Nordics Norway</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Nordics Sweden</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Nordics Sweden</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Balkans Croatia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Balkans Croatia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Balkans Romania</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Balkans Romania</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field North Africa Morocco</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field North Africa Morocco</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field North Africa Jordan</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field North Africa Jordan</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field ANDPAN Peru</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field ANDPAN Peru</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Africa Kenya</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Africa Kenya</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field ARGUR Uruguay</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field ARGUR Uruguay</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Indonesia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-Asia-Field ASEAN Indonesia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field GEAUS Austria</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field GEAUS Austria</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field SPG Spain</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field SPG Spain</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Africa Mozambique</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Africa Mozambique</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Philippines</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-Asia-Field ASEAN Philippines</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Balkans Serbia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Balkans Serbia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Africa Nigeria</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Africa Nigeria</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field SPG Portugal</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field SPG Portugal</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field North Africa Algeria</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field North Africa Algeria</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Thailand</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-Asia-Field ASEAN Thailand</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field CAFTA Guatemala</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field CAFTA Guatemala</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Balkans Bulgaria</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Balkans Bulgaria</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field UK England</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field UK England</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field ANDPAN Panama</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field ANDPAN Panama</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field CAFTA Costa Rica</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field CAFTA Costa Rica</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field CAFTA Honduras</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field CAFTA Honduras</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field Dominican Republic</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field Dominican Republic</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field GEAUS Slovakia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field GEAUS Slovakia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field PoCz Czech Republic</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field PoCz Czech Republic</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Nordics Denmark</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Nordics Denmark</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Africa Ethiopia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Africa Ethiopia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Malaysia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-Asia-Field ASEAN Malaysia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field EURASIA Ukraine</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field EURASIA Ukraine</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Nordics Finland</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Nordics Finland</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field ASEAN Burma</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-Asia-Field ASEAN Burma</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field North Africa Lebanon</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field North Africa Lebanon</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field Afghanistan</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-Asia-Field Afghanistan</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field North Africa Libya</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field North Africa Libya</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Africa Angola</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Africa Angola</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field Africa Tanzania</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EMEA-Field Africa Tanzania</label>
+    </customValue>
+    <customValue>
+        <fullName>NULL</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NULL</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field ANDPAN Colombia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-WH-Field ANDPAN Colombia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Gulf Kuwait</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Gulf Kuwait</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Nordics Denmark</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Nordics Denmark</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field North Africa Algeria</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field North Africa Algeria</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field SPG Spain</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field SPG Spain</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Israel</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Israel</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Turkey</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Turkey</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Africa Ghana</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Africa Ghana</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field North Africa Jordan</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field North Africa Jordan</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field UK England</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field UK England</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field North Africa Egypt</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field North Africa Egypt</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Iraq</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Iraq</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Nordics Sweden</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Nordics Sweden</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Italy</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Italy</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field EURASIA Russia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field EURASIA Russia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field SPG Portugal</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field SPG Portugal</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Saudi Arabia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Saudi Arabia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Benelux France</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Benelux France</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Gulf Qatar</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Gulf Qatar</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Africa Nigeria</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Africa Nigeria</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Balkans Romania</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Balkans Romania</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Gulf UAE</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Gulf UAE</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Benelux Netherlands</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Benelux Netherlands</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Benelux Belgium</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Benelux Belgium</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Balkans Croatia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Balkans Croatia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field GEAUS Germany</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field GEAUS Germany</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Africa South Africa</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Africa South Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field SPG Greece</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field SPG Greece</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Nordics Norway</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Nordics Norway</label>
+    </customValue>
+    <customValue>
+        <fullName>-</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>-</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field North Africa Morocco</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field North Africa Morocco</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Balkans Bulgaria</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Balkans Bulgaria</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field EURASIA Kazakhstan</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field EURASIA Kazakhstan</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Africa Angola</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Africa Angola</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Africa Ethiopia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Africa Ethiopia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field UK Ireland</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field UK Ireland</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Nordics Finland</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Nordics Finland</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field PoCz Poland</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field PoCz Poland</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Africa Mozambique</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Africa Mozambique</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field North Africa Libya</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field North Africa Libya</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field GEAUS Austria</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field GEAUS Austria</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Africa Kenya</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Africa Kenya</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field EURASIA Ukraine</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field EURASIA Ukraine</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field PoCz Czech Republic</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field PoCz Czech Republic</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Balkans Hungary</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Balkans Hungary</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field GEAUS Slovakia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field GEAUS Slovakia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Balkans Serbia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Balkans Serbia</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Africa Tanzania</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Africa Tanzania</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field North Africa Lebanon</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field North Africa Lebanon</label>
+    </customValue>
     <masterLabel>User Country</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

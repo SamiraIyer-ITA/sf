@@ -5,6 +5,54 @@
         <default>false</default>
         <label>ITA</label>
     </customValue>
+    <customValue>
+        <fullName>Commercial Specialist</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Commercial Specialist</label>
+    </customValue>
+    <customValue>
+        <fullName>Country Managers</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Country Managers</label>
+    </customValue>
+    <customValue>
+        <fullName>Desk Officer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Desk Officer</label>
+    </customValue>
+    <customValue>
+        <fullName>International Trade Specialist</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>International Trade Specialist</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Specialist</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Trade Specialist</label>
+    </customValue>
+    <customValue>
+        <fullName>NULL</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NULL</label>
+    </customValue>
+    <customValue>
+        <fullName>Commercial Officer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Commercial Officer</label>
+    </customValue>
+    <customValue>
+        <fullName>International Investment Manager</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>International Investment Manager</label>
+    </customValue>
     <masterLabel>User Agency</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>
