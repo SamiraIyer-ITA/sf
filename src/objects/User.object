@@ -365,7 +365,7 @@
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
-            <valueSetName>RH_Lev_7_Individual</valueSetName>
+            <valueSetName>Lev_7_Individual</valueSetName>
         </valueSet>
     </fields>
     <fields>
@@ -579,7 +579,7 @@
         <fullName>Prevent_Role_Hierarchy_Updates</fullName>
         <active>false</active>
         <description>Inactivated for Potential Future Use.  Prevents Role Hierarchy Updates for all users except System Administrators.</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND(
 $Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp;
 ISCHANGED(RH_Lev_6_Office__c) ||
 ISCHANGED(RH_Lev_1_Top_Level__c) ||
