@@ -18,7 +18,6 @@ public with sharing class PaymentDetailsForPayGov implements IPaymentDetails {
 				queryResult = singleQueryPort.processTCSSingleQuery(agencyId, remoteAccountName, paymentIdentifier, remoteTrackingId, '');
 				break;
 			} catch (Exception e) {
-				System.debug('Current Attempt ' + currentAttempt + ' failed');
 				currentAttempt += 1;
 			}
 		}
@@ -26,10 +25,11 @@ public with sharing class PaymentDetailsForPayGov implements IPaymentDetails {
 		PayGovTCSSingleQueryService.tcs_plastic_card_results plasticCardResults = queryResult.tcs_pc_results;
 		PayGovTCSSingleQueryService.tcs_ach_results achResults = queryResult.tcs_ach_results;
 		PaymentDetailsForPayGov.ReturnValue returnValue = new PaymentDetailsForPayGov.ReturnValue();
-
 			if (plasticCardResults != null) {
 				//Credit Card Payment Details
 				returnValue.isCreditCard = true;
+				if (plasticCardResults.pc_sale_query_response != null) {
+					//Credit Card Sale
 				PayGovTCSSingleQueryService.PCSaleQueryResponse[] pcSaleQueryResponse = plasticCardResults.pc_sale_query_response;
 				returnValue.accountNumber = pcSaleQueryResponse[0].masked_account_number;
 				returnValue.transactionStatus = pcSaleQueryResponse[0].transaction_status;
@@ -49,7 +49,24 @@ public with sharing class PaymentDetailsForPayGov implements IPaymentDetails {
 				returnValue.billingState = pcSaleQueryResponse[0].billing_info.billing_state;
 				returnValue.billingZip = pcSaleQueryResponse[0].billing_info.billing_zip;
 				returnValue.billingCountry = pcSaleQueryResponse[0].billing_info.billing_country;
-			} else {
+				} else if (plasticCardResults.pc_refund_with_paygov_tracking_id_query_response != null) {
+					//Credit Card Refund
+					PayGovTCSSingleQueryService.PCRefundQueryResponse[] pcRefundQueryResponse = plasticCardResults.pc_refund_with_paygov_tracking_id_query_response;
+					returnValue.accountNumber = pcRefundQueryResponse[0].masked_account_number;
+					returnValue.transactionStatus = pcRefundQueryResponse[0].transaction_status;
+					returnValue.transactionAmount= pcRefundQueryResponse[0].transaction_amount;
+					returnValue.returnCode = pcRefundQueryResponse[0].return_code;
+					returnValue.returnDetail = pcRefundQueryResponse[0].return_detail;
+					returnValue.accountHolderName = pcRefundQueryResponse[0].account_holder_name;
+					returnValue.transactionDate = pcRefundQueryResponse[0].transaction_date;
+					returnValue.billingAddress = pcRefundQueryResponse[0].billing_info.billing_address;
+					returnValue.billingAddress2 = pcRefundQueryResponse[0].billing_info.billing_address_2;
+					returnValue.billingCity = pcRefundQueryResponse[0].billing_info.billing_city;
+					returnValue.billingState = pcRefundQueryResponse[0].billing_info.billing_state;
+					returnValue.billingZip = pcRefundQueryResponse[0].billing_info.billing_zip;
+					returnValue.billingCountry = pcRefundQueryResponse[0].billing_info.billing_country;
+				}
+			} else if (achResults!= null) {
 				//ACH Payment Details
 				returnValue.isAch = true;
 				PayGovTCSSingleQueryService.ACHDebitQueryResponse[] achDebitQueryResponse = achResults.ach_debit_query_response;
@@ -67,6 +84,9 @@ public with sharing class PaymentDetailsForPayGov implements IPaymentDetails {
 				returnValue.returnReasonCode = achDebitQueryResponse[0].return_reason_code;
 				returnValue.depositTicketNumber = achDebitQueryResponse[0].deposit_ticket_number;
 				returnValue.debitVoucherNumber = achDebitQueryResponse[0].debit_voucher_number;
+			} else{
+				// This payment is not at Pay.gov
+				return '';
 			}
 		return JSON.serialize(returnValue);
 	}

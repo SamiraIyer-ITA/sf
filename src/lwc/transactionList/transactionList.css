@@ -2,14 +2,24 @@ div {
 	margin: 15px 20px 15px 20px;
 }
 
-.buttonStyle {
+.buttonGroupStyle {
 	float: right;
+}
+
+.buttonStyle {
+	margin-left: 15px;
 }
 
 .header {
 	font-weight: bold;
 	text-decoration: underline;
 	font-size: large;
+}
+
+.title {
+	font-weight: bold;
+	font-size: x-large;
+	font-variant-caps: all-small-caps;
 }
 
 .componentBorder {
@@ -19,4 +29,5 @@ div {
 
 .totalStyle {
 	margin-bottom: 25px;
+	font-weight: bold;
 }

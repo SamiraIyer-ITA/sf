@@ -1,0 +1,3 @@
+<aura:component description="Wrapper class for Internal Payment LWC so it can be called from a Quick Action." implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" >
+	<c:internalPayment recordId="{!v.recordId}" onredirect="{!c.handleRedirect}" onclosemodal="{!c.handleCloseModal}" />
+</aura:component>

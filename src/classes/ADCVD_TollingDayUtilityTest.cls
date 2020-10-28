@@ -16,7 +16,7 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 	}
 
 	@isTest static void tollingDayList(){
-		System.assert(ADCVD_TollingDayUtility.tollingDayList.size() == 1);	
+		System.assert(ADCVD_TollingDayUtility.tollingDayList.size() == 1);
 	}
 	@isTest static void tollingDaySet(){
 		System.assert(ADCVD_TollingDayUtility.tollingDaySet.size() == 7, ADCVD_TollingDayUtility.tollingDaySet.size());
@@ -38,6 +38,15 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 				System.assert(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(myVariableDate) > System.today());
 			}
 			System.assert(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(myVariableDate) >= myVariableDate);
+		}
+	}
+	@isTest static void rollForwardNextBusinessDayNoTolling(){
+		for(integer i = 0; i<7; i++) {
+			Date myVariableDate = System.today().addDays(i);
+			if(!ADCVD_TollingDayUtility.isWorkingDayNoTolling(myVariableDate)){
+				System.assert(ADCVD_TollingDayUtility.rollForwardNextBusinessDayNoTolling(myVariableDate) > System.today());
+			}
+			System.assert(ADCVD_TollingDayUtility.rollForwardNextBusinessDayNoTolling(myVariableDate) >= myVariableDate);
 		}
 	}
 	@isTest static void rollBackPreviousBusinessDay(){
@@ -111,7 +120,7 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 				System.assertEquals(false, ADCVD_TollingDayUtility.isWorkingDay(myVariableDate));
 			}
 			if(ADCVD_TollingDayUtility.isTollingDay(myVariableDate)) {
-				System.assertEquals(false, ADCVD_TollingDayUtility.isWorkingDay(myVariableDate));	
+				System.assertEquals(false, ADCVD_TollingDayUtility.isWorkingDay(myVariableDate));
 			}
 		}
 	}
