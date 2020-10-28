@@ -1,5 +1,5 @@
 import {LightningElement, track, api} from 'lwc';
-import getOrdersByContractId from '@salesforce/apex/Payment2.getOrdersByContractId';
+import getOrdersByContractId from '@salesforce/apex/Payments2Service.getOrdersByContractId';
 import {FlowAttributeChangeEvent} from 'lightning/flowSupport';
 import {reduceErrors} from 'c/ldsUtils';
 
@@ -13,6 +13,7 @@ const orderColumns = [
 export default class UnpaidOrdersForContract extends LightningElement {
 
 	@api recordId;  //The Contract record Id.
+	@api actionType;  //Payment or Refund.  Filters orders by whether should have already been paid.
 	@track datatableOrders;
 	@track orders = [];  //All available orders
 	@api selectedOrders = [];
@@ -56,7 +57,14 @@ export default class UnpaidOrdersForContract extends LightningElement {
 	}
 
 	connectedCallback() {
-		getOrdersByContractId({contractId: this.recordId, normalOrders: true, reductionOrders: false, nonPaidOnly: true, paidOnly: false})
+		//Assume that the action if for a Payment
+		let paidOnly = false;
+		let unpaidOnly = true;
+		if (this.actionType == 'Refund') {
+			paidOnly = true;
+			unpaidOnly = false;
+		}
+		getOrdersByContractId({contractId: this.recordId, onlyCreditCardPayments: false, nonPaidOnly: unpaidOnly, paidOnly: paidOnly})
 			.then(result => {
 				let rows = result;
 				let rowBuilder = [];

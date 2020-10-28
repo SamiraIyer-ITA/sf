@@ -56,9 +56,22 @@ public class AccountServiceImpl implements IAccountService {
 		return accountList;
 	}
 
+
 	@TestVisible
 	private static Boolean isAddressFieldUpdatable(String participationString, String accountString) {
 		return (String.isNotBlank(participationString) && String.isBlank(accountString));
+	}
+
+	public static void updateCD(List<Account> accounts) {
+
+		if(!System.isBatch()){
+
+			// The call to UpdateCDHandler returns a list because UpdateCDHandler is used by a batch process which
+			// requires a returned list. In the Trigger context, the list isnt used.
+
+			List<Account> updateAccountsNotUsed = UpdateCDHandler.updateCDHandlerMain(accounts);
+		}
+
 	}
 
 }

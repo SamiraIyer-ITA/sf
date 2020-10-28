@@ -29,6 +29,7 @@ public without sharing class tradeRegistration_Controller {
 
     //Start Constructor
     public tradeRegistration_Controller() {
+        system.debug('mgk controller is running');
         errorOnLoad = false;
         a = new account();
         c = new contact();
@@ -183,7 +184,7 @@ public without sharing class tradeRegistration_Controller {
             emailError = 'Email cannot be an ITA Contact';
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,emailError));
             numberOfErrors =+ 1;
-        }else{//If email is not null and matches pattern query exisiting contact
+        }else{//If email is not null and matches pattern query existing contact
             return [SELECT ID, firstname, lastname, email, accountid
                     FROM contact
                     WHERE email = :c.email AND Owner.UserRoleId != null AND Account.Owner.UserRoleId != null
@@ -317,11 +318,16 @@ public without sharing class tradeRegistration_Controller {
                     a.Name = c.FirstName + ' ' + c.LastName;
                     a.RecordTypeID = !individualRecType.isEmpty() ? individualRecType[0].ID : null;
                     a.OwnerId = ownerId;
+                    a.Privacy_Shield_Disabled__c = true;
+
                     try{
+
                         insert a;
                     }catch(Exception e){
                         ApexPages.addMessage(new ApexPages.message(ApexPages.severity.FATAL, ErrorMessaging.clearMessage(e.getMessage())));
                     }
+
+
                     parentAccountId = a.ID;
                     c.Accountid = parentAccountId;
                     c.LeadSource = 'Web';
@@ -341,6 +347,8 @@ public without sharing class tradeRegistration_Controller {
                     a.Id = null; // set to null to fix a multi click defect
                     a.OwnerId = ownerId;
                     try{
+                        system.debug('a is ==> ' + a);
+                        system.debug('system.user ==> ' + System.userInfo.getProfileId());
                         insert a;
                     }catch(Exception e){
                         ApexPages.addMessage(new ApexPages.message(ApexPages.severity.FATAL, ErrorMessaging.clearMessage(e.getMessage())));
