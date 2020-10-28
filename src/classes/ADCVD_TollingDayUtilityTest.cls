@@ -3,11 +3,15 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 	private static Date holidayDate = System.today();
 	private static Date tollingDateStart = System.today().addDays(-10);
 	private static Date tollingDateEnd = System.today().addDays(-4);
+	private static Id parentId;
 	@isTest static void tollingDayList(){
 		System.assert(ADCVD_TollingDayUtility.tollingDayList.size() == 1);	
 	}
 	@isTest static void tollingDaySet(){
 		System.assert(ADCVD_TollingDayUtility.tollingDaySet.size() == 7, ADCVD_TollingDayUtility.tollingDaySet.size());
+	}
+	@IsTest static void setRecordSpecificTollingDayList() {
+		ADCVD_TollingDayUtility.setRecordSpecificTollingDayList(null);
 	}
 	@isTest static void isHoliday(){
 		System.assert(ADCVD_TollingDayUtility.isHoliday(holidayDate));
@@ -23,6 +27,15 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 				System.assert(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(myVariableDate) > System.today());
 			}
 			System.assert(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(myVariableDate) >= myVariableDate);
+		}
+	}
+	@isTest static void rollForwardNextBusinessDayNoTolling(){
+		for(integer i = 0; i<7; i++) {
+			Date myVariableDate = System.today().addDays(i);
+			if(!ADCVD_TollingDayUtility.isWorkingDayNoTolling(myVariableDate)){
+				System.assert(ADCVD_TollingDayUtility.rollForwardNextBusinessDayNoTolling(myVariableDate) > System.today());
+			}
+			System.assert(ADCVD_TollingDayUtility.rollForwardNextBusinessDayNoTolling(myVariableDate) >= myVariableDate);
 		}
 	}
 	@isTest static void rollBackPreviousBusinessDay(){
@@ -110,19 +123,17 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 		Test.stopTest();
 		System.assertEquals(calculatedDate, testDate);
 	}
-	@IsTest static void setRecordSpecificTollingDayList() {
-		ADCVD_TollingDayUtility.setRecordSpecificTollingDayList(null);
-	}
 	@testSetup static void dataSetup() {
 		Test.startTest();
-		User u = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+		User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
 		Holiday h = new Holiday(ActivityDate = holidayDate, Name = 'Every day is a holiday');
 		insert h;
+
+		System.runAs(testUser) {
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
-        System.runAs(u) {
             Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
             AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
-            Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
+            Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, testUser, true);
         }
 	}
 }

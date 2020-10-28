@@ -48,6 +48,7 @@ types=" approvalProcess  \
         liveChatButton \
         md \
         mdt \
+        messageChannel \
         namedCredential \
         object \
 	objectTranslation \

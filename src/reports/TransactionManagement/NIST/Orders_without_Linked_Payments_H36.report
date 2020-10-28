@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Order$Account</field>
+    </columns>
+    <columns>
+        <field>Order$OrderNumber</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Order$TotalAmount</field>
+    </columns>
+    <columns>
+        <field>Order$ActivatedDate</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Order$Order_Paid__c</field>
+    </columns>
+    <crossFilters>
+        <operation>without</operation>
+        <primaryTableColumn>Order$Id</primaryTableColumn>
+        <relatedTable>Payment2__c</relatedTable>
+        <relatedTableJoinColumn>Order</relatedTableJoinColumn>
+    </crossFilters>
+    <description>Represents all orders processed which do not have a related payment record.</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Order$Status</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Orders without Linked Payments</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>All_Orders__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Order$ActivatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

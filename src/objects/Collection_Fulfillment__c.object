@@ -1,0 +1,3059 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A Collection and Fulfillment Cost Center/Post in order to initiate (collection) and pay (fulfillment) for the service.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Acronym__c</fullName>
+        <description>Cost and Fulfillment Acronym code</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Cost and Fulfillment Acronym code</inlineHelpText>
+        <label>Acronym</label>
+        <length>7</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Shows status of Org Code</description>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Center__c</fullName>
+        <description>Cost Centers name for Services</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Cost Centers name for Services</inlineHelpText>
+        <label>Cost Center</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Abidjian, Cote D&apos;ivoire Dev Bank</fullName>
+                    <default>false</default>
+                    <label>Abidjian, Cote D&apos;ivoire Dev Bank</label>
+                </value>
+                <value>
+                    <fullName>Advocacy</fullName>
+                    <default>false</default>
+                    <label>Advocacy</label>
+                </value>
+                <value>
+                    <fullName>Afghanistan</fullName>
+                    <default>false</default>
+                    <label>Afghanistan</label>
+                </value>
+                <value>
+                    <fullName>Albania</fullName>
+                    <default>false</default>
+                    <label>Albania</label>
+                </value>
+                <value>
+                    <fullName>Algeria</fullName>
+                    <default>false</default>
+                    <label>Algeria</label>
+                </value>
+                <value>
+                    <fullName>Angola</fullName>
+                    <default>false</default>
+                    <label>Angola</label>
+                </value>
+                <value>
+                    <fullName>Argentina</fullName>
+                    <default>false</default>
+                    <label>Argentina</label>
+                </value>
+                <value>
+                    <fullName>Armenia</fullName>
+                    <default>false</default>
+                    <label>Armenia</label>
+                </value>
+                <value>
+                    <fullName>Asean And The Pacific Basin</fullName>
+                    <default>false</default>
+                    <label>Asean And The Pacific Basin</label>
+                </value>
+                <value>
+                    <fullName>Australia</fullName>
+                    <default>false</default>
+                    <label>Australia</label>
+                </value>
+                <value>
+                    <fullName>Austria</fullName>
+                    <default>false</default>
+                    <label>Austria</label>
+                </value>
+                <value>
+                    <fullName>Azerbaijan</fullName>
+                    <default>false</default>
+                    <label>Azerbaijan</label>
+                </value>
+                <value>
+                    <fullName>Bahamas</fullName>
+                    <default>false</default>
+                    <label>Bahamas</label>
+                </value>
+                <value>
+                    <fullName>Bahrain</fullName>
+                    <default>false</default>
+                    <label>Bahrain</label>
+                </value>
+                <value>
+                    <fullName>Bangladesh</fullName>
+                    <default>false</default>
+                    <label>Bangladesh</label>
+                </value>
+                <value>
+                    <fullName>Barbados</fullName>
+                    <default>false</default>
+                    <label>Barbados</label>
+                </value>
+                <value>
+                    <fullName>Belarus</fullName>
+                    <default>false</default>
+                    <label>Belarus</label>
+                </value>
+                <value>
+                    <fullName>Belgium</fullName>
+                    <default>false</default>
+                    <label>Belgium</label>
+                </value>
+                <value>
+                    <fullName>Belize</fullName>
+                    <default>false</default>
+                    <label>Belize</label>
+                </value>
+                <value>
+                    <fullName>Benin</fullName>
+                    <default>false</default>
+                    <label>Benin</label>
+                </value>
+                <value>
+                    <fullName>Bolivia</fullName>
+                    <default>false</default>
+                    <label>Bolivia</label>
+                </value>
+                <value>
+                    <fullName>Bosnia And Herzegovina</fullName>
+                    <default>false</default>
+                    <label>Bosnia And Herzegovina</label>
+                </value>
+                <value>
+                    <fullName>Botswana</fullName>
+                    <default>false</default>
+                    <label>Botswana</label>
+                </value>
+                <value>
+                    <fullName>Brazil</fullName>
+                    <default>false</default>
+                    <label>Brazil</label>
+                </value>
+                <value>
+                    <fullName>Brunei</fullName>
+                    <default>false</default>
+                    <label>Brunei</label>
+                </value>
+                <value>
+                    <fullName>Bulgaria</fullName>
+                    <default>false</default>
+                    <label>Bulgaria</label>
+                </value>
+                <value>
+                    <fullName>Burkina Faso</fullName>
+                    <default>false</default>
+                    <label>Burkina Faso</label>
+                </value>
+                <value>
+                    <fullName>Burma</fullName>
+                    <default>false</default>
+                    <label>Burma</label>
+                </value>
+                <value>
+                    <fullName>Cambodia</fullName>
+                    <default>false</default>
+                    <label>Cambodia</label>
+                </value>
+                <value>
+                    <fullName>Cameroon</fullName>
+                    <default>false</default>
+                    <label>Cameroon</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>Chile</fullName>
+                    <default>false</default>
+                    <label>Chile</label>
+                </value>
+                <value>
+                    <fullName>China</fullName>
+                    <default>false</default>
+                    <label>China</label>
+                </value>
+                <value>
+                    <fullName>China, Hong Kong And Mongolia</fullName>
+                    <default>false</default>
+                    <label>China, Hong Kong And Mongolia</label>
+                </value>
+                <value>
+                    <fullName>Colombia</fullName>
+                    <default>false</default>
+                    <label>Colombia</label>
+                </value>
+                <value>
+                    <fullName>Congo</fullName>
+                    <default>false</default>
+                    <label>Congo</label>
+                </value>
+                <value>
+                    <fullName>Costa Rica</fullName>
+                    <default>false</default>
+                    <label>Costa Rica</label>
+                </value>
+                <value>
+                    <fullName>Cote D&apos;ivoire</fullName>
+                    <default>false</default>
+                    <label>Cote D&apos;ivoire</label>
+                </value>
+                <value>
+                    <fullName>Croatia</fullName>
+                    <default>false</default>
+                    <label>Croatia</label>
+                </value>
+                <value>
+                    <fullName>Cyprus</fullName>
+                    <default>false</default>
+                    <label>Cyprus</label>
+                </value>
+                <value>
+                    <fullName>Czech Republic</fullName>
+                    <default>false</default>
+                    <label>Czech Republic</label>
+                </value>
+                <value>
+                    <fullName>DAS For Europe</fullName>
+                    <default>false</default>
+                    <label>DAS For Europe</label>
+                </value>
+                <value>
+                    <fullName>DAS For Global Markets</fullName>
+                    <default>false</default>
+                    <label>DAS For Global Markets</label>
+                </value>
+                <value>
+                    <fullName>DAS For The Middle East &amp; Africa</fullName>
+                    <default>false</default>
+                    <label>DAS For The Middle East &amp; Africa</label>
+                </value>
+                <value>
+                    <fullName>DAS For Us Field</fullName>
+                    <default>false</default>
+                    <label>DAS For Us Field</label>
+                </value>
+                <value>
+                    <fullName>DAS For Western Hemisphere</fullName>
+                    <default>false</default>
+                    <label>DAS For Western Hemisphere</label>
+                </value>
+                <value>
+                    <fullName>DDG For Us &amp; Foreign Comm Service</fullName>
+                    <default>false</default>
+                    <label>DDG For Us &amp; Foreign Comm Service</label>
+                </value>
+                <value>
+                    <fullName>Denmark</fullName>
+                    <default>false</default>
+                    <label>Denmark</label>
+                </value>
+                <value>
+                    <fullName>Deputy Assistant Sec For Asia</fullName>
+                    <default>false</default>
+                    <label>Deputy Assistant Sec For Asia</label>
+                </value>
+                <value>
+                    <fullName>Deputy Assistant Sec For China</fullName>
+                    <default>false</default>
+                    <label>Deputy Assistant Sec For China</label>
+                </value>
+                <value>
+                    <fullName>DG Of USFCS &amp; A/S For Global Markets</fullName>
+                    <default>false</default>
+                    <label>DG Of USFCS &amp; A/S For Global Markets</label>
+                </value>
+                <value>
+                    <fullName>Dominican Republic</fullName>
+                    <default>false</default>
+                    <label>Dominican Republic</label>
+                </value>
+                <value>
+                    <fullName>Ecuador</fullName>
+                    <default>false</default>
+                    <label>Ecuador</label>
+                </value>
+                <value>
+                    <fullName>Egypt</fullName>
+                    <default>false</default>
+                    <label>Egypt</label>
+                </value>
+                <value>
+                    <fullName>El Salvador</fullName>
+                    <default>false</default>
+                    <label>El Salvador</label>
+                </value>
+                <value>
+                    <fullName>Estonia</fullName>
+                    <default>false</default>
+                    <label>Estonia</label>
+                </value>
+                <value>
+                    <fullName>Ethiopia</fullName>
+                    <default>false</default>
+                    <label>Ethiopia</label>
+                </value>
+                <value>
+                    <fullName>Europe</fullName>
+                    <default>false</default>
+                    <label>Europe</label>
+                </value>
+                <value>
+                    <fullName>European Union</fullName>
+                    <default>false</default>
+                    <label>European Union</label>
+                </value>
+                <value>
+                    <fullName>Fiji</fullName>
+                    <default>false</default>
+                    <label>Fiji</label>
+                </value>
+                <value>
+                    <fullName>Finland</fullName>
+                    <default>false</default>
+                    <label>Finland</label>
+                </value>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Gabon</fullName>
+                    <default>false</default>
+                    <label>Gabon</label>
+                </value>
+                <value>
+                    <fullName>Gambia</fullName>
+                    <default>false</default>
+                    <label>Gambia</label>
+                </value>
+                <value>
+                    <fullName>Georgia</fullName>
+                    <default>false</default>
+                    <label>Georgia</label>
+                </value>
+                <value>
+                    <fullName>Germany</fullName>
+                    <default>false</default>
+                    <label>Germany</label>
+                </value>
+                <value>
+                    <fullName>Ghana</fullName>
+                    <default>false</default>
+                    <label>Ghana</label>
+                </value>
+                <value>
+                    <fullName>Global Knowledge Center</fullName>
+                    <default>false</default>
+                    <label>Global Knowledge Center</label>
+                </value>
+                <value>
+                    <fullName>Global Markets</fullName>
+                    <default>false</default>
+                    <label>Global Markets</label>
+                </value>
+                <value>
+                    <fullName>Global Teams</fullName>
+                    <default>false</default>
+                    <label>Global Teams</label>
+                </value>
+                <value>
+                    <fullName>Great Lakes Network</fullName>
+                    <default>false</default>
+                    <label>Great Lakes Network</label>
+                </value>
+                <value>
+                    <fullName>Greece</fullName>
+                    <default>false</default>
+                    <label>Greece</label>
+                </value>
+                <value>
+                    <fullName>Guatemala</fullName>
+                    <default>false</default>
+                    <label>Guatemala</label>
+                </value>
+                <value>
+                    <fullName>Guinea</fullName>
+                    <default>false</default>
+                    <label>Guinea</label>
+                </value>
+                <value>
+                    <fullName>Haiti</fullName>
+                    <default>false</default>
+                    <label>Haiti</label>
+                </value>
+                <value>
+                    <fullName>Honduras</fullName>
+                    <default>false</default>
+                    <label>Honduras</label>
+                </value>
+                <value>
+                    <fullName>Hong Kong</fullName>
+                    <default>false</default>
+                    <label>Hong Kong</label>
+                </value>
+                <value>
+                    <fullName>Hungary</fullName>
+                    <default>false</default>
+                    <label>Hungary</label>
+                </value>
+                <value>
+                    <fullName>Iceland</fullName>
+                    <default>false</default>
+                    <label>Iceland</label>
+                </value>
+                <value>
+                    <fullName>India</fullName>
+                    <default>false</default>
+                    <label>India</label>
+                </value>
+                <value>
+                    <fullName>Indonesia</fullName>
+                    <default>false</default>
+                    <label>Indonesia</label>
+                </value>
+                <value>
+                    <fullName>Iraq</fullName>
+                    <default>false</default>
+                    <label>Iraq</label>
+                </value>
+                <value>
+                    <fullName>Ireland</fullName>
+                    <default>false</default>
+                    <label>Ireland</label>
+                </value>
+                <value>
+                    <fullName>Israel</fullName>
+                    <default>false</default>
+                    <label>Israel</label>
+                </value>
+                <value>
+                    <fullName>Italy</fullName>
+                    <default>false</default>
+                    <label>Italy</label>
+                </value>
+                <value>
+                    <fullName>Jamaica</fullName>
+                    <default>false</default>
+                    <label>Jamaica</label>
+                </value>
+                <value>
+                    <fullName>Japan</fullName>
+                    <default>false</default>
+                    <label>Japan</label>
+                </value>
+                <value>
+                    <fullName>Jordan</fullName>
+                    <default>false</default>
+                    <label>Jordan</label>
+                </value>
+                <value>
+                    <fullName>Kazakhstan</fullName>
+                    <default>false</default>
+                    <label>Kazakhstan</label>
+                </value>
+                <value>
+                    <fullName>Kenya</fullName>
+                    <default>false</default>
+                    <label>Kenya</label>
+                </value>
+                <value>
+                    <fullName>Korea</fullName>
+                    <default>false</default>
+                    <label>Korea</label>
+                </value>
+                <value>
+                    <fullName>Kosovo</fullName>
+                    <default>false</default>
+                    <label>Kosovo</label>
+                </value>
+                <value>
+                    <fullName>Kuwait</fullName>
+                    <default>false</default>
+                    <label>Kuwait</label>
+                </value>
+                <value>
+                    <fullName>Kyrgyzstan</fullName>
+                    <default>false</default>
+                    <label>Kyrgyzstan</label>
+                </value>
+                <value>
+                    <fullName>Laos</fullName>
+                    <default>false</default>
+                    <label>Laos</label>
+                </value>
+                <value>
+                    <fullName>Latvia</fullName>
+                    <default>false</default>
+                    <label>Latvia</label>
+                </value>
+                <value>
+                    <fullName>Lebanon</fullName>
+                    <default>false</default>
+                    <label>Lebanon</label>
+                </value>
+                <value>
+                    <fullName>Lesotho</fullName>
+                    <default>false</default>
+                    <label>Lesotho</label>
+                </value>
+                <value>
+                    <fullName>Liberia</fullName>
+                    <default>false</default>
+                    <label>Liberia</label>
+                </value>
+                <value>
+                    <fullName>Libya</fullName>
+                    <default>false</default>
+                    <label>Libya</label>
+                </value>
+                <value>
+                    <fullName>Lithuania</fullName>
+                    <default>false</default>
+                    <label>Lithuania</label>
+                </value>
+                <value>
+                    <fullName>London, UK/Eur Dev Bank</fullName>
+                    <default>false</default>
+                    <label>London, UK/Eur Dev Bank</label>
+                </value>
+                <value>
+                    <fullName>Macedonia</fullName>
+                    <default>false</default>
+                    <label>Macedonia</label>
+                </value>
+                <value>
+                    <fullName>Madagascar</fullName>
+                    <default>false</default>
+                    <label>Madagascar</label>
+                </value>
+                <value>
+                    <fullName>Malawi</fullName>
+                    <default>false</default>
+                    <label>Malawi</label>
+                </value>
+                <value>
+                    <fullName>Malaysia</fullName>
+                    <default>false</default>
+                    <label>Malaysia</label>
+                </value>
+                <value>
+                    <fullName>Mali</fullName>
+                    <default>false</default>
+                    <label>Mali</label>
+                </value>
+                <value>
+                    <fullName>Malta</fullName>
+                    <default>false</default>
+                    <label>Malta</label>
+                </value>
+                <value>
+                    <fullName>Manila, Philippines/Asia Dev Bank</fullName>
+                    <default>false</default>
+                    <label>Manila, Philippines/Asia Dev Bank</label>
+                </value>
+                <value>
+                    <fullName>Mauritius</fullName>
+                    <default>false</default>
+                    <label>Mauritius</label>
+                </value>
+                <value>
+                    <fullName>Mexico</fullName>
+                    <default>false</default>
+                    <label>Mexico</label>
+                </value>
+                <value>
+                    <fullName>Midatlantic Network</fullName>
+                    <default>false</default>
+                    <label>Midatlantic Network</label>
+                </value>
+                <value>
+                    <fullName>Midwest Network</fullName>
+                    <default>false</default>
+                    <label>Midwest Network</label>
+                </value>
+                <value>
+                    <fullName>Moldova</fullName>
+                    <default>false</default>
+                    <label>Moldova</label>
+                </value>
+                <value>
+                    <fullName>Mongolia</fullName>
+                    <default>false</default>
+                    <label>Mongolia</label>
+                </value>
+                <value>
+                    <fullName>Montenegro</fullName>
+                    <default>false</default>
+                    <label>Montenegro</label>
+                </value>
+                <value>
+                    <fullName>Morocco</fullName>
+                    <default>false</default>
+                    <label>Morocco</label>
+                </value>
+                <value>
+                    <fullName>Mozambique</fullName>
+                    <default>false</default>
+                    <label>Mozambique</label>
+                </value>
+                <value>
+                    <fullName>N &amp; C America &amp; Caribbean</fullName>
+                    <default>false</default>
+                    <label>N &amp; C America &amp; Caribbean</label>
+                </value>
+                <value>
+                    <fullName>Namibia</fullName>
+                    <default>false</default>
+                    <label>Namibia</label>
+                </value>
+                <value>
+                    <fullName>National Field Support Team</fullName>
+                    <default>false</default>
+                    <label>National Field Support Team</label>
+                </value>
+                <value>
+                    <fullName>Nepal</fullName>
+                    <default>false</default>
+                    <label>Nepal</label>
+                </value>
+                <value>
+                    <fullName>Netherlands</fullName>
+                    <default>false</default>
+                    <label>Netherlands</label>
+                </value>
+                <value>
+                    <fullName>New Zealand</fullName>
+                    <default>false</default>
+                    <label>New Zealand</label>
+                </value>
+                <value>
+                    <fullName>Nicaragua</fullName>
+                    <default>false</default>
+                    <label>Nicaragua</label>
+                </value>
+                <value>
+                    <fullName>Nigeria</fullName>
+                    <default>false</default>
+                    <label>Nigeria</label>
+                </value>
+                <value>
+                    <fullName>North Asia And Apec</fullName>
+                    <default>false</default>
+                    <label>North Asia And Apec</label>
+                </value>
+                <value>
+                    <fullName>Northeast Network</fullName>
+                    <default>false</default>
+                    <label>Northeast Network</label>
+                </value>
+                <value>
+                    <fullName>Norway</fullName>
+                    <default>false</default>
+                    <label>Norway</label>
+                </value>
+                <value>
+                    <fullName>Office Of Administrative Services</fullName>
+                    <default>false</default>
+                    <label>Office Of Administrative Services</label>
+                </value>
+                <value>
+                    <fullName>Office Of Asean And The Pacific Basin</fullName>
+                    <default>false</default>
+                    <label>Office Of Asean And The Pacific Basin</label>
+                </value>
+                <value>
+                    <fullName>Office Of Budget</fullName>
+                    <default>false</default>
+                    <label>Office Of Budget</label>
+                </value>
+                <value>
+                    <fullName>Office Of China, Hong Kong And Mongolia</fullName>
+                    <default>false</default>
+                    <label>Office Of China, Hong Kong And Mongolia</label>
+                </value>
+                <value>
+                    <fullName>Office Of Digital Initiatives (ODI)</fullName>
+                    <default>false</default>
+                    <label>Office Of Digital Initiatives (ODI)</label>
+                </value>
+                <value>
+                    <fullName>Office Of Europe</fullName>
+                    <default>false</default>
+                    <label>Office Of Europe</label>
+                </value>
+                <value>
+                    <fullName>Office Of European Union</fullName>
+                    <default>false</default>
+                    <label>Office Of European Union</label>
+                </value>
+                <value>
+                    <fullName>Office Of N &amp; C America &amp; Caribbean</fullName>
+                    <default>false</default>
+                    <label>Office Of N &amp; C America &amp; Caribbean</label>
+                </value>
+                <value>
+                    <fullName>Office Of North Asia And APEC</fullName>
+                    <default>false</default>
+                    <label>Office Of North Asia And APEC</label>
+                </value>
+                <value>
+                    <fullName>Office Of South America</fullName>
+                    <default>false</default>
+                    <label>Office Of South America</label>
+                </value>
+                <value>
+                    <fullName>Office Of South Asia</fullName>
+                    <default>false</default>
+                    <label>Office Of South Asia</label>
+                </value>
+                <value>
+                    <fullName>Office Of Strategic Planning</fullName>
+                    <default>false</default>
+                    <label>Office Of Strategic Planning</label>
+                </value>
+                <value>
+                    <fullName>Office Of Sub-Saharan Africa</fullName>
+                    <default>false</default>
+                    <label>Office Of Sub-Saharan Africa</label>
+                </value>
+                <value>
+                    <fullName>Office Of The Middle East And N Africa</fullName>
+                    <default>false</default>
+                    <label>Office Of The Middle East And N Africa</label>
+                </value>
+                <value>
+                    <fullName>Off Of Foreign Service Human Capital</fullName>
+                    <default>false</default>
+                    <label>Off Of Foreign Service Human Capital</label>
+                </value>
+                <value>
+                    <fullName>Off Of Russia, Ukraine &amp; Eurasia</fullName>
+                    <default>false</default>
+                    <label>Off Of Russia, Ukraine &amp; Eurasia</label>
+                </value>
+                <value>
+                    <fullName>Oman</fullName>
+                    <default>false</default>
+                    <label>Oman</label>
+                </value>
+                <value>
+                    <fullName>Pacific North Network</fullName>
+                    <default>false</default>
+                    <label>Pacific North Network</label>
+                </value>
+                <value>
+                    <fullName>Pacific South Network</fullName>
+                    <default>false</default>
+                    <label>Pacific South Network</label>
+                </value>
+                <value>
+                    <fullName>Pakistan</fullName>
+                    <default>false</default>
+                    <label>Pakistan</label>
+                </value>
+                <value>
+                    <fullName>Panama</fullName>
+                    <default>false</default>
+                    <label>Panama</label>
+                </value>
+                <value>
+                    <fullName>Paraguay</fullName>
+                    <default>false</default>
+                    <label>Paraguay</label>
+                </value>
+                <value>
+                    <fullName>Peru</fullName>
+                    <default>false</default>
+                    <label>Peru</label>
+                </value>
+                <value>
+                    <fullName>Philippines</fullName>
+                    <default>false</default>
+                    <label>Philippines</label>
+                </value>
+                <value>
+                    <fullName>Poland</fullName>
+                    <default>false</default>
+                    <label>Poland</label>
+                </value>
+                <value>
+                    <fullName>Portugal</fullName>
+                    <default>false</default>
+                    <label>Portugal</label>
+                </value>
+                <value>
+                    <fullName>Qatar</fullName>
+                    <default>false</default>
+                    <label>Qatar</label>
+                </value>
+                <value>
+                    <fullName>Romania</fullName>
+                    <default>false</default>
+                    <label>Romania</label>
+                </value>
+                <value>
+                    <fullName>Russia</fullName>
+                    <default>false</default>
+                    <label>Russia</label>
+                </value>
+                <value>
+                    <fullName>Russia, Ukraine &amp; Eurasia</fullName>
+                    <default>false</default>
+                    <label>Russia, Ukraine &amp; Eurasia</label>
+                </value>
+                <value>
+                    <fullName>Rwanda</fullName>
+                    <default>false</default>
+                    <label>Rwanda</label>
+                </value>
+                <value>
+                    <fullName>Saudi Arabia</fullName>
+                    <default>false</default>
+                    <label>Saudi Arabia</label>
+                </value>
+                <value>
+                    <fullName>Selectusa</fullName>
+                    <default>false</default>
+                    <label>Selectusa</label>
+                </value>
+                <value>
+                    <fullName>Senegal</fullName>
+                    <default>false</default>
+                    <label>Senegal</label>
+                </value>
+                <value>
+                    <fullName>Serbia</fullName>
+                    <default>false</default>
+                    <label>Serbia</label>
+                </value>
+                <value>
+                    <fullName>Singapore</fullName>
+                    <default>false</default>
+                    <label>Singapore</label>
+                </value>
+                <value>
+                    <fullName>Slovak Republic</fullName>
+                    <default>false</default>
+                    <label>Slovak Republic</label>
+                </value>
+                <value>
+                    <fullName>Slovenia</fullName>
+                    <default>false</default>
+                    <label>Slovenia</label>
+                </value>
+                <value>
+                    <fullName>South Africa</fullName>
+                    <default>false</default>
+                    <label>South Africa</label>
+                </value>
+                <value>
+                    <fullName>South America</fullName>
+                    <default>false</default>
+                    <label>South America</label>
+                </value>
+                <value>
+                    <fullName>South Asia</fullName>
+                    <default>false</default>
+                    <label>South Asia</label>
+                </value>
+                <value>
+                    <fullName>Southern Network</fullName>
+                    <default>false</default>
+                    <label>Southern Network</label>
+                </value>
+                <value>
+                    <fullName>Southwest Network</fullName>
+                    <default>false</default>
+                    <label>Southwest Network</label>
+                </value>
+                <value>
+                    <fullName>Spain</fullName>
+                    <default>false</default>
+                    <label>Spain</label>
+                </value>
+                <value>
+                    <fullName>Spec Am Bus Int Train Prog Stf</fullName>
+                    <default>false</default>
+                    <label>Spec Am Bus Int Train Prog Stf</label>
+                </value>
+                <value>
+                    <fullName>Sri Lanka</fullName>
+                    <default>false</default>
+                    <label>Sri Lanka</label>
+                </value>
+                <value>
+                    <fullName>Sub-Saharan Africa</fullName>
+                    <default>false</default>
+                    <label>Sub-Saharan Africa</label>
+                </value>
+                <value>
+                    <fullName>Swaziland</fullName>
+                    <default>false</default>
+                    <label>Swaziland</label>
+                </value>
+                <value>
+                    <fullName>Sweden</fullName>
+                    <default>false</default>
+                    <label>Sweden</label>
+                </value>
+                <value>
+                    <fullName>Switzerland</fullName>
+                    <default>false</default>
+                    <label>Switzerland</label>
+                </value>
+                <value>
+                    <fullName>Taiwan</fullName>
+                    <default>false</default>
+                    <label>Taiwan</label>
+                </value>
+                <value>
+                    <fullName>Tajikistan</fullName>
+                    <default>false</default>
+                    <label>Tajikistan</label>
+                </value>
+                <value>
+                    <fullName>Tanzania</fullName>
+                    <default>false</default>
+                    <label>Tanzania</label>
+                </value>
+                <value>
+                    <fullName>Thailand</fullName>
+                    <default>false</default>
+                    <label>Thailand</label>
+                </value>
+                <value>
+                    <fullName>The Middle East And N Africa</fullName>
+                    <default>false</default>
+                    <label>The Middle East And N Africa</label>
+                </value>
+                <value>
+                    <fullName>Training Complement</fullName>
+                    <default>false</default>
+                    <label>Training Complement</label>
+                </value>
+                <value>
+                    <fullName>Trindad &amp; Tobago</fullName>
+                    <default>false</default>
+                    <label>Trindad &amp; Tobago</label>
+                </value>
+                <value>
+                    <fullName>Trinidad And Tobago</fullName>
+                    <default>false</default>
+                    <label>Trinidad And Tobago</label>
+                </value>
+                <value>
+                    <fullName>Tunisia</fullName>
+                    <default>false</default>
+                    <label>Tunisia</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+                <value>
+                    <fullName>Turkmenistan</fullName>
+                    <default>false</default>
+                    <label>Turkmenistan</label>
+                </value>
+                <value>
+                    <fullName>Uganda</fullName>
+                    <default>false</default>
+                    <label>Uganda</label>
+                </value>
+                <value>
+                    <fullName>Ukraine</fullName>
+                    <default>false</default>
+                    <label>Ukraine</label>
+                </value>
+                <value>
+                    <fullName>United Arab Emirates</fullName>
+                    <default>false</default>
+                    <label>United Arab Emirates</label>
+                </value>
+                <value>
+                    <fullName>United Kingdom</fullName>
+                    <default>false</default>
+                    <label>United Kingdom</label>
+                </value>
+                <value>
+                    <fullName>Uruguay</fullName>
+                    <default>false</default>
+                    <label>Uruguay</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Anchorage, AK</fullName>
+                    <default>false</default>
+                    <label>USEAC - Anchorage, AK</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Atlanta, GA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Atlanta, GA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Austin, TX</fullName>
+                    <default>false</default>
+                    <label>USEAC - Austin, TX</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Bakersfield, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Bakersfield, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Baltimore, MD</fullName>
+                    <default>false</default>
+                    <label>USEAC - Baltimore, MD</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Birmingham, AL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Birmingham, AL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Boise, ID</fullName>
+                    <default>false</default>
+                    <label>USEAC - Boise, ID</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Boston, MA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Boston, MA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Buffalo, NY</fullName>
+                    <default>false</default>
+                    <label>USEAC - Buffalo, NY</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Cabazon, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Cabazon, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Charleston, SC</fullName>
+                    <default>false</default>
+                    <label>USEAC - Charleston, SC</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Charleston, WV</fullName>
+                    <default>false</default>
+                    <label>USEAC - Charleston, WV</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Charlotte, NC</fullName>
+                    <default>false</default>
+                    <label>USEAC - Charlotte, NC</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Chicago, IL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Chicago, IL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Cincinnati, OH</fullName>
+                    <default>false</default>
+                    <label>USEAC - Cincinnati, OH</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Clearwater, FL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Clearwater, FL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Cleveland, OH</fullName>
+                    <default>false</default>
+                    <label>USEAC - Cleveland, OH</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Columbia, SC</fullName>
+                    <default>false</default>
+                    <label>USEAC - Columbia, SC</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Columbus, OH</fullName>
+                    <default>false</default>
+                    <label>USEAC - Columbus, OH</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Denver, CO</fullName>
+                    <default>false</default>
+                    <label>USEAC - Denver, CO</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Des Moines, IA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Des Moines, IA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Detroit, MI</fullName>
+                    <default>false</default>
+                    <label>USEAC - Detroit, MI</label>
+                </value>
+                <value>
+                    <fullName>USEAC - El Paso, TX</fullName>
+                    <default>false</default>
+                    <label>USEAC - El Paso, TX</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Fargo, ND</fullName>
+                    <default>false</default>
+                    <label>USEAC - Fargo, ND</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Fort Worth, TX</fullName>
+                    <default>false</default>
+                    <label>USEAC - Fort Worth, TX</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Fresno, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Fresno, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Ft. Lauderdale, FL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Ft. Lauderdale, FL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Grand Rapids, MI</fullName>
+                    <default>false</default>
+                    <label>USEAC - Grand Rapids, MI</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Greensboro, NC</fullName>
+                    <default>false</default>
+                    <label>USEAC - Greensboro, NC</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Greenville, SC</fullName>
+                    <default>false</default>
+                    <label>USEAC - Greenville, SC</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Harlem, NY</fullName>
+                    <default>false</default>
+                    <label>USEAC - Harlem, NY</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Harrisburg, PA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Harrisburg, PA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Honolulu, HI</fullName>
+                    <default>false</default>
+                    <label>USEAC - Honolulu, HI</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Houston, TX</fullName>
+                    <default>false</default>
+                    <label>USEAC - Houston, TX</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Indianapolis, IN</fullName>
+                    <default>false</default>
+                    <label>USEAC - Indianapolis, IN</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Inland Empire, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Inland Empire, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Jackson, MS</fullName>
+                    <default>false</default>
+                    <label>USEAC - Jackson, MS</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Jacksonville, FL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Jacksonville, FL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Kansas City, MO</fullName>
+                    <default>false</default>
+                    <label>USEAC - Kansas City, MO</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Knoxville, TN</fullName>
+                    <default>false</default>
+                    <label>USEAC - Knoxville, TN</label>
+                </value>
+                <value>
+                    <fullName>USEAC - La Downtown, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - La Downtown, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Las Vegas, NV</fullName>
+                    <default>false</default>
+                    <label>USEAC - Las Vegas, NV</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Lexington, KY</fullName>
+                    <default>false</default>
+                    <label>USEAC - Lexington, KY</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Libertyville, IL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Libertyville, IL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Little Rock, AR</fullName>
+                    <default>false</default>
+                    <label>USEAC - Little Rock, AR</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Long Island, NY</fullName>
+                    <default>false</default>
+                    <label>USEAC - Long Island, NY</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Louisville, KY</fullName>
+                    <default>false</default>
+                    <label>USEAC - Louisville, KY</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Mcallen, TX</fullName>
+                    <default>false</default>
+                    <label>USEAC - Mcallen, TX</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Memphis, TN</fullName>
+                    <default>false</default>
+                    <label>USEAC - Memphis, TN</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Miami, FL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Miami, FL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Middletown , CT</fullName>
+                    <default>false</default>
+                    <label>USEAC - Middletown , CT</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Midland, TX</fullName>
+                    <default>false</default>
+                    <label>USEAC - Midland, TX</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Milwaukee, WI</fullName>
+                    <default>false</default>
+                    <label>USEAC - Milwaukee, WI</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Minneapolis, MN</fullName>
+                    <default>false</default>
+                    <label>USEAC - Minneapolis, MN</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Missoula, MT</fullName>
+                    <default>false</default>
+                    <label>USEAC - Missoula, MT</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Monterey, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Monterey, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Montpelier, VT</fullName>
+                    <default>false</default>
+                    <label>USEAC - Montpelier, VT</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Nashville, TN</fullName>
+                    <default>false</default>
+                    <label>USEAC - Nashville, TN</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Newark, NJ</fullName>
+                    <default>false</default>
+                    <label>USEAC - Newark, NJ</label>
+                </value>
+                <value>
+                    <fullName>USEAC - New Orleans, LA</fullName>
+                    <default>false</default>
+                    <label>USEAC - New Orleans, LA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Newport Beach, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Newport Beach, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - New York, NY</fullName>
+                    <default>false</default>
+                    <label>USEAC - New York, NY</label>
+                </value>
+                <value>
+                    <fullName>USEAC - No. Texas</fullName>
+                    <default>false</default>
+                    <label>USEAC - No. Texas</label>
+                </value>
+                <value>
+                    <fullName>USEAC - North Bay, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - North Bay, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Northern Virginia</fullName>
+                    <default>false</default>
+                    <label>USEAC - Northern Virginia</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Oakland, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Oakland, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Oklahoma, OK</fullName>
+                    <default>false</default>
+                    <label>USEAC - Oklahoma, OK</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Omaha, NE</fullName>
+                    <default>false</default>
+                    <label>USEAC - Omaha, NE</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Orlando, FL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Orlando, FL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Peoria, IL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Peoria, IL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Pheonix, AZ</fullName>
+                    <default>false</default>
+                    <label>USEAC - Pheonix, AZ</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Philadelphia, PA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Philadelphia, PA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Pittsburgh, PA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Pittsburgh, PA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Pontiac, MI</fullName>
+                    <default>false</default>
+                    <label>USEAC - Pontiac, MI</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Portland, ME</fullName>
+                    <default>false</default>
+                    <label>USEAC - Portland, ME</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Portland, OR</fullName>
+                    <default>false</default>
+                    <label>USEAC - Portland, OR</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Portsmouth, NH</fullName>
+                    <default>false</default>
+                    <label>USEAC - Portsmouth, NH</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Providence, RI</fullName>
+                    <default>false</default>
+                    <label>USEAC - Providence, RI</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Raleigh, NC</fullName>
+                    <default>false</default>
+                    <label>USEAC - Raleigh, NC</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Reno, NV</fullName>
+                    <default>false</default>
+                    <label>USEAC - Reno, NV</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Richmond, VA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Richmond, VA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Rochester, NY</fullName>
+                    <default>false</default>
+                    <label>USEAC - Rochester, NY</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Rockford, IL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Rockford, IL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Sacremento, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Sacremento, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Salt Lake City, UT</fullName>
+                    <default>false</default>
+                    <label>USEAC - Salt Lake City, UT</label>
+                </value>
+                <value>
+                    <fullName>USEAC - San Antonio, TX</fullName>
+                    <default>false</default>
+                    <label>USEAC - San Antonio, TX</label>
+                </value>
+                <value>
+                    <fullName>USEAC - San Deigo, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - San Deigo, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - San Francisco, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - San Francisco, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - San Jose, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - San Jose, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - San Juan, PR</fullName>
+                    <default>false</default>
+                    <label>USEAC - San Juan, PR</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Santa Fe, NM</fullName>
+                    <default>false</default>
+                    <label>USEAC - Santa Fe, NM</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Savannah, GA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Savannah, GA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Seattle, WA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Seattle, WA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Shreveport, LA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Shreveport, LA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Sioux Falls, SD</fullName>
+                    <default>false</default>
+                    <label>USEAC - Sioux Falls, SD</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Spokane, WA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Spokane, WA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - St. Louis, MO</fullName>
+                    <default>false</default>
+                    <label>USEAC - St. Louis, MO</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Tacoma, WA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Tacoma, WA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Tallahassee, FL</fullName>
+                    <default>false</default>
+                    <label>USEAC - Tallahassee, FL</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Toledo, OH</fullName>
+                    <default>false</default>
+                    <label>USEAC - Toledo, OH</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Trenton, NJ</fullName>
+                    <default>false</default>
+                    <label>USEAC - Trenton, NJ</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Tucson, AZ</fullName>
+                    <default>false</default>
+                    <label>USEAC - Tucson, AZ</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Tulsa, OK</fullName>
+                    <default>false</default>
+                    <label>USEAC - Tulsa, OK</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Ventura County, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - Ventura County, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Westchester Co, NY</fullName>
+                    <default>false</default>
+                    <label>USEAC - Westchester Co, NY</label>
+                </value>
+                <value>
+                    <fullName>USEAC - West Los Angeles, CA</fullName>
+                    <default>false</default>
+                    <label>USEAC - West Los Angeles, CA</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Wheeling, WV</fullName>
+                    <default>false</default>
+                    <label>USEAC - Wheeling, WV</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Witchita, KS</fullName>
+                    <default>false</default>
+                    <label>USEAC - Witchita, KS</label>
+                </value>
+                <value>
+                    <fullName>USEAC - Ypsilanti, MI</fullName>
+                    <default>false</default>
+                    <label>USEAC - Ypsilanti, MI</label>
+                </value>
+                <value>
+                    <fullName>Uzbekistan</fullName>
+                    <default>false</default>
+                    <label>Uzbekistan</label>
+                </value>
+                <value>
+                    <fullName>Venezuela</fullName>
+                    <default>false</default>
+                    <label>Venezuela</label>
+                </value>
+                <value>
+                    <fullName>Vietnam</fullName>
+                    <default>false</default>
+                    <label>Vietnam</label>
+                </value>
+                <value>
+                    <fullName>Wash, DC Inter-America Bank</fullName>
+                    <default>false</default>
+                    <label>Wash, DC Inter-America Bank</label>
+                </value>
+                <value>
+                    <fullName>Wash, DC World Bank</fullName>
+                    <default>false</default>
+                    <label>Wash, DC World Bank</label>
+                </value>
+                <value>
+                    <fullName>Yemen</fullName>
+                    <default>false</default>
+                    <label>Yemen</label>
+                </value>
+                <value>
+                    <fullName>Zambia</fullName>
+                    <default>false</default>
+                    <label>Zambia</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Org_Code__c</fullName>
+        <description>Org Code for Cost Center and Post</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Org Code for Cost Center and Post</inlineHelpText>
+        <label>Org Code</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Post__c</fullName>
+        <description>Post location for services</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Post location for services</inlineHelpText>
+        <label>Post</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Queue__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:Queue.QueueName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Queue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Collection &amp; Fulfillment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Collection &amp; Fulfillment  Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Collections &amp; Fulfillments</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Standard</fullName>
+        <active>true</active>
+        <description>Services Record Type</description>
+        <label>Standard</label>
+        <picklistValues>
+            <picklist>Cost_Center__c</picklist>
+            <values>
+                <fullName>Abidjian%2C Cote D%27ivoire Dev Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Afghanistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Albania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Algeria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Angola</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Argentina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Armenia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Asean And The Pacific Basin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Austria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Azerbaijan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bahamas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bahrain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bangladesh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Barbados</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belarus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belize</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Benin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bolivia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bosnia And Herzegovina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Botswana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brazil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bulgaria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Burkina Faso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Burma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cambodia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cameroon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>China%2C Hong Kong And Mongolia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colombia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Congo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Costa Rica</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cote D%27ivoire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Croatia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cyprus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Czech Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAS For Europe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAS For Global Markets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAS For The Middle East %26 Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAS For Us Field</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAS For Western Hemisphere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DDG For Us %26 Foreign Comm Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DG Of USFCS %26 A%2FS For Global Markets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Denmark</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deputy Assistant Sec For Asia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deputy Assistant Sec For China</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dominican Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ecuador</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Egypt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>El Salvador</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ethiopia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Europe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>European Union</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fiji</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gabon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gambia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ghana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Knowledge Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Markets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global Teams</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Great Lakes Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greece</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guatemala</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guinea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Haiti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Honduras</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hong Kong</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hungary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iceland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>India</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iraq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Israel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jamaica</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jordan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kazakhstan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kenya</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kosovo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kuwait</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kyrgyzstan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Latvia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lebanon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lesotho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Liberia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Libya</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lithuania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>London%2C UK%2FEur Dev Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Macedonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Madagascar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malawi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mali</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manila%2C Philippines%2FAsia Dev Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mauritius</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Midatlantic Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Midwest Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moldova</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mongolia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Montenegro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Morocco</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mozambique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N %26 C America %26 Caribbean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Namibia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Field Support Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nepal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicaragua</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nigeria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>North Asia And Apec</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northeast Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norway</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Off Of Foreign Service Human Capital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Off Of Russia%2C Ukraine %26 Eurasia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of Administrative Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of Asean And The Pacific Basin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of China%2C Hong Kong And Mongolia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of Digital Initiatives %28ODI%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of Europe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of European Union</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of N %26 C America %26 Caribbean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of North Asia And APEC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of South America</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of South Asia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of Strategic Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of Sub-Saharan Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office Of The Middle East And N Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific North Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific South Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pakistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Panama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paraguay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Philippines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portugal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Qatar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Romania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russia%2C Ukraine %26 Eurasia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rwanda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saudi Arabia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Selectusa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senegal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Serbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovak Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovenia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South America</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Asia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Southern Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Southwest Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spec Am Bus Int Train Prog Stf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sri Lanka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sub-Saharan Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swaziland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sweden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Switzerland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tajikistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tanzania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Middle East And N Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training Complement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trindad %26 Tobago</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trinidad And Tobago</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tunisia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkmenistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Anchorage%2C AK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Atlanta%2C GA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Austin%2C TX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Bakersfield%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Baltimore%2C MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Birmingham%2C AL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Boise%2C ID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Boston%2C MA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Buffalo%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Cabazon%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Charleston%2C SC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Charleston%2C WV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Charlotte%2C NC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Chicago%2C IL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Cincinnati%2C OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Clearwater%2C FL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Cleveland%2C OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Columbia%2C SC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Columbus%2C OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Denver%2C CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Des Moines%2C IA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Detroit%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - El Paso%2C TX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Fargo%2C ND</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Fort Worth%2C TX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Fresno%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Ft%2E Lauderdale%2C FL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Grand Rapids%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Greensboro%2C NC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Greenville%2C SC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Harlem%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Harrisburg%2C PA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Honolulu%2C HI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Houston%2C TX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Indianapolis%2C IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Inland Empire%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Jackson%2C MS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Jacksonville%2C FL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Kansas City%2C MO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Knoxville%2C TN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - La Downtown%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Las Vegas%2C NV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Lexington%2C KY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Libertyville%2C IL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Little Rock%2C AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Long Island%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Louisville%2C KY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Mcallen%2C TX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Memphis%2C TN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Miami%2C FL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Middletown %2C CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Midland%2C TX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Milwaukee%2C WI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Minneapolis%2C MN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Missoula%2C MT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Monterey%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Montpelier%2C VT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Nashville%2C TN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - New Orleans%2C LA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - New York%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Newark%2C NJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Newport Beach%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - No%2E Texas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - North Bay%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Northern Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Oakland%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Oklahoma%2C OK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Omaha%2C NE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Orlando%2C FL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Peoria%2C IL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Pheonix%2C AZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Philadelphia%2C PA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Pittsburgh%2C PA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Pontiac%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Portland%2C ME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Portland%2C OR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Portsmouth%2C NH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Providence%2C RI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Raleigh%2C NC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Reno%2C NV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Richmond%2C VA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Rochester%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Rockford%2C IL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Sacremento%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Salt Lake City%2C UT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - San Antonio%2C TX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - San Deigo%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - San Francisco%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - San Jose%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - San Juan%2C PR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Santa Fe%2C NM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Savannah%2C GA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Seattle%2C WA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Shreveport%2C LA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Sioux Falls%2C SD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Spokane%2C WA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - St%2E Louis%2C MO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Tacoma%2C WA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Tallahassee%2C FL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Toledo%2C OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Trenton%2C NJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Tucson%2C AZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Tulsa%2C OK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Ventura County%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - West Los Angeles%2C CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Westchester Co%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Wheeling%2C WV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Witchita%2C KS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USEAC - Ypsilanti%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uganda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ukraine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Arab Emirates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Kingdom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uruguay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uzbekistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venezuela</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wash%2C DC Inter-America Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wash%2C DC World Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yemen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Zambia</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

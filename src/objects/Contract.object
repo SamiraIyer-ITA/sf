@@ -272,6 +272,12 @@
     </listViews>
     <listViews>
         <fullName>AllContracts</fullName>
+        <columns>CONTRACT.CONTRACT_NUMBER</columns>
+        <columns>SALES.ACCOUNT.NAME</columns>
+        <columns>CONTRACT.START_DATE</columns>
+        <columns>CONTRACT.END_DATE</columns>
+        <columns>CONTRACT.STATUS</columns>
+        <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <label>All Contracts</label>
     </listViews>
