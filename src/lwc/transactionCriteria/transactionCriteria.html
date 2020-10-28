@@ -56,6 +56,17 @@
 					<lightning-input type="date" name="toDate" label="To Date" value={toDate} onchange={handleToDateRangeChange}></lightning-input>
 				</div>
 			</lightning-accordion-section>
+
+			<lightning-accordion-section name="downloadedSection" label={downloadedText}>
+				<div>
+					<lightning-radio-group name="downloadedGroup"
+					                       options={downloadedOptions}
+					                       value={downloaded}
+					                       type="radio"
+					                       onchange={handleDownloadedChange}>
+					</lightning-radio-group>
+				</div>
+			</lightning-accordion-section>
 		</lightning-accordion>
 		<div class="buttonStyle">
 			<lightning-button class="buttonStyle" variant="brand" label="Search" onclick={handleSearchClick}></lightning-button>
