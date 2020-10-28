@@ -4,24 +4,33 @@ private class Flow_ValidatePayableOrdersTest {
 	@testSetup static void testSetup() {
 		Account account = TestUtils.createAccount(true);
 		Program__c program = TestUtils.createProgram('Test Program', true);
-		Pricebook2 pricebook = TestUtils.createPricebook(program.Id);
+		Id pricebookId = Test.getStandardPricebookId();
+
 		Product2 product2 = TestUtils.createProduct(true);
+		PricebookEntry pbe = TestUtils.createPricebookEntry(pricebookId, product2.Id, true);
 		Id servicesRecordTypeId = Schema.SObjectType.Order.getRecordTypeInfosByDeveloperName().get('Services').getRecordTypeId();
-		ID standardPbId = Test.getStandardPricebookId();
-		PricebookEntry standardPbe = TestUtils.createPricebookEntry(standardPbId, product2.Id, true);
-		PricebookEntry pbe = TestUtils.createPricebookEntry(pricebook.Id, product2.Id, true);
+
 		Contract contract = new Contract();
 		contract.Name = 'Contract Test X';
 		contract.AccountId = account.Id;
+
+		contract.Pricebook2Id = pricebookId;
+		contract.StartDate = Date.newInstance(2020, 01, 01);
+		contract.ContractTerm = 30;
+		contract.BillingCountry = 'United States';
+		contract.ShippingCountry = 'United States';
+		contract.Status = 'Draft';
 		insert contract;
+		contract.Status = 'Activated';
+		update contract;
 		List<Order> orders = new List<Order>();
-		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebookId);
 		order1.Type = 'Services';
 		order1.Name = 'Test Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
 		orders.add(order1);
-		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
+		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebookId);
 		order2.Type = 'Services';
 		order2.Name = 'Test Order X';
 		order2.ContractId = contract.Id;
@@ -50,7 +59,7 @@ private class Flow_ValidatePayableOrdersTest {
 	@IsTest
 	static void validatePayableOrders_Positive() {
 		Flow_ValidatePayableOrders.RequestVariables requestVariables = new Flow_ValidatePayableOrders.RequestVariables();
-		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c, IsReductionOrder FROM ORDER WHERE Name = 'Test Order X'];
+		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c FROM ORDER WHERE Name = 'Test Order X'];
 		requestVariables.orders = orders;
 		List<Flow_ValidatePayableOrders.RequestVariables> requestVariablesList = new List<Flow_ValidatePayableOrders.RequestVariables>();
 		requestVariablesList.add(requestVariables);
@@ -61,7 +70,7 @@ private class Flow_ValidatePayableOrdersTest {
 	@IsTest
 	static void validatePayableOrders_Negative() {
 		Flow_ValidatePayableOrders.RequestVariables requestVariables = new Flow_ValidatePayableOrders.RequestVariables();
-		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c, IsReductionOrder FROM ORDER WHERE Name = 'Test Order X'];
+		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c FROM ORDER WHERE Name = 'Test Order X'];
 		for (Order order: orders) {
 			order.Order_Paid__c = true;
 		}
@@ -71,23 +80,6 @@ private class Flow_ValidatePayableOrdersTest {
 		requestVariablesList.add(requestVariables);
 		List<Flow_ValidatePayableOrders.ResponseVariables> returnList = Flow_ValidatePayableOrders.validatePayableOrders(requestVariablesList);
 		System.assertEquals(false, returnList[0].isValid);
-	}
-
-	@IsTest
-	static void validatePayableOrders_Exception() {
-		Flow_ValidatePayableOrders.RequestVariables requestVariables = new Flow_ValidatePayableOrders.RequestVariables();
-		List<Order> orders = [SELECT Id, Name, Type, TotalAmount, Order_Paid__c FROM ORDER WHERE Name = 'Test Order X'];
-		requestVariables.orders = orders;
-		List<Flow_ValidatePayableOrders.RequestVariables> requestVariablesList = new List<Flow_ValidatePayableOrders.RequestVariables>();
-		requestVariablesList.add(requestVariables);
-		String exceptionMessage;
-		try {
-			List<Flow_ValidatePayableOrders.ResponseVariables> returnList = Flow_ValidatePayableOrders.validatePayableOrders(requestVariablesList);
-		} catch (Exception e) {
-			exceptionMessage = e.getMessage();
-		} finally {
-			System.assertEquals('SObject row was retrieved via SOQL without querying the requested field: Order.IsReductionOrder', exceptionMessage);
-		}
 	}
 
 	@IsTest
