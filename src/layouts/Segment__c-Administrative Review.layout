@@ -65,6 +65,10 @@
                 <behavior>Readonly</behavior>
                 <field>Final_Extension_Remaining__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Withdrawal_Extension__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -278,6 +282,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Final_Announcement_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Withdrawal_Request_Deadline__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
