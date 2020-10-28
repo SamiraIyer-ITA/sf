@@ -195,7 +195,6 @@
      * @return            [description]
      */
 
-    @Future
     @TestVisible private static void setOrderIdToSegmentMap(Set<Id> orderIdSet) {
         for (Segment__c s : [SELECT Id, ADCVD_Order__c, Status__c, Do_Delete__c FROM Segment__c WHERE ADCVD_Order__c IN: orderIdSet]) {
             List<Segment__c> tempList = new List<Segment__c>();

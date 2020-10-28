@@ -19,13 +19,14 @@ private class Flow_ValidateRefundableOrdersTest {
 		List<Order> orders = new List<Order>();
 		Order order1 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
 		order1.Type = 'Services';
-		order1.Name = 'Test Order X';
+		order1.Name = 'Paid Order X';
 		order1.ContractId = contract.Id;
 		order1.RecordTypeId = servicesRecordTypeId;
 		orders.add(order1);
 		Order order2 = TestUtils.createOrder(account.Id, null, program.Id, pricebook.Id);
 		order2.Type = 'Services';
-		order2.Name = 'Test Order X';
+		order2.Name = 'Unpaid Order X';
+		order2.Order_Paid__c = false;
 		order2.ContractId = contract.Id;
 		order2.RecordTypeId = servicesRecordTypeId;
 		orders.add(order2);
@@ -51,15 +52,13 @@ private class Flow_ValidateRefundableOrdersTest {
 		orderItem2.PricebookEntryId=pbe.id;
 		insert orderItem2;
 
-		order2.Status = 'Paid';
-		order2.Order_Paid__c = true;
-		update order2;
-
 		//Insert a Payment record
 		Flow_CreatePaymentRecord.RequestVariables requestVariables = new Flow_CreatePaymentRecord.RequestVariables();
 		requestVariables.paymentType = 'Check';
 		requestVariables.amount = 4800;
-		requestVariables.orders = orders;
+		List<Order> paidOrders = new List<Order>();
+		paidOrders.add(order1);
+		requestVariables.orders = paidOrders;
 		requestVariables.contractId = order1.ContractId;
 		requestVariables.bankName = 'Bank One';
 		requestVariables.checkNumber = '1001';
@@ -67,113 +66,96 @@ private class Flow_ValidateRefundableOrdersTest {
 		List<Flow_CreatePaymentRecord.RequestVariables> requestVariablesList = new List<Flow_CreatePaymentRecord.RequestVariables>();
 		requestVariablesList.add(requestVariables);
 		List<String> returnList = Flow_CreatePaymentRecord.createPaymentRecord(requestVariablesList);
-
-		//Reduction Order 1
-		Order reductionOrder1 = new Order(
-			IsReductionOrder = true,
-			OriginalOrderId = order1.Id,
-			Pricebook2Id = order1.Pricebook2Id,
-			EffectiveDate = order1.EffectiveDate,
-			Status = 'Draft',
-			Type = 'Services',
-			RecordTypeId = servicesRecordTypeId,
-			ContractId = order1.ContractId,
-			AccountId = order1.AccountId,
-			Name = 'Reduction Order X');
-
-		insert reductionOrder1;
-
-		OrderItem reductionOrderItem1 = new OrderItem();
-		reductionOrderItem1.OriginalOrderItemId = orderItem1.Id;
-		reductionOrderItem1.OrderId = reductionOrder1.id;
-		reductionOrderItem1.Quantity = -2;
-		reductionOrderItem1.UnitPrice = 2400;
-		reductionOrderItem1.Product2id = product2.id;
-		reductionOrderItem1.PricebookEntryId=pbe.id;
-		insert reductionOrderItem1;
-
-		//Reduction Order 2
-		Order reductionOrder2 = new Order(
-			IsReductionOrder = true,
-			OriginalOrderId = order2.Id,
-			Pricebook2Id = order2.Pricebook2Id,
-			EffectiveDate = order2.EffectiveDate,
-			Status = 'Draft',
-			Type = 'Services',
-			RecordTypeId = servicesRecordTypeId,
-			ContractId = order1.ContractId,
-			AccountId = order2.AccountId,
-			Name = 'Reduction Order X');
-
-		insert reductionOrder2;
-
-		OrderItem reductionOrderItem2 = new OrderItem();
-		reductionOrderItem2.OriginalOrderItemId = orderItem2.Id;
-		reductionOrderItem2.OrderId = reductionOrder2.id;
-		reductionOrderItem2.Quantity = -2;
-		reductionOrderItem2.UnitPrice = 2400;
-		reductionOrderItem2.Product2id = product2.id;
-		reductionOrderItem2.PricebookEntryId=pbe.id;
-		insert reductionOrderItem2;
 	}
 
 	@IsTest
-	static void validateRefundableReductionOrders_Positive() {
-		Flow_ValidateRefundableReductionOrders.RequestVariables requestVariables = new Flow_ValidateRefundableReductionOrders.RequestVariables();
-		List<Order> orders = [SELECT Id, Name, Order_Paid__c, IsReductionOrder FROM ORDER WHERE Name = 'Reduction Order X'];
+	static void validateRefundableOrders_Positive() {
+		Flow_ValidateRefundableOrders.RequestVariables requestVariables = new Flow_ValidateRefundableOrders.RequestVariables();
+		List<Order> orders = [SELECT Id, Name, TotalAmount, Order_Paid__c, Payment2__c, Type, OrderNumber, Payment2__r.Name, Payment2__r.Payment_Type__c FROM ORDER WHERE Name = 'Paid Order X'];
 		requestVariables.orders = orders;
-		List<Flow_ValidateRefundableReductionOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableReductionOrders.RequestVariables>();
+		List<String> refundAmounts = new List<String>();
+		refundAmounts.add('5.00');
+		requestVariables.refundAmounts = refundAmounts;
+		List<String> refundReasons = new List<String>();
+		refundReasons.add('Other');
+		requestVariables.refundReasons = refundReasons;
+		List<String> refundExplanations = new List<String>();
+		refundExplanations.add('Some other reason');
+		requestVariables.refundExplanations = refundExplanations;
+		List<Flow_ValidateRefundableOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableOrders.RequestVariables>();
 		requestVariablesList.add(requestVariables);
-		List<Flow_ValidateRefundableReductionOrders.ResponseVariables> returnList = Flow_ValidateRefundableReductionOrders.validateRefundableReductionOrders(requestVariablesList);
+		List<Flow_ValidateRefundableOrders.ResponseVariables> returnList = Flow_ValidateRefundableOrders.validateRefundableOrders(requestVariablesList);
 		System.assertEquals(true, returnList[0].isValid);
 	}
 
 	@IsTest
-	static void validateRefundableReductionOrders_Negative1() {
-		Flow_ValidateRefundableReductionOrders.RequestVariables requestVariables = new Flow_ValidateRefundableReductionOrders.RequestVariables();
-		List<Order> orders = [SELECT Id, Name, Order_Paid__c, IsReductionOrder FROM ORDER WHERE Name = 'Reduction Order X'];
-		for (Order order: orders) {
-			order.Order_Paid__c = true;
-		}
-		update orders;
+	static void validateRefundableOrders_Negative1() {
+		Flow_ValidateRefundableOrders.RequestVariables requestVariables = new Flow_ValidateRefundableOrders.RequestVariables();
+		List<Order> orders = [SELECT Id, Name, TotalAmount, Order_Paid__c, Payment2__c, Type, OrderNumber, Payment2__r.Name, Payment2__r.Payment_Type__c FROM ORDER WHERE Name = 'Unpaid Order X'];
 		requestVariables.orders = orders;
-		List<Flow_ValidateRefundableReductionOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableReductionOrders.RequestVariables>();
+		List<String> refundAmounts = new List<String>();
+		refundAmounts.add('5.00');
+		requestVariables.refundAmounts = refundAmounts;
+		List<String> refundReasons = new List<String>();
+		refundReasons.add('Other');
+		requestVariables.refundReasons = refundReasons;
+		List<String> refundExplanations = new List<String>();
+		refundExplanations.add('Some other reason');
+		requestVariables.refundExplanations = refundExplanations;
+		List<Flow_ValidateRefundableOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableOrders.RequestVariables>();
 		requestVariablesList.add(requestVariables);
-		List<Flow_ValidateRefundableReductionOrders.ResponseVariables> returnList = Flow_ValidateRefundableReductionOrders.validateRefundableReductionOrders(requestVariablesList);
+		List<Flow_ValidateRefundableOrders.ResponseVariables> returnList = Flow_ValidateRefundableOrders.validateRefundableOrders(requestVariablesList);
 		System.assertEquals(false, returnList[0].isValid);
 	}
 
 	@IsTest
-	static void validateRefundableReductionOrders_Negative2() {
-		Flow_ValidateRefundableReductionOrders.RequestVariables requestVariables = new Flow_ValidateRefundableReductionOrders.RequestVariables();
-		List<Order> orders = [SELECT Id, Name, Order_Paid__c, IsReductionOrder, OriginalOrder.Order_Paid__c, OriginalOrder.Payment2__c FROM ORDER WHERE Name = 'Reduction Order X'];
+	static void validateRefundableOrders_Negative2() {
+		Flow_ValidateRefundableOrders.RequestVariables requestVariables = new Flow_ValidateRefundableOrders.RequestVariables();
+		List<Order> orders = [SELECT Id, Name, TotalAmount, Order_Paid__c, Payment2__c, Type, OrderNumber, Payment2__r.Name, Payment2__r.Payment_Type__c FROM ORDER WHERE Name = 'Unpaid Order X'];
 		orders[0].Type = 'Blah';
-		orders[0].OriginalOrder.Order_Paid__c = false;
-		orders[0].OriginalOrder.Payment2__c = null;
+		orders[0].Payment2__c = null;
 		update orders;
 		requestVariables.orders = orders;
-		List<Flow_ValidateRefundableReductionOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableReductionOrders.RequestVariables>();
+		List<String> refundAmounts = new List<String>();
+		refundAmounts.add('5.00');
+		requestVariables.refundAmounts = refundAmounts;
+		List<String> refundReasons = new List<String>();
+		refundReasons.add('Other');
+		requestVariables.refundReasons = refundReasons;
+		List<String> refundExplanations = new List<String>();
+		refundExplanations.add('Some other reason');
+		requestVariables.refundExplanations = refundExplanations;
+		List<Flow_ValidateRefundableOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableOrders.RequestVariables>();
 		requestVariablesList.add(requestVariables);
-		List<Flow_ValidateRefundableReductionOrders.ResponseVariables> returnList = Flow_ValidateRefundableReductionOrders.validateRefundableReductionOrders(requestVariablesList);
+		List<Flow_ValidateRefundableOrders.ResponseVariables> returnList = Flow_ValidateRefundableOrders.validateRefundableOrders(requestVariablesList);
 		System.assertEquals(false, returnList[0].isValid);
 	}
 
 
 	@IsTest
-	static void validateRefundableReductionOrders_EmptyOrders() {
-		Flow_ValidateRefundableReductionOrders.RequestVariables requestVariables = new Flow_ValidateRefundableReductionOrders.RequestVariables();
+	static void validateRefundableOrders_EmptyOrders() {
+		Flow_ValidateRefundableOrders.RequestVariables requestVariables = new Flow_ValidateRefundableOrders.RequestVariables();
 		List<Order> orders = new List<Order>();
 		requestVariables.orders = orders;
-		List<Flow_ValidateRefundableReductionOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableReductionOrders.RequestVariables>();
+		List<String> refundAmounts = new List<String>();
+		refundAmounts.add('5.00');
+		requestVariables.refundAmounts = refundAmounts;
+		List<String> refundReasons = new List<String>();
+		refundReasons.add('Other');
+		requestVariables.refundReasons = refundReasons;
+		List<String> refundExplanations = new List<String>();
+		refundExplanations.add('Some other reason');
+		requestVariables.refundExplanations = refundExplanations;
+		List<Flow_ValidateRefundableOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableOrders.RequestVariables>();
 		requestVariablesList.add(requestVariables);
-		List<Flow_ValidateRefundableReductionOrders.ResponseVariables> returnList = Flow_ValidateRefundableReductionOrders.validateRefundableReductionOrders(requestVariablesList);
+		List<Flow_ValidateRefundableOrders.ResponseVariables> returnList = Flow_ValidateRefundableOrders.validateRefundableOrders(requestVariablesList);
 		System.assertEquals(false, returnList[0].isValid);
 	}
 
 	@IsTest
 	static void validateRefundableReductionOrders_EmptyRequest() {
-		List<Flow_ValidateRefundableReductionOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableReductionOrders.RequestVariables>();
-		List<Flow_ValidateRefundableReductionOrders.ResponseVariables> returnList = Flow_ValidateRefundableReductionOrders.validateRefundableReductionOrders(requestVariablesList);
+		List<Flow_ValidateRefundableOrders.RequestVariables> requestVariablesList = new List<Flow_ValidateRefundableOrders.RequestVariables>();
+		List<Flow_ValidateRefundableOrders.ResponseVariables> returnList = Flow_ValidateRefundableOrders.validateRefundableOrders(requestVariablesList);
 		System.assertEquals(false, returnList[0].isValid);
 	}
 

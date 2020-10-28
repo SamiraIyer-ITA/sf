@@ -20,4 +20,11 @@ private class UsersSelectorTest {
 		System.assertNotEquals(0, result.size(), 'List not empty');
 	}
 
+	@IsTest
+	static void selectByName_Positive() {
+		List<User> result = UsersSelector.newInstance().selectByName(new Set<String> {'Test User'});
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertNotEquals(0, result.size(), 'List not empty');
+	}
+
 }
