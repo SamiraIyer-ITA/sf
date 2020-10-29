@@ -58,7 +58,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -638,7 +637,7 @@
         <description>The purpose of this VR is to limit the FR type a user can choose based on the Investigation object&apos;s &quot;AD&quot; Record Type.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 Investigation__r.RecordType.DeveloperName = &apos;AD&apos;,
-CASE(Type__c, 
+CASE(Type__c,
 &apos;Preliminary&apos;, 0,
 &apos;Amended Preliminary&apos;, 0,
 &apos;Final&apos;, 0,
@@ -661,7 +660,7 @@ CASE(Type__c,
         <description>The purpose of this VR is to limit the FR type a user can choose based on the Investigation object&apos;s &quot;CVD&quot; Record Type.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 Investigation__r.RecordType.DeveloperName = &apos;CVD&apos;,
-CASE(Type__c, 
+CASE(Type__c,
 &apos;Preliminary&apos;, 0,
 &apos;Amended Preliminary&apos;, 0,
 &apos;Final&apos;, 0,
@@ -684,7 +683,7 @@ CASE(Type__c,
         <description>The purpose of this VR is to limit the FR type a user can choose based on the Petition object&apos;s &quot;Filed&quot; Record Type.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 Petition__r.RecordType.DeveloperName = &apos;Filed&apos;,
-CASE(Type__c, 
+CASE(Type__c,
 &apos;Initiation&apos;, 0,
 &apos;Postponement&apos;, 0,
 &apos;Post Litigation&apos;, 0,
@@ -701,7 +700,7 @@ CASE(Type__c,
         <description>The purpose of this VR is to limit the FR type a user can choose based on the Petition object&apos;s &quot;Private&quot; Record Type.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 Petition__r.RecordType.DeveloperName = &apos;Private&apos;,
-CASE(Type__c, 
+CASE(Type__c,
 &apos;Initiation&apos;, 0,
 &apos;Postponement&apos;, 0,
 &apos;Post Litigation&apos;, 0,
@@ -718,7 +717,7 @@ CASE(Type__c,
         <description>The purpose of this VR is to limit the FR type a user can choose based on the Petition object&apos;s &quot;Self_Initiated&quot; Record Type.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 Petition__r.RecordType.DeveloperName = &apos;Self_Initiated&apos;,
-CASE(Type__c, 
+CASE(Type__c,
 &apos;Initiation&apos;, 0,
 &apos;Postponement&apos;, 0,
 &apos;Post Litigation&apos;, 0,
@@ -754,9 +753,9 @@ CASE(Type__c,
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
-NOT(ISNEW()), 
-PRIORVALUE(Locked__c) == true 
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false,
+NOT(ISNEW()),
+PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
@@ -788,13 +787,13 @@ ISBLANK( ADCVD_Order__c )))</errorConditionFormula>
         <active>true</active>
         <description>You cannot create a federal register without a single parent record: either an Investigation, Petition, Order, Suspension Agreement, or Segment attached to it. If all four of these lookup fields are empty, the validation error message will trigger.</description>
         <errorConditionFormula>AND(
-    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-    Locked__c == false, 
-    (	
-	IF(ISBLANK(Petition__c),0,1)+ 
-	IF(ISBLANK(Segment__c),0,1)+ 
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    (
+	IF(ISBLANK(Petition__c),0,1)+
+	IF(ISBLANK(Segment__c),0,1)+
         IF(ISBLANK(ADCVD_Order__c),0,1)+
-	IF(ISBLANK(Investigation__c),0,1)+ 
+	IF(ISBLANK(Investigation__c),0,1)+
 	IF(ISBLANK(Suspension_Agreement__c),0,1) &lt;&gt;1
    )
 )</errorConditionFormula>
@@ -804,9 +803,9 @@ ISBLANK( ADCVD_Order__c )))</errorConditionFormula>
         <fullName>Limit_FR_Type_for_ADCVD_Order</fullName>
         <active>true</active>
         <description>When the ADCVD Order lookup field is populated, this validation rule will limit the values that can be accepted in the Type__c field.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 NOT(ISBLANK( ADCVD_Order__c )),
-CASE(Type__c, 
+CASE(Type__c,
 &apos;Initiation&apos;, 1,
 &apos;Preliminary&apos;, 1,
 &apos;Amended Preliminary&apos;, 1,
@@ -829,10 +828,10 @@ CASE(Type__c,
         <fullName>Limit_FR_Type_for_SSR</fullName>
         <active>true</active>
         <description>When the Segment lookup field is populated with a Sunset Review (SSR), this validation rule will limit the values that can be accepted in the Type__c field.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 NOT(ISBLANK( Segment__c )),
 Segment__r.RecordType.DeveloperName = &apos;Sunset_Review&apos;,
-CASE(Type__c, 
+CASE(Type__c,
 &apos;Continuation&apos;, 1,
 &apos;Order&apos;, 1,
 &apos;Admin Review Opportunity Notice&apos;, 1,
