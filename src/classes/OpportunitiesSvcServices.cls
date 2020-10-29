@@ -41,7 +41,7 @@ public with sharing class OpportunitiesSvcServices extends SObjectsTriggerServic
 		Set<Id> opportunityIdsWithOrders =
 			Utils.getRecordsIdsByRelatedObjectRecords(
 				(List<SObject>) OrdersSelector.newInstance()
-					.selectOrdersByOpportunities(new Map<Id, SObject>(records).keySet()), Order.OpportunityId);
+					.selectOrdersByOpportunities(opportunityIds), Order.OpportunityId);
 		Map<Id, Quote> syncedQuotesByIds = new Map<Id, Quote>(
 			QuotesSelector.newInstance().selectBySyncedQuotesAndOpportunitiesWithPrimaryLineItems(opportunityIds));
 		List<ApprovedQuote> approvedQuotes = new List<ApprovedQuote>();
