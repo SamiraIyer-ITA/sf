@@ -5,7 +5,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -13,7 +33,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -21,7 +61,27 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -29,11 +89,41 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -43,6 +133,15 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
@@ -62,6 +161,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
@@ -540,57 +640,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>APO_Destruction_Due_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>APO Destruction Due Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>APO_Notes__c</fullName>
-        <externalId>false</externalId>
-        <label>APO Notes</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>APO_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>APO Status</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Active</fullName>
-                    <default>false</default>
-                    <label>Active</label>
-                </value>
-                <value>
-                    <fullName>Dormant</fullName>
-                    <default>false</default>
-                    <label>Dormant</label>
-                </value>
-                <value>
-                    <fullName>Closed</fullName>
-                    <default>false</default>
-                    <label>Closed</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Access_Barcode__c</fullName>
@@ -2913,6 +2962,25 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     </fields>
     <label>Segment</label>
     <listViews>
+        <fullName>APO_LIST_VIEW</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <columns>APO_Status__c</columns>
+        <columns>APO_Destruction_Due_Date__c</columns>
+        <columns>APO_Notes__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Segment__c.Administrative_Review</value>
+        </filters>
+        <label>APO LIST VIEW</label>
+    </listViews>
+    <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>ADCVD_Case_Number_Text__c</columns>
@@ -3268,6 +3336,93 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             <value>Litigation</value>
         </filters>
         <label>All Segments in Litigation</label>
+    </listViews>
+    <listViews>
+        <fullName>NSRs</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Actual_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Segment__c.New_Shipper_Review</value>
+        </filters>
+        <label>NSRs</label>
+    </listViews>
+    <listViews>
+        <fullName>Segments_without_outcomes</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Segment_Outcome__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Segment_Outcome__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Hold,Litigation,Customs,Closed</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Segment__c.Administrative_Review</value>
+        </filters>
+        <label>Segments without outcomes</label>
+    </listViews>
+    <listViews>
+        <fullName>Sunset_Reviews</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Segment__c.Sunset_Review</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Sunset Reviews</label>
+    </listViews>
+    <listViews>
+        <fullName>Suspension_Agreement_Segments</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Status__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>SA</value>
+        </filters>
+        <label>Suspension Agreement Segments</label>
     </listViews>
     <nameField>
         <displayFormat>S-{0000}</displayFormat>
@@ -13971,7 +14126,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
 				$RecordType.DeveloperName = &quot;Administrative_Review&quot;,
 				AND(
         NOT(ISNULL( Actual_Final_Signature__c)),
-        ISPICKVAL( Segment_Outcome__c, &quot;&quot; ) 
+        ISPICKVAL( Segment_Outcome__c, &quot;&quot; )
 				)
 )</errorConditionFormula>
         <errorDisplayField>Segment_Outcome__c</errorDisplayField>
