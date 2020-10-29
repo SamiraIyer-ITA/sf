@@ -2,6 +2,11 @@
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>false</doesSendEmailToMembers>
     <name>Website Issues</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>CP_Contact_Us_Group11</publicGroup>
+        </publicGroups>
+    </queueMembers>
     <queueSobject>
         <sobjectType>ContactRequest</sobjectType>
     </queueSobject>
