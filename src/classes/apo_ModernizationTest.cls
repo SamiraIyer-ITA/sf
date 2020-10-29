@@ -7,7 +7,9 @@ public class apo_ModernizationTest {
         Test.startTest();
 
         Boolean CheckPermission = apo_Modernization.doesRunningUserHavePermission();
-        
+
+        System.assertEquals(CheckPermission, false);
+
         Test.stopTest();
     }
 }
