@@ -80,7 +80,7 @@
     <masterLabel>Interested Organization Record Page</masterLabel>
     <sobjectType>Related_Organization__c</sobjectType>
     <template>
-        <name>flexipage:recordHomeSingleColTemplateDesktop</name>
+        <name>flexipage:recordHomeSimpleViewTemplate</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>

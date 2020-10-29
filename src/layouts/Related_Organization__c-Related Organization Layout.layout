@@ -88,10 +88,6 @@
                 <behavior>Readonly</behavior>
                 <field>Litigation__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Custom_Instruction__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
