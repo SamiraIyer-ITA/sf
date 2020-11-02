@@ -130,6 +130,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Compliance_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>CD_Agreement_Notes__c</field>
             </layoutItems>
             <layoutItems>

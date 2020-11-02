@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Client Form</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Client Forms</value>
+    </caseValues>
+    <fields>
+        <help><!-- Additional Services or Assistance Required: --></help>
+        <label><!-- Add&apos;l services/assistance required --></label>
+        <name>Addtl_Services_or_Assistance_Required__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alternate Contact --></label>
+        <name>Alternate_Contact__c</name>
+        <relationshipLabel><!-- Client Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Alternative Dates: --></help>
+        <label><!-- Alternative Dates --></label>
+        <name>Alternative_Dates__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Exports (as % Total Sales) --></label>
+        <name>Annual_Exports_As_Total_Sales__c</name>
+        <picklistValues>
+            <masterLabel>Less than 25%</masterLabel>
+            <translation><!-- Less than 25% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More than 25%</masterLabel>
+            <translation><!-- More than 25% --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Approximate No. Years Exporting: --></help>
+        <label><!-- Approximate No. Years Exporting --></label>
+        <name>Approximate_No_Years_Exporting__c</name>
+    </fields>
+    <fields>
+        <label><!-- Are you working with a DOC office? --></label>
+        <name>Are_you_working_with_a_DOC_office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Average Annual Sales --></label>
+        <name>Average_Annual_Sales__c</name>
+        <picklistValues>
+            <masterLabel>$5-$10M</masterLabel>
+            <translation><!-- $5-$10M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less than $5M</masterLabel>
+            <translation><!-- Less than $5M --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More than $10M</masterLabel>
+            <translation><!-- More than $10M --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- From the time you (or your distributor) first meet a new end-user, on average, how long does it take to complete a sale? --></help>
+        <label><!-- Average time to complete a sale --></label>
+        <name>Average_Time_To_Complete_A_Sale__c</name>
+        <picklistValues>
+            <masterLabel>0-3 months</masterLabel>
+            <translation><!-- 0-3 months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1-2 years</masterLabel>
+            <translation><!-- 1-2 years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-6 months</masterLabel>
+            <translation><!-- 3-6 months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-12 months</masterLabel>
+            <translation><!-- 6-12 months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&gt;2 years</masterLabel>
+            <translation><!-- &gt;2 years --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- From the time you first meet a new marketing partner (distributor, agent, dealer, etc.), on average, how long does it take to sign a partner (distributor, agent, dealer, etc.) agreement? --></help>
+        <label><!-- Average time to sign new dist./partner --></label>
+        <name>Average_Time_To_Sign_New_Dist_Partner__c</name>
+        <picklistValues>
+            <masterLabel>0-3 months</masterLabel>
+            <translation><!-- 0-3 months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1-2 years</masterLabel>
+            <translation><!-- 1-2 years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-6 months</masterLabel>
+            <translation><!-- 3-6 months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-12 months</masterLabel>
+            <translation><!-- 6-12 months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&gt;2 years</masterLabel>
+            <translation><!-- &gt;2 years --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Brief Company Description --></help>
+        <label><!-- Brief Company Description --></label>
+        <name>Brief_Company_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Company Business Objective --></help>
+        <label><!-- Business Objective(s) --></label>
+        <name>Business_Objectives__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Service Provider Category --></label>
+        <name>Business_Service_Provider_Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Service Provider Listings --></label>
+        <name>Business_Service_Provider_Listings__c</name>
+    </fields>
+    <fields>
+        <help><!-- Does your company produce or have rights to export the product/service? --></help>
+        <label><!-- Client has rights to export product --></label>
+        <name>Client_Has_Rights_To_Export_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Activities --></label>
+        <name>Company_Activities__c</name>
+        <picklistValues>
+            <masterLabel>Distributor/Representative</masterLabel>
+            <translation><!-- Distributor/Representative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Educational Institution</masterLabel>
+            <translation><!-- Educational Institution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Management Company</masterLabel>
+            <translation><!-- Export Management Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Franchiser</masterLabel>
+            <translation><!-- Franchiser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturer</masterLabel>
+            <translation><!-- Manufacturer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Company</masterLabel>
+            <translation><!-- Service Company --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Is your company currently represented in this country/region? --></help>
+        <label><!-- Company already represented in market? --></label>
+        <name>Company_Already_Represented_In_Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Please certify your company size --></label>
+        <name>Company_Size__c</name>
+        <picklistValues>
+            <masterLabel>Large</masterLabel>
+            <translation><!-- Large --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Small</masterLabel>
+            <translation><!-- Small --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Complete BSP Description --></label>
+        <name>Complete_BSP_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Countries Exporting To (past and present): --></help>
+        <label><!-- Countries Exporting To (past/present) --></label>
+        <name>Countries_Exporting_To_Past_Present__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country(ies) of Interest --></label>
+        <name>Countries_Of_Interest__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current rep./dist. aware of new search? --></label>
+        <name>Current_Rep_Dist_Aware_of_New_Search__c</name>
+    </fields>
+    <fields>
+        <help><!-- Are you currently working with a local U.S. Commercial Service Field Office? --></help>
+        <label><!-- Currently working with a USEAC? --></label>
+        <name>Currently_Working_With_A_USEAC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Completed --></label>
+        <name>Date_Completed__c</name>
+    </fields>
+    <fields>
+        <help><!-- Desired Dates for Service: --></help>
+        <label><!-- Desired Dates for Service --></label>
+        <name>Desired_Dates_for_Service__c</name>
+    </fields>
+    <fields>
+        <help><!-- Desired Dates for Service: --></help>
+        <label><!-- Desired Event Date --></label>
+        <name>Desired_Event_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Desired Location(s) --></label>
+        <name>Desired_Locations__c</name>
+    </fields>
+    <fields>
+        <help><!-- Describe any preferences, technical qualifications, servicing capabilities, requirements, or pre- qualifications that ideal prospects must have (i.e. size, geographic territory, investment, etc --></help>
+        <label><!-- Desired qualities of target partners --></label>
+        <name>Desired_Qualities_Of_Target_Partners__c</name>
+    </fields>
+    <fields>
+        <help><!-- Disclose Requestor to Target Company? --></help>
+        <label><!-- Disclose Requestor to Target Company? --></label>
+        <name>Disclose_Requestor_to_Target_Company__c</name>
+    </fields>
+    <fields>
+        <help><!-- ICP Full Only: Do you authorize the international field office to disclose the name of the requesting company to the target company or individual? NOTE: We strongly recommend that you allow the international field office to disclose your identity to the t --></help>
+        <label><!-- Disclose Ultimate Client Target Company? --></label>
+        <name>Disclose_Ultimate_Client_Target_Company__c</name>
+    </fields>
+    <fields>
+        <help><!-- What are the domestic and international trade shows for your industry/company? --></help>
+        <label><!-- Domestic and international trade shows --></label>
+        <name>Domestic_And_International_Trade_Shows__c</name>
+    </fields>
+    <fields>
+        <help><!-- Economic Development Organization --></help>
+        <label><!-- Economic Development Organization --></label>
+        <name>Economic_Development_Organization__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please indicate which shows do you exhibit at and/or walk? --></help>
+        <label><!-- Shows client exhibits at and/or walks --></label>
+        <name>Exhibit_Shows__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please list the Export Control Classification Number (ECCN) --></help>
+        <label><!-- Export Control Classification Nr.(ECCN) --></label>
+        <name>Export_Control_Classification_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- What types of firms or individuals do you suggest we contact for your promotional event? Please provide a brief profile of the types of companies you’d like to have in your audience, such as company size, line of business, degree of specialization and rel --></help>
+        <label><!-- Types of firms/individuals to contact --></label>
+        <name>Firms_Individuals_to_Contact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Are they any specific companies, or types of companies, you would like us NOT to contact --></help>
+        <label><!-- Specific firms/persons NOT to contact --></label>
+        <name>Firms_Persons_Not_To_Contact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Are there any specific companies, or types of companies, you would like us to contact? If so, please list them here. --></help>
+        <label><!-- Specific firms/persons to contact --></label>
+        <name>Firms_Persons_To_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- How were you introduced to our BSP? --></label>
+        <name>How_were_you_introduced_to_our_BSP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please list here any hyperlinks for marketing materials (links to online .pdf brochures, online videos, etc.). If you prefer, please email any materials to your local contact along with this form. --></help>
+        <label><!-- Hyperlinks for marketing materials --></label>
+        <name>Hyperlinks_For_Marketing_Materials__c</name>
+    </fields>
+    <fields>
+        <label><!-- If yes, please enter name and office --></label>
+        <name>If_yes_please_enter_name_and_office__c</name>
+    </fields>
+    <fields>
+        <help><!-- Are there any international licensing or registration requirements pending? --></help>
+        <label><!-- Int&apos;l licenses/registrations pending --></label>
+        <name>Intl_Licenses_Registrations_Pending__c</name>
+    </fields>
+    <fields>
+        <help><!-- If yes, is this arrangement exclusive? --></help>
+        <label><!-- If yes, is this arrangement exclusive? --></label>
+        <name>Is_This_Arrangement_Exclusive__c</name>
+    </fields>
+    <fields>
+        <help><!-- Who are your major competitors at home? --></help>
+        <label><!-- Who are your major competitors at home? --></label>
+        <name>Major_Competitors_At_Home__c</name>
+    </fields>
+    <fields>
+        <help><!-- Who are your major competitors in the target market(s)? --></help>
+        <label><!-- Major competitors in target market(s) --></label>
+        <name>Major_Competitors_In_Target_Markets__c</name>
+    </fields>
+    <fields>
+        <help><!-- If yes, does it depend on the geography, market size, or industry? Please explain briefly. --></help>
+        <label><!-- If yes, using more than one dist. now? --></label>
+        <name>More_Than_One_Distributor_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Using/can use more than one distributor? --></label>
+        <name>More_Than_One_Distributor__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please list the most important end-users or end-user industries for this product/service --></help>
+        <label><!-- Most important end-users --></label>
+        <name>Most_Important_End_Users__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Employees --></label>
+        <name>Number_Of_Employees__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please provide more details about the event, including objectives and information on target audience. --></help>
+        <label><!-- Objective and target audience details --></label>
+        <name>Objective_and_Target_Audience_Details__c</name>
+    </fields>
+    <fields>
+        <help><!-- Describe your company&apos;s interests and objectives in the target market or any special features of your company’s operations that can help us identify potential business partners. --></help>
+        <label><!-- Objectives/interests in target market --></label>
+        <name>Objectives_Interests_In_Target_Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization --></label>
+        <name>Organization__c</name>
+        <relationshipLabel><!-- Client Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Other business contact (please specify) --></help>
+        <label><!-- Other business contact (please specify) --></label>
+        <name>Other_Business_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Company Activities(please specify) --></label>
+        <name>Other_Company_Activities__c</name>
+    </fields>
+    <fields>
+        <help><!-- Other Type of Event not in the picklist --></help>
+        <label><!-- Other Type of Event --></label>
+        <name>Other_Type_of_Event__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner city. --></help>
+        <label><!-- Partner City --></label>
+        <name>Partner_City__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner company name. --></help>
+        <label><!-- Partner Company Name --></label>
+        <name>Partner_Company_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner contact email. --></help>
+        <label><!-- Partner Contact Email --></label>
+        <name>Partner_Contact_Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner contact first name. --></help>
+        <label><!-- Partner Contact First Name --></label>
+        <name>Partner_Contact_First_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner contact last name. --></help>
+        <label><!-- Partner Contact Last Name --></label>
+        <name>Partner_Contact_Last_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner contact telephone. --></help>
+        <label><!-- Partner Contact Telephone --></label>
+        <name>Partner_Contact_Telephone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner contact title. --></help>
+        <label><!-- Partner Contact Title --></label>
+        <name>Partner_Contact_Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner company country. --></help>
+        <label><!-- Partner Country --></label>
+        <name>Partner_Country__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner company postal code. --></help>
+        <label><!-- Partner Postal Code --></label>
+        <name>Partner_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner company state. --></help>
+        <label><!-- Partner State --></label>
+        <name>Partner_State__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner street. --></help>
+        <label><!-- Partner Street --></label>
+        <name>Partner_Street__c</name>
+    </fields>
+    <fields>
+        <help><!-- Local partner company website. --></help>
+        <label><!-- Partner Website --></label>
+        <name>Partner_Website__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact Company City --></label>
+        <name>Point_of_Contact_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact  Company State --></label>
+        <name>Point_of_Contact_Company_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact Company Street Address --></label>
+        <name>Point_of_Contact_Company_Street_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact Company Zip Code --></label>
+        <name>Point_of_Contact_Company_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact Fax --></label>
+        <name>Point_of_Contact_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact First Name --></label>
+        <name>Point_of_Contact_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact Last Name --></label>
+        <name>Point_of_Contact_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact Phone --></label>
+        <name>Point_of_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact Title --></label>
+        <name>Point_of_Contact_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Point of Contact eMail Address --></label>
+        <name>Point_of_Contact_eMail_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Contact --></label>
+        <name>Primary_Contact__c</name>
+        <relationshipLabel><!-- Client Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Primary NAICs Code --></label>
+        <name>Primary_NAICs_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Have you staged such an event in any other markets? If so, please give us your insights on what made that event successful. --></help>
+        <label><!-- Prior experience in other markets --></label>
+        <name>Prior_Experience_in_other_Markets__c</name>
+    </fields>
+    <fields>
+        <help><!-- What type of licensing or registration does your product/service require in the U.S. (i.e. FDA Approval)? Which requirements do you carry? --></help>
+        <label><!-- Product license or registration in U.S --></label>
+        <name>Product_License_Or_Registration_In_US__c</name>
+    </fields>
+    <fields>
+        <help><!-- What type of licensing or registration does your product/service require internationally (CE Mark, WEE, RoHS, CCC, GOST-R, FDA Classification, ASME, etc.)? Which requirements do you carry? --></help>
+        <label><!-- Product license/registration outside US --></label>
+        <name>Product_License_Registration_Outside_US__c</name>
+    </fields>
+    <fields>
+        <help><!-- Describe the product/service(s) to be promoted, including its competitive advantages and unique selling proposition. --></help>
+        <label><!-- Product/service(s) Description --></label>
+        <name>Products_Services_Advantages_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Are you a U.S. exporter and is your product/service of U.S. origin or contain at least 51% U.S. content? --></help>
+        <label><!-- Qualifies as U.S. exporter? --></label>
+        <name>Qualifies_As_US_Exporter__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What related products might a representative/partner of this product/service also handle --></help>
+        <label><!-- Related products handled by distributor --></label>
+        <name>Related_Products_Handled_By_Distributor__c</name>
+    </fields>
+    <fields>
+        <help><!-- Requested Date: --></help>
+        <label><!-- Requested Date --></label>
+        <name>Requested_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- If you have a distributor in this market, please explain their role in staging this promotion. --></help>
+        <label><!-- Role of current distributor in event --></label>
+        <name>Role_of_Current_Distributor_in_Event__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please list the Schedule B/HS Code (and corresponding product description) --></help>
+        <label><!-- Please list the Schedule B/HS Code --></label>
+        <name>Schedule_BHS_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is your firm seeking representation on an exclusive basis in this market? --></help>
+        <label><!-- Seeking exclusive representation? --></label>
+        <name>Seeking_Exclusive_Representation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Short BSP Description --></label>
+        <name>Short_BSP_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please prioritize those sub-sectors that you want us to pursue. --></help>
+        <label><!-- Sub-sectors served prioritized --></label>
+        <name>Sub_Sectors_Served_Prioritized__c</name>
+    </fields>
+    <fields>
+        <help><!-- Does your product/service serve a particular group of sub-sectors (i.e., industrial vs. commercial vs. residential for the building sector; oncology, ENT, orthopedic, etc. for the medical sector; coal, nuclear, gas, oil, etc. for the energy sector)? --></help>
+        <label><!-- Sub-sectors served --></label>
+        <name>Sub_Sectors_Served__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target Address --></help>
+        <label><!-- Target Address --></label>
+        <name>Target_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target City --></label>
+        <name>Target_City__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target Company Email --></help>
+        <label><!-- Target Company Email --></label>
+        <name>Target_Company_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Company First Name --></label>
+        <name>Target_Company_First_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target Company Phone --></help>
+        <label><!-- Target Company Phone --></label>
+        <name>Target_Company_Phone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target Company Website --></help>
+        <label><!-- Target Company Website --></label>
+        <name>Target_Company_Website__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target Company --></help>
+        <label><!-- Target Company --></label>
+        <name>Target_Company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Contact Last Name --></label>
+        <name>Target_Contact_Last_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target Contact Title --></help>
+        <label><!-- Target Contact Title --></label>
+        <name>Target_Contact_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Country --></label>
+        <name>Target_Country__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target Group Size --></help>
+        <label><!-- Target Group Size --></label>
+        <name>Target_Group_Size__c</name>
+        <picklistValues>
+            <masterLabel>101-150</masterLabel>
+            <translation><!-- 101-150 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>26-50</masterLabel>
+            <translation><!-- 26-50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>51-100</masterLabel>
+            <translation><!-- 51-100 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More than 150</masterLabel>
+            <translation><!-- More than 150 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Up to 25</masterLabel>
+            <translation><!-- Up to 25 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Target Postal Code --></label>
+        <name>Target_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target State --></label>
+        <name>Target_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taxonomy Tagging --></label>
+        <name>Taxonomy_Tagging__c</name>
+        <relationshipLabel><!-- Client Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Trade Specialist (name): --></help>
+        <label><!-- Trade Specialist (name) --></label>
+        <name>Trade_Specialist_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- What type of business contacts are you seeking? --></help>
+        <label><!-- Types of business contacts saught --></label>
+        <name>Type_Of_Business_Contacts_Saught__c</name>
+        <picklistValues>
+            <masterLabel>Additional In-Country Representation</masterLabel>
+            <translation><!-- Additional In-Country Representation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agent/Sales Representative</masterLabel>
+            <translation><!-- Agent/Sales Representative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distributor/Wholesaler</masterLabel>
+            <translation><!-- Distributor/Wholesaler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>End Users/Buyers</masterLabel>
+            <translation><!-- End Users/Buyers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Franchisee</masterLabel>
+            <translation><!-- Franchisee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joint Venture Partner/Licensee</masterLabel>
+            <translation><!-- Joint Venture Partner/Licensee --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Type of Event --></help>
+        <label><!-- Type of Event --></label>
+        <name>Type_of_Event__c</name>
+        <picklistValues>
+            <masterLabel>Business Meeting</masterLabel>
+            <translation><!-- Business Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dinner</masterLabel>
+            <translation><!-- Dinner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Luncheon</masterLabel>
+            <translation><!-- Luncheon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press Conference</masterLabel>
+            <translation><!-- Press Conference --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product/Service Launch</masterLabel>
+            <translation><!-- Product/Service Launch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reception</masterLabel>
+            <translation><!-- Reception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical Seminar</masterLabel>
+            <translation><!-- Technical Seminar --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Type of Service Requested --></help>
+        <label><!-- Type of Services Requested --></label>
+        <name>Type_of_Services_Requested__c</name>
+        <picklistValues>
+            <masterLabel>International Company Profile - Full</masterLabel>
+            <translation><!-- International Company Profile - Full --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Company Profile - Partial</masterLabel>
+            <translation><!-- International Company Profile - Partial --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- (If applicable) How is your product typically distributed and marketed outside of the U.S. --></help>
+        <label><!-- Typical dist./marketing outside US --></label>
+        <name>Typical_Dist_Marketing_Outside_US__c</name>
+    </fields>
+    <fields>
+        <help><!-- How is your product typically distributed and marketed in the U.S. --></help>
+        <label><!-- Typical distribution/marketing in US --></label>
+        <name>Typical_Distribution_Marketing_In_US__c</name>
+    </fields>
+    <fields>
+        <help><!-- U.S. Commercial Service Field Office location. --></help>
+        <label><!-- If yes, USEAC location --></label>
+        <name>USEAC_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- US Product license/registrations pending --></label>
+        <name>US_Prod_Licenses_Registrations_Pending__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ultimate Address --></help>
+        <label><!-- Ultimate Address --></label>
+        <name>Ultimate_Address__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ultimate City --></help>
+        <label><!-- Ultimate City --></label>
+        <name>Ultimate_City__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ultimate Client Company --></help>
+        <label><!-- Ultimate Client Company --></label>
+        <name>Ultimate_Client_Company__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ultimate Client Phone --></help>
+        <label><!-- Ultimate Client Phone --></label>
+        <name>Ultimate_Client_Phone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ultimate Client Website --></help>
+        <label><!-- Ultimate Client Website --></label>
+        <name>Ultimate_Client_Website__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ultimate Country --></label>
+        <name>Ultimate_Country__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ultimate Postal Code --></help>
+        <label><!-- Ultimate Postal Code --></label>
+        <name>Ultimate_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ultimate State --></help>
+        <label><!-- Ultimate State --></label>
+        <name>Ultimate_State__c</name>
+    </fields>
+    <layouts>
+        <layout>BSP FORM</layout>
+        <sections>
+            <label><!-- BUSINESS SERVICE PROVIDER LISTINGS --></label>
+            <section>BUSINESS SERVICE PROVIDER LISTINGS</section>
+        </sections>
+        <sections>
+            <label><!-- BUSINESS SERVICE PROVIDERS --></label>
+            <section>BUSINESS SERVICE PROVIDERS</section>
+        </sections>
+        <sections>
+            <label><!-- CONTACT AND COMPANY INFORMATION --></label>
+            <section>CONTACT AND COMPANY INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- YOUR U.S COMMERCIAL SERVICE CONTACT --></label>
+            <section>YOUR U.S COMMERCIAL SERVICE CONTACT</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Exporter Company Questionnaire Layout</layout>
+        <sections>
+            <label><!-- Business Objectives --></label>
+            <section>Business Objectives</section>
+        </sections>
+        <sections>
+            <label><!-- Company &amp; Product Information --></label>
+            <section>Company &amp; Product Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- Local Partner Information --></label>
+            <section>Local Partner Information</section>
+        </sections>
+        <sections>
+            <label><!-- Logistical Information --></label>
+            <section>Logistical Information</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Information --></label>
+            <section>Marketing Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>International Company Profile Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+        <sections>
+            <label><!-- Information Requested on the following International (&quot;Target&quot;) Company --></label>
+            <section>Information Requested on the following International (&quot;Target&quot;) Company</section>
+        </sections>
+        <sections>
+            <label><!-- Information about Requesting Company. The requesting company must be a U.S. firm --></label>
+            <section>Information about Requesting Company. The requesting company must be a U.S. firm</section>
+        </sections>
+        <sections>
+            <label><!-- Information about the Ultimate Client (If applicable, otherwise leave blank) --></label>
+            <section>Information about the Ultimate Client (If applicable, otherwise leave blank)</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Single Company Promotion Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Event Information --></label>
+            <section>Event Information</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- General Information --></label>
+            <section>General Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Single Location Promotion Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Event Information --></label>
+            <section>Event Information</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Generation Information --></label>
+            <section>Generation Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Update Company Questionnaire Business Objectives --></label>
+        <name>Update_Company_Questionnaire_Business_Objectives</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Company Questionnaire Company &amp; Product Information --></label>
+        <name>Update_Company_Questionnaire_Company_Product_Information</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Company Questionnaire Contact Information --></label>
+        <name>Update_Company_Questionnaire_Contact_Information</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Company Questionnaire General Information --></label>
+        <name>Update_Company_Questionnaire_General_Information</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Company Questionnaire Local Partner Information --></label>
+        <name>Update_Company_Questionnaire_Local_Partner_Information</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Company Questionnaire Logistical Information --></label>
+        <name>Update_Company_Questionnaire_Logistical_Information</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Company Questionnaire Marketing Information --></label>
+        <name>Update_Company_Questionnaire_Marketing_Information</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update International Company Profile --></label>
+        <name>Update_International_Company_Profile</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Single Company Promotion --></label>
+        <name>Update_Single_Company_Promotion</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Single Location Promotion --></label>
+        <name>Update_Single_Location_Promotion</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- BSP --></label>
+        <name>BSP</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Exporter Company Questionnaire record type --></description>
+        <label><!-- Exporter Company Questionnaire --></label>
+        <name>Exporter_Company_Questionnaire</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- International Company Profile --></description>
+        <label><!-- International Company Profile --></label>
+        <name>International_Company_Profile</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Single Company Promotion Record Type --></description>
+        <label><!-- Single Company Promotion --></label>
+        <name>Single_Company_Promotion</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Single Location Promotion Layout --></description>
+        <label><!-- Single Location Promotion --></label>
+        <name>Single_Location_Promotion</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
