@@ -12,6 +12,7 @@
 		</template>
 
 		<template if:true={hasData}>
+			<div class="slds-text-align_center title">{tableTitle}</div>
 			<div class="componentBorder">
 				<div class="slds-m-around--small">
 					<lightning-datatable
@@ -25,8 +26,9 @@
 			</div>
 
 			<div class="slds-text-title_bold totalStyle">Selected Total: <lightning-formatted-number value={selectedTotal} format-style="currency" currency-code="USD"></lightning-formatted-number>
-				<span class="buttonStyle">
-					<lightning-button variant="brand" label="Download" onclick={handleDownload}></lightning-button>
+				<span class="buttonGroupStyle">
+					<lightning-button variant="brand-outline" label="To Excel" class="buttonStyle" onclick={handleToExcel}></lightning-button>
+					<lightning-button variant="brand" label="To CBS" class="buttonStyle" onclick={handleToCBS}></lightning-button>
 				</span>
 			</div>
 		</template>
@@ -39,5 +41,6 @@
 				</div>
 			</div>
 		</template>
+
 	</lightning-card>
 </template>

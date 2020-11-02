@@ -36,6 +36,7 @@ types=" app \
         component \
         connectedApps \
         crt \
+        cspTrustedSite \
         css \
         customPermission \
 	dashboard \
@@ -55,6 +56,7 @@ types=" app \
 	notiftype \
         md \
         mdt \
+        messageChannel \
         namedCredential \
 	network \
         object \
@@ -62,6 +64,7 @@ types=" app \
         page \
 	pathAssistant \
 	permissionset \
+	permissionsetgroup \
 	profilePasswordPolicy \
         queue \
         quickAction \
@@ -119,6 +122,7 @@ function makePackage() {
 	dosubfolders=`echo $typesubfolders | grep $type` || true
 	folder=`echo "$srcfile" | cut -f 2 -d /`
 	subfolder=`echo "$srcfile" | cut -f 3 -d /`
+	subsubfolder=`echo "$srcfile" | cut -f 4 -d /`
         blacklisted=`cat "$blacklist" | grep "$srcfile"` || true
         if [ ! -z "$dofile" ] && [ -z "$blacklisted" ] ; then
                 isSrc=`echo $srcfile | grep src` || true
@@ -132,8 +136,8 @@ function makePackage() {
                         echo Copying "$srcfile"
 		        [ -f "$srcfile" ] && [ ! -z "$isSrc" ] && cp -rp --parents "$srcfile" $sandbox
                         [ -f "${srcfile}-meta.xml" ] && cp -rp --parents "${srcfile}-meta.xml" $sandbox
-			[ -f "src/${folder}/${subfolder}-meta.xml" ] && cp -rp --parents "src/${folder}/${subfolder}-meta.xml" $sandbox
-
+			[ -f "src/$folder/${subfolder}-meta.xml" ] && cp -rp --parents "src/${folder}/${subfolder}-meta.xml" $sandbox
+			[ -f "src/$folder/$subfolder/${subsubfolder}-meta.xml" ] && cp -rp --parents "src/$folder/$subfolder/${subsubfolder}-meta.xml" $sandbox
                 fi
         fi
   done < $gitfiles

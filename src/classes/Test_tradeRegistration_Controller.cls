@@ -14,18 +14,18 @@ public class Test_tradeRegistration_Controller {
             Test.setCurrentPage(pageRef);
             tradeRegistration_Controller controller = new tradeRegistration_Controller();
             System.assert(controller.getAccountTypeOptions() != null);
-            String email = ''; 
+            String email = '';
             controller.c.email = email;
             controller.checkUser();
             //system.debug(ApexPages.getMessages());
-            system.assertEquals(ApexPages.getMessages().get(0).getDetail(), 'Please enter a valid email address');         
+            system.assertEquals(ApexPages.getMessages().get(0).getDetail(), 'Please enter a valid email address');
         Test.stopTest();
     }
     static testMethod void emailNotValid(){
         Test.startTest();
             PageReference pageRef = Page.Registration;
             Test.setCurrentPage(pageRef);
-            tradeRegistration_Controller controller = new tradeRegistration_Controller(); 
+            tradeRegistration_Controller controller = new tradeRegistration_Controller();
             String email = 'notproperformat';
             controller.c.email = email;
             controller.checkUser();
@@ -46,7 +46,7 @@ public class Test_tradeRegistration_Controller {
             controller.c.email = email;
             controller.checkUser();
             //system.debug(ApexPages.getMessages());
-            system.assertEquals(controller.existingContact().size(), 0); 
+            system.assertEquals(controller.existingContact().size(), 0);
             controller.c.firstName = '';
             controller.c.lastName = '';
             controller.a.name = '';
@@ -77,7 +77,7 @@ public class Test_tradeRegistration_Controller {
             controller.c.email = email;
             controller.checkUser();
             //system.debug(ApexPages.getMessages());
-            system.assertEquals(controller.existingContact().size(), 0); 
+            system.assertEquals(controller.existingContact().size(), 0);
             controller.c.firstName = 'Luke';
             controller.c.lastName = 'Skywalker';
             controller.a.name = 'Darth Enterprises';
@@ -103,7 +103,7 @@ public class Test_tradeRegistration_Controller {
             controller.c.email = email;
             controller.checkUser();
             //system.debug(ApexPages.getMessages());
-            system.assertEquals(controller.existingContact().size(), 0); 
+            system.assertEquals(controller.existingContact().size(), 0);
             controller.c.firstName = 'Luke';
             controller.c.lastName = 'Skywalker';
             controller.a.Account_Type__c = 'Researcher';
@@ -119,15 +119,15 @@ public class Test_tradeRegistration_Controller {
     }
     static testMethod void activeContactNoUSer(){//HAS ACTIVE CONTACT NO USER
         //SETUP TEST DATA
-        /*RecordType accRT = [SELECT id 
-                            FROM recordtype 
-                            WHERE sobjecttype ='Account' 
-                            and name = 'Individual' 
+        /*RecordType accRT = [SELECT id
+                            FROM recordtype
+                            WHERE sobjecttype ='Account'
+                            and name = 'Individual'
                             LIMIT 1];
-        RecordType rt = [SELECT id 
-                         FROM recordtype 
-                         WHERE sobjecttype ='Contact' 
-                         and name = 'Individual' 
+        RecordType rt = [SELECT id
+                         FROM recordtype
+                         WHERE sobjecttype ='Contact'
+                         and name = 'Individual'
                          LIMIT 1]; */
         Account regAccount = new Account(name='Test Account'); //create an account
         insert regAccount;
@@ -145,15 +145,15 @@ public class Test_tradeRegistration_Controller {
     }
     static testMethod void emailContactUser(){//HAS CONTACT RECORD AND USER RECORD IN SYSTEM
         //SETUP TEST DATA
-        /*RecordType accRT = [SELECT id 
-                            FROM recordtype 
-                            WHERE sobjecttype ='Account' 
-                            and name = 'Individual' 
+        /*RecordType accRT = [SELECT id
+                            FROM recordtype
+                            WHERE sobjecttype ='Account'
+                            and name = 'Individual'
                             LIMIT 1];
-        RecordType rt = [SELECT id 
-                         FROM recordtype 
-                         WHERE sobjecttype ='Contact' 
-                         and name = 'Individual' 
+        RecordType rt = [SELECT id
+                         FROM recordtype
+                         WHERE sobjecttype ='Contact'
+                         and name = 'Individual'
                          LIMIT 1]; */
         Profile p = [select id from profile where name = 'Customer Trade Community User'];
         Account regAccount = new Account(name='Test Account'); //create an account
@@ -161,11 +161,11 @@ public class Test_tradeRegistration_Controller {
         Contact regContact = new contact(LastName = 'Test', FirstName = 'Testcontact', email = 'test@mail.com', AccountId = regAccount.Id); //create a contact
         insert regContact;
         User u1 = new User( email= regContact.email,
-                           UserName= regContact.email+'trade', 
+                           UserName= regContact.email+'trade',
                            Alias = 'nuser',
                            TimeZoneSidKey='America/New_York',
                            EmailEncodingKey='ISO-8859-1',
-                           LocaleSidKey='en_US', 
+                           LocaleSidKey='en_US',
                            LanguageLocaleKey='en_US',
                            ContactId = regContact.Id,
                            LastName = 'TestUser',
@@ -188,7 +188,7 @@ public class Test_tradeRegistration_Controller {
     static testMethod void getUserIPAddress(){
         Test.startTest();
             String ipAddress = tradeRegistration_Controller.getUserIPAddress();
-            system.assertEquals(ipAddress, null);         
+            system.assertEquals(ipAddress, null);
         Test.stopTest();
     }
     static testMethod void validate(){
@@ -229,12 +229,12 @@ public class Test_tradeRegistration_Controller {
         insert regAccount;
         Contact regContact = new contact(LastName = 'lastNameTest', FirstName = 'firstNameTest', email = 'test@mail.com', AccountId = regAccount.Id); //create a contact
         insert regContact;
-        Profile profile = [SELECT Id FROM Profile WHERE Name='Standard User']; 
+        Profile profile = [SELECT Id FROM Profile WHERE Name='Standard User'];
         System.debug('ProfileId=' + profile.Id);
-        User user = new User(Alias = 'standt', Email='test99@mailinator.com', 
-            EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
-            LocaleSidKey='en_US', ProfileId = profile.Id, 
-            TimeZoneSidKey='America/Los_Angeles', UserName='test99@mailinator.com',
+        User user = new User(Alias = 'standt', Email='test9920199@mailinator.com',
+            EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+            LocaleSidKey='en_US', ProfileId = profile.Id,
+            TimeZoneSidKey='America/Los_Angeles', UserName='test9920199@mailinator.com',
             CommunityNickName = 'flastName');
         insert user;
         Test.startTest();

@@ -11,6 +11,7 @@
 	<targetConfigs>
 		<targetConfig targets="lightning__FlowScreen">
 			<property name="recordId" type="String" description="The contract record id." role="inputOnly"/>
+			<property name="actionType" type="String" description="Payment or Refund" role="inputOnly"/>
 			<property name="selectedOrders" label="Selected Orders" type="@salesforce/schema/Order[]" description="The selected orders." role="outputOnly"/>
 		</targetConfig>
 	</targetConfigs>
