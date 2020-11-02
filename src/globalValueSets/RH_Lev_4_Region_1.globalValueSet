@@ -180,6 +180,96 @@
         <default>false</default>
         <label>IA TPPSP TSM</label>
     </customValue>
+    <customValue>
+        <fullName>NULL</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NULL</label>
+    </customValue>
+    <customValue>
+        <fullName>OCIO</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OCIO</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Gulf</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Gulf</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Nordics</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Nordics</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field North Africa</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field North Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field SPG</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field SPG</label>
+    </customValue>
+    <customValue>
+        <fullName>-</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>-</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field Africa</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field UK</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field UK</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field EURASIA</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field EURASIA</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Benelux</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Benelux</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Balkans</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Balkans</label>
+    </customValue>
+    <customValue>
+        <fullName>IA OIE</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>IA OIE</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field PoCz</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field PoCz</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field GEAUS</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field GEAUS</label>
+    </customValue>
     <masterLabel>User Sub-region</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

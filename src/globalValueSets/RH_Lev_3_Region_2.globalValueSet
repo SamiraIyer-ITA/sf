@@ -120,6 +120,36 @@
         <default>false</default>
         <label>GM CS-USA-HQ</label>
     </customValue>
+    <customValue>
+        <fullName>NULL</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NULL</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field MEA</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field MEA</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Europe</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Europe</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA HQ</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR HQ</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR HQ</label>
+    </customValue>
     <masterLabel>User Region</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

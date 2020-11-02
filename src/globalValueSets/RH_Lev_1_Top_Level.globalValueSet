@@ -15,6 +15,36 @@
         <default>false</default>
         <label>IA All</label>
     </customValue>
+    <customValue>
+        <fullName>TSI</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>TSI</label>
+    </customValue>
+    <customValue>
+        <fullName>OUS</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OUS</label>
+    </customValue>
+    <customValue>
+        <fullName>OCIO</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OCIO</label>
+    </customValue>
+    <customValue>
+        <fullName>NULL</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NULL</label>
+    </customValue>
+    <customValue>
+        <fullName>OCFAO</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OCFAO</label>
+    </customValue>
     <masterLabel>User Unit</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>
