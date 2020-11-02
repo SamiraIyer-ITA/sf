@@ -146,6 +146,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>LeadConvertSettings</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Letterhead</name>
     </types>
     <types>
