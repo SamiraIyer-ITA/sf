@@ -6,3 +6,4 @@ src/flows/Issue_Credit_Card_Refund.flow
 src/classes/di_FlowTest.cls
 src/flowDefinitions/Lead_SendCustomNotifications_ScheduledFlow_RunsDaily.flowDefinition
 src/layouts/Lead-Export Lead.layout
+src/flowDefinitions/Opportunity_ScheduledFlow_RunDaily.flowDefinition
