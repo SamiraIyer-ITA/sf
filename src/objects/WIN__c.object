@@ -735,7 +735,7 @@
     <fields>
         <fullName>Estimated_Value__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>Valuation calculated by ITA’s economists for all ITA-approved Trade Barrier WINs.</inlineHelpText>
+        <inlineHelpText>If client did not provide value, please provide an estimation of the dollar value of this WIN</inlineHelpText>
         <label>ITA Economist Trade Barrier Valuation</label>
         <precision>18</precision>
         <required>false</required>

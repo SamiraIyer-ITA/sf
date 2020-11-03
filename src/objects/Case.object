@@ -1427,7 +1427,7 @@ Select if this is a Compliance Case</description>
     <fields>
         <fullName>Control_Number__c</fullName>
         <externalId>false</externalId>
-        <label>Control Number</label>
+        <label>USG Military Branch</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -4419,7 +4419,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work undertaken by the Advocacy Center in support of U.S. companies pursuing foreign government procurement.</description>
+        <description>Case work approved and coordinated by the Advocacy Center in support of U.S. companies pursuing foreign government procurement.</description>
         <label>Advocacy</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
@@ -34512,7 +34512,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work with a U.S. business, educational institution, or industry association to expand U.S. exports.</description>
+        <description>Work with a U.S. economic development organizations (EDOs), international or domestic company, or investment partner to increase business investment in the United States.</description>
         <label>Export Promotion</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
