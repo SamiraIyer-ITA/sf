@@ -85,6 +85,30 @@
         <default>false</default>
         <label>IA TPPSP</label>
     </customValue>
+    <customValue>
+        <fullName>IA OIE</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>IA OIE</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-HQ DAS Office</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-HQ DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-HQ DAS Office</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-HQ DAS Office</label>
+    </customValue>
+    <customValue>
+        <fullName>NULL</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NULL</label>
+    </customValue>
     <masterLabel>User DAS</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

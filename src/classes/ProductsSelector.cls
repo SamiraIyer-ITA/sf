@@ -17,9 +17,9 @@ public class ProductsSelector extends fflib_SObjectSelector implements IProducts
 		AggregateResultProxy[] groupedResultProxies = new List<AggregateResultProxy>();
 		for (AggregateResult groupedResult : [
 			SELECT 	Family,
-					MAX(ProductCode) maxSmartCode
+					MAX(Accounting_Code__c) maxSmartCode
 			FROM 	Product2
-			WHERE 	ProductCode LIKE :filters
+			WHERE 	Accounting_Code__c LIKE :filters
 			GROUP 	BY Family
 		]) {
 			groupedResultProxies.add(new AggregateResultProxy().withAggregateResult(groupedResult));
@@ -35,7 +35,8 @@ public class ProductsSelector extends fflib_SObjectSelector implements IProducts
 			Product2.Name,
 			Product2.ProductCode,
 			Product2.Family,
-			Product2.Event_Type_Smart_Code__c
+			Product2.Event_Type_Smart_Code__c,
+            		Product2.Accounting_Code__c
 		};
 	}
 

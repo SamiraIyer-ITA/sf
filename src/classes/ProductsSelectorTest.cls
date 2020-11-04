@@ -13,7 +13,7 @@ private class ProductsSelectorTest {
 		Product2 product = new Product2(
 			Name = 'Test Product',
 			Family = 'Certified Trade Mission',
-			ProductCode = '0N01'
+			Accounting_Code__c = '0N01'
 		);
 		insert product;
 		Set<String> filters = new Set<String>{ '%0N__' };

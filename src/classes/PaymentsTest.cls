@@ -43,7 +43,9 @@ private class PaymentsTest {
         asset.AccountId = myAccount.Id;
         insert asset;
 
-        Order myOrder = new Order(RecordTypeId = legacyRecordTypeId,Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,
+                Status='In Progress', Organization_Corporate_Officer__c = 'officer@success.com',
+                Organization_Contact__c = 'contact@success.com',EffectiveDate=Date.today());
         insert myOrder;
 
         Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);
@@ -93,7 +95,9 @@ private class PaymentsTest {
         asset.AccountId = myAccount.Id;
         insert asset;
 
-        Order myOrder = new Order(RecordTypeId = legacyRecordTypeId,Participant__c=myApplication.Id,AccountId=myAccount.Id,Status='In Progress',EffectiveDate=Date.today());
+        Order myOrder = new Order(Participant__c=myApplication.Id,AccountId=myAccount.Id,
+                Organization_Corporate_Officer__c = 'officer@success.com', Organization_Contact__c = 'contact@success.com',
+                Status='In Progress',EffectiveDate=Date.today());
         insert myOrder;
 
         Payment__c myPayment = new Payment__c(Order__c=myOrder.Id);
@@ -106,13 +110,14 @@ private class PaymentsTest {
         appContacts[1].Email__c = 'contact@success.com';
         update appContacts;
 
+        Test.startTest();
+
         Participation__c myApplication2 = [SELECT Name,Organization_Contact__c,Organization_Corporate_Officer__c FROM Participation__c WHERE Id =: myApplication.Id];
         Order myOrder2 = [SELECT Name,Organization_Contact__c,Organization_Corporate_Officer__c FROM Order WHERE Id =: myOrder.Id];
         Payment__c myPayment2 = [SELECT Name,Organization_Contact__c,Organization_Corporate_Officer__c FROM Payment__c WHERE Id =: myPayment.Id];
         Refund__c myRefund2 = [SELECT Name,Organization_Contact__c,Organization_Corporate_Officer__c FROM Refund__c WHERE Id =: myRefund.Id];
         Case myCase2 = [SELECT Organization_Contact__c,Organization_Corporate_Officer__c FROM Case WHERE Id =: myCase.Id];
 
-        Test.startTest();
         System.assertEquals('officer@success.com',myApplication2.Organization_Corporate_Officer__c);
         System.assertEquals('contact@success.com',myApplication2.Organization_Contact__c);
         System.assertEquals('officer@success.com',myOrder2.Organization_Corporate_Officer__c);

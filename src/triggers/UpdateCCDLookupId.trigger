@@ -1,4 +1,5 @@
 trigger UpdateCCDLookupId on Account (before insert, before update) {
+
    try
     {   
         
@@ -99,4 +100,5 @@ trigger UpdateCCDLookupId on Account (before insert, before update) {
     {
         System.debug(' ** Error ** '+err);
     }
+    
 }

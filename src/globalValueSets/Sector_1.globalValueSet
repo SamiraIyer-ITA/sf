@@ -6,11 +6,6 @@
         <label>3D Printing</label>
     </customValue>
     <customValue>
-        <fullName>Access Control Systems</fullName>
-        <default>false</default>
-        <label>Access Control Systems</label>
-    </customValue>
-    <customValue>
         <fullName>Accommodations</fullName>
         <default>false</default>
         <label>Accommodations</label>
@@ -134,6 +129,11 @@
         <fullName>Biopharmaceuticals</fullName>
         <default>false</default>
         <label>Biopharmaceuticals</label>
+    </customValue>
+    <customValue>
+        <fullName>Boating</fullName>
+        <default>false</default>
+        <label>Boating</label>
     </customValue>
     <customValue>
         <fullName>Brand Merchandise Licensing</fullName>
@@ -431,14 +431,9 @@
         <label>Financial Technology</label>
     </customValue>
     <customValue>
-        <fullName>Firearms and Accessories</fullName>
-        <default>false</default>
-        <label>Firearms and Accessories</label>
-    </customValue>
-    <customValue>
         <fullName>Fire Safety and Rescue Equipment</fullName>
         <default>false</default>
-        <label>Fire Safety and Rescue Equipment</label>
+        <label>Fire Safety and Rescue</label>
     </customValue>
     <customValue>
         <fullName>Fluiding Handling Equipment</fullName>
@@ -536,11 +531,6 @@
         <label>Higher Education</label>
     </customValue>
     <customValue>
-        <fullName>Home Security Systems</fullName>
-        <default>false</default>
-        <label>Home Security Systems</label>
-    </customValue>
-    <customValue>
         <fullName>Hotel and Restaurant Equipment</fullName>
         <default>false</default>
         <label>Hotel and Restaurant Equipment</label>
@@ -559,11 +549,6 @@
         <fullName>Industrial Design Services</fullName>
         <default>false</default>
         <label>Industrial Design Services</label>
-    </customValue>
-    <customValue>
-        <fullName>Industrial Safety and Security</fullName>
-        <default>false</default>
-        <label>Industrial Safety and Security</label>
     </customValue>
     <customValue>
         <fullName>Industrial Vehicles</fullName>
@@ -771,14 +756,9 @@
         <label>Plastics Production Machinery</label>
     </customValue>
     <customValue>
-        <fullName>Pleasure Boats &amp; Accessories</fullName>
+        <fullName>Ports Infrastructure and Services</fullName>
         <default>false</default>
-        <label>Pleasure Boats &amp; Accessories</label>
-    </customValue>
-    <customValue>
-        <fullName>Police Equipment</fullName>
-        <default>false</default>
-        <label>Police Equipment</label>
+        <label>Ports Infrastructure and Services</label>
     </customValue>
     <customValue>
         <fullName>Powersports</fullName>
@@ -806,9 +786,9 @@
         <label>Professional Training Services for Educators</label>
     </customValue>
     <customValue>
-        <fullName>Protective Equipment</fullName>
+        <fullName>Public Safety</fullName>
         <default>false</default>
-        <label>Protective Equipment</label>
+        <label>Public Safety</label>
     </customValue>
     <customValue>
         <fullName>Publishing</fullName>
@@ -866,9 +846,9 @@
         <label>Robotics</label>
     </customValue>
     <customValue>
-        <fullName>Safety Services</fullName>
+        <fullName>Safety and Protection</fullName>
         <default>false</default>
-        <label>Safety Services</label>
+        <label>Safety and Protection</label>
     </customValue>
     <customValue>
         <fullName>Scientific and Technical Services</fullName>
@@ -891,19 +871,24 @@
         <label>Seafood</label>
     </customValue>
     <customValue>
-        <fullName>Security and Safety Equipment</fullName>
-        <default>false</default>
-        <label>Security and Safety Equipment</label>
-    </customValue>
-    <customValue>
         <fullName>Security Services</fullName>
         <default>false</default>
         <label>Security Services</label>
     </customValue>
     <customValue>
+        <fullName>Security Technology</fullName>
+        <default>false</default>
+        <label>Security Technology</label>
+    </customValue>
+    <customValue>
         <fullName>Serviced Office Leasing</fullName>
         <default>false</default>
         <label>Serviced Office Leasing</label>
+    </customValue>
+    <customValue>
+        <fullName>Ships and Floating Platforms</fullName>
+        <default>false</default>
+        <label>Ships and Floating Platforms</label>
     </customValue>
     <customValue>
         <fullName>Snack Foods</fullName>
@@ -939,6 +924,11 @@
         <fullName>Sports</fullName>
         <default>false</default>
         <label>Sports</label>
+    </customValue>
+    <customValue>
+        <fullName>State-Owned Enterprises</fullName>
+        <default>false</default>
+        <label>State-Owned Enterprises</label>
     </customValue>
     <customValue>
         <fullName>Student Recruitment Agencies</fullName>
@@ -1011,14 +1001,9 @@
         <label>Trucking</label>
     </customValue>
     <customValue>
-        <fullName>Underwater Robotics</fullName>
+        <fullName>Underwater Technology</fullName>
         <default>false</default>
-        <label>Underwater Robotics</label>
-    </customValue>
-    <customValue>
-        <fullName>Underwater Vehicles</fullName>
-        <default>false</default>
-        <label>Underwater Vehicles</label>
+        <label>Underwater Technology</label>
     </customValue>
     <customValue>
         <fullName>Used and Reconditioned Equipment</fullName>
@@ -1098,6 +1083,12 @@
         <label>Building Products and Equipment</label>
     </customValue>
     <customValue>
+        <fullName>Access Control Systems</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Access Control Systems</label>
+    </customValue>
+    <customValue>
         <fullName>Architecture Services</fullName>
         <default>false</default>
         <isActive>false</isActive>
@@ -1140,6 +1131,12 @@
         <label>Entertainment</label>
     </customValue>
     <customValue>
+        <fullName>Firearms and Accessories</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Firearms and Accessories</label>
+    </customValue>
+    <customValue>
         <fullName>Gasoline Service Stations</fullName>
         <default>false</default>
         <isActive>false</isActive>
@@ -1152,10 +1149,22 @@
         <label>Green Building</label>
     </customValue>
     <customValue>
+        <fullName>Home Security Systems</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Home Security Systems</label>
+    </customValue>
+    <customValue>
         <fullName>Industrial Chemicals</fullName>
         <default>false</default>
         <isActive>false</isActive>
         <label>Industrial Chemicals</label>
+    </customValue>
+    <customValue>
+        <fullName>Industrial Safety and Security</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Industrial Safety and Security</label>
     </customValue>
     <customValue>
         <fullName>Motorcycles</fullName>
@@ -1176,6 +1185,36 @@
         <label>Photographic Services</label>
     </customValue>
     <customValue>
+        <fullName>Pleasure Boats &amp; Accessories</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Pleasure Boats &amp; Accessories</label>
+    </customValue>
+    <customValue>
+        <fullName>Police Equipment</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Police Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>Protective Equipment</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Protective Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>Safety Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Safety Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Security and Safety Equipment</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Security and Safety Equipment</label>
+    </customValue>
+    <customValue>
         <fullName>Solar Vehicles</fullName>
         <default>false</default>
         <isActive>false</isActive>
@@ -1192,6 +1231,18 @@
         <default>false</default>
         <isActive>false</isActive>
         <label>Travel Agencies</label>
+    </customValue>
+    <customValue>
+        <fullName>Underwater Robotics</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Underwater Robotics</label>
+    </customValue>
+    <customValue>
+        <fullName>Underwater Vehicles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Underwater Vehicles</label>
     </customValue>
     <customValue>
         <fullName>Vehicle Electronics</fullName>
