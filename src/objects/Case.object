@@ -34512,7 +34512,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work with a U.S. economic development organizations (EDOs), international or domestic company, or investment partner to increase business investment in the United States.</description>
+        <description>Work with a U.S. business, educational institution, or industry association to expand U.S. exports.</description>
         <label>Export Promotion</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
@@ -37850,7 +37850,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work with a U.S. Economic Development Organization (EDO), investment partner, or foreign investor to increase investment to the U.S.</description>
+        <description>Work with a U.S. economic development organizations (EDOs), international or domestic company, or investment partner to increase business investment in the United States.</description>
         <label>Investment Promotion</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
