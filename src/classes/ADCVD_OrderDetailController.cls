@@ -1,9 +1,9 @@
 /**
- * 
+ *
  *    Created by Joshua Moody
  *    on Dec 13 2017
  *    MIL Corporation
- * 
+ *
  **/
 
 public class ADCVD_OrderDetailController {
@@ -51,8 +51,8 @@ public class ADCVD_OrderDetailController {
     public String daysRemaining { get; set; }
     public String PeriodCoveredStartDate{ get; set; }
     public String PeriodCoveredEndDate{ get; set; }
-    
-    
+
+
   }
 
   public ADCVD_OrderDetailController() {
@@ -107,12 +107,12 @@ public class ADCVD_OrderDetailController {
         si.daysRemaining = segment.Days_Remaining__c;
         si.PeriodCoveredStartDate = segment.Period_Covered_Start_Date__c != null ? segment.Period_Covered_Start_Date__c.format() :'' ;
         si.PeriodCoveredEndDate = segment.Period_Covered_End_Date__c != null ? segment.Period_Covered_End_Date__c.format() : '';
-        
-        if(si.recordType == 'Administrative Review' || si.recordType == 'New Shipper Review' 
+
+        if(si.recordType == 'Administrative Review' || si.recordType == 'New Shipper Review'
                 || si.recordType == 'Expedited Review'){
             this.segInvList.add(si);
         }
-        
+
       }
     } else if (!caseObj.Investigations__r.isEmpty()) {
       for (Investigation__c investigation : caseObj.Investigations__r) {
@@ -127,7 +127,7 @@ public class ADCVD_OrderDetailController {
         si.daysRemaining = investigation.Days_Remaining__c;
         si.PeriodCoveredStartDate = investigation.Period_Covered_Start_Date__c != null ? investigation.Period_Covered_Start_Date__c.format() : '';
         si.PeriodCoveredEndDate = investigation.Period_Covered_End_Date__c != null ? investigation.Period_Covered_End_Date__c.format() : '';
-        
+
         this.segInvList.add(si);
       }
     }
