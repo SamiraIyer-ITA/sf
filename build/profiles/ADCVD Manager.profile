@@ -26,12 +26,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Custom_Instruction__c.ADCVD_Case_Type_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Custom_Instruction__c.ADCVD_Case__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -56,7 +56,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Custom_Instruction__c.CBP_Case_Number_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -81,7 +81,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Commodity_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -93,7 +93,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Custom_Instruction__c.Country_Text__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -128,7 +128,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Custom_Instruction__c.Locked__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -208,12 +208,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.ADCVD_Case_Type__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.ADCVD_Case__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -233,7 +233,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.CBP_Case_Number__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -258,22 +258,20 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.Country__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
+    <fieldPermissions>                                                                                                                                                              <editable>false</editable>
         <field>Related_Organization__c.Custom_Instruction__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Related_Organization__c.Exporter__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
+    <fieldPermissions>                                                                                                                                                              <editable>false</editable>
         <field>Related_Organization__c.IO_Parent__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -290,6 +288,14 @@
         <field>Related_Organization__c.Legal_Representation__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Related_Organization__c.Parent_Id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Product__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
@@ -299,4 +305,19 @@
         <object>Custom_Instruction__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Staffing_Assignment__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Related_Organization__c.Petitioner_Respondent</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
 </Profile>
