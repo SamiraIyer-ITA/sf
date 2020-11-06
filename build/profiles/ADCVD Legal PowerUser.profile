@@ -213,7 +213,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.ADCVD_Case_Type__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
