@@ -225,10 +225,6 @@
         <field>Related_Organization__c.ADCVD_Entity_Alias__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                                                <editable>true</editable>
-        <field>Related_Organization__c.ADCVD_Entity_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Related_Organization__c.ADCVD_Order__c</field>
