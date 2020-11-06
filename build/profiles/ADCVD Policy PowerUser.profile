@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.ADCVD_Case_Number_Text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
    <fieldPermissions>
         <editable>true</editable>
         <field>Custom_Instruction__c.Message_Period_Covered_Begin_Date__c</field>
@@ -208,7 +213,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.ADCVD_Case_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -218,6 +223,10 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Related_Organization__c.ADCVD_Entity_Alias__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>                                                                                                                                                                                <editable>true</editable>
+        <field>Related_Organization__c.ADCVD_Entity_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -288,14 +297,58 @@
         <field>Related_Organization__c.Legal_Representation__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>                                                                                                                                                              <editable>false</editable>                                                                                                                                                  <field>Related_Organization__c.Parent_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.Product__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.ADCVD_Case_Number_Text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Parent_Id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Related_Organization_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Link__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>                                                                                                                                                                                <editable>true</editable>                                                                                                                                                                     <field>Related_Organization__c.Litigation__c</field>
+        <readable>true</readable>                                                                                                                                                                 </fieldPermissions>
+    <fieldPermissions>                                                                                                                                                                                <editable>true</editable>                                                                                                                                                                     <field>Related_Organization__c.Petition__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>                                                                                                                                                                                <editable>true</editable>
+        <field>Related_Organization__c.Producer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>                                                                                                                                                                                <editable>false</editable>
+        <field>Related_Organization__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>                                                                                                                                                                </fieldPermissions>                                                                                                                                                                           <fieldPermissions>                                                                                                                                                                                <editable>false</editable>
+        <field>Related_Organization__c.Product_Short_Name_Text__c</field>
+        <readable>true</readable>                                                                                                                                                                 </fieldPermissions>                                                                                                                                                                           <fieldPermissions>                                                                                                                                                                                <editable>false</editable>
+        <field>Related_Organization__c.Product_Short_Name__c</field>
+        <readable>false</readable>                                                                                                                                                                 </fieldPermissions>
+    <fieldPermissions>                                                                                                                                                                                <editable>false</editable>                                                                                                                                                                    <field>Related_Organization__c.Locked__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>                                                                                                                                                                                <editable>true</editable>
+        <field>Related_Organization__c.Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>                                                                                                                                                                                <editable>true</editable>
+        <field>Related_Organization__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>                                                                                                                                                                           <fieldPermissions>                                                                                                                                                                                <editable>true</editable>                                                                                                                                                                     <field>Related_Organization__c.Type__c</field>                                                                                                                                                <readable>true</readable>                                                                                                                                                                 </fieldPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
