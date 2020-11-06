@@ -1,21 +1,15 @@
 ({
-	doInit : function(component, event, helper) {
-		var action = component.get("c.getStatus");
-		action.setParams({
-            "opptyRecordId": component.get("v.recordId")
-        });
-        // Add callback behavior for when response is received
-        action.setCallback(this, function(response) {
-            var state = response.getState();
-            if (component.isValid() && state === "SUCCESS") {
-                component.set("v.showMsg", response.getReturnValue());
-            }
-            else {
-                console.log("Failed with state: " + state);
-            }
-        });
-    
-        // Send action off to be executed
-        $A.enqueueAction(action);
-	}
-})
+    doInit: function (component, event, helper) {
+        helper.checkStatus(component, event);
+    },
+
+    recordUpdated: function (component, event, helper) {
+        var changeType = event.getParams().changeType;
+
+        if (changeType === 'ERROR') {
+            /* handle error; do this first! */
+        } else if (changeType === 'CHANGED') {
+            helper.checkStatus(component, event); /* handle record change */
+        }
+    }
+});
