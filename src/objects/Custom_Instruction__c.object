@@ -58,7 +58,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -118,7 +117,7 @@
         <fullName>AD_CVD_Module_Number__c</fullName>
         <externalId>false</externalId>
         <label>AD/CVD Module Number</label>
-        <length>13</length>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -129,12 +128,11 @@
         <fullName>Applicable_Rate__c</fullName>
         <externalId>false</externalId>
         <label>Applicable Rate</label>
-        <precision>18</precision>
+        <length>255</length>
         <required>false</required>
-        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -144,7 +142,7 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>MultiselectPicklist</type>
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
@@ -181,6 +179,7 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>CBP_Case_Number_Text__c</fullName>
@@ -874,11 +873,11 @@
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
-NOT(ISNEW()), 
-OR (Locked__c == true, 
-PRIORVALUE(Locked__c) == true 
-) 
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false,
+NOT(ISNEW()),
+OR (Locked__c == true,
+PRIORVALUE(Locked__c) == true
+)
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
@@ -887,13 +886,13 @@ PRIORVALUE(Locked__c) == true
         <active>true</active>
         <description>This validation rule makes sure you cannot create a Custom Instruction without a Investigation, Petition, Orders, Suspension Agreement, or Segment attached to it. If all three of these lookup fields are empty, the validation error message will trigger.</description>
         <errorConditionFormula>AND(
-    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-    Locked__c == false, 
-    (	
-	IF(ISBLANK(Petition__c),0,1)+ 
-	IF(ISBLANK(Segment__c),0,1)+ 
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    (
+	IF(ISBLANK(Petition__c),0,1)+
+	IF(ISBLANK(Segment__c),0,1)+
         IF(ISBLANK(ADCVD_Order__c),0,1)+
-	IF(ISBLANK(Investigation__c),0,1)+ 
+	IF(ISBLANK(Investigation__c),0,1)+
 	IF(ISBLANK(Suspension_Agreement__c),0,1) &lt;&gt;1
    )
 )</errorConditionFormula>
