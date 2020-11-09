@@ -345,6 +345,17 @@
         <field>Related_Organization__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>                                                                                                                                                                           <fieldPermissions>                                                                                                                                                                                <editable>true</editable>                                                                                                                                                                     <field>Related_Organization__c.Type__c</field>                                                                                                                                                <readable>true</readable>                                                                                                                                                                 </fieldPermissions>
+    <layoutAssignments>
+        <layout>Related_Organization__c-Related Organization Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Related_Organization__c-Related Organization Layout</layout>
+        <recordType>Related_Organization__c.Customs_Instructions_Only</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Related_Organization__c-Related Organization Layout</layout>
+        <recordType>Related_Organization__c.Petitioner_Respondent</recordType>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
