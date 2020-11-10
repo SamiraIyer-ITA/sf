@@ -115,7 +115,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CBP_Case_Number_Text__c</field>
+                <field>Product_Short_Name_Text__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -137,7 +137,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Product_Short_Name_Text__c</field>
+                <field>CBP_Case_Number_Text__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
