@@ -137,6 +137,10 @@
                 <field>Locked__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Name</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Petition__c</field>
             </layoutItems>
