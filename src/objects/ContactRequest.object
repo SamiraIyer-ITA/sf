@@ -7660,6 +7660,15 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Trade_gov_Account_ContactRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Trade.gov Account</label>
+        <queue>CP_Contact_US_10</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Tucson_Closed_Requests</fullName>
         <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
@@ -7873,6 +7882,15 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <role>GM_Advocacy</role>
             <role>GM_Commercial_Service</role>
             <role>GM_SelectUSA</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Website_Issues_ContactRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Website Issues</label>
+        <queue>CP_Contact_US_11</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
         </sharedTo>
     </listViews>
     <listViews>
@@ -9260,10 +9278,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>My trade gov account</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
