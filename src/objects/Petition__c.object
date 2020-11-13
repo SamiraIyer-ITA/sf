@@ -1002,7 +1002,7 @@ C-###-### for CVD</inlineHelpText>
         <fullName>Petition_Filed__c</fullName>
         <externalId>false</externalId>
         <label>Petition Filed</label>
-        <required>false</required>
+        <required>true</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
