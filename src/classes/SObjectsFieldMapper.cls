@@ -6,7 +6,7 @@
  *
  * @author Andrew La Russa
  */
-public abstract class SObjectsFieldMapper {
+public with sharing abstract class SObjectsFieldMapper {
 
 	private SObject targetRecord;
 	private Schema.SObjectType targetSObjectType;

@@ -1,4 +1,4 @@
-public class OpportunitySObjectMapper {
+public with sharing class OpportunitySObjectMapper {
 
 	/**
 	 * Maps Opportunity Services details to a new Contract.

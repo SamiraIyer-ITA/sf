@@ -1,4 +1,4 @@
-public class QuoteLineItemSObjectMapper {
+public with sharing class QuoteLineItemSObjectMapper {
 
 	public class NewServicesOrderItem extends SObjectsFieldMapper {
 
