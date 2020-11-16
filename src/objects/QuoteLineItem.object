@@ -202,5 +202,15 @@
     <fields>
         <fullName>UnitPrice</fullName>
     </fields>
+    <fields>
+        <fullName>User_Fee_Template__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(
+            TEXT(Product2.Family),&apos;Customized Market Research&apos;,HYPERLINK(&quot;https://itaisinternationaltrade.sharepoint.com/:x:/r/sites/Office-of-Strategic-Planning/UF_Fee%20Templates/Fee%20Template%20for%20Non-Standardized%20Fee%20ServicesEvents%20(US%20Companies%20-%20OCT2017).xlsx?d=wa5d44763104c48c891bd993d5128d9d6&amp;csf=1&amp;e=13ccWI&quot;, &quot;Click Here&quot;), &apos;Single Company Promotion&apos;, HYPERLINK(&quot;https://itaisinternationaltrade.sharepoint.com/:x:/r/sites/Office-of-Strategic-Planning/UF_Fee%20Templates/Fee%20Template%20for%20Non-Standardized%20Fee%20ServicesEvents%20(US%20Companies%20-%20OCT2017).xlsx?d=wa5d44763104c48c891bd993d5128d9d6&amp;csf=1&amp;e=13ccWI&quot;, &quot;Click Here&quot;), &apos;Single Location Promotion&apos;, HYPERLINK(&quot;https://itaisinternationaltrade.sharepoint.com/:x:/r/sites/Office-of-Strategic-Planning/UF_Fee%20Templates/Fee%20Template%20for%20Non-Standardized%20Fee%20ServicesEvents%20(US%20Companies%20-%20OCT2017).xlsx?d=wa5d44763104c48c891bd993d5128d9d6&amp;csf=1&amp;e=13ccWI&quot;, &quot;Click Here&quot;), &apos;Services: Other&apos;, HYPERLINK(&quot;https://itaisinternationaltrade.sharepoint.com/:x:/r/sites/Office-of-Strategic-Planning/UF_Fee%20Templates/Fee%20Template%20for%20Non-Standardized%20Fee%20ServicesEvents%20(US%20Companies%20-%20OCT2017).xlsx?d=wa5d44763104c48c891bd993d5128d9d6&amp;csf=1&amp;e=13ccWI&quot;, &quot;Click Here&quot;), &quot;No Template Available&quot;)</formula>
+        <label>User Fee Template</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
