@@ -84,6 +84,32 @@
         <template>Participation_App_Templates/Toolkit_Application_Submitted</template>
     </alerts>
     <alerts>
+        <fullName>NIST_Case_Alert_NIST_User_New_Case_From_ITA</fullName>
+        <ccEmails>jeffrey.assibey@trade.gov</ccEmails>
+        <description>NIST Case:Alert NIST User when new Case from ITA is created</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>jeffrey.assibey@trade.gov</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>noreply@trade.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/New_NIST_Case_Alert</template>
+    </alerts>
+    <alerts>
+        <fullName>NIST_Case_Alert_Transaction_Management_Support_User_when_new_Case_is_created</fullName>
+        <ccEmails>jeffrey.assibey@trade.gov</ccEmails>
+        <description>NIST Case:Alert Transaction Management Support User when new Case is created</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Transaction_Management_Support</recipient>
+            <type>group</type>
+        </recipients>
+        <senderAddress>noreply@trade.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/New_NIST_Case_Queue_Alert</template>
+    </alerts>
+    <alerts>
         <fullName>Notify_Case_Creator_of_Toolkit_Support_Case_Creation</fullName>
         <description>Notify Case Creator of Toolkit Support Case Creation</description>
         <protected>false</protected>
@@ -224,7 +250,7 @@
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
         <template>unfiled$public/Case_Update_with_Actual_Dollar_Value</template>
-    </alerts>	
+    </alerts>
     <alerts>
         <fullName>Send_Privacy_Shield_Application_Approval_to_Case_Contact</fullName>
         <description>Case: Send Privacy Shield Certification Application Approval to Case Contact</description>
@@ -742,7 +768,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>10/1/2015</value>
+            <value>9/30/2015 11:00 PM</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Administratively Closed or Unable to Resolve</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -786,7 +812,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>10/1/2015</value>
+            <value>9/30/2015 11:00 PM</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Successfully Closed</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1061,7 +1087,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>10/1/2015</value>
+            <value>9/30/2015 11:00 PM</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Administratively Closed or Unable to Resolve</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1111,7 +1137,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>10/1/2015</value>
+            <value>9/30/2015 11:00 PM</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Successfully Closed</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1226,6 +1252,46 @@
         </criteriaItems>
         <description>Investment Promotion Case Closed - Successfully Closed</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>New NIST Case Alert</fullName>
+        <actions>
+            <name>NIST_Case_Alert_NIST_User_New_Case_From_ITA</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Reason</field>
+            <operation>equals</operation>
+            <value>To NIST</value>
+        </criteriaItems>
+        <description>Alert NIST user when new case is created</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>New NIST Case Alert for Transaction Management App User</fullName>
+        <actions>
+            <name>NIST_Case_Alert_Transaction_Management_Support_User_when_new_Case_is_created</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Transaction Management Support</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Reason</field>
+            <operation>equals</operation>
+            <value>From NIST</value>
+        </criteriaItems>
+        <description>Alert Transaction Management Support Users for NIST cases</description>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Notify Case Creator of Toolkit Support Case Creation</fullName>
