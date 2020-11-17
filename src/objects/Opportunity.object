@@ -940,6 +940,16 @@
                     <default>false</default>
                     <label>No Longer Qualify</label>
                 </value>
+                <value>
+                    <fullName>Lack of Market Potential</fullName>
+                    <default>false</default>
+                    <label>Lack of Market Potential</label>
+                </value>
+                <value>
+                    <fullName>Travel Restrictions</fullName>
+                    <default>false</default>
+                    <label>Travel Restrictions</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -2992,6 +3002,45 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_Lost__c</picklist>
+            <values>
+                <fullName>Cost</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mutual Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post unable to fulfill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Longer Qualify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Market Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Restrictions</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
