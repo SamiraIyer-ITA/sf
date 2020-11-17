@@ -1254,6 +1254,32 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Product_of_US_Origin__c</fullName>
+        <description>Product of U.S. Origin?</description>
+        <externalId>false</externalId>
+        <label>Product of U.S. Origin?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_is_of_51_US_Content__c</fullName>
+        <description>Product is of 51% U.S. Content?</description>
+        <externalId>false</externalId>
+        <label>Product is of 51% U.S. Content?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Rating</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
