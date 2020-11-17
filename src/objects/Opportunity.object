@@ -410,6 +410,33 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Assigned_Date__c</fullName>
+        <description>Assigned Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the date the opportunity was assigned to the commercial specialist.</inlineHelpText>
+        <label>Assigned Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+     <fields>
+        <fullName>Assigned_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Assigned User</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the commercial specialist assigned to the opportunity.</inlineHelpText>
+        <label>Assigned User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>CampaignId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -579,6 +606,29 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Conference_Call_Date__c</fullName>
+        <description>Conference Call Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the date when the conference call was held.</inlineHelpText>
+        <label>Conference Call Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Conference_Call_Scheduling_In_Progress__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes that conference call scheduling is in progress.</inlineHelpText>
+        <label>Conference Call Scheduling In Progress</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ContractId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -659,6 +709,22 @@
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Fulfillment_Office__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Fulfillment Office</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the office of the commercial specialist.</inlineHelpText>
+        <label>Fulfillment Office</label>
+        <referenceTo>Collection_Fulfillment__c</referenceTo>
+        <relationshipLabel>Opportunities (Fulfillment Office)</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Export_Readiness_Assessment_Score__c</fullName>
@@ -758,6 +824,30 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Meeting_Availability_Date_1__c</fullName>
+        <description>Meeting Availability Date 1</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the first availability date; this date is intended to be shared with the client.</inlineHelpText>
+        <label>Meeting Availability Date 1</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Availability_Date_2__c</fullName>
+        <description>Meeting Availability Date 2</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the second availability date; this date is intended to be shared with the client.</inlineHelpText>
+        <label>Meeting Availability Date 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>International_marketing_plan__c</fullName>
         <description>Field data to be copied over from Lead upon conversion. Necessary for early stage nurturing.</description>
         <externalId>false</externalId>
@@ -799,6 +889,58 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reason_Lost__c</fullName>
+        <description>Reason opportunity was lost</description>
+        <externalId>false</externalId>
+        <label>Reason Lost</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cost</fullName>
+                    <default>false</default>
+                    <label>Cost</label>
+                </value>
+                <value>
+                    <fullName>Customer</fullName>
+                    <default>false</default>
+                    <label>Customer</label>
+                </value>
+                <value>
+                    <fullName>Withdrawal</fullName>
+                    <default>false</default>
+                    <label>Withdrawal</label>
+                </value>
+                <value>
+                    <fullName>Mutual Decision</fullName>
+                    <default>false</default>
+                    <label>Mutual Decision</label>
+                </value>
+                <value>
+                    <fullName>Post unable to fulfill</fullName>
+                    <default>false</default>
+                    <label>Post unable to fulfill</label>
+                </value>
+                <value>
+                    <fullName>Timing</fullName>
+                    <default>false</default>
+                    <label>Timing</label>
+                </value>
+                <value>
+                    <fullName>No Longer Qualify</fullName>
+                    <default>false</default>
+                    <label>No Longer Qualify</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
@@ -963,53 +1105,6 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Reason_Lost__c</fullName>
-        <description>Reason opportunity was lost</description>
-        <externalId>false</externalId>
-        <label>Reason Lost</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Cost</fullName>
-                    <default>false</default>
-                    <label>Cost</label>
-                </value>
-                <value>
-                    <fullName>Customer</fullName>
-                    <default>false</default>
-                    <label>Customer</label>
-                </value>
-                <value>
-                    <fullName>Withdrawal</fullName>
-                    <default>false</default>
-                    <label>Withdrawal</label>
-                </value>
-                <value>
-                    <fullName>Mutual Decision</fullName>
-                    <default>false</default>
-                    <label>Mutual Decision</label>
-                </value>
-                <value>
-                    <fullName>Post unable to fulfill</fullName>
-                    <default>false</default>
-                    <label>Post unable to fulfill</label>
-                </value>
-                <value>
-                    <fullName>Timing</fullName>
-                    <default>false</default>
-                    <label>Timing</label>
-                </value>
-            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
