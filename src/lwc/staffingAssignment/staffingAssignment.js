@@ -34,8 +34,7 @@ const staffingAssignmentColumns = [
     {
         type: 'action',
         typeAttributes: {
-            rowActions: actions,
-            disabled: false
+            rowActions: { fieldName: "rowActions" }
         }
     }
 ];
@@ -47,7 +46,7 @@ export default class StaffingAssignment extends LightningElement {
     @track showTable = true;
     @track showUpdate = false;
     @track staffingAssignmentId;
-
+    @track hasDeletePermission=false;
     @track data;
     @track staffingAssignments = [];  //All available staffingAssignments
     @track staffingAssignmentColumns = staffingAssignmentColumns;

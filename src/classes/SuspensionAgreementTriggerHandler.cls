@@ -16,11 +16,11 @@
    * 5. Performs custom validations not possible with validation rules
    ***********************************************************/
 
-	private static Map<String,Constant__mdt> saCalcOffsets = saCalcOffsets();
+    private static Map<String,Constant__mdt> saCalcOffsets = saCalcOffsets();
 
-	//FINAL ADCVD Order Offsets
-    private static FINAL Integer SUNSET_INIT_YEARS				    = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Years').Number_Value__c);//Next_Sunset_Initiation_Date__c
-    private static FINAL Integer SUNSET_INIT_MONTHS				    = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Months').Number_Value__c);//Next_Sunset_Initiation_Date__c
+    //FINAL ADCVD Order Offsets
+    private static FINAL Integer SUNSET_INIT_YEARS                  = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Years').Number_Value__c);//Next_Sunset_Initiation_Date__c
+    private static FINAL Integer SUNSET_INIT_MONTHS                 = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Months').Number_Value__c);//Next_Sunset_Initiation_Date__c
     private static FINAL Integer EFFECTIVE_DATE_TERM_MONTHS         = ((Integer)saCalcOffsets.get('Susp_Agr_Effective_Termination_Months').Number_Value__c);//Effective_Date_of_Termination__c
     private static FINAL Integer EFFECTIVE_DATE_TERM_YEARS          = ((Integer)saCalcOffsets.get('Susp_Agr_Effective_Termination_Years').Number_Value__c);//Effective_Date_of_Termination__c
 
@@ -61,12 +61,12 @@
     @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
     @TestVisible private static FederalRegisterMapper frMapper;
     @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
-	@TestVisible private static Suspension_AgreementMapper saMapper;
+    @TestVisible private static Suspension_AgreementMapper saMapper;
     
     /******************************************
     * Methods called directly by mainEntry()
     ******************************************/
-	  
+      
     @TestVisible private static void initialize(List<Suspension_Agreement__c> newList, Map<Id,Suspension_Agreement__c> newMap) {
         Set<Id> caseIdSet = getCaseIdSet(newList);
         for (Suspension_Agreement__c sa : newList) {
@@ -96,7 +96,7 @@
         return caseIdSet;
     }
 
-	//set ADCVD Case value from Investigations     
+    //set ADCVD Case value from Investigations     
     @TestVisible private static void setCaseValues(List<Suspension_Agreement__c> newList) {
         ParentValuesService pvs = new ParentValuesService();
         for (Suspension_Agreement__c sa : newList) {
@@ -121,11 +121,11 @@
 
      
     @TestVisible private static void calculateDates(List<Suspension_Agreement__c> newList) {
-		for (Suspension_Agreement__c sa : newList) {
+        for (Suspension_Agreement__c sa : newList) {
             setAnniversaryMonth(sa);
-			setNextSunsetInitiationDate(sa);
-		}
-	}
+            setNextSunsetInitiationDate(sa);
+        }
+    }
 
     @TestVisible private static void runCustomValidations(List<Suspension_Agreement__c> newList) {
         for (Suspension_Agreement__c sa : newList) {
@@ -147,18 +147,18 @@
     }
       
     //used to set Offset Variables
-	@TestVisible private static Map<String,Constant__mdt> saCalcOffsets() {
-		if(saCalcOffsets == null || saCalcOffsets.size() < 1) {
-			Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-			List<Constant__mdt> tempList = new ADCVD_ConstantMetadataSelector().selectBySuspensionAgreementCalculationOffset(true);
-			for(Constant__mdt sc : tempList) {
-				returnMap.put(sc.QualifiedAPIName, sc);
-			}
-			return returnMap;
-		} else {
-			return saCalcOffsets;
-		}
-	}
+    @TestVisible private static Map<String,Constant__mdt> saCalcOffsets() {
+        if(saCalcOffsets == null || saCalcOffsets.size() < 1) {
+            Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
+            List<Constant__mdt> tempList = new ADCVD_ConstantMetadataSelector().selectBySuspensionAgreementCalculationOffset(true);
+            for(Constant__mdt sc : tempList) {
+                returnMap.put(sc.QualifiedAPIName, sc);
+            }
+            return returnMap;
+        } else {
+            return saCalcOffsets;
+        }
+    }
 
 
     /*********************************
@@ -180,8 +180,8 @@
 
     //Next_Sunset_Initiation_Date__c
     @TestVisible private static void setNextSunsetInitiationDate(Suspension_Agreement__c sa) {
-    	Date nextSSR = null;
-    	if (sa.Id != null && frUtilMap.containsKey(sa.Id)) {
+        Date nextSSR = null;
+        if (sa.Id != null && frUtilMap.containsKey(sa.Id)) {
             nextSSR = frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Suspension Agreement'); //set to suspensionAgreementPublishedDate if populated
             Federal_Register__c continuationFR = frUtilMap.get(sa.Id).frsByType.get('Continuation');
             Federal_Register__c suspensionAgreementFR = frUtilMap.get(sa.Id).frsByType.get('Suspension Agreement');
@@ -190,9 +190,9 @@
                 ? frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Continuation') : nextSSR;//overwrite to continuationPublishedDate if populated
             nextSSR = (frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Termination') != null) ? null : nextSSR;//overwrite to null if revocationPublishedDate is populated
         }
-    	if (nextSSR != null) {
-    		sa.Next_Sunset_Initiation_Date__c = nextSSR.toStartOfMonth().addYears(SUNSET_INIT_YEARS).addMonths(SUNSET_INIT_MONTHS);
-    	} else {
+        if (nextSSR != null) {
+            sa.Next_Sunset_Initiation_Date__c = nextSSR.toStartOfMonth().addYears(SUNSET_INIT_YEARS).addMonths(SUNSET_INIT_MONTHS);
+        } else {
             sa.Next_Sunset_Initiation_Date__c = null;
         }
     }

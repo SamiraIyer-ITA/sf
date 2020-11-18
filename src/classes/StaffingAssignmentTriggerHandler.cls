@@ -27,18 +27,18 @@ public without sharing class StaffingAssignmentTriggerHandler {
             initialize(newList, newMap);
             setCaseValues(newList);
             setDefaultProgramManager(newList);
-            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList));
+            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList),newList,false);
         }
         if (isBefore && isUpdate) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             setDefaultProgramManager(newList);
-            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList));
+            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList),newList,false);
         }
         if (isBefore && isDelete) {
             newList = new LockedRecordHandler().removeLockedRecords(oldList);
             initialize(oldList, oldMap);
-            validateOneProgramManager(buildStaffListByParentForDelete(oldList));
+            validateOneProgramManager(buildStaffListByParentForDelete(oldList),oldList,true);
         }
         if (isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
