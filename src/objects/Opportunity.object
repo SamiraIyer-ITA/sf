@@ -902,6 +902,16 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Reason_Lost_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason Lost Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Reason_Lost__c</fullName>
         <description>Reason opportunity was lost</description>
         <externalId>false</externalId>
