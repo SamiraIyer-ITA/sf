@@ -1104,7 +1104,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_2_ContactRequest</fullName>
-        <columns>Name</columns>
+        <columns>Name</columns>F
         <columns>Status</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
@@ -1223,6 +1223,36 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <queue>CP_Contact_US_9</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group9</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CP_Contact_US_10_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>RequestReason</columns>
+        <columns>Status</columns>
+        <columns>Country_1__c</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Queue#10</label>
+        <queue>CP_Contact_US_10</queue>
+        <sharedTo>
+            <group>CP_Contact_Us_Group10</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CP_Contact_US_11_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>RequestReason</columns>
+        <columns>Status</columns>
+        <columns>Country_1__c</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Queue#11</label>
+        <queue>CP_Contact_US_11</queue>
+        <sharedTo>
+            <group>CP_Contact_Us_Group11</group>
         </sharedTo>
     </listViews>
     <listViews>
