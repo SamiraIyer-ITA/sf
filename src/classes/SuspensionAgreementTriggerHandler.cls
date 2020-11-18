@@ -44,6 +44,13 @@
             calculateDates(newList);
             runCustomValidations(newList);
         }
+        
+        if (isAfter && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
+            initialize(newList, newMap);
+            new StaffingAssignmentService().createStaffFromSObjectParent(newList, 'Suspension_Agreement__c');
+            
+        }
     }
 
     /*****************************

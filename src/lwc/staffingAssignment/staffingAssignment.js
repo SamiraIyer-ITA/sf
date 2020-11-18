@@ -179,6 +179,13 @@ export default class StaffingAssignment extends LightningElement {
                             this.caseId = row.Investigation__r.ADCVD_Case__c;
                         }
                     }
+										
+										if (row.Suspension_Agreement__r) {
+                        if (row.Suspension_Agreement__r.ADCVD_Case__c) {
+                            this.caseId = row.Suspension_Agreement__r.ADCVD_Case__c;
+                        }
+                    }
+										
                     rowBuilder.push(row);
                 }
                 this.data = rowBuilder;

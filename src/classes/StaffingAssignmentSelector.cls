@@ -46,7 +46,8 @@ public class StaffingAssignmentSelector
 				Staffing_Assignment__c.Segment__c,
 				Staffing_Assignment__c.Staff_Parent__c,
 				Staffing_Assignment__c.Title__c,
-				Staffing_Assignment__c.User__c
+                Staffing_Assignment__c.User__c,
+                Staffing_Assignment__c.Suspension_Agreement__c
 		};
 	}
 	public List<Staffing_Assignment__c> selectById(Set<Id> idSet) {

@@ -634,7 +634,7 @@ public without sharing class SegmentTriggerHandler {
         }
         if (!segmentsFromSuspAgrmts.isEmpty()) {
             staffToInsert.addAll(
-                new StaffingAssignmentService().createStaffFromDefaults(segmentsFromSuspAgrmts, 'Segment__c', false)
+                new StaffingAssignmentService().createStaffFromSObjectParent(segmentsFromSuspAgrmts, 'Segment__c', false)
             );
         }
         if (!staffToInsert.isEmpty()) {insert staffToInsert;}
