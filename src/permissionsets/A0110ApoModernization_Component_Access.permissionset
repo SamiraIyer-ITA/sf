@@ -9,6 +9,21 @@
         <name>APO_MODERNIZATION</name>
     </customPermissions>
     <description>This permission set provides APO Modernization field access to specific users</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.APO_Destruction_Due_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.APO_Notes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.APO_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>A0110ApoModernization Component Access</label>
     <license>Salesforce</license>
