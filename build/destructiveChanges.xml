@@ -4,4 +4,8 @@
         <members>Lead.Prod_of_US_origin_or_has_51_materials__c</members>
         <name>CustomObject</name>
     </types>
+    <types>
+        <members>Opportunity.Product_of_US_origin_or_has_51_mtls__c</members>
+        <name>CustomObject</name>
+    </types>
 </Package>
