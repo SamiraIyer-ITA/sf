@@ -1551,6 +1551,13 @@
         <members>unfiled$public/Denmark_Comp_W_I_by_select_count1</members>
         <members>unfiled$public/China_W_I_I_in_Country_CFY_2</members>
         <members>unfiled$public/Germany_FY19_TradeBarr_WINs_PFY</members>
+        <members>GMOfficialReports/MiddleEastAfrica/WINsImpact_MEA_w_SubRegions_DB_Copy_FOa</members>
+        <members>GMOfficialReports/MiddleEastAfrica/WINsImpact_MEA_w_SubRegions_CFY_Whe</members>
+        <members>GMOfficialReports/MiddleEastAfrica/WINsImpact_MEA_w_SubRegions_Prev_FY_X03</members>
+        <members>unfiled$public/FY20_Trade_Barrier_WINs_no_valuation_r4I</members>
+        <members>unfiled$public/Joined_Report_EUR_WINs_C3C</members>
+        <members>unfiled$public/New_Report_bhT</members>
+        <members>unfiled$public/Joined_Report_EUR_WINs_pipeline_C3C</members>
         <name>Report</name>
     </types>
     <version>50.0</version>
