@@ -872,10 +872,25 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Product_of_US_origin_or_has_51_mtls__c</fullName>
+        <fullName>Product_of_US_Origin__c</fullName>
         <description>Field data to be copied over from Lead upon conversion. Necessary for early stage nurturing.</description>
         <externalId>false</externalId>
-        <label>Product of US origin or has 51% mtls?</label>
+        <label>Product of U.S. Origin?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_is_of_51_US_Content__c</fullName>
+        <description>Field data to be copied over from Lead upon conversion. Necessary for early stage nurturing.</description>
+        <externalId>false</externalId>
+        <label>Product is of 51% U.S. Content?</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
