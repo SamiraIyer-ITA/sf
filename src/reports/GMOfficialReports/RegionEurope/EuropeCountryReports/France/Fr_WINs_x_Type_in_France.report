@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>WIN__c.Actual_Initial_Value__c:SUM+WIN__c.Actual_Follow_on_Value__c:SUM+WIN__c.Client_Provided_Value__c:SUM+WIN__c.Estimated_Value__c:SUM</calculatedFormula>
+        <datatype>currency</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Est. Export Value (- Advocacy$)</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>WIN__c.IP_Inv_Amount_est__c:SUM</calculatedFormula>
+        <datatype>currency</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Est. Invest. Value</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>WIN__c.IP_Inv_Amount_est__c:SUM+WIN__c.Actual_Initial_Value__c:SUM+WIN__c.Actual_Follow_on_Value__c:SUM+WIN__c.Client_Provided_Value__c:SUM+WIN__c.Estimated_Value__c:SUM</calculatedFormula>
+        <datatype>currency</datatype>
+        <developerName>FORMULA4</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Est. Total Impact (- Advocacy$)</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_91520755</developerName>
+        <masterLabel>European Sub-Regions</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>WIN__c.Taxonomy_Tagging__r$Country__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Sweden</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>United Kingdom</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Ireland</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Finland</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Denmark</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Norway</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Estonia</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Iceland</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Latvia</sourceValue>
+            </sourceValues>
+            <value>Northern Europe</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Belgium</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>France</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Italy</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Netherlands</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Portugal</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Spain</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Albania</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Malta</sourceValue>
+            </sourceValues>
+            <value>Southwest Europe</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Austria</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Czech Republic</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Germany</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Hungary</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Poland</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Slovakia</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Kosovo</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Lithuania</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Slovenia</sourceValue>
+            </sourceValues>
+            <value>Central Europe</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Serbia</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Romania</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Greece</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Croatia</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Bulgaria</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Macedonia, the former Yugoslav Republic of</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cyprus</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Moldova, Republic of</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Montenegro</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Bosnia and Herzegovina</sourceValue>
+            </sourceValues>
+            <value>Southeast Europe</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Russian Federation</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Turkey</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Ukraine</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Kazakhstan</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Azerbaijan</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Georgia</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Turkmenistan</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Uzbekistan</sourceValue>
+            </sourceValues>
+            <value>Eurasia</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_62005225</developerName>
+        <masterLabel>WH Sub-Regions</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>WIN__c.Taxonomy_Tagging__r$Country__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Canada</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Mexico</sourceValue>
+            </sourceValues>
+            <value>North America</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Virgin Islands, British</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Turks and Caicos Islands</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Trinidad and Tobago</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Suriname</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Sint Maarten (Dutch part)</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Saint Vincent and the Grenadines</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Saint Martin (French part)</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Saint Lucia</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Saint Kitts and Nevis</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Saint Barthélemy</sourceValue>
+            </sourceValues>
+            <value>Caribbean (S to V)</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Anguilla</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Antigua and Barbuda</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Aruba</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Bahamas</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Barbados</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Bermuda</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Bonaire, Sint Eustatius and Saba</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cayman Islands</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Cuba</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Curaçao</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Dominica</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Dominican Republic</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Grenada</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Guadeloupe</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Guyana</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Haiti</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Jamaica</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Martinique</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Montserrat</sourceValue>
+            </sourceValues>
+            <value>Caribbean (A to M)</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>El Salvador</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Honduras</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Guatemala</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Costa Rica</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Belize</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Nicaragua</sourceValue>
+            </sourceValues>
+            <value>Central America</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_10346692</developerName>
+        <masterLabel>WIN Type Buckets (CD Combo)</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>WIN__c$WIN_Type__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Advocacy</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Commercial Diplomacy</sourceValue>
+            </sourceValues>
+            <value>CD + Advocacy</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Export Promotion</sourceValue>
+            </sourceValues>
+            <value>Export Promotion</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Investment Promotion</sourceValue>
+            </sourceValues>
+            <value>Investment Promotion</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>BucketField_10346692</field>
+    </columns>
+    <columns>
+        <field>WIN__c$WIN_Name__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Organization__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Cleared_For__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>WIN__c$WIN_One__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>RH_Lev_1_GM_All__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>GM</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>WIN__c$Id</primaryTableColumn>
+        <relatedTable>WIN_Contributor__c</relatedTable>
+        <relatedTableJoinColumn>WIN__c</relatedTableJoinColumn>
+    </crossFilters>
+    <crossFilters>
+        <operation>with</operation>
+        <primaryTableColumn>WIN__c$Id</primaryTableColumn>
+        <relatedTable>Taxonomy_Tagging__c</relatedTable>
+        <relatedTableJoinColumn>Related_WIN__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>WINs with or without taxonomy tags; Impact estimates.</description>
+    <filter>
+        <booleanFilter>1 AND (2 OR (3 AND 4) OR (5 AND 6)) AND 7</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c$Request_WIN_Removal__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Commercial_Diplomacy,WIN__c.Commercial_Diplomacy_Locked,WIN__c.Export_Promotion,WIN__c.Export_Promotion_Locked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Advocacy,WIN__c.Advocacy_Locked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Line_Approver__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Americo Tadeu,Jennifer Pilat,Barbara Farrar,Frederick Helfrich,Patrice Williams,Jose Cunningham</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Investment_Promotion,WIN__c.Investment_Promotion_Locked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Line_Approver__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Keida Ackerman,Seth Isenberg,Ryan Wallace,Bruce Ellsworth,Belen Gallegos,Steve Miller,Anthony Diaz,Leslie Britton,Seth Oppenheim,Priscilla Baek</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Taxonomy_Tagging__r$Country__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>France</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c$WIN_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>WIN__c$Final_Line_Approval_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Fr WINs x Type_in France</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>Wins_with_Taxonomy_Tags__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

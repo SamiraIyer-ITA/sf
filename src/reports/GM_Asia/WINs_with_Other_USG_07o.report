@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Taxonomy_Tagging__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Other_USG_Entities_Involved__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Cleared_For__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Taxonomy_Tagging__r$Country__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Afghanistan,Australia,Bangladesh,Brunei Darussalam,Cambodia,Fiji,India,Indonesia,Japan,&quot;Korea, Republic of&quot;,Lao People’s Democratic Republic,Malaysia,Myanmar,Nepal,New Zealand,Pakistan,Papua New Guinea,Philippines,Singapore,Sri Lanka,Taiwan,Thailand,Vietnam</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Other_USG_Entities_Involved__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Cleared_For__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Declined to clear</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>WIN__c.Advocacy,WIN__c.Advocacy_Locked</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>WINs with Other USG</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Wins_with_Taxonomy_Tags__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>WIN__c.Taxonomy_Tagging__r$Country__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_PREVCURFY</interval>
+    </timeFrameFilter>
+</Report>
