@@ -975,7 +975,6 @@
         <members>GMOfficialReports/RegionEurope/GM_ALL_Trade_Barriers_Removed</members>
         <members>GMOfficialReports/RegionEurope/WINs_x_Type_EUR_3yr_8SR</members>
         <members>GMOfficialReports/RegionEurope/WINs_x_Type_Eur_FY20_Barriers_Mnc</members>
-        <members>GMOfficialReports/MiddleEastAfrica/WINsImpact_MEA_w_SubRegions_Prev_FY_X03</members>
         <members>GMOfficialReports/MiddleEastAfrica/MEACountryReports/Mozambique/Moz_WINs_Impact_in_Mozambique</members>
         <members>GMOfficialReports/MiddleEastAfrica/MEACountryReports/Mozambique/Moz_WINs_Impact_in_Mozambique1</members>
         <members>GMOfficialReports/MiddleEastAfrica/MEACountryReports/Mozambique/Moz_WINs_Impact_by_Indu_in_Mozambique</members>
@@ -1148,10 +1147,8 @@
         <members>GMOfficialReports/MiddleEastAfrica/WINs_x_Type_MEA_3yr_VAZ</members>
         <members>GMOfficialReports/MiddleEastAfrica/WINs_x_Type_MEA_Export_Promotion_2i4</members>
         <members>GMOfficialReports/MiddleEastAfrica/WINsImpact_MEA_x_Industry_CFY_djv</members>
-        <members>GMOfficialReports/MiddleEastAfrica/WINsImpact_MEA_w_SubRegions_CFY_Whe</members>
         <members>GMOfficialReports/MiddleEastAfrica/WINs_x_Type_MEA_FY20_Barriers_2_Date_wt3</members>
         <members>GMOfficialReports/MiddleEastAfrica/WINs_x_Type_MEA_CD_Advocacy_Cw9</members>
-        <members>GMOfficialReports/MiddleEastAfrica/WINsImpact_MEA_w_SubRegions_DB_Copy_FOa</members>
         <members>GMOfficialReports/MiddleEastAfrica/WINs_x_Type_MEA_Advocacy_3LK</members>
         <members>GMOfficialReports/MiddleEastAfrica/WINs_x_Type_MEA_Investment_Promotion_6Cd</members>
         <members>GMOfficialReports/MiddleEastAfrica/WINs_x_Type_MEA_FY20_Barriers_Ag6</members>
@@ -1429,7 +1426,6 @@
         <members>GM_OSP/ReportTemplates_DraftedbyOSP/Inv_WINs_Impact_by_Country_FY17Pres_EzJ</members>
         <members>GM_OSP/ReportTemplates_DraftedbyOSP/GM_EP_WINs_Impact_by_Country_Prev_HGz</members>
         <members>GM_OSP/OSP_Best_WINs_ZCc</members>
-        <members>unfiled$public/New_Report_bhT</members>
         <members>unfiled$public/European_IHS_WINs_FY2019_onward</members>
         <members>unfiled$public/European_ICT_WINs_FY2019_onwards</members>
         <members>unfiled$public/PacificNorth_WINs_Impact_by_Country</members>
@@ -1460,9 +1456,6 @@
         <members>unfiled$public/EUR_Austria_W_I_I_C_2PFY</members>
         <members>unfiled$public/Southern_WINs_Impact_by_Country_v2</members>
         <members>unfiled$public/MidWest_WINs_Impact_by_Country</members>
-        <members>unfiled$public/Joined_Report_EUR_WINs_C3C</members>
-        <members>unfiled$public/Joined_Report_EUR_WINs_C3C</members>
-        <members>unfiled$public/Joined_Report_EUR_WINs_C3C</members>
         <members>unfiled$public/Germany_CD_WINs_PFY</members>
         <members>unfiled$public/India_W_I_I_in_Country_CFY_2</members>
         <members>unfiled$public/FY20_CA_WINs_Impact_by_Country</members>
@@ -1471,7 +1464,6 @@
         <members>unfiled$public/Northeast_WINs_Impact_by_Country</members>
         <members>unfiled$public/AF_Sample_Report_1_for_Dashboard</members>
         <members>unfiled$public/Copy_of_FY20_CD_WINs</members>
-        <members>unfiled$public/FY20_Trade_Barrier_WINs_no_valuation_r4I</members>
         <members>unfiled$public/Copy_of_Iraq_WINs_ZZG</members>
         <members>unfiled$public/Great_Lakes_WINs_Impact_by_Country</members>
         <members>unfiled$public/WINs_Impact_by_Indu_in_Jordan_Iraq1</members>
@@ -1502,9 +1494,6 @@
         <members>unfiled$public/Iraq_WINS_non_Advocacy_copy</members>
         <members>unfiled$public/Germany_W_I_I_in_Country_CFY2</members>
         <members>unfiled$public/Copy_of_Saudi_Arabia_WINs_FY20_Tatyana</members>
-        <members>unfiled$public/Joined_Report_EUR_WINs_pipeline_C3C</members>
-        <members>unfiled$public/Joined_Report_EUR_WINs_pipeline_C3C</members>
-        <members>unfiled$public/Joined_Report_EUR_WINs_pipeline_C3C</members>
         <members>unfiled$public/Germany_IP_WINs_PFY</members>
         <members>unfiled$public/WINs_x_Type_in_Iraq_2yr</members>
         <members>unfiled$public/EUR_BUD_W_I_I_in_Country_MBC19_201</members>
