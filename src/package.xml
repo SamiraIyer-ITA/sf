@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    </types>
+    <types>
         <members>COVID19Reports/Approved_GM_WINs_by_Keyword_COVID_8Vg<\members>
         <members>COVID19Reports/Approved_COVID_19_WINs_for_JL<\members>
         <members>GM_Asia/WINs_with_Other_USG_07o<\members>
