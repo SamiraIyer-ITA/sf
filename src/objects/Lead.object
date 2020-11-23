@@ -1281,6 +1281,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Service_Request_Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Request Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Country_1</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>SourceTechnology__c</fullName>
         <externalId>false</externalId>
         <label>Source Technology</label>
@@ -1305,18 +1317,6 @@
                     <fullName>Excel</fullName>
                     <default>false</default>
                     <label>Excel</label>
-    <fields>
-        <fullName>Service_Request_Country__c</fullName>
-        <externalId>false</externalId>
-        <label>Service Request Country</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>Country_1</valueSetName>
-        </valueSet>
-    </fields>
                 </value>
                 <value>
                     <fullName>FTP</fullName>
