@@ -513,6 +513,19 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Suspension_Agreement__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Suspension Agreement</label>
+        <referenceTo>Suspension_Agreement__c</referenceTo>
+        <relationshipLabel>Staffing Assignments</relationshipLabel>
+        <relationshipName>Staffing_Assignments</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Title__c</fullName>
         <externalId>false</externalId>
         <label>Title</label>
