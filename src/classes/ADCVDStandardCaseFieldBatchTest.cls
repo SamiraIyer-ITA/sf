@@ -120,7 +120,7 @@ public class ADCVDStandardCaseFieldBatchTest {
         System.assertEquals(adcvdCase.Investigations__r[0].Country_Text__c, adcvdCase.Country__c);
         System.assertEquals(adcvdCase.Investigations__r[0].Product_Short_Name_Text__c, adcvdCase.Product_Short_Name__c);
         System.assertEquals(adcvdCase.Investigations__r[0].Product_Text__c, adcvdCase.Product__c);
-
+       
         //Assert adcvd order standardized case fields match adcvd case fields
         System.assertEquals(adcvdCase.ADCVD_Orders__r[0].ADCVD_Case_Type_Text__c, adcvdCase.ADCVD_Case_Type__c);
         System.assertEquals(adcvdCase.ADCVD_Orders__r[0].Commodity_Text__c, adcvdCase.Commodity__c);
@@ -183,14 +183,19 @@ public class ADCVDStandardCaseFieldBatchTest {
     }
 
     @testSetup static void dataSetup(){
-        //create custom setting configuration to activate triggers, workflow rules, and validation rules
-        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
-        AppConfig__c ac = TestUtils.createAppConfig('ADCVDStandardCaseFieldsBatch', true, true);
         //create test data
-        User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-        Account testAccount = TestUtils.createAccount(true);
-        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-534-124', 'AD ME', true);
-        Petition__c testADPetition = TestUtils.createPetition(testADCase, Date.today(), true);
+       User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
+
+        System.runAs(testUser) {
+            Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+            AppConfig__c ac = TestUtils.createAppConfig('ADCVDStandardCaseFieldsBatch', true, true);
+            //create test data
+         Account testAccount = TestUtils.createAccount(true);
+       
+            ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser,true);
+
+            Petition__c testADPetition = TestUtils.createPetition(testADCase, System.today().addDays(-280), true);
+        
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
         ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
         Suspension_Agreement__c suspensionAgreement = TestUtils.createSuspensionAgreement(testADinvestigation, Date.today(), true);
@@ -201,7 +206,8 @@ public class ADCVDStandardCaseFieldBatchTest {
         Related_Organization__c relatedOrganization = TestUtils.createRelatedOrg(testADPetition, false);
         relatedOrganization.ADCVD_Entity_Name__c = 'test entity';
         relatedOrganization.Account__c = testAccount.Id;
-        insert relatedOrganization;
+        relatedOrganization.ADCVD_Case__c = testADCase.Id;
+       // insert relatedOrganization;
         //HTS records are created through the Controller on their parents object page, in order to have all the standardized case fields filled
         //The records in this test class need to be created through the same controller
         ApexPages.StandardController standardController = new ApexPages.StandardController(testADOrder);
@@ -210,6 +216,7 @@ public class ADCVDStandardCaseFieldBatchTest {
         CreateHTSRecordsController htsRecordsController = new CreateHTSRecordsController(newAttachmentWriterController);
         Custom_Instruction__c customInstruction = TestUtils.createCustomInstruction('Investigation__c', testADinvestigation.Id, true);
         Test.stopTest();
+        }
 
     }
 
