@@ -55,7 +55,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Bulgaria,&quot;Macedonia, the former Yugoslav Republic of&quot;</value>
+            <value>Bulgaria,North Macedonia,&quot;Macedonia, the former Yugoslav Republic of&quot;</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>

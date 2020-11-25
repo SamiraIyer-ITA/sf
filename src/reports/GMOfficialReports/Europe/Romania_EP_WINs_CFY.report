@@ -51,7 +51,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>&quot;Moldova, Republic of&quot;,Romania</value>
+            <value>Moldova,&quot;Moldova, Republic of&quot;,Romania</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>

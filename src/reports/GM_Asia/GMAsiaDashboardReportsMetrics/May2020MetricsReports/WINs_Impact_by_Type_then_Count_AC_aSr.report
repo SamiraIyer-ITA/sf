@@ -144,7 +144,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Afghanistan,Australia,Bangladesh,Bhutan,Brunei Darussalam,Cambodia,Christmas Island,Cocos (Keeling) Islands,Cook Islands,Fiji,French Polynesia,India,Indonesia,Japan,Kiribati,&quot;Korea, Democratic People’s Republic of&quot;,&quot;Korea, Republic of&quot;,Lao People’s Democratic Republic,Malaysia,Maldives,Myanmar,Nauru,Nepal,New Caledonia,New Zealand,Niue,Norfolk Island,Pakistan,Papua New Guinea,Philippines,Pitcairn,Samoa,Singapore,Solomon Islands,Sri Lanka,Taiwan,Thailand,Timor-Leste,Tokelau,Tonga,Tuvalu,Vanuatu,Vietnam,Wallis and Futuna</value>
+            <value>Afghanistan,Australia,Bangladesh,Bhutan,Brunei Darussalam,Cambodia,Christmas Island,Cocos (Keeling) Islands,Cook Islands,Fiji,French Polynesia,India,Indonesia,Japan,Kiribati,North Korea,&quot;Korea, Democratic People’s Republic of&quot;,South Korea,&quot;Korea, Republic of&quot;,Laos,Lao People’s Democratic Republic,Malaysia,Maldives,Myanmar,Nauru,Nepal,New Caledonia,New Zealand,Niue,Norfolk Island,Pakistan,Papua New Guinea,Philippines,Pitcairn,Samoa,Singapore,Solomon Islands,Sri Lanka,Taiwan,Thailand,Timor-Leste,Tokelau,Tonga,Tuvalu,Vanuatu,Vietnam,Wallis and Futuna</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c$Final_Line_Approval_Date__c</column>

@@ -72,7 +72,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Afghanistan,Australia,Bangladesh,Brunei Darussalam,Cambodia,Fiji,India,Indonesia,Japan,&quot;Korea, Democratic People’s Republic of&quot;,&quot;Korea, Republic of&quot;,Lao People’s Democratic Republic,Maldives,Myanmar,Nauru,Nepal,New Caledonia,New Zealand,Pakistan,Papua New Guinea,Philippines,Pitcairn,Samoa,Singapore,Solomon Islands,Sri Lanka,Taiwan,Thailand,Tonga,Tuvalu,Vanuatu,Vietnam</value>
+            <value>Afghanistan,Australia,Bangladesh,Brunei Darussalam,Cambodia,Fiji,India,Indonesia,Japan,North Korea,&quot;Korea, Democratic People’s Republic of&quot;,South Korea,&quot;Korea, Republic of&quot;,Laos,Lao People’s Democratic Republic,Maldives,Myanmar,Nauru,Nepal,New Caledonia,New Zealand,Pakistan,Papua New Guinea,Philippines,Pitcairn,Samoa,Singapore,Solomon Islands,Sri Lanka,Taiwan,Thailand,Tonga,Tuvalu,Vanuatu,Vietnam</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>

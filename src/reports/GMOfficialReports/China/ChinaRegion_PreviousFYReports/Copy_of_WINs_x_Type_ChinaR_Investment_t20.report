@@ -71,7 +71,7 @@
                 <sourceValue>Indonesia</sourceValue>
             </sourceValues>
             <sourceValues>
-                <sourceValue>Lao People’s Democratic Republic</sourceValue>
+                <sourceValue>Laos</sourceValue>
             </sourceValues>
             <sourceValues>
                 <sourceValue>Malaysia</sourceValue>
@@ -104,10 +104,10 @@
                 <sourceValue>Japan</sourceValue>
             </sourceValues>
             <sourceValues>
-                <sourceValue>Korea, Democratic People’s Republic of</sourceValue>
+                <sourceValue>North Korea</sourceValue>
             </sourceValues>
             <sourceValues>
-                <sourceValue>Korea, Republic of</sourceValue>
+                <sourceValue>South Korea</sourceValue>
             </sourceValues>
             <sourceValues>
                 <sourceValue>Taiwan</sourceValue>
@@ -218,7 +218,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Keida Ackerman,Seth Isenberg,Ryan Wallace,Bruce Ellsworth,Belen Gallegos,Steve Miller,Anthony Diaz,Leslie Britton,Seth Oppenheim,Priscilla Baek,Hanes Roberts,Eric Crowley</value>
+            <value>Anthony Diaz,Leslie Britton,Seth Isenberg,Ryan Wallace,Steve Miller,Belen Gallegos,Priscilla Baek,Seth Oppenheim,Bruce Ellsworth,Keida Ackerman,Lance Jackson,Eric Crowley,Hanes Roberts,Virgilio Bisio,David Weil,Leah Schulz</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c.Taxonomy_Tagging__r$Country__c</column>

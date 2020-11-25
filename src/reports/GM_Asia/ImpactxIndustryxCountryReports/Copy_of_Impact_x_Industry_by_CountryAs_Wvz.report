@@ -96,7 +96,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Australia,Bangladesh,Brunei Darussalam,Cambodia,Fiji,India,Indonesia,Japan,&quot;Korea, Democratic People’s Republic of&quot;,&quot;Korea, Republic of&quot;,Lao People’s Democratic Republic,Malaysia,Myanmar,Nepal,New Zealand,Papua New Guinea,Philippines,Singapore,Sri Lanka,Taiwan,Thailand,Vietnam</value>
+            <value>Australia,Bangladesh,Brunei Darussalam,Cambodia,Fiji,India,Indonesia,Japan,North Korea,&quot;Korea, Democratic People’s Republic of&quot;,South Korea,&quot;Korea, Republic of&quot;,Laos,Lao People’s Democratic Republic,Malaysia,Myanmar,Nepal,New Zealand,Papua New Guinea,Philippines,Singapore,Sri Lanka,Taiwan,Thailand,Vietnam</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>

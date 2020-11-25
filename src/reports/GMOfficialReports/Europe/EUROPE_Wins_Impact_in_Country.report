@@ -55,7 +55,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Austria,Belgium,Bulgaria,Croatia,Czech Republic,Denmark,Finland,France,Germany,Greece,Hungary,Ireland,Italy,Kazakhstan,Netherlands,Norway,Poland,Portugal,Romania,Russian Federation,Serbia,Slovakia,Spain,Sweden,Turkey,Ukraine,United Kingdom</value>
+            <value>Austria,Belgium,Bulgaria,Croatia,Czech Republic,Denmark,Finland,France,Germany,Greece,Hungary,Ireland,Italy,Kazakhstan,Netherlands,Norway,Poland,Portugal,Romania,Russia,Russian Federation,Serbia,Slovakia,Spain,Sweden,Turkey,Ukraine,United Kingdom</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>

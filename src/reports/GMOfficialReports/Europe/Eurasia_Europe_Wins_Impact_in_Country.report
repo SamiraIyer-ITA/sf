@@ -55,7 +55,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Kazakhstan,Russian Federation,Turkey,Ukraine</value>
+            <value>Kazakhstan,Russia,Russian Federation,Turkey,Ukraine</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>

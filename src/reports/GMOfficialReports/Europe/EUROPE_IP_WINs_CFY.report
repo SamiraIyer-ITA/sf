@@ -107,7 +107,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Keida Ackerman,Seth Isenberg,Ryan Wallace,Bruce Ellsworth,Belen Gallegos,Steve Miller,Anthony Diaz,Leslie Britton,Seth Oppenheim,Priscilla Baek</value>
+            <value>Anthony Diaz,Leslie Britton;Seth Isenberg;Ryan Wallace;Steve Miller;Belen Gallegos,Priscilla Baek,Seth Oppenheim,Bruce Ellsworth,Keida Ackerman,Lance Jackson,Eric Crowley,Hanes Roberts,Virgilio Bisio,David Weil,Leah Schulz</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c$Internal_Comment__c</column>
@@ -128,7 +128,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Albania,Austria,Azerbaijan,Belgium,Bosnia and Herzegovina,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Finland,France,Georgia,Germany,Greece,Hungary,Iceland,Ireland,Italy,Kazakhstan,Kosovo,Latvia,Lithuania,Malta,&quot;Moldova, Republic of&quot;,Montenegro,Netherlands,Norway,Poland,Portugal,Romania,Russian Federation,Serbia,Slovakia,Slovenia,Spain,Sweden,Switzerland,Turkey,Turkmenistan,Ukraine,United Kingdom,Uzbekistan</value>
+            <value>Albania,Austria,Azerbaijan,Belgium,Bosnia and Herzegovina,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Finland,France,Georgia (Republic),Germany,Greece,Hungary,Iceland,Ireland,Italy,Kazakhstan,Kosovo,Latvia,Lithuania,Malta,Moldova,&quot;Moldova, Republic of&quot;,Montenegro,Netherlands,Norway,Poland,Portugal,Romania,Russia,Russian Federation,Serbia,Slovakia,Slovenia,Spain,Sweden,Switzerland,Turkey,Turkmenistan,Ukraine,United Kingdom,Uzbekistan</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c.Taxonomy_Tagging__r$Trade_Region__c</column>

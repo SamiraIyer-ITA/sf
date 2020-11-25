@@ -138,7 +138,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>&quot;Moldova, Republic of&quot;,Romania</value>
+            <value>Moldova,&quot;Moldova, Republic of&quot;,Romania</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>

@@ -144,7 +144,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Armenia,Azerbaijan,Bangladesh,Belarus,Bhutan,Georgia,India,Kazakhstan,Kyrgyzstan,&quot;Moldova, Republic of&quot;,Nepal,Pakistan,Russian Federation,Sri Lanka,Tajikistan,Turkmenistan,Ukraine,Uzbekistan</value>
+            <value>Armenia,Azerbaijan,Bangladesh,Belarus,Bhutan,India,Kazakhstan,Kyrgyzstan,Moldova,&quot;Moldova, Republic of&quot;,Nepal,Pakistan,Russia,Russian Federation,Sri Lanka,Tajikistan,Turkmenistan,Ukraine,Uzbekistan</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>

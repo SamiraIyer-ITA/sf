@@ -138,7 +138,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Azerbaijan,Kazakhstan,Russian Federation,Turkey,Ukraine,Uzbekistan</value>
+            <value>Azerbaijan,Georgia (Republic),Kazakhstan,Russia,Russian Federation,Turkey,Ukraine,Uzbekistan</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>

@@ -55,7 +55,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Aland Islands,Albania,Andorra,Armenia,Austria,Azerbaijan,Belarus,Belgium,Bosnia and Herzegovina,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Faroe Islands,Finland,France,French Guiana,Georgia,Germany,Gibraltar,Greece,Greenland,Guadeloupe,Guernsey,Hungary,Iceland,Ireland,Isle of Man,Italy,Jersey,Kazakhstan,Kosovo,Kyrgyzstan,Latvia,Liechtenstein,Lithuania,Luxembourg,Malta,Monaco,Montenegro,Netherlands,Norway,Poland,Portugal,Romania,Russian Federation,San Marino,Serbia,Slovakia,Slovenia,Spain,Svalbard and Jan Mayen,Sweden,Switzerland,Tajikistan,Turkey,Turkmenistan,Ukraine,United Kingdom,Uzbekistan</value>
+            <value>Aland Islands,Albania,Andorra,Armenia,Austria,Azerbaijan,Belarus,Belgium,Bosnia and Herzegovina,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Faroe Islands,Finland,France,French Guiana,Germany,Gibraltar,Greece,Greenland,Guadeloupe,Guernsey,Hungary,Iceland,Ireland,Isle of Man,Italy,Jersey,Kazakhstan,Kosovo,Kyrgyzstan,Latvia,Liechtenstein,Lithuania,Luxembourg,Malta,Monaco,Montenegro,Netherlands,Norway,Poland,Portugal,Romania,Russia,Russian Federation,San Marino,Serbia,Slovakia,Slovenia,Spain,Svalbard and Jan Mayen,Sweden,Switzerland,Tajikistan,Turkey,Turkmenistan,Ukraine,United Kingdom,Uzbekistan</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>

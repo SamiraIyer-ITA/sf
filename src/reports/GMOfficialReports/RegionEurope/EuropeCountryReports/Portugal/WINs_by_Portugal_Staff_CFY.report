@@ -213,6 +213,6 @@
     <showSubTotals>false</showSubTotals>
     <timeFrameFilter>
         <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
-        <interval>INTERVAL_CURFY</interval>
+        <interval>INTERVAL_PREVFY</interval>
     </timeFrameFilter>
 </Report>

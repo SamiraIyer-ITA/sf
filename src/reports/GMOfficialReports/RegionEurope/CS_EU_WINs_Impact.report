@@ -131,7 +131,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Keida Ackerman,Seth Isenberg,Ryan Wallace,Bruce Ellsworth,Belen Gallegos,Steve Miller,Anthony Diaz,Leslie Britton,Seth Oppenheim,Priscilla Baek</value>
+            <value>Anthony Diaz,Leslie Britton,Seth Isenberg,Ryan Wallace,Steve Miller,Belen Gallegos,Priscilla Baek,Seth Oppenheim,Bruce Ellsworth,Keida Ackerman,Lance Jackson,Eric Crowley,Hanes Roberts,Virgilio Bisio,David Weil,Leah Schulz</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c.Taxonomy_Tagging__r$Trade_Region__c</column>

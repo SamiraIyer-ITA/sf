@@ -144,7 +144,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Bulgaria,&quot;Macedonia, the former Yugoslav Republic of&quot;</value>
+            <value>Bulgaria,North Macedonia,&quot;Macedonia, the former Yugoslav Republic of&quot;</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>

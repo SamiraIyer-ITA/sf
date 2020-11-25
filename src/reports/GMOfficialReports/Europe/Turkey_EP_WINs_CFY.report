@@ -51,7 +51,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Azerbaijan,Georgia,Turkey,Turkmenistan,Uzbekistan</value>
+            <value>Azerbaijan,Georgia (Republic),Turkey,Turkmenistan,Uzbekistan</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>
@@ -99,7 +99,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Americo Tadeu,Jennifer Pilat,Barbara Farrar,Frederick Helfrich,Patrice Williams</value>
+            <value>Americo Tadeu,Jennifer Pilat,Barbara Farrar,Frederick Helfrich,Patrice Williams,Jose Cunningham</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c$RecordType</column>
@@ -160,7 +160,7 @@
     </params>
     <reportType>Wins_with_Taxonomy_Tags__c</reportType>
     <scope>organization</scope>
-    <showDetails>false</showDetails>
+    <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>

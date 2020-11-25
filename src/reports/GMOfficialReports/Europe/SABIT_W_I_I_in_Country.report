@@ -55,7 +55,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Armenia,Azerbaijan,Bangladesh,Belarus,Bhutan,Georgia,India,Kazakhstan,Kyrgyzstan,&quot;Moldova, Republic of&quot;,Nepal,Pakistan,Russian Federation,Sri Lanka,Tajikistan,Turkmenistan,Ukraine,Uzbekistan</value>
+            <value>Armenia,Azerbaijan,Bangladesh,Belarus,Bhutan,India,Kazakhstan,Kyrgyzstan,Moldova,&quot;Moldova, Republic of&quot;,Nepal,Pakistan,Russia,Russian Federation,Sri Lanka,Tajikistan,Turkmenistan,Ukraine,Uzbekistan</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>

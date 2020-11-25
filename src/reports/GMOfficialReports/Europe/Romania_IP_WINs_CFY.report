@@ -51,7 +51,7 @@
             <column>Country__c</column>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>&quot;Moldova, Republic of&quot;,Romania</value>
+            <value>Moldova,&quot;Moldova, Republic of&quot;,Romania</value>
         </criteriaItems>
         <operation>with</operation>
         <primaryTableColumn>WIN__c$Id</primaryTableColumn>
@@ -113,7 +113,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Keida Ackerman,Seth Isenberg,Ryan Wallace,Bruce Ellsworth,Belen Gallegos,Steve Miller,Anthony Diaz,Leslie Britton,Seth Oppenheim,Priscilla Baek</value>
+            <value>Keida Ackerman,Seth Isenberg,Ryan Wallace,Bruce Ellsworth,Belen Gallegos,Steve Miller,Anthony Diaz,Leslie Britton,Seth Oppenheim,Priscilla Baek,Lance Jackson,Eric Crowley,Hanes Roberts,Virgilio Bisio,David Weil,Leah Schulz</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c$Internal_Comment__c</column>

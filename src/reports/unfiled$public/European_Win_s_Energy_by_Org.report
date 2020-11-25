@@ -54,7 +54,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Albania,Belgium,Bosnia and Herzegovina,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Finland,France,Georgia,Germany,Greece,Hungary,Ireland,Italy,Latvia,Luxembourg,&quot;Macedonia, the former Yugoslav Republic of&quot;,&quot;Moldova, Republic of&quot;,Netherlands,Norway,Poland,Portugal,Romania,Russian Federation,Serbia,Slovakia,Slovenia,Spain,Sweden,Turkey,Ukraine,United Kingdom</value>
+            <value>Albania,Belgium,Bosnia and Herzegovina,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Finland,France,Germany,Greece,Hungary,Ireland,Italy,Latvia,Luxembourg,North Macedonia,&quot;Macedonia, the former Yugoslav Republic of&quot;,Moldova,&quot;Moldova, Republic of&quot;,Netherlands,Norway,Poland,Portugal,Romania,Russia,Russian Federation,Serbia,Slovakia,Slovenia,Spain,Sweden,Turkey,Ukraine,United Kingdom</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>

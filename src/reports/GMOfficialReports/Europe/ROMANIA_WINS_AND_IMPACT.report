@@ -144,7 +144,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>&quot;Moldova, Republic of&quot;,Romania</value>
+            <value>Moldova,&quot;Moldova, Republic of&quot;,Romania</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c$Final_Line_Approval_Date__c</column>

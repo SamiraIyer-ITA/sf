@@ -144,7 +144,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Albania,Austria,Azerbaijan,Belgium,Bosnia and Herzegovina,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Finland,France,Georgia,Germany,Greece,Hungary,Iceland,Ireland,Italy,Kazakhstan,Kosovo,Lithuania,Malta,&quot;Moldova, Republic of&quot;,Montenegro,Netherlands,Norway,Poland,Portugal,Romania,Russian Federation,Serbia,Slovakia,Slovenia,Spain,Sweden,Switzerland,Turkey,Turkmenistan,Ukraine,United Kingdom,Uzbekistan</value>
+            <value>Albania,Austria,Azerbaijan,Belgium,Bosnia and Herzegovina,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Finland,France,Germany,Greece,Hungary,Iceland,Ireland,Italy,Kazakhstan,Kosovo,Lithuania,Malta,Moldova,&quot;Moldova, Republic of&quot;,Montenegro,Netherlands,Norway,Poland,Portugal,Romania,Russia,Russian Federation,Serbia,Slovakia,Slovenia,Spain,Sweden,Switzerland,Turkey,Turkmenistan,Ukraine,United Kingdom,Uzbekistan</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c$Final_Line_Approval_Date__c</column>

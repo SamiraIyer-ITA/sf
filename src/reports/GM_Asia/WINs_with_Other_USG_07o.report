@@ -18,7 +18,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Afghanistan,Australia,Bangladesh,Brunei Darussalam,Cambodia,Fiji,India,Indonesia,Japan,&quot;Korea, Republic of&quot;,Lao People’s Democratic Republic,Malaysia,Myanmar,Nepal,New Zealand,Pakistan,Papua New Guinea,Philippines,Singapore,Sri Lanka,Taiwan,Thailand,Vietnam</value>
+            <value>Afghanistan,Australia,Bangladesh,Brunei Darussalam,Cambodia,Fiji,India,Indonesia,Japan,South Korea,&quot;Korea, Republic of&quot;,Laos,Lao People’s Democratic Republic,Malaysia,Myanmar,Nepal,New Zealand,Pakistan,Papua New Guinea,Philippines,Singapore,Sri Lanka,Taiwan,Thailand,Vietnam</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c$Other_USG_Entities_Involved__c</column>

@@ -155,7 +155,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Brunei,Cambodia,Indonesia,Laos,Malaysia,Myanmar,Philippines,Singapore,Thailand,Vietnam</value>
+            <value>Brunei,Cambodia,Indonesia,Laos,Lao People’s Democratic Republic,Malaysia,Myanmar,Philippines,Singapore,Thailand,Vietnam</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c$Final_Line_Approval_Date__c</column>

@@ -144,7 +144,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Azerbaijan,Georgia,Turkey,Turkmenistan,Uzbekistan</value>
+            <value>Azerbaijan,Georgia (Republic),Turkey,Turkmenistan,Uzbekistan</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>

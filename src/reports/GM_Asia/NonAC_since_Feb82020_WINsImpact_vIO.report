@@ -77,7 +77,7 @@
                 <sourceValue>Japan</sourceValue>
             </sourceValues>
             <sourceValues>
-                <sourceValue>Korea, Republic of</sourceValue>
+                <sourceValue>South Korea</sourceValue>
             </sourceValues>
             <sourceValues>
                 <sourceValue>Taiwan</sourceValue>
@@ -110,7 +110,7 @@
                 <sourceValue>Indonesia</sourceValue>
             </sourceValues>
             <sourceValues>
-                <sourceValue>Lao People’s Democratic Republic</sourceValue>
+                <sourceValue>Laos</sourceValue>
             </sourceValues>
             <sourceValues>
                 <sourceValue>Malaysia</sourceValue>
@@ -194,7 +194,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Afghanistan,Australia,Bangladesh,Bhutan,British Indian Ocean Territory,Brunei Darussalam,Cambodia,Christmas Island,Cocos (Keeling) Islands,Cook Islands,Fiji,French Polynesia,India,Indonesia,Japan,Kiribati,&quot;Korea, Democratic People’s Republic of&quot;,&quot;Korea, Republic of&quot;,Lao People’s Democratic Republic,Macao,Malaysia,Maldives,Myanmar,Nauru,Nepal,New Caledonia,New Zealand,Niue,Norfolk Island,Pakistan,Papua New Guinea,Philippines,Pitcairn,Samoa,Singapore,Solomon Islands,Sri Lanka,Taiwan,Thailand,Timor-Leste,Tokelau,Tonga,Tuvalu,Vanuatu,Vietnam,Wallis and Futuna</value>
+            <value>Afghanistan,Australia,Bangladesh,Bhutan,British Indian Ocean Territory,Brunei Darussalam,Cambodia,Christmas Island,Cocos (Keeling) Islands,Cook Islands,Fiji,French Polynesia,India,Indonesia,Japan,Kiribati,North Korea,&quot;Korea, Democratic People’s Republic of&quot;,South Korea,&quot;Korea, Republic of&quot;,Laos,Lao People’s Democratic Republic,Macao,Malaysia,Maldives,Myanmar,Nauru,Nepal,New Caledonia,New Zealand,Niue,Norfolk Island,Pakistan,Papua New Guinea,Philippines,Pitcairn,Samoa,Singapore,Solomon Islands,Sri Lanka,Taiwan,Thailand,Timor-Leste,Tokelau,Tonga,Tuvalu,Vanuatu,Vietnam,Wallis and Futuna</value>
         </criteriaItems>
         <criteriaItems>
             <column>WIN__c$Other_USG_Entities_Involved__c</column>
