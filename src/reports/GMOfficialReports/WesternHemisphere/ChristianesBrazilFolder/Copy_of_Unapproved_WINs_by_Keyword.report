@@ -32,7 +32,6 @@
         <field>WIN__c$WIN_One__c</field>
     </columns>
     <filter>
-        <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
         <criteriaItems>
             <column>WIN__c$Final_Line_Approval__c</column>
             <columnToColumn>false</columnToColumn>
