@@ -20,10 +20,6 @@
         <field>WIN__c$Client_Provided_Value__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>WIN__c$ITA_Estimated_Dollar_Value__c</field>
-    </columns>
-    <columns>
         <field>WIN__c$Estimated_Value_Explanation__c</field>
     </columns>
     <columns>
