@@ -80,7 +80,7 @@
             <name>co</name>
             <value>1</value>
         </params>
-        <reportType>Wins_with_Taxonomy_Tags__c</reportType>
+        <reportType>WINS_with_or_without_Taxonomy_Tagging__c</reportType>
         <scope>organization</scope>
         <showGrandTotal>true</showGrandTotal>
         <showSubTotals>true</showSubTotals>
@@ -186,7 +186,7 @@
             <name>co</name>
             <value>1</value>
         </params>
-        <reportType>Wins_with_Taxonomy_Tags__c</reportType>
+        <reportType>WINS_with_or_without_Taxonomy_Tagging__c</reportType>
         <scope>organization</scope>
         <showGrandTotal>true</showGrandTotal>
         <showSubTotals>true</showSubTotals>
@@ -242,6 +242,6 @@
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Joined Report EUR WINs #C3C</name>
-    <reportType>Wins_with_Taxonomy_Tags__c</reportType>
+    <reportType>WINS_with_or_without_Taxonomy_Tagging__c</reportType>
     <showDetails>true</showDetails>
 </Report>
