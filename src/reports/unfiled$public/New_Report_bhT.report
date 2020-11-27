@@ -43,14 +43,6 @@
         <field>WIN__c$Estimated_Value__c</field>
     </columns>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>WIN__c$Number_of_Jobs_Supported__c</field>
-    </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>WIN__c$Number_of_Jobs_Created__c</field>
-    </columns>
-    <columns>
         <field>WIN__c$Final_Line_Approval_Date__c</field>
     </columns>
     <columns>
