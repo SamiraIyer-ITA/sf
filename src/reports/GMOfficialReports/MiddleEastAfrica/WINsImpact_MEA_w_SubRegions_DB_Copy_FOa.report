@@ -111,12 +111,6 @@
             </sourceValues>
             <value>Sub-Saharan Africa (Posts)</value>
         </values>
-        <values>
-            <value>Sub-Saharan Africa (Partner Posts)</value>
-        </values>
-        <values>
-            <value>Other Africa</value>
-        </values>
     </buckets>
     <columns>
         <field>WIN__c$Name</field>
