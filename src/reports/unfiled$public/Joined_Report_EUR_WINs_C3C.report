@@ -80,7 +80,7 @@
             <name>co</name>
             <value>1</value>
         </params>
-        <reportType>WINS_with_or_without_Taxonomy_Tagging__c</reportType>
+        <reportType>Wins_with_Taxonomy_Tags__c</reportType>
         <scope>organization</scope>
         <showGrandTotal>true</showGrandTotal>
         <showSubTotals>true</showSubTotals>
@@ -105,6 +105,10 @@
         </columns>
         <columns>
             <field>WIN__c$Final_Line_Approval_Date__c</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>WIN__c$ITA_Estimated_Dollar_Value__c</field>
         </columns>
         <columns>
             <aggregateTypes>Sum</aggregateTypes>
@@ -182,7 +186,7 @@
             <name>co</name>
             <value>1</value>
         </params>
-        <reportType>WINS_with_or_without_Taxonomy_Tagging__c</reportType>
+        <reportType>Wins_with_Taxonomy_Tags__c</reportType>
         <scope>organization</scope>
         <showGrandTotal>true</showGrandTotal>
         <showSubTotals>true</showSubTotals>
@@ -238,6 +242,6 @@
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Joined Report EUR WINs #C3C</name>
-    <reportType>WINS_with_or_without_Taxonomy_Tagging__c</reportType>
+    <reportType>Wins_with_Taxonomy_Tags__c</reportType>
     <showDetails>true</showDetails>
 </Report>

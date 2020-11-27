@@ -36,11 +36,23 @@
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
+        <field>WIN__c$ITA_Estimated_Dollar_Value__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
         <field>WIN__c$Client_Provided_Value__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>WIN__c$Estimated_Value__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>WIN__c$Number_of_Jobs_Supported__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>WIN__c$Number_of_Jobs_Created__c</field>
     </columns>
     <columns>
         <field>WIN__c$Final_Line_Approval_Date__c</field>
@@ -118,7 +130,7 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>WINS_with_or_without_Taxonomy_Tagging__c</reportType>
+    <reportType>Wins_with_Taxonomy_Tags__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>

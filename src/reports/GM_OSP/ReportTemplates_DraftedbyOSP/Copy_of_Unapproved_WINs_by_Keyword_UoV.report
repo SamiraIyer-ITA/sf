@@ -32,6 +32,7 @@
         <field>WIN__c$WIN_One__c</field>
     </columns>
     <filter>
+        <booleanFilter>1 AND 2 AND (3 OR 4 OR 5 OR 6) AND 7</booleanFilter>
         <criteriaItems>
             <column>WIN__c$Final_Line_Approval__c</column>
             <columnToColumn>false</columnToColumn>
@@ -98,7 +99,7 @@
         <name>co</name>
         <value>0</value>
     </params>
-    <reportType>WINS_with_or_without_Taxonomy_Tagging__c</reportType>
+    <reportType>Wins_with_Taxonomy_Tags__c</reportType>
     <scope>organization</scope>
     <showDetails>false</showDetails>
     <showGrandTotal>true</showGrandTotal>
