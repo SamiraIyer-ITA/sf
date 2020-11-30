@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Taxonomy_Tagging__r$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Taxonomy_Tagging__r$Country__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Taxonomy_Tagging__r$Country__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Austria</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Test Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Wins_with_Taxonomy_Tags__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_PREVFY</interval>
+    </timeFrameFilter>
+</Report>
