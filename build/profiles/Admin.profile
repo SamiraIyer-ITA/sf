@@ -16512,9 +16512,6 @@
         <layout>ServiceResourceSkill-Service Resource Skill Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Service_Implementation_SObject__mdt-Service Implementation SObject Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Service__mdt-Service Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
