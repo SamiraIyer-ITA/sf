@@ -3514,11 +3514,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>ApplicationFactory_Service__mdt.Service_Implementation_SObject__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Article__kav.Approval_Queue__c</field>
         <readable>true</readable>
