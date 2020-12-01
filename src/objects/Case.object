@@ -583,6 +583,183 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Agreement_Name__c</fullName>
+        <description>TANC Agreement related to the Case record.</description>
+        <externalId>false</externalId>
+        <label>Agreement Name</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Anti-Corruption</fullName>
+                    <default>false</default>
+                    <label>Anti-Corruption</label>
+                </value>
+                <value>
+                    <fullName>Competition </fullName>
+                    <default>false</default>
+                    <label>Competition </label>
+                </value>
+                <value>
+                    <fullName>Good Regulatory Practices </fullName>
+                    <default>false</default>
+                    <label>Good Regulatory Practices </label>
+                </value>
+                <value>
+                    <fullName>State Owned Enterprises </fullName>
+                    <default>false</default>
+                    <label>State Owned Enterprises </label>
+                </value>
+                <value>
+                    <fullName>Bilateral Investment Treaties</fullName>
+                    <default>false</default>
+                    <label>Bilateral Investment Treaties</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Australia Free Trade Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Australia Free Trade Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Bahrain Free Trade Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Bahrain Free Trade Agreement</label>
+                </value>
+                <value>
+                    <fullName>CAFTA-DR</fullName>
+                    <default>false</default>
+                    <label>CAFTA-DR</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Chile Free Trade Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Chile Free Trade Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Colombia Trade Promotion Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Colombia Trade Promotion Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Israel Free Trade Area Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Israel Free Trade Area Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Jordan Free Trade Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Jordan Free Trade Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Korea Free Trade Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Korea Free Trade Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Morocco Free Trade Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Morocco Free Trade Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Oman Free Trade Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Oman Free Trade Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Panama Trade Promotion Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Panama Trade Promotion Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Peru Trade Promotion Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Peru Trade Promotion Agreement</label>
+                </value>
+                <value>
+                    <fullName>U.S.-Singapore Free Trade Agreement</fullName>
+                    <default>false</default>
+                    <label>U.S.-Singapore Free Trade Agreement</label>
+                </value>
+                <value>
+                    <fullName>USMCA</fullName>
+                    <default>false</default>
+                    <label>USMCA</label>
+                </value>
+                <value>
+                    <fullName>WTO Agreement on Customs Valuation</fullName>
+                    <default>false</default>
+                    <label>WTO Agreement on Customs Valuation</label>
+                </value>
+                <value>
+                    <fullName>WTO Agreement on Import Licensing</fullName>
+                    <default>false</default>
+                    <label>WTO Agreement on Import Licensing</label>
+                </value>
+                <value>
+                    <fullName>WTO Agreement on Preshipment Inspection</fullName>
+                    <default>false</default>
+                    <label>WTO Agreement on Preshipment Inspection</label>
+                </value>
+                <value>
+                    <fullName>WTO Agreement on Rules of Origin</fullName>
+                    <default>false</default>
+                    <label>WTO Agreement on Rules of Origin</label>
+                </value>
+                <value>
+                    <fullName>WTO Agreement on Technical Barriers to Trade</fullName>
+                    <default>false</default>
+                    <label>WTO Agreement on Technical Barriers to Trade</label>
+                </value>
+                <value>
+                    <fullName>WTO Agreement on the Application of Sanitary and Phytosanitary Measures</fullName>
+                    <default>false</default>
+                    <label>WTO Agreement on the Application of Sanitary and Phytosanitary Measures</label>
+                </value>
+                <value>
+                    <fullName>WTO Agreement on Trade Facilitation</fullName>
+                    <default>false</default>
+                    <label>WTO Agreement on Trade Facilitation</label>
+                </value>
+                <value>
+                    <fullName>WTO Agreement on Trade Related Investment Measures</fullName>
+                    <default>false</default>
+                    <label>WTO Agreement on Trade Related Investment Measures</label>
+                </value>
+                <value>
+                    <fullName>WTO Agrement on Government Procurement</fullName>
+                    <default>false</default>
+                    <label>WTO Agrement on Government Procurement</label>
+                </value>
+                <value>
+                    <fullName>WTO GATT Article III (National Treatment)</fullName>
+                    <default>false</default>
+                    <label>WTO GATT Article III (National Treatment)</label>
+                </value>
+                <value>
+                    <fullName>WTO GATT Article VIII (Fees and Formalities)</fullName>
+                    <default>false</default>
+                    <label>WTO GATT Article VIII (Fees and Formalities)</label>
+                </value>
+                <value>
+                    <fullName>WTO GATT Article XI (Quantitative Restrictions)</fullName>
+                    <default>false</default>
+                    <label>WTO GATT Article XI (Quantitative Restrictions)</label>
+                </value>
+                <value>
+                    <fullName>WTO GATT Article XVII (State Trading Enterprises)</fullName>
+                    <default>false</default>
+                    <label>WTO GATT Article XVII (State Trading Enterprises)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>AssetId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -11091,6 +11268,137 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Won</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Agreement_Name__c</picklist>
+            <values>
+                <fullName>Anti-Corruption</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bilateral Investment Treaties</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CAFTA-DR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competition%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Owned Enterprises%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Australia Free Trade Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Bahrain Free Trade Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Chile Free Trade Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Colombia Trade Promotion Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Israel Free Trade Area Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Jordan Free Trade Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Korea Free Trade Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Morocco Free Trade Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Oman Free Trade Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Panama Trade Promotion Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Peru Trade Promotion Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E-Singapore Free Trade Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USMCA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO Agreement on Customs Valuation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO Agreement on Import Licensing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO Agreement on Preshipment Inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO Agreement on Rules of Origin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO Agreement on Technical Barriers to Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO Agreement on Trade Facilitation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO Agreement on Trade Related Investment Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO Agreement on the Application of Sanitary and Phytosanitary Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO Agrement on Government Procurement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO GATT Article III %28National Treatment%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO GATT Article VIII %28Fees and Formalities%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO GATT Article XI %28Quantitative Restrictions%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WTO GATT Article XVII %28State Trading Enterprises%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -37822,7 +38130,7 @@ Select if this is a Compliance Case</description>
         <active>true</active>
         <businessProcess>Activity Creation</businessProcess>
         <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
-        <description>Work with a U.S. Economic Development Organization (EDO), investment partner, or foreign investor to increase investment to the U.S.</description>
+        <description>Work with a U.S. economic development organizations (EDOs), international or domestic company, or investment partner to increase business investment in the United States.</description>
         <label>Investment Promotion</label>
         <picklistValues>
             <picklist>Advocacy_Official_USG_Advisory_Position__c</picklist>
