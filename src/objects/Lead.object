@@ -1765,10 +1765,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <fullName>Rating</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Process_to_respond_to_int_l_inquiries__c</fullName>
