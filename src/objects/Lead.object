@@ -1762,11 +1762,6 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         </valueSet>
     </fields>
     <fields>
-        <fullName>Rating</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Process_to_respond_to_int_l_inquiries__c</fullName>
         <description>Process to respond to int&apos;l inquiries?</description>
         <externalId>false</externalId>
