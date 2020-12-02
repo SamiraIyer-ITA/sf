@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>WIN__c.WIN_Contributors_Rollup__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Average Contributors per WIN</masterLabel>
+        <scale>1</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>WIN__c.IP_Inv_Amount_est__c:SUM</calculatedFormula>
+        <datatype>currency</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Actual Invest. Value</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_22776533</developerName>
+        <masterLabel>Global Industry Team</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>WIN__c.Taxonomy_Tagging__r$Industry__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Chemicals</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Equipment and Machinery</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Industrial Materials</sourceValue>
+            </sourceValues>
+            <value>Advanced Manufacturing</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Agribusiness</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Food and Beverage</sourceValue>
+            </sourceValues>
+            <value>Agribusiness</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Environmental Technology</sourceValue>
+            </sourceValues>
+            <value>Environmental</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Information and Communications Technology</sourceValue>
+            </sourceValues>
+            <value>ICT</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Consumer Goods</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Distribution and Logistics</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Non-Profits and Associations</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Public Sector</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Retail Trade</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Wholesale Trade</sourceValue>
+            </sourceValues>
+            <value>Other Industries (No Global Team)</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Aerospace and Defense</sourceValue>
+            </sourceValues>
+            <value>Aerospace &amp; Defense</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Automotive</sourceValue>
+            </sourceValues>
+            <value>Automotive</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Business and Professional Services</sourceValue>
+            </sourceValues>
+            <value>Business &amp; Professional Services</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Design and Construction</sourceValue>
+            </sourceValues>
+            <value>Design &amp; Construction</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Education</sourceValue>
+            </sourceValues>
+            <value>Education</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Energy</sourceValue>
+            </sourceValues>
+            <value>Energy</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Financial Services</sourceValue>
+            </sourceValues>
+            <value>Financial Services</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Franchising</sourceValue>
+            </sourceValues>
+            <value>Franchising</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Healthcare</sourceValue>
+            </sourceValues>
+            <value>Healthcare</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Marine Technology</sourceValue>
+            </sourceValues>
+            <value>Marine Technology</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Media and Entertainment</sourceValue>
+            </sourceValues>
+            <value>Media &amp; Entertainment</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Safety and Security</sourceValue>
+            </sourceValues>
+            <value>Safety &amp; Security</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Textiles and Apparel</sourceValue>
+            </sourceValues>
+            <value>Textiles &amp; Apparel</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Travel and Tourism</sourceValue>
+            </sourceValues>
+            <value>Travel &amp; Tourism</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>WIN__c$WIN_Name__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Owner</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Organization__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Taxonomy_Tagging__r$Industry__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Taxonomy_Tagging__r$Sector__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Taxonomy_Tagging__r$Sub_Sector__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$CreatedDate</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>WIN__c$WIN_One__c</field>
+    </columns>
+    <crossFilters>
+        <operation>with</operation>
+        <primaryTableColumn>WIN__c$Id</primaryTableColumn>
+        <relatedTable>Taxonomy_Tagging__c</relatedTable>
+        <relatedTableJoinColumn>Related_WIN__c</relatedTableJoinColumn>
+    </crossFilters>
+    <crossFilters>
+        <operation>with</operation>
+        <primaryTableColumn>WIN__c$Id</primaryTableColumn>
+        <relatedTable>WIN_Contributor__c</relatedTable>
+        <relatedTableJoinColumn>WIN__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>WINs with or without taxonomy tags; Impact estimates. Testing from Laura Mc</description>
+    <filter>
+        <booleanFilter>1 AND (2 OR (3 AND 4) OR (5 AND 6)) AND 7</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c$Request_WIN_Removal__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Commercial_Diplomacy,WIN__c.Commercial_Diplomacy_Locked,WIN__c.Export_Promotion,WIN__c.Export_Promotion_Locked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Advocacy,WIN__c.Advocacy_Locked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Line_Approver__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Americo Tadeu,Jennifer Pilat,Barbara Farrar,Frederick Helfrich,Patrice Williams</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$RecordType</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Investment_Promotion,WIN__c.Investment_Promotion_Locked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Line_Approver__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Keida Ackerman,Seth Isenberg,Ryan Wallace,Bruce Ellsworth,Belen Gallegos,Steve Miller,Anthony Diaz,Leslie Britton,Seth Oppenheim,Priscilla Baek</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Taxonomy_Tagging__r$Industry__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_22776533</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>FiscalYear</dateGranularity>
+        <field>WIN__c$Final_Line_Approval_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c$WIN_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Environmental WINS</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>Wins_with_Taxonomy_Tags__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-10-01</startDate>
+    </timeFrameFilter>
+</Report>
