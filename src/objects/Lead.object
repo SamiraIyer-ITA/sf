@@ -1035,7 +1035,6 @@ IF(TEXT(Know_how_to_ship_product_overseas__c) = &quot;Yes&quot;, 1, 0) +
 IF(TEXT(Know_U_S_Export_Control_requirements__c) = &quot;Yes&quot;, 1, 0) +
 IF(TEXT(Process_to_protect_IP_internationally__c) = &quot;Yes&quot;, 1, 0) +
 IF(TEXT(Process_to_respond_to_int_l_inquiries__c) = &quot;Yes&quot;, 1, 0) +
-IF(TEXT(Prod_of_US_origin_or_has_51_materials__c) = &quot;Yes&quot;, 1, 0) +
 IF(TEXT(Production_capacity_to_meet_orders__c) = &quot;Yes&quot;, 1, 0) +
 IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &quot;/14&quot;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1737,10 +1736,10 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         </valueSet>
     </fields>
     <fields>
-        <fullName>Process_to_respond_to_int_l_inquiries__c</fullName>
-        <description>Process to respond to int&apos;l inquiries?</description>
+        <fullName>Product_of_US_Origin__c</fullName>
+        <description>Product of U.S. Origin?</description>
         <externalId>false</externalId>
-        <label>Process to respond to int&apos;l inquiries?</label>
+        <label>Product of U.S. Origin?</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1750,10 +1749,23 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         </valueSet>
     </fields>
     <fields>
-        <fullName>Prod_of_US_origin_or_has_51_materials__c</fullName>
-        <description>Prod of US origin or has 51% materials?</description>
+        <fullName>Product_is_of_51_US_Content__c</fullName>
+        <description>Product is of 51% U.S. Content?</description>
         <externalId>false</externalId>
-        <label>Prod of US origin or has 51% materials?</label>
+        <label>Product is of 51% U.S. Content?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Process_to_respond_to_int_l_inquiries__c</fullName>
+        <description>Process to respond to int&apos;l inquiries?</description>
+        <externalId>false</externalId>
+        <label>Process to respond to int&apos;l inquiries?</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
