@@ -352,6 +352,23 @@ public class TestUtils {
         return testCase;
     }
 
+    public static ADCVD_Case__c createADCVDCase(String caseName, String caseType, Boolean doInsert) {
+		ADCVD_Case__c testCase = new ADCVD_Case__c(
+			Name = caseName,
+			ADCVD_Case_Number__c = caseName,
+			ADCVD_Case_Type__c = caseType,
+			CBP_Case_Number__c = caseName,
+			Commodity__c = 'Foodstuffs',
+			Country__c = 'Argentina',
+			Product__c = 'Tacos - Full',
+			Product_Short_Name__c = 'Tacos'
+		);
+		if(doInsert) {
+			insert testCase;
+		}
+		return testCase;
+	}
+
 	//create custom settings object controlling ADCVD App triggers
 
 	public static AppConfig__c createAppConfig(String name, Boolean triggersEnabled, Boolean doInsert) {
