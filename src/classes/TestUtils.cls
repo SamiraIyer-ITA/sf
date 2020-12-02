@@ -506,7 +506,9 @@ public class TestUtils {
 
 	// create test Petition
 	public static Petition__c createPetition(ADCVD_Case__c c, Date petitionDate, Boolean doInsert){
+		User u = createStaffingUser();
 		Petition__c petition = new Petition__c();
+		petition.Program_Manager__c = u.Id;
 		petition.ADCVD_Case__c = c.Id;
 		petition.Petition_Filed__c = petitionDate;
 		//added for testing purposes
