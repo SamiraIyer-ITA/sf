@@ -189,8 +189,7 @@ public class ADCVDStandardCaseFieldBatchTest {
         //create test data
         User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
         Account testAccount = TestUtils.createAccount(true);
-        // ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-534-124', 'AD ME', true);
-        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser, true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-534-124', 'AD ME', true);
         Petition__c testADPetition = TestUtils.createPetition(testADCase, Date.today(), true);
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
         ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
