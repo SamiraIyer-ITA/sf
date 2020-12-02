@@ -505,10 +505,9 @@ public class TestUtils {
 	}
 
 	// create test Petition
-	public static Petition__c createPetition(ADCVD_Case__c c, ADCVD_Case__c u, Date petitionDate, Boolean doInsert){
+	public static Petition__c createPetition(ADCVD_Case__c c, Date petitionDate, Boolean doInsert){
 		Petition__c petition = new Petition__c();
 		petition.ADCVD_Case__c = c.Id;
-                petition.ADCVD_Case__c.Program_Manager__c = u.Id;
 		petition.Petition_Filed__c = petitionDate;
 		//added for testing purposes
 		petition.Initiation_Extension_of_days__c = 3;
