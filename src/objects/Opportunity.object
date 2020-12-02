@@ -741,7 +741,6 @@
             IF(TEXT(Know_U_S_Export_Control_requirements__c)  = &quot;Yes&quot;, 1, 0) +
             IF(TEXT(Process_to_protect_IP_internationally__c)  = &quot;Yes&quot;, 1, 0) +
             IF(TEXT(Process_to_respond_to_int_l_inquiries__c)  = &quot;Yes&quot;, 1, 0) +
-            IF(TEXT(Product_of_US_origin_or_has_51_mtls__c)  = &quot;Yes&quot;, 1, 0) +
             IF(TEXT(Production_capacity_to_meet_orders__c)  = &quot;Yes&quot;, 1, 0) +
             IF(TEXT(Willing_to_travel_internationally__c)  = &quot;Yes&quot;, 1, 0)) &amp; &quot;/14&quot;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1757,17 +1756,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_of_US_origin_or_has_51_mtls__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Production_capacity_to_meet_orders__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2161,17 +2149,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Process_to_respond_to_int_l_inquiries__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_of_US_origin_or_has_51_mtls__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2585,17 +2562,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_of_US_origin_or_has_51_mtls__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Production_capacity_to_meet_orders__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2989,17 +2955,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Process_to_respond_to_int_l_inquiries__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_of_US_origin_or_has_51_mtls__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>

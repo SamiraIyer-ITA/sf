@@ -4168,17 +4168,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Prod_of_US_origin_or_has_51_materials__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Product_Family_Interest__c</picklist>
             <values>
                 <fullName>Business Service Providers</fullName>
@@ -5967,17 +5956,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
         </picklistValues>
         <picklistValues>
             <picklist>Process_to_respond_to_int_l_inquiries__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Prod_of_US_origin_or_has_51_materials__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -7804,17 +7782,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Prod_of_US_origin_or_has_51_materials__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Product_Family_Interest__c</picklist>
             <values>
                 <fullName>Business Service Providers</fullName>
@@ -9471,17 +9438,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
         </picklistValues>
         <picklistValues>
             <picklist>Process_to_respond_to_int_l_inquiries__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Prod_of_US_origin_or_has_51_materials__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
