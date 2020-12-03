@@ -286,10 +286,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Prod_of_US_origin_or_has_51_materials__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Willing_to_travel_internationally__c</field>
             </layoutItems>
             <layoutItems>

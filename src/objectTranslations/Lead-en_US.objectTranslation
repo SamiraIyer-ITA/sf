@@ -249,6 +249,18 @@
             <translation><!-- Customer --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Foreign Buyer / Distributor / Partner</masterLabel>
+            <translation><!-- Foreign Buyer / Distributor / Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Investor</masterLabel>
+            <translation><!-- Foreign Investor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Service Provider</masterLabel>
+            <translation><!-- Foreign Service Provider --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Partner</masterLabel>
             <translation><!-- Partner --></translation>
         </picklistValues>
@@ -592,10 +604,6 @@
         <name>Process_to_respond_to_int_l_inquiries__c</name>
     </fields>
     <fields>
-        <label><!-- Prod of US origin or has 51% materials? --></label>
-        <name>Prod_of_US_origin_or_has_51_materials__c</name>
-    </fields>
-    <fields>
         <label><!-- Product Family Interest --></label>
         <name>Product_Family_Interest__c</name>
         <picklistValues>
@@ -642,6 +650,14 @@
             <masterLabel>Virtual Introductions</masterLabel>
             <translation><!-- Virtual Introductions --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product is of 51% U.S. Content? --></label>
+        <name>Product_is_of_51_US_Content__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product of U.S. Origin? --></label>
+        <name>Product_of_US_Origin__c</name>
     </fields>
     <fields>
         <label><!-- Production capacity to meet orders? --></label>
@@ -886,12 +902,21 @@
             <label><!-- Data.com --></label>
             <section>Data.com</section>
         </sections>
-    </layouts>
-    <layouts>
-        <layout>Export Lead</layout>
         <sections>
-            <label><!-- Dun &amp; Bradstreet Company Information --></label>
-            <section>Dun &amp; Bradstreet Company Information</section>
+            <label><!-- Export Readiness Assessment --></label>
+            <section>Export Readiness Assessment</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Activity --></label>
+            <section>Lead Activity</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Interest Information --></label>
+            <section>Lead Interest Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Qualification Result --></label>
+            <section>Lead Qualification Result</section>
         </sections>
     </layouts>
     <layouts>
