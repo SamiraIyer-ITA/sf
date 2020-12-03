@@ -184,7 +184,7 @@ public class ADCVDStandardCaseFieldBatchTest {
 
     @testSetup static void dataSetup(){
         //create test data
-       User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
+       User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
 
         System.runAs(testUser) {
             Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
