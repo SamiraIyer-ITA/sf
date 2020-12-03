@@ -5841,6 +5841,14 @@
         <errorDisplayField>State</errorDisplayField>
         <errorMessage>When converting a lead, if Country = US (United States) a State must be indicated.</errorMessage>
     </validationRules>
+        <validationRules>
+        <fullName>V03Require_value_if_Referred_To_Other</fullName>
+        <active>true</active>
+        <description>Require value for Referred To Other if criteria applies</description>
+        <errorConditionFormula>ISPICKVAL(Referred_To__c,&apos;Other&apos;) &amp;&amp; ISBLANK(Referred_To_Other__c) &amp;&amp; RecordType.DeveloperName = &quot;Export&quot;</errorConditionFormula>
+        <errorDisplayField>Referred_To_Other__c</errorDisplayField>
+        <errorMessage>When marking Referred To as "other" this field cannot be blank.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>
         <availability>online</availability>
