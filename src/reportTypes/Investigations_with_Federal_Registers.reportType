@@ -1,15 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
     <baseObject>Investigation__c</baseObject>
-    <category>other</category>
+    <category>admin</category>
     <deployed>true</deployed>
-    <description>All Investigations</description>
+    <description>Investigations that have at least one Federal Register Notice</description>
     <join>
-        <outerJoin>true</outerJoin>
+        <outerJoin>false</outerJoin>
         <relationship>Federal_Registers__r</relationship>
     </join>
-    <label>ADCVD Inv &amp; FR</label>
+    <label>ADCVD Inv w FR</label>
     <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Owner</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RecordType</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastActivityDate</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AD_Investigation_Aligned_To__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Amend_Final_Concurrence_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Amend_Final_Issues_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Amend_Prelim_Concurrence_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Amend_Prelim_Issues_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Actual_Amended_Final_Signature__c</field>
@@ -22,7 +97,27 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Final_Concurrence_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Final_Issues_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Actual_Final_Signature__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Prelim_Concurrence_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Prelim_Issues_to_DAS__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -32,7 +127,37 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Amend_Final_Concurrence_Due_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Amend_Final_Issues_Due_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Amend_Prelim_Concurrence_Due_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Amend_Prelim_Issues_Due_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Amend_the_Preliminary_Determination__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Amended_Final_Announcement_Date__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Amended_Preliminary_Announcement_Date__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -67,6 +192,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Calculated_Postponement_of_PrelimDeterFR__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Calculated_Prelim_Extension_Request_File__c</field>
             <table>Investigation__c</table>
         </columns>
@@ -87,12 +217,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
+            <field>Est_ITC_Notification_to_DOC_of_Final_Det__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -102,87 +227,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Amend_Prelim_Concurrence_Due_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Est_ITC_Notification_to_DOC_of_Final_Det__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Final_Extension_of_days__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Final_Team_Meeting_Deadline__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Amend_Prelim_Issues_Due_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Have_Custom_Instruction_been_sent__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Amend_Final_Issues_Due_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Input_Date_of_Post_Prelim_Determ_Sig__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Preliminary_Announcement_Date__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Next_Office_Deadline__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Next_Announcement_Date__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Preliminary_Extension_Remaining__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Prelim_Issues_Due_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Final_Issues_Due_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Final_Extension_Remaining__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Office__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Prelim_Concurrence_Due_to_DAS__c</field>
+            <field>External_Id__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -192,82 +237,32 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Locked__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Final_Concurrence_Due_to_DAS__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Amend_Prelim_Issues_to_DAS__c</field>
+            <field>Final_Extension_Remaining__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Amend_Prelim_Concurrence_to_DAS__c</field>
+            <field>Final_Extension_of_days__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Amend_Final_Issues_to_DAS__c</field>
+            <field>Final_Issues_Due_to_DAS__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Amend_Final_Concurrence_Due_to_DAS__c</field>
+            <field>Final_Team_Meeting_Deadline__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Amended_Final_Announcement_Date__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Prelim_Concurrence_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Final_Issues_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Final_Concurrence_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Amended_Preliminary_Announcement_Date__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Amend_Final_Concurrence_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Actual_Prelim_Issues_to_DAS__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>Name</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation_Outcome__c</field>
+            <field>Have_Custom_Instruction_been_sent__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -282,17 +277,47 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastActivityDate</field>
+            <field>Injunction__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
+            <field>Input_Date_of_Post_Prelim_Determ_Sig__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
+            <field>Investigation_Name__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation_Outcome__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Link__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Litigation_Hold_Expiration_Date__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Litigation_Resolved__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Litigation_Status__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Litigation_YesNo__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -302,12 +327,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Ministerial_Error_for_final__c</field>
+            <field>Lotus_Notes_Litigation_ID__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Ministerial_Error_for_Prelim__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Ministerial_Error_for_final__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Next_Announcement_Date__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -318,6 +353,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Next_Major_Deadline__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Next_Office_Deadline__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -342,7 +382,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Office__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Period_Covered_End_Date__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Period_Covered_Start_Date__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -357,67 +407,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation_Name__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>AD_Investigation_Aligned_To__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Period_Covered_Start_Date__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>External_Id__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Calculated_Postponement_of_PrelimDeterFR__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Litigation_Resolved__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Litigation_YesNo__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Link__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Litigation_Hold_Expiration_Date__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Litigation_Status__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Lotus_Notes_Litigation_ID__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Injunction__c</field>
+            <field>Prelim_Concurrence_Due_to_DAS__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -427,12 +417,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Prelim_Issues_Due_to_DAS__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Prelim_Team_Meeting_Deadline__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Range_of_Rates_Final__c</field>
+            <field>Preliminary_Announcement_Date__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Preliminary_Extension_Remaining__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -442,7 +442,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Range_of_Rates_Prelim__c</field>
+            <field>Range_of_Rates_Final__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -452,12 +452,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>RecordType</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Status__c</field>
+            <field>Range_of_Rates_Prelim__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -467,7 +462,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Status__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Termination_of_Suspension_Gap_Period_Beg__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>This_Petition_Has_An_Investigation__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -487,12 +492,42 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number_Text__c</field>
+            <field>Locked__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name_Text__c</field>
+            <field>Schedule_Refresh__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Tolling_Update__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Announcement_Type__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Days_Remaining__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text_Value__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -507,12 +542,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CBP_Case_Number_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Commodity_Text__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Country_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -525,152 +570,44 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Percent_of_Domestic_Industry__c</field>
-            <table>Investigation__c</table>
+            <field>Id</field>
+            <table>Investigation__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Total_Imports_Domestic_Consumption__c</field>
-            <table>Investigation__c</table>
+            <field>Owner</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
+            <table>Investigation__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Actual_Initiation_Signature__c</field>
-            <table>Investigation__c</table>
+            <field>CreatedDate</field>
+            <table>Investigation__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Calculated_Initiation_Signature__c</field>
-            <table>Investigation__c</table>
+            <field>CreatedBy</field>
+            <table>Investigation__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.CreatedBy</field>
-            <table>Investigation__c</table>
+            <field>LastModifiedDate</field>
+            <table>Investigation__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.CreatedDate</field>
-            <table>Investigation__c</table>
+            <field>LastModifiedBy</field>
+            <table>Investigation__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Initiation_Extension_of_days__c</field>
-            <table>Investigation__c</table>
+            <field>ADCVD_Order__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.LastActivityDate</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.LastModifiedBy</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.LastModifiedDate</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Owner</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Period_for_Trade_Data__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Petition_Filed__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Id</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Name</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Petition_Outcome__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Link__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Litigation_YesNo__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Litigation_Resolved__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Litigation_Status__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Lotus_Notes_Litigation_ID__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Next_Due_to_DAS_Deadline__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Petition_Name__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Status__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Number_Text__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Type_Text__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Commodity_Text__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Country_Text__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product_Text__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <masterLabel>Petitions</masterLabel>
-    </sections>
-    <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Cite_Number__c</field>
@@ -678,12 +615,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
+            <field>Do_Delete__c</field>
             <table>Investigation__c.Federal_Registers__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Name</field>
+            <field>External_Id__c</field>
             <table>Investigation__c.Federal_Registers__r</table>
         </columns>
         <columns>
@@ -698,7 +635,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c</field>
+            <field>Litigation__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c</field>
             <table>Investigation__c.Federal_Registers__r</table>
         </columns>
         <columns>
@@ -708,9 +650,79 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Segment__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Suspension_Agreement__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Type__c</field>
             <table>Investigation__c.Federal_Registers__r</table>
         </columns>
-        <masterLabel>Federal Register</masterLabel>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Locked__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text_Value__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text_Value__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>FR_Parent__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CBP_Case_Number_Text__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Investigation__c.Federal_Registers__r</table>
+        </columns>
+        <masterLabel>Federal Registers</masterLabel>
     </sections>
 </ReportType>

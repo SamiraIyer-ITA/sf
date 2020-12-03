@@ -1,63 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
     <baseObject>Petition__c</baseObject>
-    <category>other</category>
-    <deployed>true</deployed>
-    <description>Petitions and Federal Registers</description>
-    <join>
-        <outerJoin>true</outerJoin>
-        <relationship>Federal_Registers__r</relationship>
-    </join>
-    <label>ADCVD Pet &amp; FR</label>
+    <category>admin</category>
+    <deployed>false</deployed>
+    <description>DL - Petitions</description>
+    <label>ADCVD Pet</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
+            <field>Percent_of_Domestic_Industry__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Owner</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>Name</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastActivityDate</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
+            <field>Total_Imports_Domestic_Consumption__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -77,7 +33,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
+            <field>ADCVD_Case__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -97,12 +53,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
+            <field>Country_Text__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
+            <field>CreatedBy</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -122,12 +83,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Initiation_Extension_Remaining__c</field>
+            <field>Initiation_Extension_of_days__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Initiation_Extension_of_days__c</field>
+            <field>Initiation_Extension_Remaining__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -137,7 +98,27 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>LastActivityDate</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Link__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Litigation_YesNo__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -152,7 +133,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Litigation_YesNo__c</field>
+            <field>Lotus_Notes_History_Data__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -177,12 +158,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Next_Office_Deadline__c</field>
+            <field>Next_Office_PM_Deadline__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Next_Office_PM_Deadline__c</field>
+            <field>Next_Office_Deadline__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -192,7 +173,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Percent_of_Domestic_Industry__c</field>
+            <field>Owner</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -207,7 +188,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Petition_Name__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -217,12 +208,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
+            <field>Product_Short_Name_Text_Value__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
+            <field>Locked__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>RecordType</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Schedule_Refresh__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -232,152 +233,104 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Total_Imports_Domestic_Consumption__c</field>
+            <field>Tolling_Update__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Locked__c</field>
+            <field>ADCVD_Case__c.Name</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number_Text__c</field>
+            <field>ADCVD_Case__c.Id</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type_Text__c</field>
+            <field>ADCVD_Case__c.ADCVD_Case_Number__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number_Text__c</field>
+            <field>ADCVD_Case__c.ADCVD_Case_Type__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity_Text__c</field>
+            <field>ADCVD_Case__c.Case_Concat_Text_Values__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country_Text__c</field>
+            <field>ADCVD_Case__c.CBP_Case_Number__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name_Text__c</field>
+            <field>ADCVD_Case__c.Commodity__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Text__c</field>
+            <field>ADCVD_Case__c.Country__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.Country_Text__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.CreatedBy</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.CreatedDate</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.LastActivityDate</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.LastModifiedBy</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.LastModifiedDate</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.Owner</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.Product__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.Product_Short_Name__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.Locked__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case__c.RecordType</field>
             <table>Petition__c</table>
         </columns>
         <masterLabel>Petitions</masterLabel>
-    </sections>
-    <sections>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Owner</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>true</checkedByDefault>
-            <field>Name</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedDate</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedBy</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Cite_Number__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Do_Delete__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>External_Id__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>FR_URL__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IDM_URL__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Litigation__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Published_Date__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Type__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Locked__c</field>
-            <table>Petition__c.Federal_Registers__r</table>
-        </columns>
-        <masterLabel>Federal Registers</masterLabel>
     </sections>
 </ReportType>

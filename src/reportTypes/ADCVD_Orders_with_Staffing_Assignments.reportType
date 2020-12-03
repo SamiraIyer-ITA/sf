@@ -1,372 +1,337 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <baseObject>Related_Organization__c</baseObject>
+    <baseObject>ADCVD_Order__c</baseObject>
     <category>admin</category>
     <deployed>true</deployed>
-    <description>Interested Orgs with Staffing Assignments</description>
+    <description>A report type to help with staffing ADCVD Orders</description>
     <join>
-        <outerJoin>false</outerJoin>
+        <outerJoin>true</outerJoin>
         <relationship>Staffing_Assignments__r</relationship>
     </join>
-    <label>ADCVD IntOrgs w Staff</label>
+    <label>ADCVD Ord &amp; Staff</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Owner</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Name</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>RecordType</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>LastActivityDate</field>
-            <table>Related_Organization__c</table>
+            <field>ADCVD_Order_Name__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c</field>
-            <table>Related_Organization__c</table>
+            <field>Anniversary_Month__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c</field>
-            <table>Related_Organization__c</table>
+            <field>Effective_Date_for_Most_Recent_SunsetFR__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Custom_Instruction__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Exporter__c</field>
-            <table>Related_Organization__c</table>
+            <field>Effective_Date_of_Revocation__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Link__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Litigation__c</field>
-            <table>Related_Organization__c</table>
+            <field>Lotus_Notes_History_Data__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Parent_Id__c</field>
-            <table>Related_Organization__c</table>
+            <field>Next_Sunset_Initiation_Date_UI__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c</field>
-            <table>Related_Organization__c</table>
+            <field>Next_Sunset_Initiation_Date__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Producer__c</field>
-            <table>Related_Organization__c</table>
+            <field>Office__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Related_Organization_Name__c</field>
-            <table>Related_Organization__c</table>
+            <field>Petition_Filed__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c</field>
-            <table>Related_Organization__c</table>
+            <field>Revocation_Reason__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment_Status__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Status__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Type__c</field>
-            <table>Related_Organization__c</table>
+            <field>Third_Country_Case_Number_s__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>This_Investigation_has_an_Order__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Locked__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name_Text_Value__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition_Case_Type__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text_Value__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text_Value__c</field>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Type_Text__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CBP_Case_Number_Text__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_Concat_Text__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Commodity_Text__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Country_Text__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IO_Parent__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Short_Name_Text__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Text__c</field>
-            <table>Related_Organization__c</table>
+            <table>ADCVD_Order__c</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Legal_Representation__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Entity_Alias__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Entity_Name__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Lead_Attorney__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <masterLabel>Interested Organizations</masterLabel>
+        <masterLabel>ADCVD Orders</masterLabel>
     </sections>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Owner</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>true</checkedByDefault>
             <field>Name</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedDate</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastActivityDate</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Parent_Name__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Parent__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Related_Org_Parent_Id__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Related_Org_Parent_Name__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Related_Organization_Parent__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Related_Organization__c</field>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Segment__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Title__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>User__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Locked__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Short_Name_Text_Value__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Type_Text__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CBP_Case_Number_Text__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Commodity_Text__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Country_Text__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Short_Name_Text__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Text__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Staff_Parent__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Status__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Office__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
+            <table>ADCVD_Order__c.Staffing_Assignments__r</table>
         </columns>
         <masterLabel>Staffing Assignments</masterLabel>
     </sections>
