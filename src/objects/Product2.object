@@ -8371,7 +8371,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Services: Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Single Company Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Location Promotion</fullName>
                 <default>false</default>
             </values>
             <values>

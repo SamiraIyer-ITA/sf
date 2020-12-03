@@ -27,6 +27,10 @@
                 <field>UnitPrice</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>User_Fee_Template__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Quantity</field>
             </layoutItems>
