@@ -8,7 +8,7 @@
         <outerJoin>false</outerJoin>
         <relationship>Harmonized_Tariff_Schedules__r</relationship>
     </join>
-    <label>ADCVD Orders with HTS Numbers</label>
+    <label>ADCVD Ord w HTS</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -97,37 +97,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition_Filed__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
         <columns>
@@ -155,7 +125,7 @@
             <field>This_Investigation_has_an_Order__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
-                <columns>
+        <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
             <table>ADCVD_Order__c</table>
