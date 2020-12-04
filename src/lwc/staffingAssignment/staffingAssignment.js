@@ -9,10 +9,21 @@ import getRecusalLinkMap from '@salesforce/apex/StaffingAssignment.getRecusalLin
 import getSObjectNameFromRecordId from '@salesforce/apex/StaffingAssignment.getSObjectNameFromRecordId';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import Test from '@salesforce/resourceUrl/Test';
+import gethasDeletePermission from '@salesforce/apex/StaffingAssignment.doesRunningUserHavePermission';
 
-const actions = [
+/*const actions = [
     { label: 'Edit', name: 'edit' },
-    /*{ label: 'Delete', name: 'delete' },*/
+    { label: 'Delete', name: 'delete'}
+];
+*/
+
+const actionsWithoutDelete = [
+    { label: 'Edit', name: 'edit'}
+];
+
+const actionsWithDelete = [
+    { label: 'Edit', name: 'edit'},
+    { label: 'Delete', name: 'delete'}
 ];
 
 const staffingAssignmentColumns = [
@@ -74,9 +85,25 @@ export default class StaffingAssignment extends LightningElement {
     }
 
     connectedCallback() {
+        
+        this.fetchPermission();
         this.fetchStaffingAssignments();
         this.spinner = true;
         this.getObjectName();
+    }
+
+    //calling apex method to check delete permission for the Staff Assignment
+    fetchPermission() {
+        gethasDeletePermission()
+            .then(result => {
+                //console.log(JSON.stringify(result));
+                this.hasDeletePermission = result;
+                
+            })
+            .catch(error => {
+
+                console.log('error'+error);
+            });
 
     }
 
@@ -125,7 +152,12 @@ export default class StaffingAssignment extends LightningElement {
                 for (let i = 0; i < rows.length; i++) {
                     let row = rows[i];
                     //Datatable can't handle related fields, so flatten the data
-                    let pair = { RecusalLinkEnable: true };
+                    let pair = { RecusalLinkEnable: true,rowActions :actionsWithoutDelete};
+                   
+                    //checking delete permission for the Staff Assignment
+                    if(this.hasDeletePermission){
+                        pair = {RecusalLinkEnable: true,rowActions :actionsWithDelete};
+                    }
 
                     if(row.Title__c == 'Program Manager'){
 
@@ -138,7 +170,13 @@ export default class StaffingAssignment extends LightningElement {
                         if (row.User__r.Name) {
 
                             //Add the User Name to the first level of the row
-                            pair = {UserName: row.User__r.Name, RecusalLinkEnable: true};
+                            
+                            //checking delete permission for the Staff Assignment
+                            if(this.hasDeletePermission){
+                                pair = {UserName: row.User__r.Name, RecusalLinkEnable: true,rowActions :actionsWithDelete};
+                            } else {
+                                pair = {UserName: row.User__r.Name, RecusalLinkEnable: true,rowActions :actionsWithoutDelete};
+                            }
 
                             this.mapkeyvaluestore.forEach((rec, idx) =>{
                                     console.log(rec.key); // Now each contact object will have a property called "number"
@@ -148,8 +186,13 @@ export default class StaffingAssignment extends LightningElement {
 
                                         console.log('call done');
 
-                                        pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false};
+                                        //checking delete permission for the Staff Assignment
+                                        if(this.hasDeletePermission){
+                                            pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false,rowActions :actionsWithDelete};
 
+                                        } else {
+                                            pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false,rowActions :actionsWithoutDelete};
+                                        }        
                                     }
                             });
                             row = {...row, ...pair};

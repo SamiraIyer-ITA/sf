@@ -1228,6 +1228,19 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         </filters>
         <label>Unfilled Order Operations Staffing</label>
     </listViews>
+    <listViews>
+        <fullName>Unfilled_Staff</fullName>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Related_Organization_Parent__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Unfilled Staff</label>
+    </listViews>
     <nameField>
         <displayFormat>SA-{000000}</displayFormat>
         <label>Staffing Assignment Name</label>

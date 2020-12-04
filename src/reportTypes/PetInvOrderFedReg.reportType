@@ -16,7 +16,7 @@
         <outerJoin>false</outerJoin>
         <relationship>Investigations__r</relationship>
     </join>
-    <label>PetInvOrderFedReg</label>
+    <label>ADCVD Pet w Inv w Ord w FR</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -56,31 +56,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastActivityDate</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -166,11 +141,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Office__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -313,27 +283,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Litigation_Resolved__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
             <table>Petition__c.Investigations__r</table>
         </columns>
         <columns>
@@ -349,11 +299,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Calculated_Prelim_Extension_Request_File__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
             <table>Petition__c.Investigations__r</table>
         </columns>
         <columns>
@@ -687,31 +632,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Lotus_Notes_History_Data__c</field>
-            <table>Petition__c.Investigations__r.Court_Orders__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Petition__c.Investigations__r.Court_Orders__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Petition__c.Investigations__r.Court_Orders__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>Petition__c.Investigations__r.Court_Orders__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
-            <table>Petition__c.Investigations__r.Court_Orders__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
             <table>Petition__c.Investigations__r.Court_Orders__r</table>
         </columns>
         <columns>

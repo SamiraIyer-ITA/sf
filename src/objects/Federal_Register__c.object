@@ -58,7 +58,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -424,29 +423,9 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Initiation</fullName>
+                    <fullName>Admin Review Opportunity Notice</fullName>
                     <default>false</default>
-                    <label>Initiation</label>
-                </value>
-                <value>
-                    <fullName>Continuation</fullName>
-                    <default>false</default>
-                    <label>Continuation</label>
-                </value>
-                <value>
-                    <fullName>Preliminary</fullName>
-                    <default>false</default>
-                    <label>Preliminary</label>
-                </value>
-                <value>
-                    <fullName>Amended Preliminary</fullName>
-                    <default>false</default>
-                    <label>Amended Preliminary</label>
-                </value>
-                <value>
-                    <fullName>Final</fullName>
-                    <default>false</default>
-                    <label>Final</label>
+                    <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
                     <fullName>Amended Final</fullName>
@@ -454,39 +433,14 @@
                     <label>Amended Final</label>
                 </value>
                 <value>
-                    <fullName>ITC Preliminary</fullName>
+                    <fullName>Amended Preliminary</fullName>
                     <default>false</default>
-                    <label>ITC Preliminary</label>
+                    <label>Amended Preliminary</label>
                 </value>
                 <value>
-                    <fullName>ITC Final</fullName>
+                    <fullName>Continuation</fullName>
                     <default>false</default>
-                    <label>ITC Final</label>
-                </value>
-                <value>
-                    <fullName>Order</fullName>
-                    <default>false</default>
-                    <label>Order</label>
-                </value>
-                <value>
-                    <fullName>Postponement</fullName>
-                    <default>false</default>
-                    <label>Postponement</label>
-                </value>
-                <value>
-                    <fullName>Post Litigation</fullName>
-                    <default>false</default>
-                    <label>Post Litigation</label>
-                </value>
-                <value>
-                    <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
-                    <label>Admin Review Opportunity Notice</label>
-                </value>
-                <value>
-                    <fullName>Rescission</fullName>
-                    <default>false</default>
-                    <label>Rescission</label>
+                    <label>Continuation</label>
                 </value>
                 <value>
                     <fullName>Correction</fullName>
@@ -494,14 +448,69 @@
                     <label>Correction</label>
                 </value>
                 <value>
-                    <fullName>Revocation</fullName>
+                    <fullName>Critical Circumstances</fullName>
                     <default>false</default>
-                    <label>Revocation</label>
+                    <label>Critical Circumstances</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
                 </value>
                 <value>
                     <fullName>Quarterly Scope</fullName>
                     <default>false</default>
                     <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission Full</fullName>
+                    <default>false</default>
+                    <label>Rescission (Full)</label>
+                </value>
+                <value>
+                    <fullName>Rescission Partial</fullName>
+                    <default>false</default>
+                    <label>Rescission (Partial)</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
                 </value>
                 <value>
                     <fullName>Suspension Agreement</fullName>
@@ -512,11 +521,6 @@
                     <fullName>Termination</fullName>
                     <default>false</default>
                     <label>Termination</label>
-                </value>
-                <value>
-                    <fullName>Critical Circumstances</fullName>
-                    <default>false</default>
-                    <label>Critical Circumstances</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -628,6 +632,103 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A0400LimitFRTypesInvestigationAD</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Investigation object&apos;s &quot;AD&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Investigation__r.RecordType.DeveloperName = &apos;AD&apos;,
+CASE(Type__c,
+&apos;Preliminary&apos;, 0,
+&apos;Amended Preliminary&apos;, 0,
+&apos;Final&apos;, 0,
+&apos;Amended Final&apos;, 0,
+&apos;ITC Preliminary&apos;, 0,
+&apos;ITC Final&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+&apos;Critical Circumstances&apos;, 0,
+1) = 1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with an Investigation record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0400LimitFRTypesInvestigationCVD</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Investigation object&apos;s &quot;CVD&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Investigation__r.RecordType.DeveloperName = &apos;CVD&apos;,
+CASE(Type__c,
+&apos;Preliminary&apos;, 0,
+&apos;Amended Preliminary&apos;, 0,
+&apos;Final&apos;, 0,
+&apos;Amended Final&apos;, 0,
+&apos;ITC Preliminary&apos;, 0,
+&apos;ITC Final&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+&apos;Critical Circumstances&apos;, 0,
+1) = 1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with an Investigation record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0400LimitFRTypesPetitionFiled</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Petition object&apos;s &quot;Filed&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Petition__r.RecordType.DeveloperName = &apos;Filed&apos;,
+CASE(Type__c,
+&apos;Initiation&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+1)=1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with a Petition record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0400LimitFRTypesPetitionPrivate</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Petition object&apos;s &quot;Private&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Petition__r.RecordType.DeveloperName = &apos;Private&apos;,
+CASE(Type__c,
+&apos;Initiation&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+1)=1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with a Petition record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0400LimitFRTypesPetitionSelfInitiated</fullName>
+        <active>true</active>
+        <description>The purpose of this VR is to limit the FR type a user can choose based on the Petition object&apos;s &quot;Self_Initiated&quot; Record Type.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+Petition__r.RecordType.DeveloperName = &apos;Self_Initiated&apos;,
+CASE(Type__c,
+&apos;Initiation&apos;, 0,
+&apos;Postponement&apos;, 0,
+&apos;Post Litigation&apos;, 0,
+&apos;Correction&apos;, 0,
+&apos;Termination&apos;, 0,
+1)=1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>The choice in the Type field is not allowed for a Federal Register entry with a Petition record.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A0401PermSetReparentsFR</fullName>
         <active>true</active>
         <description>FR records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
@@ -652,9 +753,9 @@
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
-NOT(ISNEW()), 
-PRIORVALUE(Locked__c) == true 
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false,
+NOT(ISNEW()),
+PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
@@ -686,13 +787,13 @@ ISBLANK( ADCVD_Order__c )))</errorConditionFormula>
         <active>true</active>
         <description>You cannot create a federal register without a single parent record: either an Investigation, Petition, Order, Suspension Agreement, or Segment attached to it. If all four of these lookup fields are empty, the validation error message will trigger.</description>
         <errorConditionFormula>AND(
-    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-    Locked__c == false, 
-    (	
-	IF(ISBLANK(Petition__c),0,1)+ 
-	IF(ISBLANK(Segment__c),0,1)+ 
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    (
+	IF(ISBLANK(Petition__c),0,1)+
+	IF(ISBLANK(Segment__c),0,1)+
         IF(ISBLANK(ADCVD_Order__c),0,1)+
-	IF(ISBLANK(Investigation__c),0,1)+ 
+	IF(ISBLANK(Investigation__c),0,1)+
 	IF(ISBLANK(Suspension_Agreement__c),0,1) &lt;&gt;1
    )
 )</errorConditionFormula>
@@ -702,9 +803,9 @@ ISBLANK( ADCVD_Order__c )))</errorConditionFormula>
         <fullName>Limit_FR_Type_for_ADCVD_Order</fullName>
         <active>true</active>
         <description>When the ADCVD Order lookup field is populated, this validation rule will limit the values that can be accepted in the Type__c field.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 NOT(ISBLANK( ADCVD_Order__c )),
-CASE(Type__c, 
+CASE(Type__c,
 &apos;Initiation&apos;, 1,
 &apos;Preliminary&apos;, 1,
 &apos;Amended Preliminary&apos;, 1,
@@ -727,10 +828,10 @@ CASE(Type__c,
         <fullName>Limit_FR_Type_for_SSR</fullName>
         <active>true</active>
         <description>When the Segment lookup field is populated with a Sunset Review (SSR), this validation rule will limit the values that can be accepted in the Type__c field.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
 NOT(ISBLANK( Segment__c )),
 Segment__r.RecordType.DeveloperName = &apos;Sunset_Review&apos;,
-CASE(Type__c, 
+CASE(Type__c,
 &apos;Continuation&apos;, 1,
 &apos;Order&apos;, 1,
 &apos;Admin Review Opportunity Notice&apos;, 1,
