@@ -591,7 +591,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
+        <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -757,7 +757,6 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>AssetId</fullName>
