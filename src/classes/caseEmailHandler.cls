@@ -12,9 +12,10 @@ public class caseEmailHandler {
             }
             // Map recordIds to RecordTypeId
             List<Case> allCases = [SELECT Id, RecordTypeId, RecordType.DeveloperName FROM Case WHERE Id IN :parentIds];
+            system.debug('allCases[0].RecordType.DeveloperName ==> ' + allCases[0].RecordType.DeveloperName);
             Set<String> recordTypeNames = new Set<String>();
             for(Case c :allCases){
-                caseToRecordTypeMap.put(c.Id, c.RecordType.Name);
+                caseToRecordTypeMap.put(c.Id, c.RecordType.DeveloperName);
             }
             for (emailMessage e : eM) {
                 Id parentId = e.ParentId;
