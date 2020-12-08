@@ -11,7 +11,7 @@ public class caseEmailHandler {
                 parentIds.add(e.ParentId);
             }
             // Map recordIds to RecordTypeId
-            List<Case> allCases = [SELECT Id, RecordTypeId, RecordType.Name FROM Case WHERE Id IN :parentIds];
+            List<Case> allCases = [SELECT Id, RecordTypeId, RecordType.DeveloperName FROM Case WHERE Id IN :parentIds];
             Set<String> recordTypeNames = new Set<String>();
             for(Case c :allCases){
                 caseToRecordTypeMap.put(c.Id, c.RecordType.Name);
@@ -38,9 +38,9 @@ public class caseEmailHandler {
         Set<String> excludedRecordTypesSet = new Set<String>();
         // Exclude Case Record Types 'Advocacy', 'Commercial Diplomacy', 'Export Protection' and 'Investment Protection'
         excludedRecordTypesSet.add('Advocacy');
-        excludedRecordTypesSet.add('Commercial Diplomacy');
-        excludedRecordTypesSet.add('Export Protection');
-        excludedRecordTypesSet.add('Investment Protection');
+        excludedRecordTypesSet.add('Commercial_Diplomacy');
+        excludedRecordTypesSet.add('Export_Protection');
+        excludedRecordTypesSet.add('Investment_Protection');
         return excludedRecordTypesSet;
     }
 }
