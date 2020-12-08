@@ -39,8 +39,8 @@ public class caseEmailHandler {
         // Exclude Case Record Types 'Advocacy', 'Commercial Diplomacy', 'Export Protection' and 'Investment Protection'
         excludedRecordTypesSet.add('Advocacy');
         excludedRecordTypesSet.add('Commercial_Diplomacy');
-        excludedRecordTypesSet.add('Export_Protection');
-        excludedRecordTypesSet.add('Investment_Protection');
+        excludedRecordTypesSet.add('Export_Promotion');
+        excludedRecordTypesSet.add('Investment_Promotion');
         return excludedRecordTypesSet;
     }
 }
