@@ -3598,7 +3598,7 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Virgin Islands%2C British</fullName>
+                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5396,7 +5396,7 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Virgin Islands%2C British</fullName>
+                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7204,7 +7204,7 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Virgin Islands%2C British</fullName>
+                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8893,7 +8893,7 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Virgin Islands%2C British</fullName>
+                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
