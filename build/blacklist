@@ -8,4 +8,3 @@ src/flowDefinitions/Lead_SendCustomNotifications_ScheduledFlow_RunsDaily.flowDef
 src/flowDefinitions/Opportunity_ScheduledFlow_RunDaily.flowDefinition
 src/LeadConvertSettings/LeadConvertSettings.LeadConvertSetting
 
-src/globalValueSets/Country_1.globalValueSet
