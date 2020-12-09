@@ -2794,6 +2794,10 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
+                <fullName>British Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
@@ -3595,10 +3599,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4668,6 +4668,10 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
+                <fullName>British Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bulgaria</fullName>
                 <default>false</default>
             </values>
@@ -5393,10 +5397,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6476,6 +6476,10 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
+                <fullName>British Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bulgaria</fullName>
                 <default>false</default>
             </values>
@@ -7201,10 +7205,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8165,6 +8165,10 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
+                <fullName>British Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bulgaria</fullName>
                 <default>false</default>
             </values>
@@ -8890,10 +8894,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
