@@ -4,7 +4,7 @@
     <category>other</category>
     <deployed>true</deployed>
     <description>Created for Data Migration.  Can be used for any reports needing to show Litigation records with field available via lookup to Litigation parents</description>
-    <label>Litigation with Parent Records</label>
+    <label>ADCVD Lit</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -58,16 +58,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Calculated_Amended_Final_Signature__c</field>
             <table>Litigation__c</table>
         </columns>
@@ -94,16 +84,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CBP_Case_Number__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
             <table>Litigation__c</table>
         </columns>
         <columns>
@@ -283,17 +263,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Product_Description__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
             <table>Litigation__c</table>
         </columns>
         <columns>
@@ -436,16 +406,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.ADCVD_Case_Number__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.ADCVD_Case_Type__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c.AD_Investigation_Aligned_To__c</field>
             <table>Litigation__c</table>
         </columns>
@@ -536,17 +496,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Commodity__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c.Countervailed_Programs__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Country__c</field>
             <table>Litigation__c</table>
         </columns>
         <columns>
@@ -816,16 +766,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Product__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Product_Short_Name__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c.Range_of_Rates_Final__c</field>
             <table>Litigation__c</table>
         </columns>
@@ -964,16 +904,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Number__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Type__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.Calculated_Initiation_Signature__c</field>
             <table>Litigation__c</table>
         </columns>
@@ -990,16 +920,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.CBP_Case_Number__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Commodity__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Country__c</field>
             <table>Litigation__c</table>
         </columns>
         <columns>
@@ -1154,16 +1074,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product_Short_Name__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.Locked__c</field>
             <table>Litigation__c</table>
         </columns>
@@ -1307,16 +1217,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.ADCVD_Case_Number__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.ADCVD_Case_Type__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.ADCVD_Order__c</field>
             <table>Litigation__c</table>
         </columns>
@@ -1432,22 +1332,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Commodity__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Continuation_or_Revocation__c</field>
             <table>Litigation__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Countervailed_Programs__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Country__c</field>
             <table>Litigation__c</table>
         </columns>
         <columns>
@@ -1812,17 +1702,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Product__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Product_Description__c</field>
-            <table>Litigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Product_Short_Name__c</field>
             <table>Litigation__c</table>
         </columns>
         <columns>

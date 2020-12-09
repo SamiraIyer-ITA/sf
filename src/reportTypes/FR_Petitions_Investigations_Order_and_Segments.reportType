@@ -4,7 +4,7 @@
     <category>admin</category>
     <deployed>false</deployed>
     <description>FR - Petitions, Investigations, Order and Segments</description>
-    <label>FR - Petitions, Investigations, Order and Segments</label>
+    <label>ADCVD FR</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -113,17 +113,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.ADCVD_Case_Number__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c.Id</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.ADCVD_Case_Number__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -133,17 +123,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Litigation__c.ADCVD_Case_Number__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Litigation__c.Id</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Number__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -153,17 +133,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.ADCVD_Case_Number__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Id</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.ADCVD_Case_Number__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -178,32 +148,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_Concat_Text_Values__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>FR_Parent__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -218,17 +163,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c.ADCVD_Case__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.ADCVD_Case_Type__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -244,26 +179,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c.Anniversary_Month__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Case_Concat_Text_Values__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.CBP_Case_Number__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Commodity__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Country__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -339,16 +254,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c.Petition_Filed__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Product__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Product_Short_Name__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -458,11 +363,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.ADCVD_Case_Type__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c.AD_Investigation_Aligned_To__c</field>
             <table>Federal_Register__c</table>
         </columns>
@@ -553,27 +453,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Case_Concat_Text_Values__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.CBP_Case_Number__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Commodity__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c.Countervailed_Programs__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Country__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -843,16 +723,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Product__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Product_Short_Name__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Investigation__c.Product_Short_Name_Text_Value__c</field>
             <table>Federal_Register__c</table>
         </columns>
@@ -968,17 +838,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Type__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.Calculated_Initiation_Signature__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Case_Concat_Text_Values__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -989,21 +849,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.Case_Type__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.CBP_Case_Number__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Commodity__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Country__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -1153,16 +998,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product_Short_Name__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.Product_Short_Name_Text_Value__c</field>
             <table>Federal_Register__c</table>
         </columns>
@@ -1283,11 +1118,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.ADCVD_Case_Type__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.ADCVD_Order__c</field>
             <table>Federal_Register__c</table>
         </columns>
@@ -1398,16 +1228,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Case_Concat_Text_Values__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.CBP_Case_Number__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Choose_Following_Respondent_Selection__c</field>
             <table>Federal_Register__c</table>
         </columns>
@@ -1418,22 +1238,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Commodity__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Continuation_or_Revocation__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Countervailed_Programs__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Country__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -1818,17 +1628,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Product__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Product_Description__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Product_Short_Name__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -2008,37 +1808,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.ADCVD_Case_Type__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Suspension_Agreement__c.Additional_Notes__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Suspension_Agreement__c.Anniversary_Month__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Case_Concat_Text_Values__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.CBP_Case_Number__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Commodity__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Country__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -2099,16 +1874,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Suspension_Agreement__c.Office__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Product__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Product_Short_Name__c</field>
             <table>Federal_Register__c</table>
         </columns>
         <columns>
@@ -2226,7 +1991,7 @@
             <field>ADCVD_Case__c.Locked__c</field>
             <table>Federal_Register__c</table>
         </columns>
-                <columns>
+        <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c.ADCVD_Case_Number_Text__c</field>
             <table>Federal_Register__c</table>

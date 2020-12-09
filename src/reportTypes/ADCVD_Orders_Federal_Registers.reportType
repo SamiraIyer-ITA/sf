@@ -8,7 +8,7 @@
         <outerJoin>true</outerJoin>
         <relationship>Federal_Register__r</relationship>
     </join>
-    <label>ADCVD Orders &amp; Federal Registers</label>
+    <label>ADCVD Ord &amp; FR</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -92,35 +92,10 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition_Filed__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
         <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-                <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
             <table>ADCVD_Order__c</table>
@@ -182,16 +157,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Locked__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
@@ -246,6 +211,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Type__c</field>
+            <table>ADCVD_Order__c.Federal_Register__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Cite_Number__c</field>
             <table>ADCVD_Order__c.Federal_Register__r</table>
         </columns>
         <masterLabel>Federal Register</masterLabel>

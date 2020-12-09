@@ -4,7 +4,7 @@
     <category>other</category>
     <deployed>true</deployed>
     <description>Investigations only</description>
-    <label>Investigations</label>
+    <label>ADCVD Inv</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -69,16 +69,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -168,22 +158,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Countervailed_Programs__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -229,11 +204,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Segment__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_Concat_Text_Values__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -478,16 +448,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Range_of_Rates_Final__c</field>
             <table>Investigation__c</table>
         </columns>
@@ -551,7 +511,7 @@
             <field>Will_you_Issue_a_Post_Preliminary_Determ__c</field>
             <table>Investigation__c</table>
         </columns>
-                <columns>
+        <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
             <table>Investigation__c</table>
