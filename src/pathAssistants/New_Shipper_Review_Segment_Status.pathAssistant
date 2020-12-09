@@ -50,11 +50,11 @@
         <picklistValueName>Litigation</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
+        <fieldNames>Withdrawal_Request_Deadline__c</fieldNames>
         <fieldNames>Prelim_Team_Meeting_Deadline__c</fieldNames>
         <fieldNames>Prelim_Issues_Due_to_DAS__c</fieldNames>
         <fieldNames>Prelim_Concurrence_Due_to_DAS__c</fieldNames>
         <fieldNames>Calculated_Preliminary_Signature__c</fieldNames>
-        <fieldNames>Preliminary_Announcement_Date__c</fieldNames>
         <info>&lt;p&gt;To complete the preliminary phase of a new shipper review:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1.  Add respondent information in the organizations list.&lt;/p&gt;&lt;p&gt;2.  Add staffing information in the staff list.&lt;/p&gt;&lt;p&gt;3.  Add an extension to adjust the Calculated Preliminary Signature.&lt;/p&gt;&lt;p&gt;4.  Submit Issues and a Concurrence Package to the DAS office.  Enter the date those tasks are completed.&lt;/p&gt;&lt;p&gt;5.  Input the Actual Preliminary Signature and the preliminary results publication information in the FR Notice list.&lt;/p&gt;&lt;p&gt;6. If the review is rescinded or withdrawn, update the segment outcome status.&lt;/p&gt;</info>
         <picklistValueName>Prelim</picklistValueName>
     </pathAssistantSteps>

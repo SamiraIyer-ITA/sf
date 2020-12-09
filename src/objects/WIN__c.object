@@ -178,9 +178,9 @@
         <formula>Advocacy_US_Export_Content_Goods__c +  Advocacy_US_Export_Content_Services__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>AC Total US Export Content</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>2</scale>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
@@ -310,9 +310,9 @@
         <externalId>false</externalId>
         <inlineHelpText>The total dollar amount of the awarded contract.</inlineHelpText>
         <label>AC Total Project Value</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>2</scale>
+        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -350,9 +350,9 @@
         <externalId>false</externalId>
         <inlineHelpText>The value of U.S. Export Content related to the contract award.</inlineHelpText>
         <label>AC Total US Export Content - Confirmed</label>
-        <precision>18</precision>
+        <precision>16</precision>
         <required>false</required>
-        <scale>2</scale>
+        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

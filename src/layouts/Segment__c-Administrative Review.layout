@@ -65,6 +65,10 @@
                 <behavior>Readonly</behavior>
                 <field>Final_Extension_Remaining__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Withdrawal_Extension__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -219,11 +223,11 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Period_Covered_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Period_Covered_End_Date__c</field>
             </layoutItems>
         </layoutColumns>
@@ -278,6 +282,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Final_Announcement_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Withdrawal_Request_Deadline__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -353,16 +361,39 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>Edit</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>0</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Share</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>1</sortOrder>
         </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Edit</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>0</sortOrder>
+        </platformActionListItems>
     </platformActionList>
+    <quickActionList>
+        <quickActionListItems>
+            <quickActionName>FeedItem.TextPost</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>FeedItem.ContentPost</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>FeedItem.MobileSmartActions</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>FeedItem.LinkPost</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>FeedItem.PollPost</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>FeedItem.QuestionPost</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>FeedItem.ContentNote</quickActionName>
+        </quickActionListItems>
+    </quickActionList>
     <relatedLists>
         <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>

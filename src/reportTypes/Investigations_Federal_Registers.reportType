@@ -8,7 +8,7 @@
         <outerJoin>true</outerJoin>
         <relationship>Federal_Registers__r</relationship>
     </join>
-    <label>Investigations &amp; Federal Registers</label>
+    <label>ADCVD Inv &amp; FR</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -152,11 +152,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Next_Announcement_Date__c</field>
             <table>Investigation__c</table>
         </columns>
@@ -193,11 +188,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Final_Announcement_Date__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -392,22 +382,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Calculated_Postponement_of_PrelimDeterFR__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -442,17 +417,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Injunction__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
@@ -580,26 +545,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Number__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Type__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Commodity__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Country__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.CreatedBy</field>
             <table>Investigation__c</table>
         </columns>
@@ -656,11 +601,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.Petition_Outcome__c</field>
-            <table>Investigation__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product__c</field>
             <table>Investigation__c</table>
         </columns>
         <columns>
