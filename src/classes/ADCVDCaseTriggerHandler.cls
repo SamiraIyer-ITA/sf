@@ -80,7 +80,7 @@ public without sharing class ADCVDCaseTriggerHandler {
         //and set a batch for all cases that have been edited since then
         if(!recentAdcvdCaseBatchJob.isEmpty()) dt = recentAdcvdCaseBatchJob[0].CompletedDate;
         //Query cases with last modified > dt. From when the last batch job was complete to now.
-        List<ADCVD_Case__c> recentlyModifiedCases = [SELECT Id FROM ADCVD_Case__c Where LastModifiedDate >: dt AND Id NOT IN: alreadyIncludedCasesIds];
+        List<ADCVD_Case__c> recentlyModifiedCases = [SELECT Id FROM ADCVD_Case__c Where (LastModifiedDate >: dt OR LastModifiedDate >= YESTERDAY) AND Id NOT IN: alreadyIncludedCasesIds];
         recentlyModifiedCases.addAll(changedCasesList);
         return recentlyModifiedCases;
 

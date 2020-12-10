@@ -8,7 +8,7 @@
         <outerJoin>true</outerJoin>
         <relationship>Investigations__r</relationship>
     </join>
-    <label>ADCVD Cases and Investigations</label>
+    <label>ADCVD Case &amp; Inv</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -155,16 +155,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>ADCVD_Case__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>ADCVD_Case__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>AD_Investigation_Aligned_To__c</field>
             <table>ADCVD_Case__c.Investigations__r</table>
         </columns>
@@ -265,11 +255,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
-            <table>ADCVD_Case__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Calc_Amended_Prelim_Determination_Sig__c</field>
             <table>ADCVD_Case__c.Investigations__r</table>
         </columns>
@@ -315,17 +300,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>ADCVD_Case__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Countervailed_Programs__c</field>
-            <table>ADCVD_Case__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
             <table>ADCVD_Case__c.Investigations__r</table>
         </columns>
         <columns>
@@ -555,16 +530,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
-            <table>ADCVD_Case__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>ADCVD_Case__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Number_Text__c</field>
             <table>ADCVD_Case__c.Investigations__r</table>
         </columns>
@@ -676,11 +641,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Announcement_Type__c</field>
-            <table>ADCVD_Case__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_Concat_Text_Values__c</field>
             <table>ADCVD_Case__c.Investigations__r</table>
         </columns>
         <columns>

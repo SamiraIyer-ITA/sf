@@ -1,105 +1,106 @@
-@isTest
+@IsTest
 public class TestUtils {
-	private static Id adminProfileId = [SELECT Id FROM Profile WHERE Name=: 'System Administrator' LIMIT 1].Id;
+    private static Id adminProfileId = [SELECT Id FROM Profile WHERE Name = :'System Administrator' LIMIT 1].Id;
     private static Id managerProfileId = [SELECT Id FROM Profile WHERE Name = :'ADCVD Manager' LIMIT 1].Id;
     private static UserRole ecRole = [SELECT Id, Name, DeveloperName FROM UserRole WHERE Name = 'E&C TANC'];
     private static Id testRoleId = [SELECT Id, Name, DeveloperName FROM UserRole WHERE Name = 'E&C TANC'].Id;
 
-	public static Boolean messageFound(ApexPages.Severity severity, String msg) {
-		List<ApexPages.Message> pageMessages = ApexPages.getMessages();
-		// Check that the error message you are expecting is in pageMessages
-		Boolean messageFound = false;
-		for(ApexPages.Message message : pageMessages) {
-			if(message.getDetail() == msg
-				&& message.getSeverity() == severity) {
-				messageFound = true;
-			}
-		}
+    public static Boolean messageFound(ApexPages.Severity severity, String msg) {
+        List<ApexPages.Message> pageMessages = ApexPages.getMessages();
+        // Check that the error message you are expecting is in pageMessages
+        Boolean messageFound = false;
+        for (ApexPages.Message message : pageMessages) {
+            if (message.getDetail() == msg
+                    && message.getSeverity() == severity) {
+                messageFound = true;
+            }
+        }
 
-		return messageFound;
-	}
+        return messageFound;
+    }
 
-	public static Page__c createPage(Boolean doInsert) {
+    public static Page__c createPage(Boolean doInsert) {
         Page__c pg = new Page__c(Name = 'Test Home Page');
-		if(doInsert) {
-			insert pg;
-		}
-		return pg;
-	}
+        if (doInsert) {
+            insert pg;
+        }
+        return pg;
+    }
 
-	public static Row__c createRow(Boolean doInsert, Page__c pg) {
-		Row__c r = new Row__c(
-			Name= 'Test Row',
+    public static Row__c createRow(Boolean doInsert, Page__c pg) {
+        Row__c r = new Row__c(
+                Name = 'Test Row',
                 Page__c = pg.Id
-			);
-		if(doInsert) {
-			insert r;
-		}
-		return r;
-	}
+        );
+        if (doInsert) {
+            insert r;
+        }
+        return r;
+    }
 
-	public static Template_Page__c createTemplatePage(Boolean doInsert) {
-		Template_Page__c tp = new Template_Page__c(
-			Name = 'My Test Template',
-			Description__c = 'My Test Description',
-			Image__c = 'MyTestImage.png',
+    public static Template_Page__c createTemplatePage(Boolean doInsert) {
+        Template_Page__c tp = new Template_Page__c(
+                Name = 'My Test Template',
+                Description__c = 'My Test Description',
+                Image__c = 'MyTestImage.png',
                 isActive__c = true
-			);
-		if(doInsert) {
-			insert tp;
-		}
-		return tp;
-	}
+        );
+        if (doInsert) {
+            insert tp;
+        }
+        return tp;
+    }
 
-	public static Template_Row__c createTemplateRow(Boolean doInsert, Template_Page__c pg) {
-		Template_Row__c r = new Template_Row__c(
-			Name= 'Test Row',
+    public static Template_Row__c createTemplateRow(Boolean doInsert, Template_Page__c pg) {
+        Template_Row__c r = new Template_Row__c(
+                Name = 'Test Row',
                 Page__c = pg.Id
-			);
-		if(doInsert) {
-			insert r;
-		}
-		return r;
-	}
+        );
+        if (doInsert) {
+            insert r;
+        }
+        return r;
+    }
 
-	public static Template_Page_Content__c createTemplatePageContent(Boolean doInsert, Template_Page__c pg, Template_Row__c tr) {
-		//TODO implement schema utils
-		Map<String, Id> recordTypeMap = new Map<String, Id>();
+    public static Template_Page_Content__c createTemplatePageContent(Boolean doInsert, Template_Page__c pg, Template_Row__c tr) {
+        //TODO implement schema utils
+        Map<String, Id> recordTypeMap = new Map<String, Id>();
         for (RecordType rt : [SELECT Id, DeveloperName FROM RecordType WHERE SobjectType = 'Template_Page_Content__c']) {
             recordTypeMap.put(rt.DeveloperName, rt.Id);
-		}
-		Template_Page_Content__c tpc = new Template_Page_Content__c(
-			Name= 'Test Page Content',
-			RecordTypeId = recordTypeMap.get('Generic_Content'),
-			Row__c = tr.Id,
-			Page__c = pg.Id
-			);
-		if(doInsert) {
-			insert tpc;
-		}
-		return tpc;
-	}
-
-	public static User createAdminUser(Boolean doInsert, String email, Integer i) {
-		User u = new User();
-		u.ProfileId = adminProfileId;
+        }
+        Template_Page_Content__c tpc = new Template_Page_Content__c(
+                Name = 'Test Page Content',
+                RecordTypeId = recordTypeMap.get('Generic_Content'),
+                Row__c = tr.Id,
+                Page__c = pg.Id
+        );
+        if (doInsert) {
+            insert tpc;
+        }
+        return tpc;
+    }
+    public static User createAdminUser(Boolean doInsert, String email, Integer i) {
+        User u = new User();
+        u.ProfileId = adminProfileId;
+        u.UserRoleId = testRoleId;
+        u.Staffing_Role__c = 'Program Manager';
+        u.UserRole = ecRole;
         u.IsActive = true;
-		u.Alias = 'Alias' + i;
-		u.LocaleSidKey = 'en_US';
-		u.LanguageLocaleKey='en_US';
-		u.LastName = 'LastName' + i;
-		u.FirstName = 'FirstName' + i;
-		u.EmailEncodingKey = 'ISO-8859-1';
-		u.Email = email + i;
-		u.TimeZoneSidKey = 'America/New_York';
-		u.CommunityNickname = 'Ltest' + i;
+        u.Alias = 'Alias' + i;
+        u.LocaleSidKey = 'en_US';
+        u.LanguageLocaleKey = 'en_US';
+        u.LastName = 'LastName' + i;
+        u.FirstName = 'FirstName' + i;
+        u.EmailEncodingKey = 'ISO-8859-1';
+        u.Email = email + i;
+        u.TimeZoneSidKey = 'America/New_York';
+        u.CommunityNickname = 'Ltest' + i;
         u.Username = email + '.test' + i;
         if (doInsert) {
             insert u;
         }
         return u;
     }
-
     public static User createStaffingUser(Boolean doInsert, String email, Integer i) {
         User u = new User();
         u.UserRoleId = testRoleId;
@@ -117,67 +118,65 @@ public class TestUtils {
         u.TimeZoneSidKey = 'America/New_York';
         u.CommunityNickname = 'Ltest' + i;
         u.Username = email + '.test' + i;
-		if(doInsert) {
-			insert u;
-		}
-		return u;
-	}
-
-	public static Account createAccount(Boolean doInsert) {
-		Account newRecord = new Account(
-			Name='Acme',
-			BillingStreet = '101 binary way',
-			BillingCity = 'New York',
-			BillingStateCode='NY',
-			BillingPostalCode='10101'
-			);
+        if (doInsert) {
+            insert u;
+        }
+        return u;
+    }
+    public static Account createAccount(Boolean doInsert) {
+        Account newRecord = new Account(
+                Name = 'Acme',
+                BillingStreet = '101 binary way',
+                BillingCity = 'New York',
+                BillingStateCode = 'NY',
+                BillingPostalCode = '10101'
+        );
         if (doInsert) {
             insert newRecord;
         }
-		return newRecord;
-	}
+        return newRecord;
+    }
 
     public static Account createAccount(String name, String url, Boolean doInsert) {
-		Account a = new Account();
+        Account a = new Account();
         a.Name = name;
         a.Website = url;
         if (doInsert) {
             insert a;
         }
-		return a;
-	}
+        return a;
+    }
 
 /*     public static Issue__c createIssue(string name, string description, string url, Boolean doInsert){
-		Issue__c issue = new Issue__c();
-		issue.name = name;
-		issue.description__c = description;
-		issue.link__c = url;
-		 if(doInsert) {insert issue;}
-		return issue;
-	}
+        Issue__c issue = new Issue__c();
+        issue.name = name;
+        issue.description__c = description;
+        issue.link__c = url;
+         if(doInsert) {insert issue;}
+        return issue;
+    }
 
-	 public static Regulation__c createRegulation(string name, string url, Boolean doInsert){
-		Regulation__c regulation = new Regulation__c();
-		regulation.name = name;
-		regulation.url__c = url;
-		 if(doInsert) {insert regulation;}
-		return regulation;
-	}
+     public static Regulation__c createRegulation(string name, string url, Boolean doInsert){
+        Regulation__c regulation = new Regulation__c();
+        regulation.name = name;
+        regulation.url__c = url;
+         if(doInsert) {insert regulation;}
+        return regulation;
+    }
 */
-
-	public static Product2 createProduct(Boolean doInsert) {
+    public static Product2 createProduct(Boolean doInsert) {
         Product2 newRecord = new Product2(
-			Name='MyTestProduct',
-			IsActive = true
-			);
+                Name = 'MyTestProduct',
+                IsActive = true
+        );
         if (doInsert) {
             insert newRecord;
         }
-		return newRecord;
-	}
+        return newRecord;
+    }
 
     public static Product2 createProduct(String name, String description, String url, Boolean doInsert) {
-		Product2 product = new Product2();
+        Product2 product = new Product2();
         product.Name = name;
         product.Description = description;
         product.DisplayUrl = url;
@@ -185,154 +184,91 @@ public class TestUtils {
         if (doInsert) {
             insert product;
         }
-		return product;
-	}
+        return product;
+    }
 
     public static Pricebook2 createPricebook(String name, Boolean isActive, Boolean doInsert) {
-		Pricebook2 pb= new Pricebook2();
+        Pricebook2 pb = new Pricebook2();
         pb.Name = name;
         pb.IsActive = isActive;
         if (doInsert) {
             insert pb;
         }
-		return pb;
-	}
+        return pb;
+    }
 
-	public static PricebookEntry createPricebookEntry(String pricebookId, String productId, Boolean doInsert){
-		PricebookEntry pbe = new PricebookEntry();
+    public static PricebookEntry createPricebookEntry(String pricebookId, String productId, Boolean doInsert) {
+        PricebookEntry pbe = new PricebookEntry();
         pbe.IsActive = true;
         pbe.UnitPrice = 4.99;
-		pbe.Pricebook2Id = pricebookId;
-		pbe.Product2Id = productId;
+        pbe.Pricebook2Id = pricebookId;
+        pbe.Product2Id = productId;
         if (doInsert) {
             insert pbe;
         }
-		return pbe;
-	}
+        return pbe;
+    }
 
-	public static Payment2__c createPayment2(Boolean doInsert, String recordType){
-		Payment2__c payment2 = new Payment2__c();
-		payment2.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordType);
-		if(doInsert) {insert payment2;}
-		return payment2;
-	}
+    public static Asset createAsset(Account account, Product2 product, Boolean doInsert) {
+        return createAsset('Installed', account, product, doInsert);
+    }
 
-	public static Collection_Fulfillment__c createCollectionFulfillment(Boolean doInsert, String post, string orgCode){
-		Collection_Fulfillment__c cf = new Collection_Fulfillment__c();
-		cf.Post__c = post;
-		cf.Org_Code__c = orgCode;
-		if(doInsert) {insert cf;}
-		return cf;
-	}
+    public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert) {
+        return createAsset(status, account, product, doInsert, true, true, null, null);
+    }
 
-	public static Order createStandardOrder(Boolean doInsert, Id accountId, Id priceBookId){
-		Order standardOrder = new Order();
-		standardOrder.EffectiveDate = system.today();
-		standardOrder.Status = 'Draft';
-		standardOrder.AccountId = accountId;
-		standardOrder.Pricebook2Id = priceBookId;
-		if(doInsert) {insert standardOrder;}
-		return standardOrder;
-	}
-
-	public static OrderItem createStandardOrderItem(Boolean doInsert, Id orderId, Id pbeId){
-		OrderItem standardOrderItem = new OrderItem();
-		standardOrderItem.OrderId = orderId;
-		standardOrderItem.Quantity = 1;
-		standardOrderItem.UnitPrice = 1000;
-		standardOrderItem.PricebookEntryId = pbeId;
-		if(doInsert) {insert standardOrderItem;}
-		return standardOrderItem;
-	}
-
-	public static Quote createQuote(Boolean doInsert, Id oppId, Id priceBookId, String quoteName){
-		Quote standardQuote = new Quote();
-		standardQuote.OpportunityId = oppId;
-		standardQuote.Name = quoteName;
-		standardQuote.Pricebook2Id = priceBookId;
-		if(doInsert) {insert standardQuote;}
-		return standardQuote;
-	}
-
-	public static QuoteLineItem createQuoteLineItem(Boolean doInsert, Id product2Id, Id quoteId, Id pbeId){
-		QuoteLineItem standardQuoteLineItem = new QuoteLineItem();
-		standardQuoteLineItem.QuoteId = quoteId;
-		standardQuoteLineItem.PricebookEntryId = pbeId;
-		standardQuoteLineItem.Quantity = 1;
-		standardQuoteLineItem.UnitPrice = 1000;
-		if(doInsert) {insert standardQuoteLineItem;}
-		return standardQuoteLineItem;
-	}
-
-	public static Contract createContract(Boolean doInsert, Id accountId){
-		Contract c = new Contract();
-		c.AccountId = accountId;
-		if(doInsert){insert c;}
-		return c;
-	}
-
-	public static Asset createAsset(Account account, Product2 product, Boolean doInsert){
-		return createAsset('Installed', account, product, doInsert);
-	}
-
-	public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert){
-		return createAsset(status, account, product, doInsert, true, true, null, null);
-	}
-
-	public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert, Boolean hasHrData, Boolean hasNonHrData, Framework__c framework, Participation__c app){
-		Asset newRecord = new Asset(
+    public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert, Boolean hasHrData, Boolean hasNonHrData, Framework__c framework, Participation__c app) {
+        Asset newRecord = new Asset(
                 Name = product.Name,
-			AccountId = account.Id,
+                AccountId = account.Id,
                 Product2Id = product.Id,
-			Status=status,
-			HR_Data__c = hasHrData,
-			Non_HR_Data__c = hasNonHrData
-			);
-		if (framework != null) {
+                Status = status,
+                HR_Data__c = hasHrData,
+                Non_HR_Data__c = hasNonHrData
+        );
+        if (framework != null) {
             newRecord.Framework__c = framework.Id;
-		}
-		if (app != null) {
-			newRecord.Participant__c = app.Id;
-		}
+        }
+        if (app != null) {
+            newRecord.Participant__c = app.Id;
+        }
         if (doInsert) {
             insert newRecord;
         }
-		return newRecord;
-	}
+        return newRecord;
+    }
 
-	public static Attachment createAttachment(Id parentId, Boolean doInsert) {
-		Attachment newRecord = new Attachment(
-			ParentId = parentId,
-			Name = 'mytestname',
-			Body = Blob.valueOf('mystring')
-			);
+    public static Attachment createAttachment(Id parentId, Boolean doInsert) {
+        Attachment newRecord = new Attachment(
+                ParentId = parentId,
+                Name = 'mytestname',
+                Body = Blob.valueOf('mystring')
+        );
         if (doInsert) {
             insert newRecord;
         }
-		return newRecord;
-	}
-	//create test Contact
-
-	public static Contact createContact(String name, String accId , Boolean isInsert){
+        return newRecord;
+    }
+    //create test Contact
+    public static Contact createContact(String name, String accId, Boolean isInsert) {
         Contact con = new Contact(LastName = name, AccountId = accId, OwnerId = UserInfo.getUserId());
-		if(isInsert){
-			insert con;
-		}
-		return con;
-	}
+        if (isInsert) {
+            insert con;
+        }
+        return con;
+    }
 
-	// create Case
-
+    // create Case
     public static Case createCase(String sub, Boolean isInsert) {
-		Case cs = new Case();
-		cs.Subject = sub;
-		if(isInsert) {
-			insert cs;
-		}
-		return cs;
-	}
+        Case cs = new Case();
+        cs.Subject = sub;
+        if (isInsert) {
+            insert cs;
+        }
+        return cs;
+    }
 
-	// create ADCVD Case
+    // create ADCVD Case
 
     public static ADCVD_Case__c createADCVDCase(String caseName, String caseType, User u, Boolean doInsert) {
         ADCVD_Case__c testCase = new ADCVD_Case__c(

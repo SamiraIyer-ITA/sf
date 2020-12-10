@@ -8,7 +8,7 @@
         <outerJoin>true</outerJoin>
         <relationship>Federal_Registers__r</relationship>
     </join>
-    <label>Petitions and Federal Registers</label>
+    <label>ADCVD Pet &amp; FR</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
