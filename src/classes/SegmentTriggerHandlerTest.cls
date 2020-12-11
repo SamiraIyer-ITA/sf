@@ -387,7 +387,7 @@ public class SegmentTriggerHandlerTest {
 
         Test.stopTest();
         //compare Actual_Initiation_Signature__c + Prelim_Extension__c
-     //   System.assertEquals(testActual, acSeg.Calculated_Preliminary_Signature__c);
+        System.assertEquals(testActual, acSeg.Calculated_Preliminary_Signature__c);
     }
 
     //setCalculatedPreliminarySignature
@@ -680,7 +680,7 @@ public class SegmentTriggerHandlerTest {
         //compare Actual_Initiation_Signature__c + Final_Extension_of_days__c
         
         Test.stopTest();
-      //  System.assertEquals(testActual, acSeg.Calculated_Final_Signature__c);
+        System.assertEquals(testActual, acSeg.Calculated_Final_Signature__c);
     }
 
     //setCalculatedFinalSignature for the Changed-Circumstances Review
@@ -2885,10 +2885,10 @@ public class SegmentTriggerHandlerTest {
         adminSeg.Final_Date_of_Anniversary_Month__c = System.today().addDays(-245);
         adminSeg.Actual_Prelim_Issues_to_DAS__c = adminSeg.Prelim_Issues_Due_to_DAS__c;        
         adminSeg.Actual_Prelim_Concurrence_to_DAS__c = adminSeg.Prelim_Concurrence_Due_to_DAS__c;
-        //update adminSeg;
+        update adminSeg;
         getNewSegs();
         
-        //System.assertEquals(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Next_Office_Deadline__c);
+        System.assertEquals(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Next_Office_Deadline__c);
         Test.stopTest();
 
     }
@@ -2936,7 +2936,7 @@ public class SegmentTriggerHandlerTest {
     }
     @isTest static void setAR_NextOffice_FinalConcurrenceDueToDAS(){
         Test.startTest();
-    /*
+
         //setup
         setStartDates();
         setExtensions();
@@ -2955,17 +2955,16 @@ public class SegmentTriggerHandlerTest {
         update adminSeg;
         getNewSegs();
         adminSeg.Actual_Final_Issues_to_DAS__c = adminSeg.Final_Issues_Due_to_DAS__c;
-        //update adminSeg;
+        update adminSeg;
         getNewSegs();
         
         System.assertEquals(adminSeg.Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
-        */
         Test.stopTest();
 
     }
     @isTest static void setAR_NextOffice_CalculatedFinalSignature(){
         Test.startTest();
-/*
+
         //setup
         setStartDates();
         setExtensions();
@@ -2988,7 +2987,6 @@ public class SegmentTriggerHandlerTest {
         update adminSeg;
         getNewSegs();
         System.assertEquals(adminSeg.Calculated_Final_Signature__c, adminSeg.Next_Office_Deadline__c);
-        */
         Test.stopTest();
 
     }
@@ -4488,7 +4486,6 @@ public class SegmentTriggerHandlerTest {
         getNewSegs();
         //Segment Final Status
         expedSeg.Actual_Preliminary_Signature__c = expedSeg.Calculated_Preliminary_Signature__c.addDays(-14);
-        
         update expedSeg;
         setFR(expedSeg.Id, 'Preliminary');
         getNewSegs();
@@ -4497,12 +4494,11 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals('Final' , expedSeg.Status__c);
     }
     @isTest static void setER_Status_AmendFinal() {
-        
         Test.startTest();
+
         //Segment- Preliminary Status on Create
         setStartDates();
         getNewSegs();
-        
         //Segment Final Status
         expedSeg.Actual_Preliminary_Signature__c = expedSeg.Calculated_Preliminary_Signature__c.addDays(-14);
         setFR(expedSeg.Id, 'Preliminary');
@@ -4510,13 +4506,12 @@ public class SegmentTriggerHandlerTest {
         expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-14);
         expedSeg.Will_you_Amend_the_Final__c = 'Yes';
         expedSeg.Segment_Outcome__c = 'Completed';
-        
-        //update expedSeg;
+        update expedSeg;
         setFR(expedSeg.Id, 'Final');
         getNewSegs();
 
         Test.stopTest();
-        //System.assertEquals('Amend Final', expedSeg.Status__c);
+        System.assertEquals('Amend Final', expedSeg.Status__c);
     }
     @isTest static void setER_Status_Hold() {
         Test.startTest();
@@ -4531,12 +4526,12 @@ public class SegmentTriggerHandlerTest {
         expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-14);
         expedSeg.Segment_Outcome__c = 'Completed';
         expedSeg.Will_You_Amend_the_Final__c = 'No';
-        //update expedSeg;
+        update expedSeg;
         setFR(expedSeg.Id, 'Final');
         getNewSegs();
 
         Test.stopTest();
-        //System.assertEquals('Hold', expedSeg.Status__c);
+        System.assertEquals('Hold', expedSeg.Status__c);
     }
     @isTest static void setER_Status_Litigation() {
         Test.startTest();
@@ -4553,12 +4548,12 @@ public class SegmentTriggerHandlerTest {
         //Segment Litigation Status
         expedSeg.Litigation_YesNo__c = 'Yes';
         expedSeg.Litigation_Resolved__c = 'No';
-        //update expedSeg;
+        update expedSeg;
         setFR(expedSeg.Id, 'Final');
         getNewSegs();
 
         Test.stopTest();
-        //System.assertEquals('Litigation', expedSeg.Status__c);
+        System.assertEquals('Litigation', expedSeg.Status__c);
     }
     @isTest static void setER_Status_Customs() {
         Test.startTest();
@@ -4574,12 +4569,12 @@ public class SegmentTriggerHandlerTest {
         expedSeg.Segment_Outcome__c = 'Completed';
         //Segment Customs Segment
         expedSeg.Litigation_YesNo__c = 'No';
-        //update expedSeg;
+        update expedSeg;
         setFR(expedSeg.Id, 'Final');
         getNewSegs();
 
         Test.stopTest();
-        //System.assertEquals('Customs', expedSeg.Status__c);
+        System.assertEquals('Customs', expedSeg.Status__c);
     }
 /*
     @isTest static void setER_Status_Closed() {
@@ -4645,12 +4640,12 @@ public class SegmentTriggerHandlerTest {
         nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-14);
         nsSeg.Will_you_Amend_the_Final__c = 'Yes';
         nsSeg.Segment_Outcome__c = 'Completed';
-        //update nsSeg;
+        update nsSeg;
         setFR(nsSeg.Id, 'Final');
         getNewSegs();
 
         Test.stopTest();
-        //System.assertEquals('Amend Final', nsSeg.Status__c);
+        System.assertEquals('Amend Final', nsSeg.Status__c);
     }
     @isTest static void setNSR_Status_Hold() {
         Test.startTest();
@@ -4665,12 +4660,12 @@ public class SegmentTriggerHandlerTest {
         nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-14);
         nsSeg.Segment_Outcome__c = 'Completed';
         nsSeg.Will_You_Amend_the_Final__c = 'No';
-        //update nsSeg;
+        update nsSeg;
         setFR(nsSeg.Id, 'Final');
         getNewSegs();
 
         Test.stopTest();
-        //System.assertEquals('Hold', nsSeg.Status__c);
+        System.assertEquals('Hold', nsSeg.Status__c);
     }
     @isTest static void setNSR_Status_Litigation() {
         Test.startTest();
@@ -4687,12 +4682,12 @@ public class SegmentTriggerHandlerTest {
         //Segment Litigation Status
         nsSeg.Litigation_YesNo__c = 'Yes';
         nsSeg.Litigation_Resolved__c = 'No';
-        //update nsSeg;
+        update nsSeg;
         setFR(nsSeg.Id, 'Final');
         getNewSegs();
 
         Test.stopTest();
-        //System.assertEquals('Litigation', nsSeg.Status__c);
+        System.assertEquals('Litigation', nsSeg.Status__c);
     }
     @isTest static void setNSR_Status_Customs() {
         Test.startTest();
@@ -4708,12 +4703,12 @@ public class SegmentTriggerHandlerTest {
         nsSeg.Segment_Outcome__c = 'Completed';
         //Segment Customs Segment
         nsSeg.Litigation_YesNo__c = 'No';
-        //update nsSeg;
+        update nsSeg;
         setFR(nsSeg.Id, 'Final');
         getNewSegs();
 
         Test.stopTest();
-        //System.assertEquals('Customs', nsSeg.Status__c);
+        System.assertEquals('Customs', nsSeg.Status__c);
     }
 /*
     @isTest static void setNSR_Status_Closed() {
@@ -4965,10 +4960,10 @@ public class SegmentTriggerHandlerTest {
         acSeg.Have_Custom_Instruction_been_sent__c = 'No';
         //Segment Closed Status
         acSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
-        //update acSeg;
+        update acSeg;
         getNewSegs();
 
-        //System.assertEquals('Closed', acSeg.Status__c);
+        System.assertEquals('Closed', acSeg.Status__c);
     }
 
     @isTest static void setSegmentIdToLitigationMap() {
