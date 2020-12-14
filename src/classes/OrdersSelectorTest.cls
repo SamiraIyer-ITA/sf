@@ -89,4 +89,11 @@ private class OrdersSelectorTest {
 		System.assertNotEquals(0, result.size(), 'List empty');
 	}
 
+	@IsTest
+	static void selectOrdersByOpportunities() {
+		List<Order> result = OrdersSelector.newInstance().selectOrdersByOpportunities(new Set<Id>{});
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertEquals(0, result.size(), 'List empty');
+	}
+
 }
