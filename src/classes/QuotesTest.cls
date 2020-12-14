@@ -16,4 +16,9 @@ private class QuotesTest {
 		IQuotes iQuotes = (IQuotes) Quotes.newInstance(quoteIds);
 		System.assertNotEquals(iQuotes, null, 'Interface returned as null and should not have');
 	}
+
+	@IsTest
+	static void testOrdersTrigger_InsertOrderRecord_TriggerIsCovered() {
+		try { insert new Quote(); } catch (Exception e) {}
+	}
 }

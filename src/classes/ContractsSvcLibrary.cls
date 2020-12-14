@@ -5,4 +5,5 @@
  */
 public with sharing class ContractsSvcLibrary {
 
+	public ContractsSvcLibrary() {}
 }

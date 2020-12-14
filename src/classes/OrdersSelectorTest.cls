@@ -90,6 +90,30 @@ private class OrdersSelectorTest {
 	}
 
 	@IsTest
+	static void selectWithOrderItemDetails_Postive() {
+		Set<Id> idSet = new Map<Id, Order>([SELECT Id FROM Order]).keySet();
+		List<Order> result = OrdersSelector.newInstance().selectWithOrderItemDetails(idSet, false);
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertEquals(idSet.size(), result.size());
+	}
+
+	@IsTest
+	static void selectWithOrderItemDetails_Postive_IsPrimary() {
+		Set<Id> idSet = new Map<Id, Order>([SELECT Id FROM Order]).keySet();
+		List<Order> result = OrdersSelector.newInstance().selectWithOrderItemDetails(idSet, true);
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertEquals(idSet.size(), result.size());
+	}
+
+	@IsTest
+	static void selectWithOrderItemDetails_Negative() {
+		Set<Id> idSet = new Map<Id, Order>([SELECT Id FROM Order]).keySet();
+		List<Order> result = OrdersSelector.newInstance().selectWithOrderItemDetails(idSet, false);
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertNotEquals(0, result.size(), 'List empty');
+	}
+
+	@IsTest
 	static void selectOrdersByOpportunities() {
 		List<Order> result = OrdersSelector.newInstance().selectOrdersByOpportunities(new Set<Id>{});
 		System.assertNotEquals(null, result, 'Selector returned null instead of list');

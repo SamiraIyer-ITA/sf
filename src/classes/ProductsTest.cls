@@ -32,6 +32,10 @@ public class ProductsTest {
 
 	@IsTest
 	static void testBeforeInsert_setEventsAcountingCode_noDml(){
+		fflib_ApexMocks mocks = new fflib_ApexMocks();
+		IProductsSelector mockSelector = (IProductsSelector) mocks.mock(IProductsSelector.class);
+
+		// Given - Create mock data
 		Product2 testProduct = new Product2(
 			Id = productId,
 			Name = 'testProduct',
@@ -47,10 +51,32 @@ public class ProductsTest {
 				Product2.Record_Type_Developer_Name__c => 'Events'
 			}
 		);
-		fflib_SObjectDomain.Test.Database.onInsert(
-			new List<Product2>{ testProduct }
-		);
+
+		// We need to get the current index one value from the class as it's dynamic
+		String indexOneValue = EventProductCodeGenerator.getIndexOneValue();
+		Set<String> filters = new Set<String>{ '%' + indexOneValue + 'N__'  };
+
+		AggregateResultProxy[] mockedGroupedResults = new List<AggregateResultProxy> {
+			new AggregateResultProxy()
+				.withAliasAndValue('Family','Certified Trade Mission')
+				.withAliasAndValue('maxSmartCode', null)
+		};
+
+		// Given
+		mocks.startStubbing();
+		mocks.when(mockSelector.sObjectType()).thenReturn(Product2.SObjectType);
+		mocks.when(mockSelector.selectMaxProductCodesByFamily(filters))
+			.thenReturn(mockedGroupedResults);
+		mocks.stopStubbing();
+
+		// Given - Inject mocks
+		fflibext_Application.Selector.setMock(mockSelector);
+
+		// When - Use the test database to mock an onBeforeInsert
+		fflib_SObjectDomain.Test.Database.onInsert(new List<Product2>{testProduct});
 		fflib_SObjectDomain.triggerHandler(Products.class);
-		System.assertEquals('0N01', testProduct.Accounting_Code__c, 'Verify correct code');
+
+		// Then - Verify code
+		System.assertEquals(indexOneValue + 'N01', testProduct.Accounting_Code__c, 'Verify correct code');
 	}
 }
