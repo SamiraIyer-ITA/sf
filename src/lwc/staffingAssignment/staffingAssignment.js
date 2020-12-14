@@ -12,7 +12,7 @@ import Test from '@salesforce/resourceUrl/Test';
 import gethasDeletePermission from '@salesforce/apex/StaffingAssignment.doesRunningUserHavePermission';
 
 /*const actions = [
-    { label: 'Edit', name: 'edit'},
+    { label: 'Edit', name: 'edit' },
     { label: 'Delete', name: 'delete'}
 ];
 */
@@ -189,7 +189,7 @@ export default class StaffingAssignment extends LightningElement {
                                         //checking delete permission for the Staff Assignment
                                         if(this.hasDeletePermission){
                                             pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false,rowActions :actionsWithDelete};
-                                        
+
                                         } else {
                                             pair = {UserName: row.User__r.Name, RecusalLink: rec.value, RecusalLinkText:'Review Recusals', RecusalLinkEnable: false,rowActions :actionsWithoutDelete};
                                         }        
@@ -221,6 +221,13 @@ export default class StaffingAssignment extends LightningElement {
                             this.caseId = row.Investigation__r.ADCVD_Case__c;
                         }
                     }
+										
+										if (row.Suspension_Agreement__r) {
+                        if (row.Suspension_Agreement__r.ADCVD_Case__c) {
+                            this.caseId = row.Suspension_Agreement__r.ADCVD_Case__c;
+                        }
+                    }
+										
                     rowBuilder.push(row);
                 }
                 this.data = rowBuilder;
