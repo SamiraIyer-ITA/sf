@@ -1703,6 +1703,56 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         </valueSet>
     </fields>
     <fields>
+        <fullName>Service_Request_Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Request Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Country_1</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SourceTechnology__c</fullName>
+        <externalId>false</externalId>
+        <label>Outcome</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Abandoned</fullName>
+                    <default>false</default>
+                    <label>Abandoned</label>
+                </value>
+                <value>
+                    <fullName>Referred</fullName>
+                    <default>false</default>
+                    <label>Referred</label>
+                </value>
+                <value>
+                    <fullName>Counseled</fullName>
+                    <default>false</default>
+                    <label>Counseled</label>
+                </value>
+                <value>
+                    <fullName>Converted</fullName>
+                    <default>false</default>
+                    <label>Converted</label>
+                </value>
+                <value>
+                    <fullName>Not Converted</fullName>
+                    <default>false</default>
+                    <label>Not Converted</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>OwnerId</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
