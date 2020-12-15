@@ -207,7 +207,19 @@ public class ADCVDStandardCaseFieldBatchTest {
         relatedOrganization.ADCVD_Entity_Name__c = 'test entity';
         relatedOrganization.Account__c = testAccount.Id;
         relatedOrganization.ADCVD_Case__c = testADCase.Id;
-       // insert relatedOrganization;
+        insert relatedOrganization;
+        
+        Related_Organization__c relatedOrganization1 = TestUtils.createRelatedOrg(testADinvestigation, false);
+        relatedOrganization1.ADCVD_Entity_Name__c = 'test entity';
+        relatedOrganization1.Account__c = testAccount.Id;
+        relatedOrganization1.ADCVD_Case__c = testADCase.Id;
+        insert relatedOrganization1;
+        
+        Related_Organization__c relatedOrganization2 = TestUtils.createRelatedOrg(testADOrder, false);
+        relatedOrganization2.ADCVD_Entity_Name__c = 'test entity';
+        relatedOrganization2.Account__c = testAccount.Id;
+        relatedOrganization2.ADCVD_Case__c = testADCase.Id;
+        insert relatedOrganization2;
         //HTS records are created through the Controller on their parents object page, in order to have all the standardized case fields filled
         //The records in this test class need to be created through the same controller
         ApexPages.StandardController standardController = new ApexPages.StandardController(testADOrder);
