@@ -12,7 +12,7 @@
         <outerJoin>false</outerJoin>
         <relationship>Investigations__r</relationship>
     </join>
-    <label>Petitions with Investigations with Suspension Agreements</label>
+    <label>ADCVD Pet w Inv w SuspAgr</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -27,26 +27,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Calculated_Initiation_Signature__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -102,11 +82,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition_Outcome__c</field>
-            <table>Petition__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -349,31 +324,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>Petition__c.Investigations__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Prelim_Extension_of_days__c</field>
             <table>Petition__c.Investigations__r</table>
         </columns>
@@ -503,31 +453,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Notations_Amendments__c</field>
-            <table>Petition__c.Investigations__r.Suspension_Agreements__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Petition__c.Investigations__r.Suspension_Agreements__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Petition__c.Investigations__r.Suspension_Agreements__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>Petition__c.Investigations__r.Suspension_Agreements__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
-            <table>Petition__c.Investigations__r.Suspension_Agreements__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
             <table>Petition__c.Investigations__r.Suspension_Agreements__r</table>
         </columns>
         <columns>

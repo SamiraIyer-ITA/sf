@@ -4,14 +4,25 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 	private static Date tollingDateStart = System.today().addDays(-10);
 	private static Date tollingDateEnd = System.today().addDays(-4);
 	private static Id parentId;
+
+	private static Petition__c adP{
+		get{
+			if (adP == null) {
+				adP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type_Text__c LIKE 'AD%' LIMIT 1];
+			}
+			return adP;
+		}
+		set{}
+	}
+
 	@isTest static void tollingDayList(){
-		System.assert(ADCVD_TollingDayUtility.tollingDayList.size() == 1);	
+		System.assert(ADCVD_TollingDayUtility.tollingDayList.size() == 1);
 	}
 	@isTest static void tollingDaySet(){
 		System.assert(ADCVD_TollingDayUtility.tollingDaySet.size() == 7, ADCVD_TollingDayUtility.tollingDaySet.size());
 	}
 	@IsTest static void setRecordSpecificTollingDayList() {
-		ADCVD_TollingDayUtility.setRecordSpecificTollingDayList(null);
+		ADCVD_TollingDayUtility.setRecordSpecificTollingDayList(adP.Id);
 	}
 	@isTest static void isHoliday(){
 		System.assert(ADCVD_TollingDayUtility.isHoliday(holidayDate));
@@ -109,7 +120,7 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 				System.assertEquals(false, ADCVD_TollingDayUtility.isWorkingDay(myVariableDate));
 			}
 			if(ADCVD_TollingDayUtility.isTollingDay(myVariableDate)) {
-				System.assertEquals(false, ADCVD_TollingDayUtility.isWorkingDay(myVariableDate));	
+				System.assertEquals(false, ADCVD_TollingDayUtility.isWorkingDay(myVariableDate));
 			}
 		}
 	}
@@ -126,14 +137,37 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createStaffingUser(true, 'myemail@email.com.testita', 1);
+		Date petitionDate = System.today();
 		Holiday h = new Holiday(ActivityDate = holidayDate, Name = 'Every day is a holiday');
 		insert h;
+		List<ADCVD_Case__c> caseList = new List<ADCVD_Case__c>();
+		List<Petition__c> petitionList = new List<Petition__c>();
+		List<Investigation__c> investigationList = new List<Investigation__c>();
 
 		System.runAs(testUser) {
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
             Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
             AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
             Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, testUser, true);
+
+			//create test data
+			ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser, false);
+			caseList.add(testADCase);
+			ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', testUser, false);
+			caseList.add(testCVDCase);
+			insert caseList;
+
+			Petition__c testADPetition = TestUtils.createPetition(testADCase, petitionDate, false);
+			petitionList.add(testADPetition);
+			Petition__c testCVDPetition = TestUtils.createPetition(testCVDCase, petitionDate, false);
+			petitionList.add(testCVDPetition);
+			insert petitionList;
+
+			Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, false);
+			investigationList.add(testADinvestigation);
+			Investigation__c testCVDinvestigation = TestUtils.createInvestigation(testCVDPetition, false);
+			investigationList.add(testCVDinvestigation);
+			insert investigationList;
         }
 	}
 }

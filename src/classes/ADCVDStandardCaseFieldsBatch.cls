@@ -182,6 +182,8 @@ global class ADCVDStandardCaseFieldsBatch implements Database.Batchable<SObject>
             singleRecord.put('Country_Text__c', relatedCase.Country__c);
             singleRecord.put('Product_Text__c', relatedCase.Product__c);
             singleRecord.put('Product_Short_Name_Text__c', relatedCase.Product_Short_Name__c);
+            singleRecord.put('CBP_Case_Number_Text__c', relatedCase.CBP_Case_Number__c);
+            
             returnedRecords.add(singleRecord);
         }
         return returnedRecords;

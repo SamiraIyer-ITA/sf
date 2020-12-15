@@ -32,6 +32,9 @@
             recalculateParentsOfFederalRegister(newList);
             //new ChatterPostWriter('Federal_Register__c', newMap, oldMap);
         }
+        if(isBefore && isUpdate) {
+            updateFrParent(newList);
+        }
         if(isAfter && isUpdate) {
             initialize(newList, newMap);
             recalculateParentsOfFederalRegister(newList);
@@ -61,31 +64,46 @@
     }
     //method to get the case Ids from the parents.  If a list of FRs is added that have parents from all 5 potential
     //parents, all 5 queries will run.  This should only be called in the initialize method.
-    @TestVisible private static Set<Id> getCaseIdSet (List<Federal_Register__c> newList) {
-        Set<Id> caseIdSet = new Set<Id>();
-        Set<Id> petitionIdSet = new Set<Id>();
-        Set<Id> investigationIdSet = new Set<Id>();
-        Set<Id> orderIdSet = new Set<Id>();
-        Set<Id> suspAgrmtIdSet = new Set<Id>();
-        Set<Id> segmentIdSet = new Set<Id>();
-        for (Federal_Register__c fr : newList) {
-            if(fr.Petition__c != null) {
-                setFrParent(fr, 'Petition__c');
-                petitionIdSet.add(fr.Petition__c);
-            } else if(fr.Investigation__c != null) {
-                setFrParent(fr, 'Investigation__c');
-                investigationIdSet.add(fr.Investigation__c);
-            } else if(fr.Segment__c != null) {
-                setFrParent(fr, 'Segment__c');
-                segmentIdSet.add(fr.Segment__c);
-            } else if(fr.ADCVD_Order__c != null) {
-                setFrParent(fr, 'ADCVD_Order__c');
-                orderIdSet.add(fr.ADCVD_Order__c);
-            } else if(fr.Suspension_Agreement__c != null) {
-                setFrParent(fr, 'Suspension_Agreement__c');
-                suspAgrmtIdSet.add(fr.Suspension_Agreement__c);
-            }
-        }
+     @TestVisible private static void updateFrParent (List<Federal_Register__c> newList) {
+         for (Federal_Register__c fr : newList) {
+             if (fr.Petition__c != null) {
+                 fr.FR_Parent__c = 'Petition__c';
+             } else if (fr.Investigation__c != null) {
+                 fr.FR_Parent__c = 'Investigation__c';
+             } else if (fr.Segment__c != null) {
+                 fr.FR_Parent__c = 'Segment__c';
+             } else if (fr.ADCVD_Order__c != null) {
+                 fr.FR_Parent__c = 'ADCVD_Order__c';
+             } else if (fr.Suspension_Agreement__c != null) {
+                 fr.FR_Parent__c = 'Suspension_Agreement__c';
+             }
+         }
+     }
+     @TestVisible private static Set<Id> getCaseIdSet(List<Federal_Register__c> newList) {
+         Set<Id> caseIdSet = new Set<Id>();
+         Set<Id> petitionIdSet = new Set<Id>();
+         Set<Id> investigationIdSet = new Set<Id>();
+         Set<Id> orderIdSet = new Set<Id>();
+         Set<Id> suspAgrmtIdSet = new Set<Id>();
+         Set<Id> segmentIdSet = new Set<Id>();
+         for (Federal_Register__c fr : newList) {
+             if (fr.Petition__c != null) {
+                 setFrParent(fr, 'Petition__c');
+                 petitionIdSet.add(fr.Petition__c);
+             } else if (fr.Investigation__c != null) {
+                 setFrParent(fr, 'Investigation__c');
+                 investigationIdSet.add(fr.Investigation__c);
+             } else if (fr.Segment__c != null) {
+                 setFrParent(fr, 'Segment__c');
+                 segmentIdSet.add(fr.Segment__c);
+             } else if (fr.ADCVD_Order__c != null) {
+                 setFrParent(fr, 'ADCVD_Order__c');
+                 orderIdSet.add(fr.ADCVD_Order__c);
+             } else if (fr.Suspension_Agreement__c != null) {
+                 setFrParent(fr, 'Suspension_Agreement__c');
+                 suspAgrmtIdSet.add(fr.Suspension_Agreement__c);
+             }
+         }
         for (Petition__c p : [SELECT ADCVD_Case__c FROM Petition__c WHERE Id IN: petitionIdSet]) {
             caseIdSet.add(p.ADCVD_Case__c);
         }

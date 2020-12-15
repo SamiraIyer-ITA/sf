@@ -6,4 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>ITA Read Only Access</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Data_Admin</parentRole>
 </Role>
