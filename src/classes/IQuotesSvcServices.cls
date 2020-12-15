@@ -5,4 +5,5 @@
  */
 public interface IQuotesSvcServices extends IQuotesSvcBase {
 
+	void updateOpportunitySOWAppproved(List<SObject> records, Map<Id, SObject> existingRecords);
 }

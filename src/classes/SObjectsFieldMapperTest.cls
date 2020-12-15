@@ -19,8 +19,10 @@ private class SObjectsFieldMapperTest {
 
 	@IsTest
 	static void testFieldMapping() {
-		Contact con = [SELECT AccountId, Account.Description FROM Contact LIMIT 1];
+		Contact con = [SELECT Id, AccountId, Account.Description FROM Contact LIMIT 1];
 		Contact testContact  = (Contact) new MockContactMapper().getTargetRecord(con);
+		testContact = (Contact) new MockContactMapper().getTargetRecord(con, con.Id);
+		testContact = (Contact) new MockContactMapperWithRecordType().getTargetRecord(con);
 		System.assertEquals(con.AccountId, testContact.AccountId);
 		System.assertEquals('Test', testContact.FirstName);
 		System.assertEquals('Contact 2', testContact.LastName);
@@ -29,6 +31,34 @@ private class SObjectsFieldMapperTest {
 	}
 
 	private class MockContactMapper extends SObjectsFieldMapper {
+
+		public override Schema.SObjectType targetSObjectType() {
+			return Contact.SObjectType;
+		}
+
+		public override Map<String, String> targetFieldsBySourceFields() {
+			return new Map<String, String>{
+				'AccountId' => 'AccountId',
+				'Account.Description' => 'Description'
+			};
+		}
+
+		public override void setAdditionalTargetRecordFields(SObject targetRecord) {
+			targetRecord.put('Email', 'testContact2@test.org');
+			targetRecord.put('FirstName', 'Test');
+			targetRecord.put('LastName', 'Contact 2');
+		}
+
+		public override void setValuesBySourceRecordCriteria(SObject sourceRecord, SObject targetRecord) {
+			targetRecord.put('Title', 'Test Title');
+		}
+	}
+
+	private class MockContactMapperWithRecordType extends SObjectsFieldMapper {
+
+		public MockContactMapperWithRecordType() {
+			super('ITA_Contacts');
+		}
 
 		public override Schema.SObjectType targetSObjectType() {
 			return Contact.SObjectType;
