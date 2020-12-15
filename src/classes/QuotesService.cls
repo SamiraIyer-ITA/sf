@@ -47,4 +47,8 @@ public with sharing class QuotesService {
 	@TestVisible private static ITriggerImpl triggerService(List<SObject> records, Map<Id, SObject> existingRecords) {
 		return new QuotesImplManager(records, existingRecords).triggerService();
 	}
+
+	public static void handleAfterUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
+		triggerService(records, existingRecords).handleAfterUpdate();
+	}
 }

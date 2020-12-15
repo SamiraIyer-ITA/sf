@@ -1176,6 +1176,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>SOW_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When Opportunity Record Type equals Services, the Quote Record Type equals Services, and Quote Status equals Approved this is set to true.</description>
+        <externalId>false</externalId>
+        <label>SOW Approved</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Site__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
@@ -3123,6 +3134,22 @@
         <errorConditionFormula>ISBLANK(AccountId)</errorConditionFormula>
         <errorDisplayField>AccountId</errorDisplayField>
         <errorMessage>Organization is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Svc_Require_CP_When_Conf_Call_Completed</fullName>
+        <active>true</active>
+        <description>Require a value for Collection Post when Conference Call Completed and the record type is Services.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Services&quot;, Conference_Call_Completed__c = TRUE, ISBLANK(Collection_Post__c))</errorConditionFormula>
+        <errorDisplayField>Collection_Post__c</errorDisplayField>
+        <errorMessage>Collection Post is required when Conference Call Completed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Svc_Require_FP_When_Conf_Call_Completed</fullName>
+        <active>true</active>
+        <description>Require a value for Fulfillment Post when Conference Call Completed and record type is Services.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Services&quot;, Conference_Call_Completed__c = TRUE, ISBLANK(Fulfillment_Post__c))</errorConditionFormula>
+        <errorDisplayField>Fulfillment_Post__c</errorDisplayField>
+        <errorMessage>Fulfillment Post is required when Conference Call Completed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>V04Require_value_if_opportunity_is_lost</fullName>

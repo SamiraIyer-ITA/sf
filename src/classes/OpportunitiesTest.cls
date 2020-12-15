@@ -3,21 +3,26 @@ private class OpportunitiesTest {
 
 	static Map<String, Id> recordTypeMap = Utils.getRecordTypeMapBySObject(Opportunity.SObjectType);
 	static Id orderServicesRecordTypeId = Utils.getRecordTypeIdBySObjectAndRecordTypeDeveloperName(Order.SObjectType, 'Services');
-	static Id orderEventsRecordTypeId = Utils.getRecordTypeIdBySObjectAndRecordTypeDeveloperName(Order.SObjectType, 'Events');
 	static Id contractParticipationAgreementRecordTypeId
 		= Utils.getRecordTypeIdBySObjectAndRecordTypeDeveloperName(Contract.SObjectType, 'Participation_Agreement');
 	static Id accountId = fflib_IDGenerator.generate(Account.SObjectType);
 	static Id opportunityId = fflib_IDGenerator.generate(Opportunity.SObjectType);
 	static Id companyQuestionnaireId = fflib_IDGenerator.generate(Client_Form__c.SObjectType);
+	static Id quoteId = fflib_IDGenerator.generate(Quote.SObjectType);
+	static Id pricebookId = fflib_IDGenerator.generate(Pricebook2.SObjectType);
 
 	private static Opportunity getContractOrderOpportunity(String recordTypeDeveloperName, String stageName) {
 		Opportunity opp = new Opportunity(
 			Id = opportunityId,
 			AccountId = accountId,
+			SyncedQuoteId = quoteId,
+			Pricebook2Id = pricebookId,
+			Company_Questionnaire__c = companyQuestionnaireId,
+			Export_Ready__c = 'Yes',
+			Conference_Call_Scheduled__c = true,
+			Conference_Call_Completed__c = true,
 			Name = 'Test ' + recordTypeDeveloperName + ' Opp',
 			CloseDate = Date.today(),
-			Export_Ready__c = 'Yes',
-			Company_Questionnaire__c = companyQuestionnaireId,
 			RecordTypeId = recordTypeMap.get(recordTypeDeveloperName),
 			StageName = stageName,
 			Requested_Service_Start_Date__c	= Date.today(),
@@ -55,99 +60,61 @@ private class OpportunitiesTest {
 	}
 
 	@IsTest
-	static void test_OnAfterInsert_CreateEventsContractsAndOrdersWhenNeedsAnalysis_NoDml() {
+	static void test_OnBeforeUpdate_CreateServicesContractOrderAndOrderItemsWhenSOWApproved_NoDml() {
 		// Given - Create mocks
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
+		IQuotesSelector mockQuoteSelector = (IQuotesSelector) mocks.mock(IQuotesSelector.class);
 
 		// Given - Inject mocks
 		fflibext_Application.UnitOfWork.setMock(mockUow);
 
 		// Given - Create mock data
-		Opportunity testOpp = getContractOrderOpportunity('Events', 'Needs Analysis');
-
-		// When - Use the test database to mock an onBeforeInsert
-		fflib_SObjectDomain.Test.Database.onInsert(new List<Opportunity>{ testOpp });
-		fflib_SObjectDomain.triggerHandler(Opportunities.class);
-
-		// Then - Verify our unit of work
-		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(1)
-			.description('Verify a contract and order were created with correct values')))
-			.registerNew(fflib_Match.sObjectsWith(
-				new List<Map<SObjectField, Object>> {
-					new Map<SObjectField, Object> {
-						Contract.AccountId => accountId,
-						Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
-						Contract.StartDate => testOpp.CloseDate,
-						Contract.ContractTerm => 12
-					},
-					new Map<SObjectField,Object> {
-						Order.OpportunityId => opportunityId,
-						Order.AccountId => accountId,
-						Order.Status => 'Draft',
-						Order.EffectiveDate => testOpp.Requested_Service_Start_Date__c,
-						Order.EndDate => testOpp.Requested_Service_End_Date__c,
-						Order.Type => 'Events',
-						Order.RecordTypeId => orderEventsRecordTypeId
-					}
-				}
-			));
-	}
-
-	@IsTest
-	static void test_OnAfterInsert_CreateServicesContractsAndOrdersWhenNeedsAnalysis_NoDml() {
-		// Given - Create mocks
-		fflib_ApexMocks mocks = new fflib_ApexMocks();
-		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
-
-		// Given - Inject mocks
-		fflibext_Application.UnitOfWork.setMock(mockUow);
-
-		// Given - Create mock data
-		Opportunity testOpp = getContractOrderOpportunity('Services', 'Needs Analysis');
-
-		// When - Use the test database to mock an onBeforeInsert
-		fflib_SObjectDomain.Test.Database.onInsert(new List<Opportunity>{ testOpp });
-		fflib_SObjectDomain.triggerHandler(Opportunities.class);
-
-		// Then - Verify our unit of work
-		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(1)
-			.description('Verify a contract and order were created with correct values')))
-			.registerNew(fflib_Match.sObjectsWith(
-				new List<Map<SObjectField, Object>> {
-					new Map<SObjectField, Object> {
-							Contract.AccountId => accountId,
-							Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
-							Contract.StartDate => testOpp.CloseDate,
-							Contract.ContractTerm => 12
-					},
-					new Map<SObjectField,Object> {
-						Order.OpportunityId => opportunityId,
-						Order.AccountId => accountId,
-						Order.Status => 'Draft',
-						Order.EffectiveDate => testOpp.Requested_Service_Start_Date__c,
-						Order.EndDate => testOpp.Requested_Service_End_Date__c,
-						Order.Type => 'Services',
-						Order.RecordTypeId => orderServicesRecordTypeId
-					}
-				}
-			));
-	}
-
-	@IsTest
-	static void test_OnBeforeUpdate_CreateEventsContractsAndOrdersWhenNeedsAnalysis_NoDml() {
-		// Given - Create mocks
-		fflib_ApexMocks mocks = new fflib_ApexMocks();
-		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
-
-		// Given - Inject mocks
-		fflibext_Application.UnitOfWork.setMock(mockUow);
-
-		// Given - Create mock data
-		Opportunity existingTestOpp = getContractOrderOpportunity('Events', 'Qualification');
-
+		Opportunity existingTestOpp = getContractOrderOpportunity('Services', 'Proposal/Price Quote');
 		Opportunity testOpp = existingTestOpp.clone(true, true, false, false);
-		testOpp.StageName = 'Needs Analysis';
+		testOpp.SOW_Approved__c = true;
+
+		Id productId = fflib_IDGenerator.generate(Product2.SObjectType);
+		Product2 testProduct = new Product2(
+			Name = 'Test Product'
+		);
+
+		Quote testQuote = new Quote(Id = quoteId, OpportunityId = opportunityId);
+		QuoteLineItem testQuoteLineItem = new QuoteLineItem(
+			Id = fflib_IDGenerator.generate(QuoteLineItem.SObjectType),
+			Product2 = testProduct,
+			Product2Id = productId,
+			Description = 'Test Product Quote',
+			PricebookEntryId = fflib_IDGenerator.generate(PricebookEntry.SObjectType),
+			Quantity = 1,
+			ServiceDate = Date.today(),
+			UnitPrice = 100.00,
+			Statement_of_Work__c = 'SOW'
+		);
+
+		testQuoteLineItem = (QuoteLineItem) fflib_ApexMocksUtils.setReadOnlyFields(
+			testQuoteLineItem,
+			QuoteLineItem.class,
+			new Map<SObjectField, Object>{ QuoteLineItem.IsPrimary__c => true }
+		);
+		List<QuoteLineItem> testQuoteLineItems = new List<QuoteLineItem>{ testQuoteLineItem };
+
+		// Make relationship between Quote and QuoteLineItems
+		List<Quote> mockQuotes = (List<Quote>)
+			fflib_ApexMocksUtils.makeRelationship(
+				List<Quote>.class,
+				new List<Quote> { testQuote },
+				QuoteLineItem.QuoteId,
+				new List<List<QuoteLineItem>> { testQuoteLineItems });
+
+		mocks.startStubbing();
+		mocks.when(mockQuoteSelector.sObjectType()).thenReturn(Quote.SObjectType);
+		mocks.when(mockQuoteSelector.selectBySyncedQuotesAndOpportunitiesWithPrimaryLineItems(new Set<Id>{ opportunityId }))
+			.thenReturn(mockQuotes);
+		mocks.stopStubbing();
+
+		// Given - Inject mocks
+		fflibext_Application.Selector.setMock(mockQuoteSelector);
 
 		// When - Use the test database to mock an onBeforeUpdate
 		fflib_SObjectDomain.Test.Database.onUpdate(
@@ -163,82 +130,53 @@ private class OpportunitiesTest {
 			.description('Verify a contract and order were created with correct values')))
 			.registerNew(fflib_Match.sObjectsWith(
 				new List<Map<SObjectField, Object>> {
-					new Map<SObjectField, Object> {
-						Contract.AccountId => accountId,
-						Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
-						Contract.StartDate => testOpp.CloseDate,
-						Contract.ContractTerm => 12
+					new Map<SObjectField, Object>{
+						OrderItem.QuoteLineItemId 	=> testQuoteLineItems[0].Id,
+						OrderItem.Description		=> testQuoteLineItems[0].Description,
+						OrderItem.ListPrice			=> testQuoteLineItems[0].ListPrice,
+						OrderItem.Product2Id		=> testQuoteLineItems[0].Product2Id,
+						OrderItem.PricebookEntryId  => testQuoteLineItems[0].PricebookEntryId,
+						OrderItem.Quantity			=> testQuoteLineItems[0].Quantity,
+						OrderItem.ServiceDate		=> testQuoteLineItems[0].ServiceDate,
+						OrderItem.UnitPrice			=> testQuoteLineItems[0].UnitPrice
 					},
-					new Map<SObjectField,Object> {
-						Order.OpportunityId => opportunityId,
-						Order.AccountId => accountId,
-						Order.Status => 'Draft',
-						Order.EffectiveDate => testOpp.Requested_Service_Start_Date__c,
-						Order.EndDate => testOpp.Requested_Service_End_Date__c,
-						Order.Type => 'Events',
-						Order.RecordTypeId => orderEventsRecordTypeId
+					new Map<SObjectField, Object>{
+						Order.RecordTypeId 				=> orderServicesRecordTypeId,
+						Order.Name 						=> 'Order-Test Services Opp',
+						Order.OpportunityId				=> testOpp.Id,
+						Order.AccountId 				=> testOpp.AccountId,
+						Order.QuoteId 					=> testOpp.SyncedQuoteId,
+						Order.Pricebook2Id 				=> testOpp.Pricebook2Id,
+						Order.Status 					=> 'Draft',
+						Order.EffectiveDate 			=> testOpp.Requested_Service_Start_Date__c,
+						Order.EndDate 					=> testOpp.Requested_Service_End_Date__c,
+						Order.Type 						=> 'Services',
+						Order.Mid_Term_Report_Status__c => 'Not Required',
+						Order.Final_Report_Status__c	=> 'Required',
+						Order.Official_Letter_Status__c	=> 'Not Required'
+					},
+					new Map<SObjectField, Object>{
+						Contract.RecordTypeId 			=> contractParticipationAgreementRecordTypeId,
+						Contract.AccountId 				=> testOpp.AccountId,
+						Contract.Pricebook2Id 			=> testOpp.Pricebook2Id,
+						Contract.ContractTerm 			=> 12,
+						Contract.StartDate 				=> testOpp.Requested_Service_Start_Date__c,
+						Contract.Status					=> 'Draft',
+						Contract.Statement_of_Work__c	=> testQuoteLineItems[0].Statement_of_Work__c
 					}
 				}
-			));
-	}
-
-	@IsTest
-	static void test_OnBeforeUpdate_CreateServicesContractsAndOrdersWhenNeedsAnalysis_NoDml() {
-		// Given - Create mocks
-		fflib_ApexMocks mocks = new fflib_ApexMocks();
-		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
-
-		// Given - Inject mocks
-		fflibext_Application.UnitOfWork.setMock(mockUow);
-
-		// Given - Create mock data
-		Opportunity existingTestOpp = getContractOrderOpportunity('Services', 'Qualification');
-
-		Opportunity testOpp = existingTestOpp.clone(true, true, false, false);
-		testOpp.StageName = 'Needs Analysis';
-
-		// When - Use the test database to mock an onBeforeUpdate
-		fflib_SObjectDomain.Test.Database.onUpdate(
-			new List<Opportunity>{ testOpp },
-			new Map<Id, Opportunity>(
-				new List<Opportunity>{ existingTestOpp }
-			)
-		);
-		fflib_SObjectDomain.triggerHandler(Opportunities.class);
-
-		// Then - Verify our unit of work
-		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(1)
-			.description('Verify a contract and order were created with correct values')))
-			.registerNew(fflib_Match.sObjectsWith(
-			new List<Map<SObjectField, Object>> {
-				new Map<SObjectField, Object> {
-					Contract.AccountId => accountId,
-					Contract.RecordTypeId => contractParticipationAgreementRecordTypeId,
-					Contract.StartDate => testOpp.CloseDate,
-					Contract.ContractTerm => 12
-				},
-				new Map<SObjectField,Object> {
-					Order.OpportunityId => opportunityId,
-					Order.AccountId => accountId,
-					Order.Status => 'Draft',
-					Order.EffectiveDate => testOpp.Requested_Service_Start_Date__c,
-					Order.EndDate => testOpp.Requested_Service_End_Date__c,
-					Order.Type => 'Services',
-					Order.RecordTypeId => orderServicesRecordTypeId
-				}
-			}
 		));
 	}
 
 	@IsTest
-	static void test_OnBeforeUpdate_VerifyEventsOrdersAreNotCreatedMoreThanOnceWhenNeedsAnalysis_NoDml() {
+	static void test_OnBeforeUpdate_VerifyServicesContractsOrdersAndOrderItemsAreNotCreatedMoreThanOnceWhenSOWApproved_NoDml() {
 		// Given - Create mocks
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
 		IOrdersSelector mockSelector = (IOrdersSelector) mocks.mock(IOrdersSelector.class);
 
 		// Given - Create mock data
-		Opportunity testOpp = getContractOrderOpportunity('Events', 'Needs Analysis');
+		Opportunity testOpp = getContractOrderOpportunity('Services', 'Proposal/Price Quote');
 
 		// Create mock data with an order using the opportunity Id in our update method
 		List<Order> mockOrders = new List<Order>{
@@ -276,123 +214,6 @@ private class OpportunitiesTest {
 		fflib_SObjectDomain.triggerHandler(Opportunities.class);
 
 		// Then - Verify our unit of work
-		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(0)
-			.description('Verify no contract and order were created')))
-			.registerNew(new List<SObject>());
-		((IOrdersSelector)
-			mocks.verify(mockSelector)).selectOrdersByOpportunities(testOppSet);
-	}
-
-	@IsTest
-	static void test_OnBeforeUpdate_VerifyServicesOrdersAreNotCreatedMoreThanOnceWhenNeedsAnalysis_NoDml() {
-		// Given - Create mocks
-		fflib_ApexMocks mocks = new fflib_ApexMocks();
-		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
-		IOrdersSelector mockSelector = (IOrdersSelector) mocks.mock(IOrdersSelector.class);
-
-		// Given - Create mock data
-		Opportunity testOpp = getContractOrderOpportunity('Services', 'Needs Analysis');
-
-		// Create mock data with an order using the opportunity Id in our update method
-		List<Order> mockOrders = new List<Order>{
-			new Order(
-				Id = fflib_IDGenerator.generate(Order.SObjectType),
-				AccountId = accountId,
-				OpportunityId = opportunityId,
-				Status = 'Draft',
-				EffectiveDate = Date.today()
-			)
-		};
-		Set<Id> testOppSet = new Set<Id>{ opportunityId };
-
-		mocks.startStubbing();
-		mocks.when(mockSelector.sObjectType()).thenReturn(Order.SObjectType);
-		mocks.when(mockSelector.selectOrdersByOpportunities(new Set<Id>{ opportunityId }))
-			.thenReturn(mockOrders);
-		mocks.stopStubbing();
-
-		// Given - Inject mocks
-		fflibext_Application.Selector.setMock(mockSelector);
-		fflibext_Application.UnitOfWork.setMock(mockUow);
-
-		// When - Use the test database to mock an onBeforeUpdate
-		fflib_SObjectDomain.Test.Database.onUpdate(
-			new List<Opportunity>{ testOpp },
-			new Map<Id, Opportunity>(
-				new List<Opportunity>{
-					new Opportunity(
-						Id = opportunityId
-					)
-				}
-			)
-		);
-		fflib_SObjectDomain.triggerHandler(Opportunities.class);
-
-		// Then - Verify our unit of work
-		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(0)
-			.description('Verify no contract and order were created')))
-			.registerNew(new List<SObject>());
-		((IOrdersSelector)
-			mocks.verify(mockSelector)).selectOrdersByOpportunities(testOppSet);
-	}
-
-	@IsTest
-	static void test_OnBeforeUpdate_VerifyEventsContractsAreNotCreatedMoreThanOnceWhenNeedsAnalysis_NoDml() {
-		// Given - Create mocks
-		fflib_ApexMocks mocks = new fflib_ApexMocks();
-		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
-
-		// Given - Inject mocks
-		fflibext_Application.UnitOfWork.setMock(mockUow);
-
-		// Given - Create mock data
-		Opportunity testOpp = getContractOrderOpportunity('Events', 'Needs Analysis');
-
-		// When - Pass an opportunity with a contract Id so it will not create a new one
-		fflib_SObjectDomain.Test.Database.onUpdate(
-			new List<Opportunity>{ testOpp },
-			new Map<Id, Opportunity>(
-				new List<Opportunity>{
-					new Opportunity(
-						Id = opportunityId
-					)
-				}
-			)
-		);
-		fflib_SObjectDomain.triggerHandler(Opportunities.class);
-
-		// Then
-		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(0)
-			.description('Verify no contract and order were created')))
-			.registerNew(new List<SObject>());
-	}
-
-	@IsTest
-	static void test_OnBeforeUpdate_VerifyServicesContractsAreNotCreatedMoreThanOnceWhenNeedsAnalysis_NoDml() {
-		// Given - Create mocks
-		fflib_ApexMocks mocks = new fflib_ApexMocks();
-		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
-
-		// Given - Inject mocks
-		fflibext_Application.UnitOfWork.setMock(mockUow);
-
-		// Given - Create mock data
-		Opportunity testOpp = getContractOrderOpportunity('Services', 'Needs Analysis');
-
-		// When - Use the test database to mock an onBeforeUpdate
-		fflib_SObjectDomain.Test.Database.onUpdate(
-			new List<Opportunity>{ testOpp },
-			new Map<Id, Opportunity>(
-				new List<Opportunity>{
-					new Opportunity(
-						Id = opportunityId
-					)
-				}
-			)
-		);
-		fflib_SObjectDomain.triggerHandler(Opportunities.class);
-
-		// Then
 		((fflibext_ISObjectUnitOfWork)mocks.verify(mockUow, mocks.times(0)
 			.description('Verify no contract and order were created')))
 			.registerNew(new List<SObject>());

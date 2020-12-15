@@ -30,4 +30,13 @@ public class OpportunitiesImplManager extends SObjectsImplManager {
 	public OpportunitiesImplManager(List<SObject> records, Map<Id, SObject> existingRecords) {
 		super(records, existingRecords);
 	}
+
+	/**
+	 * Call this when you need to call methods for IOpportunitiesSvcServices
+	 *
+	 * @return IOpportunitiesSvcServices
+	 */
+	public static IOpportunitiesSvcServices servicesService() {
+		return (IOpportunitiesSvcServices) service.newInstance(IOpportunitiesSvcServices.class);
+	}
 }

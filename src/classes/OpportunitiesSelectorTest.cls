@@ -7,4 +7,12 @@ private class OpportunitiesSelectorTest {
 		System.assertNotEquals(null, result, 'Selector returned null instead of list');
 		System.assertEquals(0, result.size(), 'List not empty');
 	}
+
+	@IsTest
+	static void testSelectByIdNoContractNoOrdersServicesQuoteApproved() {
+		List<Opportunity> result = OpportunitiesSelector.newInstance()
+			.selectByIdNoContractNoOrdersSowApproved(new Set<Id> {});
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertEquals(0, result.size(), 'List not empty');
+	}
 }
