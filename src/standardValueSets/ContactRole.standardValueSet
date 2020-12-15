@@ -21,4 +21,14 @@
         <default>false</default>
         <label>Fulfillment Contact</label>
     </standardValue>
+    <standardValue>
+        <fullName>Alternate Contact</fullName>
+        <default>false</default>
+        <label>Alternate Contact</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Overseas Contact</fullName>
+        <default>false</default>
+        <label>Overseas Contact</label>
+    </standardValue>
 </StandardValueSet>

@@ -2080,7 +2080,6 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
     </fields>
     <fields>
         <fullName>Service_Request_Country__c</fullName>
-        <description>Service Request Country</description>
         <externalId>false</externalId>
         <label>Service Request Country</label>
         <required>false</required>
@@ -2088,7 +2087,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
+            <valueSetName>Country_1</valueSetName>
         </valueSet>
     </fields>
     <fields>
@@ -4272,17 +4271,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Service_Request_Country__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>SourceTechnology__c</picklist>
             <values>
                 <fullName>API</fullName>
@@ -6077,17 +6065,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             <picklist>Referred_To__c</picklist>
             <values>
                 <fullName>SBA</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Service_Request_Country__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7897,17 +7874,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Service_Request_Country__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>SourceTechnology__c</picklist>
             <values>
                 <fullName>API</fullName>
@@ -9559,17 +9525,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             <picklist>Referred_To__c</picklist>
             <values>
                 <fullName>SBA</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Service_Request_Country__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -891,68 +891,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Reason_Lost__c</fullName>
-        <description>Reason opportunity was lost</description>
-        <externalId>false</externalId>
-        <label>Reason Lost</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Cost</fullName>
-                    <default>false</default>
-                    <label>Cost</label>
-                </value>
-                <value>
-                    <fullName>Customer</fullName>
-                    <default>false</default>
-                    <label>Customer</label>
-                </value>
-                <value>
-                    <fullName>Withdrawal</fullName>
-                    <default>false</default>
-                    <label>Withdrawal</label>
-                </value>
-                <value>
-                    <fullName>Mutual Decision</fullName>
-                    <default>false</default>
-                    <label>Mutual Decision</label>
-                </value>
-                <value>
-                    <fullName>Post unable to fulfill</fullName>
-                    <default>false</default>
-                    <label>Post unable to fulfill</label>
-                </value>
-                <value>
-                    <fullName>Timing</fullName>
-                    <default>false</default>
-                    <label>Timing</label>
-                </value>
-                <value>
-                    <fullName>No Longer Qualify</fullName>
-                    <default>false</default>
-                    <label>No Longer Qualify</label>
-                </value>
-                <value>
-                    <fullName>Lack of Market Potential</fullName>
-                    <default>false</default>
-                    <label>Lack of Market Potential</label>
-                </value>
-                <value>
-                    <fullName>Travel Restrictions</fullName>
-                    <default>false</default>
-                    <label>Travel Restrictions</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Know_financing_payment_options__c</fullName>
         <description>Field data to be copied over from Lead upon conversion. Necessary for early stage nurturing.</description>
         <externalId>false</externalId>
@@ -1129,6 +1067,78 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reason_Lost_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason Lost Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Reason_Lost__c</fullName>
+        <description>Reason opportunity was lost</description>
+        <externalId>false</externalId>
+        <label>Reason Lost</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cost</fullName>
+                    <default>false</default>
+                    <label>Cost</label>
+                </value>
+                <value>
+                    <fullName>Customer</fullName>
+                    <default>false</default>
+                    <label>Customer</label>
+                </value>
+                <value>
+                    <fullName>Withdrawal</fullName>
+                    <default>false</default>
+                    <label>Withdrawal</label>
+                </value>
+                <value>
+                    <fullName>Mutual Decision</fullName>
+                    <default>false</default>
+                    <label>Mutual Decision</label>
+                </value>
+                <value>
+                    <fullName>Post unable to fulfill</fullName>
+                    <default>false</default>
+                    <label>Post unable to fulfill</label>
+                </value>
+                <value>
+                    <fullName>Timing</fullName>
+                    <default>false</default>
+                    <label>Timing</label>
+                </value>
+                <value>
+                    <fullName>No Longer Qualify</fullName>
+                    <default>false</default>
+                    <label>No Longer Qualify</label>
+                </value>
+                <value>
+                    <fullName>Lack of Market Potential</fullName>
+                    <default>false</default>
+                    <label>Lack of Market Potential</label>
+                </value>
+                <value>
+                    <fullName>Travel Restrictions</fullName>
+                    <default>false</default>
+                    <label>Travel Restrictions</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
