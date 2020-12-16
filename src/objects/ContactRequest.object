@@ -8801,7 +8801,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
+                <fullName>Laos</fullName>
                 <default>false</default>
             </values>
             <values>
