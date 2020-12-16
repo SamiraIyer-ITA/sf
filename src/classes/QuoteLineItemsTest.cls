@@ -334,7 +334,7 @@ private class QuoteLineItemsTest {
 	}
 
 	@IsTest
-	static void test_OnBeforeDelete_RemoveServicesQuotePrimaryProductFamilyWhenDeleted() {
+	static void test_OnBeforeDelete_setServicesQuoteFieldsWhenPrimaryProductDeleted() {
 		// Given - Create mocks
 		fflib_ApexMocks mocks = new fflib_ApexMocks();
 		fflibext_ISObjectUnitOfWork mockUow = (fflibext_ISObjectUnitOfWork) mocks.mock(fflibext_ISObjectUnitOfWork.class);
@@ -374,7 +374,8 @@ private class QuoteLineItemsTest {
 			.registerDirty(fflib_Match.sObjectWith(
 				new Map<SObjectField, Object>{
 					Quote.Id => testQuote.Id,
-					Quote.PrimaryProductFamily__c	=> null
+					Quote.PrimaryProductFamily__c	=> null,
+					Quote.Client_Form__c 			=> null
 				}
 		));
 	}
