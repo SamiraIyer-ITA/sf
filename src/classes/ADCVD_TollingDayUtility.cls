@@ -104,18 +104,16 @@ public without sharing class ADCVD_TollingDayUtility {
 	}
 
 	public static Date getCalculatedDateNoTolling(Date startDate, Date deadline, Id recordId) {
-		recordSpecificTollingDayList = recordId != null ? setRecordSpecificTollingDayList(recordId) : new List<Tolling_Day__c>();
-		deadline = deadlineWithTollingDays(startDate, deadline);
 		deadline = rollForwardNextBusinessDayNoTolling(deadline);
 		return deadline;
 	}
 
 	/* Method used to determine the value of the deadline with tolling days taken into account
-	*  Input Params: 	startDate:  	should be passed in to determine how many of the days are in scope 
+	*  Input Params: 	startDate:  	should be passed in to determine how many of the days are in scope
 	*					deadline: 	 	this is the current deadline (without tolling days in scope)
 	*  Return Value: New deadline
 	*  (e.g. petition start should be 'start date' for a petition)
-	*/ 
+	*/
 	@TestVisible private static Date deadlineWithTollingDays(Date startDate, Date deadline){
 		//iterate through each tolling day in scope
 		List<Date> dateList = new List<Date>(tollingDaySet);
@@ -160,12 +158,12 @@ public without sharing class ADCVD_TollingDayUtility {
 		//dayOfWeek is Sun, Mon, Tue, etc.
 		//get timezone offset of user;
 		Integer offset = UserInfo.getTimeZone().getOffset(DateTime.newInstance(dt.year(),dt.month(),dt.day(),0,0,0));
-		//offest time by 
+		//offest time by
 		Time myTime = Time.newInstance(0, 0, 0, offset);
 		DateTime dateTimeToCompare = DateTime.newInstanceGmt(dt, mytime);
 		return dayOfWeek(dateTimeToCompare);
 	}
-	
+
 /*	public static Boolean isHoliday(Date dt) {
 		return holidaySet.contains(dt);
 	}

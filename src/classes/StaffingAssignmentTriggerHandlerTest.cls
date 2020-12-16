@@ -123,7 +123,8 @@ public class StaffingAssignmentTriggerHandlerTest {
                     ADCVD_Case__c = c.Id,
                     Petition__c = p.Id,
                     Staff_Parent__c = 'Petition__c',
-                    User__c = testUser.Id
+                    User__c = testUser.Id,
+                    Title__c = 'Analyst'
             );
             insert sa;
             sa.Title__c = 'Analyst';

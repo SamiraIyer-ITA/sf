@@ -268,7 +268,7 @@
                 <field>Commodity_Text__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Period_Covered_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -290,7 +290,7 @@
                 <field>CBP_Case_Number_Text__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Period_Covered_End_Date__c</field>
             </layoutItems>
         </layoutColumns>
