@@ -1972,26 +1972,6 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
                     <default>false</default>
                     <label>Product Not Helpful</label>
                 </value>
-                <value>
-                     <fullName>Unreasonable Time Frame</fullName>
-                     <default>false</default>
-                     <label>Unreasonable Time Frame</label>
-                 </value>
-                 <value>
-                     <fullName>Staff Availability</fullName>
-                     <default>false</default>
-                     <label>Staff Availability</label>
-                 </value>
-                 <value>
-                     <fullName>Not Eligible for Export Promo</fullName>
-                     <default>false</default>
-                     <label>Not Eligible for Export Promo</label>
-                 </value>
-                 <value>
-                     <fullName>Not Minimally Export Ready</fullName>
-                     <default>false</default>
-                     <label>Not Minimally Export Ready</label>
-                 </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -2051,50 +2031,9 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
                     <default>false</default>
                     <label>SBA</label>
                 </value>
-                <value>
-                     <fullName>SCORE</fullName>
-                     <default>false</default>
-                     <label>SCORE</label>
-                 </value>
-                 <value>
-                     <fullName>World Trade Center</fullName>
-                     <default>false</default>
-                     <label>World Trade Center</label>
-                 </value>
-                 <value>
-                     <fullName>AmCham</fullName>
-                     <default>false</default>
-                     <label>AmCham</label>
-                 </value>
-                 <value>
-                     <fullName>DEC</fullName>
-                     <default>false</default>
-                     <label>DEC</label>
-                 </value>
-                 <value>
-                     <fullName>Service Provider</fullName>
-                     <default>false</default>
-                     <label>Service Provider</label>
-                 </value>
-                 <value>
-                     <fullName>Other</fullName>
-                     <default>false</default>
-                     <label>Other</label>
-                 </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
-    <fields>
-         <fullName>Referred_To_Other__c</fullName>
-         <externalId>false</externalId>
-         <label>Referred To Other</label>
-         <length>255</length>
-         <required>false</required>
-         <trackFeedHistory>false</trackFeedHistory>
-         <trackHistory>false</trackHistory>
-         <type>Text</type>
-         <unique>false</unique>
-     </fields>
     <fields>
         <fullName>Registrant__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -4318,33 +4257,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Reason_Not_Converted__c</picklist>
-            <values>
-                <fullName>Product Not Helpful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unqualified</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unreasonable Time Frame</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Staff Availability</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Eligible for Export Promo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Minimally Export Ready</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -4355,30 +4267,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             <picklist>Referred_To__c</picklist>
             <values>
                 <fullName>SBA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SCORE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>World Trade Center</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AmCham</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DEC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Provider</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9810,13 +9698,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
         <errorDisplayField>Reason_Not_Converted__c</errorDisplayField>
         <errorMessage>You must state a reason for not converting this lead</errorMessage>
     </validationRules>
-    <validationRules>
-         <fullName>V03Require_value_if_Referred_To_Other</fullName>
-         <active>true</active>
-         <description>Require value for Referred To Other if criteria applies</description>
-         <errorConditionFormula>ISPICKVAL(Referred_To__c,&apos;Other&apos;) &amp;&amp; ISBLANK(Referred_To_Other__c) &amp;&amp; RecordType.DeveloperName = &quot;Export&quot;</errorConditionFormula>         <errorDisplayField>Referred_To_Other__c</errorDisplayField>
-         <errorMessage>When marking Referred To as "other" this field cannot be blank.</errorMessage>
-     </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>
         <availability>online</availability>
