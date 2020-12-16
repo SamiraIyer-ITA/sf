@@ -206,7 +206,7 @@
                 <value>
                     <fullName>My trade gov account</fullName>
                     <default>false</default>
-                    <label>My trade gov account</label>
+                    <label>My trade.gov account</label>
                 </value>
                 <value>
                     <fullName>Media inquiry (* media members only)</fullName>
@@ -216,12 +216,7 @@
                 <value>
                     <fullName>Issue with the website</fullName>
                     <default>false</default>
-                    <label>Report a website issue</label>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                    <label>Other</label>
+                    <label>Report a Trade.gov site issue</label>
                 </value>
                 <value>
                     <fullName>Contacting a local trade or export assistance expert (*limited availability)</fullName>
@@ -401,14 +396,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kuwait</fullName>
                 <default>false</default>
             </values>
@@ -449,6 +436,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>North Korea</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Norway</fullName>
                 <default>false</default>
             </values>
@@ -485,7 +476,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Russian Federation</fullName>
+                <fullName>Russia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -509,6 +500,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>South Korea</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Spain</fullName>
                 <default>false</default>
             </values>
@@ -521,7 +516,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
+                <fullName>Tanzania</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -577,10 +572,6 @@
             </values>
             <values>
                 <fullName>My trade gov account</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>

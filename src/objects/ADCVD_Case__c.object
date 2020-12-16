@@ -3641,4 +3641,14 @@ IF(
         <errorMessage>Invalid ADCVD Case Number Format. For AD cases valid Case Number format should be  A-###-###. For CVD cases valid Case Number format should be C-###-###.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Update_ADCVD_Related_Records</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Update ADCVD Related Records</masterLabel>
+        <openType>replace</openType>
+        <page>ADCVDCaseBatch</page>
+        <protected>false</protected>
+    </webLinks>
 </CustomObject>

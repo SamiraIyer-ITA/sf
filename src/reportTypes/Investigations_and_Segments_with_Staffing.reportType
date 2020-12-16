@@ -12,7 +12,7 @@
         <outerJoin>true</outerJoin>
         <relationship>Segments__r</relationship>
     </join>
-    <label>Investigations and Segments With Staffing</label>
+    <label>ADCVD Inv &amp; Seg &amp; Staff</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>

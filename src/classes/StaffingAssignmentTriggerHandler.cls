@@ -15,7 +15,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
     * 4. Call services classes
     * 5. Retrieve constant values saved in custom metadata
     ***********************************************************/
-    
+
     public static void mainEntry (List<Staffing_Assignment__c> newList, List<Staffing_Assignment__c> oldList, Map<Id, Staffing_Assignment__c> newMap,
         Map<Id, Staffing_Assignment__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete,
         Boolean isBefore, Boolean isAfter) {
@@ -27,18 +27,18 @@ public without sharing class StaffingAssignmentTriggerHandler {
             initialize(newList, newMap);
             setCaseValues(newList);
             setDefaultProgramManager(newList);
-            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList));
+            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList),newList,false);
         }
         if (isBefore && isUpdate) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             setDefaultProgramManager(newList);
-            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList));
+            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList),newList,false);
         }
         if (isBefore && isDelete) {
             newList = new LockedRecordHandler().removeLockedRecords(oldList);
             initialize(oldList, oldMap);
-            validateOneProgramManager(buildStaffListByParentForDelete(oldList));
+            validateOneProgramManager(buildStaffListByParentForDelete(oldList),oldList,true);
         }
         if (isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
@@ -56,7 +56,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
     @TestVisible private static StaffingAssignmentMapper staffMapper;
     //Mapper declared that will be initialized in the initialize method
     @TestVisible private static ADCVD_CaseMapper caseMapper;
-    
+
     public class StaffingException extends Exception {}
 
     //method to initialize the caseMapper and if newMap is passed (after insert/update) it will add the new staff to the Mappers
@@ -87,7 +87,11 @@ public without sharing class StaffingAssignmentTriggerHandler {
                 parentName = 'ADCVD_Order__c';
             } else if(sa.Related_Organization__c != null) {
                 parentName = 'Related_Organization__c';
+            } else if(sa.Suspension_Agreement__c != null) {
+                parentName = 'Suspension_Agreement__c';
             }
+
+
             setSaParent(sa, parentName);
         }
         return caseIdSet;
@@ -121,14 +125,14 @@ public without sharing class StaffingAssignmentTriggerHandler {
             }
         }
     }
-    
+
     @TestVisible private static Map<Id, List<Staffing_Assignment__c>> buildStaffListByParentInsertUpdate (List<Staffing_Assignment__c> newList) {
         staffMapper = (StaffingAssignmentMapper) caseMapper.getMapper('Staffing_Assignment__c');
         Map <Id, List<Staffing_Assignment__c>> returnMap = new Map<Id, List<Staffing_Assignment__c>>();
         Set<Id> existingStaffRecords = new Set<Id>();
         //add new Staff to Map
         for (Staffing_Assignment__c sa : newList) {
-            if(sa.User__c == null) {continue;}
+            //if(sa.User__c == null) {continue;}
             if(sa.Id != null) {existingStaffRecords.add(sa.Id);}
             List<Staffing_Assignment__c> tempList = new List<Staffing_Assignment__c>();
             Id parentId = (Id)sa.get(sa.Staff_Parent__c);
@@ -139,7 +143,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
             returnMap.put(parentId, tempList);
         }
         if (staffMapper.getParentIdToStaffMap().isEmpty()) {return returnMap;}
-        
+
         //add existing Staff to Map if not already in map (keep the newest version)
         //separate iteration over newlist needed to confirm newest version is kept
         for (Id parentId : returnMap.keySet()) {
@@ -156,7 +160,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
         }
         return returnMap;
     }
-    
+
     @TestVisible private static Map<Id, List<Staffing_Assignment__c>> buildStaffListByParentForDelete (List<Staffing_Assignment__c> newList) {
         staffMapper = (StaffingAssignmentMapper) caseMapper.getMapper('Staffing_Assignment__c');
         Map <Id, List<Staffing_Assignment__c>> returnMap = new Map<Id, List<Staffing_Assignment__c>>();
@@ -167,7 +171,7 @@ public without sharing class StaffingAssignmentTriggerHandler {
             if(sa.Id != null) {staffToBeDeleted.add(sa.Id);}
             parentIdsInScope.add((Id)sa.get(sa.Staff_Parent__c));
         }
-     
+
         //add existing Staff to Map if not already in map (keep the newest version)
         //separate iteration over newlist needed to confirm newest version is kept
         for (Id parentId : parentIdsInScope) {
@@ -186,26 +190,104 @@ public without sharing class StaffingAssignmentTriggerHandler {
     }
     //Validates there is only one Staffing Assignment with Title__c == to "Program Manager" per parent
     //Iterates through staffing assignments by parent ensuring there is one and only one Program Manager per parent
-    @TestVisible private static void validateOneProgramManager (Map <Id, List<Staffing_Assignment__c>> staffListByParentMap) {
-        if (!Master_Automation__c.getInstance().ValidationRulesEnabled__c) {return;}//same allowance as declarative VRs
-        //iterate over each staff record for each parent
-        for (Id parentId : staffListByParentMap.keySet()) {
-            Staffing_Assignment__c programManager = null;
-            for (Staffing_Assignment__c sa : staffListByParentMap.get(parentId)) {
-                if (sa.Title__c != 'Program Manager') {continue;}
-                //if we already have a PM and it is not an update
-                if (programManager != null && programManager.Id != sa.Id) {
-                   // sa.User__c.addError('There must be only one Program Manager per parent record. Please remove additional Program Managers.');
-                    break;
+    @TestVisible private static void validateOneProgramManager (Map <Id, List<Staffing_Assignment__c>> staffListByParentMap,List<Staffing_Assignment__c> newList,Boolean isDelete) {
+
+        List<Staffing_Assignment__c> staffingAssignments = [SELECT Id,Suspension_Agreement__c,Title__c,User__c,Petition__c,Investigation__c,Segment__c,ADCVD_Order__c,Related_Organization__c
+                                                            FROM Staffing_Assignment__c WHERE Petition__c IN: staffListByParentMap.keySet()
+                                                            OR Investigation__c IN: staffListByParentMap.keySet()
+                                                            OR Segment__c IN: staffListByParentMap.keySet()
+                                                            OR ADCVD_Order__c IN: staffListByParentMap.keySet()
+                                                            OR Related_Organization__c IN: staffListByParentMap.keySet()
+                                                            OR Suspension_Agreement__c IN: staffListByParentMap.keySet()
+                                                             ];
+
+        Map<Id,Integer> programMangerByParent = new Map<Id,Integer>();
+        set<String> staffIdProgramManager = new set<String>();
+
+        for(Staffing_Assignment__c sa : staffingAssignments){
+
+            if(sa.Title__c=='Program Manager'){
+
+                String parentId;
+
+                if(sa.Petition__c != null) {
+                    parentId = sa.Petition__c;
+                } else if(sa.Investigation__c != null) {
+                    parentId = sa.Investigation__c;
+                } else if(sa.Segment__c != null) {
+                    parentId = sa.Segment__c;
+                } else if(sa.ADCVD_Order__c != null) {
+                    parentId = sa.ADCVD_Order__c;
+                } else if(sa.Related_Organization__c != null) {
+                    parentId = sa.Related_Organization__c;
+                } else if(sa.Suspension_Agreement__c != null) {
+                    parentId = sa.Suspension_Agreement__c;
+                }
+
+                staffIdProgramManager.add(sa.Id);
+
+                if(programMangerByParent.containsKey(parentId)){
+
+                   Integer i = programMangerByParent.get(parentId);
+                   i=i+1;
+                   programMangerByParent.put(parentId,i);
+
                 } else {
-                    programManager = sa;
+                   programMangerByParent.put(parentId,1);
+                }
+
+
+
+            }
+
+        }
+
+        for(Staffing_Assignment__c sa : newList){
+
+            if(sa.Id != null){
+
+                String parentId;
+
+                if(sa.Petition__c != null) {
+                    parentId = sa.Petition__c;
+                } else if(sa.Investigation__c != null) {
+                    parentId = sa.Investigation__c;
+                } else if(sa.Segment__c != null) {
+                    parentId = sa.Segment__c;
+                } else if(sa.ADCVD_Order__c != null) {
+                    parentId = sa.ADCVD_Order__c;
+                } else if(sa.Related_Organization__c != null) {
+                    parentId = sa.Related_Organization__c;
+                } else if(sa.Suspension_Agreement__c != null) {
+                    parentId = sa.Suspension_Agreement__c;
+                }
+
+                if(programMangerByParent.containsKey(parentId)){
+
+                   Integer i = programMangerByParent.get(parentId);
+
+                   if(i==1 && staffIdProgramManager.contains(sa.Id) && sa.Title__c != 'Program Manager'){
+
+                       sa.addError('At least one Program Manager needs to be assigned to a record.');
+
+                   } else if(isDelete && i==1 && staffIdProgramManager.contains(sa.Id) && sa.Title__c == 'Program Manager'){
+                       sa.addError('At least one Program Manager needs to be assigned to a record.');
+
+                   }
+
+                } else {
+
+                    sa.addError('At least one Program Manager needs to be assigned to a record.');
+
                 }
             }
-            if (programManager == null) {
-                System.debug('staffListByParentMap: ' + staffListByParentMap);
-                //throw new DmlException('There is no Program Manager for this parent record. Please add one to continue.');
-            }
+
         }
+
+
+
+
+
     }
     //method to add the Staff from the recent insert/update to the staffMapper, the caseMapper,
     //and update the StaffingAssignmentMapper instance in the map of selectors with the new Staff

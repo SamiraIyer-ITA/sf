@@ -1104,7 +1104,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
     </listViews>
     <listViews>
         <fullName>CP_Contact_US_2_ContactRequest</fullName>
-        <columns>Name</columns>
+        <columns>Name</columns>F
         <columns>Status</columns>
         <columns>CreatedDate</columns>
         <columns>Assigned_User__c</columns>
@@ -1223,6 +1223,36 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         <queue>CP_Contact_US_9</queue>
         <sharedTo>
             <group>CP_Contact_Us_Group9</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CP_Contact_US_10_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>RequestReason</columns>
+        <columns>Status</columns>
+        <columns>Country_1__c</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Queue#10</label>
+        <queue>CP_Contact_US_10</queue>
+        <sharedTo>
+            <group>CP_Contact_Us_Group10</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CP_Contact_US_11_ContactRequest</fullName>
+        <columns>Name</columns>
+        <columns>RequestReason</columns>
+        <columns>Status</columns>
+        <columns>Country_1__c</columns>
+        <columns>CreatedDate</columns>
+        <columns>Assigned_User__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Queue#11</label>
+        <queue>CP_Contact_US_11</queue>
+        <sharedTo>
+            <group>CP_Contact_Us_Group11</group>
         </sharedTo>
     </listViews>
     <listViews>
@@ -7660,6 +7690,15 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Trade_gov_Account_ContactRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Trade.gov Account</label>
+        <queue>CP_Contact_US_10</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Tucson_Closed_Requests</fullName>
         <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>Name</columns>
@@ -7873,6 +7912,15 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             <role>GM_Advocacy</role>
             <role>GM_Commercial_Service</role>
             <role>GM_SelectUSA</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Website_Issues_ContactRequest</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Website Issues</label>
+        <queue>CP_Contact_US_11</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
         </sharedTo>
     </listViews>
     <listViews>
@@ -8389,7 +8437,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
+                <fullName>Bolivia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8410,6 +8458,10 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8481,7 +8533,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Congo</fullName>
+                <fullName>Congo%2C Republic of the</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8561,6 +8613,10 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
+                <fullName>Eswatini</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ethiopia</fullName>
                 <default>false</default>
             </values>
@@ -8605,7 +8661,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Georgia</fullName>
+                <fullName>Georgia %28Republic%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8661,7 +8717,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
+                <fullName>Holy See</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8689,7 +8745,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Iran%2C Islamic Republic of</fullName>
+                <fullName>Iran</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8741,14 +8797,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -8761,7 +8809,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
+                <fullName>Laos</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8781,7 +8829,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
+                <fullName>Libya</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8798,10 +8846,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8849,7 +8893,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Moldova%2C Republic of</fullName>
+                <fullName>Moldova</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8925,6 +8969,14 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
+                <fullName>North Korea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>North Macedonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Norway</fullName>
                 <default>false</default>
             </values>
@@ -8934,10 +8986,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8985,7 +9033,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Russian Federation</fullName>
+                <fullName>Russia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9009,7 +9057,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Saint Martin %28French part%29</fullName>
+                <fullName>Saint Martin</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9057,7 +9105,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
+                <fullName>Sint Maarten</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9078,6 +9126,10 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>South Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korea</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9105,10 +9157,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
                 <default>false</default>
             </values>
@@ -9117,7 +9165,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
+                <fullName>Syria</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9129,7 +9177,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
+                <fullName>Tanzania</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9209,7 +9257,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
+                <fullName>Venezuela</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9217,11 +9265,11 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Virgin Islands%2C British</fullName>
+                <fullName>Wallis and Futuna</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Wallis and Futuna</fullName>
+                <fullName>West Bank and Gaza</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9260,10 +9308,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>My trade gov account</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>

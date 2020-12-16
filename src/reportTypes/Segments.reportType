@@ -2,9 +2,9 @@
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
     <baseObject>Segment__c</baseObject>
     <category>admin</category>
-    <deployed>false</deployed>
+    <deployed>true</deployed>
     <description>Segments</description>
-    <label>Segments</label>
+    <label>ADCVD Seg</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -44,16 +44,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
@@ -208,11 +198,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Calculated_Amended_Final_Signature__c</field>
             <table>Segment__c</table>
         </columns>
@@ -253,22 +238,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Continuation_or_Revocation__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Countervailed_Programs__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
@@ -618,16 +593,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Rebuttal_Briefs_Due__c</field>
             <table>Segment__c</table>
         </columns>
@@ -803,22 +768,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Case_Concat_Text_Values__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Days_Remaining__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Decision_Signed__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name_Text_Value__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
