@@ -8461,6 +8461,10 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
+                <fullName>British Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Brunei Darussalam</fullName>
                 <default>false</default>
             </values>
@@ -8821,7 +8825,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
+                <fullName>Libya</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8838,10 +8842,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Macedonia%2C the former Yugoslav Republic of</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9029,7 +9029,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Russian Federation</fullName>
+                <fullName>Russia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9053,7 +9053,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Saint Martin %28French part%29</fullName>
+                <fullName>Saint Martin</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9101,7 +9101,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
+                <fullName>Sint Maarten</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9165,7 +9165,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Syrian Arab Republic</fullName>
+                <fullName>Syria</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9177,7 +9177,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
+                <fullName>Tanzania</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9257,15 +9257,11 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Venezuela%2C Bolivarian Republic of</fullName>
+                <fullName>Venezuela</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Virgin Islands%2C British</fullName>
                 <default>false</default>
             </values>
             <values>
