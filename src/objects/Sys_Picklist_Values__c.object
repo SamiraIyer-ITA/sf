@@ -396,14 +396,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kuwait</fullName>
                 <default>false</default>
             </values>
@@ -441,6 +433,10 @@
             </values>
             <values>
                 <fullName>Nigeria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>North Korea</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -501,6 +497,10 @@
             </values>
             <values>
                 <fullName>South Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korea</fullName>
                 <default>false</default>
             </values>
             <values>
