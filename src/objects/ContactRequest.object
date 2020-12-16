@@ -8789,14 +8789,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Korea%2C Democratic People%E2%80%99s Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Korea%2C Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kosovo</fullName>
                 <default>false</default>
             </values>
@@ -8972,6 +8964,13 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <fullName>Norfolk Island</fullName>
                 <default>false</default>
             </values>
+                <fullName>North Korea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>North Macedonia</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Norway</fullName>
                 <default>false</default>
@@ -8982,10 +8981,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Palestinian Territory%2C Occupied</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9126,6 +9121,10 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>South Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korea</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9270,6 +9269,10 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>Wallis and Futuna</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>West Bank and Gaza</fullName>
                 <default>false</default>
             </values>
             <values>
