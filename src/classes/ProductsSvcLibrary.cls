@@ -5,4 +5,5 @@
  */
 public with sharing class ProductsSvcLibrary {
 
+	public ProductsSvcLibrary() {}
 }
