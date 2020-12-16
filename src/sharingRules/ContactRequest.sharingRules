@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingOwnerRules>
+        <fullName>CP_Queue_10_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_Contact_Request_10 to Public Group CP_Contact_US_10</description>
+        <label>CP Queue 10 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group10</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_10</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CP_Queue_11_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Gives access to CP_ContactRequest_11 Queue to Public Group CO_Contact_US_11</description>
+        <label>CP Queue 11 Access</label>
+        <sharedTo>
+            <group>CP_Contact_Us_Group11</group>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_11</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
         <fullName>CP_Queue_1_Access</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Gives access to CP_Contact_Request_1 queue to public group CP_Contact_US_1</description>
@@ -204,6 +228,28 @@
         </sharedTo>
         <sharedFrom>
             <group>CP_Master_Queue_Group</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Trade_gov_Account</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Trade.gov Account</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_10</queue>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Website_Issues</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Website Issues</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <sharedFrom>
+            <queue>CP_Contact_US_11</queue>
         </sharedFrom>
     </sharingOwnerRules>
 </SharingRules>
