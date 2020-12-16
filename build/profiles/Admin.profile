@@ -16081,10 +16081,6 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
-        <flow>Quote_Line_Item_Create_Edit</flow>
-    </flowAccesses>
-    <flowAccesses>
-        <enabled>false</enabled>
         <flow>Record_Payment</flow>
     </flowAccesses>
     <flowAccesses>
