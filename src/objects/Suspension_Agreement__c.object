@@ -255,6 +255,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id, ADCVD_Case_Number_Text__c+&apos;--&apos;+Name , &apos;_self&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Locked__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -278,7 +290,7 @@
         <externalId>false</externalId>
         <formula>TEXT(YEAR(Next_Sunset_Initiation_Date__c)) &amp; &apos;/&apos; &amp;
  CASE(MONTH(Next_Sunset_Initiation_Date__c),
-1, &apos;January&apos;, 
+1, &apos;January&apos;,
 2, &apos;February&apos;,
 3, &apos;March&apos;,
 4, &apos;April&apos;,
@@ -593,9 +605,9 @@
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false,
 NOT(ISNEW()),
-PRIORVALUE(Locked__c) == true 
+PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
