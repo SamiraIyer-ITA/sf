@@ -9779,8 +9779,7 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
         <errorDisplayField>Reason_Not_Converted__c</errorDisplayField>
         <errorMessage>You must state a reason for not converting this lead</errorMessage>
     </validationRules>
-    </validationRules>
-        <validationRules>
+    <validationRules>
         <fullName>V03Require_value_if_Referred_To_Other</fullName>
         <active>true</active>
         <description>Require value for Referred To Other if criteria applies</description>
