@@ -2097,25 +2097,6 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Referred_To__c</fullName>
-        <description>Referred To</description>
-        <externalId>false</externalId>
-        <label>Referred To</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>SBA</fullName>
-                    <default>false</default>
-                    <label>SBA</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Registrant__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
