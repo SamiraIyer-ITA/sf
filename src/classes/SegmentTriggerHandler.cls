@@ -6,7 +6,7 @@
  * 
  **/
 public without sharing class SegmentTriggerHandler {
- 	/***********************************************************
+    /***********************************************************
    * This class handles all trigger contexts for the Segment__c
    * object.  It provides methods that:
    * 1. Organize the flow of logic for each trigger context
@@ -19,84 +19,84 @@ public without sharing class SegmentTriggerHandler {
    * 8. Calls service classes to create Staffing Assignments and Chatter Posts
    ***********************************************************/
 
-	@TestVisible private static Set<String> activeSegmentStatuses = new Set<String>();
-	private static Map<String,Constant__mdt> segmentCalcOffsets = segmentCalcOffsets();
-	//FINAL Segment Record Types
-	private static FINAL String ADMIN_REVIEW							= segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
-	private static FINAL String ANTI_CIRCUMVENTION_REVIEW				= segmentCalcOffsets.get('Anti_Circ_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
-	private static FINAL String CHANGED_CIRCUMSTANCES_REVIEW			= segmentCalcOffsets.get('Changed_Circ_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
-	private static FINAL String EXPEDITED_REVIEW						= segmentCalcOffsets.get('Exped_Review_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
-	private static FINAL String NEW_SHIPPER_REVIEW						= segmentCalcOffsets.get('New_Shipper_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
-	private static FINAL String SCOPE_INQUIRY							= segmentCalcOffsets.get('Scope_Inq_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
-	private static FINAL String SUNSET_REVIEW							= segmentCalcOffsets.get('SS_Rev_Notice_Intent_Participate').ADCVD_Objects__r.Record_Type_Name__c;
+    @TestVisible private static Set<String> activeSegmentStatuses = new Set<String>();
+    private static Map<String,Constant__mdt> segmentCalcOffsets = segmentCalcOffsets();
+    //FINAL Segment Record Types
+    private static FINAL String ADMIN_REVIEW                            = segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+    private static FINAL String ANTI_CIRCUMVENTION_REVIEW               = segmentCalcOffsets.get('Anti_Circ_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+    private static FINAL String CHANGED_CIRCUMSTANCES_REVIEW            = segmentCalcOffsets.get('Changed_Circ_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+    private static FINAL String EXPEDITED_REVIEW                        = segmentCalcOffsets.get('Exped_Review_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+    private static FINAL String NEW_SHIPPER_REVIEW                      = segmentCalcOffsets.get('New_Shipper_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+    private static FINAL String SCOPE_INQUIRY                           = segmentCalcOffsets.get('Scope_Inq_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+    private static FINAL String SUNSET_REVIEW                           = segmentCalcOffsets.get('SS_Rev_Notice_Intent_Participate').ADCVD_Objects__r.Record_Type_Name__c;
 
-	public static void mainEntry(List<Segment__c> newList, List<Segment__c> oldList, Map<Id, Segment__c> newMap, 
-		Map<Id, Segment__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
-		Boolean isBefore, Boolean isAfter) {
-		
-		if (!AppConfigService.triggerEnabled) {return;}
+    public static void mainEntry(List<Segment__c> newList, List<Segment__c> oldList, Map<Id, Segment__c> newMap, 
+        Map<Id, Segment__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
+        Boolean isBefore, Boolean isAfter) {
+        
+        if (!AppConfigService.triggerEnabled) {return;}
 
-		if (isBefore && isInsert) {
-			newList = new LockedRecordHandler().removeLockedRecords(newList);
-			initialize(newList, newMap);
-			setCaseValues(newList);
-			syncToAdcvdOrder(newList, isInsert);
-			syncToAdministrativeReview(newList);
-			calculateSegmentDates(newList);
-			calculateSegmentStatuses(newList);
-			runValidations(newList);
-		}
-		if (isBefore && isUpdate) {
-			newList = new LockedRecordHandler().removeLockedRecords(newList);
-			initialize(newList, newMap);
-			syncToAdministrativeReview(newList);
-			calculateSegmentDates(newList);
-			calculateSegmentStatuses(newList);
-			runValidations(newList);
-		}
-		if (isBefore && isDelete) {
-			recalculateOrdersOnSegmentDelete(oldMap);
-		}
-		if(isAfter && isInsert) {
+        if (isBefore && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
-			Map<Id, Segment__c> noLockedRecordsMap = new Map<Id, Segment__c>(newList);
-			recalculateOrders(noLockedRecordsMap, oldMap);
+            initialize(newList, newMap);
+            setCaseValues(newList);
+            syncToAdcvdOrder(newList, isInsert);
+            syncToAdministrativeReview(newList);
+            calculateSegmentDates(newList);
+            calculateSegmentStatuses(newList);
+            runValidations(newList);
+        }
+        if (isBefore && isUpdate) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
+            initialize(newList, newMap);
+            syncToAdministrativeReview(newList);
+            calculateSegmentDates(newList);
+            calculateSegmentStatuses(newList);
+            runValidations(newList);
+        }
+        if (isBefore && isDelete) {
+            recalculateOrdersOnSegmentDelete(oldMap);
+        }
+        if(isAfter && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
+            Map<Id, Segment__c> noLockedRecordsMap = new Map<Id, Segment__c>(newList);
+            recalculateOrders(noLockedRecordsMap, oldMap);
             initialize(newList, newMap);
             createStaffing(newList);
-			recalculateOrders(newMap, oldMap);
-		}
-		if (isAfter && isUpdate) {
-			newList = new LockedRecordHandler().removeLockedRecords(newList);
-			Map<Id, Segment__c> noLockedRecordsMap = new Map<Id, Segment__c>(newList);
-			recalculateNewShipperReviews(newMap);
-			recalculateOrders(noLockedRecordsMap, oldMap);
-			new ChatterPostWriter('Segment__c', newMap, oldMap);
-		}
-	}
+            recalculateOrders(newMap, oldMap);
+        }
+        if (isAfter && isUpdate) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
+            Map<Id, Segment__c> noLockedRecordsMap = new Map<Id, Segment__c>(newList);
+            recalculateNewShipperReviews(newMap);
+            recalculateOrders(noLockedRecordsMap, oldMap);
+            new ChatterPostWriter('Segment__c', newMap, oldMap);
+        }
+    }
 
-	/****************************************
-	* Class Level Variables
-	****************************************/
+    /****************************************
+    * Class Level Variables
+    ****************************************/
 
-	@TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
-	@TestVisible private static Map<Id,ADCVD_Order__c> ordersInScopeMap = new Map<Id,ADCVD_Order__c>();
-	@TestVisible private static Map<Id,Suspension_Agreement__c> suspAgrmntsInScopeMap = new Map<Id,Suspension_Agreement__c>();
+    @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
+    @TestVisible private static Map<Id,ADCVD_Order__c> ordersInScopeMap = new Map<Id,ADCVD_Order__c>();
+    @TestVisible private static Map<Id,Suspension_Agreement__c> suspAgrmntsInScopeMap = new Map<Id,Suspension_Agreement__c>();
     @TestVisible private static FederalRegisterMapper frMapper;
     @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
     @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
     @TestVisible private static SegmentMapper segMapper;
     @TestVisible private static String ssrType = '';
-	@TestVisible private static Map<Id,List<Litigation__c>> segmentIdToLitigationMap = new Map<Id,List<Litigation__c>>();
-	@TestVisible private static Map<Id,String> segmentIdToLitigationStatusMap = new Map<Id,String>();
+    @TestVisible private static Map<Id,List<Litigation__c>> segmentIdToLitigationMap = new Map<Id,List<Litigation__c>>();
+    @TestVisible private static Map<Id,String> segmentIdToLitigationStatusMap = new Map<Id,String>();
 
 
-	/*****************************************
-	* Methods called directly by mainEntry()
-	*****************************************/
+    /*****************************************
+    * Methods called directly by mainEntry()
+    *****************************************/
 
-	//Setup Methods used to set class level variables
-	@TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
-		Set<Id> caseIdSet = getCaseIdSet(newList);
+    //Setup Methods used to set class level variables
+    @TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
+        Set<Id> caseIdSet = getCaseIdSet(newList);
         caseMapper = caseMapper.getInstance(caseIdSet);
         recordTypeNameMap = Utils.getRecordTypeDeveloperNameMap('Segment__c');
         ADCVD_OrderMapper aos = (ADCVD_OrderMapper) caseMapper.getMapper('ADCVD_Order__c').getInstance();
@@ -104,14 +104,14 @@ public without sharing class SegmentTriggerHandler {
         Suspension_AgreementMapper sas = (Suspension_AgreementMapper) caseMapper.getMapper('Suspension_Agreement__c').getInstance();
         suspAgrmntsInScopeMap = (Map<Id,Suspension_Agreement__c>) caseMapper.getMapper('Suspension_Agreement__c').getInstance().getMap(true);
 
-		if(newMap != null) {
-			addNewSegmentToMappers(newMap);
+        if(newMap != null) {
+            addNewSegmentToMappers(newMap);
             frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
             frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
-		}
-	}
+        }
+    }
 
-	@TestVisible private static Set<Id> getCaseIdSet (List<Segment__c> newList) {
+    @TestVisible private static Set<Id> getCaseIdSet (List<Segment__c> newList) {
         Set<Id> caseIdSet = new Set<Id>();
         Set<Id> orderIdSet = new Set<Id>();
         Set<Id> suspAgrmtIdSet = new Set<Id>();
@@ -128,14 +128,14 @@ public without sharing class SegmentTriggerHandler {
         return caseIdSet;
     }
 
-	@TestVisible private static void setCaseValues(List<Segment__c> newList) {
+    @TestVisible private static void setCaseValues(List<Segment__c> newList) {
         ParentValuesService pvs = new ParentValuesService();
         for (Segment__c s : newList) {
-        	if (ordersInScopeMap.containsKey(s.ADCVD_Order__c)) {
-        		s = (Segment__c) pvs.setCaseValuesFromParent(ordersInScopeMap.get(s.ADCVD_Order__c), s);
-        	} else if (suspAgrmntsInScopeMap.containsKey(s.Suspension_Agreement__c)) {
-        		s = (Segment__c) pvs.setCaseValuesFromParent(suspAgrmntsInScopeMap.get(s.Suspension_Agreement__c), s);
-        	}
+            if (ordersInScopeMap.containsKey(s.ADCVD_Order__c)) {
+                s = (Segment__c) pvs.setCaseValuesFromParent(ordersInScopeMap.get(s.ADCVD_Order__c), s);
+            } else if (suspAgrmntsInScopeMap.containsKey(s.Suspension_Agreement__c)) {
+                s = (Segment__c) pvs.setCaseValuesFromParent(suspAgrmntsInScopeMap.get(s.Suspension_Agreement__c), s);
+            }
         }
     }
     @TestVisible private static void addNewSegmentToMappers(Map<Id,Segment__c> newMap) {
@@ -634,7 +634,7 @@ public without sharing class SegmentTriggerHandler {
         }
         if (!segmentsFromSuspAgrmts.isEmpty()) {
             staffToInsert.addAll(
-                new StaffingAssignmentService().createStaffFromDefaults(segmentsFromSuspAgrmts, 'Segment__c', false)
+                new StaffingAssignmentService().createStaffFromSObjectParent(segmentsFromSuspAgrmts, 'Segment__c', false)
             );
         }
         if (!staffToInsert.isEmpty()) {insert staffToInsert;}
