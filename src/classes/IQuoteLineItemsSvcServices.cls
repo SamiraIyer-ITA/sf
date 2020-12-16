@@ -9,5 +9,5 @@ public interface IQuoteLineItemsSvcServices extends IQuoteLineItemsSvcBase {
 	void updateRelatedOrderItems(List<SObject> records, Map<Id, SObject> existingRecords);
 	void preventDeleteWhenPrimaryAndSynced(List<SObject> records);
 	void deleteRelatedOrderItems(Set<Id> quoteLineItemIds);
-	void removeQuotePrimaryProductFamilyWhenDeleted(List<SObject> records);
+	void setQuoteFieldsWhenPrimaryProductDeleted(List<SObject> records);
 }

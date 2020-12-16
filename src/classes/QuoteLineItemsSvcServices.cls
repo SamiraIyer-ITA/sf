@@ -19,7 +19,7 @@ public with sharing class QuoteLineItemsSvcServices extends SObjectsTriggerServi
 	}
 
 	public override void onAfterDelete(List<SObject> records) {
-		removeQuotePrimaryProductFamilyWhenDeleted(records);
+		setQuoteFieldsWhenPrimaryProductDeleted(records);
 	}
 
 	public void setFieldWhenProductIsPrimary(List<SObject> records) {
@@ -119,7 +119,7 @@ public with sharing class QuoteLineItemsSvcServices extends SObjectsTriggerServi
 		}
 	}
 
-	public void removeQuotePrimaryProductFamilyWhenDeleted(List<SObject> records) {
+	public void setQuoteFieldsWhenPrimaryProductDeleted(List<SObject> records) {
 		fflib_ISObjectUnitOfWork uow = fflibext_Application.UnitOfWork.newInstance();
 		Set<Id> quoteIds = new Set<Id>();
 		for (QuoteLineItem qli: (List<QuoteLineItem>) records) {
@@ -129,6 +129,7 @@ public with sharing class QuoteLineItemsSvcServices extends SObjectsTriggerServi
 		}
 		for (Quote quote: QuotesSelector.newInstance().selectById(quoteIds)) {
 			quote.PrimaryProductFamily__c = null;
+			quote.Client_Form_Type__c = null;
 			uow.registerDirty(quote);
 		}
 		uow.commitWork();
