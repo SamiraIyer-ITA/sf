@@ -8653,7 +8653,7 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
-                <fullName>Georgia</fullName>
+                <fullName>Georgia %28Republic%29</fullName>
                 <default>false</default>
             </values>
             <values>
