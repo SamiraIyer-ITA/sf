@@ -8613,6 +8613,10 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
                 <default>false</default>
             </values>
             <values>
+                <fullName>Eswatini</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Ethiopia</fullName>
                 <default>false</default>
             </values>
@@ -9150,10 +9154,6 @@ ROUND(MOD((Closed_Date__c - Assigned_Date__c )*1440,60),0)
             </values>
             <values>
                 <fullName>Svalbard and Jan Mayen</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swaziland</fullName>
                 <default>false</default>
             </values>
             <values>
