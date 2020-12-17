@@ -329,6 +329,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Referred_To_Other__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Referred_Date__c</field>
             </layoutItems>
         </layoutColumns>
