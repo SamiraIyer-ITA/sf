@@ -1,0 +1,77 @@
+<template>
+    <div if:true={isSetupEnabled}>
+
+        <lightning-card title="Administrative Protective Order" icon-name="custom:custom18">
+            <div if:true={isReadView} class="slds-p-left_medium">
+                <lightning-record-edit-form
+                        record-id={recordId}
+                        object-api-name="Segment__c"
+                        onsubmit={handleSubmit}
+                        onsuccess={handleSuccess}
+                        onerror={handleError}>
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2" style="padding-right:2%">
+                            <lightning-input-field disabled="true" style="background-color:white;"
+                                                   field-name="APO_Status__c">
+                            </lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2" style="padding-left:0.0rem;padding-right:2%">
+                            <lightning-input-field disabled="true" style="background-color:white;"
+                                                   field-name="APO_Destruction_Due_Date__c">
+                            </lightning-input-field>
+                        </div>
+                    </div>
+                    <div class="slds-grid">
+
+                        <div class="slds-col slds-size_1-of-1" style="padding-right:2%">
+                            <lightning-input-field disabled="true" style="background-color:white;"
+                                                   field-name="APO_Notes__c">
+                            </lightning-input-field>
+                        </div>
+                    </div>
+                    <div class="slds-align_absolute-center" style="height:5rem">
+
+                        <lightning-button class="slds-m-top_small" name="edit" label="Edit" onclick={handleEdit}>
+                        </lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+            <div if:false={isReadView} class="slds-p-left_medium">
+                <lightning-record-edit-form
+                        record-id={recordId}
+                        object-api-name="Segment__c"
+                        onsubmit={handleSubmit}
+                        onsuccess={handleSuccess}
+                        onerror={handleError}>
+                    <lightning-messages>
+                    </lightning-messages>
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2" style="padding-right:2%">
+                            <lightning-input-field field-name="APO_Status__c">
+                            </lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2" style="padding-left:0.0rem;padding-right:2%">
+                            <lightning-input-field field-name="APO_Destruction_Due_Date__c">
+                            </lightning-input-field>
+                        </div>
+                    </div>
+                    <div class="slds-grid">
+
+                        <div class="slds-col slds-size_1-of-1" style="padding-right:2%">
+                            <lightning-input-field field-name="APO_Notes__c">
+                            </lightning-input-field>
+                        </div>
+                    </div>
+                    <div class="slds-align_absolute-center" style="height:5rem">
+                        <lightning-button class="slds-m-top_small" name="cancel" label="Cancel" onclick={handleCancel}>
+                        </lightning-button>
+                        &nbsp;
+                        <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="save"
+                                          label="Save">
+                        </lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+        </lightning-card>
+    </div>
+</template>

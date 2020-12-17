@@ -134,6 +134,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Agreement_Name__c</field>
+            </layoutItems>            
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>CD_Agreement_Notes__c</field>
             </layoutItems>
             <layoutItems>
