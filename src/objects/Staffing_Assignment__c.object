@@ -348,9 +348,10 @@ IF( Segment__c != null,  Segment__r.Segment_Name__c ,
 IF( Investigation__c != null, Investigation__r.Link__c ,
 IF( Petition__c != null, Petition__r.Link__c ,
 IF( Related_Organization__c != null, Related_Organization__r.Link__c ,
-IF( Segment__c != null, Segment__r.Link__c ,
+IF(Suspension_Agreement__c  != null, Suspension_Agreement__r.Link__c ,
+IF( Segment__c != null, Segment__r.Link__c,
 &apos;&apos;
-) ) ) ) )</formula>
+) ) ) ) ))</formula>
         <label>Parent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
