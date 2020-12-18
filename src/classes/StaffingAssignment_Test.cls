@@ -40,6 +40,7 @@ public class StaffingAssignment_Test {
         Test.startTest();
 
         StaffingAssignment.getStaffingAssignmentByParentId(p.Id);
+        Boolean deleteCheck = StaffingAssignment.doesRunningUserHavePermission();
         StaffingAssignment.getRecusalLinkMap(p.ADCVD_Case__c);
         Staffing_Assignment__c testNewSA = StaffingAssignmentExtension.createNewStaffingAssignment(p.Id, 'Office Director');
         StaffingAssignment.deleteRecord(testNewSA.Id);

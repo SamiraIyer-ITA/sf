@@ -12,7 +12,7 @@
         <outerJoin>true</outerJoin>
         <relationship>Segments__r</relationship>
     </join>
-    <label>ADCVD Orders with Segments &amp; FRs</label>
+    <label>ADCVD Ord &amp; Seg &amp; FR</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -51,37 +51,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order_Name__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Anniversary_Month__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
         <columns>
@@ -127,16 +102,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition_Filed__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
-            <table>ADCVD_Order__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
         <columns>
@@ -250,16 +215,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedBy</field>
-            <table>ADCVD_Order__c.Segments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>ADCVD_Order__c.Segments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
             <table>ADCVD_Order__c.Segments__r</table>
         </columns>
         <columns>
@@ -409,11 +364,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
-            <table>ADCVD_Order__c.Segments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Calculated_Amended_Final_Signature__c</field>
             <table>ADCVD_Order__c.Segments__r</table>
         </columns>
@@ -454,22 +404,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity__c</field>
-            <table>ADCVD_Order__c.Segments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Continuation_or_Revocation__c</field>
             <table>ADCVD_Order__c.Segments__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Countervailed_Programs__c</field>
-            <table>ADCVD_Order__c.Segments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
             <table>ADCVD_Order__c.Segments__r</table>
         </columns>
         <columns>
@@ -810,16 +750,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Description__c</field>
-            <table>ADCVD_Order__c.Segments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
-            <table>ADCVD_Order__c.Segments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
             <table>ADCVD_Order__c.Segments__r</table>
         </columns>
         <columns>
