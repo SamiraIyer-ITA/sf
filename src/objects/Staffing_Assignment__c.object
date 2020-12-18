@@ -91,11 +91,41 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -105,6 +135,15 @@
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>StaffingAssignmentInfo</compactLayoutAssignment>
@@ -348,10 +387,9 @@ IF( Segment__c != null,  Segment__r.Segment_Name__c ,
 IF( Investigation__c != null, Investigation__r.Link__c ,
 IF( Petition__c != null, Petition__r.Link__c ,
 IF( Related_Organization__c != null, Related_Organization__r.Link__c ,
-IF(Suspension_Agreement__c  != null, Suspension_Agreement__r.Link__c ,
-IF( Segment__c != null, Segment__r.Link__c,
+IF( Segment__c != null, Segment__r.Link__c ,
 &apos;&apos;
-) ) ) ) ))</formula>
+) ) ) ) )</formula>
         <label>Parent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1093,6 +1131,154 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
             <value>V</value>
         </filters>
         <label>Office V Order Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Order_Account_Staffing</fullName>
+        <booleanFilter>2 AND 4 AND  (3 OR 1)</booleanFilter>
+        <columns>NAME</columns>
+        <columns>ADCVD_Order__c</columns>
+        <columns>Related_Organization__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Order__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Accounting Director,Accounting PM</value>
+        </filters>
+        <filters>
+            <field>Related_Organization__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Order-Account Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Policy_and_Legal_Staffing_Combined</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Senior Legal,Senior Policy,Staff Legal,Staff Policy</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <label>Policy and Legal Staffing Combined</label>
+    </listViews>
+    <listViews>
+        <fullName>Restaffing_Office_Director</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>No Parent</value>
+        </filters>
+        <label>Restaffing Office Director</label>
+    </listViews>
+    <listViews>
+        <fullName>Staffing_Assignments_ClosedLocked_Queue_Staffing_Assignment</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Staffing Assignments-ClosedLocked Queue</label>
+        <queue>Staffing_Assignments_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Staffing_Assignments_MigratedLockedQueue_Staffing_Assignment</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Staffing Assignments-MigratedLockedQueue</label>
+        <queue>Staffing_Assignments_MigratedLockedQueue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Staffing_Assignments_Open_Queue_Staffing_Assignment</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Staffing Assignments-Open Queue</label>
+        <queue>Staffing_Assignments_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Test_Test_Staffing_List</fullName>
+        <columns>NAME</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Segment__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Segment__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Test - Test - Staffing List Segments</label>
+    </listViews>
+    <listViews>
+        <fullName>Test_Test_Staffing_List_Invest</fullName>
+        <columns>NAME</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Investigation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Investigation__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Test - Test - Staffing List Invest</label>
+    </listViews>
+    <listViews>
+        <fullName>Test_Test_Staffing_List_Petitions</fullName>
+        <columns>NAME</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Petition__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Petition__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Test - Test - Staffing List Petitions</label>
     </listViews>
     <listViews>
         <fullName>Unfilled_Order_Accounting_Staffing</fullName>
