@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permissions required for ITA users to complete required tasks and Payment related activities for Transaction Management.</description>
+    <label>Payments: Standard ITA User Access</label>
+    <permissionSets>Account_Read_Access</permissionSets>
+    <permissionSets>Action_Items_Tab_Available_Visible</permissionSets>
+    <permissionSets>Case_Create_Access_Transaction_Management_Support</permissionSets>
+    <permissionSets>Case_Edit_Access</permissionSets>
+    <permissionSets>Case_Field_Level_Edit_Access_Transaction_Management</permissionSets>
+    <permissionSets>Case_Field_Level_Read_Access_Transaction_Management</permissionSets>
+    <permissionSets>Case_Read_Access</permissionSets>
+    <permissionSets>Contract_Read_Access</permissionSets>
+    <permissionSets>Contracts_Field_Level_Read_Access</permissionSets>
+    <permissionSets>Flows_Run</permissionSets>
+    <permissionSets>Lightning_Interface_Access</permissionSets>
+    <permissionSets>Opportunity_Read_Access</permissionSets>
+    <permissionSets>Order_Field_Level_Read_Access</permissionSets>
+    <permissionSets>Order_Read_Access</permissionSets>
+    <permissionSets>Order_View_All</permissionSets>
+    <permissionSets>Payments_Edit_Access</permissionSets>
+    <permissionSets>Payments_Field_Level_Read_Access</permissionSets>
+    <permissionSets>Payments_Read_Access</permissionSets>
+    <permissionSets>Payments_Tab_Available_Visible</permissionSets>
+    <permissionSets>Payments_View_All</permissionSets>
+    <permissionSets>Report_Tab_Available_Visible</permissionSets>
+    <permissionSets>Run_Reports</permissionSets>
+    <permissionSets>Transaction_Management_Tab_Available_Visible</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

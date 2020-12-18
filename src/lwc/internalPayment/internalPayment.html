@@ -1,0 +1,14 @@
+<template>
+	<template if:false={error}>
+		<img src="https://pay.gov/public/resources/images/Pay.gov.logo.png" title="pay.gov logo" alt="pay.gov logo">
+		<span>Opening Pay.gov in a new window or tab.</span>
+		<lightning-spinner alternative-text="Please wait while opening Pay.gov in a new window or tab." size="large" variant="brand"></lightning-spinner>
+	</template>
+
+	<template if:true={error}>
+		<div class="errorStyle">
+			<span class="slds-assistive-text">Error</span>
+			{error}
+		</div>
+	</template>
+</template>

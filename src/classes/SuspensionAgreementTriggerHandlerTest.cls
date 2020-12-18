@@ -74,8 +74,11 @@ public class SuspensionAgreementTriggerHandlerTest {
 
     //Test to check if Suspension Agreement is auto-populated with ADCVD Case number
     @isTest static void setCaseValuesFromParent() {
+    
         Test.startTest();
-        ADCVD_Case__c testCase = TestUtils.createADCVDCase('A-111-123', 'AD ME', true);
+        User testUser = [SELECT Id FROM User WHERE EMAIL=:'myemail@email.com.testita1' LIMIT 1];
+        
+        ADCVD_Case__c testCase = TestUtils.createADCVDCase('A-123-125', 'AD ME', testUser,true);
         Petition__c testPetition = TestUtils.createPetition(testCase,suspDate.addDays(-14), true);
         //insert testPetition;
         Investigation__c testInvestigation = TestUtils.createInvestigation(testPetition, true);
@@ -131,17 +134,21 @@ public class SuspensionAgreementTriggerHandlerTest {
     }
 
     @testSetup static void dataSetup() {
-        Test.startTest();
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
-        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
-        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
         //create test data
+        Test.startTest();
         User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
-        Petition__c testADPetition = TestUtils.createPetition(testADCase, suspDate.addDays(-14), true);
-        Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
-        Suspension_Agreement__c testADSuspAgreement = TestUtils.createSuspensionAgreement(testADinvestigation, suspDate, true);
-
+        System.runAs(testUser) {
+            Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+            AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+            
+            ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', testUser,true);
+            Petition__c testADPetition = TestUtils.createPetition(testADCase, System.today().addDays(-280), true);
+            Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
+            Suspension_Agreement__c testADSuspAgreement = TestUtils.createSuspensionAgreement(testADinvestigation, suspDate, true);
+        
+        }
+        
     }
 
     private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {

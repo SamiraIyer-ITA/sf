@@ -20,15 +20,15 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Initiation_Signature__c</value>
+        <value xsi:type="xsd:string">Published_Date__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
-        <value xsi:type="xsd:string">Segment__c</value>
+        <value xsi:type="xsd:string">Federal_Register__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Type__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Initiation</value>
     </values>
     <values>
         <field>Base_Date_Field_2_Lookup_Field_Name__c</field>

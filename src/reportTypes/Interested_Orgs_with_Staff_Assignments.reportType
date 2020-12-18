@@ -8,7 +8,7 @@
         <outerJoin>false</outerJoin>
         <relationship>Staffing_Assignments__r</relationship>
     </join>
-    <label>Interested Orgs with Staff Assignments</label>
+    <label>ADCVD IntOrgs w Staff</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -57,32 +57,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c</field>
             <table>Related_Organization__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Account__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
             <table>Related_Organization__c</table>
         </columns>
         <columns>
@@ -127,16 +107,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Related_Organization_Name__c</field>
             <table>Related_Organization__c</table>
         </columns>
@@ -158,11 +128,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Locked__c</field>
-            <table>Related_Organization__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Case_Concat_Text_Values__c</field>
             <table>Related_Organization__c</table>
         </columns>
         <columns>
@@ -285,27 +250,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
             <table>Related_Organization__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
@@ -326,11 +271,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product__c</field>
             <table>Related_Organization__c.Staffing_Assignments__r</table>
         </columns>
         <columns>
@@ -375,17 +315,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Case_Concat_Text_Values__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Product_Short_Name_Text_Value__c</field>
-            <table>Related_Organization__c.Staffing_Assignments__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name__c</field>
             <table>Related_Organization__c.Staffing_Assignments__r</table>
         </columns>
         <columns>

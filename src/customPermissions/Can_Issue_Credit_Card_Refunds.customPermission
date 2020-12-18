@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Applied to users through the Payments: Issue Refund permission set and referenced in the Issue Credit Card Refund Flow.</description>
+    <label>Can Issue Credit Card Refunds</label>
+</CustomPermission>
