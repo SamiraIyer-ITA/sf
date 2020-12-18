@@ -6,4 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>I&amp;A</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Data_Admin</parentRole>
 </Role>
