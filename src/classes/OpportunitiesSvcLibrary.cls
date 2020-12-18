@@ -3,4 +3,5 @@
  */
 public with sharing class OpportunitiesSvcLibrary {
 
+	public OpportunitiesSvcLibrary() {}
 }
