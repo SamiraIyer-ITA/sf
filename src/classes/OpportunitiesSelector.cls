@@ -41,7 +41,10 @@ public class OpportunitiesSelector extends fflib_SObjectSelector implements IOpp
 			Opportunity.StageName,
 			Opportunity.SyncedQuoteId,
 			Opportunity.SOW_Approved__c,
-			Opportunity.Type
+			Opportunity.Type,
+			Opportunity.Assigned_User__c,
+			Opportunity.Assigned_Date__c,
+			Opportunity.Conference_Call_Scheduling_In_Progress__c
 		};
 	}
 
