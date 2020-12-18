@@ -256,25 +256,8 @@
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
-        <fullName>New Registrant</fullName>
-        <description>The process for converting a lead created from a newly registered website user</description>
-        <isActive>true</isActive>
-        <values>
-            <fullName>Account Verified</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Qualified</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Unverified</fullName>
-            <default>true</default>
-        </values>
-    </businessProcesses>
-    <businessProcesses>
-        <fullName>Services Export</fullName>
-        <description>Services Export Support Process</description>
+        <fullName>Export Lead</fullName>
+        <description>Export</description>
         <isActive>true</isActive>
         <values>
             <fullName>Contact Attempted</fullName>
@@ -302,6 +285,23 @@
         </values>
     </businessProcesses>
     <businessProcesses>
+        <fullName>New Registrant</fullName>
+        <description>The process for converting a lead created from a newly registered website user</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Account Verified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unverified</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>Partner Lead Process</fullName>
         <description>Process for Leads of Partner Contacts and Accounts.</description>
         <isActive>true</isActive>
@@ -323,8 +323,8 @@
         </values>
     </businessProcesses>
     <businessProcesses>
-        <fullName>Export Lead</fullName>
-        <description>Export</description>
+        <fullName>Services Export</fullName>
+        <description>Services Export Support Process</description>
         <isActive>true</isActive>
         <values>
             <fullName>Contact Attempted</fullName>
@@ -382,7 +382,7 @@
         <fields>Email</fields>
         <label>New Registrant</label>
     </compactLayouts>
-    <enableFeeds>false</enableFeeds>
+    <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <externalSharingModel>Private</externalSharingModel>
     <fieldSets>
@@ -462,6 +462,7 @@
         <inlineHelpText>API Endpoint for Data Customers</inlineHelpText>
         <label>API Endpoint</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -585,6 +586,7 @@
         <externalId>false</externalId>
         <label>Able to translate marketing materials?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -597,6 +599,7 @@
         <externalId>false</externalId>
         <label>Account Category</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -697,10 +700,12 @@
     </fields>
     <fields>
         <fullName>Address</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>AnnualRevenue</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
@@ -709,6 +714,7 @@
         <externalId>false</externalId>
         <label>Assigned Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
@@ -722,6 +728,7 @@
         <relationshipLabel>Leads</relationshipLabel>
         <relationshipName>Leads</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -733,6 +740,7 @@
         <referenceTo>User</referenceTo>
         <relationshipName>Leads</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -770,15 +778,18 @@
         <relationshipLabel>Leads</relationshipLabel>
         <relationshipName>Leads</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Company</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>CompanyLocal</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -787,6 +798,7 @@
         <externalId>false</externalId>
         <label>Confirm Email</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Email</type>
         <unique>false</unique>
@@ -797,6 +809,7 @@
         <externalId>false</externalId>
         <label>Contact Attempts</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -841,6 +854,7 @@
         <externalId>false</externalId>
         <label>Contacted Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -849,6 +863,7 @@
         <externalId>false</externalId>
         <label>Country</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -865,6 +880,7 @@
         <label>D&amp;B DUNS Number</label>
         <length>9</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -881,6 +897,7 @@
         <relationshipLabel>LeadToDnB</relationshipLabel>
         <relationshipName>LeadToDnB</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -896,6 +913,7 @@
         <relationshipLabel>LeadToDnB_Contact</relationshipLabel>
         <relationshipName>LeadToDnB_Contact</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -904,6 +922,7 @@
         <externalId>false</externalId>
         <label>Data Partner Type</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -943,6 +962,7 @@
         <label>Data Set</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -953,6 +973,7 @@
         <externalId>false</externalId>
         <label>Dedicated resources (staff &amp; budget)?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -962,10 +983,12 @@
     </fields>
     <fields>
         <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>DoNotCall</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -974,6 +997,7 @@
         <description>Eligibility Verified</description>
         <externalId>false</externalId>
         <label>Eligibility Verified</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -983,6 +1007,7 @@
         <externalId>false</externalId>
         <label>Eligible for Export Promotion</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -992,6 +1017,7 @@
     </fields>
     <fields>
         <fullName>Email</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -1000,6 +1026,7 @@
         <externalId>false</externalId>
         <label>Expedited Delivery</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1013,6 +1040,7 @@
         <externalId>false</externalId>
         <label>Export Ready</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1052,6 +1080,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <description>Export Readiness Verified</description>
         <externalId>false</externalId>
         <label>Export Readiness Verified</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -1061,6 +1090,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Exported in the past 12 months?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1070,10 +1100,12 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
     </fields>
     <fields>
         <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>FirstNameLocal</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -1082,6 +1114,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <description>First Attempt Past Due</description>
         <externalId>false</externalId>
         <label>First Attempt Past Due</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -1091,6 +1124,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Globalized your website?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1100,19 +1134,23 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
     </fields>
     <fields>
         <fullName>HasOptedOutOfEmail</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>HasOptedOutOfFax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>IndividualId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Industry</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -1123,6 +1161,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <label>Industry Hidden</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1133,6 +1172,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Interest Type</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1168,6 +1208,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>International marketing plan?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1180,11 +1221,13 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Investment Promotion</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -1193,6 +1236,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Know U.S. Export Control requirements?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1206,6 +1250,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Know financing &amp; payment options?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1219,6 +1264,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Know foreign legal &amp; regulatory reqs?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1232,6 +1278,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Know how to ship product overseas?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1246,11 +1293,13 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <inlineHelpText>When checked, match and enrich from D&amp;B Optimizer will process</inlineHelpText>
         <label>Allow D&amp;B Optimizer</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>LastNameLocal</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -1258,6 +1307,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
     </fields>
     <fields>
         <fullName>LeadSource</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -1333,14 +1383,17 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
     </fields>
     <fields>
         <fullName>MobilePhone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>NumberOfEmployees</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
@@ -1348,6 +1401,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Organization Location</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1373,6 +1427,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <label>Organization Name</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1382,6 +1437,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Organization Type</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1660,6 +1716,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Outcome Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -1669,6 +1726,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Outcome</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1704,11 +1762,13 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
@@ -1721,6 +1781,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <relationshipLabel>Primary Posts</relationshipLabel>
         <relationshipName>PrimaryPost</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -1730,32 +1791,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Process to protect IP internationally?</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Product_of_US_Origin__c</fullName>
-        <description>Product of U.S. Origin?</description>
-        <externalId>false</externalId>
-        <label>Product of U.S. Origin?</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Product_is_of_51_US_Content__c</fullName>
-        <description>Product is of 51% U.S. Content?</description>
-        <externalId>false</externalId>
-        <label>Product is of 51% U.S. Content?</label>
-        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1769,6 +1805,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Process to respond to int&apos;l inquiries?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1782,6 +1819,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Product Family Interest</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1847,11 +1885,40 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         </valueSet>
     </fields>
     <fields>
+        <fullName>Product_is_of_51_US_Content__c</fullName>
+        <description>Product is of 51% U.S. Content?</description>
+        <externalId>false</externalId>
+        <label>Product is of 51% U.S. Content?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_of_US_Origin__c</fullName>
+        <description>Product of U.S. Origin?</description>
+        <externalId>false</externalId>
+        <label>Product of U.S. Origin?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Production_capacity_to_meet_orders__c</fullName>
         <description>Production capacity to meet orders?</description>
         <externalId>false</externalId>
         <label>Production capacity to meet orders?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1865,6 +1932,7 @@ IF(TEXT(Willing_to_travel_internationally__c) = &quot;Yes&quot;, 1, 0)) &amp; &q
         <externalId>false</externalId>
         <label>Promotion Type</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -1924,6 +1992,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <description>Queue Routing Past Due</description>
         <externalId>false</externalId>
         <label>Queue Routing Past Due</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -1931,13 +2000,15 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <fullName>Queued_Date__c</fullName>
         <description>Queued Date</description>
         <externalId>false</externalId>
-        <label>Queued Date</label>
+        <label>Date Received</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Rating</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -1947,6 +2018,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <description>Re-routed</description>
         <externalId>false</externalId>
         <label>Re-routed</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -1956,10 +2028,10 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>Reason Not Converted</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -1971,6 +2043,26 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
                     <fullName>Product Not Helpful</fullName>
                     <default>false</default>
                     <label>Product Not Helpful</label>
+                </value>
+                <value>
+                    <fullName>Unreasonable Time Frame</fullName>
+                    <default>false</default>
+                    <label>Unreasonable Time Frame</label>
+                </value>
+                <value>
+                    <fullName>Staff Availability</fullName>
+                    <default>false</default>
+                    <label>Staff Availability</label>
+                </value>
+                <value>
+                    <fullName>Not Eligible for Export Promo</fullName>
+                    <default>false</default>
+                    <label>Not Eligible for Export Promo</label>
+                </value>
+                <value>
+                    <fullName>Not Minimally Export Ready</fullName>
+                    <default>false</default>
+                    <label>Not Minimally Export Ready</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1993,6 +2085,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>Referral Type</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -2012,6 +2105,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>Referred Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -2021,6 +2115,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>Referred To</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -2031,8 +2126,49 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
                     <default>false</default>
                     <label>SBA</label>
                 </value>
+                <value>
+                    <fullName>SCORE</fullName>
+                    <default>false</default>
+                    <label>SCORE</label>
+                </value>
+                <value>
+                    <fullName>World Trade Center</fullName>
+                    <default>false</default>
+                    <label>World Trade Center</label>
+                </value>
+                <value>
+                    <fullName>AmCham</fullName>
+                    <default>false</default>
+                    <label>AmCham</label>
+                </value>
+                <value>
+                    <fullName>DEC</fullName>
+                    <default>false</default>
+                    <label>DEC</label>
+                </value>
+                <value>
+                    <fullName>Service Provider</fullName>
+                    <default>false</default>
+                    <label>Service Provider</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Referred_To_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Referred To Other</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Registrant__c</fullName>
@@ -2043,6 +2179,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <relationshipLabel>Leads</relationshipLabel>
         <relationshipName>Leads</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -2052,6 +2189,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <description>Second Attempt Past Due</description>
         <externalId>false</externalId>
         <label>Second Attempt Past Due</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2065,6 +2203,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <relationshipLabel>Secondary Posts</relationshipLabel>
         <relationshipName>SecondaryPost</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -2074,6 +2213,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <label>Sector Hidden</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2095,6 +2235,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>Source Technology</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -2214,12 +2355,14 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <label>Source Detail</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Status</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2229,6 +2372,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>Status</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -2258,12 +2402,14 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <label>Sub-Sector Hidden</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Title</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
@@ -2272,6 +2418,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>Used ITA&apos;s fee-based services before?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -2285,12 +2432,14 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <label>Web Campaign ID</label>
         <length>18</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Website</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
@@ -2299,6 +2448,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>Which services have you used before?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <valueSet>
@@ -2324,6 +2474,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>Willing to travel internationally?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
@@ -2337,6 +2488,7 @@ WEEKDAY(DATEVALUE(Queued_Date__c) ),
         <externalId>false</externalId>
         <label>1st Contact Attempt Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -2375,6 +2527,7 @@ WEEKDAY(DATEVALUE(Assigned_Date__c ) ),
         <externalId>false</externalId>
         <label>2nd Contact Attempt Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -2427,6 +2580,7 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
         <label>iContact Contact Id</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2499,6 +2653,7 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
         </filters>
         <label>Today&apos;s Leads</label>
     </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Export</fullName>
@@ -2790,10 +2945,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3601,6 +3752,10 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
+                <fullName>British Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Wallis and Futuna</fullName>
                 <default>false</default>
             </values>
@@ -4138,11 +4293,11 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Referred</fullName>
+                <fullName>Not Converted</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Not Converted</fullName>
+                <fullName>Referred</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4216,6 +4371,28 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Product_is_of_51_US_Content__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_of_US_Origin__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Production_capacity_to_meet_orders__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4257,6 +4434,33 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Reason_Not_Converted__c</picklist>
+            <values>
+                <fullName>Product Not Helpful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unqualified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unreasonable Time Frame</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff Availability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Eligible for Export Promo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Minimally Export Ready</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Referral_Type__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -4267,6 +4471,30 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             <picklist>Referred_To__c</picklist>
             <values>
                 <fullName>SBA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCORE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>World Trade Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AmCham</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4653,10 +4881,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5385,6 +5609,10 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6003,6 +6231,28 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Product_is_of_51_US_Content__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_of_US_Origin__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Production_capacity_to_meet_orders__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6450,10 +6700,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7185,6 +7431,10 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
+                <fullName>British Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Wallis and Futuna</fullName>
                 <default>false</default>
             </values>
@@ -7209,18 +7459,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             <picklist>DataPartnerType__c</picklist>
             <values>
                 <fullName>Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foreign Buyer %2F Distributor %2F Partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foreign Investor</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foreign Service Provider</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7808,6 +8046,28 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Product_is_of_51_US_Content__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_of_US_Origin__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Production_capacity_to_meet_orders__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8128,10 +8388,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
             <values>
                 <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Virgin Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8863,6 +9119,10 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
                 <default>false</default>
             </values>
             <values>
+                <fullName>British Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Wallis and Futuna</fullName>
                 <default>false</default>
             </values>
@@ -9463,6 +9723,28 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Product_is_of_51_US_Content__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_of_US_Origin__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Production_capacity_to_meet_orders__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -9598,37 +9880,6 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
-        <fullName>If_Country_is_US_need_state_at_convert</fullName>
-        <active>false</active>
-        <description>If country is US, must indicate a state before you can convert lead to Qualified</description>
-        <errorConditionFormula>(Country = &quot;United States&quot;) &amp;&amp; (ISBLANK(State)) &amp;&amp; IsConverted=TRUE</errorConditionFormula>
-        <errorDisplayField>State</errorDisplayField>
-        <errorMessage>When converting a lead, if Country = US (United States) a State must be indicated.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lead_Create_Country_Required</fullName>
-        <active>false</active>
-        <description>Must have country to create lead</description>
-        <errorConditionFormula>ISBLANK(Country)</errorConditionFormula>
-        <errorDisplayField>Country</errorDisplayField>
-        <errorMessage>To create a lead, you must indicate a Country.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lead_Create_Phone_or_Email</fullName>
-        <active>false</active>
-        <description>Must have at least phone or email to create lead</description>
-        <errorConditionFormula>ISBLANK(Phone) &amp;&amp; ISBLANK(Email)</errorConditionFormula>
-        <errorMessage>You must have either an email address or phone number indicated to save a lead.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Lead_Source_Other_must_update_Sor_Detai</fullName>
-        <active>false</active>
-        <description>If Other is selected for lead source, user must enter something in the source detail field.</description>
-        <errorConditionFormula>ISPICKVAL( LeadSource , &quot;Other&quot;) &amp;&amp; ISBLANK( Source_Detail__c )</errorConditionFormula>
-        <errorDisplayField>Source_Detail__c</errorDisplayField>
-        <errorMessage>When selecting &quot;Other&quot; for lead source, you must enter an alternative lead source in the Source Detail field.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>V01Explanation_Required_if_Source_Other</fullName>
         <active>true</active>
         <description>If Other is selected for lead source, user must enter something in the source detail field.</description>
@@ -9697,6 +9948,14 @@ WEEKDAY(X1st_Contact_Attempt_Date__c ),
         <errorConditionFormula>AND(ISPICKVAL(Outcome__c,&apos;Not Converted&apos;),ISPICKVAL( Reason_Not_Converted__c,&apos;&apos;)) &amp;&amp; (RecordType.DeveloperName = &quot;Export&quot;)</errorConditionFormula>
         <errorDisplayField>Reason_Not_Converted__c</errorDisplayField>
         <errorMessage>You must state a reason for not converting this lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>V03Require_value_if_Referred_To_Other</fullName>
+        <active>true</active>
+        <description>Require value for Referred To Other if criteria applies</description>
+        <errorConditionFormula>ISPICKVAL(Referred_To__c,&apos;Other&apos;) &amp;&amp; ISBLANK(Referred_To_Other__c) &amp;&amp; RecordType.DeveloperName = &quot;Export&quot;</errorConditionFormula>
+        <errorDisplayField>Referred_To_Other__c</errorDisplayField>
+        <errorMessage>When marking Referred To as "other" this field cannot be blank.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>

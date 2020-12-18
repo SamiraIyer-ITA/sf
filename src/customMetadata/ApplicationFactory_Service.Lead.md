@@ -10,4 +10,12 @@
         <field>ServiceImplementationClass__c</field>
         <value xsi:type="xsd:string">LeadsServiceImpl</value>
     </values>
+    <values>
+        <field>Service_Implementation_Key__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Service_Implementation_SObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
 </CustomMetadata>

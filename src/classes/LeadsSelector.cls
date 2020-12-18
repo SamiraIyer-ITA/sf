@@ -1,7 +1,7 @@
 /**
  * Lead fflib Selector
  *
- * @author Andrew La Russa
+ * @author Daniel Haro
  */
 public class LeadsSelector extends fflib_SObjectSelector implements ILeadsSelector {
 

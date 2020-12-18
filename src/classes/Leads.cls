@@ -1,7 +1,7 @@
 /**
  * Implementation of ILeads interface that will be used as an fflib domain object.
  *
- * @author Andrew La Russa
+ * @author Daniel Haro
  */
 public class Leads extends fflib_SObjectDomain implements ILeads {
 
@@ -16,6 +16,19 @@ public class Leads extends fflib_SObjectDomain implements ILeads {
 	public Leads(List<Lead> sObjectList) {
 		super(sObjectList);
 	}
+
+    public override void onBeforeInsert() {
+		LeadsService.handleBeforeInsert(Records);
+	}
+
+	public override void onBeforeUpdate(Map<Id,SObject> existingRecords) {
+		LeadsService.handleBeforeUpdate(Records, existingRecords);
+	}
+
+    public override void onAfterUpdate(Map<Id,SObject> existingRecords) {
+    	LeadsService.handleAfterUpdate(Records, existingRecords);
+
+    }
 
 	public class Constructor implements fflib_SObjectDomain.IConstructable {
 		public fflib_SObjectDomain construct(List<SObject> sObjectList) {

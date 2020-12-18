@@ -3,7 +3,7 @@
  *
  * Required for lead service implementations. Can be customized by calling the base class methods.
  *
- * @author Andrew La Russa
+ * @author Daniel Haro
  */
 public class LeadsImplManager extends SObjectsImplManager {
 

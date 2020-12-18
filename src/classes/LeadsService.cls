@@ -1,7 +1,7 @@
 /**
  * Used primarily as dispatcher for generic or implementation specific methods
  *
- * @author Andrew La Russa
+ * @author Daniel Haro
  */
 public with sharing class LeadsService {
 
@@ -46,5 +46,17 @@ public with sharing class LeadsService {
 	 */
 	@TestVisible private static ITriggerImpl triggerService(List<SObject> records, Map<Id, SObject> existingRecords) {
 		return new LeadsImplManager(records, existingRecords).triggerService();
+	}
+
+    public static void handleBeforeInsert(List<SObject> records) {
+		triggerService(records).handleBeforeInsert();
+	}
+
+	public static void handleBeforeUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
+		triggerService(records, existingRecords).handleBeforeUpdate();
+	}
+
+    public static void handleAfterUpdate(List<SObject> records, Map<Id, SObject> existingRecords) {
+		triggerService(records, existingRecords).handleAfterUpdate();
 	}
 }
