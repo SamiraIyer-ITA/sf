@@ -105,6 +105,16 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>IsPrimary__c</fullName>
+        <description>Denotes whether a product is primary. Used in search layouts when adding products.</description>
+        <externalId>false</externalId>
+        <formula>Product2.IsPrimary__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IsPrimary</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Pricebook2Id</fullName>
         <type>Lookup</type>
     </fields>
@@ -126,6 +136,15 @@
         <fullName>UseStandardPrice</fullName>
         <trackHistory>false</trackHistory>
     </fields>
+    <profileSearchLayouts>
+        <fields>PRODUCT.NAME</fields>
+        <fields>PRODUCT.CUSTOMER_PRODUCT_ID</fields>
+        <fields>PRODUCT.DEFAULT_PRICE</fields>
+        <fields>PRODUCT2.DESCRIPTION</fields>
+        <fields>PRODUCT2.FAMILY_ENUM</fields>
+        <fields>IsPrimary__c</fields>
+        <profileName>System Administrator</profileName>
+    </profileSearchLayouts>
     <searchLayouts>
         <searchResultsAdditionalFields>PRODUCT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PRODUCT.CUSTOMER_PRODUCT_ID</searchResultsAdditionalFields>
