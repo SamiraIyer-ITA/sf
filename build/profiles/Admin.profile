@@ -10830,6 +10830,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>PricebookEntry.IsPrimary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Order.Collection_Org_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>

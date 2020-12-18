@@ -234,11 +234,4 @@
         <unique>false</unique>
     </fields>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>One_Primary_Line_Item_Per_Quote</fullName>
-        <active>true</active>
-        <description>Only one primary line item is allowed per quote.</description>
-        <errorConditionFormula>AND(Quote.PrimaryProductFamily__c != NULL, Quote_Record_Type_Developer_Name__c = "Services",  IsPrimary__c = TRUE)</errorConditionFormula>
-        <errorMessage>Only one primary line item is allowed per quote. There is an existing line item for this quote with a primary product.</errorMessage>
-    </validationRules>
 </CustomObject>
