@@ -7,4 +7,11 @@ src/classes/di_FlowTest.cls
 src/flowDefinitions/Lead_SendCustomNotifications_ScheduledFlow_RunsDaily.flowDefinition
 src/flowDefinitions/Opportunity_ScheduledFlow_RunDaily.flowDefinition
 src/LeadConvertSettings/LeadConvertSettings.LeadConvertSetting
-
+src/objects/User.object
+src/globalValueSets/RH_Lev_1_Top_Level.globalValueSet
+src/globalValueSets/RH_Lev_2_DAS_Level.globalValueSet
+src/globalValueSets/RH_Lev_3_Region_2.globalValueSet
+src/globalValueSets/RH_Lev_4_Region_1.globalValueSet
+src/globalValueSets/RH_Lev_5_Country.globalValueSet
+src/globalValueSets/RH_Lev_6_Office.globalValueSet
+src/globalValueSets/RH_Lev_7_Individual.globalValueSet
