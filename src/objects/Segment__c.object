@@ -14191,6 +14191,22 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>A1101SegmentOutcomeRequiredForAFS</fullName>
+        <active>true</active>
+        <description>Segment Outcome cannot be blank to enter Actual Final Signature</description>
+        <errorConditionFormula>AND(
+				$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+				Locked__c == false,
+				$RecordType.DeveloperName = &quot;Administrative_Review&quot;,
+				AND(
+        NOT(ISNULL( Actual_Final_Signature__c)),
+        ISPICKVAL( Segment_Outcome__c, &quot;&quot; )
+				)
+)</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome cannot be blank to enter Actual Final Signature</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A1102ActualFinalSignatureNotBlank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>

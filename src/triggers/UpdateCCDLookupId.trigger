@@ -7,18 +7,10 @@ trigger UpdateCCDLookupId on Account (before insert, before update) {
         Set<String> zipPlus4 = new Set<String>();
         Set<String> zip4 = new Set<String>();
         Set<String> zip5 = new Set<String>();
-        // SM-136: Update account triggers by record types
-        Set<Id> recordTypeIds = new Map<Id, RecordType>([
-            SELECT  Id
-            FROM    RecordType
-            WHERE   SobjectType = 'Account'
-                    AND DeveloperName IN ('ITA_CRM_Law_Firm', 'ITA_User_Account_RT', 'Individual', 'Partner_Account')
-        ]).keySet();
         
         for(Account acc: Trigger.new)
         {
-          if(acc.BillingPostalCode != NULL && acc.BillingCountry == 'United States'
-                && recordTypeIds.contains(acc.RecordTypeId)) {
+          if(acc.BillingPostalCode != NULL && acc.BillingCountry == 'United States'){
             System.debug(' **** Inside the for loop ****** ');
             Pattern zipCodSpecChar = Pattern.compile('[0-9]{5}-[0-9]{4}');
             Matcher zipMatch = zipCodSpecChar.matcher(acc.BillingPostalCode);

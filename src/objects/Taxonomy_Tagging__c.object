@@ -695,19 +695,21 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Marine Technology</controllingFieldValue>
-                <valueName>Boating</valueName>
+                <controllingFieldValue>Distribution and Logistics</controllingFieldValue>
+                <valueName>Maritime Transportation</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Marine Technology</controllingFieldValue>
-                <valueName>Ports Infrastructure and Services</valueName>
+                <controllingFieldValue>Consumer Goods</controllingFieldValue>
+                <valueName>Pleasure Boats &amp; Accessories</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Marine Technology</controllingFieldValue>
-                <valueName>Ships and Floating Platforms</valueName>
+                <valueName>Underwater Robotics</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Marine Technology</controllingFieldValue>
-                <valueName>Underwater Technology</valueName>
+                <valueName>Underwater Vehicles</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Aerospace and Defense</controllingFieldValue>
@@ -967,10 +969,6 @@
             <valueSettings>
                 <controllingFieldValue>Distribution and Logistics</controllingFieldValue>
                 <valueName>Intelligent Transportation Systems</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Distribution and Logistics</controllingFieldValue>
-                <valueName>Maritime Transportation</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Distribution and Logistics</controllingFieldValue>
@@ -1417,10 +1415,6 @@
                 <valueName>Helicopters</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Aviation</controllingFieldValue>
-                <valueName>Unmanned Aircraft Systems</valueName>
-            </valueSettings>
-            <valueSettings>
                 <controllingFieldValue>Visual Arts</controllingFieldValue>
                 <valueName>Photographic Services</valueName>
             </valueSettings>
@@ -1509,38 +1503,6 @@
             <valueSettings>
                 <controllingFieldValue>Advertising Services</controllingFieldValue>
                 <valueName>Television Advertising</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Boating</controllingFieldValue>
-                <valueName>Marinas</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Boating</controllingFieldValue>
-                <valueName>Marine Equipment and Supplies</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Boating</controllingFieldValue>
-                <valueName>Pleasure Boats</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Boating</controllingFieldValue>
-                <valueName>Workboats</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Ports Infrastructure and Services</controllingFieldValue>
-                <valueName>Maritime Security Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Ports Infrastructure and Services</controllingFieldValue>
-                <valueName>Port Dredging and Maintenance Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Ships and Floating Platforms</controllingFieldValue>
-                <valueName>Offshore Engineering Equipment and Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Ships and Floating Platforms</controllingFieldValue>
-                <valueName>Shipbuilding Equipment and Services</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Air Pollution Control</controllingFieldValue>
@@ -1649,22 +1611,6 @@
             <valueSettings>
                 <controllingFieldValue>Building Products</controllingFieldValue>
                 <valueName>Wood Products</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Underwater Technology</controllingFieldValue>
-                <valueName>Marine Debris Cleanup</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Underwater Technology</controllingFieldValue>
-                <valueName>Ocean Measurement Equipment and Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Underwater Technology</controllingFieldValue>
-                <valueName>Underwater Robotics</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Underwater Technology</controllingFieldValue>
-                <valueName>Underwater Vehicles</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Publishing</controllingFieldValue>
@@ -1868,15 +1814,11 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Space</controllingFieldValue>
-                <valueName>Satellites and Spacecraft</valueName>
+                <valueName>Satellites</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Space</controllingFieldValue>
                 <valueName>Space Launch Equipment</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Space</controllingFieldValue>
-                <valueName>Space Launch Services</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Sporting Goods</controllingFieldValue>
@@ -2860,11 +2802,6 @@
                     <default>false</default>
                     <label>Digital Strategy</label>
                 </value>
-                <value>
-                    <fullName>Brexit</fullName>
-                    <default>false</default>
-                    <label>Brexit</label>
-                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -2969,6 +2906,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Antarctica</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Antigua and Barbuda</fullName>
                 <default>false</default>
             </values>
@@ -3050,6 +2991,10 @@
             </values>
             <values>
                 <fullName>Botswana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bouvet Island</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3306,6 +3251,10 @@
             </values>
             <values>
                 <fullName>Haiti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heard Island and McDonald Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3729,6 +3678,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>South Georgia and the South Sandwich Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>South Sudan</fullName>
                 <default>false</default>
             </values>
@@ -3865,7 +3818,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>British Virgin Islands</fullName>
+                <fullName>Virgin Islands%2C British</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4104,10 +4057,6 @@
             </values>
             <values>
                 <fullName>Biopharmaceuticals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Boating</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4603,7 +4552,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ports Infrastructure and Services</fullName>
+                <fullName>Pleasure Boats %26 Accessories</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4707,10 +4656,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ships and Floating Platforms</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Snack Foods</fullName>
                 <default>false</default>
             </values>
@@ -4799,7 +4744,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Underwater Technology</fullName>
+                <fullName>Underwater Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwater Vehicles</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5950,7 +5899,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Satellites and Spacecraft</fullName>
+                <fullName>Satellites</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6039,10 +5988,6 @@
             </values>
             <values>
                 <fullName>Space Launch Equipment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Space Launch Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6163,10 +6108,6 @@
             </values>
             <values>
                 <fullName>Undergraduate Study</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unmanned Aircraft Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6590,10 +6531,6 @@
         <picklistValues>
             <picklist>Type__c</picklist>
             <values>
-                <fullName>Brexit</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Digital Strategy</fullName>
                 <default>false</default>
             </values>
@@ -6670,6 +6607,10 @@
             </values>
             <values>
                 <fullName>Anguilla</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Antarctica</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6754,6 +6695,10 @@
             </values>
             <values>
                 <fullName>Botswana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bouvet Island</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7010,6 +6955,10 @@
             </values>
             <values>
                 <fullName>Haiti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heard Island and McDonald Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7433,6 +7382,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>South Georgia and the South Sandwich Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>South Sudan</fullName>
                 <default>false</default>
             </values>
@@ -7569,7 +7522,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>British Virgin Islands</fullName>
+                <fullName>Virgin Islands%2C British</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7808,10 +7761,6 @@
             </values>
             <values>
                 <fullName>Biopharmaceuticals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Boating</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8307,7 +8256,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ports Infrastructure and Services</fullName>
+                <fullName>Pleasure Boats %26 Accessories</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8411,10 +8360,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ships and Floating Platforms</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Snack Foods</fullName>
                 <default>false</default>
             </values>
@@ -8503,7 +8448,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Underwater Technology</fullName>
+                <fullName>Underwater Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwater Vehicles</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9654,7 +9603,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Satellites and Spacecraft</fullName>
+                <fullName>Satellites</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9743,10 +9692,6 @@
             </values>
             <values>
                 <fullName>Space Launch Equipment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Space Launch Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9867,10 +9812,6 @@
             </values>
             <values>
                 <fullName>Undergraduate Study</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unmanned Aircraft Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10373,6 +10314,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Antarctica</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Antigua and Barbuda</fullName>
                 <default>false</default>
             </values>
@@ -10454,6 +10399,10 @@
             </values>
             <values>
                 <fullName>Botswana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bouvet Island</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10710,6 +10659,10 @@
             </values>
             <values>
                 <fullName>Haiti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heard Island and McDonald Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11133,6 +11086,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>South Georgia and the South Sandwich Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>South Sudan</fullName>
                 <default>false</default>
             </values>
@@ -11269,7 +11226,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>British Virgin Islands</fullName>
+                <fullName>Virgin Islands%2C British</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11508,10 +11465,6 @@
             </values>
             <values>
                 <fullName>Biopharmaceuticals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Boating</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12007,7 +11960,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ports Infrastructure and Services</fullName>
+                <fullName>Pleasure Boats %26 Accessories</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12111,10 +12064,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ships and Floating Platforms</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Snack Foods</fullName>
                 <default>false</default>
             </values>
@@ -12203,7 +12152,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Underwater Technology</fullName>
+                <fullName>Underwater Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwater Vehicles</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12954,18 +12907,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Marinas</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marine Debris Cleanup</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marine Equipment and Supplies</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Maritime Security Services</fullName>
                 <default>false</default>
             </values>
@@ -13114,15 +13055,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ocean Measurement Equipment and Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Office Furniture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Offshore Engineering Equipment and Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13242,10 +13175,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pleasure Boats</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Plumbing</fullName>
                 <default>false</default>
             </values>
@@ -13255,10 +13184,6 @@
             </values>
             <values>
                 <fullName>Police Vehicles</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Port Dredging and Maintenance Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13382,7 +13307,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Satellites and Spacecraft</fullName>
+                <fullName>Satellites</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13430,10 +13355,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Shipbuilding Equipment and Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Shopping Destinations</fullName>
                 <default>false</default>
             </values>
@@ -13475,10 +13396,6 @@
             </values>
             <values>
                 <fullName>Space Launch Equipment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Space Launch Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13602,18 +13519,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Underwater Robotics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Underwater Vehicles</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unmanned Aircraft Systems</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Urban Planning and Design</fullName>
                 <default>false</default>
             </values>
@@ -13727,10 +13632,6 @@
             </values>
             <values>
                 <fullName>Woodworking Machinery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Workboats</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14117,6 +14018,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Antarctica</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Antigua and Barbuda</fullName>
                 <default>false</default>
             </values>
@@ -14198,6 +14103,10 @@
             </values>
             <values>
                 <fullName>Botswana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bouvet Island</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14454,6 +14363,10 @@
             </values>
             <values>
                 <fullName>Haiti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heard Island and McDonald Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14877,6 +14790,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>South Georgia and the South Sandwich Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>South Sudan</fullName>
                 <default>false</default>
             </values>
@@ -15013,7 +14930,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>British Virgin Islands</fullName>
+                <fullName>Virgin Islands%2C British</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15252,10 +15169,6 @@
             </values>
             <values>
                 <fullName>Biopharmaceuticals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Boating</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15747,7 +15660,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ports Infrastructure and Services</fullName>
+                <fullName>Pleasure Boats %26 Accessories</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15851,10 +15764,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ships and Floating Platforms</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Snack Foods</fullName>
                 <default>false</default>
             </values>
@@ -15943,7 +15852,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Underwater Technology</fullName>
+                <fullName>Underwater Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwater Vehicles</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17090,7 +17003,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Satellites and Spacecraft</fullName>
+                <fullName>Satellites</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17179,10 +17092,6 @@
             </values>
             <values>
                 <fullName>Space Launch Equipment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Space Launch Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17303,10 +17212,6 @@
             </values>
             <values>
                 <fullName>Undergraduate Study</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unmanned Aircraft Systems</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17809,6 +17714,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Antarctica</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Antigua and Barbuda</fullName>
                 <default>false</default>
             </values>
@@ -17890,6 +17799,10 @@
             </values>
             <values>
                 <fullName>Botswana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bouvet Island</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18146,6 +18059,10 @@
             </values>
             <values>
                 <fullName>Haiti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heard Island and McDonald Islands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18569,6 +18486,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>South Georgia and the South Sandwich Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>South Sudan</fullName>
                 <default>false</default>
             </values>
@@ -18705,7 +18626,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>British Virgin Islands</fullName>
+                <fullName>Virgin Islands%2C British</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18944,10 +18865,6 @@
             </values>
             <values>
                 <fullName>Biopharmaceuticals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Boating</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19439,7 +19356,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ports Infrastructure and Services</fullName>
+                <fullName>Pleasure Boats %26 Accessories</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19543,10 +19460,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ships and Floating Platforms</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Snack Foods</fullName>
                 <default>false</default>
             </values>
@@ -19635,7 +19548,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Underwater Technology</fullName>
+                <fullName>Underwater Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwater Vehicles</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20782,7 +20699,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Satellites and Spacecraft</fullName>
+                <fullName>Satellites</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20871,10 +20788,6 @@
             </values>
             <values>
                 <fullName>Space Launch Equipment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Space Launch Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20995,10 +20908,6 @@
             </values>
             <values>
                 <fullName>Undergraduate Study</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unmanned Aircraft Systems</fullName>
                 <default>false</default>
             </values>
             <values>
