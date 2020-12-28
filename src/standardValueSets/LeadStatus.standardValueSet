@@ -2,9 +2,15 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
-        <fullName>Unverified</fullName>
+        <fullName>New</fullName>
+        <default>true</default>
+        <label>New</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Contact Attempted</fullName>
         <default>false</default>
-        <label>Unverified</label>
+        <label>Contact Attempted</label>
         <converted>false</converted>
     </standardValue>
     <standardValue>
@@ -14,15 +20,9 @@
         <converted>false</converted>
     </standardValue>
     <standardValue>
-        <fullName>Open</fullName>
-        <default>true</default>
-        <label>Open</label>
-        <converted>false</converted>
-    </standardValue>
-    <standardValue>
-        <fullName>Account Verified</fullName>
+        <fullName>Verification</fullName>
         <default>false</default>
-        <label>Account Verified</label>
+        <label>Verification</label>
         <converted>false</converted>
     </standardValue>
     <standardValue>
@@ -32,9 +32,15 @@
         <converted>true</converted>
     </standardValue>
     <standardValue>
-        <fullName>Unqualified</fullName>
+        <fullName>Converted</fullName>
         <default>false</default>
-        <label>Unqualified</label>
+        <label>Converted</label>
+        <converted>true</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Not Converted</fullName>
+        <default>false</default>
+        <label>Not Converted</label>
         <converted>false</converted>
     </standardValue>
 </StandardValueSet>

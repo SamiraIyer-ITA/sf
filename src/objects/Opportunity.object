@@ -128,6 +128,22 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Opportunity_LPL</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Opportunity_LPL</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
@@ -394,6 +410,33 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Assigned_Date__c</fullName>
+        <description>Assigned Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the date the opportunity was assigned to the commercial specialist.</inlineHelpText>
+        <label>Assigned Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+     <fields>
+        <fullName>Assigned_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Assigned User</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the commercial specialist assigned to the opportunity.</inlineHelpText>
+        <label>Assigned User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>CampaignId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -563,6 +606,29 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Conference_Call_Date__c</fullName>
+        <description>Conference Call Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the date when the conference call was held.</inlineHelpText>
+        <label>Conference Call Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Conference_Call_Scheduling_In_Progress__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes that conference call scheduling is in progress.</inlineHelpText>
+        <label>Conference Call Scheduling In Progress</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ContractId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -603,8 +669,62 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Eligibility_Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Eligibility Verified</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Eligible_for_Export_Promotion__c</fullName>
+        <externalId>false</externalId>
+        <label>Eligible for Export Promotion</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>ExpectedRevenue</fullName>
         <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Expedited_Delivery__c</fullName>
+        <externalId>false</externalId>
+        <label>Expedited Delivery</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Fulfillment_Office__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Fulfillment Office</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the office of the commercial specialist.</inlineHelpText>
+        <label>Fulfillment Office</label>
+        <referenceTo>Collection_Fulfillment__c</referenceTo>
+        <relationshipLabel>Opportunities (Fulfillment Office)</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Export_Readiness_Assessment_Score__c</fullName>
@@ -621,9 +741,8 @@
             IF(TEXT(Know_U_S_Export_Control_requirements__c)  = &quot;Yes&quot;, 1, 0) +
             IF(TEXT(Process_to_protect_IP_internationally__c)  = &quot;Yes&quot;, 1, 0) +
             IF(TEXT(Process_to_respond_to_int_l_inquiries__c)  = &quot;Yes&quot;, 1, 0) +
-            IF(TEXT(Product_of_US_origin_or_has_51_mtls__c)  = &quot;Yes&quot;, 1, 0) +
             IF(TEXT(Production_capacity_to_meet_orders__c)  = &quot;Yes&quot;, 1, 0) +
-            IF(TEXT(Willing_to_travel_internationally__c)  = &quot;Yes&quot;, 1, 0)) &amp; &quot;/14&quot;</formula>
+            IF(TEXT(Willing_to_travel_internationally__c)  = &quot;Yes&quot;, 1, 0)) &amp; &quot;/15&quot;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>Export Readiness: # of Yes responses / Count of ER-related Questions (14)</inlineHelpText>
         <label>Export Readiness Assessment Score</label>
@@ -632,6 +751,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Export_Readiness_Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Export Readiness Verified</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Export_Ready__c</fullName>
@@ -692,6 +821,30 @@
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Meeting_Availability_Date_1__c</fullName>
+        <description>Meeting Availability Date 1</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the first availability date; this date is intended to be shared with the client.</inlineHelpText>
+        <label>Meeting Availability Date 1</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Availability_Date_2__c</fullName>
+        <description>Meeting Availability Date 2</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes the second availability date; this date is intended to be shared with the client.</inlineHelpText>
+        <label>Meeting Availability Date 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>International_marketing_plan__c</fullName>
@@ -872,10 +1025,25 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Product_of_US_origin_or_has_51_mtls__c</fullName>
+        <fullName>Product_of_US_Origin__c</fullName>
         <description>Field data to be copied over from Lead upon conversion. Necessary for early stage nurturing.</description>
         <externalId>false</externalId>
-        <label>Product of US origin or has 51% mtls?</label>
+        <label>Product of U.S. Origin?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_is_of_51_US_Content__c</fullName>
+        <description>Field data to be copied over from Lead upon conversion. Necessary for early stage nurturing.</description>
+        <externalId>false</externalId>
+        <label>Product is of 51% U.S. Content?</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -900,6 +1068,16 @@
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Reason_Lost_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason Lost Explanation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Reason_Lost__c</fullName>
@@ -945,6 +1123,21 @@
                     <default>false</default>
                     <label>Timing</label>
                 </value>
+                <value>
+                    <fullName>No Longer Qualify</fullName>
+                    <default>false</default>
+                    <label>No Longer Qualify</label>
+                </value>
+                <value>
+                    <fullName>Lack of Market Potential</fullName>
+                    <default>false</default>
+                    <label>Lack of Market Potential</label>
+                </value>
+                <value>
+                    <fullName>Travel Restrictions</fullName>
+                    <default>false</default>
+                    <label>Travel Restrictions</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -981,6 +1174,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SOW_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When Opportunity Record Type equals Services, the Quote Record Type equals Services, and Quote Status equals Approved this is set to true.</description>
+        <externalId>false</externalId>
+        <label>SOW Approved</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Site__c</fullName>
@@ -1116,6 +1320,47 @@
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Used_ITA_s_fee_based_services_before__c</fullName>
+        <externalId>false</externalId>
+        <label>Used ITA&apos;s fee-based services before?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Which_services_have_you_used_before__c</fullName>
+        <externalId>false</externalId>
+        <label>Which services have you used before?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Single Company Promotion</fullName>
+                    <default>false</default>
+                    <label>Single Company Promotion</label>
+                </value>
+                <value>
+                    <fullName>Location Promotion</fullName>
+                    <default>false</default>
+                    <label>Location Promotion</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Willing_to_travel_internationally__c</fullName>
@@ -1532,17 +1777,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_of_US_origin_or_has_51_mtls__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Production_capacity_to_meet_orders__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1936,17 +2170,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Process_to_respond_to_int_l_inquiries__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Product_of_US_origin_or_has_51_mtls__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2360,17 +2583,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_of_US_origin_or_has_51_mtls__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Production_capacity_to_meet_orders__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2774,7 +2986,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Product_of_US_origin_or_has_51_mtls__c</picklist>
+            <picklist>Production_capacity_to_meet_orders__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2785,13 +2997,41 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Production_capacity_to_meet_orders__c</picklist>
+            <picklist>Reason_Lost__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Cost</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mutual Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post unable to fulfill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Longer Qualify</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lack of Market Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Restrictions</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2894,6 +3134,22 @@
         <errorConditionFormula>ISBLANK(AccountId)</errorConditionFormula>
         <errorDisplayField>AccountId</errorDisplayField>
         <errorMessage>Organization is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Svc_Require_CP_When_Conf_Call_Completed</fullName>
+        <active>true</active>
+        <description>Require a value for Collection Post when Conference Call Completed and the record type is Services.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Services&quot;, Conference_Call_Completed__c = TRUE, ISBLANK(Collection_Post__c))</errorConditionFormula>
+        <errorDisplayField>Collection_Post__c</errorDisplayField>
+        <errorMessage>Collection Post is required when Conference Call Completed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Svc_Require_FP_When_Conf_Call_Completed</fullName>
+        <active>true</active>
+        <description>Require a value for Fulfillment Post when Conference Call Completed and record type is Services.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Services&quot;, Conference_Call_Completed__c = TRUE, ISBLANK(Fulfillment_Post__c))</errorConditionFormula>
+        <errorDisplayField>Fulfillment_Post__c</errorDisplayField>
+        <errorMessage>Fulfillment Post is required when Conference Call Completed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>V04Require_value_if_opportunity_is_lost</fullName>
