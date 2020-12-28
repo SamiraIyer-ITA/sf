@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>GM CS-EMEA-Field Europe</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field Europe</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-Field Great Lakes</fullName>
+        <default>false</default>
+        <label>GM CS-USA-Field Great Lakes</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-Field MidAtlantic</fullName>
+        <default>false</default>
+        <label>GM CS-USA-Field MidAtlantic</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-Field MidWest</fullName>
+        <default>false</default>
+        <label>GM CS-USA-Field MidWest</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-Field Northeast</fullName>
+        <default>false</default>
+        <label>GM CS-USA-Field Northeast</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-Field Pacific North</fullName>
+        <default>false</default>
+        <label>GM CS-USA-Field Pacific North</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-Field Pacific South</fullName>
+        <default>false</default>
+        <label>GM CS-USA-Field Pacific South</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-Field Southern</fullName>
+        <default>false</default>
+        <label>GM CS-USA-Field Southern</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-Field Southwest</fullName>
+        <default>false</default>
+        <label>GM CS-USA-Field Southwest</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-DDG Units</fullName>
+        <default>false</default>
+        <label>GM CS-DDG Units</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-Field</fullName>
+        <default>false</default>
+        <label>GM CS-WH-Field</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-WH-HQ</fullName>
+        <default>false</default>
+        <label>GM CS-WH-HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM SelectUSA-Field</fullName>
+        <default>false</default>
+        <label>GM SelectUSA-Field</label>
+    </customValue>
+    <customValue>
+        <fullName>GM SelectUSA-HQ</fullName>
+        <default>false</default>
+        <label>GM SelectUSA-HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM Advocacy-Field</fullName>
+        <default>false</default>
+        <label>GM Advocacy-Field</label>
+    </customValue>
+    <customValue>
+        <fullName>GM Advocacy-HQ</fullName>
+        <default>false</default>
+        <label>GM Advocacy-HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-Field</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-Field</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-Asia-HQ</fullName>
+        <default>false</default>
+        <label>GM CS-Asia-HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-China-Field</fullName>
+        <default>false</default>
+        <label>GM CS-China-Field</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-China-HQ</fullName>
+        <default>false</default>
+        <label>GM CS-China-HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-DG</fullName>
+        <default>false</default>
+        <label>GM CS-DG</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA-Field MEA</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA-Field MEA</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EMEA HQ</fullName>
+        <default>false</default>
+        <label>GM CS-EMEA HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-USA-HQ</fullName>
+        <default>false</default>
+        <label>GM CS-USA-HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>NULL</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NULL</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA-Field MEA</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA-Field MEA</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR-Field Europe</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR-Field Europe</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-MEA HQ</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-MEA HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>GM CS-EUR HQ</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>GM CS-EUR HQ</label>
+    </customValue>
+    <masterLabel>User Region</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

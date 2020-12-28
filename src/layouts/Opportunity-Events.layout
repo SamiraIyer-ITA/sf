@@ -157,10 +157,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Product_of_US_origin_or_has_51_mtls__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Export_Ready__c</field>
             </layoutItems>
         </layoutColumns>

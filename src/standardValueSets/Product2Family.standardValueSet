@@ -136,4 +136,14 @@
         <default>false</default>
         <label>Featured US Exporters</label>
     </standardValue>
+    <standardValue>
+        <fullName>Single Location Promotion</fullName>
+        <default>false</default>
+        <label>Single Location Promotion</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Services: Other</fullName>
+        <default>false</default>
+        <label>Services: Other</label>
+    </standardValue>
 </StandardValueSet>

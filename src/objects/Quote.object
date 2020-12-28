@@ -512,4 +512,16 @@
         <searchResultsAdditionalFields>QUOTE.TOTALPRICE</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Prevent_Services_Quote_Sync_When_No_Prim</fullName>
+        <active>true</active>
+        <description>The quote cannot be synced when there is no Primary Product Family. There must be one Quote Line Item with a primary product.</description>
+        <errorConditionFormula>AND(
+            RecordType.DeveloperName  = &quot;Services&quot;,
+            IsSyncing = TRUE,
+            ISBLANK(PrimaryProductFamily__c)
+            )</errorConditionFormula>
+        <errorDisplayField>PrimaryProductFamily__c</errorDisplayField>
+        <errorMessage>The quote cannot be synced when there is no Primary Product Family. There must be one Quote Line Item with a primary product.</errorMessage>
+    </validationRules>
 </CustomObject>

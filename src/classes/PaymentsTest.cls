@@ -7,6 +7,9 @@
 @IsTest
 private class PaymentsTest {
 
+    static Id legacyRecordTypeId = Schema.SObjectType.Order
+        .getRecordTypeInfosByDeveloperName().get('Legacy').getRecordTypeId();
+
 	@IsTest
 	static void testNewInstanceOfPaymentsDomain_PassListWithOneNonInsertedObject_ReturnsValidInterface() {
 		List<Payment__c> paymentList  = new List<Payment__c>();

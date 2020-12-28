@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Services Sales Process</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Conference_Call_Scheduled__c</fieldNames>
+        <info>&lt;p&gt;Review the guidelines found in the ITA Job Aid(s):&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://itaisinternationaltrade.sharepoint.com/:b:/r/sites/Office-of-Strategic-Planning/SiteAssets/SitePages/UF_Training+JobAids/How%20to%20Determine%20Eligibility%20for%20CS%20Services.pdf?csf=1&amp;amp;e=TPiavI&quot; target=&quot;_blank&quot;&gt;Job Aid &lt;/a&gt;&lt;/p&gt;</info>
+        <picklistValueName>Needs Analysis</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Remember to follow ITA guidelines during the negotiation phase.&lt;/p&gt;</info>
+        <picklistValueName>Negotiation/Review</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>PA_Sent__c</fieldNames>
+        <info>&lt;p&gt;Review the guidelines found in the ITA Job Aid(s):&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://itaisinternationaltrade.sharepoint.com/:b:/r/sites/Office-of-Strategic-Planning/SiteAssets/SitePages/UF_Training+JobAids/User%20Fee%20Schedule%20Job%20Aid.pdf?csf=1&amp;amp;e=0djj8n&quot; target=&quot;_blank&quot;&gt;Job Aid&lt;/a&gt;&lt;/p&gt;</info>
+        <picklistValueName>Proposal/Price Quote</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Company_Questionnaire__c</fieldNames>
+        <fieldNames>Export_Ready__c</fieldNames>
+        <fieldNames>Export_Readiness_Assessment_Score__c</fieldNames>
+        <info>&lt;p&gt;Review the guidelines found in the following ITA Job Aid(s):&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://itaisinternationaltrade.sharepoint.com/:b:/r/sites/Office-of-Strategic-Planning/SiteAssets/SitePages/UF_Training+JobAids/How%20to%20Determine%20Eligibility%20for%20CS%20Services.pdf?csf=1&amp;amp;e=TPiavI&quot; target=&quot;_blank&quot; style=&quot;font-size: 13px;&quot;&gt;Job Aid 1&lt;/a&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://itaisinternationaltrade.sharepoint.com/:b:/r/sites/Office-of-Strategic-Planning/SiteAssets/SitePages/UF_Training+JobAids/How%20to%20Determine%20Eligibility%20for%20CS%20Fee-based%20Services.pdf?csf=1&amp;amp;e=9BdBFW&quot; target=&quot;_blank&quot;&gt;Job Aid 2&lt;/a&gt;&lt;/p&gt;</info>
+        <picklistValueName>Qualification</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Conference_Call_Completed__c</fieldNames>
+        <picklistValueName>Value Proposition</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Services</recordTypeName>
+</PathAssistant>
