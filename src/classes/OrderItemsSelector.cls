@@ -14,10 +14,9 @@ public class OrderItemsSelector extends fflib_SObjectSelector implements IOrderI
         OrderItemQueryFactory.selectFields(new Set<String>{'Id','OrderId', 'Order.Payment2__c', 'TotalPrice'});
         condition += '(Order.Payment2__c IN :idSet)';
         return (List<OrderItem>) Database.query(OrderItemQueryFactory.setCondition(condition).toSOQL());
+        //return Database.query(OrderItemQueryFactory.setCondition(condition).toSOQL());
     }
-    // Set<Id> PaymentIds = new Set<Id>();
-    //List<OrderItem> oi = new List<OrderItem>();
-    //List<OrderItem> oi = OrderItemsSelector.newInstance().selectRelatedRecords(PaymentIds);
+
 
     public List<Schema.SObjectField> getSObjectFieldList() {
         return new List<Schema.SObjectField> {
