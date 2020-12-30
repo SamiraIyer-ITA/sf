@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Send the Notification to the Opportunity Team Member User.</description>
+        <name>Opportunity_Team_Member_Added</name>
+        <label>Opportunity Team Member Added</label>
+        <locationX>1155</locationX>
+        <locationY>116</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>Custom_Notification_Type.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>You are now a member of the opportunity team</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>You have been added to an opportunity team</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>RecipientIDs</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <assignments>
+        <description>Populate the RecipientIDs collection with the UserID of the New Opportunity Team Member to ensure the notification is delivered.</description>
+        <name>Recipient_IDs</name>
+        <label>Recipient IDs</label>
+        <locationX>952</locationX>
+        <locationY>116</locationY>
+        <assignmentItems>
+            <assignToReference>RecipientIDs</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.UserId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Opportunity_Team_Member_Added</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Evaluate the Opportunity Record Type to ensure it&apos;s Developer name is either Events or Services.</description>
+        <name>Evaluate_Record_Type</name>
+        <label>Evaluate Record Type</label>
+        <locationX>493</locationX>
+        <locationY>118</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Events_Or_Services</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity_Record_Type_Developer_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Events</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Opportunity_Record_Type_Developer_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Services</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Custom_Notification_Type</targetReference>
+            </connector>
+            <label>Events or Services</label>
+        </rules>
+    </decisions>
+    <description>Notifies Users they&apos;ve been added to a new Opportunity Team.</description>
+    <interviewLabel>OpportunityTeamMember_Aftersave_Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>OpportunityTeamMember_Aftersave_Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Retrieve the Custom Notification Type to use it&apos;s ID in the Notification Action downstream</description>
+        <name>Custom_Notification_Type</name>
+        <label>Custom Notification Type</label>
+        <locationX>718</locationX>
+        <locationY>116</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Recipient_IDs</targetReference>
+        </connector>
+        <filters>
+            <field>CustomNotifTypeName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Opportunity_Team_Member_Added</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Evaluate_Record_Type</targetReference>
+        </connector>
+        <object>OpportunityTeamMember</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>RecipientIDs</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

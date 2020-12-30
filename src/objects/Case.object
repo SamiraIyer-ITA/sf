@@ -591,7 +591,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>MultiselectPicklist</type>
         <valueSet>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -757,6 +757,7 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>AssetId</fullName>
@@ -1513,7 +1514,7 @@ Select if this is a Compliance Case</description>
         <fullName>Compliance_Date__c</fullName>
         <description>Date when a Commercial Diplomacy Case becomes compliant.</description>
         <externalId>false</externalId>
-        <label>Compliance Date</label>
+        <label>RA Determination Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>

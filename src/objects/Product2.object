@@ -143,7 +143,6 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Block__c</fullName>
@@ -8371,7 +8370,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Services: Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Single Company Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Location Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8443,4 +8450,16 @@
         <searchResultsAdditionalFields>PRODUCT2.FAMILY</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Svc_Require_Accounting_Code_When_Primary</fullName>
+        <active>true</active>
+        <description>Require a value for Accounting Code when record type is Services and product is primary.</description>
+        <errorConditionFormula>AND(
+ IsPrimary__c = TRUE,
+ RecordType.DeveloperName = &quot;Services&quot;,
+ ISBLANK(Accounting_Code__c)
+)</errorConditionFormula>
+        <errorDisplayField>Accounting_Code__c</errorDisplayField>
+        <errorMessage>Accounting Code is required when Product is Primary.</errorMessage>
+    </validationRules>
 </CustomObject>
