@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>dlrs__DeclarativeLookupRollupSummaries</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <description>Assigned Apps - Access to the Declarative Lookup Rollup Summaries (DLRS) App. Installed package primarily used to create rollup fields between objects with a lookup relationship. Also provides additional rollup options for master-detail relationships.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Declarative Lookup Rollup Summaries App</label>
+</PermissionSet>
