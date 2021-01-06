@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Product_Code_Generator_No_Smart_Code</fullName>
+        <categories>error, product code generator</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Code Generator No Smart Code	</shortDescription>
+        <value>The Event Product your are creating with family, {0} does that have a mapping to an Event Type Smart Code. Please check the custom field, Event_Type_Smart_Code and verify there is a mapping for this family.</value>
+    </labels>
+</CustomLabels>

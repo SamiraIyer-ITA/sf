@@ -36,12 +36,14 @@ public class ProductsSelector extends fflib_SObjectSelector implements IProducts
 			Product2.ProductCode,
 			Product2.Family,
 			Product2.Event_Type_Smart_Code__c,
-            Product2.Accounting_Code__c
+            Product2.Accounting_Code__c,
+            Product2.IsPrimary__c,
+            Product2.Client_Form_Type__c,
+            Product2.Statement_of_Work__c
 		};
 	}
 
 	private Schema.SObjectType getSObjectType() {
 		return Product2.SObjectType;
 	}
-
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Line_Item_Cannot_Be_Deleted</fullName>
+        <categories>error, validation, trigger, quotelineitem</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Line Item Cannot Be Deleted</shortDescription>
+        <value>This line item cannot be deleted when the quote is synced and the line item is primary.</value>
+    </labels>
+    <labels>
+        <fullName>Line_Item_One_Primary_Per_Quote</fullName>
+        <categories>error, validation, trigger, quotelineitem</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Line Item One Primary Per Quote</shortDescription>
+        <value>Only one primary line item is allowed per quote. There is an existing line item for this quote with a primary product.</value>
+    </labels>
+</CustomLabels>

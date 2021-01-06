@@ -3,6 +3,15 @@
     <customSettingsType>Hierarchy</customSettingsType>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>FlowsEnabled__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>When unchecked, any flows that evaluate for a restriction to prevent the user from proceeding forward will immediately end.  If checked, the flow will allow the user to proceed forward.</description>
+        <externalId>false</externalId>
+        <label>FlowsEnabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Scope_Inquiry_Edit_Request_Filed__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>

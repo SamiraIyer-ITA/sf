@@ -56,7 +56,7 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 		}
 		orderItemsQueryFactory.selectFields(new OrderItemsSelector().getSObjectFieldList());
 		return Database.query(ordersQueryFactory.toSOQL());
-	}
+		}
 
 	public List<Order> selectByPaymentId(Set<Id> idSet) {
 		if (idSet.isEmpty()) return new List<Order>();  //Avoid unnecessary SOQL
@@ -66,6 +66,15 @@ public class OrdersSelector extends fflib_SObjectSelector implements IOrdersSele
 		fflib_QueryFactory orderItemsQueryFactory = ordersQueryFactory.subselectQuery('OrderItems');
 		orderItemsQueryFactory.selectFields(new OrderItemsSelector().getSObjectFieldList());
 		return Database.query(ordersQueryFactory.toSOQL());
+	}
+
+	public List<Order> selectOrdersByOpportunities(Set<Id> opportunityIds) {
+		return (List<Order>)
+				Database.query(
+					newQueryFactory()
+						.setCondition('OpportunityId in :opportunityIds')
+						.toSOQL()
+				);
 	}
 
 	private List<Schema.SObjectField> getSObjectFieldList() {
