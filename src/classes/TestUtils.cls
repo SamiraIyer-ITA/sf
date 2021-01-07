@@ -209,6 +209,67 @@ public class TestUtils {
         return pbe;
     }
 
+	public static Payment2__c createPayment2(Boolean doInsert, String recordType){
+		Payment2__c payment2 = new Payment2__c();
+		payment2.RecordTypeId = Utils.getRecordTypeIdMap('Payment2__c').get(recordType);
+		if(doInsert) {insert payment2;}
+		return payment2;
+	}
+
+	public static Collection_Fulfillment__c createCollectionFulfillment(Boolean doInsert, String post, string orgCode){
+		Collection_Fulfillment__c cf = new Collection_Fulfillment__c();
+		cf.Post__c = post;
+		cf.Org_Code__c = orgCode;
+		if(doInsert) {insert cf;}
+		return cf;
+	}
+
+	public static Order createStandardOrder(Boolean doInsert, Id accountId, Id priceBookId){
+		Order standardOrder = new Order();
+		standardOrder.EffectiveDate = system.today();
+		standardOrder.Status = 'Draft';
+		standardOrder.AccountId = accountId;
+		standardOrder.Pricebook2Id = priceBookId;
+		if(doInsert) {insert standardOrder;}
+		return standardOrder;
+	}
+
+	public static OrderItem createStandardOrderItem(Boolean doInsert, Id orderId, Id pbeId){
+		OrderItem standardOrderItem = new OrderItem();
+		standardOrderItem.OrderId = orderId;
+		standardOrderItem.Quantity = 1;
+		standardOrderItem.UnitPrice = 1000;
+		standardOrderItem.PricebookEntryId = pbeId;
+		if(doInsert) {insert standardOrderItem;}
+		return standardOrderItem;
+	}
+
+	public static Quote createQuote(Boolean doInsert, Id oppId, Id priceBookId, String quoteName){
+		Quote standardQuote = new Quote();
+		standardQuote.OpportunityId = oppId;
+		standardQuote.Name = quoteName;
+		standardQuote.Pricebook2Id = priceBookId;
+		if(doInsert) {insert standardQuote;}
+		return standardQuote;
+	}
+
+	public static QuoteLineItem createQuoteLineItem(Boolean doInsert, Id product2Id, Id quoteId, Id pbeId){
+		QuoteLineItem standardQuoteLineItem = new QuoteLineItem();
+		standardQuoteLineItem.QuoteId = quoteId;
+		standardQuoteLineItem.PricebookEntryId = pbeId;
+		standardQuoteLineItem.Quantity = 1;
+		standardQuoteLineItem.UnitPrice = 1000;
+		if(doInsert) {insert standardQuoteLineItem;}
+		return standardQuoteLineItem;
+	}
+
+	public static Contract createContract(Boolean doInsert, Id accountId){
+		Contract c = new Contract();
+		c.AccountId = accountId;
+		if(doInsert){insert c;}
+		return c;
+	}`
+
     public static Asset createAsset(Account account, Product2 product, Boolean doInsert) {
         return createAsset('Installed', account, product, doInsert);
     }
