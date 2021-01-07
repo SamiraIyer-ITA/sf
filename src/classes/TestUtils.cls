@@ -268,7 +268,7 @@ public class TestUtils {
 		c.AccountId = accountId;
 		if(doInsert){insert c;}
 		return c;
-	}`
+	}
 
     public static Asset createAsset(Account account, Product2 product, Boolean doInsert) {
         return createAsset('Installed', account, product, doInsert);
