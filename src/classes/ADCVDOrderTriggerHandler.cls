@@ -96,6 +96,7 @@
             addNewOrderToMappers(newMap);
             frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
             frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
+        	setOrderIdToSegmentMap(newMap.keySet());
             setOrderIdToSegmentStatusMap(newMap.keySet());
         }
     }
