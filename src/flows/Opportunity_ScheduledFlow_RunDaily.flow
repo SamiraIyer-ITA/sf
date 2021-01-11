@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Sends the Assigned User a custom notification</description>
+        <name>Send_Oppty_Notification</name>
+        <label>Send Oppty Notification</label>
+        <locationX>728</locationX>
+        <locationY>898</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>Oppty_Custom_Notification.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>Please follow up on the opportunity promptly.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <elementReference>$Record.Name</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>RecipientIds</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <name>Recipient_Ids</name>
+        <label>Recipient Ids</label>
+        <locationX>558</locationX>
+        <locationY>684</locationY>
+        <assignmentItems>
+            <assignToReference>RecipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Assigned_User__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Oppty_Notification</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Checks to see if the date in which the flow is running is a weekday (notifications should not be distributed on weekends).</description>
+        <name>Is_Weekday</name>
+        <label>Is Weekday?</label>
+        <locationX>1016</locationX>
+        <locationY>324</locationY>
+        <defaultConnectorLabel>Weekend</defaultConnectorLabel>
+        <rules>
+            <name>Weekday</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Return_FlowRunDate_As_Weekday</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Return_FlowRunDate_As_Weekday</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <numberValue>7.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Notifications</targetReference>
+            </connector>
+            <label>Weekday</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Send_Notifications</name>
+        <label>Send Notifications?</label>
+        <locationX>813</locationX>
+        <locationY>386</locationY>
+        <defaultConnectorLabel>Do Not Send Notification</defaultConnectorLabel>
+        <rules>
+            <name>Send_First_Notification</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>x1st_Notification_Date</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>x2nd_Notification_Date</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Oppty_Custom_Notification</targetReference>
+            </connector>
+            <label>Send First Notification</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <description>Evaluates the calendar date in which the flow interview is running and returns the weekday as a number value between 1 (Sunday) and 7 (Saturday).</description>
+        <name>Return_FlowRunDate_As_Weekday</name>
+        <dataType>Number</dataType>
+        <expression>WEEKDAY({!$Flow.CurrentDate})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>Evaluates the Assigned Date of the record and returns the first weekday that falls after the assigned date.</description>
+        <name>x1st_Notification_Date</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.Assigned_Date__c} +
+CASE(
+WEEKDAY( {!$Record.Assigned_Date__c} ),
+1, 1,
+2, 1,
+3, 1,
+4, 1,
+5, 1,
+6, 3,
+7, 2,
+0)</expression>
+    </formulas>
+    <formulas>
+        <name>x2nd_Notification_Date</name>
+        <dataType>Date</dataType>
+        <expression>{!x1st_Notification_Date} +
+CASE(
+WEEKDAY( {!x1st_Notification_Date} ),
+1, 1,
+2, 1,
+3, 1,
+4, 1,
+5, 1,
+6, 3,
+7, 2,
+0)</expression>
+    </formulas>
+    <interviewLabel>Opportunity_ScheduledFlow_RunDaily {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity_ScheduledFlow_RunDaily</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Retrieve the Opportunity Custom Notification</description>
+        <name>Oppty_Custom_Notification</name>
+        <label>Oppty Custom Notification</label>
+        <locationX>730</locationX>
+        <locationY>564</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Recipient_Ids</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Scheduled_Notifications_On_Opportunity</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>889</locationX>
+        <locationY>49</locationY>
+        <connector>
+            <targetReference>Is_Weekday</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Record_Type_Developer_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Services</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Conference_Call_Scheduling_In_Progress__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Assigned_User__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Assigned_Date__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2020-10-15</startDate>
+            <startTime>23:45:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Contains the recipient of the notification. This must be a collection Variable as outlined in the Salesforce user documentation.</description>
+        <name>RecipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

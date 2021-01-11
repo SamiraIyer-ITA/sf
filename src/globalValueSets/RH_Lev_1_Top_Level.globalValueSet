@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>GM All</fullName>
+        <default>false</default>
+        <label>GM All</label>
+    </customValue>
+    <customValue>
+        <fullName>EC All</fullName>
+        <default>false</default>
+        <label>EC All</label>
+    </customValue>
+    <customValue>
+        <fullName>IA All</fullName>
+        <default>false</default>
+        <label>IA All</label>
+    </customValue>
+    <customValue>
+        <fullName>TSI</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>TSI</label>
+    </customValue>
+    <customValue>
+        <fullName>OUS</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OUS</label>
+    </customValue>
+    <customValue>
+        <fullName>OCIO</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OCIO</label>
+    </customValue>
+    <customValue>
+        <fullName>NULL</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NULL</label>
+    </customValue>
+    <customValue>
+        <fullName>OCFAO</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OCFAO</label>
+    </customValue>
+    <masterLabel>User Unit</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

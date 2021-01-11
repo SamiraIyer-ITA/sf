@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>U.S. Field Account Manager</fullName>
+        <default>false</default>
+        <label>U.S. Field Account Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>U.S. Field Admin/Budget Specialist</fullName>
+        <default>false</default>
+        <label>U.S. Field Admin/Budget Specialist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>U.S. Field Collaborator</fullName>
+        <default>false</default>
+        <label>U.S. Field Collaborator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Post Lead</fullName>
+        <default>false</default>
+        <label>Post Lead</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Commercial Officer</fullName>
+        <default>false</default>
+        <label>Commercial Officer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Post Admin/Budget Specialist</fullName>
+        <default>false</default>
+        <label>Post Admin/Budget Specialist</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Post Collaborator</fullName>
+        <default>false</default>
+        <label>Post Collaborator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Opportunity Owner</fullName>
+        <default>false</default>
+        <label>Opportunity Owner</label>
+    </standardValue>
+</StandardValueSet>

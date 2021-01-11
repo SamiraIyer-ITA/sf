@@ -7,6 +7,8 @@ export default class TransactionCriteria extends LightningElement {
 	accountTypeOptions = [
 		{ label: 'Services', value: 'Services' },
 		{ label: 'Events', value: 'Events' },
+		{ label: 'Service', value: 'Service' },
+		{ label: 'Event', value: 'Event' },
 		{ label: 'Privacy Shield', value: 'Privacy Shield' }
 	];
 
