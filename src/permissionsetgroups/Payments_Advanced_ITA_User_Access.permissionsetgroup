@@ -10,6 +10,7 @@
     <permissionSets>Case_Field_Level_Read_Access_Transaction_Management</permissionSets>
     <permissionSets>Case_Read_Access</permissionSets>
     <permissionSets>Case_Transaction_Management_Support_Record_Type</permissionSets>
+    <permissionSets>Class_Payments2Service</permissionSets>
     <permissionSets>Contract_Read_Access</permissionSets>
     <permissionSets>Contract_Tab_Available_Visible</permissionSets>
     <permissionSets>Contracts_Field_Level_Read_Access</permissionSets>
