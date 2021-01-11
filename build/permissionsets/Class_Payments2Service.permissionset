@@ -178,11 +178,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ADCVD_Order__c.Petition_Filed__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>ADCVD_Order__c.Product_Short_Name_Text_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
