@@ -9,7 +9,7 @@
     <permissionSets>Case_Field_Level_Edit_Access_Transaction_Management</permissionSets>
     <permissionSets>Case_Field_Level_Read_Access_Transaction_Management</permissionSets>
     <permissionSets>Case_Read_Access</permissionSets>
-    <permissionSets>Class_Payments2Service.permissionset</permissionSets>
+    <permissionSets>Class_Payments2Service</permissionSets>
     <permissionSets>Contract_Read_Access</permissionSets>
     <permissionSets>Contracts_Field_Level_Read_Access</permissionSets>
     <permissionSets>Flows_Run</permissionSets>
