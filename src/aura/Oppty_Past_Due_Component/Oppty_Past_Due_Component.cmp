@@ -1,0 +1,19 @@
+<aura:component controller="Oppty_Past_Due_Controller" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="showMsg" type="Boolean" default="false"/>
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+	<force:recordData aura:id="forceRecord"
+					  recordId="{!v.recordId}"
+					  fields="Assigned_User__c,Assigned_Date__c,Conference_Call_Scheduling_In_Progress__c"
+					  targetRecord="{!v._record}"
+					  targetFields="{!v.simpleRecord}"
+					  targetError="{!v._error}"
+					  recordUpdated="{!c.recordUpdated}" />
+
+	<aura:if isTrue="{!v.showMsg}">
+		<div class="slds-col slds-col--padded slds-p-top--large slds-col--padded slds-p-bottom--large slds-text-heading_large">
+			<p class="slds-align_absolute-center"><b>Please follow up on the opportunity promptly.</b></p>
+		</div>
+	</aura:if>
+</aura:component>

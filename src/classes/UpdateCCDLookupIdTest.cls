@@ -1,6 +1,10 @@
 @isTest
 private class UpdateCCDLookupIdTest {
-	
+
+	// SM-136: Update account triggers by record types (pass this record type into test here)
+	static Id partnerAccountRecordTypeId = Schema.SObjectType.Account
+		.getRecordTypeInfosByDeveloperName().get('Partner_Account').getRecordTypeId();
+
 	@isTest static void ZipcodeMatch() {
 		Test.startTest();
 		if(!System.isBatch())
@@ -24,6 +28,7 @@ private class UpdateCCDLookupIdTest {
 		accSet.BillingState = 'Maryland';
 		accSet.BillingPostalCode = '22020-1700';
 		accSet.BillingCountry ='United States';
+		accSet.RecordTypeId = partnerAccountRecordTypeId;
 		testAccount.add(accSet);
 		insert testAccount;
 
@@ -70,6 +75,7 @@ private class UpdateCCDLookupIdTest {
 		accSet.BillingState = 'Maryland';
 		accSet.BillingPostalCode ='22020-1801';
 		accSet.BillingCountry ='United States';
+		accSet.RecordTypeId = partnerAccountRecordTypeId;
 		testAccount.add(accSet);
 		
 		List<DNBoptimizer__DnBCompanyRecord__c> dnb = new List<DNBoptimizer__DnBCompanyRecord__c>();

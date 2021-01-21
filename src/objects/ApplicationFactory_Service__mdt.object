@@ -26,6 +26,32 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Service_Implementation_Key__c</fullName>
+        <description>The field value for a Service Implementation SObject implementation field. This value is used to map to the service implementation (SObjectType__c) interface.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>The field value for a Service Implementation SObject implementation field. This value is used to map to the service implementation (SObjectType__c) interface.</inlineHelpText>
+        <label>Service Implementation Key</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Implementation_SObject__c</fullName>
+        <description>Maps Application Factory Service to Service Implementation SObject, which is used to get the implementation field for service implementations.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Maps Application Factory Service to Service Implementation SObject, which is used to get the implementation field for service implementations.</inlineHelpText>
+        <label>Service Implementation SObject</label>
+        <referenceTo>Service_Implementation_SObject__mdt</referenceTo>
+        <relationshipLabel>Application Factory - Services</relationshipLabel>
+        <relationshipName>Application_Factory_Services</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
     <label>Application Factory - Service</label>
     <pluralLabel>Application Factory - Services</pluralLabel>
     <visibility>Public</visibility>

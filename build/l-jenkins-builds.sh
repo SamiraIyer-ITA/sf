@@ -51,6 +51,7 @@ types=" app \
         js \
         labels \
         layout \
+	LeadConvertSetting \
         liveChatButton \
 	notiftype \
         md \
@@ -88,8 +89,8 @@ types=" app \
 	xmd"
 
 typesubfolders="	email \
-			dashboard \
-			report"
+		dashboard \
+		report"
 
 # For creating the deployment change set
 gitfiles=$sandbox/gitchanges

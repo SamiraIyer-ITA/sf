@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Stores the SObject type and implementation field for service implementations related to Application Factory Services.</description>
+    <fields>
+        <fullName>Implementation_Field__c</fullName>
+        <description>The SObject field used to store values that will be mapped to the Application Factory Services specific for this SObject. Parent relationship fields are not allowed.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>The SObject field used to store values that will be mapped to the Application Factory Services specific for this SObject. Parent relationship fields are not allowed.</inlineHelpText>
+        <label>Implementation Field</label>
+        <length>100</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SObject_Type__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>The full Api name (including __c) for the implementation SObject</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>The full Api name (including __c) for the implementation SObject</inlineHelpText>
+        <label>SObject Type</label>
+        <length>100</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Service Implementation SObject</label>
+    <pluralLabel>Service Implementation SObjects</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

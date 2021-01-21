@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomNotificationType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customNotifTypeName>Opportunity_Team_Member_Added</customNotifTypeName>
+    <desktop>true</desktop>
+    <masterLabel>Opportunity_Team_Member_Added</masterLabel>
+    <mobile>true</mobile>
+</CustomNotificationType>
