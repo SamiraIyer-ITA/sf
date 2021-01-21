@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Apex Class Access: required access to search for transactions via the search tool in the transaction management tab</description>
-    <label>Class: Payments2Service</label>
-</PermissionSet>
