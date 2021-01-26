@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Temporary permission set group to aggregate the permissions required for transaction testing setup.</description>
+    <label>Transaction Testing Setup</label>
+    <permissionSets>Collection_Fulfillment_Create_Access_Standard</permissionSets>
+    <permissionSets>Collection_Fulfillment_Edit_Access</permissionSets>
+    <permissionSets>Collection_Fulfillment_Field_Level_Edit_Access</permissionSets>
+    <permissionSets>Collection_Fulfillment_Field_Level_Read_Access</permissionSets>
+    <permissionSets>Collection_Fulfillment_Read_Access</permissionSets>
+    <permissionSets>Product_Create_Access_Events</permissionSets>
+    <permissionSets>Product_Create_Access_Services</permissionSets>
+    <permissionSets>Transaction_Administration_App</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
