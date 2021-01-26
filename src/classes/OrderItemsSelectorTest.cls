@@ -1,13 +1,17 @@
 @IsTest
+private class OrderItemsSelectorTest {
 
-public class OrderItemsSelectorTest {
+	@IsTest
+	static void testSelectById() {
+		List<OrderItem> result = OrderItemsSelector.newInstance().selectById(new Set<Id> {});
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertEquals(0, result.size(), 'List not empty');
+	}
     
-    //run stubs to increase code cover for production deployment.
     @IsTest
-    static void selectById_Positive() {
-        OrderItemsSelector testSelector = new OrderItemsSelector();
-        Set<Id> recordSet = new Set<Id>();
-        OrderItemsSelector.newInstance();
-        testSelector.selectById(recordSet);
-    }
+	static void testSelectRelatedRecords() {
+		List<OrderItem> result = OrderItemsSelector.newInstance().selectRelatedRecords(new Set<Id> {});
+		System.assertNotEquals(null, result, 'Selector returned null instead of list');
+		System.assertEquals(0, result.size(), 'List not empty');
+	}
 }
