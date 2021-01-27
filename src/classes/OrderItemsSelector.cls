@@ -8,6 +8,16 @@ public class OrderItemsSelector extends fflib_SObjectSelector implements IOrderI
         return (List<OrderItem>) selectSObjectsById(idSet);
     }
 
+    public List<OrderItem> selectRelatedRecords(Set<Id> idSet) {
+        fflib_QueryFactory OrderItemQueryFactory = newQueryFactory();
+        String condition = '';
+        OrderItemQueryFactory.selectFields(new Set<String>{'Id','OrderId', 'Order.Payment2__c', 'TotalPrice'});
+        condition += '(Order.Payment2__c IN :idSet)';
+        return (List<OrderItem>) Database.query(OrderItemQueryFactory.setCondition(condition).toSOQL());
+        //return Database.query(OrderItemQueryFactory.setCondition(condition).toSOQL());
+    }
+
+
     public List<Schema.SObjectField> getSObjectFieldList() {
         return new List<Schema.SObjectField> {
                 OrderItem.Id,
@@ -17,7 +27,8 @@ public class OrderItemsSelector extends fflib_SObjectSelector implements IOrderI
                 OrderItem.Accounting_Code__c,
                 OrderItem.QuoteLineItemId,
                 OrderItem.TotalPrice,
-                OrderItem.UnitPrice
+                OrderItem.UnitPrice,
+                OrderItem.OrderID
         };
     }
 
