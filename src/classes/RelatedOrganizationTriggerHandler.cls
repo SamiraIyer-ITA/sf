@@ -30,7 +30,7 @@
         if(isAfter && isInsert) {
         	newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
-            new StaffingAssignmentService().createStaffFromDefaults(newList, 'Related_Organization__c');
+       //     new StaffingAssignmentService().createStaffFromDefaults(newList, 'Related_Organization__c');
         }
     }
 
