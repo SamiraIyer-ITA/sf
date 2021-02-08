@@ -17,6 +17,9 @@ public class ADCVD_OrderDetailController {
 
   public ADCVD_Case__c caseObj { get; set; }
   public ADCVD_Order__c order { get; set; }
+  public Suspension_Agreement__c suspensionAggreement { get; set; }
+  public Boolean scopeOfOrder{ get; set; }
+  
   public String adcvdCase { get; set; }
   private static string defaultName = 'Scope.txt';
   public String attachmentBody { get; set; }
@@ -51,11 +54,13 @@ public class ADCVD_OrderDetailController {
     public String daysRemaining { get; set; }
     public String PeriodCoveredStartDate{ get; set; }
     public String PeriodCoveredEndDate{ get; set; }
+    public Boolean pendingOrderInfo{get;set;}
 
 
   }
 
   public ADCVD_OrderDetailController() {
+    scopeOfOrder = true;
     this.adcvdCase = ApexPages.currentPage().getParameters().get('adcvdcase');
     System.debug(this.adcvdCase);
     this.segInvList = new List<SegmentInvestigationObj>();
@@ -69,11 +74,11 @@ public class ADCVD_OrderDetailController {
             WHERE Next_Announcement_Date__c != null AND Next_Announcement_Date__c >=: Date.today()
             ORDER BY Next_Announcement_Date__c ASC
         ), (
-            SELECT Id, Name,Period_Covered_End_Date__c,Period_Covered_Start_Date__c,ADCVD_Case_Number_Text__c, Product_Short_Name_Text__c, Country_Text__c, RecordTypeId, Actual_Final_Signature__c,
+            SELECT Id,Status__c,Name,Period_Covered_End_Date__c,Period_Covered_Start_Date__c,ADCVD_Case_Number_Text__c, Product_Short_Name_Text__c, Country_Text__c, RecordTypeId, Actual_Final_Signature__c,
                 Preliminary_Extension_Remaining__c, Final_Extension_Remaining__c, Preliminary_Announcement_Date__c, Final_Announcement_Date__c,
                 Next_Announcement_Date__c, Announcement_Type__c, Days_Remaining__c
             FROM Investigations__r
-            WHERE Next_Announcement_Date__c != null AND Next_Announcement_Date__c >=: Date.today()
+            WHERE (Next_Announcement_Date__c != null AND Next_Announcement_Date__c >=: Date.today()) OR (Status__c='Pending Order' AND ( Next_Announcement_Date__c < :date.today() OR Next_Announcement_Date__c = NULL))
             ORDER BY Next_Announcement_Date__c ASC
         ), (SELECT Id, HTS_Number_Formatted__c FROM Harmonized_Tariff_Schedules__r ORDER BY HTS_Number_Formatted__c ASC
         ), (SELECT Id, Name, ADCVD_Case_Number_Text__c, Product_Short_Name_Text__c, Country_Text__c, Commodity_Text__c FROM ADCVD_Orders__r)
@@ -84,6 +89,7 @@ public class ADCVD_OrderDetailController {
 
     //TODO:use selectors instead of query
     if(!caseObj.ADCVD_Orders__r.isEmpty()) {
+      
       this.order = [
           Select id, (SELECT Id FROM Attachments WHERE Name = :defaultName LIMIT 1)
           FROM ADCVD_Order__c
@@ -93,6 +99,26 @@ public class ADCVD_OrderDetailController {
       if (!order.Attachments.isEmpty()) {
         this.attachmentBody = [SELECT Id, Body, Description FROM Attachment WHERE Id = :this.order.Attachments[0].Id LIMIT 1].Body.toString();
       }
+      
+      if(this.attachmentBody == null || this.attachmentBody ==''){
+          this.suspensionAggreement = [
+                                          Select id, (SELECT Id FROM Attachments WHERE Name = :defaultName LIMIT 1)
+                                          FROM Suspension_Agreement__c
+                                          WHERE ADCVD_Case_Number_Text__c = :this.adcvdCase
+                                          LIMIT 1
+                                      ];
+                                      
+          if (!suspensionAggreement.Attachments.isEmpty()) {
+            this.attachmentBody = [SELECT Id, Body, Description FROM Attachment WHERE Id = :this.suspensionAggreement.Attachments[0].Id LIMIT 1].Body.toString();
+            if(this.attachmentBody != null || this.attachmentBody !=''){
+                scopeOfOrder = false;
+            }        
+            
+          }                            
+                                      
+      }
+       
+      
     }
     if (!caseObj.Segments__r.isEmpty() || !caseObj.ADCVD_Orders__r.isEmpty()) {
       for (Segment__c segment : caseObj.Segments__r) {
@@ -127,7 +153,12 @@ public class ADCVD_OrderDetailController {
         si.daysRemaining = investigation.Days_Remaining__c;
         si.PeriodCoveredStartDate = investigation.Period_Covered_Start_Date__c != null ? investigation.Period_Covered_Start_Date__c.format() : '';
         si.PeriodCoveredEndDate = investigation.Period_Covered_End_Date__c != null ? investigation.Period_Covered_End_Date__c.format() : '';
-
+        
+        if(investigation.Status__c=='Pending Order' && (investigation.Next_Announcement_Date__c ==null || investigation.Next_Announcement_Date__c < date.today())){
+            
+            si.pendingOrderInfo = true;
+        }
+        
         this.segInvList.add(si);
       }
     }
