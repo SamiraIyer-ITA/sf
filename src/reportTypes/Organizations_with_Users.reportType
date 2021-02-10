@@ -585,11 +585,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany</field>
-            <table>User.Account$OwnerId</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Jigsaw</field>
             <table>User.Account$OwnerId</table>
         </columns>
