@@ -242,47 +242,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CleanStatus</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>AccountSource</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DunsNumber</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Tradestyle</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>NaicsCode</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>NaicsDesc</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>YearStarted</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>SicDesc</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -745,11 +710,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CleanStatus</field>
-            <table>Account.Contacts</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Active__c</field>
             <table>Account.Contacts</table>
         </columns>
@@ -908,7 +868,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Minority_Owned_Indicator1__c</field>
+            <field>Minority_Owned_Indicator__c</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -924,11 +884,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Organization_Size__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Woman_Owned_Indicator1__c</field>
             <table>Account</table>
         </columns>
         <masterLabel>DnB</masterLabel>

@@ -725,16 +725,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>NaicsCode</field>
-            <table>User.Account$OwnerId</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>NaicsDesc</field>
-            <table>User.Account$OwnerId</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Organization_18_ID__c</field>
             <table>User.Account$OwnerId</table>
         </columns>
@@ -900,11 +890,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Tradestyle</field>
-            <table>User.Account$OwnerId</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Type</field>
             <table>User.Account$OwnerId</table>
         </columns>
@@ -935,11 +920,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>YearStarted</field>
-            <table>User.Account$OwnerId</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>zipCodeLen__c</field>
             <table>User.Account$OwnerId</table>
         </columns>
@@ -948,7 +928,7 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Minority_Owned_Indicator1__c</field>
+            <field>Minority_Owned_Indicator__c</field>
             <table>User.Account$OwnerId</table>
         </columns>
         <columns>
@@ -989,11 +969,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Organization_Size__c</field>
-            <table>User.Account$OwnerId</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Woman_Owned_Indicator1__c</field>
             <table>User.Account$OwnerId</table>
         </columns>
         <masterLabel>DnB</masterLabel>
