@@ -2190,6 +2190,18 @@ MAX(NumberOfEmployees, DNBoptimizer__DnBCompanyRecord__r.DNBoptimizer__EmployeeC
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Woman_Owned_Indicator1__c</fullName>
+        <description>This field automatically populates from the D&amp;B Optimizer</description>
+        <externalId>false</externalId>
+        <label>Woman Owned Indicator</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Woman_Owned_Indicator__c</fullName>
         <description>Woman-Owned Indicator from Data.com</description>
         <externalId>false</externalId>

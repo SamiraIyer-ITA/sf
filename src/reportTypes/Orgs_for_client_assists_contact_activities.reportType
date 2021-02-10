@@ -422,11 +422,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Woman_Owned_Indicator__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Congressional_District_formula__c</field>
             <table>Account</table>
         </columns>
@@ -495,7 +490,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Minority_Owned_Indicator__c</field>
+            <field>Minority_Owned_Indicator1__c</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -511,6 +506,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Organization_Size__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Woman_Owned_Indicator1__c</field>
             <table>Account</table>
         </columns>
         <masterLabel>DnB</masterLabel>
