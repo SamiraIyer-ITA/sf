@@ -555,11 +555,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CleanStatus</field>
-            <table>User.Account$OwnerId</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Congressional_District__c</field>
             <table>User.Account$OwnerId</table>
         </columns>
