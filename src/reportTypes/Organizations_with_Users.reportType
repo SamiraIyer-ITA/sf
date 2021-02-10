@@ -600,11 +600,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DunsNumber</field>
-            <table>User.Account$OwnerId</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>DupeBlocker_Insert_Action__c</field>
             <table>User.Account$OwnerId</table>
         </columns>
