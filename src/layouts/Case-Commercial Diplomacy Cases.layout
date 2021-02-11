@@ -126,6 +126,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>CD_Explanation_of_Case_Value__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>TANC Agreements Details</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>CD_Relevant_Agreement__c</field>
             </layoutItems>
             <layoutItems>
@@ -135,17 +148,13 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Agreement_Name__c</field>
-            </layoutItems>            
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CD_Agreement_Notes__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CD_Explanation_of_Case_Value__c</field>
-            </layoutItems>
         </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -308,8 +317,8 @@
         <fields>Sub_Sector__c</fields>
         <fields>Category__c</fields>
         <fields>Trade_Issue__c</fields>
-		<fields>Type__c</fields>
-        <fields>Sub_Type__c</fields>		
+        <fields>Type__c</fields>
+        <fields>Sub_Type__c</fields>
         <relatedList>Taxonomy_Tagging__c.Related_Case__c</relatedList>
     </relatedLists>
     <relatedLists>
