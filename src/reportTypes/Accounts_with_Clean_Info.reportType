@@ -249,9 +249,6 @@
         <masterLabel>Accounts</masterLabel>
     </sections>
     <sections>
-        <masterLabel>Account Clean Info</masterLabel>
-    </sections>
-    <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>DNBoptimizer__DnBCompanyRecord__c</field>
@@ -279,6 +276,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Minority_Owned_Indicator1__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Minority_Owned_Indicator__c</field>
             <table>Account</table>
         </columns>
@@ -295,6 +297,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Organization_Size__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Woman_Owned_Indicator1__c</field>
             <table>Account</table>
         </columns>
         <masterLabel>DnB</masterLabel>
