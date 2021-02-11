@@ -195,6 +195,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Minority_Owned_Indicator1__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Minority_Owned_Indicator__c</field>
             <table>Account</table>
         </columns>
@@ -296,6 +301,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Organization_Size_Formula__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Woman_Owned_Indicator1__c</field>
             <table>Account</table>
         </columns>
         <masterLabel>Accounts</masterLabel>
