@@ -815,6 +815,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Minority_Owned_Indicator__c</field>
+            <table>Account</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Year_Started__c</field>
             <table>Account</table>
         </columns>
