@@ -4,10 +4,6 @@
     <category>accounts</category>
     <deployed>true</deployed>
     <description>Use to report on metadata associated with Data.com Clean.</description>
-    <join>
-        <outerJoin>true</outerJoin>
-        <relationship>AccountCleanInfos</relationship>
-    </join>
     <label>Accounts with Clean Info Custom</label>
     <sections>
         <columns>
@@ -97,11 +93,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CleanStatus</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
             <table>Account</table>
         </columns>
@@ -117,22 +108,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Jigsaw</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Description</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DunsNumber</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -163,16 +144,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>NaicsCode</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>NaicsDesc</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -252,22 +223,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Tradestyle</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Type</field>
             <table>Account</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Website</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>YearStarted</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -285,368 +246,9 @@
             <field>Woman_Owned_Indicator__c</field>
             <table>Account</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.FipsMsaCode</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.FipsMsaDesc</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.GlobalUltimateDunsNumber</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.OutOfBusiness</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.ParentOrHqDunsNumber</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.Subsidiary</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.MarketingSegmentationCluster</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.LegalStatus</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.SalesTurnoverGrowthRate</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.MarketingPreScreen</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.DomesticUltimateBusinessName</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.DomesticUltimateDunsNumber</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.FamilyMembers</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.EmployeesHereReliability</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.EmployeesTotalReliability</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.EmployeesTotal</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.EmployeesHere</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.GlobalUltimateTotalEmployees</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.SalesVolume</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.SalesVolumeReliability</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.WomenOwned</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.YearStarted</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.PriorYearRevenue</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.PriorYearEmployees</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany.MinorityOwned</field>
-            <table>Account</table>
-        </columns>
         <masterLabel>Accounts</masterLabel>
     </sections>
     <sections>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Id</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Account Site per Data.com</displayNameOverride>
-            <field>AccountSite</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Address per Data.com</displayNameOverride>
-            <field>Address</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Annual Revenue per Data.com</displayNameOverride>
-            <field>AnnualRevenue</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>City per Data.com</displayNameOverride>
-            <field>City</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Company Name per Data.com</displayNameOverride>
-            <field>CompanyName</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsInactive</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>CompanyStatusDataDotCom</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Country per Data.com</displayNameOverride>
-            <field>Country</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Clean Info Created By</displayNameOverride>
-            <field>CreatedBy</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Clean Info Created Date</displayNameOverride>
-            <field>CreatedDate</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>D&amp;B Company D-U-N-S Number per Data.com</displayNameOverride>
-            <field>DandBCompanyDunsNumber</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DataDotComId</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Description per Data.com</displayNameOverride>
-            <field>Description</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>D-U-N-S Number per Data.com</displayNameOverride>
-            <field>DunsNumber</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DunsRightMatchConfidence</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DunsRightMatchGrade</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Fax per Data.com</displayNameOverride>
-            <field>Fax</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Industry per Data.com</displayNameOverride>
-            <field>Industry</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Clean Info Last Matched Date</displayNameOverride>
-            <field>LastMatchedDate</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Clean Info Last Modified By</displayNameOverride>
-            <field>LastModifiedBy</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Clean Info Last Modified Date</displayNameOverride>
-            <field>LastModifiedDate</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Clean Info Last Status Changed By</displayNameOverride>
-            <field>LastStatusChangedBy</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Clean Info Last Status Changed Date</displayNameOverride>
-            <field>LastStatusChangedDate</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Latitude per Data.com</displayNameOverride>
-            <field>Latitude</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Longitude per Data.com</displayNameOverride>
-            <field>Longitude</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>NAICS Code per Data.com</displayNameOverride>
-            <field>NaicsCode</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>NAICS Description per Data.com</displayNameOverride>
-            <field>NaicsDescription</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Number of Employees per Data.com</displayNameOverride>
-            <field>NumberOfEmployees</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Ownership per Data.com</displayNameOverride>
-            <field>Ownership</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Phone per Data.com</displayNameOverride>
-            <field>Phone</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>SIC Code per Data.com</displayNameOverride>
-            <field>Sic</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>SIC Description per Data.com</displayNameOverride>
-            <field>SicDescription</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>State per Data.com</displayNameOverride>
-            <field>State</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Street per Data.com</displayNameOverride>
-            <field>Street</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Ticker Symbol per Data.com</displayNameOverride>
-            <field>TickerSymbol</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Tradestyle per Data.com</displayNameOverride>
-            <field>Tradestyle</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Website per Data.com</displayNameOverride>
-            <field>Website</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Year Started per Data.com</displayNameOverride>
-            <field>YearStarted</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <displayNameOverride>Zip per Data.com</displayNameOverride>
-            <field>PostalCode</field>
-            <table>Account.AccountCleanInfos</table>
-        </columns>
         <masterLabel>Account Clean Info</masterLabel>
     </sections>
     <sections>
