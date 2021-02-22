@@ -661,7 +661,7 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
         <label>User</label>
         <lookupFilter>
             <active>true</active>
-            <booleanFilter>1 OR 2</booleanFilter>
+            <booleanFilter>1 OR 2 OR 3</booleanFilter>
             <filterItems>
                 <field>User.UserRole.Name</field>
                 <operation>equals</operation>
@@ -671,6 +671,11 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
                 <field>User.UserRole.Name</field>
                 <operation>equals</operation>
                 <value>E&amp;C TANC</value>
+            </filterItems>
+            <filterItems>
+                <field>User.UserRole.Name</field>
+                <operation>equals</operation>
+                <value>Data Admin</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
