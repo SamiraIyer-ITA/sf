@@ -1,6 +1,0 @@
-<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
-<tr valign="top" height="400" >
-<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
-<![CDATA[Good Day,<div><br></div><div>You recently closed Export Promotion Case&nbsp;{!Case.CaseNumber}: {!Case.Subject}.</div><div><br></div><div>This is a reminder to please update the Anticipated/Actual Export Dollar field (currently:&nbsp;{!Case.Expected_Value__c}) to be the Actual Export Dollar value.</div><div><br></div><div>You can click this link to access your case:&nbsp;<a href="https://trade--tpd.lightning.force.com/lightning/r/Case/500r000000646fvAAA/view">https://trade--tpd.lightning.force.com/lightning/r/Case/</a><a href="https://trade.lightning.force.com/lightning/r/Case/" style="font-size: 12pt;">{!Case.Id}</a></div><div><br></div><div>Regards,</div><div>ITA Automation</div>]]></td>
-</tr>
-</table>
