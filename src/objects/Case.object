@@ -1688,6 +1688,17 @@ Select if this is a Compliance Case</description>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Expected_Value_Reminder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checkbox to prevent Expected Value Reminder flow from triggering more than once per case.</description>
+        <externalId>false</externalId>
+        <label>Expected Value Reminder</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Expected_Value__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Estimate potential dollar value if we successfully meet the client’s objectives. For example, ensuring a $50,000 sale goes through; signing an agreement worth $300,000, a trade lead for $3,000 worth of goods, $40,000  in tuition etc. Leave blank if unsure</inlineHelpText>
@@ -105955,7 +105966,7 @@ ISBLANK(Subject)
     </validationRules>
     <validationRules>
         <fullName>V09ExportPromoCaseRelatedTaxonomy</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>You must have at least one Industry AND one Region or Country related to the Export Promotion Case Record.</description>
         <errorConditionFormula>AND(
     $Setup.Master_Automation__c.ValidationRulesEnabled__c = true,
