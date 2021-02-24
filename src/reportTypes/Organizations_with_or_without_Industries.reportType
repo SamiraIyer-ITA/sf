@@ -105,11 +105,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CleanStatus</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>SME__c</field>
             <table>Account</table>
         </columns>
@@ -125,16 +120,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>DandbCompany</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>DunsNumber</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>NameLocal</field>
             <table>Account</table>
         </columns>
@@ -146,11 +131,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Primary_Trade_Style__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Tradestyle</field>
             <table>Account</table>
         </columns>
         <columns>
@@ -190,16 +170,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>NaicsCode</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>NaicsDesc</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Sic</field>
             <table>Account</table>
         </columns>
@@ -221,11 +191,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Woman_Owned_Indicator__c</field>
-            <table>Account</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>YearStarted</field>
             <table>Account</table>
         </columns>
         <columns>
