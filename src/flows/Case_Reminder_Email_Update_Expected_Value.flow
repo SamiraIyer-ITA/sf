@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Reminder_Email</name>
+        <label>Send Reminder Email</label>
+        <locationX>183</locationX>
+        <locationY>408</locationY>
+        <actionName>Case.Send_Expected_Value_Email_Reminder</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Second_14_Day_Pause</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>Case_ID</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Reminder_Email_0</name>
+        <label>Send Reminder Email</label>
+        <locationX>816</locationX>
+        <locationY>392</locationY>
+        <actionName>Case.Send_Expected_Value_Email_Reminder</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>Case_ID</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>50.0</apiVersion>
+    <decisions>
+        <description>Compare the Expected Value and New Expected Value fields; if they are the same, send a second reminder email.</description>
+        <name>Compare_Expected_Value_Fields</name>
+        <label>Compare Expected Value Fields</label>
+        <locationX>666</locationX>
+        <locationY>398</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Send_2nd_Reminder</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Expected_Value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>New_Expected_Value</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Reminder_Email_0</targetReference>
+            </connector>
+            <label>Send 2nd Reminder</label>
+        </rules>
+    </decisions>
+    <description>For Export Promotion Cases, send reminder emails to update the Expected Value field.</description>
+    <interviewLabel>Case Reminder Email - Update Expected Value {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case Reminder Email - Update Expected Value</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Case_Record_Expected_Value</name>
+        <label>Get Case Record Expected Value</label>
+        <locationX>510</locationX>
+        <locationY>400</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Compare_Expected_Value_Fields</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Case_18_ID__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Case_ID</elementReference>
+            </value>
+        </filters>
+        <object>Case</object>
+        <outputAssignments>
+            <assignToReference>New_Expected_Value</assignToReference>
+            <field>Expected_Value__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Wait_14_days</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>Email template reminding Export Promo users to update the Expected Value field.</description>
+        <name>Case_Update_with_Actual_Dollar_Value</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: arial;&quot;&gt;Good Day,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You recently closed Export Promotion Case {!Case_Number}: {!Case_Subject}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;This is a reminder to please update the Anticipated/Actual Export Dollar field (currently:&amp;nbsp;{!Expected_Value}) to be the Actual Export Dollar value.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: arial;&quot;&gt;You can click this link to access your case:&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;https://trade.lightning.force.com/lightning/r/Case/%7B!Case.Id%7D/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;font-family: arial; color: rgb(0, 0, 238);&quot;&gt;&lt;u&gt;https://trade.lightning.force.com/lightning/r/Case/{!Case_ID}/view&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;ITA Automation&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <description>The Case Id</description>
+        <name>Case_ID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Case_Number</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Subject field from the related Case</description>
+        <name>Case_Subject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Email_Sender_Address</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>The value of the Expected Value field when the flow starts</description>
+        <name>Expected_Value</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>New_Expected_Value</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <description>Case Owner&apos;s email address</description>
+        <name>Recipient_Email</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <waits>
+        <name>Second_14_Day_Pause</name>
+        <label>Second 14 Day Pause</label>
+        <locationX>360</locationX>
+        <locationY>406</locationY>
+        <defaultConnectorLabel>Default Path</defaultConnectorLabel>
+        <waitEvents>
+            <name>Pause_Another_14_Days</name>
+            <conditionLogic>and</conditionLogic>
+            <connector>
+                <targetReference>Get_Case_Record_Expected_Value</targetReference>
+            </connector>
+            <eventType>AlarmEvent</eventType>
+            <inputParameters>
+                <name>AlarmTime</name>
+                <value>
+                    <elementReference>$Flow.CurrentDateTime</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>TimeOffset</name>
+                <value>
+                    <numberValue>14.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>TimeOffsetUnit</name>
+                <value>
+                    <stringValue>Days</stringValue>
+                </value>
+            </inputParameters>
+            <label>Pause Another 14 Days</label>
+        </waitEvents>
+    </waits>
+    <waits>
+        <description>Wait 14 days after close of case to send email reminder</description>
+        <name>Wait_14_days</name>
+        <label>Wait 14 days</label>
+        <locationX>176</locationX>
+        <locationY>220</locationY>
+        <defaultConnectorLabel>Default Path</defaultConnectorLabel>
+        <waitEvents>
+            <name>First_Pause</name>
+            <conditionLogic>and</conditionLogic>
+            <connector>
+                <targetReference>Send_Reminder_Email</targetReference>
+            </connector>
+            <eventType>AlarmEvent</eventType>
+            <inputParameters>
+                <name>AlarmTime</name>
+                <value>
+                    <elementReference>$Flow.CurrentDateTime</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>TimeOffset</name>
+                <value>
+                    <numberValue>14.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>TimeOffsetUnit</name>
+                <value>
+                    <stringValue>Days</stringValue>
+                </value>
+            </inputParameters>
+            <label>First Pause</label>
+        </waitEvents>
+    </waits>
+</Flow>
