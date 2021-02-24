@@ -4,7 +4,7 @@
         <description>This is an Error Toast handling for no Country or Trade Region Taxonomy Taggings when choosing to relate to the WIN.</description>
         <name>Error_Toast_For_Choosing_a_Country_or_Region_Taxonomy_To_Relate</name>
         <label>Error Toast For Choosing a Country or Region Taxonomy To Relate</label>
-        <locationX>3893</locationX>
+        <locationX>4046</locationX>
         <locationY>1805</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -47,7 +47,7 @@
         <description>This is an Error Toast handling for failure to create taxonomy records</description>
         <name>Error_Toast_For_Failure_To_Create_Taxonomy_Records</name>
         <label>Error Toast For Failure To Create Taxonomy Records</label>
-        <locationX>5048</locationX>
+        <locationX>5201</locationX>
         <locationY>2047</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -87,7 +87,7 @@
         <description>This is an Error Toast handling for no Country or Trade Region Taxonomy Taggings on the Case to relate to the WIN.</description>
         <name>Error_Toast_For_No_Country_or_Region_Taxonomy_To_Relate</name>
         <label>Error Toast For No Country or Region Taxonomy To Relate</label>
-        <locationX>4309</locationX>
+        <locationX>4462</locationX>
         <locationY>1550</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -133,7 +133,7 @@
         <description>This is an Error Toast handling for no Country Taxonomy Taggings on the WIN</description>
         <name>Error_Toast_For_No_Country_Taxonomy_To_Relate_from_WIN</name>
         <label>Error Toast For No Country Taxonomy To Relate from WIN</label>
-        <locationX>3961</locationX>
+        <locationX>4114</locationX>
         <locationY>1388</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -179,7 +179,7 @@
         <description>This is an Error Toast handling for no Industry Taxonomy Taggings on the Case to relate to the WIN.</description>
         <name>Error_Toast_For_No_Industry_Taxonomy_To_Relate</name>
         <label>Error Toast For No Industry Taxonomy To Relate</label>
-        <locationX>3202</locationX>
+        <locationX>3355</locationX>
         <locationY>2122</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -222,7 +222,7 @@
         <description>This is an Error Toast handling for no Industry Taxonomy Taggings on the Additional Case to relate to the WIN.</description>
         <name>Error_Toast_For_No_Industry_Taxonomy_To_Relate_on_the_additional_Case</name>
         <label>Error Toast For No Industry Taxonomy To Relate on the additional Case</label>
-        <locationX>1627</locationX>
+        <locationX>1780</locationX>
         <locationY>1671</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -265,7 +265,7 @@
         <description>This is an Error Toast handling for no Trade Region Taxonomy Taggings on the WIN</description>
         <name>Error_Toast_For_No_Region_Taxonomy_To_Relate_from_WIN</name>
         <label>Error Toast For No Region Taxonomy To Relate from WIN</label>
-        <locationX>3846</locationX>
+        <locationX>3999</locationX>
         <locationY>1382</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -311,7 +311,7 @@
         <description>This is an error toast for Several taxonomies on the current WIN.</description>
         <name>Error_Toast_for_Several_taxonomies_on_existing_WIN</name>
         <label>Error Toast for Several taxonomies on existing WIN</label>
-        <locationX>2284</locationX>
+        <locationX>2437</locationX>
         <locationY>2117</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -353,7 +353,7 @@
         <description>WIN must have at least one  country or region</description>
         <name>Error_Toast_No_Country_or_Region_on_existing_WIN</name>
         <label>Error Toast No Country or Region on existing WIN</label>
-        <locationX>2464</locationX>
+        <locationX>2617</locationX>
         <locationY>2124</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -396,7 +396,7 @@
         <description>WIN must have at least one industry</description>
         <name>Error_Toast_No_Industries_on_Existing_WIN</name>
         <label>Error Toast No Industries on Existing WIN</label>
-        <locationX>2672</locationX>
+        <locationX>2825</locationX>
         <locationY>2129</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -439,7 +439,7 @@
         <description>This is an Error toast telling the end user that &apos;Select&apos; cannot be a choice.</description>
         <name>Error_Toast_Select_Cannot_be_a_choice</name>
         <label>Error Toast Select Cannot be a choice</label>
-        <locationX>1502</locationX>
+        <locationX>1655</locationX>
         <locationY>1987</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -482,7 +482,7 @@
         <description>This is an Error toast telling the end user that &apos;Select&apos; cannot be a choice.</description>
         <name>Error_Toast_Select_Cannot_be_a_choice_creation</name>
         <label>Error Toast Select Cannot be a choice creation</label>
-        <locationX>2232</locationX>
+        <locationX>2385</locationX>
         <locationY>1613</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -525,7 +525,7 @@
         <description>This toast is an error toast when &apos;select&apos; was chosen from the prior screen. You must select a country or region.</description>
         <name>Error_Toast_Select_was_Chosen_No_Taxonomies</name>
         <label>Error Toast Select was Chosen No Taxonomies</label>
-        <locationX>2625</locationX>
+        <locationX>2778</locationX>
         <locationY>2473</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -568,7 +568,7 @@
         <description>This toast is an error toast when &apos;select&apos; was chosen from the prior screen. You must select a country or region.</description>
         <name>Error_Toast_Select_was_Chosen_Several_Taxonomies</name>
         <label>Error Toast Select was Chosen Several Taxonomies</label>
-        <locationX>2164</locationX>
+        <locationX>2317</locationX>
         <locationY>2388</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -611,7 +611,7 @@
         <description>This error toast is informing the end user that this Case is already related to the WIN.</description>
         <name>Show_Error_toast_Case_is_already_related</name>
         <label>Show Error toast Case is already related</label>
-        <locationX>1955</locationX>
+        <locationX>2108</locationX>
         <locationY>1819</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -654,7 +654,7 @@
         <description>Error Toast for Deletion Failures</description>
         <name>Show_Error_toast_For_Deletion_failures</name>
         <label>Show Error toast For Deletion failures</label>
-        <locationX>1866</locationX>
+        <locationX>2019</locationX>
         <locationY>2291</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -694,7 +694,7 @@
         <description>Error toast when a Case has too many country or region taxonomies or when a WIN has existing country or region taxonomies</description>
         <name>Show_Error_toast_Too_Many_Country_Region_Taxonomies</name>
         <label>Show Error toast Too Many Country Region Taxonomies</label>
-        <locationX>3771</locationX>
+        <locationX>3924</locationX>
         <locationY>1585</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -737,7 +737,7 @@
         <description>Success Toast for relating case and taxonomies to WIN</description>
         <name>Show_Success_Toast</name>
         <label>Show Success Toast</label>
-        <locationX>4349</locationX>
+        <locationX>4502</locationX>
         <locationY>2275</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -777,7 +777,7 @@
         <description>Success for creating a new taxonomy tagging record</description>
         <name>Show_Success_Toast_for_Creating_Taxonomy</name>
         <label>Show Success Toast for Creating Taxonomy</label>
-        <locationX>2107</locationX>
+        <locationX>2260</locationX>
         <locationY>697</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -817,7 +817,7 @@
         <description>Success in relating an additional Case</description>
         <name>Show_Success_Toast_Related_additional_Case</name>
         <label>Show Success Toast Related additional Case</label>
-        <locationX>1415</locationX>
+        <locationX>1568</locationX>
         <locationY>2785</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -857,7 +857,7 @@
         <description>Taxonomies were successfully created</description>
         <name>Success_Toast</name>
         <label>Success Toast</label>
-        <locationX>2941</locationX>
+        <locationX>3094</locationX>
         <locationY>2992</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -900,7 +900,7 @@
         <description>Industry was successfully created</description>
         <name>Success_Toast_Industry_Creation</name>
         <label>Success Toast Industry Creation</label>
-        <locationX>2764</locationX>
+        <locationX>2917</locationX>
         <locationY>2588</locationY>
         <actionName>c:showToast</actionName>
         <actionType>component</actionType>
@@ -943,7 +943,7 @@
         <description>This assignment element is assigning the string value that is the output for the checkbox group in the prior screen. We are assigning the string to the {!SelectIds} variable.</description>
         <name>Assign_Checkbox_Group</name>
         <label>Assign Checkbox Group</label>
-        <locationX>1201</locationX>
+        <locationX>1354</locationX>
         <locationY>1609</locationY>
         <assignmentItems>
             <assignToReference>SelectedIds</assignToReference>
@@ -960,7 +960,7 @@
         <description>This assignment element is assigning the string value that is the output for the checkbox group in the prior screen. We are assigning the string to the {!SelectIds} variable.</description>
         <name>Assign_Checkbox_Group_Original_Case</name>
         <label>Assign Checkbox Group Original Case</label>
-        <locationX>5264</locationX>
+        <locationX>5417</locationX>
         <locationY>1195</locationY>
         <assignmentItems>
             <assignToReference>SelectedIds</assignToReference>
@@ -977,7 +977,7 @@
         <description>Assign Client Counseling Record Type Id to Variable</description>
         <name>Assign_Client_Counseling_Record_Type_Id_to_Variable</name>
         <label>Assign Client Counseling Record Type Id to Variable</label>
-        <locationX>3021</locationX>
+        <locationX>3174</locationX>
         <locationY>906</locationY>
         <assignmentItems>
             <assignToReference>varClientCounselingRecordTypeId.Id</assignToReference>
@@ -994,7 +994,7 @@
         <description>Assign Country Record Type Id to Variable</description>
         <name>Assign_Country_Record_Type_Id_to_Variable</name>
         <label>Assign Country Record Type Id to Variable</label>
-        <locationX>3017</locationX>
+        <locationX>3170</locationX>
         <locationY>1351</locationY>
         <assignmentItems>
             <assignToReference>varCountryRecordTypeId.Id</assignToReference>
@@ -1011,7 +1011,7 @@
         <description>Assign Industry Record Type Id to Variable</description>
         <name>Assign_Industry_Record_Type_Id_to_Variable</name>
         <label>Assign Industry Record Type Id to Variable</label>
-        <locationX>3020</locationX>
+        <locationX>3173</locationX>
         <locationY>1057</locationY>
         <assignmentItems>
             <assignToReference>varIndustryRecordTypeId.Id</assignToReference>
@@ -1028,7 +1028,7 @@
         <description>Loop through our collecting of existing TT records and associate correct values to new collection.</description>
         <name>Assign_new_values_and_collection_items</name>
         <label>Assign new values and collection items</label>
-        <locationX>3431</locationX>
+        <locationX>3584</locationX>
         <locationY>1775</locationY>
         <assignmentItems>
             <assignToReference>varCreateSingleTaxonomyRecord</assignToReference>
@@ -1073,7 +1073,7 @@
         <description>Loop through our collecting of existing TT records and associate correct values to new collection.</description>
         <name>Assign_new_values_and_collection_items_Additional_Case</name>
         <label>Assign new values and collection items Additional Case</label>
-        <locationX>1220</locationX>
+        <locationX>1373</locationX>
         <locationY>1280</locationY>
         <assignmentItems>
             <assignToReference>varCreateSingleTaxonomyRecord</assignToReference>
@@ -1118,7 +1118,7 @@
         <description>Assign Trade Issue Record Type Id to Variable</description>
         <name>Assign_Trade_Issue_Record_Type_Id_to_Variable</name>
         <label>Assign Trade Issue Record Type Id to Variable</label>
-        <locationX>3020</locationX>
+        <locationX>3173</locationX>
         <locationY>1469</locationY>
         <assignmentItems>
             <assignToReference>varTradeIssueRecordTypeId.Id</assignToReference>
@@ -1135,7 +1135,7 @@
         <description>Assign Trade Region Record Type Id to Variable</description>
         <name>Assign_Trade_Region_Record_Type_Id_to_Variable</name>
         <label>Assign Trade Region Record Type Id to Variable</label>
-        <locationX>3018</locationX>
+        <locationX>3171</locationX>
         <locationY>1199</locationY>
         <assignmentItems>
             <assignToReference>varTradeRegionRecordTypeId.Id</assignToReference>
@@ -1152,7 +1152,7 @@
         <description>This assignment element is assigning new values to the variables we are using to create new industry taxonomy tagging records and relating them to the WIN.</description>
         <name>Assigning_Industry_fields_to_create_from_additional_Case</name>
         <label>Assigning Industry fields to create from additional Case</label>
-        <locationX>600</locationX>
+        <locationX>753</locationX>
         <locationY>2938</locationY>
         <assignmentItems>
             <assignToReference>varEmptyTaxonomyTaggingRecord</assignToReference>
@@ -1196,7 +1196,7 @@
     <assignments>
         <name>Assigning_Industry_fields_to_create_new_records</name>
         <label>Assigning Industry fields to create new records</label>
-        <locationX>5112</locationX>
+        <locationX>5265</locationX>
         <locationY>1636</locationY>
         <assignmentItems>
             <assignToReference>varEmptyTaxonomyTaggingRecord</assignToReference>
@@ -1241,7 +1241,7 @@
         <description>This assignment element will be used to assign only Industry Taxonomies to a collection variable.</description>
         <name>Assigning_Only_Industry_Record_Types</name>
         <label>Assigning Only Industry Record Types</label>
-        <locationX>3605</locationX>
+        <locationX>3758</locationX>
         <locationY>1773</locationY>
         <assignmentItems>
             <assignToReference>varSingleIndustryRecord</assignToReference>
@@ -1265,7 +1265,7 @@
         <description>This assignment element will be used to assign only Industry Taxonomies to a collection variable.</description>
         <name>Assigning_Only_Industry_Record_Types_Additional_Case</name>
         <label>Assigning Only Industry Record Types Additional Case</label>
-        <locationX>1406</locationX>
+        <locationX>1559</locationX>
         <locationY>1281</locationY>
         <assignmentItems>
             <assignToReference>varSingleIndustryRecord</assignToReference>
@@ -1289,7 +1289,7 @@
         <description>This assignment element is filling in the values for a Country Taxonomy creation.</description>
         <name>Country_Taxonomy_Creation_On_Case_Assignment</name>
         <label>Country Taxonomy Creation On Case Assignment</label>
-        <locationX>3703</locationX>
+        <locationX>3856</locationX>
         <locationY>1060</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Related_Case__c</assignToReference>
@@ -1334,7 +1334,7 @@
         <description>Assignment to Create All Industries</description>
         <name>Create_All_Industries</name>
         <label>Create All Industries</label>
-        <locationX>5279</locationX>
+        <locationX>5432</locationX>
         <locationY>1871</locationY>
         <assignmentItems>
             <assignToReference>varCreateIndustryCollection</assignToReference>
@@ -1351,7 +1351,7 @@
         <description>This assignment variable is assigning values to a new Country Taxonomy to be associated with the WIN</description>
         <name>Create_Country_New_Case_To_WIN</name>
         <label>Create Country New Case To WIN</label>
-        <locationX>4671</locationX>
+        <locationX>4824</locationX>
         <locationY>1675</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Country__c</assignToReference>
@@ -1396,7 +1396,7 @@
         <description>Creating an Industry when there aren&apos;t any on the existing WIN.</description>
         <name>Create_Industry_Data_Clean_Up</name>
         <label>Create Industry Data Clean Up</label>
-        <locationX>2892</locationX>
+        <locationX>3045</locationX>
         <locationY>2212</locationY>
         <assignmentItems>
             <assignToReference>varSingleIndustryDataCleanUp</assignToReference>
@@ -1455,7 +1455,7 @@
         <description>Assignment to Create Some Industries</description>
         <name>Create_Some_Industries</name>
         <label>Create Some Industries</label>
-        <locationX>5428</locationX>
+        <locationX>5581</locationX>
         <locationY>2136</locationY>
         <assignmentItems>
             <assignToReference>varCreateIndustryCollection</assignToReference>
@@ -1472,7 +1472,7 @@
         <description>This assignment variable is assigning values to a new Trade Region Taxonomy to be associated with the WIN</description>
         <name>Create_Trade_Region_New_Case_To_WIN</name>
         <label>Create Trade Region New Case To WIN</label>
-        <locationX>4500</locationX>
+        <locationX>4653</locationX>
         <locationY>1544</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Trade_Region__c</assignToReference>
@@ -1517,7 +1517,7 @@
         <description>Assigns the variable values for the taxonomy Tagging record to create.</description>
         <name>createVar_For_Country</name>
         <label>createVar For Country</label>
-        <locationX>826</locationX>
+        <locationX>979</locationX>
         <locationY>2261</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Country__c</assignToReference>
@@ -1548,7 +1548,7 @@
         <description>Assigns the variable values for the Country taxonomy Tagging record to create.</description>
         <name>createVar_For_Country_on_Existing_WIN</name>
         <label>createVar For Country on Existing WIN</label>
-        <locationX>2362</locationX>
+        <locationX>2515</locationX>
         <locationY>2782</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Country__c</assignToReference>
@@ -1579,7 +1579,7 @@
         <description>Assigns the variable values for the Client Counseling Taxonomy Tagging record to create.</description>
         <name>createVar_For_Create_Client_Counseling_on_Existing_WIN</name>
         <label>createVar For Create Client Counseling on Existing WIN</label>
-        <locationX>2099</locationX>
+        <locationX>2252</locationX>
         <locationY>1356</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Type__c</assignToReference>
@@ -1617,7 +1617,7 @@
         <description>Assigns the variable values for the Country taxonomy Tagging record to create.</description>
         <name>createVar_For_Create_Country_on_Existing_WIN</name>
         <label>createVar For Create Country on Existing WIN</label>
-        <locationX>2237</locationX>
+        <locationX>2390</locationX>
         <locationY>1318</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Country__c</assignToReference>
@@ -1648,7 +1648,7 @@
         <description>Assigns the variable values for the Trade Issue taxonomy Tagging record to create.</description>
         <name>createVar_For_Create_Trade_Issue_on_Existing_WIN</name>
         <label>createVar For Create Trade Issue on Existing WIN</label>
-        <locationX>1837</locationX>
+        <locationX>1990</locationX>
         <locationY>1224</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Category__c</assignToReference>
@@ -1686,7 +1686,7 @@
         <description>Assigns the variable values for the Trade Region taxonomy Tagging record to create.</description>
         <name>createVar_For_Create_Trade_Region_on_Existing_WIN</name>
         <label>createVar For Create Trade Region on Existing WIN</label>
-        <locationX>1984</locationX>
+        <locationX>2137</locationX>
         <locationY>1312</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Trade_Region__c</assignToReference>
@@ -1717,7 +1717,7 @@
         <description>Assigns the variable values for the Country taxonomy Tagging record to keep.</description>
         <name>createVar_For_Keep_Country_on_Existing_WIN</name>
         <label>createVar For Keep Country on Existing WIN</label>
-        <locationX>2065</locationX>
+        <locationX>2218</locationX>
         <locationY>2516</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Country__c</assignToReference>
@@ -1748,7 +1748,7 @@
         <description>Assigns the variable values for the Trade Region taxonomy Tagging record to keep.</description>
         <name>createVar_For_Keep_Trade_Region_on_Existing_WIN</name>
         <label>createVar For Keep Trade Region on Existing WIN</label>
-        <locationX>2070</locationX>
+        <locationX>2223</locationX>
         <locationY>2725</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Trade_Region__c</assignToReference>
@@ -1779,7 +1779,7 @@
         <description>Assigns the variable values for the region taxonomy Tagging record to create.</description>
         <name>createVar_For_Region</name>
         <label>createVar For Region</label>
-        <locationX>1160</locationX>
+        <locationX>1313</locationX>
         <locationY>2263</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Trade_Region__c</assignToReference>
@@ -1810,7 +1810,7 @@
         <description>Assigns the variable values for the region taxonomy Tagging record to create.</description>
         <name>createVar_For_Trade_Region_on_Existing_WIN</name>
         <label>createVar For Trade Region on Existing WIN</label>
-        <locationX>2579</locationX>
+        <locationX>2732</locationX>
         <locationY>2786</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Trade_Region__c</assignToReference>
@@ -1841,7 +1841,7 @@
         <description>Assigning Collection Variables to be empty</description>
         <name>Empty_Collection_Variables</name>
         <label>Empty Collection Variables</label>
-        <locationX>3153</locationX>
+        <locationX>3306</locationX>
         <locationY>1459</locationY>
         <assignmentItems>
             <assignToReference>varIndustryCollections</assignToReference>
@@ -1872,7 +1872,7 @@
         <description>Assigning Collection Variables to be empty</description>
         <name>Empty_Collection_Variables_0</name>
         <label>Empty Collection Variables</label>
-        <locationX>2688</locationX>
+        <locationX>2841</locationX>
         <locationY>2992</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging</assignToReference>
@@ -1889,7 +1889,7 @@
         <description>This Assignment is assigning a variable to the Error Toast Element. The variable will contain the below value in the message.</description>
         <name>Error_Toast_Assignment_For_Error_Creating_Related_WIN</name>
         <label>Error Toast Assignment For Error Creating Related WIN</label>
-        <locationX>4351</locationX>
+        <locationX>4504</locationX>
         <locationY>2047</locationY>
         <assignmentItems>
             <assignToReference>singlevarErrorToast</assignToReference>
@@ -1906,7 +1906,7 @@
         <description>This Assignment is assigning a variable to the Error Toast Element. The variable will contain the below value in the message.</description>
         <name>Error_Toast_Assignment_For_Failing_To_Create_a_Taxonomy_Record</name>
         <label>Error Toast Assignment For Failing To Create a Taxonomy Record</label>
-        <locationX>5048</locationX>
+        <locationX>5201</locationX>
         <locationY>1883</locationY>
         <assignmentItems>
             <assignToReference>singlevarErrorToast</assignToReference>
@@ -1923,7 +1923,7 @@
         <description>This Assignment is assigning a variable to the Error Toast Element. The variable will contain the below value in the message.</description>
         <name>Error_Toast_Assignment_For_NO_Country_Taxonomy</name>
         <label>Error Toast Assignment For NO Country Taxonomy</label>
-        <locationX>4241</locationX>
+        <locationX>4394</locationX>
         <locationY>1661</locationY>
         <assignmentItems>
             <assignToReference>singlevarErrorToast</assignToReference>
@@ -1940,7 +1940,7 @@
         <description>This Assignment is assigning a variable to the Error Toast Element. The variable will contain the below value in the message.</description>
         <name>Error_Toast_Assignment_For_NO_Trade_Region_Taxonomy</name>
         <label>Error Toast Assignment For NO Trade Region Taxonomy</label>
-        <locationX>4123</locationX>
+        <locationX>4276</locationX>
         <locationY>1550</locationY>
         <assignmentItems>
             <assignToReference>singlevarErrorToast</assignToReference>
@@ -1957,7 +1957,7 @@
         <description>This Assignment is assigning a variable to the Error Toast Element. The variable will contain the below value in the message.</description>
         <name>Error_Toast_Assignment_For_Select_Was_The_Choice_New_Taxonomy_on_Case</name>
         <label>Error Toast Assignment For Select Was The Choice New Taxonomy on Case</label>
-        <locationX>4163</locationX>
+        <locationX>4316</locationX>
         <locationY>1299</locationY>
         <assignmentItems>
             <assignToReference>singlevarErrorToast</assignToReference>
@@ -1974,7 +1974,7 @@
         <description>Industry Assignment from Correct Taxonomies</description>
         <name>Industry_Assignment_from_Correct_Taxonomies</name>
         <label>Industry Assignment from Correct Taxonomies</label>
-        <locationX>5335</locationX>
+        <locationX>5488</locationX>
         <locationY>1291</locationY>
         <assignmentItems>
             <assignToReference>SelectedIds</assignToReference>
@@ -1991,7 +1991,7 @@
         <description>Creating an Industry on WIN</description>
         <name>Industry_Creation_on_WIN</name>
         <label>Industry Creation on WIN</label>
-        <locationX>2344</locationX>
+        <locationX>2497</locationX>
         <locationY>1226</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Industry__c</assignToReference>
@@ -2043,7 +2043,7 @@
         <description>This assignment variable is assigning values to keep a Country existing on WIN</description>
         <name>Keep_Country_on_WIN</name>
         <label>Keep Country on WIN</label>
-        <locationX>4667</locationX>
+        <locationX>4820</locationX>
         <locationY>1823</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Country__c</assignToReference>
@@ -2088,7 +2088,7 @@
         <description>This assignment variable is assigning values to keep a Trade Region existing on WIN</description>
         <name>Keep_Trade_Region_on_WIN</name>
         <label>Keep Trade Region on WIN</label>
-        <locationX>4504</locationX>
+        <locationX>4657</locationX>
         <locationY>1944</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Trade_Region__c</assignToReference>
@@ -2133,7 +2133,7 @@
         <description>We are removing the related industry id from the text string from the Group Check Box value. Then we are relating the Industry taxonomy to the existing WIN.</description>
         <name>Remove_Id_from_total_list</name>
         <label>Remove Id from total list</label>
-        <locationX>635</locationX>
+        <locationX>788</locationX>
         <locationY>1609</locationY>
         <assignmentItems>
             <assignToReference>varsingleindustry</assignToReference>
@@ -2178,7 +2178,7 @@
         <description>We are removing the related industry id from the text string from the Group Check Box value. Then we are relating the Industry taxonomy to the existing WIN.</description>
         <name>Remove_Id_from_total_list_0</name>
         <label>Remove Id from total list</label>
-        <locationX>5535</locationX>
+        <locationX>5688</locationX>
         <locationY>1016</locationY>
         <assignmentItems>
             <assignToReference>varsingleindustry</assignToReference>
@@ -2223,7 +2223,7 @@
         <description>This assignment element is filling in the values for a Trade Region Taxonomy creation.</description>
         <name>Trade_Region_Taxonomy_Creation_On_Case_Assigment</name>
         <label>Trade Region Taxonomy Creation On Case Assigment</label>
-        <locationX>3705</locationX>
+        <locationX>3858</locationX>
         <locationY>1160</locationY>
         <assignmentItems>
             <assignToReference>createSingle_taxonomyTagging.Related_Case__c</assignToReference>
@@ -2383,7 +2383,7 @@
         <description>Are there any related taxonomies to this WIN? If Yes they will be deleted if no flow will continue</description>
         <name>Are_there_any_related_taxonomies_to_the_WIN</name>
         <label>Are there any related taxonomies to the WIN</label>
-        <locationX>4940</locationX>
+        <locationX>5093</locationX>
         <locationY>1565</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -2421,7 +2421,7 @@
         <description>Does the additional Case the user is trying to related have the proper taxonomies.</description>
         <name>Does_the_additional_Case_have_the_proper_Industry_Taxonomies</name>
         <label>Does the additional Case have the proper Industry Taxonomies</label>
-        <locationX>1620</locationX>
+        <locationX>1773</locationX>
         <locationY>1832</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -2459,7 +2459,7 @@
         <description>This decision element is splitting the paths into &quot;Does the Case have at least one Industry&quot; OR &quot;Does the Case have zero Industries&quot;. (Another validation) The validation rules on the CASE object should never let the Case be closed with at least ONE Industry, but the user still has the ability to delete taxonomies.</description>
         <name>Does_this_CASE_have_at_least_one_Industry</name>
         <label>Does this CASE have at least one Industry</label>
-        <locationX>3284</locationX>
+        <locationX>3437</locationX>
         <locationY>1911</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -2497,7 +2497,7 @@
         <description>This decision element is checking whether or not the Case currently has the appropriate taxonomies (1 region or 1 country) to be related to the WIN. If it does not, then the flow will handle for that down the default outcome path.</description>
         <name>Does_this_Case_meet_the_proper_qualifications_to_be_related_to_this_WIN</name>
         <label>Does this Case meet the proper qualifications to be related to this WIN</label>
-        <locationX>3763</locationX>
+        <locationX>3916</locationX>
         <locationY>1905</locationY>
         <defaultConnector>
             <targetReference>Show_Error_toast_Too_Many_Country_Region_Taxonomies</targetReference>
@@ -2615,7 +2615,7 @@
         <description>This decision element is finding out if the current WIN meets the correct Taxonomy Tagging requirements (One Country/Region and one Industry) This element is primarily used to send the flow down a path of cleaning up existing data.</description>
         <name>Does_this_WIN_currently_meet_the_requirements_for_a_WIN</name>
         <label>Does this WIN currently meet the requirements for a WIN</label>
-        <locationX>2456</locationX>
+        <locationX>2609</locationX>
         <locationY>1750</locationY>
         <defaultConnector>
             <targetReference>What_Taxonomy_do_you_need_to_add</targetReference>
@@ -2669,8 +2669,8 @@
         <description>Decision element determining if it is an Industry Record Being handed in</description>
         <name>Is_it_an_Industry_record</name>
         <label>Is it an Industry record</label>
-        <locationX>3514</locationX>
-        <locationY>1696</locationY>
+        <locationX>3667</locationX>
+        <locationY>1698</locationY>
         <defaultConnector>
             <targetReference>Loop_through_Collection_of_Taxonomy_Tagging_Records</targetReference>
         </defaultConnector>
@@ -2679,7 +2679,7 @@
             <name>Yes_it_is</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>loopVar_taxonomyTagging.RecordType.Id</leftValueReference>
+                <leftValueReference>loopVar_taxonomyTagging.RecordTypeId</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>varIndustryRecordTypeId.Id</elementReference>
@@ -2694,21 +2694,21 @@
             <name>No_it_isn_t</name>
             <conditionLogic>1 AND (2 OR 3)</conditionLogic>
             <conditions>
-                <leftValueReference>loopVar_taxonomyTagging.RecordType.Id</leftValueReference>
+                <leftValueReference>loopVar_taxonomyTagging.RecordTypeId</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
                     <elementReference>varIndustryRecordTypeId.Id</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>loopVar_taxonomyTagging.RecordType.Id</leftValueReference>
+                <leftValueReference>loopVar_taxonomyTagging.RecordTypeId</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>varTradeRegionRecordTypeId.Id</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>loopVar_taxonomyTagging.RecordType.Id</leftValueReference>
+                <leftValueReference>loopVar_taxonomyTagging.RecordTypeId</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>varCountryRecordTypeId.Id</elementReference>
@@ -2724,7 +2724,7 @@
         <description>If the ID of the taxonomy tagging in our loop is in the list of IDs pushed from the checkbox component (aka the YES outcome) we need to remove this item from our record collection, remove the ID of the is loopvar (but keep the remaining values) and then add this loopvar to our record collection.</description>
         <name>Is_item_from_total_list_in_selection_list</name>
         <label>Is item from total list in selection list</label>
-        <locationX>738</locationX>
+        <locationX>891</locationX>
         <locationY>1489</locationY>
         <defaultConnector>
             <targetReference>Related_Industry_Taxonomy_Taggings_Loop</targetReference>
@@ -2750,7 +2750,7 @@
         <description>If the ID of the taxonomy tagging in our loop is in the list of IDs pushed from the checkbox component (aka the YES outcome) we need to remove this item from our record collection, remove the ID of the is loopvar (but keep the remaining values) and then add this loopvar to our record collection.</description>
         <name>Is_item_from_total_list_in_selection_list_0</name>
         <label>Is item from total list in selection list</label>
-        <locationX>5643</locationX>
+        <locationX>5796</locationX>
         <locationY>1211</locationY>
         <defaultConnector>
             <targetReference>Related_Industry_Taxonomy_Taggings_Loop_0</targetReference>
@@ -2776,7 +2776,7 @@
         <description>Decision element that directs the flow based off of if there is currently a related Case to this WIN or not</description>
         <name>Is_there_currently_a_related_Case_to_this_WIN</name>
         <label>Is there currently a related Case to this WIN</label>
-        <locationX>2653</locationX>
+        <locationX>2806</locationX>
         <locationY>1749</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -2814,7 +2814,7 @@
         <description>Decision element determining if it is an Industry Record Being handed in</description>
         <name>Is_this_an_Industry_record</name>
         <label>Is this an Industry record</label>
-        <locationX>1304</locationX>
+        <locationX>1457</locationX>
         <locationY>1381</locationY>
         <defaultConnector>
             <targetReference>Loop_through_Collection_of_Taxonomy_Tagging_Records_Additional_Case</targetReference>
@@ -2824,7 +2824,7 @@
             <name>Industry</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>varloopIndustryOnly.RecordType.Id</leftValueReference>
+                <leftValueReference>varloopIndustryOnly.RecordTypeId</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>varIndustryRecordTypeId.Id</elementReference>
@@ -2846,14 +2846,14 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>varloopIndustryOnly.RecordType.Id</leftValueReference>
+                <leftValueReference>varloopIndustryOnly.RecordTypeId</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>varTradeRegionRecordTypeId.Id</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>varloopIndustryOnly.RecordType.Id</leftValueReference>
+                <leftValueReference>varloopIndustryOnly.RecordTypeId</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>varCountryRecordTypeId.Id</elementReference>
@@ -2869,7 +2869,7 @@
         <description>This decision element is making sure that the user does not try to relate the same Case to the WIN that is already related to the WIN. IF it is then the flow will send the user back to select a different Case from the lookup element.</description>
         <name>Is_this_the_same_CaseId_as_the_current_Case_related_to_the_WIN</name>
         <label>Is this the same CaseId as the current Case related to the WIN</label>
-        <locationX>1739</locationX>
+        <locationX>1892</locationX>
         <locationY>1824</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -2914,7 +2914,7 @@
         <description>This decision is evaluating if the user selected country or region AND if it does in fact have one of those taxonomies related to the Case. If it does not then the path will create one of those taxonomies for the user</description>
         <name>Region_or_Country_Decision</name>
         <label>Region or Country Decision</label>
-        <locationX>4106</locationX>
+        <locationX>4259</locationX>
         <locationY>1730</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -3088,7 +3088,7 @@
         <description>This decision element is handling for relating a case only or relating a case with a taxonomy from that case.</description>
         <name>Relate_Case_Only_or_Case_with_Taxonomy</name>
         <label>Relate Case Only or Case with Taxonomy</label>
-        <locationX>988</locationX>
+        <locationX>1141</locationX>
         <locationY>1988</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -3314,7 +3314,7 @@
         <description>Does the user want to related all the Industry taxonomy tagging records associated to the related case?</description>
         <name>Relate_Industry_Taxonomy_Taggings_From_Case</name>
         <label>Relate Industry Taxonomy Taggings From Case</label>
-        <locationX>986</locationX>
+        <locationX>1139</locationX>
         <locationY>2780</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -3367,7 +3367,7 @@
         <description>This decision element is handling whether the user is relating an additional Case or creating New Taxonomies</description>
         <name>Relate_or_Create</name>
         <label>Relate or Create</label>
-        <locationX>2092</locationX>
+        <locationX>2245</locationX>
         <locationY>1480</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -3487,8 +3487,8 @@
         <description>Decision element determining if the user selected some industries or all of them</description>
         <name>Some_or_All_Industries</name>
         <label>Some or All Industries</label>
-        <locationX>5268</locationX>
-        <locationY>1401</locationY>
+        <locationX>5421</locationX>
+        <locationY>1402</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Specific_Industries_and_Screen</name>
@@ -3554,7 +3554,7 @@
         <description>This decision element handles for &apos;Some&apos; Industries and &apos;Select&apos; was a choice.</description>
         <name>Some_or_Select_was_the_choice</name>
         <label>Some or Select was the choice</label>
-        <locationX>1204</locationX>
+        <locationX>1357</locationX>
         <locationY>1986</locationY>
         <defaultConnector>
             <targetReference>Relate_Case_Only_or_Case_with_Taxonomy</targetReference>
@@ -3594,7 +3594,7 @@
         <description>This is a decision element to determine if &quot;relate a case with one taxonomy&quot; was selected without having any taxonomies</description>
         <name>Was_Related_a_Case_With_One_Taxonomy_Selected_with_no_Taxonomies</name>
         <label>Was Related a Case With One Taxonomy Selected with no Taxonomies</label>
-        <locationX>1380</locationX>
+        <locationX>1533</locationX>
         <locationY>1826</locationY>
         <defaultConnector>
             <targetReference>Related_Industry_Taxonomy_Taggings</targetReference>
@@ -3656,7 +3656,7 @@
         <description>This decision element is calculating which Taxonomy portion of the record is failing. Is there no industry? Are there too many Country/Trade Region Taxonomies?</description>
         <name>What_Taxonomy_do_you_need_to_add</name>
         <label>What Taxonomy do you need to add</label>
-        <locationX>2456</locationX>
+        <locationX>2609</locationX>
         <locationY>1934</locationY>
         <defaultConnector>
             <targetReference>Error_Toast_for_Several_taxonomies_on_existing_WIN</targetReference>
@@ -3704,7 +3704,7 @@
         <description>Country, Trade Region, or Industry Record Type ID. This decision element will determine what type of record it is and will send the flow to an Assignment Element.</description>
         <name>What_Type_of_Record_is_it</name>
         <label>What Type of Record is it?</label>
-        <locationX>2827</locationX>
+        <locationX>2981</locationX>
         <locationY>1193</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -3787,7 +3787,7 @@
         <description>Was the screen choice &apos;Select&apos;, &apos;Country&apos;, or &apos;Trade Region&apos;</description>
         <name>What_was_the_choice_Creating_Taxonomy_on_Case</name>
         <label>What was the choice? Creating Taxonomy on Case</label>
-        <locationX>3981</locationX>
+        <locationX>4134</locationX>
         <locationY>1169</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -3847,7 +3847,7 @@
         <description>Was the screen choice &apos;Select&apos;, &apos;Country&apos;, or &apos;Trade Region&apos;</description>
         <name>What_was_the_choice_Relating_Taxonomy_to_WIN_New_Case</name>
         <label>What was the choice? Relating Taxonomy to WIN New Case</label>
-        <locationX>4493</locationX>
+        <locationX>4646</locationX>
         <locationY>1747</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -3951,7 +3951,7 @@
         <description>This decision element is determining which taxonomy to create.</description>
         <name>Which_Taxonomy_to_create</name>
         <label>Which Taxonomy to create</label>
-        <locationX>2456</locationX>
+        <locationX>2609</locationX>
         <locationY>2645</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -4011,7 +4011,7 @@
         <description>This decision element is determining which taxonomy to keep on the record as there are several on the existing WIN record.</description>
         <name>Which_Taxonomy_to_Keep</name>
         <label>Which Taxonomy to Keep</label>
-        <locationX>2265</locationX>
+        <locationX>2418</locationX>
         <locationY>2618</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -4225,12 +4225,12 @@
         <expression>TRIM(RIGHT({!SelectedIds},({!LengthoftheSelectedIndustryString}-20)))</expression>
     </formulas>
     <interviewLabel>Automation and Validation of Taxonomies from Case to WIN {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Automation and Validation of Taxonomies from Case to WIN</label>
+    <label>Automation and Validation of Taxonomies from Case to WIN (RecordTypeId Fix))</label>
     <loops>
         <description>Getting All Industry Records related to Case</description>
         <name>Getting_All_Industry_Records_related_to_Case</name>
         <label>Getting All Industry Records related to Case</label>
-        <locationX>5277</locationX>
+        <locationX>5430</locationX>
         <locationY>1636</locationY>
         <assignNextValueToReference>varGettingIndustryRecords</assignNextValueToReference>
         <collectionReference>varIndustryCollections</collectionReference>
@@ -4246,7 +4246,7 @@
         <description>Getting All Industry Records related to additional Case</description>
         <name>Getting_All_Industry_Records_related_to_the_additional_Case</name>
         <label>Getting All Industry Records related to the additional Case</label>
-        <locationX>776</locationX>
+        <locationX>929</locationX>
         <locationY>2938</locationY>
         <assignNextValueToReference>varGettingIndustryRecords</assignNextValueToReference>
         <collectionReference>varIndustryCollections</collectionReference>
@@ -4262,7 +4262,7 @@
         <description>Iterating through the list of our Taxonomy Taggings updating the related Win field with the Win ID from the current Win record.  The record Id for the WIN is being passed into our recordId variable from the record flow component.</description>
         <name>Loop_through_Collection_of_Taxonomy_Tagging_Records</name>
         <label>Loop through Collection of Taxonomy Tagging Records</label>
-        <locationX>3520</locationX>
+        <locationX>3672</locationX>
         <locationY>1906</locationY>
         <assignNextValueToReference>loopVar_taxonomyTagging</assignNextValueToReference>
         <collectionReference>Get_Taxonomy_Tagging_s_associated_with_Case</collectionReference>
@@ -4278,7 +4278,7 @@
         <description>Looping through all Taxonomy records to find only Industry records to use later in the flow.</description>
         <name>Loop_through_Collection_of_Taxonomy_Tagging_Records_Additional_Case</name>
         <label>Loop through Collection of Taxonomy Tagging Records Additional Case</label>
-        <locationX>1311</locationX>
+        <locationX>1464</locationX>
         <locationY>1569</locationY>
         <assignNextValueToReference>varloopIndustryOnly</assignNextValueToReference>
         <collectionReference>Related_Industry_Taxonomy_Taggings</collectionReference>
@@ -4294,7 +4294,7 @@
         <description>This loop element is looping through all Taxonomy Tagging Record Types. We will be assigning the record type ids that we want to variables</description>
         <name>Looping_Through_Taxonomy_Record_Types</name>
         <label>Looping Through Taxonomy Record Types</label>
-        <locationX>2668</locationX>
+        <locationX>2821</locationX>
         <locationY>1193</locationY>
         <assignNextValueToReference>varloopTaxonomyTaggingRecordType</assignNextValueToReference>
         <collectionReference>Get_Taxonomy_Tagging_Record_Types</collectionReference>
@@ -4310,7 +4310,7 @@
         <description>Looping through all the Industry Taxonomy Tagging records that are related to the additional Case that the user is trying to related to the WIN.</description>
         <name>Related_Industry_Taxonomy_Taggings_Loop</name>
         <label>Related Industry Taxonomy Taggings</label>
-        <locationX>843</locationX>
+        <locationX>996</locationX>
         <locationY>1609</locationY>
         <assignNextValueToReference>loopVar_taxonomyTagging</assignNextValueToReference>
         <collectionReference>varIndustryCollections</collectionReference>
@@ -4326,7 +4326,7 @@
         <description>Looping through all the Industry Taxonomy Tagging records that are related to the additional Case that the user is trying to related to the WIN.</description>
         <name>Related_Industry_Taxonomy_Taggings_Loop_0</name>
         <label>Related Industry Taxonomy Taggings</label>
-        <locationX>5427</locationX>
+        <locationX>5580</locationX>
         <locationY>1203</locationY>
         <assignNextValueToReference>varloopIndustryOriginalCase</assignNextValueToReference>
         <collectionReference>varIndustryCollections</collectionReference>
@@ -4345,6 +4345,12 @@
         </value>
     </processMetadataValues>
     <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
         <name>OriginBuilderType</name>
         <value>
             <stringValue>LightningFlowBuilder</stringValue>
@@ -4355,7 +4361,7 @@
         <description>Create a new Country or Trade Region Taxonomy Tagging record</description>
         <name>Create_a_new_Country_or_Trade_Region_Taxonomy_Tagging_record</name>
         <label>Create a new Country or Trade Region Taxonomy Tagging record</label>
-        <locationX>3153</locationX>
+        <locationX>3306</locationX>
         <locationY>1160</locationY>
         <connector>
             <targetReference>Empty_Collection_Variables</targetReference>
@@ -4369,7 +4375,7 @@
         <description>Because the Win ID was passed in at the start of the flow, and we now have the case ID from the user&apos;s input on the previous screen we can now create the junction between the case and the Win.</description>
         <name>Create_A_Related_Case_To_The_WIN</name>
         <label>Create A Related Case To The WIN</label>
-        <locationX>4351</locationX>
+        <locationX>4504</locationX>
         <locationY>2136</locationY>
         <assignRecordIdToReference>relatedCaseId.Id</assignRecordIdToReference>
         <connector>
@@ -4396,7 +4402,7 @@
         <description>Creating the list of all industries associated with this additional Case to relate to the WIN</description>
         <name>Create_All_Industry_Taxonomies_associated_with_this_Additional_Case</name>
         <label>Create All Industry Taxonomies associated with this Additional Case</label>
-        <locationX>1221</locationX>
+        <locationX>1374</locationX>
         <locationY>2941</locationY>
         <connector>
             <targetReference>Create_Related_Case_to_WIN_Record</targetReference>
@@ -4410,7 +4416,7 @@
         <description>Creating a list of all industries associated with this Case to relate the list to the WIN</description>
         <name>Create_All_Industry_Taxonomies_associated_with_this_Case</name>
         <label>Create All Industry Taxonomies associated with this Case</label>
-        <locationX>5271</locationX>
+        <locationX>5424</locationX>
         <locationY>2136</locationY>
         <connector>
             <targetReference>Create_A_Related_Case_To_The_WIN</targetReference>
@@ -4424,7 +4430,7 @@
         <description>Create Country or Region Correct Taxonomies</description>
         <name>Create_Country_or_Region</name>
         <label>Create Country or Region</label>
-        <locationX>3926</locationX>
+        <locationX>4079</locationX>
         <locationY>2099</locationY>
         <connector>
             <targetReference>Some_or_All_Industries</targetReference>
@@ -4438,7 +4444,7 @@
         <description>Create the single country taxonomy record that the user would like associated with this WIN</description>
         <name>Create_Country_or_Trade_Region_Taxonomy_Record_for_WIN</name>
         <label>Create Country or Trade Region Taxonomy Record for WIN</label>
-        <locationX>4948</locationX>
+        <locationX>5101</locationX>
         <locationY>1392</locationY>
         <connector>
             <targetReference>Some_or_All_Industries</targetReference>
@@ -4452,7 +4458,7 @@
         <description>Create an Industry record based off of the information that the user input in the previous screen.</description>
         <name>Create_Industry_Record_for_Existing_WIN</name>
         <label>Create Industry Record for Existing WIN</label>
-        <locationX>2772</locationX>
+        <locationX>2925</locationX>
         <locationY>2304</locationY>
         <connector>
             <targetReference>Success_Toast_Industry_Creation</targetReference>
@@ -4466,7 +4472,7 @@
         <description>This Create Record element is creating an Industry Taxonomy Tagging record related to the Case that the user is trying to relate to the WIN</description>
         <name>Create_Industry_Taxonomy_Record_On_Case_Related_List</name>
         <label>Create Industry Taxonomy Record On Case Related List</label>
-        <locationX>2956</locationX>
+        <locationX>3109</locationX>
         <locationY>1894</locationY>
         <connector>
             <targetReference>Lookup_Case_to_Relate_to_WIN</targetReference>
@@ -4511,7 +4517,7 @@
         <description>This Create Record element is creating an Industry Taxonomy Tagging record related to the Case that the user is trying to relate to the WIN</description>
         <name>Create_Industry_Taxonomy_Record_On_Case_Related_List_0</name>
         <label>Create Industry Taxonomy Record On Case Related List</label>
-        <locationX>1786</locationX>
+        <locationX>1939</locationX>
         <locationY>1540</locationY>
         <connector>
             <targetReference>Get_additional_Case_Record_to_Relate</targetReference>
@@ -4553,7 +4559,7 @@
         <description>Create a related case to win record</description>
         <name>Create_Related_Case_to_WIN_Record</name>
         <label>Create Related Case to WIN Record</label>
-        <locationX>1221</locationX>
+        <locationX>1374</locationX>
         <locationY>2777</locationY>
         <connector>
             <targetReference>Show_Success_Toast_Related_additional_Case</targetReference>
@@ -4580,7 +4586,7 @@
         <description>Creating the assigned variable record from the prior assignment element.</description>
         <name>Create_Single_Taxonomy</name>
         <label>Create Single Taxonomy</label>
-        <locationX>996</locationX>
+        <locationX>1149</locationX>
         <locationY>2658</locationY>
         <connector>
             <targetReference>Relate_Industry_Taxonomy_Taggings_From_Case</targetReference>
@@ -4594,7 +4600,7 @@
         <description>Create a new taxonomy tagging record on the existing WIN</description>
         <name>Create_Single_Taxonomy_on_Current_WIN</name>
         <label>Create Single Taxonomy on Current WIN</label>
-        <locationX>2468</locationX>
+        <locationX>2621</locationX>
         <locationY>2984</locationY>
         <connector>
             <targetReference>Empty_Collection_Variables_0</targetReference>
@@ -4608,7 +4614,7 @@
         <description>Create Taxonomy to be related to the existing WIN</description>
         <name>Create_Single_Taxonomy_on_existing_WIN</name>
         <label>Create Single Taxonomy on existing WIN</label>
-        <locationX>2107</locationX>
+        <locationX>2260</locationX>
         <locationY>825</locationY>
         <connector>
             <targetReference>Show_Success_Toast_for_Creating_Taxonomy</targetReference>
@@ -4622,7 +4628,7 @@
         <description>Creating specific Industry Records to related to the WIN from the additional Case.</description>
         <name>Creating_Industry_Records_to_relate_to_WIN</name>
         <label>Creating Industry Records to relate to WIN</label>
-        <locationX>842</locationX>
+        <locationX>995</locationX>
         <locationY>1978</locationY>
         <connector>
             <targetReference>Relate_Case_Only_or_Case_with_Taxonomy</targetReference>
@@ -4636,7 +4642,7 @@
         <description>User can delete collection of taxonomies related to this WIN</description>
         <name>Delete_collection_of_taxonomies_related_to_existing_WIN</name>
         <label>Delete collection of taxonomies related to existing WIN</label>
-        <locationX>2112</locationX>
+        <locationX>2265</locationX>
         <locationY>959</locationY>
         <connector>
             <targetReference>Create_Single_Taxonomy_on_existing_WIN</targetReference>
@@ -4650,7 +4656,7 @@
         <description>User can delete collection of taxonomies related to this WIN</description>
         <name>Delete_collection_of_taxonomies_related_to_WIN_Data_Clean_Up</name>
         <label>Delete collection of taxonomies related to WIN Data Clean Up</label>
-        <locationX>1947</locationX>
+        <locationX>2100</locationX>
         <locationY>2983</locationY>
         <connector>
             <targetReference>Create_Single_Taxonomy_on_Current_WIN</targetReference>
@@ -4664,7 +4670,7 @@
         <description>Delete the taxonomy taggings found in the previous step.</description>
         <name>Delete_Existing_Country_Region_on_WIN</name>
         <label>Delete Existing Country Region on WIN</label>
-        <locationX>4816</locationX>
+        <locationX>4969</locationX>
         <locationY>1467</locationY>
         <connector>
             <targetReference>Create_Country_or_Trade_Region_Taxonomy_Record_for_WIN</targetReference>
@@ -4678,7 +4684,7 @@
         <description>Delete the taxonomy taggings found in the previous step.</description>
         <name>Taxonomy_Taggings</name>
         <label>Taxonomy Taggings</label>
-        <locationX>995</locationX>
+        <locationX>1148</locationX>
         <locationY>2524</locationY>
         <connector>
             <targetReference>Create_Single_Taxonomy</targetReference>
@@ -4692,7 +4698,7 @@
         <description>This element is getting the Additional Case record values from the lookup in the prior screen.</description>
         <name>Get_additional_Case_Record_to_Relate</name>
         <label>Get additional Case Record to Relate</label>
-        <locationX>1881</locationX>
+        <locationX>2034</locationX>
         <locationY>1667</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -4717,7 +4723,7 @@
         <description>Get all the taxonomy ids that are not from the prior screen</description>
         <name>Get_all_taxonomy_ids</name>
         <label>Get all taxonomy ids</label>
-        <locationX>1963</locationX>
+        <locationX>2116</locationX>
         <locationY>2627</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -4759,7 +4765,7 @@
         <description>Get all the taxonomy ids related to current WIN</description>
         <name>Get_all_taxonomy_ids_related_to_WIN</name>
         <label>Get all taxonomy ids related to WIN</label>
-        <locationX>2099</locationX>
+        <locationX>2252</locationX>
         <locationY>1132</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -4815,7 +4821,7 @@
         <description>Retrieving all the taxonomy tagging records that are related to this WIN currently.</description>
         <name>Get_All_Taxonomy_Tagging_Records_Related_To_This_WIN</name>
         <label>Get All Taxonomy Tagging Records Related To This WIN</label>
-        <locationX>4948</locationX>
+        <locationX>5101</locationX>
         <locationY>1751</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -4843,7 +4849,7 @@
         <description>Getting the Case ID that we are trying to relate to the WIN</description>
         <name>Get_Case_Record</name>
         <label>Get Case Record</label>
-        <locationX>3152</locationX>
+        <locationX>3305</locationX>
         <locationY>1748</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -4868,7 +4874,7 @@
         <description>Getting all the Taxonomy Tagging record types to assign to variables to use later in the flow in many locations</description>
         <name>Get_Taxonomy_Tagging_Record_Types</name>
         <label>Get Taxonomy Tagging Record Types</label>
-        <locationX>2668</locationX>
+        <locationX>2821</locationX>
         <locationY>1018</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -4889,7 +4895,7 @@
         <description>Gathering all the Taxonomy Tagging records that are related to the Case that we are trying to relate to the WIN. We need to validate the Taxonomies on this Case BEFORE we can relate it to the WIN.</description>
         <name>Get_Taxonomy_Tagging_s_associated_with_Case</name>
         <label>Get Taxonomy Tagging&apos;s associated with Case</label>
-        <locationX>3292</locationX>
+        <locationX>3445</locationX>
         <locationY>1748</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -4910,7 +4916,7 @@
         <description>This Get element is retrieving the values of the Related Case record from the Additional Case that the use is trying to relate to the WIN.</description>
         <name>Get_the_Relate_Case_Record</name>
         <label>Get the Relate Case Record</label>
-        <locationX>1748</locationX>
+        <locationX>1901</locationX>
         <locationY>1667</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -4941,7 +4947,7 @@
         <description>Get all taxonomy tagging records to compare against the users selections.</description>
         <name>Related_Industry_Taxonomy_Taggings</name>
         <label>Related Industry Taxonomy Taggings</label>
-        <locationX>1494</locationX>
+        <locationX>1647</locationX>
         <locationY>1569</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -4962,7 +4968,7 @@
         <description>Get the taxonomy tagging records not shared by the prior screen</description>
         <name>Related_Taxonomy_Taggings</name>
         <label>Related Taxonomy Taggings</label>
-        <locationX>994</locationX>
+        <locationX>1147</locationX>
         <locationY>2350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -5004,7 +5010,7 @@
         <description>Getting the recordId of the WIN record that prompted the Flow.</description>
         <name>Start_WIN_recordId</name>
         <label>Start WIN recordId</label>
-        <locationX>2669</locationX>
+        <locationX>2822</locationX>
         <locationY>1584</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -5026,7 +5032,7 @@
         <description>This is a screen displaying what Country/Region Taxonomies are being related</description>
         <name>Correct_Taxonomies_what_is_being_related</name>
         <label>Correct Taxonomies what is being related</label>
-        <locationX>3771</locationX>
+        <locationX>3924</locationX>
         <locationY>2099</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5068,7 +5074,7 @@
         <description>This screen allows the user to select what industry when creating a new Taxonomy for the WIN</description>
         <name>Industry_Creation_for_Existing_WIN</name>
         <label>Path 2.3 and Path 3.3</label>
-        <locationX>2774</locationX>
+        <locationX>2927</locationX>
         <locationY>2129</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5161,7 +5167,7 @@
         <description>Lookup Case to relate to WIN</description>
         <name>Lookup_Case_to_Relate_to_WIN</name>
         <label>Path 1</label>
-        <locationX>2956</locationX>
+        <locationX>3109</locationX>
         <locationY>1748</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -5212,7 +5218,7 @@
         <description>Screen to hold values used further in the flow</description>
         <name>NewTaxonomyOrOtherChoices</name>
         <label>Path 3</label>
-        <locationX>2108</locationX>
+        <locationX>2261</locationX>
         <locationY>1749</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5592,7 +5598,7 @@
         <description>This is a screen asking the user which type of taxonomy they would like to related to the WIN</description>
         <name>Pick_one_Trade_Region_or_Country_for_Existing_WIN</name>
         <label>Path 2.1</label>
-        <locationX>2284</locationX>
+        <locationX>2437</locationX>
         <locationY>2466</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5656,7 +5662,7 @@
         <description>User can relate only the Case or the Case with Taxonomies</description>
         <name>Relate_Case_only_or_with_Taxonomies</name>
         <label>Path 3.2</label>
-        <locationX>1510</locationX>
+        <locationX>1663</locationX>
         <locationY>1763</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5970,7 +5976,7 @@
         <description>This is a screen asking the user which type of taxonomy they would like to related to the WIN</description>
         <name>Relate_Existing_Trade_Region_or_Country_to_WIN</name>
         <label>Path 1.2</label>
-        <locationX>3893</locationX>
+        <locationX>4046</locationX>
         <locationY>1585</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -6427,7 +6433,7 @@
         <description>This is a screen asking the user which type of taxonomy they would like to related to the WIN</description>
         <name>Relate_New_Trade_Region_or_Country_to_Existing_WIN</name>
         <label>Path 2.2</label>
-        <locationX>2464</locationX>
+        <locationX>2617</locationX>
         <locationY>2473</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -6491,7 +6497,7 @@
         <description>This screen allows the user to select what trade region when creating a new Taxonomy for the WIN</description>
         <name>Select_a_Trade_Region_or_Country_To_Relate_To_Case</name>
         <label>Path 1.3</label>
-        <locationX>4316</locationX>
+        <locationX>4469</locationX>
         <locationY>1159</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -6576,7 +6582,7 @@
         <description>This screen allows the user to select what industry when creating a new Taxonomy for the Additional CASE</description>
         <name>Select_an_Industry_to_Create_on_Additional_Case</name>
         <label>Path 3.1</label>
-        <locationX>1628</locationX>
+        <locationX>1781</locationX>
         <locationY>1540</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -6669,7 +6675,7 @@
         <description>This screen allows the user to select what industry when creating a new Taxonomy for the CASE</description>
         <name>Select_an_Industry_to_Create_on_Case</name>
         <label>Path 1.1</label>
-        <locationX>3127</locationX>
+        <locationX>3280</locationX>
         <locationY>1902</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
