@@ -241,15 +241,15 @@
         <template>Privacy_Shield_Templates/PS_New_Non_Register_User_Case_Comment_Notification_Email</template>
     </alerts>
     <alerts>
-        <fullName>Send_Actual_Dollar_Value_Email_Reminder</fullName>
-        <description>Send Actual Dollar Value Email Reminder</description>
+        <fullName>Send_Expected_Value_Email_Reminder</fullName>
+        <description>Send Expected Value Email Reminder</description>
         <protected>false</protected>
         <recipients>
             <type>owner</type>
         </recipients>
         <senderAddress>noreply@trade.gov</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
-        <template>unfiled$public/Case_Update_with_Actual_Dollar_Value</template>
+        <template>unfiled$public/Case_Update_with_final_Expected_Value</template>
     </alerts>
     <alerts>
         <fullName>Send_Privacy_Shield_Application_Approval_to_Case_Contact</fullName>
@@ -707,26 +707,6 @@
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
-    <rules>
-        <fullName>Actual Export Dollar Email Reminder</fullName>
-        <actions>
-            <name>Send_Actual_Dollar_Value_Email_Reminder</name>
-            <type>Alert</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Case.Status</field>
-            <operation>equals</operation>
-            <value>Successfully Closed,Administratively Closed</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Record_Type__c</field>
-            <operation>equals</operation>
-            <value>Export Promotion</value>
-        </criteriaItems>
-        <description>When an Export Promotion case is closed, this email is sent to remind users to update the Anticipated/Actual Export Dollar field.</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
     <rules>
         <fullName>CC - WFR - II</fullName>
         <actions>
