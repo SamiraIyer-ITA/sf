@@ -23,6 +23,14 @@
     opacity: 0.8;
 }
 
+#textinvestigation{
+    
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.8;
+    
+}
+
 @media screen and (max-width: 600px) {
 .newgrid {
     float: left;
@@ -98,7 +106,7 @@ text-align:left;
                 <a href="#hts-numbers">HTS Numbers</a>
               </li>
               <li class="side-li">
-                <a href="#scope-of-the-order">Scope of the Order</a>
+                <a href="#scope">{!if(scopeOfOrder,'Scope of the Order','Scope of the Suspension Agreement')}</a>
               </li>
             </ul>
       </aside>
@@ -109,10 +117,18 @@ text-align:left;
       <div class="usa-grid blockk">
       <h2 class="usa-heading" id="upcoming-announcements">Upcoming Announcements</h2>
 
-          <div><apex:repeat value="{!segInvList}" var="s"><div class="usa-width-one-half" ><p id="review">{!s.recordType}</p><div class="about" id="announcement-type">{!s.announcementType} Results Announcement: {!s.announcementDate}</div>
-          <apex:outputtext >
+          <div><apex:repeat value="{!segInvList}" var="s"><div class="usa-width-one-half" ><p id="review">{!s.recordType}</p>
+          <apex:outputtext rendered="{!s.pendingOrderInfo}">
+              <div id="textinvestigation">  We have issued a final determination and are awaiting a final determination by the International Trade Commission. </div>
+          </apex:outputtext>
+          <apex:outputtext rendered="{!NOT(s.pendingOrderInfo)}">
+          
+          <div class="about" id="announcement-type">{!s.announcementType} Results Announcement: {!s.announcementDate}</div>
+          
           <div class="about" id="days-remaining">Extension Days Remaining: <span class="daysremaining">{!s.daysRemaining}</span></div>
-          <div class="about" id="PeriodCoveredStartDate">Period Covered: <span class="daysremaining">{!s.PeriodCoveredStartDate} - {!s.PeriodCoveredEndDate}</span></div>
+          <div class="about" id="PeriodCoveredStartDate">Period Covered: <span class="daysremaining">{!s.PeriodCoveredStartDate} - {!s.PeriodCoveredEndDate}</span>
+         
+          </div>
           </apex:outputtext><br/></div></apex:repeat></div>
           </div>
 
@@ -132,7 +148,7 @@ text-align:left;
 
 <!--Scope of the Order section-->
 <div class="usa-grid blockk">
-<h2 class="usa-heading" id="scope-of-the-order">Scope of the Order</h2>
+<h2 class="usa-heading" id="scope">{!if(scopeOfOrder,'Scope of the Order','Scope of the Suspension Agreement')}</h2>
 <div class="holder-description"><apex:outputtext ><p class="demo3" id="attach-body">{!attachmentBody}</p></apex:outputtext></div>
 
 </div>

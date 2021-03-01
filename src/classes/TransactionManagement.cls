@@ -82,7 +82,7 @@ public without sharing class TransactionManagement {
 		}
 
 		Decimal amt = paymentRecord.Transaction_Amount__c.SetScale(2);
-		body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+ getDecimal16Char(amt) + '~' + dateToday + '~' + paymentType + '~1~' + paymentRecord.Account_Holder_Name__c + '~' + paymentRecord.Organization_Name__c + '~15397~1~PAYGOV~ITA~~~~~~~~~~~~~~' + paymentRecord.Fulfillment_Post_Acronym__c + '~71744~~ITADEP~~~\n';
+		body += 'UCL01~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~~'+ getDecimal16Char(amt) + '~' + dateToday + '~' + paymentType + '~0000000000001~' + paymentRecord.Account_Holder_Name__c + '~' + paymentRecord.Organization_Name__c + '~15397~1~PAYGOV~ITASFE~~~~~~~~~~~~~~' + paymentRecord.Fulfillment_Post_Acronym__c + '~71744~~ITADEP~~~\n';
 		body += 'UCL02~55~' + batchNumber +'~' + getNumberLeftChar(i,8) + '~00000001~ITAREV\n';
 		// Project_code__c can be up to 12 comma separated strings - Loop through those and create one line for each of the items in that list
 

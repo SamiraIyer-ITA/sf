@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Object Settings - Create Product records with a Services record type. Access to field level security is granted through a separate permission set.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Product: Create Access - Services</label>
+    <recordTypeVisibilities>
+        <recordType>Product2.Services</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+</PermissionSet>

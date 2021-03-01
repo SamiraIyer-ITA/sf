@@ -28,7 +28,7 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Type__c</field>
-        <value xsi:type="xsd:string">Rescission</value>
+        <value xsi:type="xsd:string">Rescission Full</value>
     </values>
     <values>
         <field>Base_Date_Field_2_Lookup_Field_Name__c</field>
