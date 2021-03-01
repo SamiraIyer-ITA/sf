@@ -14,7 +14,6 @@ P        <locationX>406</locationX>
         <faultConnector>
             <targetReference>DML_Error</targetReference>
         </faultConnector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>ids</name>
             <value>
@@ -40,7 +39,6 @@ P        <locationX>406</locationX>
         <faultConnector>
             <targetReference>DML_Error</targetReference>
         </faultConnector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>orderRefundAmounts</name>
             <value>
@@ -88,7 +86,6 @@ P        <locationX>406</locationX>
         <faultConnector>
             <targetReference>DML_Error</targetReference>
         </faultConnector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>orders</name>
             <value>
