@@ -884,7 +884,6 @@ IF(! ISBLANK ({!Refund_Explanation}), &apos;: Refund_Explanation&apos;, &apos;.&
                     <elementReference>ContractId</elementReference>
                 </value>
             </inputParameters>
-            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>SelectedOrders</assignToReference>
