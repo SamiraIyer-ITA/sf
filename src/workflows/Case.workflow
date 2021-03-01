@@ -241,17 +241,6 @@
         <template>Privacy_Shield_Templates/PS_New_Non_Register_User_Case_Comment_Notification_Email</template>
     </alerts>
     <alerts>
-        <fullName>Send_Expected_Value_Email_Reminder</fullName>
-        <description>Send Expected Value Email Reminder</description>
-        <protected>false</protected>
-        <recipients>
-            <type>owner</type>
-        </recipients>
-        <senderAddress>noreply@trade.gov</senderAddress>
-        <senderType>OrgWideEmailAddress</senderType>
-        <template>unfiled$public/Case_Update_with_final_Expected_Value</template>
-    </alerts>
-    <alerts>
         <fullName>Send_Privacy_Shield_Application_Approval_to_Case_Contact</fullName>
         <description>Case: Send Privacy Shield Certification Application Approval to Case Contact</description>
         <protected>false</protected>
