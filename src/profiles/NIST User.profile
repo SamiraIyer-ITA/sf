@@ -171,6 +171,14 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>ADCVDBatchExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVDBatchExtension_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ADCVDCaseTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -468,6 +476,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CP_scheduled_Upgrade_External_User_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CallAddTollingDayBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CallAddTollingDayBatchTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2100,6 +2116,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>activityTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>apo_Modernization</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>apo_ModernizationTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -4086,6 +4110,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Advocacy_Project_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Agreement_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9865,6 +9894,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Opportunity_18__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.PA_Sent__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -11105,11 +11139,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Petition__c.Petition_Filed__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Petition__c.Petition_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -11975,6 +12004,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Segment__c.APO_Destruction_Due_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.APO_Notes__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.APO_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Segment__c.Access_Barcode__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -12756,6 +12800,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Segment__c.Will_you_Amend_the_Final__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Withdrawal_Extension__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Withdrawal_Request_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15144,6 +15198,10 @@
         <enabled>false</enabled>
         <flow>Update_Third_Party_Data</flow>
     </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Update_Tolling</flow>
+    </flowAccesses>
     <layoutAssignments>
         <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
     </layoutAssignments>
@@ -16466,6 +16524,10 @@
         <object>Quote</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <pageAccesses>
+        <apexPage>ADCVDCaseBatch</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>ADCVD_Search</apexPage>
         <enabled>false</enabled>
@@ -18392,5 +18454,9 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewSetup</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewTrustMeasures</name>
     </userPermissions>
 </Profile>

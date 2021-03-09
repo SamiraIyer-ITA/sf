@@ -636,6 +636,11 @@
                     <label>CAFTA-DR</label>
                 </value>
                 <value>
+                    <fullName>NAFTA</fullName>
+                    <default>false</default>
+                    <label>NAFTA</label>
+                </value>
+                <value>
                     <fullName>U.S.-Chile Free Trade Agreement</fullName>
                     <default>false</default>
                     <label>U.S.-Chile Free Trade Agreement</label>
@@ -4543,7 +4548,7 @@ Select if this is a Compliance Case</description>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Andres Lahiguera,Andrew Steele,Joshua Blume,Blake Murray,Rochelle Osei-Tutu</value>
+            <value>Isabella Carlton,Clinton Harper,Andres Lahiguera,Rochelle Osei-Tutu</value>
         </filters>
         <filters>
             <field>CASES.SUBJECT</field>
@@ -4568,7 +4573,7 @@ Select if this is a Compliance Case</description>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Clinton Harper,Kelsey Schrenk,Isabella Carlton,Ian Wallace</value>
+            <value>Cristina Clement,Jacquitta Gray,Melissa Kaijuka,Theresa Nakamura,Tilla Wallace</value>
         </filters>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
@@ -4675,6 +4680,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8104,6 +8113,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11595,6 +11608,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -15052,6 +15069,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18525,6 +18546,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22012,6 +22037,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -25482,6 +25511,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28985,6 +29018,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -32455,6 +32492,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35938,6 +35979,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -39407,6 +39452,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -42817,6 +42866,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46416,6 +46469,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -49885,6 +49942,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53358,6 +53419,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -56861,6 +56926,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -60361,6 +60430,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -63846,6 +63919,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -67341,6 +67418,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -70825,6 +70906,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -74262,6 +74347,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -77765,6 +77854,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -81265,6 +81358,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -84757,6 +84854,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -88230,6 +88331,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -91699,6 +91804,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -95161,6 +95270,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -98848,6 +98961,10 @@ Select if this is a Compliance Case</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NAFTA</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>State Owned Enterprises%C2%A0</fullName>
                 <default>false</default>
             </values>
@@ -102329,6 +102446,10 @@ Select if this is a Compliance Case</description>
             </values>
             <values>
                 <fullName>Good Regulatory Practices%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAFTA</fullName>
                 <default>false</default>
             </values>
             <values>
