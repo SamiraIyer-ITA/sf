@@ -16,6 +16,11 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Consulting</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Eventtia_App</application>
         <default>false</default>
         <visible>false</visible>
@@ -72,6 +77,11 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Payment_Manager_2</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Transaction_Administration</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
@@ -170,6 +180,14 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+    <classAccesses>
+        <apexClass>ADCVDBatchExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVDBatchExtension_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>ADCVDCaseTriggerHandler</apexClass>
         <enabled>false</enabled>
@@ -363,6 +381,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AppFactoryServicesMetadataSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AppFactoryServicesMetadataSelectorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Application</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -471,6 +497,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CallAddTollingDayBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CallAddTollingDayBatchTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CascadeUtility</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -520,6 +554,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ChatterPostWriterTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CollaborationGroupsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CollaborationGroupsSelectorTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -587,11 +629,55 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Contracts</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsImplManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsImplManagerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContractsSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ContractsSelectorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsServiceImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsSvcLibrary</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsSvcLibraryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsSvcParticipationAgreement</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsSvcParticipationAgreementTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContractsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -708,6 +794,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ErrorMessaging</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EventProductCodeGenerator</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EventProductCodeGeneratorTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -855,6 +949,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>IAppFactoryServicesMetadataSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>IAssets</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -883,6 +981,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ICollaborationGroupsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ICollectionFulfillmentsSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -891,7 +993,23 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>IContracts</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>IContractsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IContractsService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IContractsSvcBase</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IContractsSvcParticipationAgreement</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -907,11 +1025,55 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ILeads</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ILeadsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ILeadsService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ILeadsSvcBase</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ILeadsSvcExport</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ILitigationSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>IMasterCongressionalDistrictsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IOpportunities</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IOpportunitiesSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IOpportunitiesService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IOpportunitiesSvcBase</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IOpportunitiesSvcEvents</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IOpportunitiesSvcServices</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -983,7 +1145,75 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>IProductCodeGenerator</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IProducts</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>IProductsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IProductsService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IProductsSvcBase</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IProductsSvcEvents</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuoteLineItems</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuoteLineItemsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuoteLineItemsService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuoteLineItemsSvcBase</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuoteLineItemsSvcEvents</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuoteLineItemsSvcServices</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuotes</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuotesSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuotesService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuotesSvcBase</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuotesSvcEvents</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IQuotesSvcServices</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1003,6 +1233,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ISObjectsTriggerService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ISegmentSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1012,6 +1246,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ISuspensionAgreementSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ITriggerImpl</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1076,6 +1314,58 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LayoutDescriberHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Lead_Past_Due_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Leads</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsImplManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsImplManagerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsSelectorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsServiceImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsSvcExport</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsSvcLibrary</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsSvcLibraryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1159,6 +1449,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MockHttpResponseGenerator</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MockSObjectsTriggerService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MyOrdersComponentController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1203,6 +1501,74 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>OAuthController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OAuthControllerTests</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Opportunities</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesImplManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesImplManagerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesSelectorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesServiceImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesStageLibrary</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesSvcEvents</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesSvcLibrary</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesSvcLibraryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesSvcServices</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesSvcServicesTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OpportunitiesTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>OpportunityContactRolesSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1211,7 +1577,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>OpportunitySObjectMapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Opportunity_Events_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Oppty_Past_Due_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Oppty_Past_Due_Controller_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1467,6 +1845,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>PowerBIController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PowerBIControllerTests</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PrepareSandbox</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1495,6 +1881,18 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Products</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductsImplManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductsImplManagerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ProductsSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1503,11 +1901,151 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ProductsService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductsServiceImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductsServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductsSvcEvents</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductsSvcLibrary</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductsSvcLibraryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ProductsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Profile_Controller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Profile_Controller_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemSObjectMapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItems</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsImplManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsImplManagerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsSelectorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsServiceImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsSvcEvents</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsSvcEventsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsSvcLibrary</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsSvcLibraryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsSvcServices</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItemsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Quotes</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesImplManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesImplManagerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesSelectorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesServiceImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesSvcEvents</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesSvcLibrary</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesSvcLibraryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesSvcServices</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuotesTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1648,6 +2186,26 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ReviewRecusalExtensionTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SObjectsFieldMapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SObjectsFieldMapperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SObjectsImplManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SObjectsImplManagerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SObjectsTriggerService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1971,6 +2529,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TestClass_Last_Past_Due</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TestCreateHierarchy</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2028,6 +2590,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TranslationUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerImpl</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2100,6 +2666,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>activityTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>apo_Modernization</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>apo_ModernizationTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2220,6 +2794,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>dlrs_IndustryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dlrs_Payment2Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -3270,6 +3848,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Woman_Owned_Indicator1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Woman_Owned_Indicator__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3326,6 +3909,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>ApplicationFactory_SelectorFieldset__mdt.IsActive__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApplicationFactory_Service__mdt.Service_Implementation_Key__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApplicationFactory_Service__mdt.Service_Implementation_SObject__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4086,6 +4679,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Advocacy_Project_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Agreement_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8540,6 +9138,31 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead.Assigned_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Assigned_Office__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Assigned_User__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Assigned_to_Me__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Assigned_to_My_Office__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead.Campaign_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8551,6 +9174,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead.Confirm_Email__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Contact_Attempts__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Contacted_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8584,6 +9217,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Dedicated_resources_staff_budget__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Description</field>
         <readable>true</readable>
@@ -8594,9 +9232,44 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Eligibility_Verified__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.EligibleforExportPromotion__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Email</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.ExpeditedDelivery__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.ExportReady__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Export_Readiness_Assessment_Score__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Export_Readiness_Verified__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Exported_in_the_past_12_months__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8606,6 +9279,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead.FirstNameLocal</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.First_Attempt_Past_Due__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Globalized_your_website__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8629,6 +9312,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Interest_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.International_marketing_plan__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Investment_Promotion__c</field>
         <readable>true</readable>
@@ -8637,6 +9330,26 @@
         <editable>true</editable>
         <field>Lead.Jigsaw</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Know_U_S_Export_Control_requirements__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Know_financing_payment_options__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Know_foreign_legal_regulatory_reqs__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Know_how_to_ship_product_overseas__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8719,9 +9432,79 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Outcome_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Outcome__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Phone</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.PrimaryPost__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Process_to_protect_IP_internationally__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Process_to_respond_to_int_l_inquiries__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Product_Family_Interest__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Product_is_of_51_US_Content__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Product_of_US_Origin__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Production_capacity_to_meet_orders__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Promotion_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Queue_Routing_Due_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Queue_Routing_Past_Due_Formula__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Queue_Routing_Past_Due__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Queued_Date__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8730,13 +9513,63 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead.Re_routed__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Reason_Not_Converted__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Record_Type_Developer_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Referral_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Referred_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Referred_To_Other__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Referred_To__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead.Registrant__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Second_Attempt_Past_Due__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.SecondaryPost__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Sector_Hidden__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Service_Request_Country__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8747,6 +9580,11 @@
         <editable>true</editable>
         <field>Lead.Source_Detail__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Status__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8760,6 +9598,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead.UsedITAsfeebasedservicesbefore__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead.Web_Campaign_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8767,6 +9610,51 @@
         <editable>true</editable>
         <field>Lead.Website</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Which_services_have_you_used_before__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Willing_to_travel_internationally__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.X1st_Contact_Attempt_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.X1st_Contact_Attempt_Due_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.X1st_Contact_Attempt_Past_Due_Formula__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.X2nd_Contact_Attempt_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.X2nd_Contact_Attempt_Due_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.X2nd_Contact_Attempt_Past_Due_Formula__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.ZipCodeorClientCountry__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9739,6 +10627,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Assigned_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Assigned_User__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.CampaignId</field>
         <readable>true</readable>
@@ -9765,7 +10663,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Conference_Call_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Conference_Call_Scheduled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Conference_Call_Scheduling_In_Progress__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9790,12 +10698,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Eligibility_Verified__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Eligible_for_Export_Promotion__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.ExpectedRevenue</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Expedited_Delivery__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Export_Readiness_Assessment_Score__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Export_Readiness_Verified__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9806,6 +10734,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Exported_in_the_past_12_months__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Fulfillment_Office__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9859,9 +10792,24 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Meeting_Availability_Date_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Meeting_Availability_Date_2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.NextStep</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Opportunity_18__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9885,12 +10833,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Product_is_of_51_US_Content__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Product_of_US_Origin__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Product_of_US_origin_or_has_51_mtls__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Production_capacity_to_meet_orders__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Reason_Lost_Explanation__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9911,6 +10874,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Requested_Service_Start_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.SOW_Approved__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9937,6 +10905,16 @@
         <editable>true</editable>
         <field>Opportunity.Type</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Used_ITA_s_fee_based_services_before__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Which_services_have_you_used_before__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -10010,12 +10988,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Order.Final_Report_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Order.Final_Report__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Order.Fulfillment_Org_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Order.Mid_Term_Report_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10031,6 +11019,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Order.Name</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Order.Official_Letter_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11105,11 +12098,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Petition__c.Petition_Filed__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Petition__c.Petition_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -11975,6 +12963,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Segment__c.APO_Destruction_Due_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.APO_Notes__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.APO_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Segment__c.Access_Barcode__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -12760,6 +13763,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Segment__c.Withdrawal_Extension__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Withdrawal_Request_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Series__c.Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13016,6 +14029,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Staffing_Assignment__c.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Staffing_Assignment__c.Suspension_Agreement__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13437,6 +14455,11 @@
         <editable>true</editable>
         <field>Suspension_Agreement__c.Investigation__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.Link__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15038,6 +16061,10 @@
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>Lead_SendCustomNotifications_ScheduledFlow_RunsDaily</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>NIST_Support_Case</flow>
     </flowAccesses>
     <flowAccesses>
@@ -15055,6 +16082,14 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Notify_when_Contact_is_marked_inactive</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>OpportunityTeamMember_Aftersave_Insert</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Opportunity_ScheduledFlow_RunDaily</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -15143,6 +16178,10 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Update_Third_Party_Data</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Update_Tolling</flow>
     </flowAccesses>
     <layoutAssignments>
         <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
@@ -15709,6 +16748,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
+        <recordType>Lead.Export</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
         <recordType>Lead.New_Registrant</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -15828,6 +16871,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Order-Order Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Order-Order Layout</layout>
+        <recordType>Order.Events</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Order-Order Layout</layout>
@@ -16129,6 +17176,9 @@
         <layout>ServiceResourceSkill-Service Resource Skill Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Service_Implementation_SObject__mdt-Service Implementation Object Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Service__mdt-Service Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -16373,6 +17423,9 @@
         <layout>Web_Resource_Link__c-Web Resource Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Zip_Code__c-Zip Code Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>core_EventConsumerSubscription__mdt-Platform Event Consumer Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -16385,6 +17438,10 @@
         <layout>test__c-test Layout</layout>
         <recordType>test__c.test</recordType>
     </layoutAssignments>
+    <pageAccesses>
+        <apexPage>ADCVDCaseBatch</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>ADCVD_Search</apexPage>
         <enabled>false</enabled>
@@ -16579,6 +17636,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>PaymentRefund</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>PowerBI</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -17356,6 +18417,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Lead.Export</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Lead.New_Registrant</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -17407,6 +18473,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Opportunity.Services</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Order.Events</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -17837,6 +18908,14 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Case_Contributor__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Client_Form__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Collection_Fulfillment__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
