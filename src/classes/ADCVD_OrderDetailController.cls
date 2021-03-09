@@ -88,25 +88,36 @@ public class ADCVD_OrderDetailController {
     ];
 
     //TODO:use selectors instead of query
-    if(!caseObj.ADCVD_Orders__r.isEmpty()) {
       
-      this.order = [
+      
+      List<ADCVD_Order__c> orderList =  [
           Select id, (SELECT Id FROM Attachments WHERE Name = :defaultName LIMIT 1)
           FROM ADCVD_Order__c
-          WHERE ADCVD_Case_Number_Text__c = :this.adcvdCase
+                                          WHERE ADCVD_Case_Number_Text__c = :this.adcvdCase AND (Status__c ='Current-Active' OR Status__c ='Current-Inactive' OR Status__c ='Revoked-Incomplete')
           LIMIT 1
       ];
+      
+      if(!orderList.isEmpty()){
+          
+          this.order = orderList[0];
+      
       if (!order.Attachments.isEmpty()) {
         this.attachmentBody = [SELECT Id, Body, Description FROM Attachment WHERE Id = :this.order.Attachments[0].Id LIMIT 1].Body.toString();
       }
+      }
+      
       
       if(this.attachmentBody == null || this.attachmentBody ==''){
-          this.suspensionAggreement = [
+      
+          List<Suspension_Agreement__c> suspensionList = [
                                           Select id, (SELECT Id FROM Attachments WHERE Name = :defaultName LIMIT 1)
                                           FROM Suspension_Agreement__c
-                                          WHERE ADCVD_Case_Number_Text__c = :this.adcvdCase
+                                          WHERE ADCVD_Case_Number_Text__c = :this.adcvdCase AND Status__c ='Current - Active'
                                           LIMIT 1
                                       ];
+          if(!suspensionList.isEmpty()){
+              
+              this.suspensionAggreement = suspensionList[0];
                                       
           if (!suspensionAggreement.Attachments.isEmpty()) {
             this.attachmentBody = [SELECT Id, Body, Description FROM Attachment WHERE Id = :this.suspensionAggreement.Attachments[0].Id LIMIT 1].Body.toString();
