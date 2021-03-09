@@ -591,7 +591,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
+        <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -762,7 +762,6 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>AssetId</fullName>
@@ -1519,7 +1518,7 @@ Select if this is a Compliance Case</description>
         <fullName>Compliance_Date__c</fullName>
         <description>Date when a Commercial Diplomacy Case becomes compliant.</description>
         <externalId>false</externalId>
-        <label>RA Determination Date</label>
+        <label>Compliance Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -2852,6 +2851,18 @@ Select if this is a Compliance Case</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Legacy_Case_Modification__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>To allow &apos;legacy&apos; cases (Cases with Status of &apos;Administratively Closed,&apos; &apos;Successfully Closed,&apos; or &apos;Unable to Resolve&apos;) as of Sept 2020 to bypass validation rules preventing addition of Contacts, Organizations, and Taxonomy Tagging.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>To allow this case to bypass Validation Rules for business data entry purposes.</inlineHelpText>
+        <label>Legacy Case Modification</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Number_of_WINs_associated_to_Case__c</fullName>
@@ -4548,7 +4559,7 @@ Select if this is a Compliance Case</description>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Isabella Carlton,Clinton Harper,Andres Lahiguera,Rochelle Osei-Tutu</value>
+            <value>Andres Lahiguera,Andrew Steele,Joshua Blume,Blake Murray,Rochelle Osei-Tutu</value>
         </filters>
         <filters>
             <field>CASES.SUBJECT</field>
@@ -4573,7 +4584,7 @@ Select if this is a Compliance Case</description>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
             <operation>notEqual</operation>
-            <value>Cristina Clement,Jacquitta Gray,Melissa Kaijuka,Theresa Nakamura,Tilla Wallace</value>
+            <value>Clinton Harper,Kelsey Schrenk,Isabella Carlton,Ian Wallace</value>
         </filters>
         <filters>
             <field>Case_Owner_Full_Name__c</field>
