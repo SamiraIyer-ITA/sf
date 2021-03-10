@@ -97,7 +97,7 @@
         <name>DataCategoryGroup</name>
     </types>
     <types>
-        <members>unfiled$public/Case_Update_with_final_Expected_Value`</members>
+        <members>*</members>
         <name>EmailTemplate</name>
     </types>
     <types>
