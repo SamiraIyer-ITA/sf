@@ -5,10 +5,10 @@
 </apex:define>
 <apex:define name="page">
 <apex:outputPanel id="errors">
-	<apex:pagemessages />
+    <apex:pagemessages />
 <div class="progress" id="next" style="border-radius:0;margin-bottom:0; background-color: #fafafa;">
   <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%; font-size: 14px; padding-top: 5px;">
-	<span id='status'></span>% Complete 
+    <span id='status'></span>% Complete 
   </div>
 </div> 
 <script type="text/javascript" src="{!URLFor($Resource.phone_validation, 'phone_validation/prism.js')}"></script>
@@ -16,166 +16,168 @@
 <script type="text/javascript" src="{!URLFor($Resource.phone_validation, 'phone_validation/intlTelInput.js')}"></script>
 
 <script>
-			var status = {!progress};
-			$('.progress-bar').attr('aria-valuenow', status);
-			$('.progress-bar').css('width', status+'%');
-			$('#status').html((status));
-			if(status != 0)
-				$('#'+status).show();
+            var status = {!progress};
+            $('.progress-bar').attr('aria-valuenow', status);
+            $('.progress-bar').css('width', status+'%');
+            $('#status').html((status));
+            if(status != 0)
+                $('#'+status).show();
 </script>
 </apex:outputPanel>
 
 
 <div class="containerInternal enforceHeight" style="background:#fafafa;width:100%;">
-	<div class="container application" style="background:#fafafa;">
-	<c:communityCase />
-		<div class="row stepbox" >
+    <div class="container application" style="background:#fafafa;">
+    <c:communityCase />
+        <div class="row stepbox" >
 
-		<apex:form enctype="multipart/form-data" >
-		
-		<apex:outputPanel styleClass="ApplicationStep one" id="welcome">
-		<apex:outputPanel rendered="{!CurrentStep = 'welcome'}">
-			<p style="font-size:16px;line-height:1.5;color:#ff0000;">This application form has been optimized for Chrome, Edge, Firefox, and Safari.</p>
-			<br/>
-				<h1 class="steps">Getting Started</h1>
-			<hr/>
-			
-			<apex:outputpanel layout="block">
-				<apex:outputpanel styleClass="col-md-6 pad-left-zero">
-					<p><strong> OMB control number:</strong> &nbsp;  <span style="color:#2167a6;">0625-0276</span></p>
-				</apex:outputpanel>
-				<apex:outputpanel styleClass="col-md-6 pad-right-zero">
-					<p><strong> Expiration date:  </strong> &nbsp;  <span style="color:#2167a6;">05/31/2023</span></p>
-				</apex:outputpanel>
-				<p>Public reporting for this collection is estimated to be 40 minutes per response, including the time to review the instructions, complete, and submit the collection of information, but not including the time to review and implement the requirements of the program. Send comments regarding the burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to the Reports Clearance Officer, International Trade Administration, Department of Commerce, Room 4001, 14th and Constitution Avenue, N.W., Washington, D.C. 20230. Respondents should be aware that notwithstanding any other provision of law, no person shall be subject to any penalty for failing to comply with a collection of information if it does not display a currently valid OMB control number.</p>
-				<p>The OMB control number and expiration date cited above relate to the form itself rather than your organization's self-certification to the Privacy Shield Framework.</p>
-				<p ><strong>Self-certifying an Organization's Compliance with the EU–U.S. and/or the Swiss-U.S. Privacy Shield Framework(s).</strong></p>
-				<p>Please review the Privacy Shield Framework(s) and prepare the <a href="https://www.privacyshield.gov/article?id=How-to-Join-Privacy-Shield-part-1" target="_blank">required information</a> before completing this form.</p>
-				<apex:inputCheckbox value="{!mustCheckbeforeProceeding}"/> To proceed, please confirm, by checking this box, that you have reviewed the Privacy Shield Framework(s) and prepared the required information cited above.
-				<p>If you have any difficulty completing this form or have questions concerning the Privacy Shield self-certification process, please contact the Privacy Shield team at the International Trade Administration, U.S. Department of Commerce via the Privacy Shield website, whenever possible, by using the <a href="#" onclick="$('#caseModal').show();">Assistance</a> tool, or by phone at 202-482-1512. <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Due to the volume of phone calls received by the Privacy Shield Team, it is typically more expedient to communicate via this website (i.e., through the ASSISTANCE button on this page) than by phone.  "></i></p>
-				<p>Please indicate with which Privacy Shield Framework(s) your organization self-certifies its compliance:
-				 <apex:outputpanel styleClass="frameworks-list">   
-					<apex:selectCheckboxes value="{!selectedFrameworks}" layout="pageDirection" onchange="checkStartButton();">
-						<apex:selectOptions value="{!availableFrameworks}"/>
-					</apex:selectCheckboxes>  
-				 </apex:outputpanel>				  
-				</p>
-				<p>Additional information regarding the Privacy Shield Frameworks and cost structures is available here: <a href="https://www.privacyshield.gov/Program-Overview" title="Privacy Shield Program Overview">https://www.privacyshield.gov/Program-Overview</a> </p>
-				<br/>
-				<apex:actionFunction action="{!doNothing}" name="checkStartButton" reRender="startButton"/>
-				<apex:outputpanel id="startButton" styleClass="text-center">
-					
-					<!--start button if MCP External User profile is false--->
-					<apex:commandbutton rendered="{!$Profile.Name != 'MCP-External-User'}" disabled="{!selectedFrameworks.size == 0}" styleClass="btn btn-dark" value="Start" action="{!start}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, welcome, Step_1" />
+        <apex:form enctype="multipart/form-data" >
+        
+        <apex:outputPanel styleClass="ApplicationStep one" id="welcome">
+        <apex:outputPanel rendered="{!CurrentStep = 'welcome'}">
+            
+            <p style="font-size:16px;line-height:1.5;color:#ff0000;">This application form has been optimized for Chrome, Edge, Firefox, and Safari.</p>
+            <br/>
+                <h1 class="steps">Getting Started</h1>
+            <hr/>
+            
+            <apex:outputpanel layout="block">
+                <apex:outputpanel styleClass="col-md-6 pad-left-zero">
+                    <p><strong> OMB control number:</strong> &nbsp;  <span style="color:#2167a6;">0625-0276</span></p>
+                </apex:outputpanel>
+                <apex:outputpanel styleClass="col-md-6 pad-right-zero">
+                    <p><strong> Expiration date:  </strong> &nbsp;  <span style="color:#2167a6;">05/31/2023</span></p>
+                </apex:outputpanel>
+                <p>Public reporting for this collection is estimated to be 40 minutes per response, including the time to review the instructions, complete, and submit the collection of information, but not including the time to review and implement the requirements of the program. Send comments regarding the burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to the Reports Clearance Officer, International Trade Administration, Department of Commerce, Room 4001, 14th and Constitution Avenue, N.W., Washington, D.C. 20230. Respondents should be aware that notwithstanding any other provision of law, no person shall be subject to any penalty for failing to comply with a collection of information if it does not display a currently valid OMB control number.</p>
+                <p>The OMB control number and expiration date cited above relate to the form itself rather than your organization's self-certification to the Privacy Shield Framework.</p>
+                <p ><strong>Self-certifying an Organization's Compliance with the EU–U.S. and/or the Swiss-U.S. Privacy Shield Framework(s).</strong></p>
+                <p>Please review the Privacy Shield Framework(s) and prepare the <a href="https://www.privacyshield.gov/article?id=How-to-Join-Privacy-Shield-part-1" target="_blank">required information</a> before completing this form.</p>
+                <apex:inputCheckbox value="{!mustCheckbeforeProceeding}"/> To proceed, please confirm, by checking this box, that you have reviewed the Privacy Shield Framework(s) and prepared the required information cited above.
+                <p>If you have any difficulty completing this form or have questions concerning the Privacy Shield self-certification process, please contact the Privacy Shield team at the International Trade Administration, U.S. Department of Commerce via the Privacy Shield website, whenever possible, by using the <a href="#" onclick="$('#caseModal').show();">Assistance</a> tool, or by phone at 202-482-1512. <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Due to the volume of phone calls received by the Privacy Shield Team, it is typically more expedient to communicate via this website (i.e., through the ASSISTANCE button on this page) than by phone.  "></i></p>
+                <p>Please indicate with which Privacy Shield Framework(s) your organization self-certifies its compliance:
+                 <apex:outputpanel styleClass="frameworks-list">   
+                    <apex:selectCheckboxes value="{!selectedFrameworks}" layout="pageDirection" onchange="checkStartButton();">
+                        <apex:selectOptions value="{!availableFrameworks}"/>
+                    </apex:selectCheckboxes>  
+                 </apex:outputpanel>                  
+                </p>
+                <p>Additional information regarding the Privacy Shield Frameworks and cost structures is available here: <a href="https://www.privacyshield.gov/Program-Overview" title="Privacy Shield Program Overview">https://www.privacyshield.gov/Program-Overview</a> </p>
+                <br/>
+                <apex:actionFunction action="{!doNothing}" name="checkStartButton" reRender="startButton"/>
+                <apex:outputpanel id="startButton" styleClass="text-center">
+                    
+                    <!--start button if MCP External User profile is false--->
+                    <apex:commandbutton rendered="{!$Profile.Name != 'MCP-External-User'}" disabled="{!selectedFrameworks.size == 0}" styleClass="btn btn-dark" value="Start" action="{!start}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, welcome, Step_1" />
 
-  					<!--start button if MCP External User profile is true--->
-					<apex:commandbutton rendered="{!$Profile.Name == 'MCP-External-User'}" styleClass="btn btn-dark" value="Start" oncomplete="cp();"  />
+                    <!--start button if MCP External User profile is true--->
+                    <apex:commandbutton rendered="{!$Profile.Name == 'MCP-External-User'}" styleClass="btn btn-dark" value="Start" oncomplete="cp();"  />
 
-					<script>
+                    <script>
 function cp() {
     window.location = '/cp_transition';
 }
 </script>
 
-				</apex:outputpanel>
-			</apex:outputpanel>
-			</apex:outputPanel>
-		</apex:outputpanel>
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_1">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_1'}">
-				<h1 class="steps" >Organization Information</h1> <hr/>
-				<apex:outputPanel id="AccountInfo">
-				<div class="col-md-6 pad-left-zero" >
-					<label for="legalName">*Organization Legal Name</label><br />	
-					<apex:inputText styleClass="required_10" id="legalName" onchange="if (this.value) validate('10');" disabled="{!participation.assets__r.size != 0}" value="{!participation.Name}" alt="Legal Name of the Organization" title="Legal Name of the Organization" html-placeholder="Organization Legal Name" /><br />
-				</div>
-					<div class="col-md-6 pad-right-zero" >
-					<label for="displayName">Organization Display Name</label><br />	
-					<apex:inputText disabled="{!participation.assets__r.size != 0}" id="displayName" value="{!participation.Public_Display_Name__c}" alt="Public Display Name of the Organization" title="Public Display Name of the Organization" html-placeholder="Public Display Name" /><br />
-					</div>
-					
-					<label for="street">*Address</label><br />	
-					<apex:inputText styleClass="required_10" onchange="if (this.value) validate('10');" id="street" value="{!participation.Street__c}" html-placeholder="Street Address" /><br />
-				
-					
-					<div class="col-md-6 pad-left-zero" >
-					<label for="city">*City</label><br />	
-					<apex:inputfield styleClass="required_10" onchange="if (this.value) validate('10');" id="city" value="{!participation.City__c}"  /><br />
-					</div>
-					<div class="col-md-3 pad-both-zero">
-					<label for="state">*U.S. State or Territory</label><br />	
-					<apex:inputfield styleClass="required_10" onchange="if (this.value) validate('10');" value="{!participation.State__c}" html-placeholder="State"  /><br />
-					</div>
-					<div class="col-md-3 pad-right-zero">
-					<label for="postalCode">*Zip Code</label><br />	
-					<apex:inputfield styleClass="required_10 zip" onkeypress="onlyNumbers(event);" onchange="validate('10');" id="postalCode" value="{!participation.Postal_Code__c}" html-placeholder="Zip Code"  />
-					<br /><br /><br/>
-					</div>
-					<apex:commandLink rendered="{!door != 'edit'}" styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, welcome, Step_1">
-						<apex:param name="CurrentStep" value="welcome" />
-					</apex:commandLink>
-					
-					<apex:commandButton value="Next" onclick="if(!validate('10')){return false;}else{displayProcessing();}"  oncomplete="clearProcessing(); jump();" styleClass="ApplicationStepButton btn btn-dark pull-right" action="{!Step1}" reRender="errors, Step_1, Step_2" />
-				</apex:outputPanel>
-			</apex:outputPanel> 
-		</apex:outputPanel>
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_2">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_2'}">
-				<h1 class="steps">Contact Information</h1> <hr/>
-				<apex:outputpanel layout="block" id="contactOutsideWrapper">
-				<p style="font-size:13px;margin-bottom:10px;"> <b>Note:</b> You must include at least one Organization Contact, as well as one Organization Corporate Officer.</p>
-				<apex:commandButton action="{!createContact}" reRender="errors, contactOutsideWrapper, ContactEditOuterWrapper, contactLists" styleClass="btn btn-gray btn-sm pull-left" style="width:105px;height:35px;" value="New Contact" />
-					<br/>
-					
-  <!--start reusbale contact edit wrapper-->				
-					<apex:outputpanel layout="block" id="ContactEditOuterWrapper">
-					<apex:outputpanel layout="block" id="contactEditWrapper" rendered="{!or(isNewParticipation, and(contact != null, contact.id = null))}">
-						<apex:outputPanel id="contactEdit"> 
-							<apex:outputPanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">
-								<br /><label for="contactRole">*Select a New Contact Role</label><br />
-								<apex:SelectList value="{!contact.Role__c}" styleClass="required_20" onchange="if (this.value) validate('20');" size="1" id="contactRole">
-									<apex:selectOption itemValue="" itemLabel="-- Please Select One --" />
-									<apex:selectOption itemValue="Organization Corporate Officer" itemLabel="Organization Corporate Officer" />
-									<apex:selectOption itemValue="Organization Contact" itemLabel="Organization Contact" />
-								</apex:SelectList><br/>
-							</apex:outputPanel>
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
-								<label for="postalCode">*First Name</label><br /> 
-								<apex:inputtext value="{!contact.First_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="First Name" /><br />
-							</apex:outputpanel> 
-							<apex:outputPanel layout="block" styleClass="col-md-4 pad-both-zero">
-								<label for="postalCode">*Last Name</label><br /> 
-								<apex:inputtext value="{!contact.Last_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"   html-placeholder="Last Name" /><br />
-							</apex:outputPanel>
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
-								<label for="postalCode">*Title</label><br /> 
-								<apex:inputtext value="{!contact.Title__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="Title" /><br />
-							</apex:outputpanel>			  
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
-								<label for="postalCode">*Email</label><br />
-								<apex:inputtext value="{!contact.Email__c}" styleClass="required_20 email" onchange="validate('20');"  html-placeholder="Email" /><br />
-							</apex:outputpanel>  
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
-								<label for="postalCode">*Phone <span style="font-size:8.5px;">(select a country)</span></label><br />
-								<div id="result"> 
-									<apex:inputfield id="phone" onkeypress="/*onlyNumbers(event);*/" value="{!contact.Phone__c}" styleClass="required_20 phone" onchange="validate('20');"  /><br />
-									
-									<span  style="font-size:10px;" id="valid-msg" class="hide">✓ Valid</span>
-									<span style="font-size:10px;" id="error-msg" class="hide">Invalid number</span>
-								</div>
-							</apex:outputpanel>
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
-								<label for="postalCode">Fax</label><br />
-								<apex:inputtext value="{!contact.Fax__c}" html-placeholder="Fax" onchange="if(!validatePhone(this.value) && this.value != '' && this.value != null){$(this).addClass('has-error');}else{$(this).removeClass('has-error');}" /><br />
-							</apex:outputpanel>
-							<apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">		  
-								<label for="postalCode">Contact Office</label><br />
-								<apex:inputtext value="{!contact.Contact_Office__c}" html-placeholder="Contact Office" /><br />
-							</apex:outputpanel>
-							<apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero"> 
-								<apex:commandLink styleClass="btn btn-gray btn-sm pull-left" action="{!hideContactEdit}" rerender="ContactEditOuterWrapper" rendered="{!contacts.size > 0}">Cancel</apex:commandlink>		  
-								<apex:commandButton style="margin-left:5px;width:105px;height:35px;" styleClass="btn btn-gray btn-sm pull-left" value="Save" action="{!doNothing}" onclick="displayProcessing();"  oncomplete="if(validate('20')){saveContact();} clearProcessing();"  />
-							</apex:outputpanel>
+                </apex:outputpanel>
+            </apex:outputpanel>
+            </apex:outputPanel>
+        </apex:outputpanel>
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_1">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_1'}">
+                <h1 class="steps" >Organization Information</h1> <hr/>
+                <apex:outputPanel id="AccountInfo">
+                <apex:outputpanel layout="block" styleClass="col-md-6 pad-left-zero">
+    <label for="legalName">*Organization Legal Name</label><br />
+    <apex:inputText styleClass="required_10" id="legalName" onchange="if (this.value) validate('10');" disabled="{!participation.assets__r.size != 0}" value="{!participation.Name}" alt="Legal Name of the Organization" title="Legal Name of the Organization" html-placeholder="Organization Legal Name" /><br />
+</apex:outputpanel>
+<apex:outputpanel layout="block" styleClass="col-md-6 pad-right-zero">
+    <label for="displayName">Organization Display Name</label><br />
+    <apex:inputText disabled="{!participation.assets__r.size != 0}" id="displayName" value="{!participation.Public_Display_Name__c}" alt="Public Display Name of the Organization" title="Public Display Name of the Organization" html-placeholder="Public Display Name" /><br />
+</apex:outputpanel>
+
+<apex:outputPanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">
+<label for="street">*Address</label><br />
+<apex:inputText styleClass="required_10" onchange="if (this.value) validate('10');" id="street" value="{!participation.Street__c}" html-placeholder="Street Address" /><br />
+</apex:outputpanel>
+
+<apex:outputpanel layout="block" styleClass="col-md-6 pad-left-zero">
+    <label for="city">*City</label><br />
+    <apex:inputfield styleClass="required_10" onchange="if (this.value) validate('10');" id="city" value="{!participation.City__c}"  /><br />
+</apex:outputpanel>
+<apex:outputpanel layout="block" styleClass="col-md-3 pad-both-zero">
+    <label for="state">*U.S. State or Territory</label><br />
+    <apex:inputfield styleClass="required_10" onchange="if (this.value) validate('10');" value="{!participation.State__c}" html-placeholder="State"  /><br />
+</apex:outputpanel>
+<apex:outputpanel layout="block" styleClass="col-md-3 pad-right-zero">
+    <label for="postalCode">*Zip Code</label><br />
+    <apex:inputfield styleClass="required_10 zip" onkeypress="onlyNumbers(event);" onchange="validate('10');" id="postalCode" value="{!participation.Postal_Code__c}" html-placeholder="Zip Code"  />
+    <br /><br /><br/>
+</apex:outputpanel>
+                    <apex:commandLink rendered="{!door != 'edit'}" styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, welcome, Step_1">
+                        <apex:param name="CurrentStep" value="welcome" />
+                    </apex:commandLink>
+                    
+                    <apex:commandButton value="Next" onclick="if(!validate('10')){return false;}else{displayProcessing();}"  oncomplete="clearProcessing(); jump();" styleClass="ApplicationStepButton btn btn-dark pull-right" action="{!Step1}" reRender="errors, Step_1, Step_2" />
+                </apex:outputPanel>
+            </apex:outputPanel> 
+        </apex:outputPanel>
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_2">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_2'}">
+                <h1 class="steps">Contact Information</h1> <hr/>
+                <apex:outputpanel layout="block" id="contactOutsideWrapper">
+                <p style="font-size:13px;margin-bottom:10px;"> <b>Note:</b> You must include at least one Organization Contact, as well as one Organization Corporate Officer.</p>
+                <apex:commandButton action="{!createContact}" reRender="errors, contactOutsideWrapper, ContactEditOuterWrapper, contactLists" styleClass="btn btn-gray btn-sm pull-left" style="width:105px;height:35px;" value="New Contact" />
+                    <br/>
+                    
+  <!--start reusbale contact edit wrapper-->                
+                    <apex:outputpanel layout="block" id="ContactEditOuterWrapper">
+                    <apex:outputpanel layout="block" id="contactEditWrapper" rendered="{!or(isNewParticipation, and(contact != null, contact.id = null))}">
+                        <apex:outputPanel id="contactEdit"> 
+                            <apex:outputPanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">
+                                <br /><label for="contactRole">*Select a New Contact Role</label><br />
+                                <apex:SelectList value="{!contact.Role__c}" styleClass="required_20" onchange="if (this.value) validate('20');" size="1" id="contactRole">
+                                    <apex:selectOption itemValue="" itemLabel="-- Please Select One --" />
+                                    <apex:selectOption itemValue="Organization Corporate Officer" itemLabel="Organization Corporate Officer" />
+                                    <apex:selectOption itemValue="Organization Contact" itemLabel="Organization Contact" />
+                                </apex:SelectList><br/>
+                            </apex:outputPanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
+                                <label for="postalCode">*First Name</label><br /> 
+                                <apex:inputtext value="{!contact.First_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="First Name" /><br />
+                            </apex:outputpanel> 
+                            <apex:outputPanel layout="block" styleClass="col-md-4 pad-both-zero">
+                                <label for="postalCode">*Last Name</label><br /> 
+                                <apex:inputtext value="{!contact.Last_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"   html-placeholder="Last Name" /><br />
+                            </apex:outputPanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
+                                <label for="postalCode">*Title</label><br /> 
+                                <apex:inputtext value="{!contact.Title__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="Title" /><br />
+                            </apex:outputpanel>           
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
+                                <label for="postalCode">*Email</label><br />
+                                <apex:inputtext value="{!contact.Email__c}" styleClass="required_20 email" onchange="validate('20');"  html-placeholder="Email" /><br />
+                            </apex:outputpanel>  
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
+                                <label for="postalCode">*Phone <span style="font-size:8.5px;">(select a country)</span></label><br />
+                                <div id="result"> 
+                                    <apex:inputfield id="phone" onkeypress="/*onlyNumbers(event);*/" value="{!contact.Phone__c}" styleClass="required_20 phone" onchange="validate('20');"  /><br />
+                                    
+                                    <span  style="font-size:10px;" id="valid-msg" class="hide">✓ Valid</span>
+                                    <span style="font-size:10px;" id="error-msg" class="hide">Invalid number</span>
+                                </div>
+                            </apex:outputpanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
+                                <label for="postalCode">Fax</label><br />
+                                <apex:inputtext value="{!contact.Fax__c}" html-placeholder="Fax" onchange="if(!validatePhone(this.value) && this.value != '' && this.value != null){$(this).addClass('has-error');}else{$(this).removeClass('has-error');}" /><br />
+                            </apex:outputpanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">         
+                                <label for="postalCode">Contact Office</label><br />
+                                <apex:inputtext value="{!contact.Contact_Office__c}" html-placeholder="Contact Office" /><br />
+                            </apex:outputpanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero"> 
+                                <apex:commandLink styleClass="btn btn-gray btn-sm pull-left" action="{!hideContactEdit}" rerender="ContactEditOuterWrapper" rendered="{!contacts.size > 0}">Cancel</apex:commandlink>         
+                                <apex:commandButton style="margin-left:5px;width:105px;height:35px;" styleClass="btn btn-gray btn-sm pull-left" value="Save" action="{!doNothing}" onclick="displayProcessing();"  oncomplete="if(validate('20')){saveContact();} clearProcessing();"  />
+                            </apex:outputpanel>
 <script>
   var telInput = $(".phone");
   var errorMsg = $("#error-msg");
@@ -197,93 +199,93 @@ var reset = function() {
 telInput.blur(function() {
   reset();
   if ($.trim(telInput.val())) {
-	if (telInput.intlTelInput("isValidNumber")) {
-	  validMsg.removeClass("hide");
-	} else {
-	  telInput.addClass("error");
-	  errorMsg.removeClass("hide");
-	}
+    if (telInput.intlTelInput("isValidNumber")) {
+      validMsg.removeClass("hide");
+    } else {
+      telInput.addClass("error");
+      errorMsg.removeClass("hide");
+    }
   }
 });
 
 // on keyup / change flag: reset
 telInput.on("keyup change", reset);
 </script>
-						</apex:outputPanel>
-					 </apex:outputpanel>
-					</apex:outputpanel> 
- <!--end reusbale contact edit wrapper-->				   
-				</apex:outputpanel>
-				<apex:outputpanel layout="block" id="ContactInfo">
-					<apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">						 
-					</apex:outputpanel>
-					<apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">						
-						<br />
-						<apex:outputpanel id="contactLists">
-							<br />
-							<apex:outputPanel layout="block" styleClass="row" style="margin:0;padding:0;margin-bottom:40px;">
-								<apex:outputPanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">
-									<h4>Organization Contact</h4>
-									<p style="margin-bottom:0px;">Provide a contact office and individual within your organization for the handling of complaints, access requests, and any other issues concerning your organization's compliance with the Privacy Shield Framework.</p>
-								</apex:outputPanel>
+                        </apex:outputPanel>
+                     </apex:outputpanel>
+                    </apex:outputpanel> 
+ <!--end reusbale contact edit wrapper-->                  
+                </apex:outputpanel>
+                <apex:outputpanel layout="block" id="ContactInfo">
+                    <apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">                        
+                    </apex:outputpanel>
+                    <apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">                       
+                        <br />
+                        <apex:outputpanel id="contactLists">
+                            <br />
+                            <apex:outputPanel layout="block" styleClass="row" style="margin:0;padding:0;margin-bottom:40px;">
+                                <apex:outputPanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">
+                                    <h4>Organization Contact</h4>
+                                    <p style="margin-bottom:0px;">Provide a contact office and individual within your organization for the handling of complaints, access requests, and any other issues concerning your organization's compliance with the Privacy Shield Framework.</p>
+                                </apex:outputPanel>
 
-									<apex:repeat value="{!contacts}" var="c">
-										<apex:outputpanel rendered="{!c.Role__c = 'Organization Contact'}">
-											<apex:outputpanel layout="block" styleClass="contactWrapper col-md-11 col-xs-10">
-												<apex:commandLink action="{!getContactFromList}" reRender="contactLists, ContactEditOuterWrapper" >		   
-													<apex:param name="contactId" value="{!c.id}" />											  
-													<apex:param name="currentSection" assignTo="{!currentSection}" value="{!c.id}" />
-													<i class="fa fa-pencil-square-o" style="font-size:18px;" aria-hidden="true"></i>
-												</apex:commandLink>
-												<span style="font-size:18px;color:#3c4542;">{!c.First_Name__c} {!c.Last_Name__c}</span> &nbsp;&nbsp;<span style="font-size:12px;">{!c.Title__c}</span>
-												<apex:outputpanel rendered="{!currentSection = c.id}">
-												   
-												   <!-- Organization Contact Edit wrapper --> 
-													<apex:outputPanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">
-								<label for="contactRole">*Select a New Contact Role</label><br />
-								<apex:SelectList value="{!contact.Role__c}" styleClass="required_20" onchange="if (this.value) validate('20');" size="1" id="contactRole">
-									<apex:selectOption itemValue="" itemLabel="-- Please Select One --" />
-									<apex:selectOption itemValue="Organization Corporate Officer" itemLabel="Organization Corporate Officer"  />
-									<apex:selectOption itemValue="Organization Contact" itemLabel="Organization Contact" />
-								</apex:SelectList><br/>
-							</apex:outputPanel>
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
-								<label for="postalCode">*First Name</label><br /> 
-								<apex:inputtext value="{!contact.First_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="First Name" /><br />
-							</apex:outputpanel> 
-							<apex:outputPanel layout="block" styleClass="col-md-4 pad-both-zero">
-								<label for="postalCode">*Last Name</label><br /> 
-								<apex:inputtext value="{!contact.Last_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"   html-placeholder="Last Name" /><br />
-							</apex:outputPanel>
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
-								<label for="postalCode">*Title</label><br /> 
-								<apex:inputtext value="{!contact.Title__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="Title" /><br />
-							</apex:outputpanel>			  
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
-								<label for="postalCode">*Email</label><br />
-								<apex:inputtext value="{!contact.Email__c}" styleClass="required_20 email" onchange="validate('20');"  html-placeholder="Email" /><br />
-							</apex:outputpanel>  
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
-								<label for="postalCode">*Phone <span style="font-size:8.5px;">(select a country)</span></label><br />
-								<div id="result"> 
-									<apex:inputfield id="phone" onkeypress="/*onlyNumbers(event);*/" value="{!contact.Phone__c}" styleClass="required_20 phone" onchange="validate('20');"  /><br />
-									
-									<span  style="font-size:10px;" id="valid-msg" class="hide">✓ Valid</span>
-									<span style="font-size:10px;" id="error-msg" class="hide">Invalid number</span>
-								</div>
-							</apex:outputpanel>
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
-								<label for="postalCode">Fax</label><br />
-								<apex:inputtext value="{!contact.Fax__c}" html-placeholder="Fax" onchange="if(!validatePhone(this.value) && this.value != '' && this.value != null){$(this).addClass('has-error');}else{$(this).removeClass('has-error');}" /><br />
-							</apex:outputpanel>
-							<apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">		  
-								<label for="postalCode">Contact Office</label><br />
-								<apex:inputtext value="{!contact.Contact_Office__c}" html-placeholder="Contact Office" /><br />
-							</apex:outputpanel>
-							<apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero"> 
-								<apex:commandLink styleClass="btn btn-gray btn-sm pull-left" action="{!hideContactEdit}" rerender="contactLists" rendered="{!contacts.size > 0}">Cancel</apex:commandlink>		  
-								<apex:commandButton style="margin-left:5px;width:105px;height:35px;" styleClass="btn btn-gray btn-sm pull-left" value="Save" action="{!doNothing}" onclick="displayProcessing();"  oncomplete="if(validate('20')){saveContact();} else{ console.log('problem with save!') }; clearProcessing();" />
-							</apex:outputpanel>
+                                    <apex:repeat value="{!contacts}" var="c">
+                                        <apex:outputpanel rendered="{!c.Role__c = 'Organization Contact'}">
+                                            <apex:outputpanel layout="block" styleClass="contactWrapper col-md-11 col-xs-10">
+                                                <apex:commandLink action="{!getContactFromList}" reRender="contactLists, ContactEditOuterWrapper" >        
+                                                    <apex:param name="contactId" value="{!c.id}" />                                           
+                                                    <apex:param name="currentSection" assignTo="{!currentSection}" value="{!c.id}" />
+                                                    <i class="fa fa-pencil-square-o" style="font-size:18px;" aria-hidden="true"></i>
+                                                </apex:commandLink>
+                                                <span style="font-size:18px;color:#3c4542;">{!c.First_Name__c} {!c.Last_Name__c}</span> &nbsp;&nbsp;<span style="font-size:12px;">{!c.Title__c}</span>
+                                                <apex:outputpanel rendered="{!currentSection = c.id}">
+                                                   
+                                                   <!-- Organization Contact Edit wrapper --> 
+                                                    <apex:outputPanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">
+                                <label for="contactRole">*Select a New Contact Role</label><br />
+                                <apex:SelectList value="{!contact.Role__c}" styleClass="required_20" onchange="if (this.value) validate('20');" size="1" id="contactRole">
+                                    <apex:selectOption itemValue="" itemLabel="-- Please Select One --" />
+                                    <apex:selectOption itemValue="Organization Corporate Officer" itemLabel="Organization Corporate Officer"  />
+                                    <apex:selectOption itemValue="Organization Contact" itemLabel="Organization Contact" />
+                                </apex:SelectList><br/>
+                            </apex:outputPanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
+                                <label for="postalCode">*First Name</label><br /> 
+                                <apex:inputtext value="{!contact.First_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="First Name" /><br />
+                            </apex:outputpanel> 
+                            <apex:outputPanel layout="block" styleClass="col-md-4 pad-both-zero">
+                                <label for="postalCode">*Last Name</label><br /> 
+                                <apex:inputtext value="{!contact.Last_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"   html-placeholder="Last Name" /><br />
+                            </apex:outputPanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
+                                <label for="postalCode">*Title</label><br /> 
+                                <apex:inputtext value="{!contact.Title__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="Title" /><br />
+                            </apex:outputpanel>           
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
+                                <label for="postalCode">*Email</label><br />
+                                <apex:inputtext value="{!contact.Email__c}" styleClass="required_20 email" onchange="validate('20');"  html-placeholder="Email" /><br />
+                            </apex:outputpanel>  
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
+                                <label for="postalCode">*Phone <span style="font-size:8.5px;">(select a country)</span></label><br />
+                                <div id="result"> 
+                                    <apex:inputfield id="phone" onkeypress="/*onlyNumbers(event);*/" value="{!contact.Phone__c}" styleClass="required_20 phone" onchange="validate('20');"  /><br />
+                                    
+                                    <span  style="font-size:10px;" id="valid-msg" class="hide">✓ Valid</span>
+                                    <span style="font-size:10px;" id="error-msg" class="hide">Invalid number</span>
+                                </div>
+                            </apex:outputpanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
+                                <label for="postalCode">Fax</label><br />
+                                <apex:inputtext value="{!contact.Fax__c}" html-placeholder="Fax" onchange="if(!validatePhone(this.value) && this.value != '' && this.value != null){$(this).addClass('has-error');}else{$(this).removeClass('has-error');}" /><br />
+                            </apex:outputpanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">         
+                                <label for="postalCode">Contact Office</label><br />
+                                <apex:inputtext value="{!contact.Contact_Office__c}" html-placeholder="Contact Office" /><br />
+                            </apex:outputpanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero"> 
+                                <apex:commandLink styleClass="btn btn-gray btn-sm pull-left" action="{!hideContactEdit}" rerender="contactLists" rendered="{!contacts.size > 0}">Cancel</apex:commandlink>        
+                                <apex:commandButton style="margin-left:5px;width:105px;height:35px;" styleClass="btn btn-gray btn-sm pull-left" value="Save" action="{!doNothing}" onclick="displayProcessing();"  oncomplete="if(validate('20')){saveContact();} else{ console.log('problem with save!') }; clearProcessing();" />
+                            </apex:outputpanel>
 <script>
   var telInput = $(".phone");
   var errorMsg = $("#error-msg");
@@ -305,93 +307,93 @@ var reset = function() {
 telInput.blur(function() {
   reset();
   if ($.trim(telInput.val())) {
-	if (telInput.intlTelInput("isValidNumber")) {
-	  validMsg.removeClass("hide");
-	} else {
-	  telInput.addClass("error");
-	  errorMsg.removeClass("hide");
-	}
+    if (telInput.intlTelInput("isValidNumber")) {
+      validMsg.removeClass("hide");
+    } else {
+      telInput.addClass("error");
+      errorMsg.removeClass("hide");
+    }
   }
 });
 
 // on keyup / change flag: reset
 telInput.on("keyup change", reset);
 </script>
-												</apex:outputpanel>
-											</apex:outputpanel>	
-											<apex:outputpanel styleClass="col-md-1 col-xs-2">
-												<apex:commandLink action="{!deleteContact}" rerender="contactLists, contactButtons">
-													<apex:param name="contactId" value="{!c.id}" />
-													<br />
-													<span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
-												</apex:commandlink> 
-											</apex:outputpanel>										   
-										</apex:outputpanel>
-									</apex:repeat>
-							</apex:outputPanel>
-							
-							<apex:outputPanel layout="block" styleClass="row" style="margin:0;padding:0;margin-bottom:40px;">
-								<apex:outputPanel styleCLass="col-md-12 pad-left-zero pad-right-zero">
-									<h4>Organization Corporate Officer</h4>
-									<p style="margin-bottom:0px;">Provide a contact office and individual within your organization for the handling of complaints, access requests, and any other issues concerning your organization's compliance with the Privacy Shield Framework.</p>
-								</apex:outputPanel>
-									<apex:repeat value="{!contacts}" var="c">
-										<apex:outputpanel rendered="{!c.Role__c = 'Organization Corporate Officer'}">
-											<apex:outputpanel layout="block" styleClass="contactWrapper col-md-11 col-xs-10">
-												<apex:commandLink action="{!getContactFromList}" reRender="contactLists, ContactEditOuterWrapper" >
-														<apex:param name="contactId" value="{!c.id}" />										 
-													<apex:param name="currentSection" assignTo="{!currentSection}" value="{!c.id}" />
-														<i class="fa fa-pencil-square-o" style="font-size:18px;" aria-hidden="true"></i>
-													</apex:commandLink>
-													<span style="font-size:18px;color:#3c4542;">{!c.First_Name__c} {!c.Last_Name__c}</span> &nbsp;&nbsp;<span style="font-size:12px;">{!c.Title__c}</span>
-												<apex:outputpanel rendered="{!currentSection = c.id}">
-												
-								<!-- Organization Corporate Officer Edit wrapper -->
-								<apex:outputPanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">
-								<label for="contactRole">*Select a New Contact Role</label><br />
-								<apex:SelectList value="{!contact.Role__c}" styleClass="required_20" onchange="if (this.value) validate('20');" size="1" id="contactRole">
-									<apex:selectOption itemValue="" itemLabel="-- Please Select One --" />
-									<apex:selectOption itemValue="Organization Corporate Officer" itemLabel="Organization Corporate Officer" />
-									<apex:selectOption itemValue="Organization Contact" itemLabel="Organization Contact" />
-								</apex:SelectList><br/>
-							</apex:outputPanel>
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
-								<label for="postalCode">*First Name</label><br /> 
-								<apex:inputtext value="{!contact.First_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="First Name" /><br />
-							</apex:outputpanel> 
-							<apex:outputPanel layout="block" styleClass="col-md-4 pad-both-zero">
-								<label for="postalCode">*Last Name</label><br /> 
-								<apex:inputtext value="{!contact.Last_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"   html-placeholder="Last Name" /><br />
-							</apex:outputPanel>
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
-								<label for="postalCode">*Title</label><br /> 
-								<apex:inputtext value="{!contact.Title__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="Title" /><br />
-							</apex:outputpanel>			  
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
-								<label for="postalCode">*Email</label><br />
-								<apex:inputtext value="{!contact.Email__c}" styleClass="required_20 email" onchange="validate('20');"  html-placeholder="Email" /><br />
-							</apex:outputpanel>  
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
-								<label for="postalCode">*Phone <span style="font-size:8.5px;">(select a country)</span></label><br />
-								<div id="result"> 
-									<apex:inputfield id="phone" onkeypress="/*onlyNumbers(event);*/" value="{!contact.Phone__c}" styleClass="required_20 phone" onchange="validate('20');"  /><br />
-									
-									<span  style="font-size:10px;" id="valid-msg" class="hide">✓ Valid</span>
-									<span style="font-size:10px;" id="error-msg" class="hide">Invalid number</span>
-								</div>
-							</apex:outputpanel>
-							<apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
-								<label for="postalCode">Fax</label><br />
-								<apex:inputtext value="{!contact.Fax__c}" html-placeholder="Fax" onchange="if(!validatePhone(this.value) && this.value != '' && this.value != null){$(this).addClass('has-error');}else{$(this).removeClass('has-error');}" /><br />
-							</apex:outputpanel>
-							<apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">		  
-								<label for="postalCode">Contact Office</label><br />
-								<apex:inputtext value="{!contact.Contact_Office__c}" html-placeholder="Contact Office" /><br />
-							</apex:outputpanel>
-							<apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero"> 
-								<apex:commandLink styleClass="btn btn-gray btn-sm pull-left" action="{!hideContactEdit}" rerender="contactLists" rendered="{!contacts.size > 0}">Cancel</apex:commandlink>													
-								<apex:commandButton style="margin-left:5px;width:105px;height:35px;" styleClass="btn btn-gray btn-sm pull-left" value="Save" action="{!doNothing}" onclick="displayProcessing();" oncomplete="if(validate('20')){saveContact();} else{ console.log('problem with save!') }; clearProcessing();" />
-							</apex:outputpanel>
+                                                </apex:outputpanel>
+                                            </apex:outputpanel> 
+                                            <apex:outputpanel styleClass="col-md-1 col-xs-2">
+                                                <apex:commandLink action="{!deleteContact}" rerender="contactLists, contactButtons">
+                                                    <apex:param name="contactId" value="{!c.id}" />
+                                                    <br />
+                                                    <span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
+                                                </apex:commandlink> 
+                                            </apex:outputpanel>                                        
+                                        </apex:outputpanel>
+                                    </apex:repeat>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel layout="block" styleClass="row" style="margin:0;padding:0;margin-bottom:40px;">
+                                <apex:outputPanel styleCLass="col-md-12 pad-left-zero pad-right-zero">
+                                    <h4>Organization Corporate Officer</h4>
+                                    <p style="margin-bottom:0px;">Provide a contact office and individual within your organization for the handling of complaints, access requests, and any other issues concerning your organization's compliance with the Privacy Shield Framework.</p>
+                                </apex:outputPanel>
+                                    <apex:repeat value="{!contacts}" var="c">
+                                        <apex:outputpanel rendered="{!c.Role__c = 'Organization Corporate Officer'}">
+                                            <apex:outputpanel layout="block" styleClass="contactWrapper col-md-11 col-xs-10">
+                                                <apex:commandLink action="{!getContactFromList}" reRender="contactLists, ContactEditOuterWrapper" >
+                                                        <apex:param name="contactId" value="{!c.id}" />                                      
+                                                    <apex:param name="currentSection" assignTo="{!currentSection}" value="{!c.id}" />
+                                                        <i class="fa fa-pencil-square-o" style="font-size:18px;" aria-hidden="true"></i>
+                                                    </apex:commandLink>
+                                                    <span style="font-size:18px;color:#3c4542;">{!c.First_Name__c} {!c.Last_Name__c}</span> &nbsp;&nbsp;<span style="font-size:12px;">{!c.Title__c}</span>
+                                                <apex:outputpanel rendered="{!currentSection = c.id}">
+                                                
+                                <!-- Organization Corporate Officer Edit wrapper -->
+                                <apex:outputPanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">
+                                <label for="contactRole">*Select a New Contact Role</label><br />
+                                <apex:SelectList value="{!contact.Role__c}" styleClass="required_20" onchange="if (this.value) validate('20');" size="1" id="contactRole">
+                                    <apex:selectOption itemValue="" itemLabel="-- Please Select One --" />
+                                    <apex:selectOption itemValue="Organization Corporate Officer" itemLabel="Organization Corporate Officer" />
+                                    <apex:selectOption itemValue="Organization Contact" itemLabel="Organization Contact" />
+                                </apex:SelectList><br/>
+                            </apex:outputPanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
+                                <label for="postalCode">*First Name</label><br /> 
+                                <apex:inputtext value="{!contact.First_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="First Name" /><br />
+                            </apex:outputpanel> 
+                            <apex:outputPanel layout="block" styleClass="col-md-4 pad-both-zero">
+                                <label for="postalCode">*Last Name</label><br /> 
+                                <apex:inputtext value="{!contact.Last_Name__c}" styleClass="required_20" onchange="if (this.value) validate('20');"   html-placeholder="Last Name" /><br />
+                            </apex:outputPanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
+                                <label for="postalCode">*Title</label><br /> 
+                                <apex:inputtext value="{!contact.Title__c}" styleClass="required_20" onchange="if (this.value) validate('20');"  html-placeholder="Title" /><br />
+                            </apex:outputpanel>           
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
+                                <label for="postalCode">*Email</label><br />
+                                <apex:inputtext value="{!contact.Email__c}" styleClass="required_20 email" onchange="validate('20');"  html-placeholder="Email" /><br />
+                            </apex:outputpanel>  
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
+                                <label for="postalCode">*Phone <span style="font-size:8.5px;">(select a country)</span></label><br />
+                                <div id="result"> 
+                                    <apex:inputfield id="phone" onkeypress="/*onlyNumbers(event);*/" value="{!contact.Phone__c}" styleClass="required_20 phone" onchange="validate('20');"  /><br />
+                                    
+                                    <span  style="font-size:10px;" id="valid-msg" class="hide">✓ Valid</span>
+                                    <span style="font-size:10px;" id="error-msg" class="hide">Invalid number</span>
+                                </div>
+                            </apex:outputpanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
+                                <label for="postalCode">Fax</label><br />
+                                <apex:inputtext value="{!contact.Fax__c}" html-placeholder="Fax" onchange="if(!validatePhone(this.value) && this.value != '' && this.value != null){$(this).addClass('has-error');}else{$(this).removeClass('has-error');}" /><br />
+                            </apex:outputpanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero">         
+                                <label for="postalCode">Contact Office</label><br />
+                                <apex:inputtext value="{!contact.Contact_Office__c}" html-placeholder="Contact Office" /><br />
+                            </apex:outputpanel>
+                            <apex:outputpanel layout="block" styleClass="col-md-12 pad-left-zero pad-right-zero"> 
+                                <apex:commandLink styleClass="btn btn-gray btn-sm pull-left" action="{!hideContactEdit}" rerender="contactLists" rendered="{!contacts.size > 0}">Cancel</apex:commandlink>                                                  
+                                <apex:commandButton style="margin-left:5px;width:105px;height:35px;" styleClass="btn btn-gray btn-sm pull-left" value="Save" action="{!doNothing}" onclick="displayProcessing();" oncomplete="if(validate('20')){saveContact();} else{ console.log('problem with save!') }; clearProcessing();" />
+                            </apex:outputpanel>
 <script>
   var telInput = $(".phone");
   var errorMsg = $("#error-msg");
@@ -413,452 +415,452 @@ var reset = function() {
 telInput.blur(function() {
   reset();
   if ($.trim(telInput.val())) {
-	if (telInput.intlTelInput("isValidNumber")) {
-	  validMsg.removeClass("hide");
-	} else {
-	  telInput.addClass("error");
-	  errorMsg.removeClass("hide");
-	}
+    if (telInput.intlTelInput("isValidNumber")) {
+      validMsg.removeClass("hide");
+    } else {
+      telInput.addClass("error");
+      errorMsg.removeClass("hide");
+    }
   }
 });
 
 // on keyup / change flag: reset
 telInput.on("keyup change", reset);
-</script>													
-												</apex:outputpanel>
-											</apex:outputpanel>	
-											<apex:outputpanel styleClass="col-md-1 col-xs-2">
-												<apex:commandLink action="{!deleteContact}" rerender="contactLists, contactButtons">
-													<apex:param name="contactId" value="{!c.id}" />
-													<br />
-													<span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
-												</apex:commandlink> 
-											</apex:outputpanel>										   
-										</apex:outputpanel>
-									</apex:repeat>
-							</apex:outputPanel>
-						</apex:outputpanel>
-					</apex:outputpanel>
-				</apex:outputpanel>
-				<apex:outputpanel id="contactButtons">
-				<br/><br/>
-					<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" style="margin-top:25px;" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_1, Step_2">
-						<apex:param name="CurrentStep" value="Step_1" />
-					</apex:commandLink>
-					<apex:commandButton styleClass="ApplicationStepButton btn pull-right {!if(!hasContacts, 'btn-gray', 'btn-dark')}" style="margin-top:25px;" value="Next" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();"  disabled="{!!hasContacts}" reRender="errors, Step_2, Step_3">
-						<apex:param name="CurrentStep" value="Step_3" />
-					</apex:commandButton>
-				</apex:outputpanel>
-			</apex:outputPanel>
-		</apex:outputPanel>
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_3">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_3'}">
-				<h1 class="steps">Organization Characteristics</h1> <hr/>
-				<apex:outputpanel layout="block">
-					<p style="margin-bottom:5px;"><strong>Indicate your organization's <u>annual revenue</u>.</strong></p>
-					<p style="margin-bottom:10px;font-size: 13px;"><b>Note:</b> This information will be used to determine the fee your organization must pay to self-certify to the Privacy Shield Framework and will not be publicly disclosed on the Privacy Shield website.</p>
-					<label for="Sales">*Annual Revenue</label><br />
-					<apex:inputField styleClass="required_30" onchange="if(this.value){validate('30'); save(); }else{validate('30'); save();}" value="{!participation.Level_of_Sales__c}" />
-				</apex:outputpanel>
-				<hr/>
-				<apex:outputpanel layout="block">
-					<p style="margin-bottom:5px;"><strong>Although your organization is not required to do so for purposes of its self-certification, please indicate the <u>number of employees</u> in your organization.</strong></p>
-					<p style="margin-bottom:10px;font-size: 13px;"><b>Note:</b> This information will not be publicly disclosed on the Privacy Shield website.</p>
-					<label for="Employees">Number of Employees</label><br />
-					<apex:inputField value="{!participation.Number_of_Employees__c}" onchange="save();" />
-				</apex:outputpanel>
-				<hr /> 
-				<apex:outputPanel id="IndustryInfo">
-					<p style="margin-bottom:5px;"><strong>Although your organization is not required to do so for purposes of its self-certification, please select the <u>industry sector(s)</u> applicable to your organization.</strong> </p>
-					<p style="margin-bottom:10px;font-size: 13px;"><b>Note:</b> Please add the industry sector(s) applicable to your organization. This is for information only.</p>
-					<apex:outputpanel layout="block" id="IndustryRecordWrapper">
-						<apex:commandbutton styleClass="btn btn-gray btn-sm pull-left" style="width:105px;height:35px;" action="{!ShowIndustryEdit}" value="New Industry" rerender="IndustryOuterWrapper" />
-						<br /><br />
-						<apex:outputpanel layout="block" id="IndustryOuterWrapper">
-							<apex:outputpanel layout="block" id="IndustryWrapper">
-								<apex:outputPanel id="industryRecord" rendered="{!showEditIndustry}">
-									<br/>
-									<apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
-										<label for="industry">*Industry</label>
-										<apex:inputField id="industry" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry.Industry__c}" />
-									</apex:outputpanel>
-									<apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
-										<label for="sector">*Sector</label>
-										<apex:inputField id="sector" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry.Sector__c}" />
-									</apex:outputpanel>
-									<apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
-										<label for="subsector">Sub-Sector</label>
-										<apex:inputField id="subsector" value="{!industry.Sub_Sector__c}" />
-									</apex:outputpanel>
-									<br/><br/><br/><br/>
-									<apex:commandLink styleClass="btn btn-gray btn-sm" action="{!HideIndustryEdit}" reRender="IndustryOuterWrapper" value="Cancel" />
-									<apex:commandLink style="margin-left:5px;width:105px;height:35px;" rerender="none" styleClass="btn btn-gray btn-sm" action="{!saveIndustry}" onclick="displayProcessing();"  oncomplete="clearProcessing();" reRender="errors, IndustryOuterWrapper, industriesList">Save</apex:commandLink>
-								</apex:outputPanel>							
-							</apex:outputpanel>
-						</apex:outputpanel>
-						<apex:outputpanel id="industriesList" >
-							<apex:repeat value="{!industries}" var="ind">
-								<apex:outputpanel layout="block" styleClass="contactWrapper col-md-11 col-xs-10">
-									<apex:commandLink action="{!selectIndustry}" reRender="IndustryOuterWrapper">
-										<apex:param name="industryId" value="{!ind.id}" />
-										<i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size:18px;"></i>
-										<span style="font-size:18px;color:#3c4542;">{!ind.Industry__c} {!if(!isBlank(ind.sector__c), '-', '')} {!ind.Sector__c} {!if(!isBlank(ind.sub_sector__c), '-', '')} {!ind.Sub_Sector__c}</span>	
-									</apex:commandLink>
-								</apex:outputpanel>
-								<apex:outputpanel layout="block" styleClass="col-md-1 col-xs-2">
-									<apex:commandlink action="{!deleteIndustry}" rerender="industriesList">
-									<apex:param name="entityId" value="{!ind.id}"/>
-									<br/>
-									<span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
-									</apex:commandlink>
-								</apex:outputpanel>
-								</apex:repeat>
-						</apex:outputpanel>						   
-					</apex:outputpanel>
-				</apex:outputPanel>
-				<br /><br /><br />
-				<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" style="margin-top:75px;" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_2, Step_3">
-					<apex:param name="CurrentStep" value="Step_2" />
-				</apex:commandLink>
-				<apex:outputpanel id="Step3Next">
-					<apex:commandButton disabled="{!isBlank(participation.Level_of_Sales__c)}" styleClass="ApplicationStepButton btn pull-right {!if(isBlank(participation.Level_of_Sales__c), 'btn-gray', 'btn-dark ')}" style="margin-top:75px;" value="Next" action="{!back}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, Step_3, Step_4">
-						<apex:param name="CurrentStep" value="Step_4" />
-					</apex:commandButton>
-				</apex:outputpanel>
-			</apex:outputPanel>
-		</apex:outputPanel>
+</script>                                                   
+                                                </apex:outputpanel>
+                                            </apex:outputpanel> 
+                                            <apex:outputpanel styleClass="col-md-1 col-xs-2">
+                                                <apex:commandLink action="{!deleteContact}" rerender="contactLists, contactButtons">
+                                                    <apex:param name="contactId" value="{!c.id}" />
+                                                    <br />
+                                                    <span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
+                                                </apex:commandlink> 
+                                            </apex:outputpanel>                                        
+                                        </apex:outputpanel>
+                                    </apex:repeat>
+                            </apex:outputPanel>
+                        </apex:outputpanel>
+                    </apex:outputpanel>
+                </apex:outputpanel>
+                <apex:outputpanel id="contactButtons">
+                <br/><br/>
+                    <apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" style="margin-top:25px;" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_1, Step_2">
+                        <apex:param name="CurrentStep" value="Step_1" />
+                    </apex:commandLink>
+                    <apex:commandButton styleClass="ApplicationStepButton btn pull-right {!if(!hasContacts, 'btn-gray', 'btn-dark')}" style="margin-top:25px;" value="Next" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();"  disabled="{!!hasContacts}" reRender="errors, Step_2, Step_3">
+                        <apex:param name="CurrentStep" value="Step_3" />
+                    </apex:commandButton>
+                </apex:outputpanel>
+            </apex:outputPanel>
+        </apex:outputPanel>
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_3">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_3'}">
+                <h1 class="steps">Organization Characteristics</h1> <hr/>
+                <apex:outputpanel layout="block">
+                    <p style="margin-bottom:5px;"><strong>Indicate your organization's <u>annual revenue</u>.</strong></p>
+                    <p style="margin-bottom:10px;font-size: 13px;"><b>Note:</b> This information will be used to determine the fee your organization must pay to self-certify to the Privacy Shield Framework and will not be publicly disclosed on the Privacy Shield website.</p>
+                    <label for="Sales">*Annual Revenue</label><br />
+                    <apex:inputField styleClass="required_30" onchange="if(this.value){validate('30'); save(); }else{validate('30'); save();}" value="{!participation.Level_of_Sales__c}" />
+                </apex:outputpanel>
+                <hr/>
+                <apex:outputpanel layout="block">
+                    <p style="margin-bottom:5px;"><strong>Although your organization is not required to do so for purposes of its self-certification, please indicate the <u>number of employees</u> in your organization.</strong></p>
+                    <p style="margin-bottom:10px;font-size: 13px;"><b>Note:</b> This information will not be publicly disclosed on the Privacy Shield website.</p>
+                    <label for="Employees">Number of Employees</label><br />
+                    <apex:inputField value="{!participation.Number_of_Employees__c}" onchange="save();" />
+                </apex:outputpanel>
+                <hr /> 
+                <apex:outputPanel id="IndustryInfo">
+                    <p style="margin-bottom:5px;"><strong>Although your organization is not required to do so for purposes of its self-certification, please select the <u>industry sector(s)</u> applicable to your organization.</strong> </p>
+                    <p style="margin-bottom:10px;font-size: 13px;"><b>Note:</b> Please add the industry sector(s) applicable to your organization. This is for information only.</p>
+                    <apex:outputpanel layout="block" id="IndustryRecordWrapper">
+                        <apex:commandbutton styleClass="btn btn-gray btn-sm pull-left" style="width:105px;height:35px;" action="{!ShowIndustryEdit}" value="New Industry" rerender="IndustryOuterWrapper" />
+                        <br /><br />
+                        <apex:outputpanel layout="block" id="IndustryOuterWrapper">
+                            <apex:outputpanel layout="block" id="IndustryWrapper">
+                                <apex:outputPanel id="industryRecord" rendered="{!showEditIndustry}">
+                                    <br/>
+                                    <apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
+                                        <label for="industry">*Industry</label>
+                                        <apex:inputField id="industry" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry.Industry__c}" />
+                                    </apex:outputpanel>
+                                    <apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
+                                        <label for="sector">*Sector</label>
+                                        <apex:inputField id="sector" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry.Sector__c}" />
+                                    </apex:outputpanel>
+                                    <apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
+                                        <label for="subsector">Sub-Sector</label>
+                                        <apex:inputField id="subsector" value="{!industry.Sub_Sector__c}" />
+                                    </apex:outputpanel>
+                                    <br/><br/><br/><br/>
+                                    <apex:commandLink styleClass="btn btn-gray btn-sm" action="{!HideIndustryEdit}" reRender="IndustryOuterWrapper" value="Cancel" />
+                                    <apex:commandLink style="margin-left:5px;width:105px;height:35px;" rerender="none" styleClass="btn btn-gray btn-sm" action="{!saveIndustry}" onclick="displayProcessing();"  oncomplete="clearProcessing();" reRender="errors, IndustryOuterWrapper, industriesList">Save</apex:commandLink>
+                                </apex:outputPanel>                         
+                            </apex:outputpanel>
+                        </apex:outputpanel>
+                        <apex:outputpanel id="industriesList" >
+                            <apex:repeat value="{!industries}" var="ind">
+                                <apex:outputpanel layout="block" styleClass="contactWrapper col-md-11 col-xs-10">
+                                    <apex:commandLink action="{!selectIndustry}" reRender="IndustryOuterWrapper">
+                                        <apex:param name="industryId" value="{!ind.id}" />
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size:18px;"></i>
+                                        <span style="font-size:18px;color:#3c4542;">{!ind.Industry__c} {!if(!isBlank(ind.sector__c), '-', '')} {!ind.Sector__c} {!if(!isBlank(ind.sub_sector__c), '-', '')} {!ind.Sub_Sector__c}</span> 
+                                    </apex:commandLink>
+                                </apex:outputpanel>
+                                <apex:outputpanel layout="block" styleClass="col-md-1 col-xs-2">
+                                    <apex:commandlink action="{!deleteIndustry}" rerender="industriesList">
+                                    <apex:param name="entityId" value="{!ind.id}"/>
+                                    <br/>
+                                    <span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
+                                    </apex:commandlink>
+                                </apex:outputpanel>
+                                </apex:repeat>
+                        </apex:outputpanel>                        
+                    </apex:outputpanel>
+                </apex:outputPanel>
+                <br /><br /><br />
+                <apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" style="margin-top:75px;" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_2, Step_3">
+                    <apex:param name="CurrentStep" value="Step_2" />
+                </apex:commandLink>
+                <apex:outputpanel id="Step3Next">
+                    <apex:commandButton disabled="{!isBlank(participation.Level_of_Sales__c)}" styleClass="ApplicationStepButton btn pull-right {!if(isBlank(participation.Level_of_Sales__c), 'btn-gray', 'btn-dark ')}" style="margin-top:75px;" value="Next" action="{!back}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, Step_3, Step_4">
+                        <apex:param name="CurrentStep" value="Step_4" />
+                    </apex:commandButton>
+                </apex:outputpanel>
+            </apex:outputPanel>
+        </apex:outputPanel>
 
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_4">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_4'}">
-				<h1 class="steps" >Other Covered Entities</h1> <hr/>
-				<p style="margin-bottom:5px;"><strong>List all U.S. entities or subsidiaries of your organization that are also adhering to the Privacy Shield Principles and are covered under your organization's self-certification. </strong></p>
-				<p style="font-size:13px;margin-bottom;"><b>Note:</b> The references to an organization in this form, as well as in the Privacy Shield Principles, include all covered entities and subsidiaries listed herein. </p>	
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_4">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_4'}">
+                <h1 class="steps" >Other Covered Entities</h1> <hr/>
+                <p style="margin-bottom:5px;"><strong>List all U.S. entities or subsidiaries of your organization that are also adhering to the Privacy Shield Principles and are covered under your organization's self-certification. </strong></p>
+                <p style="font-size:13px;margin-bottom;"><b>Note:</b> The references to an organization in this form, as well as in the Privacy Shield Principles, include all covered entities and subsidiaries listed herein. </p>    
 
-				<apex:outputPanel id="coveredEntities">
-				<apex:commandlink styleClass="btn btn-gray btn-sm" action="{!addEntity}" value="New Covered Entity" rerender="newEntityWrapper" /><br/>
-				<apex:outputpanel layout="block" id="newEntityWrapper">
-					<apex:outputpanel id="NewEntity" rendered="{!showEditEntity}">
-						<apex:inputField value="{!entity.name}" style="margin-top: 15px;" />
-						<apex:commandlink action="{!cancelEntity}" styleClass="btn btn-gray btn-sm" value="Cancel" rerender="newEntityWrapper" />
-						<apex:commandlink action="{!saveEntity}" rerender="coveredEntities"><button type="button" class="btn btn-gray btn-sm" style="margin-left:5px;">Add</button></apex:commandlink>
-					</apex:outputpanel>
-				</apex:outputpanel>  <br/>
-				
-				<apex:repeat value="{!entities}" var="ent">
-					<p><apex:commandlink action="{!deleteEntity}" rerender="coveredEntities">
-					<apex:param name="entityId" value="{!ent.id}"/>
-					<span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8;"></i></span>&nbsp;
-					</apex:commandlink>{!ent.name}</p>
-				</apex:repeat> 
-				</apex:outputPanel><br/><br/>
-				
-				<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_3, Step_4">
-					<apex:param name="CurrentStep" value="Step_3" />
-				</apex:commandLink>
-				<apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!back}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, Step_4, Step_5, Step_7">
-					<apex:param name="CurrentStep" value="{!if(door = 'edit', 'Step_7', 'Step_5')}" />
-				</apex:commandLink>
-			</apex:outputPanel>
-		</apex:outputPanel>
+                <apex:outputPanel id="coveredEntities">
+                <apex:commandlink styleClass="btn btn-gray btn-sm" action="{!addEntity}" value="New Covered Entity" rerender="newEntityWrapper" /><br/>
+                <apex:outputpanel layout="block" id="newEntityWrapper">
+                    <apex:outputpanel id="NewEntity" rendered="{!showEditEntity}">
+                        <apex:inputField value="{!entity.name}" style="margin-top: 15px;" />
+                        <apex:commandlink action="{!cancelEntity}" styleClass="btn btn-gray btn-sm" value="Cancel" rerender="newEntityWrapper" />
+                        <apex:commandlink action="{!saveEntity}" rerender="coveredEntities"><button type="button" class="btn btn-gray btn-sm" style="margin-left:5px;">Add</button></apex:commandlink>
+                    </apex:outputpanel>
+                </apex:outputpanel>  <br/>
+                
+                <apex:repeat value="{!entities}" var="ent">
+                    <p><apex:commandlink action="{!deleteEntity}" rerender="coveredEntities">
+                    <apex:param name="entityId" value="{!ent.id}"/>
+                    <span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8;"></i></span>&nbsp;
+                    </apex:commandlink>{!ent.name}</p>
+                </apex:repeat> 
+                </apex:outputPanel><br/><br/>
+                
+                <apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_3, Step_4">
+                    <apex:param name="CurrentStep" value="Step_3" />
+                </apex:commandLink>
+                <apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!back}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, Step_4, Step_5, Step_7">
+                    <apex:param name="CurrentStep" value="{!if(door = 'edit', 'Step_7', 'Step_5')}" />
+                </apex:commandLink>
+            </apex:outputPanel>
+        </apex:outputPanel>
 
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_5">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_5'}">
-				<h1 class="steps" >Covered Data and Dispute Resolution</h1> <hr/>
-				<h2 style="color:#606060;" class="text-center">{!if(contains(currentitem.product2.name, 'EU'), 'EU-U.S. Privacy Shield Framework', 'Swiss-U.S. Privacy Shield Framework')}</h2>
-				<strong style="margin-bottom:5px;">What types of <span title="The term personal data refers to data about an identified or identifiable individual that are within the scope of the Privacy Shield Framework." style="color:#0000FF">personal data</span> do your Organization's Privacy Shield commitments cover under the   {!if(contains(currentitem.product2.name, 'EU'), 'EU-U.S. Privacy Shield', 'Swiss-U.S. Framework')}?</strong>
-				<br/><br/>
-				<h4>Personal Data</h4>
-				<p style="font-size:13px;margin-bottom:10px;"><b>Note:</b> For purposes of this form the term human resources data (human resources sometimes being abbreviated in this form and on the Privacy Shield website as HR) refers to personal data about employees, past or present, collected in the context of the employment relationship. Examples of other types of personal data that could be covered include the following: customer or client non-HR data, as well as visitor data, and clinical trial data.</p>
-				<apex:outputpanel id="NonHR5">
-				<apex:outputpanel layout="block">
-					<apex:inputCheckbox value="{!currentItem.Non_HR_Data__c}" styleClass="nonHRData" onchange="UpdateOrderItem();"/> Personal data other than human resources data
-				</apex:outputpanel>
-				<apex:outputpanel rendered="{!currentItem.Non_HR_Data__c}">
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_5">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_5'}">
+                <h1 class="steps" >Covered Data and Dispute Resolution</h1> <hr/>
+                <h2 style="color:#606060;" class="text-center">{!if(contains(currentitem.product2.name, 'EU'), 'EU-U.S. Privacy Shield Framework', 'Swiss-U.S. Privacy Shield Framework')}</h2>
+                <strong style="margin-bottom:5px;">What types of <span title="The term personal data refers to data about an identified or identifiable individual that are within the scope of the Privacy Shield Framework." style="color:#0000FF">personal data</span> do your Organization's Privacy Shield commitments cover under the   {!if(contains(currentitem.product2.name, 'EU'), 'EU-U.S. Privacy Shield', 'Swiss-U.S. Framework')}?</strong>
+                <br/><br/>
+                <h4>Personal Data</h4>
+                <p style="font-size:13px;margin-bottom:10px;"><b>Note:</b> For purposes of this form the term human resources data (human resources sometimes being abbreviated in this form and on the Privacy Shield website as HR) refers to personal data about employees, past or present, collected in the context of the employment relationship. Examples of other types of personal data that could be covered include the following: customer or client non-HR data, as well as visitor data, and clinical trial data.</p>
+                <apex:outputpanel id="NonHR5">
+                <apex:outputpanel layout="block">
+                    <apex:inputCheckbox value="{!currentItem.Non_HR_Data__c}" styleClass="nonHRData" onchange="UpdateOrderItem();"/> Personal data other than human resources data
+                </apex:outputpanel>
+                <apex:outputpanel rendered="{!currentItem.Non_HR_Data__c}">
 
-				<p style="font-size:13px;margin-bottom:10px;"><b>Note regarding the independent recourse mechanism available to investigate unresolved complaints:</b>  {!if(contains(currentitem.product2.name, 'EU'), 'If your organization wishes its Privacy Shield commitments to cover personal data other than human resources data, on an annual basis you must designate a private sector developed independent recourse mechanism or you may choose to cooperate with the EU Data Protection Authorities (DPA) and have a DPA panel serve as your independent recourse mechanism. Your annual selection will apply to all information received by your organization under the Privacy Shield other than human resources data.', 'If your organization wishes its Privacy Shield commitments to cover personal data other than human resources data, on an annual basis you must designate a private sector developed independent recourse mechanism or you may choose to cooperate with the Swiss Federal Data Protection and Information Commissioner for such data transferred from Switzerland. Your annual selection will apply to all information received by your organization under the Privacy Shield other than human resources data.')}</p>
-				<apex:outputpanel id="NewDRPWrapper">
-					<apex:outputpanel layout="block" rendered="{!newDRP}" styleClass="row contactWrapper">
-								<label for="Employees">*Recourse Mechanism's Name</label><br />
-								<apex:inputField styleClass="required_55" onchange="if (this.value) validate('55');" value="{!DRP.name}" html-placeholder="Recourse Mechanism&rsquo;s Name" /><br />
-						<label for="Employees">*Recourse Mechanism's Website</label><br />
-							<apex:inputField styleClass="required_55" onchange="if (this.value) validate('55');" value="{!drp.Website__c}" html-placeholder="Recourse Mechanism&rsquo;s Website"/>
-				
-						<apex:commandButton action="{!CancelDRP}" styleClass="pull-left btn btn-gray btn-sm" style="width:105px;height:35px;" value="Cancel" rerender="NewDRPWrapper" />
-						<apex:commandButton action="{!saveDRP}" styleClass="pull-left btn btn-gray btn-sm" style="margin-left:5px;width:105px;height:35px;" value="Save" onclick="displayProcessing();"  oncomplete="clearProcessing();" rerender="NewDRPWrapper, Step5RecourseMechanisms" />	  
-					</apex:outputpanel>
-				</apex:outputpanel>				
-				<strong>Designate a Recourse Mechanism</strong>
-				<apex:outputpanel layout="block" styleClass="row pad-zero">
-					<apex:outputpanel layout="block" styleClass="col-md-6">
-						<h5>Recourse Mechanisms</h5>
-						<apex:repeat value="{!available_drps}" var="d">
-							<li><apex:commandLink action="{!useSelectedDRP}" reRender="errors, Step5RecourseMechanisms">
-								<apex:param name="selectedDRP" value="{!d.id}" />
-								<apex:param name="selectedDRPName" value="{!d.name}" />
-								{!d.name}
-							</apex:commandLink></li>
-						</apex:repeat>			   
-						<apex:commandLink action="{!CreateDRP}" styleClass="btn btn-gray btn-sm" rerender="NewDRPWrapper" value="NEW RECOURSE MECHANISM" />
-					</apex:outputpanel>
-					<apex:outputpanel layout="block" styleClass="col-md-6" id="Step5RecourseMechanisms">
-						<h5>Selected Mechanisms ({!ResolutionProviders.size})</h5>
-						<apex:repeat value="{!ResolutionProviders}" var="provider">
-							<p>
-								<apex:commandlink action="{!deleteDRP}" rerender="Step5RecourseMechanisms">
-								<apex:param name="entityId" value="{!provider.id}"/>
-								<span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
-								</apex:commandlink> {!provider.name}
-							</p>
-						</apex:repeat>
-					</apex:outputpanel>
-				</apex:outputpanel>
-				</apex:outputpanel>
-				</apex:outputpanel>
-				<br/>
-			   <h4>Human Resources Data</h4>
-				<apex:outputpanel id="HR5">
-				<apex:outputpanel layout="block">
-					<apex:inputCheckbox value="{!currentItem.HR_Data__c}" styleClass="HRData" onchange="UpdateOrderItem();"/> <strong>Human resources data</strong>
-				</apex:outputpanel>
-				<apex:outputpanel rendered="{!currentItem.HR_Data__c}">
-					<apex:outputpanel id="confirmHRWrapper5">
-						<apex:outputpanel layout="block" rendered="{!currentItem.HR_Data__c}" style="border-top: solid 1px #eee;padding-top:20px;">
-							<p style="font-size:13px;margin-bottom:10px;"><b>Note regarding the independent recourse mechanism available to investigate unresolved complaints:</b> If your organization wishes its Privacy Shield commitments to cover  human resources data transferred from {!if(contains(currentitem.product2.name, 'EU'), 'the EU', 'Switzerland')} for use in the context of the employment relationship, you must declare your organization's commitment to cooperate with {!if(contains(currentitem.product2.name, 'EU'), 'the EU', 'Swiss')} authority or authorities concerned in conformity with the Supplemental Principles on Human Resources Data and the Role of the Data Protection Authorities and that you will comply with the advice given by such authorities.</p>
-							<p>
-								<apex:inputCheckbox styleClass="HRCompliance" onchange="UpdateOrderItem();" value="{!currentItem.Confirm_HR_Compliance__c}"/>* My organization receives or processes human resources data from {!if(contains(currentitem.product2.name, 'EU'), 'the EU', 'Switzerland')} for use in the context of the employment relationship under the Privacy Shield and agrees to cooperate with the {!if(contains(currentitem.product2.name, 'EU'), 'EU data protection authorities', 'Swiss Federal Data Protection and Information Commissioner')} and comply with the advice given by such authorities with respect to this data.
-							</p>
-						</apex:outputpanel>
-					</apex:outputpanel>
-				</apex:outputpanel>   
-				</apex:outputpanel>
-				<apex:outputPanel layout="block" styleClass="row pad-zero">  
-				<br />
-				<hr />		  
-				<p>Briefly describe the purposes for which your organization <span title="The term processing refers to any operation or set of operations, which is performed upon personal data, whether or not by automated means, such as collection, recording, organization, storage, adaptation, and erasure or destruction." style="color:#0000FF">processes</span> personal data in reliance on the Privacy Shield, including the types of personal data processed by your organization (e.g., organization, customer, client, visitor, and clinical trial data) and, if applicable, the type of third parties to which it discloses such personal information. </p>
-				<label>*Purpose of Collecting Data</label><br />
-				<apex:inputfield style="width:100%;height: 100px;padding:12px 15px; border-radius:5px;" styleClass="required_50" value="{!participation.Purpose__c}" onkeyup="calculateRemaining($(this).val(), 4000, 'PurposeCharacters');" onchange="if (this.value) validate('50');" />
-				<small><span style="color: #999; font-style: italic;" class="initiallyHidden"><span id="PurposeCharacters">4000</span> Characters Remaining</span></small>
-				<br/><br/><br/>
-				</apex:outputpanel>
-				<apex:commandLink rendered="{!door != 'addition'}" styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_4, Step_5">
-					<apex:param name="CurrentStep" value="Step_4" />
-				</apex:commandLink>
-				<apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!step5}" reRender="errors, Step_5, Step_5A, Step_6" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();validate('50');" />
-			</apex:outputPanel>
-		</apex:outputPanel>
+                <p style="font-size:13px;margin-bottom:10px;"><b>Note regarding the independent recourse mechanism available to investigate unresolved complaints:</b>  {!if(contains(currentitem.product2.name, 'EU'), 'If your organization wishes its Privacy Shield commitments to cover personal data other than human resources data, on an annual basis you must designate a private sector developed independent recourse mechanism or you may choose to cooperate with the EU Data Protection Authorities (DPA) and have a DPA panel serve as your independent recourse mechanism. Your annual selection will apply to all information received by your organization under the Privacy Shield other than human resources data.', 'If your organization wishes its Privacy Shield commitments to cover personal data other than human resources data, on an annual basis you must designate a private sector developed independent recourse mechanism or you may choose to cooperate with the Swiss Federal Data Protection and Information Commissioner for such data transferred from Switzerland. Your annual selection will apply to all information received by your organization under the Privacy Shield other than human resources data.')}</p>
+                <apex:outputpanel id="NewDRPWrapper">
+                    <apex:outputpanel layout="block" rendered="{!newDRP}" styleClass="row contactWrapper">
+                                <label for="Employees">*Recourse Mechanism's Name</label><br />
+                                <apex:inputField styleClass="required_55" onchange="if (this.value) validate('55');" value="{!DRP.name}" html-placeholder="Recourse Mechanism&rsquo;s Name" /><br />
+                        <label for="Employees">*Recourse Mechanism's Website</label><br />
+                            <apex:inputField styleClass="required_55" onchange="if (this.value) validate('55');" value="{!drp.Website__c}" html-placeholder="Recourse Mechanism&rsquo;s Website"/>
+                
+                        <apex:commandButton action="{!CancelDRP}" styleClass="pull-left btn btn-gray btn-sm" style="width:105px;height:35px;" value="Cancel" rerender="NewDRPWrapper" />
+                        <apex:commandButton action="{!saveDRP}" styleClass="pull-left btn btn-gray btn-sm" style="margin-left:5px;width:105px;height:35px;" value="Save" onclick="displayProcessing();"  oncomplete="clearProcessing();" rerender="NewDRPWrapper, Step5RecourseMechanisms" />     
+                    </apex:outputpanel>
+                </apex:outputpanel>             
+                <strong>Designate a Recourse Mechanism</strong>
+                <apex:outputpanel layout="block" styleClass="row pad-zero">
+                    <apex:outputpanel layout="block" styleClass="col-md-6">
+                        <h5>Recourse Mechanisms</h5>
+                        <apex:repeat value="{!available_drps}" var="d">
+                            <li><apex:commandLink action="{!useSelectedDRP}" reRender="errors, Step5RecourseMechanisms">
+                                <apex:param name="selectedDRP" value="{!d.id}" />
+                                <apex:param name="selectedDRPName" value="{!d.name}" />
+                                {!d.name}
+                            </apex:commandLink></li>
+                        </apex:repeat>             
+                        <apex:commandLink action="{!CreateDRP}" styleClass="btn btn-gray btn-sm" rerender="NewDRPWrapper" value="NEW RECOURSE MECHANISM" />
+                    </apex:outputpanel>
+                    <apex:outputpanel layout="block" styleClass="col-md-6" id="Step5RecourseMechanisms">
+                        <h5>Selected Mechanisms ({!ResolutionProviders.size})</h5>
+                        <apex:repeat value="{!ResolutionProviders}" var="provider">
+                            <p>
+                                <apex:commandlink action="{!deleteDRP}" rerender="Step5RecourseMechanisms">
+                                <apex:param name="entityId" value="{!provider.id}"/>
+                                <span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
+                                </apex:commandlink> {!provider.name}
+                            </p>
+                        </apex:repeat>
+                    </apex:outputpanel>
+                </apex:outputpanel>
+                </apex:outputpanel>
+                </apex:outputpanel>
+                <br/>
+               <h4>Human Resources Data</h4>
+                <apex:outputpanel id="HR5">
+                <apex:outputpanel layout="block">
+                    <apex:inputCheckbox value="{!currentItem.HR_Data__c}" styleClass="HRData" onchange="UpdateOrderItem();"/> <strong>Human resources data</strong>
+                </apex:outputpanel>
+                <apex:outputpanel rendered="{!currentItem.HR_Data__c}">
+                    <apex:outputpanel id="confirmHRWrapper5">
+                        <apex:outputpanel layout="block" rendered="{!currentItem.HR_Data__c}" style="border-top: solid 1px #eee;padding-top:20px;">
+                            <p style="font-size:13px;margin-bottom:10px;"><b>Note regarding the independent recourse mechanism available to investigate unresolved complaints:</b> If your organization wishes its Privacy Shield commitments to cover  human resources data transferred from {!if(contains(currentitem.product2.name, 'EU'), 'the EU', 'Switzerland')} for use in the context of the employment relationship, you must declare your organization's commitment to cooperate with {!if(contains(currentitem.product2.name, 'EU'), 'the EU', 'Swiss')} authority or authorities concerned in conformity with the Supplemental Principles on Human Resources Data and the Role of the Data Protection Authorities and that you will comply with the advice given by such authorities.</p>
+                            <p>
+                                <apex:inputCheckbox styleClass="HRCompliance" onchange="UpdateOrderItem();" value="{!currentItem.Confirm_HR_Compliance__c}"/>* My organization receives or processes human resources data from {!if(contains(currentitem.product2.name, 'EU'), 'the EU', 'Switzerland')} for use in the context of the employment relationship under the Privacy Shield and agrees to cooperate with the {!if(contains(currentitem.product2.name, 'EU'), 'EU data protection authorities', 'Swiss Federal Data Protection and Information Commissioner')} and comply with the advice given by such authorities with respect to this data.
+                            </p>
+                        </apex:outputpanel>
+                    </apex:outputpanel>
+                </apex:outputpanel>   
+                </apex:outputpanel>
+                <apex:outputPanel layout="block" styleClass="row pad-zero">  
+                <br />
+                <hr />        
+                <p>Briefly describe the purposes for which your organization <span title="The term processing refers to any operation or set of operations, which is performed upon personal data, whether or not by automated means, such as collection, recording, organization, storage, adaptation, and erasure or destruction." style="color:#0000FF">processes</span> personal data in reliance on the Privacy Shield, including the types of personal data processed by your organization (e.g., organization, customer, client, visitor, and clinical trial data) and, if applicable, the type of third parties to which it discloses such personal information. </p>
+                <label>*Purpose of Collecting Data</label><br />
+                <apex:inputfield style="width:100%;height: 100px;padding:12px 15px; border-radius:5px;" styleClass="required_50" value="{!participation.Purpose__c}" onkeyup="calculateRemaining($(this).val(), 4000, 'PurposeCharacters');" onchange="if (this.value) validate('50');" />
+                <small><span style="color: #999; font-style: italic;" class="initiallyHidden"><span id="PurposeCharacters">4000</span> Characters Remaining</span></small>
+                <br/><br/><br/>
+                </apex:outputpanel>
+                <apex:commandLink rendered="{!door != 'addition'}" styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_4, Step_5">
+                    <apex:param name="CurrentStep" value="Step_4" />
+                </apex:commandLink>
+                <apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!step5}" reRender="errors, Step_5, Step_5A, Step_6" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();validate('50');" />
+            </apex:outputPanel>
+        </apex:outputPanel>
 
 
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_5A">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_5A'}">
-				<h1 class="steps" >Covered Data and Dispute Resolution</h1> <hr/>
-				<h2 style="color:#606060;" class="text-center">Swiss-U.S. Privacy Shield Framework</h2>
-				<strong style="margin-bottom:5px;">What types of <span title="The term personal data refers to data about an identified or identifiable individual that are within the scope of the Privacy Shield Framework." style="color:#0000FF">personal data</span> do your Organizations Privacy Shield commitments cover under the Swiss-U.S. Framework?</strong>
-				<br/><br/>
-				<h4>Personal Data</h4>
-				<p style="font-size:13px;margin-bottom:10px;"><b>Note:</b> For purposes of this form the term human resources data (human resources sometimes being abbreviated in this form and on the Privacy Shield website as HR) refers to personal data about employees, past or present, collected in the context of the employment relationship. Examples of other types of personal data that could be covered include the following: customer or client non-HR data, as well as visitor data, and clinical trial data.</p>
-				<apex:outputpanel id="NonHR5A">
-				<apex:outputpanel layout="block">
-					<apex:inputCheckbox value="{!currentItem.Non_HR_Data__c}" styleClass="nonHRData" onchange="UpdateOrderItem();"/> <strong>Personal data other than human resources data</strong>
-				</apex:outputpanel>
-				<apex:outputpanel rendered="{!currentItem.Non_HR_Data__c}">
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_5A">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_5A'}">
+                <h1 class="steps" >Covered Data and Dispute Resolution</h1> <hr/>
+                <h2 style="color:#606060;" class="text-center">Swiss-U.S. Privacy Shield Framework</h2>
+                <strong style="margin-bottom:5px;">What types of <span title="The term personal data refers to data about an identified or identifiable individual that are within the scope of the Privacy Shield Framework." style="color:#0000FF">personal data</span> do your Organizations Privacy Shield commitments cover under the Swiss-U.S. Framework?</strong>
+                <br/><br/>
+                <h4>Personal Data</h4>
+                <p style="font-size:13px;margin-bottom:10px;"><b>Note:</b> For purposes of this form the term human resources data (human resources sometimes being abbreviated in this form and on the Privacy Shield website as HR) refers to personal data about employees, past or present, collected in the context of the employment relationship. Examples of other types of personal data that could be covered include the following: customer or client non-HR data, as well as visitor data, and clinical trial data.</p>
+                <apex:outputpanel id="NonHR5A">
+                <apex:outputpanel layout="block">
+                    <apex:inputCheckbox value="{!currentItem.Non_HR_Data__c}" styleClass="nonHRData" onchange="UpdateOrderItem();"/> <strong>Personal data other than human resources data</strong>
+                </apex:outputpanel>
+                <apex:outputpanel rendered="{!currentItem.Non_HR_Data__c}">
 
-				<p style="font-size:13px;margin-bottom:10px;">Note regarding the independent recourse mechanism available to investigate unresolved complaints:  If your organization wishes its Privacy Shield commitments to cover personal data other than human resources data, on an annual basis you must designate a private sector developed independent recourse mechanism or you may choose to cooperate with the Swiss Federal Data Protection and Information Commissioner for such data transferred from Switzerland. Your annual selection will apply to all information received by your organization under the Privacy Shield other than human resources data.</p>
-				<apex:outputpanel id="NewDRPWrapperA">
-					<apex:outputpanel layout="block" rendered="{!newDRP}" styleClass="row contactWrapper">
-								<label for="Employees">*Recourse Mechanism's Name</label><br />
-								<apex:inputField styleClass="required_55" onchange="if (this.value) validate('55');" value="{!DRP.name}" html-placeholder="Recourse Mechanism&rsquo;s Name" /><br />
-						<label for="Employees">*Recourse Mechanism's Website</label><br />
-							<apex:inputField styleClass="required_55" onchange="if (this.value) validate('55');" value="{!drp.Website__c}" html-placeholder="Recourse Mechanism&rsquo;s Website"/>
-				
-						<apex:commandButton action="{!CancelDRP}" styleClass="pull-left btn btn-gray btn-sm" style="width:105px;height:35px;" value="Cancel" rerender="NewDRPWrapperA" />
-						<apex:commandButton action="{!saveDRP}" styleClass="pull-left btn btn-gray btn-sm" style="margin-left:5px;width:105px;height:35px;" value="Save" onclick="displayProcessing();"  oncomplete="clearProcessing();" rerender="NewDRPWrapperA, Step5ARecourseMechanisms" />	  
-					</apex:outputpanel>
-				</apex:outputpanel> 
-				<br/>			   
-				<strong>Designate a Recourse Mechanism</strong>
-				<apex:outputpanel layout="block" styleClass="row pad-zero">
-					<apex:outputpanel layout="block" styleClass="col-md-6">
-						<h5>Recourse Mechanisms</h5>
-						<apex:repeat value="{!available_drps}" var="d">
-							<li><apex:commandLink action="{!useSelectedDRP}" reRender="errors, Step5ARecourseMechanisms">
-								<apex:param name="selectedDRP" value="{!d.id}" />
-								<apex:param name="selectedDRPName" value="{!d.name}" />
-								{!d.name}
-							</apex:commandLink></li>
-						</apex:repeat>			   
-						<apex:commandLink action="{!CreateDRP}" styleClass="btn btn-gray btn-sm" rerender="NewDRPWrapperA" value="NEW RECOURSE MECHANISM" />
-					</apex:outputpanel>
-					<apex:outputpanel layout="block" styleClass="col-md-6" id="Step5ARecourseMechanisms">
-						<h5>Selected Mechanisms ({!ResolutionProviders.size})</h5>
-						<apex:repeat value="{!ResolutionProviders}" var="provider">
-							<p>
-								<apex:commandlink action="{!deleteDRP}" rerender="Step5ARecourseMechanisms">
-								<apex:param name="entityId" value="{!provider.id}"/>
-								<span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
-								</apex:commandlink> {!provider.name}
-							</p>
-						</apex:repeat>
-					</apex:outputpanel>
-				</apex:outputpanel>
-				</apex:outputpanel>
-				</apex:outputpanel>
-				<br/>
-			   <h4>Human Resources Data</h4>
-				<apex:outputpanel id="HR5A">
-				<apex:outputpanel layout="block">
-					<apex:inputCheckbox value="{!currentItem.HR_Data__c}" styleClass="HRData" onchange="UpdateOrderItem();"/> <strong>Human resources data</strong>
-				</apex:outputpanel>
-				<apex:outputpanel rendered="{!currentItem.HR_Data__c}">
-					<apex:outputpanel id="confirmHRWrapper5A">
-						<apex:outputpanel layout="block" rendered="{!currentItem.HR_Data__c}" style="border-top: solid 1px #eee;padding-top:20px;">
-							<p style="font-size:13px;margin-bottom:10px;"><b>Note regarding the independent recourse mechanism available to investigate unresolved complaints:</b> If your organization wishes its Privacy Shield commitments to cover  human resources data transferred from Switzerland for use in the context of the employment relationship, you must declare your organization's commitment to cooperate with the Swiss authority or authorities concerned in conformity with the Supplemental Principles on Human Resources Data and the Role of the Data Protection Authorities and that you will comply with the advice given by such authorities.</p>
-							<p>
-								<apex:inputCheckbox styleClass="HRCompliance" onchange="UpdateOrderItem();" value="{!currentItem.Confirm_HR_Compliance__c}"/>* My organization receives or processes human resources data from Switzerland for use in the context of the employment relationship under the Privacy Shield and agrees to cooperate with the Swiss Federal Data Protection and Information Commissioner and comply with the advice given by such authorities with respect to this data.
-							</p>
-						</apex:outputpanel>
-					</apex:outputpanel>
-				</apex:outputpanel>   
-				</apex:outputpanel>
-				<br/><br/>
-				<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_5, Step_5A">
-					<apex:param name="CurrentStep" value="Step_5" />
-				</apex:commandLink>
-				<apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!step5}" reRender="errors, Step_5, Step_5A, Step_6" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();validate('50');" />
-			</apex:outputPanel>
-		</apex:outputPanel>
+                <p style="font-size:13px;margin-bottom:10px;">Note regarding the independent recourse mechanism available to investigate unresolved complaints:  If your organization wishes its Privacy Shield commitments to cover personal data other than human resources data, on an annual basis you must designate a private sector developed independent recourse mechanism or you may choose to cooperate with the Swiss Federal Data Protection and Information Commissioner for such data transferred from Switzerland. Your annual selection will apply to all information received by your organization under the Privacy Shield other than human resources data.</p>
+                <apex:outputpanel id="NewDRPWrapperA">
+                    <apex:outputpanel layout="block" rendered="{!newDRP}" styleClass="row contactWrapper">
+                                <label for="Employees">*Recourse Mechanism's Name</label><br />
+                                <apex:inputField styleClass="required_55" onchange="if (this.value) validate('55');" value="{!DRP.name}" html-placeholder="Recourse Mechanism&rsquo;s Name" /><br />
+                        <label for="Employees">*Recourse Mechanism's Website</label><br />
+                            <apex:inputField styleClass="required_55" onchange="if (this.value) validate('55');" value="{!drp.Website__c}" html-placeholder="Recourse Mechanism&rsquo;s Website"/>
+                
+                        <apex:commandButton action="{!CancelDRP}" styleClass="pull-left btn btn-gray btn-sm" style="width:105px;height:35px;" value="Cancel" rerender="NewDRPWrapperA" />
+                        <apex:commandButton action="{!saveDRP}" styleClass="pull-left btn btn-gray btn-sm" style="margin-left:5px;width:105px;height:35px;" value="Save" onclick="displayProcessing();"  oncomplete="clearProcessing();" rerender="NewDRPWrapperA, Step5ARecourseMechanisms" />   
+                    </apex:outputpanel>
+                </apex:outputpanel> 
+                <br/>              
+                <strong>Designate a Recourse Mechanism</strong>
+                <apex:outputpanel layout="block" styleClass="row pad-zero">
+                    <apex:outputpanel layout="block" styleClass="col-md-6">
+                        <h5>Recourse Mechanisms</h5>
+                        <apex:repeat value="{!available_drps}" var="d">
+                            <li><apex:commandLink action="{!useSelectedDRP}" reRender="errors, Step5ARecourseMechanisms">
+                                <apex:param name="selectedDRP" value="{!d.id}" />
+                                <apex:param name="selectedDRPName" value="{!d.name}" />
+                                {!d.name}
+                            </apex:commandLink></li>
+                        </apex:repeat>             
+                        <apex:commandLink action="{!CreateDRP}" styleClass="btn btn-gray btn-sm" rerender="NewDRPWrapperA" value="NEW RECOURSE MECHANISM" />
+                    </apex:outputpanel>
+                    <apex:outputpanel layout="block" styleClass="col-md-6" id="Step5ARecourseMechanisms">
+                        <h5>Selected Mechanisms ({!ResolutionProviders.size})</h5>
+                        <apex:repeat value="{!ResolutionProviders}" var="provider">
+                            <p>
+                                <apex:commandlink action="{!deleteDRP}" rerender="Step5ARecourseMechanisms">
+                                <apex:param name="entityId" value="{!provider.id}"/>
+                                <span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
+                                </apex:commandlink> {!provider.name}
+                            </p>
+                        </apex:repeat>
+                    </apex:outputpanel>
+                </apex:outputpanel>
+                </apex:outputpanel>
+                </apex:outputpanel>
+                <br/>
+               <h4>Human Resources Data</h4>
+                <apex:outputpanel id="HR5A">
+                <apex:outputpanel layout="block">
+                    <apex:inputCheckbox value="{!currentItem.HR_Data__c}" styleClass="HRData" onchange="UpdateOrderItem();"/> <strong>Human resources data</strong>
+                </apex:outputpanel>
+                <apex:outputpanel rendered="{!currentItem.HR_Data__c}">
+                    <apex:outputpanel id="confirmHRWrapper5A">
+                        <apex:outputpanel layout="block" rendered="{!currentItem.HR_Data__c}" style="border-top: solid 1px #eee;padding-top:20px;">
+                            <p style="font-size:13px;margin-bottom:10px;"><b>Note regarding the independent recourse mechanism available to investigate unresolved complaints:</b> If your organization wishes its Privacy Shield commitments to cover  human resources data transferred from Switzerland for use in the context of the employment relationship, you must declare your organization's commitment to cooperate with the Swiss authority or authorities concerned in conformity with the Supplemental Principles on Human Resources Data and the Role of the Data Protection Authorities and that you will comply with the advice given by such authorities.</p>
+                            <p>
+                                <apex:inputCheckbox styleClass="HRCompliance" onchange="UpdateOrderItem();" value="{!currentItem.Confirm_HR_Compliance__c}"/>* My organization receives or processes human resources data from Switzerland for use in the context of the employment relationship under the Privacy Shield and agrees to cooperate with the Swiss Federal Data Protection and Information Commissioner and comply with the advice given by such authorities with respect to this data.
+                            </p>
+                        </apex:outputpanel>
+                    </apex:outputpanel>
+                </apex:outputpanel>   
+                </apex:outputpanel>
+                <br/><br/>
+                <apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_5, Step_5A">
+                    <apex:param name="CurrentStep" value="Step_5" />
+                </apex:commandLink>
+                <apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!step5}" reRender="errors, Step_5, Step_5A, Step_6" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();validate('50');" />
+            </apex:outputPanel>
+        </apex:outputPanel>
 
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_6">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_6'}">
-				<h1 class="steps">Enforcement and Verification</h1> <hr/>
-				<p>Which appropriate U.S. statutory body has jurisdiction to investigate claims against your organization regarding possible unfair or deceptive practices and violations of laws or regulations covering privacy?</p>
-				<p>Note that to be transferred in reliance on the Privacy Shield, personal data must be processed in connection with an activity that is subject to the jurisdiction of at least one appropriate statutory body listed below to investigate</p>
-				<apex:outputpanel id="statBodies">
-					<apex:repeat value="{!AvailableStatutoryBodies}" var="stat">
-						<li>			
-						<apex:commandLink style="text-decoration:none;color:#606060;" styleClass="mutedlink" action="{!setStatutoryBody}"  rerender="VerificationPage, statBodies"> 
-							<i class="fa {!if(stat.id = StatutoryBodyId, 'fa-check-square-o', 'fa-square-o')}" aria-hidden="true"></i>
-							<apex:param value="{!stat.id}" name="statBodyId" />
-							<apex:param value="{!stat.name}" name="statBodyName" />
-							{!stat.name}
-						</apex:commandLink>
-						</li>						
-					</apex:repeat>
-				</apex:outputpanel>
-				<br/>
-				<apex:outputpanel id="PrivacyPanel">
-					<label>List any privacy program in which your organization is a member:</label><br/>
-					<apex:inputField style="width:100%;height:100px;padding:12px 15px;background-color: #f5f8fa; border-radius:5px;" value="{!participation.Privacy_Programs__c}" onkeyup="calculateRemaining(this.value, 4000, 'PrivacyProgramCharacters');" />
-					<small><span style="color: #999; font-style: italic;" class="initiallyHidden"><span id="PrivacyProgramCharacters">4000</span> Characters Remaining</span></small>
-				</apex:outputpanel>
-				<br/><br/>
-				<apex:outputPanel id="VerificationPage">
-					<p style="margin-bottom:10px;">What is your organization's <span title="The term verification method refers to the method by which an organization verifies that the attestations and assertions it makes about its Privacy Shield commitments are true and have been implemented as represented and in accordance with the Privacy Shield Principles." style="color:#0000FF">verification method</span>?</p>
-					<p style="font-size:13px;margin-bottom:10px;"><b>Note:</b> Your organization must indicate whether the verification performed is through self-assessment or outside compliance reviews in conformity with the Supplemental Principle on Verification.  If your organization has chosen an Outside Compliance Review, identify and provide a web address for the third party that conducts the review.</p>
-					<p style="margin-bottom:10px;">My organization's verification method is:</p>					
-					<apex:inputField styleClass="required_60" value="{!participation.Claiming_Self_Verified__c}" style="max-width:300px;" onchange="VerificationMethod();" /><br/>
-				</apex:outputpanel>
-				<apex:outputpanel id="VerifierOuterWrapper">
-					<apex:outputPanel layout="block" styleClass="row contactWrapper" id="NewVerifierWrapper" rendered="{!newVerifier}">
-						<apex:inputField styleClass="required_65" onchange="if (this.value) validate('65');" value="{!verifier.name}" html-placeholder="Name" style="margin-top: 15px;"/><br />
-					   <apex:inputField styleClass="required_65" onchange="if (this.value) validate('65');" value="{!verifier.Website__c}" html-placeholder="Website" />
-						<apex:commandlink action="{!cancelVerifier}" rerender="VerifierOuterWrapper" styleClass="btn btn-gray btn-sm pull-left" value="Cancel" />
-						<apex:commandlink action="{!saveVerifier}" rerender="VerifierOuterWrapper, VerifiersWrapper" styleClass="btn btn-gray btn-sm pull-left" style="margin-left:5px;" onclick="displayProcessing();"  oncomplete="clearProcessing();" value="Save" />
-					</apex:outputPanel>	 
-				</apex:outputpanel>
-				<apex:outputPanel id="VerifiersWrapper" layout="block">
-					<apex:outputpanel rendered="{!participation.Claiming_Self_Verified__c = 'Outside Compliance Review'}" layout="block" styleClass="verifiers row pad-zero">
-						<apex:outputpanel layout="block" styleClass="col-md-6">
-							<h5>Verification Providers</h5>
-							<apex:repeat value="{!available_Verifiers}" var="d">
-								<li><apex:commandLink action="{!useSelectedVerifier}" reRender="VerifiersWrapper" >
-									<apex:param name="selectedVerifier" value="{!d.id}" />{!d.name}			
-									<apex:param name="selectedVerifierName" value="{!d.name}" />
-								</apex:commandLink></li>
-							</apex:repeat>
-				  
-							<apex:commandLink action="{!createVerifier}" styleClass="btn btn-gray btn-sm" reRender="VerifierOuterWrapper" value="New Verification Provider" />
-						</apex:outputpanel>
-						<apex:outputpanel layout="block" styleClass="col-md-6">
-							<h5>Selected Verification Providers ({!verifiers.size})</h5>
-							<apex:repeat var="v" value="{!Verifiers}">
-								<p><apex:commandlink action="{!deleteVerifier}" rerender="VerifiersWrapper">
-								<apex:param name="entityId" value="{!v.id}"/>
-								<span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
-								</apex:commandlink>{!v.name}</p>
-							</apex:repeat>		
-						</apex:outputpanel>
-					</apex:outputPanel>
-				</apex:outputpanel>
-				<br/><br/>
-				<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_5, Step_6">
-					<apex:param name="CurrentStep" value="Step_5" />
-				</apex:commandLink>
-				<apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!step6}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, Step_6, Step_7" />
-			</apex:outputPanel>
-		</apex:outputPanel>
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_6">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_6'}">
+                <h1 class="steps">Enforcement and Verification</h1> <hr/>
+                <p>Which appropriate U.S. statutory body has jurisdiction to investigate claims against your organization regarding possible unfair or deceptive practices and violations of laws or regulations covering privacy?</p>
+                <p>Note that to be transferred in reliance on the Privacy Shield, personal data must be processed in connection with an activity that is subject to the jurisdiction of at least one appropriate statutory body listed below to investigate</p>
+                <apex:outputpanel id="statBodies">
+                    <apex:repeat value="{!AvailableStatutoryBodies}" var="stat">
+                        <li>            
+                        <apex:commandLink style="text-decoration:none;color:#606060;" styleClass="mutedlink" action="{!setStatutoryBody}"  rerender="VerificationPage, statBodies"> 
+                            <i class="fa {!if(stat.id = StatutoryBodyId, 'fa-check-square-o', 'fa-square-o')}" aria-hidden="true"></i>
+                            <apex:param value="{!stat.id}" name="statBodyId" />
+                            <apex:param value="{!stat.name}" name="statBodyName" />
+                            {!stat.name}
+                        </apex:commandLink>
+                        </li>                       
+                    </apex:repeat>
+                </apex:outputpanel>
+                <br/>
+                <apex:outputpanel id="PrivacyPanel">
+                    <label>List any privacy program in which your organization is a member:</label><br/>
+                    <apex:inputField style="width:100%;height:100px;padding:12px 15px;background-color: #f5f8fa; border-radius:5px;" value="{!participation.Privacy_Programs__c}" onkeyup="calculateRemaining(this.value, 4000, 'PrivacyProgramCharacters');" />
+                    <small><span style="color: #999; font-style: italic;" class="initiallyHidden"><span id="PrivacyProgramCharacters">4000</span> Characters Remaining</span></small>
+                </apex:outputpanel>
+                <br/><br/>
+                <apex:outputPanel id="VerificationPage">
+                    <p style="margin-bottom:10px;">What is your organization's <span title="The term verification method refers to the method by which an organization verifies that the attestations and assertions it makes about its Privacy Shield commitments are true and have been implemented as represented and in accordance with the Privacy Shield Principles." style="color:#0000FF">verification method</span>?</p>
+                    <p style="font-size:13px;margin-bottom:10px;"><b>Note:</b> Your organization must indicate whether the verification performed is through self-assessment or outside compliance reviews in conformity with the Supplemental Principle on Verification.  If your organization has chosen an Outside Compliance Review, identify and provide a web address for the third party that conducts the review.</p>
+                    <p style="margin-bottom:10px;">My organization's verification method is:</p>                    
+                    <apex:inputField styleClass="required_60" value="{!participation.Claiming_Self_Verified__c}" style="max-width:300px;" onchange="VerificationMethod();" /><br/>
+                </apex:outputpanel>
+                <apex:outputpanel id="VerifierOuterWrapper">
+                    <apex:outputPanel layout="block" styleClass="row contactWrapper" id="NewVerifierWrapper" rendered="{!newVerifier}">
+                        <apex:inputField styleClass="required_65" onchange="if (this.value) validate('65');" value="{!verifier.name}" html-placeholder="Name" style="margin-top: 15px;"/><br />
+                       <apex:inputField styleClass="required_65" onchange="if (this.value) validate('65');" value="{!verifier.Website__c}" html-placeholder="Website" />
+                        <apex:commandlink action="{!cancelVerifier}" rerender="VerifierOuterWrapper" styleClass="btn btn-gray btn-sm pull-left" value="Cancel" />
+                        <apex:commandlink action="{!saveVerifier}" rerender="VerifierOuterWrapper, VerifiersWrapper" styleClass="btn btn-gray btn-sm pull-left" style="margin-left:5px;" onclick="displayProcessing();"  oncomplete="clearProcessing();" value="Save" />
+                    </apex:outputPanel>  
+                </apex:outputpanel>
+                <apex:outputPanel id="VerifiersWrapper" layout="block">
+                    <apex:outputpanel rendered="{!participation.Claiming_Self_Verified__c = 'Outside Compliance Review'}" layout="block" styleClass="verifiers row pad-zero">
+                        <apex:outputpanel layout="block" styleClass="col-md-6">
+                            <h5>Verification Providers</h5>
+                            <apex:repeat value="{!available_Verifiers}" var="d">
+                                <li><apex:commandLink action="{!useSelectedVerifier}" reRender="VerifiersWrapper" >
+                                    <apex:param name="selectedVerifier" value="{!d.id}" />{!d.name}         
+                                    <apex:param name="selectedVerifierName" value="{!d.name}" />
+                                </apex:commandLink></li>
+                            </apex:repeat>
+                  
+                            <apex:commandLink action="{!createVerifier}" styleClass="btn btn-gray btn-sm" reRender="VerifierOuterWrapper" value="New Verification Provider" />
+                        </apex:outputpanel>
+                        <apex:outputpanel layout="block" styleClass="col-md-6">
+                            <h5>Selected Verification Providers ({!verifiers.size})</h5>
+                            <apex:repeat var="v" value="{!Verifiers}">
+                                <p><apex:commandlink action="{!deleteVerifier}" rerender="VerifiersWrapper">
+                                <apex:param name="entityId" value="{!v.id}"/>
+                                <span ><i class="fa fa-times fa-1x" aria-hidden="true" style="color:#b6c0c8 ;"></i></span>&nbsp;
+                                </apex:commandlink>{!v.name}</p>
+                            </apex:repeat>      
+                        </apex:outputpanel>
+                    </apex:outputPanel>
+                </apex:outputpanel>
+                <br/><br/>
+                <apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_5, Step_6">
+                    <apex:param name="CurrentStep" value="Step_5" />
+                </apex:commandLink>
+                <apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!step6}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, Step_6, Step_7" />
+            </apex:outputPanel>
+        </apex:outputPanel>
 
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_7">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_7'}">
-				<!--<apex:outputPanel id="errorBar70" style="border:1px solid; padding:5px 5px 5px 15px; color:#D8000C; background-color:#FFBABA; display:{!IF(doesPrivacyPolicyExist, 'none', 'block')}">Please upload a Privacy Policy before continuing</apex:outputPanel>
-				<br/>-->  <!--Commented per John, 3/24/17-->
-				<apex:outputPanel layout="block" id="Artifacts" style="margin-bottom:150px;">
-				   <c:PrivacyPolicyComponent artifacts="{!artifacts}" theParticipantId="{!participation.Id}" id="ppComponent"/>
-				</apex:outputPanel>
-				<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing();" reRender="errors, Step_4, Step_6, Step_7">
-                    			<apex:param name="CurrentStep" value="{!if(door = 'addition', 'Step_5', if(door = 'edit' , 'Step_4', 'Step_6'))}" />
-				</apex:commandLink>
-				<apex:commandButton styleClass="ApplicationStepButton btn btn-dark pull-right step_7_next" value="{!if(door = 'edit', 'Finish', 'Next')}" action="{!step7}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, Step_7, Step_8" />
-			</apex:outputPanel>
-		</apex:outputPanel>
-		
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_8">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_8'}">
-				<apex:outputtext rendered="{!orders.size != 0}">
-					<div class="panel-heading"> <h1 class="steps">My Orders</h1><hr/></div>
-					<c:MyOrdersComponent orderList="{!orders}" rendered="{!orders.size != 0}" />
-					<br/><br/><br/>	
-					<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" reRender="errors, Step_7, Step_8">
-						<apex:param name="CurrentStep" value="Step_7" />
-					</apex:commandLink>
-				</apex:outputtext>
-				
-				<apex:outputpanel rendered="{!and(orders != null, orders.size = 0)}">
-					<h1 class="steps" >Submit Payment and Application</h1><hr/>
-					<small>
-						<p>
-							Before submitting the application and applicable processing fee, please click <a href="https://www.privacyshield.gov/Additional-Certification-Documentation" target="_blank">here</a> to review information regarding the additional self-certification requirements that your organization must fulfill before the U.S. Department of Commerce can finalize the self-certification submission.
-						</p>
-					</small>
-					<apex:outputpanel id="OrderAmount">
-						<p><strong>Application Processing Fee:</strong> <em>${!order.totalamount}</em></p>
-					</apex:outputpanel>
-					<small>
-					<p>The U.S. Department of Commerce International Trade Administration (ITA) has implemented a cost recovery program to support the operation of the Privacy Shield, which requires U.S. organizations to pay an annual fee to the ITA in order to participate in the program.  The cost recovery program will support the administration and supervision of the Privacy Shield program and support the provision of Privacy Shield-related services, including education and outreach.  The fee a given organization is charged is based on the organization's annual revenue. </p>
-					<p><b>By clicking the Pay button on this page you will be redirected to the Pay.gov payment site where you will submit your payment information.  Once you have submitted your payment information you will be redirected back to this site, so that you can complete your payment and submit your organization's self-certification application for review.</b> </p>
-				
-					</small>
-					<br/>
-					
-					<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_7, Step_8">
-						<apex:param name="CurrentStep" value="Step_7" />
-					</apex:commandLink>
-						<apex:commandButton value="Pay" styleClass="ApplicationStepButton btn btn-dark pull-right" action="{!privacyShieldPayment}" reRender="errors" onclick="displayProcessing();this.setAttribute('disabled', 'true');" oncomplete="clearProcessing(); jump();"/>
-					<br/>
-				</apex:outputpanel>
-			</apex:outputPanel>
-		</apex:outputPanel>
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_7">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_7'}">
+                <!--<apex:outputPanel id="errorBar70" style="border:1px solid; padding:5px 5px 5px 15px; color:#D8000C; background-color:#FFBABA; display:{!IF(doesPrivacyPolicyExist, 'none', 'block')}">Please upload a Privacy Policy before continuing</apex:outputPanel>
+                <br/>-->  <!--Commented per John, 3/24/17-->
+                <apex:outputPanel layout="block" id="Artifacts" style="margin-bottom:150px;">
+                   <c:PrivacyPolicyComponent artifacts="{!artifacts}" theParticipantId="{!participation.Id}" id="ppComponent"/>
+                </apex:outputPanel>
+                <apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing();" reRender="errors, Step_4, Step_6, Step_7">
+                                <apex:param name="CurrentStep" value="{!if(door = 'addition', 'Step_5', if(door = 'edit' , 'Step_4', 'Step_6'))}" />
+                </apex:commandLink>
+                <apex:commandButton styleClass="ApplicationStepButton btn btn-dark pull-right step_7_next" value="{!if(door = 'edit', 'Finish', 'Next')}" action="{!step7}" onclick="displayProcessing();" oncomplete="clearProcessing(); jump();" reRender="errors, Step_7, Step_8" />
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_8">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_8'}">
+                <apex:outputtext rendered="{!orders.size != 0}">
+                    <div class="panel-heading"> <h1 class="steps">My Orders</h1><hr/></div>
+                    <c:MyOrdersComponent orderList="{!orders}" rendered="{!orders.size != 0}" />
+                    <br/><br/><br/> 
+                    <apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" reRender="errors, Step_7, Step_8">
+                        <apex:param name="CurrentStep" value="Step_7" />
+                    </apex:commandLink>
+                </apex:outputtext>
+                
+                <apex:outputpanel rendered="{!and(orders != null, orders.size = 0)}">
+                    <h1 class="steps" >Submit Payment and Application</h1><hr/>
+                    <small>
+                        <p>
+                            Before submitting the application and applicable processing fee, please click <a href="https://www.privacyshield.gov/Additional-Certification-Documentation" target="_blank">here</a> to review information regarding the additional self-certification requirements that your organization must fulfill before the U.S. Department of Commerce can finalize the self-certification submission.
+                        </p>
+                    </small>
+                    <apex:outputpanel id="OrderAmount">
+                        <p><strong>Application Processing Fee:</strong> <em>${!order.totalamount}</em></p>
+                    </apex:outputpanel>
+                    <small>
+                    <p>The U.S. Department of Commerce International Trade Administration (ITA) has implemented a cost recovery program to support the operation of the Privacy Shield, which requires U.S. organizations to pay an annual fee to the ITA in order to participate in the program.  The cost recovery program will support the administration and supervision of the Privacy Shield program and support the provision of Privacy Shield-related services, including education and outreach.  The fee a given organization is charged is based on the organization's annual revenue. </p>
+                    <p><b>By clicking the Pay button on this page you will be redirected to the Pay.gov payment site where you will submit your payment information.  Once you have submitted your payment information you will be redirected back to this site, so that you can complete your payment and submit your organization's self-certification application for review.</b> </p>
+                
+                    </small>
+                    <br/>
+                    
+                    <apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_7, Step_8">
+                        <apex:param name="CurrentStep" value="Step_7" />
+                    </apex:commandLink>
+                        <apex:commandButton value="Pay" styleClass="ApplicationStepButton btn btn-dark pull-right" action="{!privacyShieldPayment}" reRender="errors" onclick="displayProcessing();this.setAttribute('disabled', 'true');" oncomplete="clearProcessing(); jump();"/>
+                    <br/>
+                </apex:outputpanel>
+            </apex:outputPanel>
+        </apex:outputPanel>
 
-		<apex:outputPanel styleClass="ApplicationStep" id="Step_Template">
-			<apex:outputPanel rendered="{!CurrentStep = 'Step_Template'}">
-				<h1 class="steps" >Organization Information</h1> <hr/>
-				<apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous"  action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_1, Step_2">
-					<apex:param name="CurrentStep" value="Step_1" />
-				</apex:commandLink>
-				<apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_2, Step_3">
-					<apex:param name="CurrentStep" value="Step_3" />
-				</apex:commandLink>
-			</apex:outputPanel>
-		</apex:outputPanel>
+        <apex:outputPanel styleClass="ApplicationStep" id="Step_Template">
+            <apex:outputPanel rendered="{!CurrentStep = 'Step_Template'}">
+                <h1 class="steps" >Organization Information</h1> <hr/>
+                <apex:commandLink styleClass="ApplicationButton btn btn-prev pull-left" value="Previous"  action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_1, Step_2">
+                    <apex:param name="CurrentStep" value="Step_1" />
+                </apex:commandLink>
+                <apex:commandLink styleClass="ApplicationStepButton btn btn-dark pull-right" value="Next" action="{!back}" onclick="displayProcessing();"  oncomplete="clearProcessing(); jump();" reRender="errors, Step_2, Step_3">
+                    <apex:param name="CurrentStep" value="Step_3" />
+                </apex:commandLink>
+            </apex:outputPanel>
+        </apex:outputPanel>
 
 <apex:actionFunction name="saveContact" action="{!saveContact}" reRender="errors, contactOutsideWrapper, contactLists, contactButtons" />
 <apex:actionFunction name="save" action="{!save}" rerender="Step3Next" />
@@ -889,12 +891,12 @@ var reset = function() {
 telInput.blur(function() {
   reset();
   if ($.trim(telInput.val())) {
-	if (telInput.intlTelInput("isValidNumber")) {
-	  validMsg.removeClass("hide");
-	} else {
-	  telInput.addClass("error");
-	  errorMsg.removeClass("hide");
-	}
+    if (telInput.intlTelInput("isValidNumber")) {
+      validMsg.removeClass("hide");
+    } else {
+      telInput.addClass("error");
+      errorMsg.removeClass("hide");
+    }
   }
 });
 
@@ -903,21 +905,21 @@ telInput.on("keyup change", reset);
 
 
 function calculateRemaining(text, limit, targetText){
-	console.log(text);
-	console.log(limit);
-	console.log(targetText);
-	var remaining = limit - text.length;
-	$('#'+targetText).parent().show();
-	$('#'+targetText).html(remaining);
+    console.log(text);
+    console.log(limit);
+    console.log(targetText);
+    var remaining = limit - text.length;
+    $('#'+targetText).parent().show();
+    $('#'+targetText).html(remaining);
 }
 
 function jump(){
-	window.scrollTo(0,0);
+    window.scrollTo(0,0);
 }
 </script>
-		</apex:form>
-		</div>
-	</div>
+        </apex:form>
+        </div>
+    </div>
 </div>
 </apex:define>
 </apex:composition>
