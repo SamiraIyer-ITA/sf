@@ -19,7 +19,6 @@
         <locationY>300</locationY>
         <actionName>Case_Reminder_Email_Update_Expected_Value</actionName>
         <actionType>flow</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <processMetadataValues>
                 <name>dataType</name>

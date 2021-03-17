@@ -10,7 +10,6 @@
         <connector>
             <targetReference>Second_14_Day_Pause</targetReference>
         </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
@@ -25,7 +24,6 @@
         <locationY>392</locationY>
         <actionName>Case.Send_Expected_Value_Email_Reminder</actionName>
         <actionType>emailAlert</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
