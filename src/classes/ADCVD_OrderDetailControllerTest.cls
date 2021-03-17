@@ -77,12 +77,15 @@ public class ADCVD_OrderDetailControllerTest {
     }
 
     @isTest static void testPreliminarySegment() {
+    
         ADCVD_Order__c adcvdOrder = TestUtils.createOrder(investigation, true);
+        
         List<Harmonized_Tariff_Schedule__c> htsList = TestUtils.createHTS(adcvdOrder, 3, true);
         Attachment anAttachment = TestUtils.createAttachment(adcvdOrder.Id, false);
         anAttachment.Name = 'Scope.txt';
         anAttachment.Body = Blob.valueOf('Some text in the body');
         insert anAttachment;
+        
         //Create a segment to be used in testing, for preliminary announcement type
         Segment__c segmentAR1 = TestUtils.createSegment(adcvdOrder, 'Administrative_Review', false);
         //Set the date in the segment to test for Preliminary announcement type
@@ -131,8 +134,42 @@ public class ADCVD_OrderDetailControllerTest {
             System.assertEquals(hts.HTS_Number_Formatted__c, harmonizedTariffScheduleMap.get(hts.Id).HTS_Number_Formatted__c);
         }
         //Assert text body of attachment
-        System.assertEquals(adcvdPageController.attachmentBody, 'Some text in the body');
+        
+        Test.stopTest();
+        
     }
+    
+    @isTest static void testAttachmentBody() {
+    
+        ADCVD_Order__c adcvdOrder = TestUtils.createOrder(investigation, false);
+        adcvdOrder.Status__c = 'Current-Active';
+        insert adcvdOrder;
+        
+        
+        Test.startTest();
+        
+        Federal_Register__c  federal =  TestUtils.createFR(adcvdOrder.Id,'ADCVD_Order__c',Date.today(), 'Order', true);
+        
+        Attachment anAttachment = TestUtils.createAttachment(adcvdOrder.Id, false);
+        anAttachment.Name = 'Scope.txt';
+        anAttachment.Body = Blob.valueOf('Some text in the body');
+        insert anAttachment;
+        
+        
+        PageReference pageRef = Page.adcvd;
+        
+        pageRef.getParameters().put('adcvdcase', 'A-111-222');
+        
+        
+        Test.setCurrentPage(pageRef);
+        ADCVD_OrderDetailController adcvdPageController = new ADCVD_OrderDetailController();
+
+        System.assertEquals(adcvdPageController.attachmentBody, 'Some text in the body');
+        
+        Test.stopTest();
+        
+    }
+    
     @isTest static void testFinalInvestigation() {
         PageReference pageRef = Page.adcvd;
         
