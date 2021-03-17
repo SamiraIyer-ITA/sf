@@ -357,7 +357,7 @@
             <default>false</default>
         </values>
     </businessProcesses>
-    <compactLayoutAssignment>CRM_Case_Compact_Layout</compactLayoutAssignment>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <compactLayouts>
         <fullName>CRM_Case_Compact_Layout</fullName>
         <fields>Subject</fields>
@@ -3876,26 +3876,6 @@ Select if this is a Compliance Case</description>
             <operation>equals</operation>
             <value>0</value>
         </filters>
-        <filters>
-            <field>CASES.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Case.Advocacy,Case.Commercial_Diplomacy,Case.Export_Promotion,Case.Investment_Promotion</value>
-        </filters>
-        <label>All Cases</label>
-    </listViews>
-    <listViews>
-        <fullName>All_Cases1</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.RECORDTYPE</columns>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>NAME</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>OWNER_NAME</columns>
-        <columns>Owners_Office__c</columns>
-        <columns>Actual_Create_Date__c</columns>
-        <columns>CASES.CLOSED</columns>
-        <filterScope>Everything</filterScope>
         <label>All Cases</label>
     </listViews>
     <listViews>
