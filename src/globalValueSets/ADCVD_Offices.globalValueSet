@@ -40,6 +40,16 @@
         <default>false</default>
         <label>VIII</label>
     </customValue>
+    <customValue>
+        <fullName>SA</fullName>
+        <default>false</default>
+        <label>SA</label>
+    </customValue>
+    <customValue>
+        <fullName>DAS</fullName>
+        <default>false</default>
+        <label>DAS</label>
+    </customValue>
     <masterLabel>ADCVD Offices</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>
