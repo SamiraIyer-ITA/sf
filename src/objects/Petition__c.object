@@ -1821,6 +1821,10 @@ C-###-### for CVD</inlineHelpText>
         <picklistValues>
             <picklist>Office__c</picklist>
             <values>
+                <fullName>DAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>I</fullName>
                 <default>false</default>
             </values>
@@ -1834,6 +1838,10 @@ C-###-### for CVD</inlineHelpText>
             </values>
             <values>
                 <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2281,6 +2289,10 @@ C-###-### for CVD</inlineHelpText>
         <picklistValues>
             <picklist>Office__c</picklist>
             <values>
+                <fullName>DAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>I</fullName>
                 <default>false</default>
             </values>
@@ -2294,6 +2306,10 @@ C-###-### for CVD</inlineHelpText>
             </values>
             <values>
                 <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2741,6 +2757,10 @@ C-###-### for CVD</inlineHelpText>
         <picklistValues>
             <picklist>Office__c</picklist>
             <values>
+                <fullName>DAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>I</fullName>
                 <default>false</default>
             </values>
@@ -2754,6 +2774,10 @@ C-###-### for CVD</inlineHelpText>
             </values>
             <values>
                 <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
                 <default>false</default>
             </values>
             <values>

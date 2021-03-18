@@ -2668,6 +2668,10 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <picklistValues>
             <picklist>Office__c</picklist>
             <values>
+                <fullName>DAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>I</fullName>
                 <default>false</default>
             </values>
@@ -2681,6 +2685,10 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
             </values>
             <values>
                 <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3225,6 +3233,10 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <picklistValues>
             <picklist>Office__c</picklist>
             <values>
+                <fullName>DAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>I</fullName>
                 <default>false</default>
             </values>
@@ -3238,6 +3250,10 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
             </values>
             <values>
                 <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
                 <default>false</default>
             </values>
             <values>
